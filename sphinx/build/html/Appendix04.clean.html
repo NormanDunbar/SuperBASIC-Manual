@@ -31,6 +31,7 @@
 
   
     <link rel="top" title="SBASIC/SuperBASIC Reference Manual Online 4.0.1 documentation" href="index.html"/>
+        <link rel="next" title="A5 EXPANSION BOARDS" href="Appendix05.clean.html"/>
         <link rel="prev" title="A3 Emulators" href="Appendix03.clean.html"/> 
 
   
@@ -90,7 +91,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Appendix01.clean.html">A1. Minerva</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Appendix02.clean.html">A2. SMSQ/E</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Appendix03.clean.html">A3. Emulators</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">A4. Thor Computers</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">A4. Thor Computers</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#a4-1-introduction">A4.1 Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#a4-2-keyrow">A4.2 KEYROW</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#a4-3-mode">A4.3 MODE</a></li>
@@ -98,6 +99,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#a4-5-beep">A4.5 BEEP</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix05.clean.html">A5. Expansion Boards</a></li>
 </ul>
 
             
@@ -193,12 +195,12 @@ happily on the THOR XVI - instead Dansoft produced its own windowing
 environment which moves the system variables and the start address of
 the screen with all of the inherent problems faced by Minerva users.</p>
 <p>This can however be turned off on start-up by using:</p>
-<div class="highlight-python"><div class="highlight"><pre>CLOSE
-POKE SYS_VARS+133,-1
-OPEN #1,con_
-OPEN #2,con_
-OPEN #0,con_
-WMON 4
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">CLOSE</span>
+<span class="n">POKE</span> <span class="n">SYS_VARS</span><span class="o">+</span><span class="mi">133</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span>
+<span class="n">OPEN</span> <span class="c1">#1,con_</span>
+<span class="n">OPEN</span> <span class="c1">#2,con_</span>
+<span class="n">OPEN</span> <span class="c1">#0,con_</span>
+<span class="n">WMON</span> <span class="mi">4</span>
 </pre></div>
 </div>
 </div>
@@ -215,6 +217,8 @@ sounds produced on the QL.</p>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Appendix05.clean.html" class="btn btn-neutral float-right" title="A5 EXPANSION BOARDS" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="Appendix03.clean.html" class="btn btn-neutral" title="A3 Emulators" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>

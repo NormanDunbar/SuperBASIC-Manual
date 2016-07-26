@@ -1,0 +1,1216 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html xmlns:v="urn:schemas-microsoft-com:vml">
+  <head>
+    <meta http-equiv="content-type" content="text/html;
+      charset=ISO-8859-1">
+    <link rel="stylesheet" type="text/css" href="css/QLManualStyle.css" media="all" />
+    <title>Sinclair QL SuperBASIC/SBASIC Reference Manual - Appendix 8</title>
+</head>
+<body>
+<div id="header">
+  SBASIC/SuperBASIC Reference Manual Online (c) RWAP Software
+  <br />
+  The Online Guide to programming the Sinclair QL Home Computer in SuperBASIC
+</div>
+<div id="sideBar">
+    <ul>
+        <li><a href="Foreword.html">Foreword</a></li>
+        <li><a href="Introduction.html">Introduction</a></li>
+        <li><a href="Credits.html">Credits</a></li>        
+        <li><a href="Structure.html">Structure</a></li>
+        <li><a href="WritingPrograms.html">Writing Programs</a></li>
+        <hr></hr>
+        <li><a href="KeywordsA.html">Keywords - A</a></li>
+        <li><a href="KeywordsB.html">Keywords - B</a></li>
+        <li><a href="KeywordsC.html">Keywords - C</a></li>
+        <li><a href="KeywordsD.html">Keywords - D</a></li>
+        <li><a href="KeywordsE.html">Keywords - E</a></li>
+        <li><a href="KeywordsF.html">Keywords - F</a></li>
+        <li><a href="KeywordsG.html">Keywords - G</a></li>
+        <li><a href="KeywordsH.html">Keywords - H</a></li>
+        <li><a href="KeywordsI.html">Keywords - I</a></li>
+        <li><a href="KeywordsJ.html">Keywords - J</a></li>
+        <li><a href="KeywordsK.html">Keywords - K</a></li>
+        <li><a href="KeywordsL.html">Keywords - L</a></li>
+        <li><a href="KeywordsM.html">Keywords - M</a></li>
+        <li><a href="KeywordsN.html">Keywords - N</a></li>
+        <li><a href="KeywordsO.html">Keywords - O</a></li>
+        <li><a href="KeywordsP.html">Keywords - P</a></li>
+        <li><a href="KeywordsQ.html">Keywords - Q</a></li>
+        <li><a href="KeywordsR.html">Keywords - R</a></li>
+        <li><a href="KeywordsS.html">Keywords - S</a></li>
+        <li><a href="KeywordsT.html">Keywords - T</a></li>
+        <li><a href="KeywordsU.html">Keywords - U</a></li>
+        <li><a href="KeywordsV.html">Keywords - V</a></li>
+        <li><a href="KeywordsW.html">Keywords - W</a></li>
+        <li><a href="KeywordsX.html">Keywords - X</a></li>
+        <li><a href="KeywordsY.html">Keywords - Y</a></li>
+        <li><a href="KeywordsZ.html">Keywords - Z</a></li>
+        <li><a href="Keywords_.html">Keywords - Other</a></li>
+        <hr></hr>
+        <li><a href="AppendicesIntro.html">Appendices Introduction</a></li>
+        <li><a href="Appendix01.html">Appendix 1 - Minerva</a></li>
+        <li><a href="Appendix02.html">Appendix 2 - SMSQE</a></li>
+        <li><a href="Appendix03.html">Appendix 3 - Emulators</a></li>
+        <li><a href="Appendix04.html">Appendix 4 - THOR Computers</a></li>
+        <li><a href="Appendix05.html">Appendix 5 - Expansion Boards</a></li>
+        <li><a href="Appendix06.html">Appendix 6 - Compatability</a></li>
+        <li><a href="Appendix07.html">Appendix 7 - Multiple BASICs</a></li>
+        <li><a href="Appendix08.html">Appendix 8 - Error Messages</a></li>
+        <li><a href="Appendix09.html">Appendix 9 - Character Set / Keyboard</a></li>
+        <li><a href="Appendix10.html">Appendix 10 - Fonts</a></li>
+        <li><a href="Appendix11.html">Appendix 11 - Mathematics</a></li>
+        <li><a href="Appendix12.html">Appendix 12 - Device Drivers</a></li>
+        <li><a href="Appendix13.html">Appendix 13 - Extended Pointer Environment</a></li>
+        <li><a href="Appendix14.html">Appendix 14 - Coercion</a></li>
+        <li><a href="Appendix15.html">Appendix 15 - Mouse Drivers</a></li>
+        <li><a href="Appendix16.html">Appendix 16 - The QL Display</a></li>
+        <li><a href="Appendix17.html">Appendix 17 - Networks</a></li>
+        <li><a href="Appendix18.html">Appendix 18 - Configuring Programs</a></li>
+    </ul>
+</div>
+<div id="mainText">
+</p>
+
+<h3>A8 ERROR MESSAGES<br></h3>
+<p>
+The QDOS error code is a negative integer between -1 and
+-21 and is often referred to instead of the relative error
+message. You can either refer to the following tables to find
+the message text or use the various toolkit implementations of
+the  command  <span style="font-style: italic;">REPORT</span>  to  display  the  representation  on  your
+machine.
+</p>
+<p>On  some  implementations,  <span style="font-style: italic;">REPORT</span>  also  accepts  parameters
+between -22 and -27 which represent strings used by the
+operating system, but which are not strictly error messages.
+The text can be freely changed with the <span style="font-style: italic;">TRA</span> and <span style="font-style: italic;">LANG_USE</span> commands.
+</p>
+<p>The instances where such error messages will be reported is
+actually dependent upon the task which was being performed at
+the time.
+</p>
+
+<h3>A8.1 STANDARD ENGLISH ERROR MESSAGES<br></h3>
+<p>
+A very general explanation of each message is given below,
+according to the error number.  For each message both the
+original English QDOS error message is given as well as the
+new English SMS error message:
+</p>
+
+<h3>-1   NOT COMPLETE (QDOS)-INCOMPLETE (SMS)<br></h3>
+<p>
+This  message  is  generally  issued  when  the  Break  key
+&lt;CTRL&gt;&lt;SPACE&gt; is pressed, and signifies that a task being
+carried out by the QL has been interrupted.
+</p>
+<p>This message will also appear if you try to use the
+standard version of <span style="font-style: italic;">RESPR</span> when a Job is loaded into the QL.
+</p>
+
+<h3>-2   INVALID JOB (QDOS)-INVALID JOB ID (SMS)<br></h3>
+<p>
+This message is issued by all Job-related commands when the
+Job identification number / Job name / Job tag supplied as a
+parameter to the command does not relate to a Job resident in
+the QL's memory.
+</p>
+
+<h3>-3   OUT OF MEMORY (QDOS)-INSUFFICIENT MEMORY (SMS)<br></h3>
+<p>
+This message is quite self-explanatory. It is issued when
+you try to do something which requires more memory than is
+currently  available.  This  can  however  be  due  to  heap
+fragmentation, and it may therefore be useful to try the
+command <span style="font-style: italic;">DEL_DEFB</span>.
+</p>
+
+<h3>-4   OUT OF RANGE (QDOS)-VALUE OUT OF RANGE (SMS)<br></h3>
+<p>
+This generally occurs when a parameter supplied to a
+machine code Function or Procedure cannot be handled by that
+machine code routine. The best example of this is trying to
+open a window which cannot fit on the screen, eg:
+</p>
+<p><span style="font-style: italic;">OPEN #3,SCR_10000x500a0x0
+</p>
+
+<h3>-5   BUFFER FULL (QDOS & SMS)<br></h3>
+<p>
+This error generally occurs if SuperBasic's input buffer
+becomes full. On pre-JS ROMs, you are likely to see this error
+quite often, especially if you try to <span style="font-style: italic;">INPUT</span> a line greater than
+128 characters.
+</p>
+
+<h3>-6   CHANNEL NOT OPEN (QDOS)   -   INVALID CHANNEL ID (SMS)<br></h3>
+<p>
+This will be generated by all well-written machine code
+Procedures and Functions if you pass a channel parameter (#ch)
+which points to a channel which is not actually open.
+</p>
+
+<h3>-7   NOT FOUND (QDOS & SMS)<br></h3>
+<p>
+This error message is generally issued by file-related
+commands (eg. <span style="font-style: italic;">LOAD</span>) if either the supplied device name or file
+name do not exist.
+</p>
+
+<h3>-8   ALREADY EXISTS (QDOS & SMS)<br></h3>
+<p>
+This error is returned by commands such as <span style="font-style: italic;">SAVE</span> to indicate
+that a file already exists with the specified name on the
+specified  device.  If  Toolkit  II  is  available,  you  will
+generally be asked whether or not you wish to overwrite the
+file.
+</p>
+
+<h3>-9   IN USE (QDOS)-IS IN USE (SMS)<br></h3>
+<p>
+This message is normally generated by file-related commands
+where you try to access a file which has an exclusive channel
+open to it, or for example, if you try to <span style="font-style: italic;">DELETE</span> a file which
+has a channel open to it. This message is also printed by
+commands such as <span style="font-style: italic;">WSTAT</span> where a channel is open to a file,
+allowing further data to be written to that file.
+</p>
+<p>You will also see this message if you try to open a channel
+to one of the serial ports when there is already a channel
+open to that port.
+</p>
+
+<h3>-10  END OF FILE (QDOS & SMS)<br></h3>
+<p>
+You will see this message if you try to input data from a
+file when the file pointer is at the end of the file.
+</p>
+<p>This also occurs if you try to <span style="font-style: italic;">READ DATA</span> from within a program
+and there is no more <span style="font-style: italic;">DATA</span> in the program to be <span style="font-style: italic;">READ</span>.  Note
+however, on SMS, that this error is altered to:
+</p>
+
+<h3>End of DATA<br></h3>
+<p>
+in this instance.
+</p>
+<p><span style="font-style: italic;">EOF</span> or <span style="font-style: italic;">EOFW</span> should be used to overcome this error.
+</p>
+
+<h3>-11  DRIVE FULL (QDOS)-MEDIUM IS FULL (SMS)<br></h3>
+<p>
+This error message is normally generated when you try to
+write to a medium and there is not enough room on the medium.
+Unfortunately, with many commands, unless you have Toolkit II
+installed, the error message will only be generated if there
+is no room left on the medium when you first try to open the
+new file. Without Toolkit II, if the medium becomes full
+whilst the file is actually being written, no error will be
+reported and an incomplete file will be left on the medium.
+</p>
+
+<h3>-12  BAD NAME (QDOS)-INVALID NAME (SMS)<br></h3>
+<p>
+This error is generated when you try to use an undefined
+name as a command in a program. It generally reveals typing
+errors in programs, such as <span style="font-style: italic;">10 PRIT 'Title'</span>.
+</p>
+
+<h3>-13  XMIT ERROR (QDOS)-TRANSMISSION ERROR (SMS)<br></h3>
+<p>
+This is generated when you are trying to read data over the
+Network, or serial ports. This error normally occurs when
+there is an error in the parity of the data which has been
+read.
+</p>
+
+<h3>-14  FORMAT FAILED (QDOS & SMS)<br></h3>
+<p>
+This error will appear when you try to <span style="font-style: italic;">FORMAT</span> a medium. It
+generally shows that there is something dreadfully wrong with
+that medium, however, you may find that if you try to <span style="font-style: italic;">FORMAT</span> the
+same medium in another drive, or clean the drive heads, this
+may prevent this error.
+</p>
+
+<h3>-15  BAD PARAMETER (QDOS)-INVALID PARAMETER (SMS)<br></h3>
+<p>
+This message is generated by machine code Procedures and
+Functions where the wrong type of parameter has been used in
+the calling statement. This may for example occur if you try
+to pass a string when a number is required.
+</p>
+
+<h3>-16  BAD OR CHANGED MEDIUM(QDOS) - MEDIUM CHECK FAILED(SMS)<br></h3>
+<p>
+This message occurs when you try to read or write to a
+medium and an error occurs when the computer tries to verify
+the data being read or written.
+</p>
+<p>When trying to write to microdrives, it will also signify
+when a microdrive is read only, due to a bug in the QL's
+hardware.
+</p>
+
+<h3>-17  ERROR IN EXPRESSION (QODS & SMS)<br></h3>
+<p>
+This error is normally generated when part of an expression
+does not make sense, for example: <span style="font-style: italic;">DIM a(10,10):PRINT a/10</span>. Look for
+the use of undefined variables, or possibly arrays where a
+simple variable is needed (or vice versa).
+</p>
+
+<h3>-18  OVERFLOW (QDOS)-ARITHMETIC OVERFLOW (SMS)<br></h3>
+<p>
+This occurs when you have used an expression which cannot
+be handled by the QL's maths package, for example divide by
+zero, or where you try to assign a value to an integer which
+is greater than 32767.
+</p>
+
+<h3>-19  NOT IMPLEMENTED YET (QDOS)   -   NOT IMPLEMENTED (SMS)<br></h3>
+<p>
+This message generally appears when you try to do something
+which the QL cannot currently do, but which it is hoped may be
+implemented in the future. For example,  <span style="font-style: italic;">DIM a$(10,10), z$(10,10): z$=a$</span>.
+</p>
+
+<h3>-20  READ ONLY (QDOS)-WRITE PROTECTED (SMS)<br></h3>
+<p>
+This message is normally generated when you are trying to
+open a channel to a file for the output of data and the medium
+has been write-protected. Unfortunately, this does not work on
+microdrives!
+</p>
+
+<h3>-21  BAD LINE (QDOS)-INVALID SYNTAX (SMS)<br></h3>
+<p>
+This error message appears if you try to enter a SuperBASIC
+command which does not make sense. It is in fact a Syntax
+error - the line will be represented for editing, and if
+Minerva or SMS is present, the cursor will be (hopefully)
+placed on top of the offending character.
+</p>
+
+<h3>-22  IN LINE (QDOS) *<br></h3>
+<p>
+This message forms part of the error sequence and is used
+to notify you of the line at which the error occurred (eg. <span style="font-style: italic;">IN
+LINE 100</span>). This has been modified on Minerva and SMS so that the
+number of the statement on that line where the error occurred
+is also shown (eg. <span style="font-style: italic;">IN LINE 100;3</span>).
+</p>
+
+<h3>-22 UNKNOWN MESSAGE (SMS)<br></h3>
+<p>
+This error is reported if you try to use <span style="font-style: italic;">REPORT</span> with a number
+parameter which does not point to an existing message in the
+computer.
+</p>
+
+<h3>-23  SECTORS (QDOS) *<br></h3>
+<p>
+This message is used by commands such as <span style="font-style: italic;">DIR</span> and <span style="font-style: italic;">STAT</span> to
+signify the number of used sectors/the number of available
+sectors on the given medium.  <span style="font-style: italic;">FORMAT</span> actually uses this to
+signify the number of available sectors/the number of sectors
+on the medium.
+</p>
+
+<h3>-23 ACCESS DENIED (SMS)<br></h3>
+<p>
+This error message has been implemented for when you try to
+access files over the network which are protected on the
+system of the other computer - see <span style="font-style: italic;">SERNET</span> and <span style="font-style: italic;">MIDINET</span> for a further
+explanation.
+</p>
+
+<h3>-24, -25  Various messages (QDOS) *<br></h3>
+<p>
+These messages only appear on the start up screen, to tell
+you which keys are available to start the QL in different
+modes. Message -25 is the copyright message explaining who
+designed the current ROM version. See below.
+</p>
+
+<h3>-26  DURING WHEN PROCESSING (QDOS) *<br></h3>
+<p>
+This message is generated after an error message to show
+that the error has actually occurred within a <span style="font-style: italic;">WHEN</span> definition
+block.
+</p>
+
+<h3>-27  PROC/FN CLEARED (QDOS) *<br></h3>
+<p>
+This message is generated after an error which has occured
+whilst the interpreter was in the middle of a <span style="font-style: italic;">DEFine PROCedure</span> or
+<span style="font-style: italic;">DEFine FuNction</span> block. After this message has appeared, any attempt
+to <span style="font-style: italic;">RETRY</span> or <span style="font-style: italic;">CONTINUE</span> will fail. Also any <span style="font-style: italic;">LOCal</span> variables (or
+parameters passed to the definition block) will be reset.
+</p>
+<p>Those error messages marked with an asterisk above exist on
+SMS, but cannot be shown using the <span style="font-style: italic;">REPORT</span> command as they are
+message groups rather than errors.  The equivalents on SMS
+appear below.
+</p>
+
+<h3>A8.2 FOREIGN ERROR MESSAGES<br></h3>
+<p>
+In the following tables, we have tried to list as many of
+the different language implementations as possible (thanks to
+QView for this information), although there are bound to be
+some languages which are not covered here (for example the
+Russian laguages supported on the THOR XVI).
+</p>
+<p>If you can supply any further error messages supported on
+the QL or its deriviatives, then please contact us with a full
+print-out of the error messages (and preferably, a file on
+disk with containing the error messages supported).
+</p>
+<p>Under QDOS the error messages are as follows:-
+</p>
+
+<table>
+<tr align="left"><th>ERNUM</th><th>English</th><th>German</th><th>French</th></tr>
+
+<tr><td> -1</td><td>NOT COMPLETE          </td><td>ABGEBROCHEN              </td><td>OPERATION NON TERMIN&Eacute;E</td></tr>
+<tr><td> -2</td><td>INVALID JOB           </td><td>FEHLERHAFTER JOB         </td><td>TACHE INVALIDE</td></tr>
+<tr><td> -3</td><td>OUT OF MEMORY         </td><td>SPEICHERUEBERLAUF        </td><td>HORS CAPACIT&Eacute;E MEMOIRE</td></tr>
+<tr><td> -4</td><td>OUT OF RANGE          </td><td>BEREICHSUEBERLAUF        </td><td>SORTIE DES LIMITES</td></tr>
+<tr><td> -5</td><td>BUFFER FULL           </td><td>PUFFER VOLL              </td><td>TAMPON PLEIN</span></td></tr>
+<tr><td> -6</td><td>CHANNEL NOT OPEN      </td><td>KANAL NICHT EROEFFNET    </td><td>CANAL NON OUVERT</td></tr>
+<tr><td> -7</td><td>NOT FOUND             </td><td>NICHT GEFUNDEN           </td><td>NON TROUV&Eacute;E</td></tr>
+<tr><td> -8</td><td>ALREADY EXISTS        </td><td>EXISTIERT BEREITS        </td><td>EXISTE D&Eacute;J&Agrave;</td></tr>
+<tr><td> -9</td><td>IN USE                </td><td>IN BEARBEITUNG           </td><td>EN USAGE</td></tr>
+<tr><td>-10</td><td>END OF FILE           </td><td>DATEIENDE                </td><td>FIN DE FICHIER</td></tr>
+<tr><td>-11</td><td>DRIVE FULL            </td><td>DATENTRAEGER VOLL        </td><td>LECTEUR PLEIN</td></tr>
+<tr><td>-12</td><td>BAD NAME              </td><td>UNGUELTIGE BEZEICHNUNG   </td><td>NOM INCORRECT</td></tr>
+<tr><td>-13</td><td>XMIT ERROR            </td><td>UEBERTRAGUNGSFEHLER      </td><td>ERREUR DE TRANSMISSION</td></tr>
+<tr><td>-14</td><td>FORMAT FAILED         </td><td>FORMATFEHLER             </td><td>DEFAILLANCE DANS LE FORMATAGE</td></tr>
+<tr><td>-15</td><td>BAD PARAMETER         </td><td>UNGUELTIGER PARAMETER    </td><td> MAUVAIS PARAM&egrave;TRE</td></tr>
+<tr><td>-16</td><td>BAD OR CHANGED MEDIUM </td><td>FEHLERHAFTER DATENTRAEGER</td><td>ERREUR DE SUPPORT</td></tr>
+<tr><td>-17</td><td>ERROR IN EXPRESSION   </td><td>FEHLER IM AUSDRUCK       </td><td>ERREUR DANS L'EXPRESSION</td></tr>
+<tr><td>-18</td><td>OVERFLOW              </td><td>UEBERLAUF                </td><td>D&Eacute;PASSEMENT DE CAPACIT&Eacute;</td></tr>
+<tr><td>-19</td><td>NOT IMPLEMENTED YET   </td><td>NICHT IMPLEMENTIERT      </td><td>COMMANDE NON REPERTORIE ...</td></tr>
+<tr><td>-20</td><td>READ ONLY             </td><td>NUR LESEN                </td><td>LECTURE UNIQUEMENT</td></tr>
+<tr><td>-21</td><td>BAD LINE              </td><td>SYNTAX-FEHLER            </td><td>LIGNE INCORRECTE</td></tr>
+<tr><td>-22</td><td>IN LINE               </td><td>IN ZEILE                 </td><td>A LA LIGNE NO</td></tr>
+<tr><td>-23</td><td>SECTORS               </td><td>SEKTOREN                 </td><td>SECTEURS</td></tr>
+<tr><td>-26</td><td>DURING WHEN PROCESSING</td><td>VERARBEITUNG L&Auml;UFT       </td><td>PENDANT L'EXECUTION DE WHEN</td></tr>
+<tr><td>-27</td><td>PROC/FN CLEARED       </td><td>PROC/FN GELOESCHT        </td><td>PROC/FN EFFAC&Eacute;ES</td></tr>
+</table>
+
+<br>
+
+<!-- The following has three occurrences of "#s#l#u#t", but without the 4 '#' characters. 
+     These are valid Swedish and Danish words and occur in two lines below. the word in
+     question has been replaced below by "QDOSMSQ" to avoid being trapped by 
+     the internet/email profanity filters at work! 
+
+     Obviously, QDOSMSQ needs to be replaced before uploading. -->
+
+<table>
+<tr align="left"><th>ERNUM</th><th>Swedish</th><th>Finnish</th><th>Danish</th></tr>
+<tr><td> -1</td><td>ej f&auml;rdig</td><td>            ep&auml;t&auml;ydellinen</td><td>           ikke fullf|rt</td></tr>
+<tr><td> -2</td><td>fel i jobb</td><td>             ep&auml;kelpo ty&ouml;</td><td>       ugyldig Job</td></tr>
+<tr><td> -3</td><td>minne slut</td><td>             muisti lopussa</td><td>    arbeidslager fullt</td></tr>
+<tr><td> -4</td><td>utom omr&aring;de</td><td>            ulkopuolella</td><td>        omr&aring;de overskredet</td></tr>
+<tr><td> -5</td><td>buffer full</td><td>            puskuri t&auml;ynn&auml;</td><td>     buffer fullt</td></tr>
+<tr><td> -6</td><td>o&ouml;ppnad kanal</td><td>          kanava avaamatta</td><td>   kanal ikke &aring;pen</td></tr>
+<tr><td> -7</td><td>hittar ej</td><td>              ei l&ouml;ydy</td><td>        ikke funnet</td></tr>
+<tr><td> -8</td><td>finns redan</td><td>            jo olemassa</td><td>     allerede oprettet</td></tr>
+<tr><td> -9</td><td>anv&auml;nds redan</td><td>          varattu</td><td>     optatt</td></tr>
+<tr><td>-10</td><td>fil slut</td><td>               tiedosto lopussa</td><td>  filens slutning n&aring;dd(EOF)</td></tr>
+<tr><td>-11</td><td>full kassett</td><td>           asema t&auml;ynn&auml;</td><td>      lagermedie fullt</td></tr>
+<tr><td>-12</td><td>namnfel</td><td>                huono nimi</td><td>       ukjent navn</td></tr>
+<tr><td>-13</td><td>RS-232 fel</td><td>             siirtovirhe</td><td>      transmissjonsfejl</td></tr>
+<tr><td>-14</td><td>ej formaterbar</td><td>         alustusvirhe</td><td>     mislykket formatering</td></tr>
+<tr><td>-15</td><td>parameterfel</td><td>           huono parametri</td><td>      ulovlig parameter</td></tr>
+<tr><td>-16</td><td>mediafel</td><td>               huono v&auml;line</td><td>         lese/skrive feil</td></tr>
+<tr><td>-17</td><td>fel i uttryck</td><td>          lausekevirhe</td><td>       feil i utryk</td></tr>
+<tr><td>-18</td><td>f&ouml;r stort tal</td><td>          ylitys</td><td>              numerisk overl|p</td></tr>
+<tr><td>-19</td><td>anv&auml;nds ej    </td><td>      ei k&auml;yt&ouml;ss&auml; ...</td><td>     ikke innf|rt</td></tr>
+<tr><td>-20</td><td>endast l&auml;sning</td><td>         vain luku kun</td><td> lesning tillatt</td></tr>
+<tr><td>-21</td><td>fel form</td><td>               huono rivi</td><td>             feil i linje</td></tr>
+<tr><td>-22</td><td>P&aring; rad</td><td>                 Rivill&auml;</td><td>           I linje</td></tr>
+<tr><td>-23</td><td>sektorer</td><td>               sektoria</td><td>         sektorer</td></tr>
+<tr><td>-26</td><td>WHEN under bearbetning</td><td>WHEN - rutiinin aikanaved</td><td> WHENoverv&aring;gning</td></tr>
+<tr><td>-27</td><td>PROC/FN raderad</td><td> PROC/FN nollattu</td><td>     PROC/FN renset</td></tr>
+</table>
+
+<p>
+</p>
+
+<h3>A8.3 DATES<br></h3>
+<p>
+When defining a new language for use by the computer, not
+only is it necessary to re-define the error messages, but also
+the codes used for representing the days of the week and the
+months of the year.
+</p>
+
+<h3>Days of the Week:<br></h3>
+<p>
+UK+Finland:Sun Mon Tue Wed Thu Fri Sat
+</p>
+<p>Germany:Son Mon Die Mit Don Fre Sam
+</p>
+<p>France:Dim Lun Mar Mer Jeu Ven Sam
+</p>
+<p>Sweden: S&ouml;n M&aring;n Tis Ons Tor Fre L&ouml;r
+</p>
+<p>Denmark: S&oslash;n Man Tir Ons Tor Fre L&oslash;r
+</p>
+
+<h3>Months of the Year:<br></h3>
+<p>
+UK+Finland:Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec
+</p>
+<p>Germany:Jan Feb M&auml;r Apr Mai Jun Jul Aug Sep Okt Nov Dez
+</p>
+<p>France:  Jan F&eacute;v Mar Avr Mai Jun Jul Ao&uacute; Sep Oct Nov D&eacute;c
+</p>
+<p>Sweden: Jan Feb Mar Apr Maj Jun Jul Aug Sep Okt Nov Dec
+</p>
+<p>Denmark:Jan Feb Mar Apr Mai Jun Jul Aug Sep Okt Nov Des
+</p>
+
+<h3>A8.4 SMS MESSAGES<br></h3>
+<p>
+Under SMS, the equivalent in-built foreign error messages
+are as follows:
+</p>
+
+<table>
+<tr align="left"><th>ERNUM</th><th>German</th><th>French</th></tr>
+<tr><td> -1</td><td>unterbrochen</td><td>op&eacute;ration incompl&egrave;te</td></tr>
+<tr><td> -2</td><td> ung&uuml;ltige Job ID</td><td>ID Job non valable</td></tr>
+<tr><td> -3</td><td> zu wenig freier Speicher</td><td>hors capacit&eacute; m&eacute;moire</td></tr>
+<tr><td> -4</td><td>Wert au&aacute;erhalb Bereich</td><td>valeur hors limites</td></tr>
+<tr><td> -5</td><td> puffer voll</td><td>tampon plein</td></tr>
+<tr><td> -6</td><td> ung&uuml;ltige Kanal ID</td><td>ID canal non valable</td></tr>
+<tr><td> -7</td><td> nicht gefunden</td><td>est introuvable</td></tr>
+<tr><td> -8</td><td> existiert bereits</td><td>existe d&eacute;ja</td></tr>
+<tr><td> -9</td><td> wird schon benutztest</td><td> utilis&eacute; par ailleurs</td></tr>
+<tr><td>-10</td><td> Datei-Ende</td><td>fin de fichier</td></tr>
+<tr><td>-11</td><td> Medium ist voll</td><td>disque plein</td></tr>
+<tr><td>-12</td><td> ung&uuml;ltiger Name</td><td>nom inadmissible</td></tr>
+<tr><td>-13</td><td> &Uuml;bertragungs-Fehler</td><td>erreur de transmission</td></tr>
+<tr><td>-14</td><td> Formatier-Fehler</td><td>erreur dans le formatage</td></tr>
+<tr><td>-15</td><td> ung&uuml;ltiger Parameter</td><td>param&egrave;tre non valable</td></tr>
+<tr><td>-16</td><td> fehlerhafter Datentr&auml;ger</td><td>erreur de support</td></tr>
+<tr><td>-17</td><td> Fehler im Ausdruck</td><td>erreur dans l'expression</td></tr>
+<tr><td>-18</td><td> arithmetischer &Uuml;berlauf</td><td>d&eacute;bordement arithm&eacute;tique</td></tr>
+<tr><td>-19</td><td> nicht implementiert</td><td>&ccedil;a n'existe pas</td></tr>
+<tr><td>-20</td><td> schreibgesch&uuml;tzt</td><td>protection en &eacute;criture</td></tr>
+<tr><td>-21</td><td> Syntax-Fehler</td><td>syntaxe non valable</td></tr>
+<tr><td>-22</td><td> unbekannte Meldung</td><td>message inconnu</td></tr>
+<tr><td>-23</td><td> Zugriff verweigert</td><td>acc&egrave;s interdit</td></tr>
+</table>
+
+
+
+<p>
+SMS also incoporates an improved Interpreter, and as a
+result, has a long list of further errors which can appear
+either before a program is <span style="font-style: italic;">RUN</span> or whilst a program is <span style="font-style: italic;">RUN</span>ning.
+These errors do not affect <span style="font-style: italic;">ERNUM</span> and do not have an error code
+as such.  Each error is given in English, German and French.
+</p>
+<p>In many instances, these errors replace the QDOS 'Bad Line'
+error, which left the user to guess why the line had been
+rejected.
+</p>
+<p>Many of these problems would also be reported if you try to
+compile the program.
+</p>
+<p>The SBASIC interpreter works in three stages:
+</p>
+
+<h3>PARSING<br></h3>
+<p>
+This occurs whenever a new line is entered either from the
+keyboard as a direct command or using <span style="font-style: italic;">EDIT</span> for example, or when
+a program is <span style="font-style: italic;">LOAD</span>ed.
+</p>
+
+<h3>PRE-COMPILING<br></h3>
+<p>
+This occurs whenever the command <span style="font-style: italic;">RUN</span> or <span style="font-style: italic;">GO TO</span> is entered -
+the interpreter runs through the whole of the program to check
+that structures are correctly defined.  It is this stage which
+has been added to the original QDOS SuperBASIC interpreter and
+allows SBASIC to be so much quicker than the original.
+</p>
+
+<h3>RUNNING<br></h3>
+<p>
+This is the interpreter's job as the program is being <span style="font-style: italic;">RUN</span> -
+keeping track of variables and program lines, as well as
+carrying out the actual instructions contained in the program.
+</p>
+<p>Different  errors  are  produced  at  each  stage  of  the
+Interpretation process.</p>
+<p>
+<h3><span style="font-style: italic;">SYNTAX ERROR IN EXPRESSION</span> </h3>(ENGLISH)
+<h3><span style="font-style: italic;">Syntax-Fehler im Ausdruck</h3></span> (German)
+<h3><span style="font-style: italic;">erreur de syntaxe dans l'expression</h3></span> (French)
+</p>
+<p>This is reported during PARSING - it normally occurs where
+you have made a typing error when entering a line and placed
+two  operators  together  when  this  is  not  allowed  (or
+meangingless).  For example, the following line will cause
+this error:
+</p>
+<p><span style="font-style: italic;">x=x++1
+</p>
+
+<p>
+<h3><span style="font-style: italic;">MISSING LEFT PARENTHESIS</h3></span> (ENGLISH)
+<h3><span style="font-style: italic;">Linke Klammer fehlt</h3></span> (German)
+<h3><span style="font-style: italic;">manque parenth&egrave;se gauche</h3></span> (French)
+</p>
+
+<p>This error is generated during PARSING - it indicates that
+there are more closing brackets on a line, than opening
+brackets.  You either need to insert another opening bracket
+somewhere or delete a closing one.
+</p>
+<p>However,  the  interpreter  reports  this  error  very
+infrequently - normally 'Invalid Syntax' is reported.</p>
+<p>
+<h3><span style="font-style: italic;">MISSING RIGHT PARENTHESIS</span> </h3>(ENGLISH)
+<h3><span style="font-style: italic;">Rechte Klammer fehlt</h3></span> (German)
+<h3><span style="font-style: italic;">manque parenth&egrave;se droite</h3></span> (French)
+</p>
+<p>This message is generated during PARSING - it appears when
+a  program  line  has  more  opening  brackets  than  closing
+brackets.
+</p>
+<p>For example: <span style="font-style: italic;">PRINT CHR$ ((HEX ('d2'))</p>
+
+<p>
+<h3><span style="font-style: italic;">ERROR IN LINE NUMBER</span> </h3>(ENGLISH)
+<h3><span style="font-style: italic;">fehlerhafte Zeilennummer</h3></span> (German)
+<h3><span style="font-style: italic;">erreur &agrave; la ligne num&eacute;ro</h3></span> (French)
+</p>
+<p>This message appears during PARSING - it should be caused
+whenever you try to enter a line number outside the range
+1...32767.  However, line numbers which exceed 32767 are
+merely ignored on current implementations of SMS, causing the
+program line to be executed as if it had been entered without
+a line number.</p>
+
+<p>
+<h3><span style="font-style: italic;">BAD STRING: MISSING DELIMITER</span> </h3>(ENGLISH)
+<h3><span style="font-style: italic;">String-Begrenzer fehlt</h3></span> (German)
+<h3><span style="font-style: italic;">manque marqueur limite de cha&icirc;ne</h3></span> (French)
+</p>
+<p>This error is reported during PARSING whenever a program
+line is entered which contains a string within quote marks
+(either single or double) and one of those quote marks is
+missing.
+</p>
+<p>Example: <span style="font-style: italic;">PRINT 'Hello "There"
+</p>
+
+<p>
+<h3><span style="font-style: italic;">INCORRECT PROCEDURE OR FUNCTION DEFINITION</span> </h3>(ENGLISH)
+<h3><span style="font-style: italic;">falsche Definition einer Prozedur oder Funktion</h3></span> (German)
+<span style="font-style: italic;">mauvaise d&eacute;finition d'une proc&eacute;dure ou fonction</h3></span> (French)
+</p>
+<p>This message is reported during PARSING and indicates that
+there is something amiss with a program line containing <span style="font-style: italic;">DEFine
+PROCedure</span> or <span style="font-style: italic;">DEFine FuNction</span>, for example where one of the end
+brackets is missing around the parameter definition list, or
+one of the parameters appears in the definition as just a
+comma or empty quotes:
+</p>
+<p><span style="font-style: italic;">1 DEFine PROCedure TEST (a,"")
+</span></p>
+<p>and
+</p>
+<p><span style="font-style: italic;">1 DEFine PROCedure TEST (a,)
+</span></p>
+<p>both produce this error.
+</p>
+<p>Other problems may be indicated by the error 'Invalid
+Syntax', such as no opening bracket appearing before the list
+of parameters.</p>
+
+<p>
+<h3><span style="font-style: italic;">PROCEDURE OR FUNCTION DEFINITION NOT ALLOWED HERE</span> </h3>(ENGLISH)
+<h3><span style="font-style: italic;">Prozedur- oder Funktion-Definition hier nicht erlaubt</h3></span> (German)
+<h3><span style="font-style: italic;">d&eacute;finition d'une fonction ou proc&eacute;dure non permise ici</h3></span> (French)
+</p>
+<p>This message is reported during PARSING and occurs if you
+try to enter a line containing the <span style="font-style: italic;">DEFine PROCedure</span> or <span style="font-style: italic;">DEFine FuNction
+</span>structure as a direct command (rather than as a program line).</p>
+
+<p>
+<h3><span style="font-style: italic;">DEFINES MAY NOT BE WITHIN OTHER CLAUSES</span> </h3>(ENGLISH)
+<h3><span style="font-style: italic;">DEFines d&uuml;rfen nicht innerhalb Strukturen stehen</h3></span> (German)
+<h3><span style="font-style: italic;">DEFines ne peuvent se trouver dans d'autres structures</h3></span> (French)
+</p>
+<p>This  message  is  reported  during  PRE-COMPILING  if  the
+program includes a line containing <span style="font-style: italic;">DEFine PROCedure</span> or <span style="font-style: italic;">DEFine FuNction
+</span>inside another structure, such as another <span style="font-style: italic;">DEFine ... END DEFine
+</span>clause, or <span style="font-style: italic;">SELect ... END SELect </span>structure,<span style="font-style: italic;"> IF ... END IF</span>,<span style="font-style: italic;"> WHEN ... END WHEN</span>.
+</p>
+<p>Unfortunately, a lot of very early SuperBASIC programs
+written for the Sinclair QL fall foul of this rule.  The old
+style  interpreter  would  jump  the  rogue  <span style="font-style: italic;">DEFine</span>  structure,
+sometimes falling out of the program because the problem was
+actually a missing <span style="font-style: italic;">END DEFine</span> statement.</p>
+
+<p>
+<h3><span style="font-style: italic;">MISPLACED END DEFINE</span> </h3>(ENGLISH)
+<h3><span style="font-style: italic;">END DEFine darf hier nicht stehen</h3></span> (German)
+<h3><span style="font-style: italic;">END DEFine n'est pas &agrave; sa place ici</h3></span> (French)
+</p>
+<p>This error is reported during PRE-COMPILING if a program
+line contains <span style="font-style: italic;">END DEFine</span> without a relative <span style="font-style: italic;">DEFine PROCedure</span> or <span style="font-style: italic;">DEFine
+FuNction</span>.</p>
+
+<p>
+<h3><span style="font-style: italic;">MISPLACED LOCAL</span> </h3>(ENGLISH)
+<h3><span style="font-style: italic;">LOCal darf hier nicht stehen</h3></span> (German)
+<h3><span style="font-style: italic;">LOCal n'est pas &agrave; sa place ici</h3></span> (French)
+</p>
+<p>This  message  is  reported  during  PRE-COMPILING  if  the
+program contains a <span style="font-style: italic;">LOCal</span> statement other than as the first
+active  program  line  after  a  <span style="font-style: italic;">DEFine  PROCedure</span>  or  <span style="font-style: italic;">DEFine  FuNction
+</span>statement.</p>
+
+<p>
+
+<h3><span style="font-style: italic;">RETURN NOT IN PROCEDURE OR FUNCTION</span> </h3>(ENGLISH)
+<h3><span style="font-style: italic;">RETurn ist nicht innerhalb Prozedur oder Funktion</h3></span> (German)
+<h3><span style="font-style: italic;">RETurn ne se trouve pas dans une fonction ou proc&eacute;dure</h3></span> (French)
+</p>
+<p>This message is generated during RUNNING if the interpreter
+tries to execute a <span style="font-style: italic;">RETurn</span> command outside of a <span style="font-style: italic;">DEFine PROCedure</span> or
+<span style="font-style: italic;">DEFine FuNction</span> structure.
+</p>
+<p>It will also be reported during RUNNING if the interpreter
+is executing a <span style="font-style: italic;">DEFine FuNction</span> structure, but meets an <span style="font-style: italic;">END DEFine
+</span>statement - in other words, the <span style="font-style: italic;">RETurn</span> command is missing from
+the structure.</p>
+
+<p>
+
+<h3><span style="font-style: italic;">WHEN CLAUSES MAY NOT BE NESTED</span> </h3>(ENGLISH)
+<h3><span style="font-style: italic;">WHEN Strukturen d&uuml;rfen nicht verschachtelt sein</h3></span> (German)
+<h3><span style="font-style: italic;">des structures WHEN ne peuvent &ecirc;tre embo&icirc;t&eacute;es</h3></span>  (French)
+</p>
+<p>This error is generated during PRE-COMPILING if a program
+contains a <span style="font-style: italic;">WHEN ERRor</span> (or <span style="font-style: italic;">WHEN variable</span>, if implemented) structure
+inside another one.</p>
+
+<p>
+
+<h3><span style="font-style: italic;">MISPLACED END WHEN</span> </h3>(ENGLISH)
+<h3><span style="font-style: italic;">END WHEN darf hier nicht stehen</h3></span> (German)
+<h3><span style="font-style: italic;">END WHEN n'est pas &agrave; sa place ici</h3></span> (French)
+</p>
+<p>This error is generated during PRE-COMPILING if the program
+contains an <span style="font-style: italic;">END WHEN</span> statement without a corresponding <span style="font-style: italic;">WHEN ERRor</span> or
+<span style="font-style: italic;">WHEN</span> variable statement.</p>
+
+<p>
+
+<h3><span style="font-style: italic;">MISPLACED ELSE</span> </h3>(ENGLISH)
+<h3><span style="font-style: italic;">ELSE darf hier nicht stehen</h3></span> (German)
+<h3><span style="font-style: italic;">ELSE n'est pas &agrave; sa place ici</h3></span> (French)
+</p>
+<p>This error is generated during PRE-COMPILING if the program
+contains an <span style="font-style: italic;">ELSE</span> statement without a corresponding <span style="font-style: italic;">IF</span> statement.</p>
+
+<p>
+
+<h3><span style="font-style: italic;">MISPLACED END IF</span> </h3>(ENGLISH)
+<h3><span style="font-style: italic;">END IF darf hier nicht stehen</h3></span> (German)
+<h3><span style="font-style: italic;">END IF n'est pas &agrave; sa place ici</h3></span> (French)
+</p>
+<p>This error is generated during PRE-COMPILING if the program
+contains  an  <span style="font-style: italic;">END  IF</span>  statement  without  a  corresponding  <span style="font-style: italic;">IF
+</span>statement.</p>
+
+<p>
+
+<h3><span style="font-style: italic;">PROGRAM STRUCTURES NESTED TOO DEEPLY, MY BRAIN ACHES</span> </h3>(ENGLISH)
+<h3><span style="font-style: italic;">Strukturen zu tief verschachtelt</h3></span> (German)
+<h3><span style="font-style: italic;">les structures sont trop embo&icirc;t&eacute;es, &ccedil;a me fait mal au cr&Agrave;ne</h3></span> (French)
+</p>
+<p>This message will rarely appear - it will be generated
+during RUNNING if the program uses <span style="font-style: italic;">PROCedure</span>s or <span style="font-style: italic;">FuNction</span>s which
+call themselves too many times.
+</p>
+<p>You are in fact more likely to run out of memory or crash
+the machine than see this message!!</p>
+
+<p>
+
+<h3><span style="font-style: italic;">INCOMPLETE IF CLAUSE</span> </h3>(ENGLISH)
+<h3><span style="font-style: italic;">unvollst&auml;ndige IF Struktur</h3></span> (German)
+<h3><span style="font-style: italic;">structure IF incompl&egrave;te</h3></span> (French)
+</p>
+<p>This error is generated during PRE-COMPILING if the program
+contains  an  <span style="font-style: italic;">IF</span>  statement  without  a  corresponding  <span style="font-style: italic;">END  IF
+</span>statement.
+</p>
+<p>NOTE that in-line <span style="font-style: italic;">IF</span> structures do not necessarily need a
+corresponding <span style="font-style: italic;">END IF</span> statement.</p>
+
+<p>
+
+<h3><span style="font-style: italic;">INCOMPLETE SELECT CLAUSE</span> </h3>(ENGLISH)
+<h3><span style="font-style: italic;">unvollst&auml;ndige SELect Struktur</h3></span> (German)
+<h3><span style="font-style: italic;">structure SELECT incompl&egrave;te</h3></span> (French)
+</p>
+<p>This error is generated during PRE-COMPILING if the program
+contains a <span style="font-style: italic;">SELect ON</span> statement without a corresponding <span style="font-style: italic;">END SELect
+</span>statement.
+</p>
+<p>NOTE that in-line <span style="font-style: italic;">SELect ON</span> structures do not necessarily need
+a corresponding <span style="font-style: italic;">END SELect</span> statement.</p>
+
+<p>
+
+<h3><span style="font-style: italic;">INCOMPLETE DEFINE</span> </h3>(ENGLISH)
+<h3><span style="font-style: italic;">unvollst&auml;ndiges DEFine</h3></span> (German)
+<h3><span style="font-style: italic;">structure DEFINE incompl&egrave;te</h3></span> (French)
+</p>
+<p>This error is generated during PRE-COMPILING if the program
+contains a <span style="font-style: italic;">DEFine PROCedure</span> statement or a <span style="font-style: italic;">DEFine FuNction</span> statement
+without a corresponding <span style="font-style: italic;">END DEFine</span> statement.</p>
+
+<p>
+
+<h3><span style="font-style: italic;">INCOMPLETE WHEN CLAUSE</span> </h3>(ENGLISH)
+<h3><span style="font-style: italic;">unvollst&auml;ndige WHEN Struktur</h3></span> (German)
+<h3><span style="font-style: italic;">structure WHEN incompl&egrave;te</h3></span> (French)
+</p>
+<p>This error is generated during PRE-COMPILING if the program
+contains a <span style="font-style: italic;">WHEN ERRor </span>statement (or <span style="font-style: italic;">WHEN variable</span> when supported)
+without a corresponding <span style="font-style: italic;">END WHEN</span> statement.</p>
+
+<p>
+
+<h3><span style="font-style: italic;">UNACCEPTABLE LOOP VARIABLE</span> </h3>(ENGLISH)
+<h3><span style="font-style: italic;">unerlaubte Schleifen-Variable</h3></span> (German)
+<h3><span style="font-style: italic;">variable de contr&ocirc;le boucle inacceptable</h3></span> (French)
+</p>
+<p>This message appears during the PARSING stage if a program
+line contains a <span style="font-style: italic;">FOR</span> loop with a string loop identifier (compare
+Minerva), such as:
+</p>
+<p><span style="font-style: italic;">FOR a$='a' TO 'z'</p>
+
+<p>
+
+<h3><span style="font-style: italic;">UNABLE TO FIND AN OPEN LOOP</span> </h3>(ENGLISH)
+<h3><span style="font-style: italic;">kann keine offene Schleife finden</h3></span> (German)
+<h3><span style="font-style: italic;">aucune boucle ouverte ne peut &ecirc;tre trouv&eacute;e</h3></span> (French)
+</p>
+<p>This message appears during the PRE-COMPILING phase if a
+program contains an <span style="font-style: italic;">EXIT</span>, <span style="font-style: italic;">NEXT</span>, <span style="font-style: italic;">END FOR</span> or <span style="font-style: italic;">END REPeat</span> statement which
+does not have a loop control variable specified (compare
+'Undefined Loop Control Variable') and the Interpreter is
+unable to find a corresponding <span style="font-style: italic;">FOR</span> or <span style="font-style: italic;">REPeat</span> statement.</p>
+
+<p>
+
+<h3><span style="font-style: italic;">UNDEFINED LOOP CONTROL VARIABLE</span> </h3>(ENGLISH)
+<h3><span style="font-style: italic;">undefinierte Schleifen-Variable</h3></span> (German)
+<h3><span style="font-style: italic;">la variable de contr&ocirc;le boucle est ind&eacute;finie</h3></span> (French)
+</p>
+<p>This message is similar to 'Unable to Find an Open Loop'
+except that it appears during RUNNING if a program contains an
+<span style="font-style: italic;">EXIT</span>, <span style="font-style: italic;">NEXT</span>,<span style="font-style: italic;"> END FOR</span> or <span style="font-style: italic;">END REPeat</span> statement which includes the name of
+a loop control variable and the Interpreter is unable to find
+a corresponding <span style="font-style: italic;">FOR</span> or <span style="font-style: italic;">REPeat</span> statement.
+</p>
+<p>This will also happen if the loop control variable has been
+re-defined before the <span style="font-style: italic;">EXIT</span>, <span style="font-style: italic;">NEXT</span>,<span style="font-style: italic;"> END FOR</span> or <span style="font-style: italic;">END REPeat</span> statement is
+executed, for example:</p>
+<pre>FOR x=1 to 100
+...
+...
+DIM x(100)
+...
+...
+END FOR x
+</pre>
+
+<p>
+<h3><span style="font-style: italic;">MISPLACED END SELECT</span> </h3>(ENGLISH)<br></h3>
+<h3><span style="font-style: italic;">END SELect darf hier nicht stehen</h3></span> (German) (French)
+<h3><span style="font-style: italic;">END SELect n'est pas &agrave; sa place ici</h3></span> (French)
+</p>
+<p>This message appears during PRE-COMPILING if a program
+contains an <span style="font-style: italic;">END SELect</span> statement without a corresponding <span style="font-style: italic;">SELect ON
+</span>statement.</p>
+
+<p>
+
+<h3><span style="font-style: italic;">DATA IN COMMAND LINE HAS NO MEANING</span> </h3>(ENGLISH)
+<h3><span style="font-style: italic;">DATA in Befehlszeige wird ignoriert</h3></span> (German)
+<h3><span style="font-style: italic;">DATA dans une ligne de commande n'a pas de sens</h3></span> (French)
+</p>
+<p>This message appears during PARSING if a line containing a
+<span style="font-style: italic;">DATA</span> statement is entered as a direct command.</p>
+
+<p>
+
+<h3><span style="font-style: italic;">INCORRECTLY STRUCTURED SELECT CLAUSE</span> </h3>(ENGLISH)
+<h3><span style="font-style: italic;">falsch strukturiertes SELect</h3></span> (German)
+<h3><span style="font-style: italic;">SELECT mal structur&eacute;</h3></span> (French)
+</p>
+<p>This message is generated during PRE-COMPILING in one of
+two cases:
+</p>
+<p>a) a <span style="font-style: italic;">SELect ON</span> statement appears without any comparison
+values, such as:</p>
+<pre>10 SELect ON x
+20 PRINT 'Hello'
+30 END SELect
+</pre>
+<p>b) the comparison values appear in a program outside of a
+<span style="font-style: italic;">SELect ON</span> structure, for example:
+</p>
+<pre>10 SELect ON x
+20 =10 : PRINT 'x=10'
+30 END SELect
+40 =20 : PRINT 'x=20'
+</pre>
+
+<p>
+<h3><span style="font-style: italic;">UNACCEPTABLE PARAMETERS FOR READ</span> </h3>(ENGLISH)
+<h3><span style="font-style: italic;">unerlaubte Parameter f&uuml;r READ</h3></span> (German)
+<h3><span style="font-style: italic;">param&egrave;tre inacceptable pour READ</h3></span> (German) (French)
+</p>
+<p>This  message  appears  during  PRE-COMPILING  if  a  <span style="font-style: italic;">READ
+</span>statement has meaningless parameters, for example:
+</p>
+<pre>READ 'x'
+READ s,s1,s*1
+READ 1,1,2
+</pre>
+<p>Note however, that no error is caused by the <span style="font-style: italic;">READ</span> statement
+without any parameters.
+</p>
+<p>Compare also:
+</p>
+<p><span style="font-style: italic;">READ PRINT
+</span></p>
+<p>which causes an error during RUNNING - assignment can only
+be a variable or array element.</p>
+
+<p>
+<h3><span style="font-style: italic;">END OF DATA</span> </h3>(ENGLISH)
+<h3><span style="font-style: italic;">Ende von DATA</h3></span> (German)
+<h3><span style="font-style: italic;">fin de DATA</h3></span> (French)
+</p>
+<p>This message is generated during RUNNING if a program is
+trying to <span style="font-style: italic;">READ DATA</span> statements but has run out of <span style="font-style: italic;">DATA</span> to read -
+use <span style="font-style: italic;">RESTORE</span> or add check that all of the required <span style="font-style: italic;">DATA</span> is
+contained in the program.</p>
+
+<p>
+<h3><span style="font-style: italic;">SBASIC CANNOT PERFORM READS WITHIN DATA EXPRESSIONS</span> </h3>(ENGLISH)
+<h3><span style="font-style: italic;">SBASIC kann keine READs innerhalb DATAs ausf&uuml;hren</h3></span> (German)
+<h3><span style="font-style: italic;">SBASIC ne peut effectuer des READs dans des expressions DATA</h3></span> (French)
+</p>
+<p>We are uncertain when this error appears, not having been
+able to create a situation which causes this error to be
+reported.
+</p>
+<p>If a <span style="font-style: italic;">DATA</span> statement contains a procedure name, such as:
+</p>
+<p><span style="font-style: italic;">DATA 1,1,READ
+</span></p>
+<p>or
+</p>
+<p><span style="font-style: italic;">DATA 1,1,PRINT
+</span></p>
+<p>then during RUNNING, when the program tries to read the
+data parameter 'READ', the error 'unknown function or array'
+is produced.</p>
+
+<p>
+
+<h3><span style="font-style: italic;">UNKNOWN PROCEDURE</span> </h3>(ENGLISH)
+<h3><span style="font-style: italic;">unbekannte Prozedur</h3></span> (German)
+<h3><span style="font-style: italic;">proc&eacute;dure inconnue</h3></span> (French)
+</p>
+<p>This message is displayed during RUNNING if a procedure
+name is used which has not been defined - this normally
+suggests one of three problems:
+</p>
+<p>a) a typing error
+</p>
+<p>b) a machine code toolkit has not been linked in properly
+</p>
+<p>c) a SuperBasic <span style="font-style: italic;">DEFine PROCedure</span> structure is missing.</p>
+
+<p>
+
+<h3><span style="font-style: italic;">UNKNOWN FUNCTION OR ARRAY</span> </h3>(ENGLISH)
+<h3><span style="font-style: italic;">unbekannte Funktion oder Feld</h3></span> (German)
+<h3><span style="font-style: italic;">fonction ou tableau inconnus</h3></span> (French)
+</p>
+<p>This message is displayed during RUNNING if a Procedure
+name  has  been  used  as  a  function,  variable  or  array
+descriptor.  This normally suggests that a program uses the
+same name for a variable as a toolkit which has been linked
+in.</p>
+
+<p>
+
+<h3><span style="font-style: italic;">ONLY ARRAYS MAY BE DIMENSIONED</span> </h3>(ENGLISH)
+<h3><span style="font-style: italic;">nur Felder d&uuml;rfen dimensioniert werden</h3></span> (German)
+<h3><span style="font-style: italic;">on ne peut dimensionner que des tableaux</h3></span> (French)
+</p>
+<p>This message is displayed during RUNNING if a Procedure
+name has been used as an array name in a <span style="font-style: italic;">DIM</span> statement.  This
+normally suggests that a program uses the same name for a
+variable as a toolkit which has been linked in.
+</p>
+<p>This error is also reported if you try to <span style="font-style: italic;">DIM</span>ension the name
+of a parameter passed to a <span style="font-style: italic;">PROCedure</span> or <span style="font-style: italic;">FuNction</span>, such as:
+</p>
+<pre>100 DEFine PROCedure TEST(x)
+110 DIM x(100)
+120 END DEFine
+</pre>
+
+<p>- Use <span style="font-style: italic;">LOCal</span> instead, such as:
+</p>
+<pre>110 LOCal x(100)</pre>
+<p>(although why you would want to do this, is anyone's
+guess!!)</p>
+
+<p>
+<h3><span style="font-style: italic;">PROCEDURE AND FUNCTION PARAMETERS MAY NOT BE DIMENSIONED</span> </h3>(ENGLISH)
+<h3><span style="font-style: italic;">Prozedur- oder Funktion-Parameter d&uuml;rfen nicht dimensioniert werden</h3></span> (German)
+<h3><span style="font-style: italic;">les param&egrave;tres des proc&eacute;dures et fonctions ne peuvent &ecirc;tre dimensionn&eacute;s</h3></span> (French)
+</p>
+<p>This error is intended to trap the second example for 'Only
+Arrays May be Dimensioned' - see description of <span style="font-style: italic;">DIM</span> for an
+example and the difference between these two errors.</p>
+
+<p>
+
+<h3><span style="font-style: italic;">SBASIC CANNOT PUT UP WITH NEGATIVE DIMENSIONS</span> </h3>(ENGLISH)
+<h3><span style="font-style: italic;">SBASIC mag keine negativen Dimensionen</h3></span> (German)
+<h3><span style="font-style: italic;">SBASIC ne sait comment traiter des dimensions n&eacute;gatives</h3></span> (French)
+</p>
+<p>This error is reported during RUNNING if you try to
+<span style="font-style: italic;">DIM</span>ension an array with a negative index, such as:
+</p>
+<p><span style="font-style: italic;">DIM x(-100)
+</span></p>
+<p>Note that if you try to use a negative index in other
+situations, such as:
+</p>
+<p><span style="font-style: italic;">x(-100)=32
+</span></p>
+<p>the error 'Array Index out of Range' will be reported.</p>
+
+<p>
+
+<h3><span style="font-style: italic;">DIMENSIONAL OVERFLOW - YOU CANNOT BE SERIOUS!</span> </h3>(ENGLISH)
+<h3><span style="font-style: italic;">Dimensions-&Uuml;berlauf</h3></span> (German)
+<h3><span style="font-style: italic;">d&eacute;passement de dimension - soyons s&eacute;rieux!</h3></span> (French)
+</p>
+<p>This message appears during RUNNING if you try to <span style="font-style: italic;">DIM</span>ension
+an array with too many indices - this appears to happen after
+around 7 indices).  For example, the error will be caused by
+the following line:
+</p>
+<p><span style="font-style: italic;">DIM x(1,2,3,4,5,6,7,8)
+</span></p>
+<p>NOTE the warning listed below!!</p>
+
+<p>
+<h3><span style="font-style: italic;">ERROR IN INDEX LIST</span> </h3>(ENGLISH)
+<h3><span style="font-style: italic;">Fehler in Index-Liste</h3></span> (German)
+<h3><span style="font-style: italic;">erreur dans la liste d'indexage</h3></span> (French)
+</p>
+<p>We are uncertain when this error appears, not having been
+able to create a situation which causes this error to be
+reported.</p>
+
+<p>
+<h3><span style="font-style: italic;">TOO MANY INDEXES</span> </h3>(ENGLISH)
+<h3><span style="font-style: italic;">zu viele Indizes</h3></span> (German)
+<h3><span style="font-style: italic;">trop d'indices</h3></span> (French)
+</p>
+<p>We are uncertain when this error appears, not having been
+able to create a situation which causes this error to be
+reported.</p>
+
+<p>
+<h3><span style="font-style: italic;">CANNOT ASSIGN TO SUB-ARRAY</span> </h3>(ENGLISH)
+<h3><span style="font-style: italic;">kann nicht auf Teil-Feld zuweisen</h3></span> (German)
+<h3><span style="font-style: italic;">impossible d'assigner &agrave; un sous-tableau</h3></span> (French)
+</p>
+<p>We are uncertain when this error appears, not having been
+able to create a situation which causes this error to be
+reported.</p>
+
+<p>
+<h3><span style="font-style: italic;">UNACCEPTABLE ARRAY INDEX LIST</span> </h3>(ENGLISH)
+<h3><span style="font-style: italic;">fehlerhafte Feld-Index-Liste</h3></span> (German)
+<h3><span style="font-style: italic;">liste d'indices dans tableau inacceptab (French)le</h3></span> (French)
+</p>
+<p>This message is generated during RUNNING if you try to use
+an array with more indices that it was <span style="font-style: italic;">DIM</span>ensioned with, for
+example:
+</p>
+<pre>DIM x(100,100)
+x(10,10,10)=52
+</pre>
+<p>The error can also be generated when you try to assign a
+value across several array elements at a time (this should
+possibly cause the error 'Cannot Assign to a Sub-Array'), for
+example:
+</p>
+<pre>DIM x(10,10)
+x(3,4 TO 5)=100
+</pre>
+<p>Beware of the dangers here - see below
+</p>
+
+<h3>WARNINGS:<br></h3>
+<p>
+In current versions of SMSQ/E, if you <span style="font-style: italic;">DIM</span>ension an array
+with the maximum number of indices and use two more indices in
+the reference that this maximum, you can crash the computer,
+for example:
+</p>
+<pre>DIM x(1,2,3,4,5,6,7)
+x(1,2,3,4,5,6,7,8,9)=52
+</pre>
+<p>You can also crash the computer if you miss out array
+indexes:
+</p>
+<p><span style="font-style: italic;">x(1,,1)=100
+</span></p>
+<p>Another way of crashing the computer is when trying to
+assign a value across several array elements, for example:
+</p>
+<p><span style="font-style: italic;">x(1 TO 3,10)=52</p>
+
+<p>
+<h3><span style="font-style: italic;">ARRAY INDEX OUT OF RANGE</span> </h3>(ENGLISH)
+<h3><span style="font-style: italic;">Feld-Index au&aacute;erhalb Bereich</h3></span> (German)
+<h3><span style="font-style: italic;">indice tableau hors limites</h3></span> (French)
+</p>
+<p>This message is generated during RUNNING if the value of an
+index specified in an array is higher than that specified when
+the array was <span style="font-style: italic;">DIM</span>ensioned, for example:
+</p>
+<pre>DIM x(10,10)
+x(10,12)=52
+</pre>
+<p>Note however, that if you try to use an index which exceeds
+32767, the error 'Error in Expression' is generated.</p>
+
+<p>
+<h3><span style="font-style: italic;">ONLY ARRAYS OR STRINGS MAY BE INDEXED</span> </h3>(ENGLISH)
+<h3><span style="font-style: italic;">nur Felder oder Strings d&uuml;rfen indiziert werden</h3></span> (German)
+<h3><span style="font-style: italic;">on peut indexer uniquement des tableaux ou cha&icirc;nes</h3></span> (French)
+</p>
+<p>This message is generated during RUNNING if you try to
+reference an array which has not yet been <span style="font-style: italic;">DIM</span>ensioned, for
+example:
+</p>
+<p><span style="font-style: italic;">CLEAR
+</p>
+<p>x(100)=52
+</span></p>
+<p>Compare the situation where you try to index a name which
+is in fact defined as a Procedure - the index is ignored and
+the Procedure executed as normal, for example
+</p>
+<p><span style="font-style: italic;">PRINT (100)=32</span>  displays 32 on the screen.
+</p>
+<p>On the other hand, if you try to index a name which is
+defined as  a  Function,  the error  'Unknown  Procedure'  is
+generated instead.
+</p>
+<p>In both cases, compare what happens when an index is not
+specified (the next error listed here is generated).</p>
+
+<p>
+<h3><span style="font-style: italic;">ASSIGNMENT CAN ONLY BE TO A VARIABLE OR ARRAY ELEMENT</span> </h3>(ENGLISH)
+<h3><span style="font-style: italic;">Zuweisungen nur an Variable oder Feld-Element</h3></span> (German)
+<h3><span style="font-style: italic;">assignation uniquement vers une variable ou un &eacute;l&eacute;ment d'un tableau</h3></span> (French)
+</p>
+<p>This error is generated during RUNNING when a program tries
+to assign a value to a variable which is actually defined as a
+Procedure or Function already (this suggests that a toolkit
+may have re-defined a variable name).</p>
+
+<p>
+<h3><span style="font-style: italic;">MISTAKE IN PROGRAM</span> </h3>(ENGLISH)
+<h3><span style="font-style: italic;">MISTake - Fehler im Programm</h3></span> (German)
+<h3><span style="font-style: italic;">MISTake - Erreur de programmation</h3></span> (French)
+</p>
+<p>This message is generated during PRE-COMPILING - whilst a
+program is being <span style="font-style: italic;">LOAD</span>ed (or <span style="font-style: italic;">QLOAD</span>ed), if a line has generated an
+error during PARSING, the word MISTake is inserted in the
+relevant line in the program.  This message is generated if
+you try to <span style="font-style: italic;">RUN</span> the program without altering the offending line.</p>
+
+<p>
+<h3><span style="font-style: italic;">DURING WHEN PROCESSING</span> </h3>(ENGLISH)
+<h3><span style="font-style: italic;">w&auml;hrend WHEN-Bearbeitung</h3></span> (German)
+<h3><span style="font-style: italic;">pendant le traitement de when</h3></span> (French)
+</p>
+<p>This message is generated during RUNNING if an error occurs
+whilst the program was executing a <span style="font-style: italic;">WHEN ERRor</span> (or <span style="font-style: italic;">WHEN variable</span> when
+it is implemented) structure.  You should enter <span style="font-style: italic;">WHEN ERRor</span> as a
+direct command to switch off the <span style="font-style: italic;">WHEN ERRor</span> trapping.</p>
+
+<p>
+<h3><span style="font-style: italic;">PROC/FN CLEARED</span> </h3>(ENGLISH)
+<h3><span style="font-style: italic;">PROC/FN gel&ouml;scht</h3></span> (German)
+<h3><span style="font-style: italic;">PROC/FN effac&eacute;e</h3></span> (French)
+</p>
+<p>If an error is generated whilst the program is executing a
+<span style="font-style: italic;">DEFine PROCedure</span>  or  <span style="font-style: italic;">DEFine  FuNction</span> structure,  this  error  will  be
+generated when you <span style="font-style: italic;">EDIT</span> the program, or enter <span style="font-style: italic;">CONTINUE</span>.  Unlike
+earlier ROMs, this does not seem to prevent you from using
+<span style="font-style: italic;">CONTINUE</span> to carry on with <span style="font-style: italic;">RUN</span>ning the program from the place the
+error occured.</p>
+
+<p>
+<h3><span style="font-style: italic;">At line</span>  </h3>(ENGLISH)
+<h3><span style="font-style: italic;">In Zeile</h3></span>  (German)
+<h3><span style="font-style: italic;">A la ligne</h3></span>  (French)
+</p>
+<p>This is merely the message used to generate part of all
+error messages,  signifying  the line  number  and  statement
+number where the error occured.</p>
+
+<p>
+<h3><span style="font-style: italic;">FATAL ERROR IN SBASIC INTERPRETER</span> </h3>(ENGLISH)
+<h3><span style="font-style: italic;">schwerwiegender Fehler im SBASIC-Interpreter</h3></span> (German)
+<h3><span style="font-style: italic;">erreur fatale dans l'interpr&eacute;teur SBASIC</h3></span> (French)
+</p>
+<p>This message should hopefully never happen - it means that
+the interpreter has become corrupt.  If a multiple SBASIC
+interpreter, it will be removed from the system when you press
+a key.
+</p>
+<p>One instance where this error will occur is if you try to
+<span style="font-style: italic;">RUN</span> a  program which has been <span style="font-style: italic;">QLOAD</span>ed and the original file was
+created using <span style="font-style: italic;">QSAVE</span> on a Minerva ROM with integer tokenisation
+enabled.
+</div>
+</body>
+</html>

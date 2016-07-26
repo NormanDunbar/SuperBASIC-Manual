@@ -1,0 +1,468 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux/x86 (vers 25 March 2009), see www.w3.org" />
+  <meta http-equiv="content-type" content="text/html; charset=us-ascii" />
+  <link rel="stylesheet" type="text/css" href="css/QLManualStyle.css" media="all" />
+
+  <title>Sinclair QL SuperBASIC/SBASIC Reference Manual - Appendix 7</title>
+</head>
+
+<body>
+  <div id="header">
+    SBASIC/SuperBASIC Reference Manual Online (c) RWAP Software<br />
+    The Online Guide to programming the Sinclair QL Home Computer in SuperBASIC
+  </div>
+
+  <div id="sideBar">
+    <ul>
+      <li><a href="Foreword.html">Foreword</a></li>
+
+      <li><a href="Introduction.html">Introduction</a></li>
+
+      <li><a href="Credits.html">Credits</a></li>
+
+      <li><a href="Structure.html">Structure</a></li>
+
+      <li><a href="WritingPrograms.html">Writing Programs</a></li>
+
+      <li style="list-style: none; display: inline">
+        <hr />
+      </li>
+
+      <li><a href="KeywordsA.html">Keywords - A</a></li>
+
+      <li><a href="KeywordsB.html">Keywords - B</a></li>
+
+      <li><a href="KeywordsC.html">Keywords - C</a></li>
+
+      <li><a href="KeywordsD.html">Keywords - D</a></li>
+
+      <li><a href="KeywordsE.html">Keywords - E</a></li>
+
+      <li><a href="KeywordsF.html">Keywords - F</a></li>
+
+      <li><a href="KeywordsG.html">Keywords - G</a></li>
+
+      <li><a href="KeywordsH.html">Keywords - H</a></li>
+
+      <li><a href="KeywordsI.html">Keywords - I</a></li>
+
+      <li><a href="KeywordsJ.html">Keywords - J</a></li>
+
+      <li><a href="KeywordsK.html">Keywords - K</a></li>
+
+      <li><a href="KeywordsL.html">Keywords - L</a></li>
+
+      <li><a href="KeywordsM.html">Keywords - M</a></li>
+
+      <li><a href="KeywordsN.html">Keywords - N</a></li>
+
+      <li><a href="KeywordsO.html">Keywords - O</a></li>
+
+      <li><a href="KeywordsP.html">Keywords - P</a></li>
+
+      <li><a href="KeywordsQ.html">Keywords - Q</a></li>
+
+      <li><a href="KeywordsR.html">Keywords - R</a></li>
+
+      <li><a href="KeywordsS.html">Keywords - S</a></li>
+
+      <li><a href="KeywordsT.html">Keywords - T</a></li>
+
+      <li><a href="KeywordsU.html">Keywords - U</a></li>
+
+      <li><a href="KeywordsV.html">Keywords - V</a></li>
+
+      <li><a href="KeywordsW.html">Keywords - W</a></li>
+
+      <li><a href="KeywordsX.html">Keywords - X</a></li>
+
+      <li><a href="KeywordsY.html">Keywords - Y</a></li>
+
+      <li><a href="KeywordsZ.html">Keywords - Z</a></li>
+
+      <li><a href="Keywords_.html">Keywords - Other</a></li>
+
+      <li style="list-style: none; display: inline">
+        <hr />
+      </li>
+
+      <li><a href="AppendicesIntro.html">Appendices Introduction</a></li>
+
+      <li><a href="Appendix01.html">Appendix 1 - Minerva</a></li>
+
+      <li><a href="Appendix02.html">Appendix 2 - SMSQE</a></li>
+
+      <li><a href="Appendix03.html">Appendix 3 - Emulators</a></li>
+
+      <li><a href="Appendix04.html">Appendix 4 - THOR Computers</a></li>
+
+      <li><a href="Appendix05.html">Appendix 5 - Expansion Boards</a></li>
+
+      <li><a href="Appendix06.html">Appendix 6 - Compatability</a></li>
+
+      <li><a href="Appendix07.html">Appendix 7 - Multiple BASICs</a></li>
+
+      <li><a href="Appendix08.html">Appendix 8 - Error Messages</a></li>
+
+      <li><a href="Appendix09.html">Appendix 9 - Character Set / Keyboard</a></li>
+
+      <li><a href="Appendix10.html">Appendix 10 - Fonts</a></li>
+
+      <li><a href="Appendix11.html">Appendix 11 - Mathematics</a></li>
+
+      <li><a href="Appendix12.html">Appendix 12 - Device Drivers</a></li>
+
+      <li><a href="Appendix13.html">Appendix 13 - Extended Pointer Environment</a></li>
+
+      <li><a href="Appendix14.html">Appendix 14 - Coercion</a></li>
+
+      <li><a href="Appendix15.html">Appendix 15 - Mouse Drivers</a></li>
+
+      <li><a href="Appendix16.html">Appendix 16 - The QL Display</a></li>
+
+      <li><a href="Appendix17.html">Appendix 17 - Networks</a></li>
+
+      <li><a href="Appendix18.html">Appendix 18 - Configuring Programs</a></li>
+    </ul>
+  </div>
+
+  <div id="mainText">
+    <h3>A7 MULTIPLE BASICS<br /></h3>
+
+    <p>The Sinclair QL is one of a few computers which allow you to run several BASIC
+    programs in memory at the same time, multitasking them as if they were machine code
+    programs.</p>
+
+    <p>The QL implementation of this is more flexible than most other implementations and
+    certainly a lot cheaper, requiring only a standard QL with Minerva ROM (or a QL with
+    Gold Card and SMSQ/E) at the least.</p>
+
+    <p>Both Minerva and SMS provide the ability to use several SuperBASIC interpreters at
+    the same time, allowing you to work on more than one BASIC program at a time and run
+    them alongside other BASIC programs.</p>
+
+    <p>There is not really a great deal of difference between the two implementations and
+    so we shall first of all describe the Minerva implementation (known as MultiBASICs)
+    and then describe the differences in SMS's implementation (known as Multiple
+    SBASICs).</p>
+
+    <h3>A7.1 MINERVA MultiBASICS<br /></h3>
+
+    <p>A MultiBasic on Minerva is very similar to the standard QL's SuperBasic
+    interpreter. This means that once a MultiBasic has been created, you can use it in
+    practically the same way as you would normal SuperBasic (that is to say that you can
+    enter programs, load and run programs using the standard commands set out in this
+    manual).</p>
+
+    <p>There are several advantages in using MultiBasics, but the main advantages
+    are:</p>
+
+    <p>-you can have several programs running at the same time (one program under each
+    MultiBasic, and one under the standard SuperBasic interpreter) in much the same way
+    as you can have several machine code programs</p>
+
+    <p>-you can tell a MultiBasic to ignore any machine code extensions other than the
+    standard ROM keywords (letting you test programs on semi-clean machines)</p>
+
+    <p>-if a program 'locks up the QL', provided that it is running in a MultiBasic, it
+    will only lock up that interpreter and you should be able to return to the standard
+    SuperBasic interpreter.</p>
+
+    <p>A Multibasic can be created in one of three ways:</p>
+
+    <p><span style="font-style: italic;">EXEC 'flp1_multib_exe'</span>
+    <sup>*</sup>[<span style="font-style: italic;">,file</span><sup>x</sup>]<sup>*</sup>
+    [<span style="font-style: italic;">; cmd$</span>]</p>
+
+    <p>or</p>
+
+    <p><span style="font-style: italic;">MB</span></p>
+
+    <p>or</p>
+
+    <p><span style="font-style: italic;">EXEC pipep</span> <sup>*</sup>[<span style=
+    "font-style: italic;">,file</span><sup>x</sup>]<sup>*</sup> [<span style=
+    "font-style: italic;">; cmd$</span>]</p>
+
+    <p>The first two methods are for use on Minerva ROMs pre v1.93 (the file multib_exe
+    is contained on the disk supplied with the Minerva ROM). The second method is for use
+    on later versions of Minerva which have the relevant machine code built into the
+    ROM.</p>
+
+    <h3>A7.1.1 Channels OPENed automatically in MultiBASICs.<br /></h3>
+
+    <p>When one of the above commands is entered, Minerva will examine the parameters
+    passed using the command. It first of all has to decide how to set up the standard
+    channels (#0 - the primary command channel and #1 - the primary output channel).</p>
+
+    <p>(a) If neither a <span style="font-style: italic;">file</span> nor <span style=
+    "font-style: italic;">cmd$</span> is supplied, for example:</p>
+
+    <p><span style="font-style: italic;">EXEC pipep</span></p>
+
+    <p>then a single window is opened on screen which is used by both #0 and #1. #2 is
+    not opened. The actual position of this window on the screen cannot be set by the
+    user and is dictated by how many MultiBasics are already running (you can of course
+    redefine #0 and #1 from within the MultiBasic by using <span style=
+    "font-style: italic;">WINDOW</span>, although as both #0 and #1 use the same window,
+    any attempt to redefine #0 will affect #1 and vice versa).</p>
+
+    <p>(b) If however, <span style="font-style: italic;">cmd$</span> is supplied, for
+    example:</p>
+
+    <p><span style="font-style: italic;">EXEC pipep;'This is a Command String'</span></p>
+
+    <p>channels #0, #1 and #2 will all be set up as in the standard SuperBasic
+    interpreter. You can then <span style="font-style: italic;">CLOSE #1</span> or
+    <span style="font-style: italic;">CLOSE #2</span> without removing the MultiBasic.
+    Sections A7.1.2 to A7.1.4 explain how the command string is dealt with.</p>
+
+    <p>(c) If one <span style="font-style: italic;">file</span> (or channel) is supplied,
+    for example:</p>
+
+    <p><span style="font-style: italic;">EXEC pipep,flp1_inputfile</span></p>
+
+    <p>Minerva will open both #0 and #1 to access that file, whereas if two files are
+    supplied, #0 is opened to access <span style="font-style: italic;">file</span>1 and
+    #1 is opened to access <span style="font-style: italic;">file</span>2. If three or
+    more files are supplied, then #0 is opened to access <span style=
+    "font-style: italic;">file</span>1, #1 to access <span style=
+    "font-style: italic;">file</span>2, #3 to access <span style=
+    "font-style: italic;">file</span>3 and so on (#2 is omitted).</p>
+
+    <h3>A7.1.2 Starting a MultiBASIC with the Original QL ROM Commands only.<br /></h3>
+
+    <p><span style="font-style: italic;">cmd$</span> is used to pass different parameters
+    to a MultiBasic. If the last character is an exclamation mark (!) then this is taken
+    to be the ROM marker, and the MultiBasic will start up recognising only the original
+    keywords contained in the Minerva ROM.</p>
+
+    <h3>A7.1.3 Multitasking a MultiBASIC Program.<br /></h3>
+
+    <p>In order to run a BASIC program as a multitasking program, it is necessary to
+    start a MultiBASIC interpreter and pass the name of the program to be run as part of
+    <span style="font-style: italic;">cmd$</span> passed to the MultiBASIC by the
+    start-up command.</p>
+
+    <p>If <span style="font-style: italic;">cmd$</span> contains the file marker (&gt;),
+    the characters in the string before that marker are taken to represent a file name
+    which will be opened to read commands from (similar to a stream device). The
+    MultiBasic will open both #0 and #1 to this filename and will read the characters
+    from the file and try to interpret them as a program.</p>
+
+    <p>If the program does not open any screen windows and print to them, this will allow
+    a SuperBasic program to run in the background, for example, as a filter.</p>
+
+    <p>You will be unable to redefine #0 from within the program, as this will stop the
+    MultiBasic from accessing the command file. This could for example, be used to test
+    programs:</p>
+
+    <p><span style="font-style: italic;">EXEC pipep;'flp1_boot&gt;'</span></p>
+
+    <h3><span style="font-style: italic;">A7.1.4 What Happens to the Rest of the Command
+    String?<br /></span></h3>
+
+    <p><span style="font-style: italic;">Having stripped all of the information needed in
+    Section A7.1.2 and A7.1.3 from <span style="font-style: italic;">cmd$</span>, any
+    characters left in the string supplied can then be read from within a MultiBasic
+    itself by simply accessing <span style="font-style: italic;">CMD$</span>. For
+    example:</span></p>
+
+    <p><span style="font-style: italic;">PRINT 'Your Name is :'!CMD$</span></p>
+
+    <h3><span style="font-style: italic;">A7.1.5 Loading Toolkits into a
+    MultiBASIC<br /></span></h3>
+
+    <p><span style="font-style: italic;">Any toolkits which are <span style=
+    "font-style: italic;">LRESPR</span>'d from within a MultiBASIC are defined as local
+    to that MultiBASIC and will not be recognised from any other interpreter (unless you
+    start yet another MultiBASIC from within that MultiBASIC interpreter). They will
+    therefore be removed when you remove the MultiBASIC interpreter which loaded the
+    extensions.</span></p>
+
+    <p>For this reason, MultiBASICs should not be used to link in system extensions (such
+    as BTOOL which adds new device drivers).</p>
+
+    <h3>A7.2 SMS MULTIPLE SBASICS<br /></h3>
+
+    <p>These are extremely similar to Minerva MultiBASICs and can be used in much the
+    same way as MultiBASICs and have the same advantages (except that you cannot at
+    present tell SMS to start up an SBASIC with only the standard QL ROM keywords).</p>
+
+    <p>On versions of SMSQ which do not incorporate the Hotkey System II automatically
+    (and therefore need the file HOT_REXT to be loaded), you will need to enter the
+    command <span style="font-style: italic;">SB_THING</span> to create the SBASIC Thing
+    (see below).</p>
+
+    <p>A Multiple SBASIC can be created in one of several ways. The more usual methods
+    are:</p>
+
+    <p><span style="font-style: italic;">EXEC 'flp1_program_bas'</span>
+    <sup>*</sup>[<span style="font-style: italic;">,file</span><sup>x</sup>]<sup>*</sup>
+    [<span style="font-style: italic;">; cmd$</span>]</p>
+
+    <p>or <span style="font-style: italic;"><br />
+    SBASIC</span> [<span style="font-style: italic;">offset</span>]</p>
+
+    <p>or <span style="font-style: italic;"><br />
+    EXEP 'SBASIC'</span>;cmd$</p>
+
+    <p>The first method allows you to automatically load a BASIC program to run under an
+    SBASIC interpreter multitasking alongside the normal SuperBASIC interpreter (Job 0).
+    This allows you to start a program up from within Qpac 2's File Menu.</p>
+
+    <p>The second method merely starts up a SBASIC interpreter.</p>
+
+    <p>Because SBASIC is implemented as a Thing under the Hotkey System II, you can also
+    set start an SBASIC Interpreter using the third method, or even from Qpac 2's Exec
+    Menu. You can even set up a hotkey to start an SBASIC interpreter. For example:</p>
+
+    <p><span style="font-style: italic;">ERT HOT_THING ('L','SBASIC')</span></p>
+
+    <p>will start up a new SBASIC interpreter whenever &lt;ALT&gt;&lt;L&gt; is
+    pressed.</p>
+
+    <h3>A7.2.1 Channels OPENed automatically in SBASICs.<br /></h3>
+
+    <p>If you use the command <span style="font-style: italic;">SBASIC</span> to start an
+    Interpreter, the initial windows which will be <span style=
+    "font-style: italic;">OPEN</span> depends upon whether an <span style=
+    "font-style: italic;">offset</span> parameter is passed:</p>
+
+    <p>-if no <span style="font-style: italic;">offset</span> is passed then all the
+    standard Windows #0,#1 and #2 will be <span style="font-style: italic;">OPEN</span>ed
+    (as per <span style="font-style: italic;">WMON</span>)</p>
+
+    <p>-If <span style="font-style: italic;">offset</span> is specified, only #0 will be
+    opened and the <span style="font-style: italic;">offset</span> is used to determine
+    the location on screen of that window.</p>
+
+    <p>If you use the third method of invoking SBASIC, or Qpac 2's Exec Menu or a Hot Key
+    to start an Interpreter, then it depends upon whether you pass a string as a
+    parameter:</p>
+
+    <p>-if no string is passed, then the standard windows #0, #1 and #2 are <span style=
+    "font-style: italic;">OPEN</span>ed.</p>
+
+    <p>-if you pass a string to the interpreter, then no windows are <span style=
+    "font-style: italic;">OPEN</span>ed and the string is treated as a command as if it
+    had been entered in the command line (see Section A7.2.7 below!). For example:</p>
+
+    <p><span style="font-style: italic;">EXEP 'SBASIC';'LRUN flp1_PROG_Bas'</span></p>
+
+    <p>is the same as:</p>
+
+    <p><span style="font-style: italic;">EXEC flp1_PROG_bas</span></p>
+
+    <p>If you instead use a command such as <span style="font-style: italic;">EXEC</span>
+    to start up a program under a SBASIC interpreter, then no windows will be
+    <span style="font-style: italic;">OPEN</span>ed by default and the program will need
+    to <span style="font-style: italic;">OPEN</span> all of its own channels.</p>
+
+    <p>However, if any files (or open channels) are specified then (as with MultiBASICs)
+    these are <span style="font-style: italic;">OPEN</span>ed as #0, #1 onwards (#2 is
+    not omitted in this case).</p>
+
+    <p>We would refer you to the explanation of <span style=
+    "font-style: italic;">EW</span> about setting up Filters by making use of these
+    facilities.</p>
+
+    <h3>A7.2.2 The Command String.<br /></h3>
+
+    <p>The effect of the command string depends upon the circumstances.</p>
+
+    <p>If the SBASIC Interpreter is started using the <span style=
+    "font-style: italic;">EXEC</span> command (or similar) then SMS does nothing with the
+    command string and it can merely be read from within the SBASIC Interpreter with the
+    function <span style="font-style: italic;">CMD$</span>.</p>
+
+    <p>If however, SBASIC is started using the Thing System, then the command string is
+    executed as if it were a direct command (see Section A7.2.1).</p>
+
+    <h3>A7.2.3 Starting a SBASIC with the Original QL ROM Commands only.<br /></h3>
+
+    <p>This is currently not possible.</p>
+
+    <h3>A7.2.4 Multitasking a SBASIC Program.<br /></h3>
+
+    <p>This is much easier than under MultiBASIC and the standard form for doing this is
+    to use a command such as:</p>
+
+    <p><span style="font-style: italic;">EXEC flp1_program_bas</span></p>
+
+    <p>Provided that the name of the program ends in _bas or _sav, then this BASIC
+    program will be started as a separate multitasking program running under a SBASIC
+    Interpreter.</p>
+
+    <p>You can also use SBASIC's characteristics as a Thing to start a BASIC program -
+    see Section A7.2.1.</p>
+
+    <h3>A7.2.5 Loading Toolkits into a SBASIC<br /></h3>
+
+    <p>This follows exactly the same rules as on a MultiBASIC.</p>
+
+    <h3>A7.2.6 Defining the Name of a SBASIC<br /></h3>
+
+    <p>You can do this by using the command <span style=
+    "font-style: italic;">JOB_NAME</span> from within the SBASIC Interpreter.</p>
+
+    <p>If you start a SBASIC using the HOT_THING command, you can also use this to define
+    the name of the Job, for example:</p>
+
+    <p><span style="font-style: italic;">ERT HOT_THING('L','SBASIC','INT 1')</span></p>
+
+    <p>However, all future SBASICs started from the hot key will still be given the same
+    name!!</p>
+
+    <h3>A7.2.7 Channel #0, #1 and #2<br /></h3>
+
+    <p>Channel #0, #1 and #2 are dealt with differently under a SBASIC Interpreter than
+    under the main SuperBASIC Interpreter (due to the fact that they may not be
+    <span style="font-style: italic;">OPEN</span> - see Section A7.2.1).</p>
+
+    <p>-All standard QL ROM and Toolkit II commands which would normally default to #1 or
+    #2 will access #0 if the relevant default channel is not <span style=
+    "font-style: italic;">OPEN</span>.</p>
+
+    <p>-If a standard keyword tries to access #0 by default (or as in the previous
+    paragraph), if #0 is not <span style="font-style: italic;">OPEN</span> already, then
+    a small default #0 will be <span style="font-style: italic;">OPEN</span>ed
+    automatically.</p>
+
+    <p>-If you have <span style="font-style: italic;">RUN</span> a program under SBASIC
+    (for example used <span style="font-style: italic;">EXEC flp1_PROG_BAS</span>) and on
+    completion of the program #0 is not <span style="font-style: italic;">OPEN</span>,
+    the SBASIC Interpreter will be removed.</p>
+
+    <p>-If an error occurs and #0 is not <span style="font-style: italic;">OPEN</span>, a
+    small default #0 will be <span style="font-style: italic;">OPEN</span>ed
+    automatically to report the error.</p>
+
+    <h3>A7.2.8 Removing a SBASIC<br /></h3>
+
+    <p><span style="font-style: italic;">CLOSE #0</span> will remove an SBASIC if a
+    program is not <span style="font-style: italic;">RUN</span>ning. However, it is
+    better to use the explicit command <span style="font-style: italic;">QUIT</span>.</p>
+
+    <h3>A7.2.9 Keywords Which are Useful in SBASICs.<br /></h3>
+
+    <p>Reference should be made to <span style="font-style: italic;">SEND_EVENT</span>
+    and <span style="font-style: italic;">WAIT_EVENT</span>.</p>
+
+    <p><span style="font-style: italic;">DEVTPYE</span> allows you to find out is a
+    channel is <span style="font-style: italic;">OPEN</span>.</p>
+
+    <p><span style="font-style: italic;">QUIT</span> and <span style=
+    "font-style: italic;">JOB_NAME</span> are only of any relevance from within a
+    SBASIC.</p>
+
+    <p><span style="font-style: italic;">WMON</span> and <span style=
+    "font-style: italic;">WTV</span> allow you to move the SBASIC windows.</p>
+  </div>
+</body>
+</html>

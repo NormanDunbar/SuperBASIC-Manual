@@ -22,6 +22,10 @@ Contents:
    A2. SMSQ/E <Appendix02.clean>
    A3. Emulators <Appendix03.clean>
    A4. Thor Computers <Appendix04.clean>
+   A5. Expansion Boards <Appendix05.clean>
+   A6. Compatibility <Appendix06.clean>
+   A7. Multiple Basics <Appendix07.clean>
+   A8. Error Messages <Appendix08.clean>
 
 .. Indices and tables
    ==================

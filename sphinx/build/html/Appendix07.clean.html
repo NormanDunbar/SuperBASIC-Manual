@@ -1,0 +1,654 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>A7 Multiple Basics &mdash; SBASIC/SuperBASIC Reference Manual Online 4.0.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="SBASIC/SuperBASIC Reference Manual Online 4.0.1 documentation" href="index.html"/>
+        <link rel="next" title="A8 ERROR MESSAGES" href="Appendix08.clean.html"/>
+        <link rel="prev" title="A6 Compatibility" href="Appendix06.clean.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SBASIC/SuperBASIC Reference Manual Online
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Foreword.clean.html">Foreword</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Introduction.clean.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Credits.clean.html">Credits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Structure.clean.html">Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WritingPrograms.clean.html">Writing Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AppendicesIntro.clean.html">Appendices Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix01.clean.html">A1. Minerva</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix02.clean.html">A2. SMSQ/E</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix03.clean.html">A3. Emulators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix04.clean.html">A4. Thor Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix05.clean.html">A5. Expansion Boards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix06.clean.html">A6. Compatibility</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">A7. Multiple Basics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#a7-1-minerva-multibasics">A7.1 MINERVA MultiBASICS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#a7-1-1-channels-opened-automatically-in-multibasics">A7.1.1 Channels OPENed automatically in MultiBASICs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#a7-1-2-starting-a-multibasic-with-the-original-ql-rom-commands-only">A7.1.2 Starting a MultiBASIC with the Original QL ROM Commands only</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#a7-1-3-multitasking-a-multibasic-program">A7.1.3 Multitasking a MultiBASIC Program</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#a7-1-4-what-happens-to-the-rest-of-the-command-string">A7.1.4 What Happens to the Rest of the Command String?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#a7-1-5-loading-toolkits-into-a-multibasic">A7.1.5 Loading Toolkits into a MultiBASIC</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#a7-2-sms-multiple-sbasics">A7.2 SMS Multiple SBASICs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#a7-2-1-channels-opened-automatically-in-sbasics">A7.2.1 Channels OPENed automatically in SBASICs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#a7-2-2-the-command-string">A7.2.2 The Command String</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#a7-2-3-starting-an-sbasic-with-the-original-ql-rom-commands-only">A7.2.3 Starting an SBASIC with the Original QL ROM Commands only</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#a7-2-4-multitasking-an-sbasic-program">A7.2.4 Multitasking an SBASIC Program</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#a7-2-5-loading-toolkits-into-an-sbasic">A7.2.5 Loading Toolkits into an SBASIC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#a7-2-6-defining-the-name-of-an-sbasic">A7.2.6 Defining the Name of an SBASIC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#a7-2-7-channel-0-1-and-2">A7.2.7 Channel #0, #1 and #2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#a7-2-8-removing-an-sbasic">A7.2.8 Removing an SBASIC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#a7-2-9-keywords-which-are-useful-in-sbasics">A7.2.9 Keywords Which are Useful in SBASICs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html">A8 ERROR MESSAGES</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#a8-1-standard-english-error-messages">A8.1 STANDARD ENGLISH ERROR MESSAGES</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#a8-2-foreign-error-messages">A8.2 FOREIGN ERROR MESSAGES</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#a8-3-dates">A8.3 DATES</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#days-of-the-week">Days of the Week:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#months-of-the-year">Months of the Year:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#a8-4-sms-messages">A8.4 SMS MESSAGES</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#parsing">PARSING</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#pre-compiling">PRE-COMPILING</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#running">RUNNING</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#syntax-error-in-expression">SYNTAX ERROR IN EXPRESSION</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#syntax-fehler-im-ausdruck">Syntax-Fehler im Ausdruck</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#erreur-de-syntaxe-dans-l-expression">erreur de syntaxe dans l&#8217;expression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#missing-left-parenthesis">MISSING LEFT PARENTHESIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#linke-klammer-fehlt">Linke Klammer fehlt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#manque-parenthese-gauche">manque parenthèse gauche</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#missing-right-parenthesis">MISSING RIGHT PARENTHESIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#rechte-klammer-fehlt">Rechte Klammer fehlt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#manque-parenthese-droite">manque parenthèse droite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#error-in-line-number">ERROR IN LINE NUMBER</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#fehlerhafte-zeilennummer">fehlerhafte Zeilennummer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#erreur-a-la-ligne-numero">erreur à la ligne numéro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#bad-string-missing-delimiter">BAD STRING: MISSING DELIMITER</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#string-begrenzer-fehlt">String-Begrenzer fehlt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#manque-marqueur-limite-de-chaine">manque marqueur limite de chaîne</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#incorrect-procedure-or-function-definition">INCORRECT PROCEDURE OR FUNCTION DEFINITION</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#falsche-definition-einer-prozedur-oder-funktion">falsche Definition einer Prozedur oder Funktion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#procedure-or-function-definition-not-allowed-here">PROCEDURE OR FUNCTION DEFINITION NOT ALLOWED HERE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#prozedur-oder-funktion-definition-hier-nicht-erlaubt">Prozedur- oder Funktion-Definition hier nicht erlaubt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#definition-d-une-fonction-ou-procedure-non-permise-ici">définition d&#8217;une fonction ou procédure non permise ici</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#defines-may-not-be-within-other-clauses">DEFINES MAY NOT BE WITHIN OTHER CLAUSES</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#defines-durfen-nicht-innerhalb-strukturen-stehen">DEFines dürfen nicht innerhalb Strukturen stehen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#defines-ne-peuvent-se-trouver-dans-d-autres-structures">DEFines ne peuvent se trouver dans d&#8217;autres structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#misplaced-end-define">MISPLACED END DEFINE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#end-define-darf-hier-nicht-stehen">END DEFine darf hier nicht stehen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#end-define-n-est-pas-a-sa-place-ici">END DEFine n&#8217;est pas à sa place ici</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#misplaced-local">MISPLACED LOCAL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#local-darf-hier-nicht-stehen">LOCal darf hier nicht stehen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#local-n-est-pas-a-sa-place-ici">LOCal n&#8217;est pas à sa place ici</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#return-not-in-procedure-or-function">RETURN NOT IN PROCEDURE OR FUNCTION</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#return-ist-nicht-innerhalb-prozedur-oder-funktion">RETurn ist nicht innerhalb Prozedur oder Funktion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#return-ne-se-trouve-pas-dans-une-fonction-ou-procedure">RETurn ne se trouve pas dans une fonction ou procédure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#when-clauses-may-not-be-nested">WHEN CLAUSES MAY NOT BE NESTED</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#when-strukturen-durfen-nicht-verschachtelt-sein">WHEN Strukturen dürfen nicht verschachtelt sein</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#des-structures-when-ne-peuvent-etre-emboitees">des structures WHEN ne peuvent être emboîtées</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#misplaced-end-when">MISPLACED END WHEN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#end-when-darf-hier-nicht-stehen">END WHEN darf hier nicht stehen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#end-when-n-est-pas-a-sa-place-ici">END WHEN n&#8217;est pas à sa place ici</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#misplaced-else">MISPLACED ELSE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#else-darf-hier-nicht-stehen">ELSE darf hier nicht stehen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#else-n-est-pas-a-sa-place-ici">ELSE n&#8217;est pas à sa place ici</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#misplaced-end-if">MISPLACED END IF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#end-if-darf-hier-nicht-stehen">END IF darf hier nicht stehen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#end-if-n-est-pas-a-sa-place-ici">END IF n&#8217;est pas à sa place ici</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#program-structures-nested-too-deeply-my-brain-aches">PROGRAM STRUCTURES NESTED TOO DEEPLY, MY BRAIN ACHES</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#strukturen-zu-tief-verschachtelt">Strukturen zu tief verschachtelt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#les-structures-sont-trop-emboitees-ca-me-fait-mal-au-crane">les structures sont trop emboîtées, ça me fait mal au crÀne</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#incomplete-if-clause">INCOMPLETE IF CLAUSE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#unvollstandige-if-struktur">unvollständige IF Struktur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#structure-if-incomplete">structure IF incomplète</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#incomplete-select-clause">INCOMPLETE SELECT CLAUSE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#unvollstandige-select-struktur">unvollständige SELect Struktur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#structure-select-incomplete">structure SELECT incomplète</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#incomplete-define">INCOMPLETE DEFINE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#unvollstandiges-define">unvollständiges DEFine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#structure-define-incomplete">structure DEFINE incomplète</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#incomplete-when-clause">INCOMPLETE WHEN CLAUSE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#unvollstandige-when-struktur">unvollständige WHEN Struktur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#structure-when-incomplete">structure WHEN incomplète</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#unacceptable-loop-variable">UNACCEPTABLE LOOP VARIABLE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#unerlaubte-schleifen-variable">unerlaubte Schleifen-Variable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#variable-de-controle-boucle-inacceptable">variable de contrôle boucle inacceptable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#unable-to-find-an-open-loop">UNABLE TO FIND AN OPEN LOOP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#kann-keine-offene-schleife-finden">kann keine offene Schleife finden</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#aucune-boucle-ouverte-ne-peut-etre-trouvee">aucune boucle ouverte ne peut être trouvée</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#undefined-loop-control-variable">UNDEFINED LOOP CONTROL VARIABLE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#undefinierte-schleifen-variable">undefinierte Schleifen-Variable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#la-variable-de-controle-boucle-est-indefinie">la variable de contrôle boucle est indéfinie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#misplaced-end-select">MISPLACED END SELECT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#end-select-darf-hier-nicht-stehen">END SELect darf hier nicht stehen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#end-select-n-est-pas-a-sa-place-ici">END SELect n&#8217;est pas à sa place ici</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#data-in-command-line-has-no-meaning">DATA IN COMMAND LINE HAS NO MEANING</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#data-in-befehlszeige-wird-ignoriert">DATA in Befehlszeige wird ignoriert</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#data-dans-une-ligne-de-commande-n-a-pas-de-sens">DATA dans une ligne de commande n&#8217;a pas de sens</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#incorrectly-structured-select-clause">INCORRECTLY STRUCTURED SELECT CLAUSE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#falsch-strukturiertes-select">falsch strukturiertes SELect</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#select-mal-structure">SELECT mal structuré</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#unacceptable-parameters-for-read">UNACCEPTABLE PARAMETERS FOR READ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#unerlaubte-parameter-fur-read">unerlaubte Parameter für READ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#parametre-inacceptable-pour-read">paramètre inacceptable pour READ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#end-of-data">END OF DATA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#ende-von-data">Ende von DATA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#fin-de-data">fin de DATA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#sbasic-cannot-perform-reads-within-data-expressions">SBASIC CANNOT PERFORM READS WITHIN DATA EXPRESSIONS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#sbasic-kann-keine-reads-innerhalb-datas-ausfuhren">SBASIC kann keine READs innerhalb DATAs ausführen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#sbasic-ne-peut-effectuer-des-reads-dans-des-expressions-data">SBASIC ne peut effectuer des READs dans des expressions DATA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#unknown-procedure">UNKNOWN PROCEDURE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#unbekannte-prozedur">unbekannte Prozedur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#procedure-inconnue">procédure inconnue</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#unknown-function-or-array">UNKNOWN FUNCTION OR ARRAY</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#unbekannte-funktion-oder-feld">unbekannte Funktion oder Feld</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#fonction-ou-tableau-inconnus">fonction ou tableau inconnus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#only-arrays-may-be-dimensioned">ONLY ARRAYS MAY BE DIMENSIONED</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#nur-felder-durfen-dimensioniert-werden">nur Felder dürfen dimensioniert werden</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#on-ne-peut-dimensionner-que-des-tableaux">on ne peut dimensionner que des tableaux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#procedure-and-function-parameters-may-not-be-dimensioned">PROCEDURE AND FUNCTION PARAMETERS MAY NOT BE DIMENSIONED</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#prozedur-oder-funktion-parameter-durfen-nicht-dimensioniert-werden">Prozedur- oder Funktion-Parameter dürfen nicht dimensioniert werden</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#les-parametres-des-procedures-et-fonctions-ne-peuvent-etre-dimensionnes">les paramètres des procédures et fonctions ne peuvent être dimensionnés</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#sbasic-cannot-put-up-with-negative-dimensions">SBASIC CANNOT PUT UP WITH NEGATIVE DIMENSIONS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#sbasic-mag-keine-negativen-dimensionen">SBASIC mag keine negativen Dimensionen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#sbasic-ne-sait-comment-traiter-des-dimensions-negatives">SBASIC ne sait comment traiter des dimensions négatives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#dimensional-overflow-you-cannot-be-serious">DIMENSIONAL OVERFLOW - YOU CANNOT BE SERIOUS!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#dimensions-uberlauf">Dimensions-Überlauf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#depassement-de-dimension-soyons-serieux">dépassement de dimension - soyons sérieux!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#error-in-index-list">ERROR IN INDEX LIST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#fehler-in-index-liste">Fehler in Index-Liste</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#erreur-dans-la-liste-d-indexage">erreur dans la liste d&#8217;indexage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#too-many-indexes">TOO MANY INDEXES</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#zu-viele-indizes">zu viele Indizes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#trop-d-indices">trop d&#8217;indices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#cannot-assign-to-sub-array">CANNOT ASSIGN TO SUB-ARRAY</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#kann-nicht-auf-teil-feld-zuweisen">kann nicht auf Teil-Feld zuweisen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#impossible-d-assigner-a-un-sous-tableau">impossible d&#8217;assigner à un sous-tableau</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#unacceptable-array-index-list">UNACCEPTABLE ARRAY INDEX LIST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#fehlerhafte-feld-index-liste">fehlerhafte Feld-Index-Liste</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#liste-d-indices-dans-tableau-inacceptab-french-le">liste d&#8217;indices dans tableau inacceptab (French)le</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#warnings">WARNINGS:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#array-index-out-of-range">ARRAY INDEX OUT OF RANGE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#feld-index-auaerhalb-bereich">Feld-Index auáerhalb Bereich</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#indice-tableau-hors-limites">indice tableau hors limites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#only-arrays-or-strings-may-be-indexed">ONLY ARRAYS OR STRINGS MAY BE INDEXED</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#nur-felder-oder-strings-durfen-indiziert-werden">nur Felder oder Strings dürfen indiziert werden</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#on-peut-indexer-uniquement-des-tableaux-ou-chaines">on peut indexer uniquement des tableaux ou chaînes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#assignment-can-only-be-to-a-variable-or-array-element">ASSIGNMENT CAN ONLY BE TO A VARIABLE OR ARRAY ELEMENT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#zuweisungen-nur-an-variable-oder-feld-element">Zuweisungen nur an Variable oder Feld-Element</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#assignation-uniquement-vers-une-variable-ou-un-element-d-un-tableau">assignation uniquement vers une variable ou un élément d&#8217;un tableau</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#mistake-in-program">MISTAKE IN PROGRAM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#mistake-fehler-im-programm">MISTake - Fehler im Programm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#mistake-erreur-de-programmation">MISTake - Erreur de programmation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#during-when-processing">DURING WHEN PROCESSING</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#wahrend-when-bearbeitung">während WHEN-Bearbeitung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#pendant-le-traitement-de-when">pendant le traitement de when</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#proc-fn-cleared">PROC/FN CLEARED</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#proc-fn-geloscht">PROC/FN gelöscht</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#proc-fn-effacee">PROC/FN effacée</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#at-line">At line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#in-zeile">In Zeile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#a-la-ligne">A la ligne</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#fatal-error-in-sbasic-interpreter">FATAL ERROR IN SBASIC INTERPRETER</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#schwerwiegender-fehler-im-sbasic-interpreter">schwerwiegender Fehler im SBASIC-Interpreter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#erreur-fatale-dans-l-interpreteur-sbasic">erreur fatale dans l&#8217;interpréteur SBASIC</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">SBASIC/SuperBASIC Reference Manual Online</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>A7 Multiple Basics</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/Appendix07.clean.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="a7-multiple-basics">
+<h1>A7 Multiple Basics<a class="headerlink" href="#a7-multiple-basics" title="Permalink to this headline">¶</a></h1>
+<p>The Sinclair QL is one of a few computers which allow you to run several
+BASIC programs in memory at the same time, multitasking them as if they
+were machine code programs.</p>
+<p>The QL implementation of this is more flexible than most other
+implementations and certainly a lot cheaper, requiring only a standard
+QL with Minerva ROM (or a QL with Gold Card and SMSQ/E) at the least.</p>
+<p>Both Minerva and SMS provide the ability to use several SuperBASIC
+interpreters at the same time, allowing you to work on more than one
+BASIC program at a time and run them alongside other BASIC programs.</p>
+<p>There is not really a great deal of difference between the two
+implementations and so we shall first of all describe the Minerva
+implementation (known as MultiBASICs) and then describe the differences
+in SMS&#8217;s implementation (known as Multiple SBASICs).</p>
+<div class="section" id="a7-1-minerva-multibasics">
+<h2>A7.1 MINERVA MultiBASICS<a class="headerlink" href="#a7-1-minerva-multibasics" title="Permalink to this headline">¶</a></h2>
+<p>A MultiBasic on Minerva is very similar to the standard QL&#8217;s SuperBasic
+interpreter. This means that once a MultiBasic has been created, you can
+use it in practically the same way as you would normal SuperBasic (that
+is to say that you can enter programs, load and run programs using the
+standard commands set out in this manual).</p>
+<p>There are several advantages in using MultiBasics, but the main
+advantages are:</p>
+<ul class="simple">
+<li>You can have several programs running at the same time (one program
+under each MultiBasic, and one under the standard SuperBasic
+interpreter) in much the same way as you can have several machine code
+programs</li>
+<li>You can tell a MultiBasic to ignore any machine code extensions other
+than the standard ROM keywords (letting you test programs on semi-clean
+machines)</li>
+<li>If a program &#8216;locks up the QL&#8217;, provided that it is running in a
+MultiBasic, it will only lock up that interpreter and you should be able
+to return to the standard SuperBasic interpreter.</li>
+</ul>
+<p>A Multibasic can be created in one of three ways:</p>
+<blockquote>
+<div>EXEC &#8216;flp1_multib_exe&#8217; <sup>*</sup>[,file<sup>x</sup>]<sup>*</sup> [;cmd$]</div></blockquote>
+<p>or:</p>
+<blockquote>
+<div>MB</div></blockquote>
+<p>or:</p>
+<blockquote>
+<div>EXEC pipep <sup>*</sup>[,file<sup>x</sup>]<sup>*</sup> [; cmd$]</div></blockquote>
+<p>The first two methods are for use on Minerva ROMs pre v1.93 (the file
+multib_exe is contained on the disk supplied with the Minerva ROM). The
+second method is for use on later versions of Minerva which have the
+relevant machine code built into the ROM.</p>
+<div class="section" id="a7-1-1-channels-opened-automatically-in-multibasics">
+<h3>A7.1.1 Channels OPENed automatically in MultiBASICs<a class="headerlink" href="#a7-1-1-channels-opened-automatically-in-multibasics" title="Permalink to this headline">¶</a></h3>
+<p>When one of the above commands is entered, Minerva will examine the
+parameters passed using the command. It first of all has to decide how
+to set up the standard channels (#0 - the primary command channel and #1
+- the primary output channel).</p>
+<p>If neither a file nor cmd$ is supplied, for example:</p>
+<blockquote>
+<div>EXEC pipep</div></blockquote>
+<p>then a single window is opened on screen which is used by both #0 and
+#1. #2 is not opened. The actual position of this window on the screen
+cannot be set by the user and is dictated by how many MultiBasics are
+already running (you can of course redefine #0 and #1 from within the
+MultiBasic by using WINDOW, although as both #0 and #1 use the same
+window, any attempt to redefine #0 will affect #1 and vice versa).</p>
+<p>If however, cmd$ is supplied, for example:</p>
+<blockquote>
+<div>EXEC pipep;&#8217;This is a Command String&#8217;</div></blockquote>
+<p>channels #0, #1 and #2 will all be set up as in the standard SuperBasic
+interpreter. You can then CLOSE #1 or CLOSE #2 without removing the
+MultiBasic. Sections A7.1.2 to A7.1.4 explain how the command string is
+dealt with.</p>
+<p>If one file (or channel) is supplied, for example:</p>
+<blockquote>
+<div>EXEC pipep,flp1_inputfile</div></blockquote>
+<p>Minerva will open both #0 and #1 to access that file, whereas if two
+files are supplied, #0 is opened to access file1 and #1 is opened to
+access file2. If three or more files are supplied, then #0 is opened to
+access file1, #1 to access file2, #3 to access file3 and so on (#2 is
+omitted).</p>
+</div>
+<div class="section" id="a7-1-2-starting-a-multibasic-with-the-original-ql-rom-commands-only">
+<h3>A7.1.2 Starting a MultiBASIC with the Original QL ROM Commands only<a class="headerlink" href="#a7-1-2-starting-a-multibasic-with-the-original-ql-rom-commands-only" title="Permalink to this headline">¶</a></h3>
+<p>cmd$ is used to pass different parameters to a MultiBasic. If the last
+character is an exclamation mark (!) then this is taken to be the ROM
+marker, and the MultiBasic will start up recognising only the original
+keywords contained in the Minerva ROM.</p>
+</div>
+<div class="section" id="a7-1-3-multitasking-a-multibasic-program">
+<h3>A7.1.3 Multitasking a MultiBASIC Program<a class="headerlink" href="#a7-1-3-multitasking-a-multibasic-program" title="Permalink to this headline">¶</a></h3>
+<p>In order to run a BASIC program as a multitasking program, it is
+necessary to start a MultiBASIC interpreter and pass the name of the
+program to be run as part of cmd$ passed to the MultiBASIC by the
+start-up command.</p>
+<p>If cmd$ contains the file marker (&gt;), the characters in the string
+before that marker are taken to represent a file name which will be
+opened to read commands from (similar to a stream device). The
+MultiBasic will open both #0 and #1 to this filename and will read the
+characters from the file and try to interpret them as a program.</p>
+<p>If the program does not open any screen windows and print to them, this
+will allow a SuperBasic program to run in the background, for example,
+as a filter.</p>
+<p>You will be unable to redefine #0 from within the program, as this will
+stop the MultiBasic from accessing the command file. This could for
+example, be used to test programs:</p>
+<blockquote>
+<div>EXEC pipep;&#8217;flp1_boot&gt;&#8217;</div></blockquote>
+</div>
+<div class="section" id="a7-1-4-what-happens-to-the-rest-of-the-command-string">
+<h3>A7.1.4 What Happens to the Rest of the Command String?<a class="headerlink" href="#a7-1-4-what-happens-to-the-rest-of-the-command-string" title="Permalink to this headline">¶</a></h3>
+<p>Having stripped all of the information needed in Section A7.1.2 and
+A7.1.3 from cmd$, any characters left in the string supplied can then be
+read from within a MultiBasic itself by simply accessing CMD$. For
+example:</p>
+<blockquote>
+<div>PRINT &#8216;Your Name is :&#8217;!CMD$</div></blockquote>
+</div>
+<div class="section" id="a7-1-5-loading-toolkits-into-a-multibasic">
+<h3>A7.1.5 Loading Toolkits into a MultiBASIC<a class="headerlink" href="#a7-1-5-loading-toolkits-into-a-multibasic" title="Permalink to this headline">¶</a></h3>
+<p>Any toolkits which are LRESPR&#8217;d from within a MultiBASIC are defined as
+local to that MultiBASIC and will not be recognised from any other
+interpreter (unless you start yet another MultiBASIC from within that
+MultiBASIC interpreter). They will therefore be removed when you remove
+the MultiBASIC interpreter which loaded the extensions.</p>
+<p>For this reason, MultiBASICs should not be used to link in system
+extensions (such as BTOOL which adds new device drivers).</p>
+</div>
+</div>
+<div class="section" id="a7-2-sms-multiple-sbasics">
+<h2>A7.2 SMS Multiple SBASICs<a class="headerlink" href="#a7-2-sms-multiple-sbasics" title="Permalink to this headline">¶</a></h2>
+<p>These are extremely similar to Minerva MultiBASICs and can be used in
+much the same way as MultiBASICs and have the same advantages (except
+that you cannot at present tell SMS to start up an SBASIC with only the
+standard QL ROM keywords).</p>
+<p>On versions of SMSQ which do not incorporate the Hotkey System II
+automatically (and therefore need the file HOT_REXT to be loaded), you
+will need to enter the command SB_THING to create the SBASIC Thing (see
+below).</p>
+<p>A Multiple SBASIC can be created in one of several ways. The more usual
+methods are:</p>
+<blockquote>
+<div>EXEC &#8216;flp1_program_bas&#8217; <sup>*</sup>[,file<sup>x</sup>]<sup>*</sup> [;cmd$]</div></blockquote>
+<p>or:</p>
+<blockquote>
+<div>SBASIC [offset]</div></blockquote>
+<p>or:</p>
+<blockquote>
+<div>EXEP &#8216;SBASIC&#8217;;cmd$</div></blockquote>
+<p>The first method allows you to automatically load a BASIC program to run
+under an SBASIC interpreter multitasking alongside the normal SuperBASIC
+interpreter (Job 0). This allows you to start a program up from within
+Qpac 2&#8217;s File Menu.</p>
+<p>The second method merely starts up an SBASIC interpreter.</p>
+<p>Because SBASIC is implemented as a Thing under the Hotkey System II, you
+can also set start an SBASIC Interpreter using the third method, or even
+from Qpac 2&#8217;s Exec Menu. You can even set up a hotkey to start an SBASIC
+interpreter. For example:</p>
+<blockquote>
+<div>ERT HOT_THING (&#8216;L&#8217;,&#8217;SBASIC&#8217;)</div></blockquote>
+<p>will start up a new SBASIC interpreter whenever &lt;ALT&gt;&lt;L&gt; is pressed.</p>
+<div class="section" id="a7-2-1-channels-opened-automatically-in-sbasics">
+<h3>A7.2.1 Channels OPENed automatically in SBASICs<a class="headerlink" href="#a7-2-1-channels-opened-automatically-in-sbasics" title="Permalink to this headline">¶</a></h3>
+<p>If you use the command SBASIC to start an Interpreter, the initial
+windows which will be OPEN depends upon whether an offset parameter is
+passed:</p>
+<ul class="simple">
+<li>If no offset is passed then all the standard Windows #0,#1 and #2 will
+be OPENed (as per WMON)</li>
+<li>If offset is specified, only #0 will be opened and the offset is used
+to determine the location on screen of that window.</li>
+</ul>
+<p>If you use the third method of invoking SBASIC, or Qpac 2&#8217;s Exec Menu or
+a Hot Key to start an Interpreter, then it depends upon whether you pass
+a string as a parameter:</p>
+<ul>
+<li><p class="first">If no string is passed, then the standard windows #0, #1 and #2 are
+OPENed.</p>
+</li>
+<li><p class="first">If you pass a string to the interpreter, then no windows are OPENed and
+the string is treated as a command as if it had been entered in the
+command line (see Section A7.2.7 below!). For example:</p>
+<blockquote>
+<div><p>EXEP &#8216;SBASIC&#8217;;&#8217;LRUN flp1_PROG_Bas&#8217;</p>
+</div></blockquote>
+</li>
+</ul>
+<p>is the same as:</p>
+<blockquote>
+<div>EXEC flp1_PROG_bas</div></blockquote>
+<p>If you instead use a command such as EXEC to start up a program under a
+SBASIC interpreter, then no windows will be OPENed by default and the
+program will need to OPEN all of its own channels.</p>
+<p>However, if any files (or open channels) are specified then (as with
+MultiBASICs) these are OPENed as #0, #1 onwards (#2 is not omitted in
+this case).</p>
+<p>We would refer you to the explanation of EW about setting up Filters by
+making use of these facilities.</p>
+</div>
+<div class="section" id="a7-2-2-the-command-string">
+<h3>A7.2.2 The Command String<a class="headerlink" href="#a7-2-2-the-command-string" title="Permalink to this headline">¶</a></h3>
+<p>The effect of the command string depends upon the circumstances.</p>
+<p>If the SBASIC Interpreter is started using the EXEC command (or similar)
+then SMS does nothing with the command string and it can merely be read
+from within the SBASIC Interpreter with the function CMD$.</p>
+<p>If however, SBASIC is started using the Thing System, then the command
+string is executed as if it were a direct command (see Section A7.2.1).</p>
+</div>
+<div class="section" id="a7-2-3-starting-an-sbasic-with-the-original-ql-rom-commands-only">
+<h3>A7.2.3 Starting an SBASIC with the Original QL ROM Commands only<a class="headerlink" href="#a7-2-3-starting-an-sbasic-with-the-original-ql-rom-commands-only" title="Permalink to this headline">¶</a></h3>
+<p>This is currently not possible.</p>
+</div>
+<div class="section" id="a7-2-4-multitasking-an-sbasic-program">
+<h3>A7.2.4 Multitasking an SBASIC Program<a class="headerlink" href="#a7-2-4-multitasking-an-sbasic-program" title="Permalink to this headline">¶</a></h3>
+<p>This is much easier than under MultiBASIC and the standard form for
+doing this is to use a command such as:</p>
+<blockquote>
+<div>EXEC flp1_program_bas</div></blockquote>
+<p>Provided that the name of the program ends in _bas or _sav, then this
+BASIC program will be started as a separate multitasking program running
+under an SBASIC Interpreter.</p>
+<p>You can also use SBASIC&#8217;s characteristics as a Thing to start a BASIC
+program - see Section A7.2.1.</p>
+</div>
+<div class="section" id="a7-2-5-loading-toolkits-into-an-sbasic">
+<h3>A7.2.5 Loading Toolkits into an SBASIC<a class="headerlink" href="#a7-2-5-loading-toolkits-into-an-sbasic" title="Permalink to this headline">¶</a></h3>
+<p>This follows exactly the same rules as on a MultiBASIC.</p>
+</div>
+<div class="section" id="a7-2-6-defining-the-name-of-an-sbasic">
+<h3>A7.2.6 Defining the Name of an SBASIC<a class="headerlink" href="#a7-2-6-defining-the-name-of-an-sbasic" title="Permalink to this headline">¶</a></h3>
+<p>You can do this by using the command JOB_NAME from within the SBASIC
+Interpreter.</p>
+<p>If you start an SBASIC using the HOT_THING command, you can also use
+this to define the name of the Job, for example:</p>
+<blockquote>
+<div>ERT HOT_THING(&#8216;L&#8217;,&#8217;SBASIC&#8217;,&#8217;INT 1&#8217;)</div></blockquote>
+<p>However, all future SBASICs started from the hot key will still be given
+the same name!!</p>
+</div>
+<div class="section" id="a7-2-7-channel-0-1-and-2">
+<h3>A7.2.7 Channel #0, #1 and #2<a class="headerlink" href="#a7-2-7-channel-0-1-and-2" title="Permalink to this headline">¶</a></h3>
+<p>Channel #0, #1 and #2 are dealt with differently under an SBASIC
+Interpreter than under the main SuperBASIC Interpreter (due to the fact
+that they may not be OPEN - see Section A7.2.1).</p>
+<ul class="simple">
+<li>All standard QL ROM and Toolkit II commands which would normally
+default to #1 or #2 will access #0 if the relevant default channel is
+not OPEN.</li>
+<li>If a standard keyword tries to access #0 by default (or as in the
+previous paragraph), if #0 is not OPEN already, then a small default #0
+will be OPENed automatically.</li>
+<li>If you have RUN a program under SBASIC (for example used EXEC
+flp1_PROG_BAS) and on completion of the program #0 is not OPEN, the
+SBASIC Interpreter will be removed.</li>
+<li>If an error occurs and #0 is not OPEN, a small default #0 will be
+OPENed automatically to report the error.</li>
+</ul>
+</div>
+<div class="section" id="a7-2-8-removing-an-sbasic">
+<h3>A7.2.8 Removing an SBASIC<a class="headerlink" href="#a7-2-8-removing-an-sbasic" title="Permalink to this headline">¶</a></h3>
+<p>CLOSE #0 will remove an SBASIC if a program is not RUNning. However, it
+is better to use the explicit command QUIT.</p>
+</div>
+<div class="section" id="a7-2-9-keywords-which-are-useful-in-sbasics">
+<h3>A7.2.9 Keywords Which are Useful in SBASICs<a class="headerlink" href="#a7-2-9-keywords-which-are-useful-in-sbasics" title="Permalink to this headline">¶</a></h3>
+<p>Reference should be made to SEND_EVENT and WAIT_EVENT.</p>
+<p>DEVTPYE allows you to find out is a channel is OPEN.</p>
+<p>QUIT and JOB_NAME are only of any relevance from within an SBASIC.</p>
+<p>WMON and WTV allow you to move the SBASIC windows.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Appendix08.clean.html" class="btn btn-neutral float-right" title="A8 ERROR MESSAGES" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Appendix06.clean.html" class="btn btn-neutral" title="A6 Compatibility" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Rich Mellor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'4.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
