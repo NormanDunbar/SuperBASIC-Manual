@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<HTML>  <!-- Tidied by Norman Dunbar -->
+<HEAD>
+  <META name="generator" content="HTML Tidy for HTML5 for Linux version 5.3.7">
+  <META http-equiv="content-type" content="text/html; charset=utf-8">
+  <LINK rel="stylesheet" type="text/css" href="WritingPrograms_files/QLManualStyle.css" media="all">
+  <TITLE>Sinclair QL SuperBASIC/SBASIC Reference Manual - Writing Programs</TITLE>
+</HEAD>
+<BODY>
+  <DIV id="header">
+    SBASIC/SuperBASIC Reference Manual Online (c) RWAP Software
+    The Online Guide to programming the Sinclair QL Home Computer in SuperBASIC
+  </DIV>
+  <DIV id="sideBar">
+    <UL>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/Foreword.html">Foreword</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/Introduction.html">Introduction</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/Credits.html">Credits</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/Structure.html">Structure</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/WritingPrograms.html">Writing Programs</A></LI>
+      <LI style="list-style: none; display: inline">
+        <HR>
+      </LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/KeywordsA.html">Keywords - A</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/KeywordsB.html">Keywords - B</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/KeywordsC.html">Keywords - C</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/KeywordsD.html">Keywords - D</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/KeywordsE.html">Keywords - E</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/KeywordsF.html">Keywords - F</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/KeywordsG.html">Keywords - G</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/KeywordsH.html">Keywords - H</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/KeywordsI.html">Keywords - I</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/KeywordsJ.html">Keywords - J</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/KeywordsK.html">Keywords - K</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/KeywordsL.html">Keywords - L</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/KeywordsM.html">Keywords - M</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/KeywordsN.html">Keywords - N</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/KeywordsO.html">Keywords - O</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/KeywordsP.html">Keywords - P</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/KeywordsQ.html">Keywords - Q</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/KeywordsR.html">Keywords - R</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/KeywordsS.html">Keywords - S</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/KeywordsT.html">Keywords - T</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/KeywordsU.html">Keywords - U</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/KeywordsV.html">Keywords - V</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/KeywordsW.html">Keywords - W</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/KeywordsX.html">Keywords - X</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/KeywordsY.html">Keywords - Y</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/KeywordsZ.html">Keywords - Z</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/Keywords_.html">Keywords - Other</A></LI>
+      <LI style="list-style: none; display: inline">
+        <HR>
+      </LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/AppendicesIntro.html">Appendices Introduction</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/Appendix01.html">Appendix 1 - Minerva</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/Appendix02.html">Appendix 2 - SMSQE</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/Appendix03.html">Appendix 3 - Emulators</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/Appendix04.html">Appendix 4 - THOR Computers</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/Appendix05.html">Appendix 5 - Expansion Boards</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/Appendix06.html">Appendix 6 - Compatability</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/Appendix07.html">Appendix 7 - Multiple BASICs</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/Appendix08.html">Appendix 8 - Error Messages</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/Appendix09.html">Appendix 9 - Character Set / Keyboard</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/Appendix10.html">Appendix 10 - Fonts</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/Appendix11.html">Appendix 11 - Mathematics</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/Appendix12.html">Appendix 12 - Device Drivers</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/Appendix13.html">Appendix 13 - Extended Pointer Environment</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/Appendix14.html">Appendix 14 - Coercion</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/Appendix15.html">Appendix 15 - Mouse Drivers</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/Appendix16.html">Appendix 16 - The QL Display</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/Appendix17.html">Appendix 17 - Networks</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/Appendix18.html">Appendix 18 - Configuring Programs</A></LI>
+    </UL>
+  </DIV>
+  <DIV id="mainText">
+    
+<H3>4 WRITING PROGRAMS</H3>
+
+<P>
+    
+<P>There have been many books and magazine articles written about how to write SuperBASIC programs, so we do not intend to cover the basic principles here. The main section detailing the various keywords available to the SuperBASIC programmer contains many useful examples and we suggest that you work through those examples, making sure that you understand how they work and trying to improve them if possible.</P>
+    
+<P>In this section, we look at some of the major problems which can face the SuperBASIC programmer and hope to provide some guidance as to how you can overcome those problems and ensure that the programs which you write can be used successfully on all implementations of the QL's operating system.</P>
+    
+<H3>4.1 COMPILING SuperBASIC PROGRAMS</H3>
+
+<P>
+    
+<P>Digital Precision's Supercharge and Turbo compilers are not able to compile some keywords (eg. those which allow arrays as parameters) while Liberation Software's QLiberator can compile every additional keyword which makes sense in a compiled program. Although programs compiled with Qliberator will be slower than those compiled with Turbo, the fact that Turbo has not been updated for a number of years (and still contains certain bugs) means that Qliberator may be a better option. This is a matter of fact which we consider worth mentioning for the benefit of Supercharge and Turbo users, it is not intended as a hidden advertisement for QLiberator.</P>
+    
+<P>On the other hand, if you are a Minerva freak, use the Pointer Environment in your programs or want to ensure that your programs will run on SMSQ/E, then you might just find that QLiberator is the better compiler.</P>
+    
+<P>As you look through the book, you will find that many keywords act differently on the various implementations of SuperBASIC. To overcome this problem, we suggest that programs which are designed to run on various implementations of the QL, should be compiled, as subject to the comment below, Compilers ensure that programs will run on any system (provided that all keywords used by the program are available on that implementation).</P>
+    
+<P>If you want to write programs which use built-in functions only if they are available, you will need to use Qliberator which does not report an error until you try to use an undefined keyword (Turbo and SuperCharge both refuse to load the program in this instance).</P>
+    
+<P>Together with the use of the <SPAN style="font-style: italic;">VER$</SPAN> function, you can easily write programs which work on all implementations of the QL making use of extra facilities which may be available on some versions of the operating system.</P>
+    
+<P>One thing of which you must be careful when compiling programs to run on other implementations is the various notes and warnings given for some keywords. Some keywords cannot be compiled and others may have bugs on various implementations which are not fixed by the compiler (refer to the compiler's manual to see if they rectify the bugs). One of the main culprits of this is the <SPAN style="font-style: italic;">CURSOR</SPAN> command which will reject the use of five parameters on pre-MG ROMs.</P>
+    
+<P>Turbo does tend to include its own code to overcome any incompatibility problems with standard QL ROM keywords, whereas Qliberator tends to use the native routines on the operating system on which it is running.</P>
+    
+<P>Another thing to bear in mind when writing programs for use with a compiler is that you should really ensure that the program opens all of its own windows and does not assume that any channels are already open. You will also need to remember to <SPAN style="font-style: italic;">DIM</SPAN>ension any strings used by the program to ensure that the program works the same way as it does under the Interpreter when compiled (see <SPAN style="font-style: italic;">DIM</SPAN> for an explanation of the way in which strings are treated in various circumstances).</P>
+    
+<P>It is also useful to include your own error trapping routines in a compiled program (such as <SPAN style="font-style: italic;">WHEN ERRor</SPAN>) - most compiler error messages are very unhelpful when seen by a user of a program and in particular, there is a problem with programs compiled with Turbo and Supercharge in that they do not wait for the user to press a key after reporting an error before stopping the compiled program. This is fine on a standard QL, as the final display of the program is left on screen - however, under the Pointer Environment, unless the program is started with the command <SPAN style="font-style: italic;">EXEP flp1_test_obj,u</SPAN> (or similar), then the Pointer Environment removes every last trace of the program from the screen when it stops. Also, if any machine code Procedures or Functions report an error, then the error may not be reported and the program may just 'hang' if #0 is not open.</P>
+    
+<P>One of the main problems with compiled programs is the Cache provided with 68020 processors (and faster). Caches cause problems with machine code which modifies itself (normally to enhance speed). Whereas programs compiled with Qliberator should be okay (depending on the toolkits used within them), TURBO compiled programs are normally self- modifying. However, provided that a program is compiled under TURBO with the BRIEF directive then it will run provided that the cache is switched off for the first 0.3 seconds after <SPAN style="font-style: italic;">EXEC</SPAN>ing the program - for example, if a program causes problems, use:</P>
+    <PRE>10 CACHE_OFF
+20 EX flp1_PROGRAM_exe
+30 PAUSE 15
+40 CACHE_ON
+</PRE>
+    
+<P>Refer to <SPAN style="font-style: italic;">CACHE_ON</SPAN> and <SPAN style="font-style: italic;">CACHE_OFF</SPAN> for further details.</P>
+    
+<P>One of the other differences between TURBO compiled programs and Qliberator compiled programs is that the former all make assumptions about the start of the screen and system variables. However, there is a public domain program by Davide Santachiara called Turbostart which resolves these problems by altering compiled programs.</P>
+    
+<H3>4.2 WRITING PROGRAMS TO RUN UNDER THE POINTER ENVIRONMENT</H3>
+
+<P>
+    
+<P>It is not as difficult as it first may seem to write programs to run under the Pointer Environment, unless you intend your program to use the Pointer and Menu facilities provided by the Pointer Environment.</P>
+    
+<P>Basically, any program which has been written with the intention of multitasking will work under the Pointer Environment. However, the program should not attempt to tie up the QL's resources unless it is using them (for example, do not open a printer channel until you need to send output to it) and then close the channel once all output has been sent. It is also useful to allow the user to add their own facilities such as a mouse through amending the boot program.</P>
+    
+<P>A SuperBASIC program will of course only multitask if it is compiled (see Section 4.1) or if the user has Minerva or SMSQ/E which provide multitasking SuperBASIC interpreters.</P>
+    
+<H3>4.2.1 Using the Pointer and Menu Facilities</H3>
+
+<P>
+    
+<P>If you intend to use the Pointer and Menu facilities provided by the Pointer Environment, then you will need to use either QPTR (from Jochen Merz Software) or EasyPTR (also from Jochen Merz Software). The latter is easier to get to grips with and use from SuperBASIC, but is less flexible than QPTR. You may also want to use QMenu (also from Jochen Merz Software) which provides various ready made menus which can be easily added to BASIC programs in order to provide standard facilities such as getting the user to select an existing filename.</P>
+    
+<P>Your program will need to set itself an Outline (see <SPAN style="font-style: italic;">OUTLN</SPAN>) and also check on the screen display size (see <SPAN style="font-style: italic;">SCR_XLIM</SPAN> and <SPAN style="font-style: italic;">SCR_YLIM</SPAN>). You may also want to check that the Pointer Environment is available (see <SPAN style="font-style: italic;">P_ENV</SPAN>).</P>
+    
+<P>If a program does not define an <SPAN style="font-style: italic;">OUTLN</SPAN> properly, then you may notice that some parts of the program's display disappears - the reason for this is that when the program is first loaded, the Pointer Environment uses the <SPAN style="font-style: italic;">OUTLN</SPAN> of the calling Job to define the maximum size of the windows which the program may use - this may be too small and your own program should therefore define its own <SPAN style="font-style: italic;">OUTLN</SPAN>.</P>
+    
+<P>If the <SPAN style="font-style: italic;">OUTLN</SPAN> setting is too small, you may notice that some EasyPTR menus will not appear on screen - this is because if you try to <SPAN style="font-style: italic;">OPEN</SPAN> a window which appears partly outside the <SPAN style="font-style: italic;">OUTLN</SPAN> setting, then that window will be <SPAN style="font-style: italic;">OPEN</SPAN>ed to be the same size and position as the <SPAN style="font-style: italic;">OUTLN</SPAN> setting. If you try to use <SPAN style="font-style: italic;">WINDOW</SPAN> to position an existing window so that any part of it would fall outside of the <SPAN style="font-style: italic;">OUTLN</SPAN> setting, then an error will be reported.</P>
+    
+<P>Other problems will occur if you <SPAN style="font-style: italic;">CLOSE</SPAN> the window which has the <SPAN style="font-style: italic;">OUTLN</SPAN> defined - the <SPAN style="font-style: italic;">OUTLN</SPAN> will become the smallest area possible which encompasses all currently <SPAN style="font-style: italic;">OPEN</SPAN> windows - and will become attached to the smallest existing channel number - this unfortunately means that the contents of any windows which have been <SPAN style="font-style: italic;">CLOSE</SPAN>d where those windows (or part of them) fall outside the new <SPAN style="font-style: italic;">OUTLN</SPAN>, will disappear!! This can result in some programs losing parts of their display.</P>
+    
+<P>An example of this can be seen with the program:</P>
+    <PRE>5 OPEN #0,con
+10 OUTLN #0,448,200,32,16:PAPER #0,0:CLS#0:INK #0,4:PRINT #0,'This is #0'
+20 OPEN #1,con_400x160a40x40:PAPER 2:CLS:INK 7:PRINT 'This is #1'
+30 OPEN #2,con_300x100a80x70:PAPER#2,7:CLS#2:INK#2,2:PRINT #2,'This is #2'
+40 PAUSE #0
+50 CLOSE #0
+55 PAUSE #1
+60 OPEN #0,con_448x200a32x16:PRINT #0,'This is #0' 
+</PRE>
+    
+<P>Try compiling this program as flp1_test_obj and then enter the command <SPAN style="font-style: italic;">EX flp1_test_obj</SPAN> - see what happens when #0 is <SPAN style="font-style: italic;">CLOSE</SPAN>d?</P>
+    
+<P>Compare the result if you changed line 50 to <SPAN style="font-style: italic;">CLOSE #2</SPAN>.</P>
+    
+<P>One of the solutions to this problem is to use the G option on the <SPAN style="font-style: italic;">EXEP</SPAN> command to define a Guardian Window - try the command: <SPAN style="font-style: italic;">EXEP flp1_test_obj,g,512,256,0,0</SPAN>. The other answer is to <SPAN style="font-style: italic;">OPEN</SPAN> another channel (for example #3) to be the <SPAN style="font-style: italic;">OUTLN</SPAN> channel before any windows are <SPAN style="font-style: italic;">OPEN</SPAN>ed - change line 5 and 10 thus:</P>
+    <PRE>5 OPEN #3,con_:OUTLN #3,448,200,32,16
+10 OPEN #0,con_448x200a32x16:PAPER #0,0:CLS#0:INK #0,4:PRINT #0,'This is #0'
+</PRE>
+    
+<P>These problems with defining <SPAN style="font-style: italic;">OUTLN</SPAN>'s will become apparent if you test programs under an SBASIC interpreter and then after the program has been compiled - if you use the <SPAN style="font-style: italic;">SBASIC</SPAN> command to start up a Multiple BASIC (or similar on Minerva) and then <SPAN style="font-style: italic;">LRUN</SPAN> your BASIC program, the <SPAN style="font-style: italic;">OUTLN</SPAN> is always set to <SPAN style="font-style: italic;">OUTLN 512,256,0,0</SPAN> whereas if you <SPAN style="font-style: italic;">EXEC</SPAN>ute a compiled program (or even if you use a command such as <SPAN style="font-style: italic;">EX flp1_program_bas</SPAN> to start up a BASIC program under SMSQ/E), the <SPAN style="font-style: italic;">OUTLN</SPAN> will be that set in the calling program (unless defined in the program itself).</P>
+    
+<H3>4.2.2 Multitasking Programs</H3>
+
+<P>
+    
+<P>If you write a program which is to run under the Pointer Environment, it is useful to remember some rules:</P>
+    <OL>
+      <LI>There is no need to activate the cursor on the program - when the program is PICKed by the user, then any open con_ channel is automatically activated. You may however, still wish to do this if the program is to be able to run without the Pointer Environment.</LI>
+      <LI>If any part of the job's <SPAN style="font-style: italic;">OUTLN</SPAN> is overlapped by other programs, then the job will not be able to access and scr_ or con_ channels (it will wait until the program is activated). This can be overcome with <SPAN style="font-style: italic;">PIE_ON</SPAN> / <SPAN style="font-style: italic;">PEON</SPAN> or by starting the program with <SPAN style="font-style: italic;">EXEP</SPAN> (using the <SPAN style="font-style: italic;">U</SPAN> parameter). You can check if a program can write to a screen channel with <SPAN style="font-style: italic;">PEND</SPAN>.</LI>
+      <LI>As soon as the program ends (with <SPAN style="font-style: italic;">STOP</SPAN> or <SPAN style="font-style: italic;">RJOB</SPAN>) then all of its windows will be removed from the screen, again unless you have used <SPAN style="font-style: italic;">EXEP</SPAN> with the <SPAN style="font-style: italic;">U</SPAN> parameter.</LI>
+    </OL>
+  </DIV>
+</BODY>
+</HTML>

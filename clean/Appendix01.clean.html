@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<HTML>  <!-- Tidied by Norman Dunbar -->
+<HEAD>
+  <META name="generator" content="HTML Tidy for HTML5 for Linux version 5.3.7">
+  <META http-equiv="content-type" content="text/html; charset=utf-8">
+  <LINK rel="stylesheet" type="text/css" href="css/QLManualStyle.css" media="all">
+  <TITLE>Sinclair QL SuperBASIC/SBASIC Reference Manual - Appendix 1</TITLE>
+</HEAD>
+<BODY>
+  <DIV id="header">
+    SBASIC/SuperBASIC Reference Manual Online (c) RWAP Software
+    The Online Guide to programming the Sinclair QL Home Computer in SuperBASIC
+  </DIV>
+  <DIV id="sideBar">
+    <UL>
+      <LI><A href="Foreword.html">Foreword</A></LI>
+      <LI><A href="Introduction.html">Introduction</A></LI>
+      <LI><A href="Credits.html">Credits</A></LI>
+      <LI><A href="Structure.html">Structure</A></LI>
+      <LI><A href="WritingPrograms.html">Writing Programs</A></LI>
+      <LI style="list-style: none; display: inline">
+        <HR>
+      </LI>
+      <LI><A href="KeywordsA.html">Keywords - A</A></LI>
+      <LI><A href="KeywordsB.html">Keywords - B</A></LI>
+      <LI><A href="KeywordsC.html">Keywords - C</A></LI>
+      <LI><A href="KeywordsD.html">Keywords - D</A></LI>
+      <LI><A href="KeywordsE.html">Keywords - E</A></LI>
+      <LI><A href="KeywordsF.html">Keywords - F</A></LI>
+      <LI><A href="KeywordsG.html">Keywords - G</A></LI>
+      <LI><A href="KeywordsH.html">Keywords - H</A></LI>
+      <LI><A href="KeywordsI.html">Keywords - I</A></LI>
+      <LI><A href="KeywordsJ.html">Keywords - J</A></LI>
+      <LI><A href="KeywordsK.html">Keywords - K</A></LI>
+      <LI><A href="KeywordsL.html">Keywords - L</A></LI>
+      <LI><A href="KeywordsM.html">Keywords - M</A></LI>
+      <LI><A href="KeywordsN.html">Keywords - N</A></LI>
+      <LI><A href="KeywordsO.html">Keywords - O</A></LI>
+      <LI><A href="KeywordsP.html">Keywords - P</A></LI>
+      <LI><A href="KeywordsQ.html">Keywords - Q</A></LI>
+      <LI><A href="KeywordsR.html">Keywords - R</A></LI>
+      <LI><A href="KeywordsS.html">Keywords - S</A></LI>
+      <LI><A href="KeywordsT.html">Keywords - T</A></LI>
+      <LI><A href="KeywordsU.html">Keywords - U</A></LI>
+      <LI><A href="KeywordsV.html">Keywords - V</A></LI>
+      <LI><A href="KeywordsW.html">Keywords - W</A></LI>
+      <LI><A href="KeywordsX.html">Keywords - X</A></LI>
+      <LI><A href="KeywordsY.html">Keywords - Y</A></LI>
+      <LI><A href="KeywordsZ.html">Keywords - Z</A></LI>
+      <LI><A href="Keywords_.html">Keywords - Other</A></LI>
+      <LI style="list-style: none; display: inline">
+        <HR>
+      </LI>
+      <LI><A href="AppendicesIntro.html">Appendices Introduction</A></LI>
+      <LI><A href="Appendix01.html">Appendix 1 - Minerva</A></LI>
+      <LI><A href="Appendix02.html">Appendix 2 - SMSQE</A></LI>
+      <LI><A href="Appendix03.html">Appendix 3 - Emulators</A></LI>
+      <LI><A href="Appendix04.html">Appendix 4 - THOR Computers</A></LI>
+      <LI><A href="Appendix05.html">Appendix 5 - Expansion Boards</A></LI>
+      <LI><A href="Appendix06.html">Appendix 6 - Compatability</A></LI>
+      <LI><A href="Appendix07.html">Appendix 7 - Multiple BASICs</A></LI>
+      <LI><A href="Appendix08.html">Appendix 8 - Error Messages</A></LI>
+      <LI><A href="Appendix09.html">Appendix 9 - Character Set / Keyboard</A></LI>
+      <LI><A href="Appendix10.html">Appendix 10 - Fonts</A></LI>
+      <LI><A href="Appendix11.html">Appendix 11 - Mathematics</A></LI>
+      <LI><A href="Appendix12.html">Appendix 12 - Device Drivers</A></LI>
+      <LI><A href="Appendix13.html">Appendix 13 - Extended Pointer Environment</A></LI>
+      <LI><A href="Appendix14.html">Appendix 14 - Coercion</A></LI>
+      <LI><A href="Appendix15.html">Appendix 15 - Mouse Drivers</A></LI>
+      <LI><A href="Appendix16.html">Appendix 16 - The QL Display</A></LI>
+      <LI><A href="Appendix17.html">Appendix 17 - Networks</A></LI>
+      <LI><A href="Appendix18.html">Appendix 18 - Configuring Programs</A></LI>
+    </UL>
+  </DIV>
+  <DIV id="mainText">
+    
+    
+<H3>A1 MINERVA</H3>
+
+<P>
+    
+<P>(Versions 1.67 - 1.97 tested.)</P>
+    
+<H3>A1.1 INTRODUCTION</H3>
+
+<P>
+    
+<P>Minerva is a brand new operating system which has been designed for the QL by QView, parts of which are already incorporated in QDOS emulators.</P>
+    
+<P>Based upon the existing QL Roms, it has now developed into a system which does not rely upon any of the existing code and thereby side-steps problems with copyright. However, due to the new coding, there are bound to be one or two slightly grey areas where compatibility must meet with compromise. From the SuperBASIC point of view, there are no real problems with using programs written for earlier ROMs (possibly excluding FB Roms which insisted on using <SPAN style="font-style: italic;">AT y,x</SPAN> instead of <SPAN style="font-style: italic;">AT x,y</SPAN>), and Minerva merely enhances this superb programming language to provide the SuperBASIC programmer with one of the most flexible and quickest implementations of BASIC ever devised.</P>
+    
+<P>However, there are one or two enhancements made by Minerva which are unavailable on earlier ROMs, which of course will limit the portability of programs which use these advanced features (unless the SuperBASIC program is compiled with QLiberator or Turbo).</P>
+    
+<P>The idea of this section is therefore just to point out some of the possible pitfalls with which programmers will be faced when writing SuperBASIC which is specifically designed to run on all versions of Minerva.</P>
+    
+<H3>WARNING:</H3>
+
+<P>
+    
+<P>v1.98 of Minerva caused more problems than it solved and you should therefore obtain v1.97 if you have this version of the operating system.</P>
+    
+<H3>A1.2 WINDOWS AND CLOSING WINDOWS</H3>
+
+<P>
+    
+<P>A problem exists with some versions of Minerva and Lightning SE. The problem appears to be that if Lightning is switched on, and then windows are opened on screen, unless they are closed in the reverse order to which they were opened, they will remain visible on screen despite <SPAN style="font-style: italic;">NEW</SPAN> or <SPAN style="font-style: italic;">MODE</SPAN> commands until another window with the same channel number is opened.</P>
+    
+<H3>Example:</H3>
+
+<P>
+    <PRE>
+100 OPEN#3,scr_448x200a32x16: PAPER#3,2: CLS#3
+110 OPEN#4,scr_448x200a32x56: PAPER#4,4: CLS#4
+120 CLOSE#3: CLOSE#4
+</PRE>
+    
+<P>This program will cause the problem and you will be unable to remove either #3 or #4 from the screen until they are re-opened!</P>
+    
+<P>To avoid the problem, alter line 120 to read:</P>
+    
+<P><SPAN style="font-style: italic;">120 CLOSE#4: CLOSE#3</SPAN></P>
+    
+<P>QJump's Pointer Environment prevents this problem occurring and this can be regarded as a standard system addition.</P>
+    
+<H3>A1.3 DUAL SCREEN MODE</H3>
+
+<P>
+    
+<P>Perhaps the greatest problem with programs written on earlier ROMs is that they (or machine code extensions used by them) tend to assume that the screen display will always begin at 131072 ($20000) and that the system variables will begin at 163840 ($28000). When Minerva is started-up, the user can opt to run in Dual Screen Mode, which makes two screens available to the programmer, the first of which is located at the standard display address (131072 - $20000 in hexadecimal) and the second of which is located on top of the old system variables address (163840 - $28000 in hexadecimal) - the system variables are moved out of the way. Programs can run on either of the screens and should be written so that they make no assumptions about the start address of the screen.</P>
+    
+<P>Minerva allows the user to alter which screen a program will run on before the program is actually loaded, by using the command <SPAN style="font-style: italic;">MODE 96,-1</SPAN>, and therefore the programmer has no control in general over which screen will be used.</P>
+    
+<P>This problem can also exist with the THOR XVI which allows several screens to be in operation at any one time.</P>
+    
+<P>Various functions exist to find the start address of the current screen (eg. <SPAN style="font-style: italic;">SCREEN</SPAN>) and also to find the start address of the system variables, (eg. <SPAN style="font-style: italic;">SYS_BASE</SPAN>). These functions should be used whenever possible.</P>
+    
+<P>The other main problem is that in current versions of Minerva, when a window is opened on screen, Minerva attempts to open it in the <SPAN style="font-style: italic;">MODE</SPAN> of the currently displayed screen, rather than the mode of the screen on which it will be open. This can lead to various problems, such as illegible writing and flashing on screen. The answer to this is to ensure that the current screen when the program is started is also the displayed screen - see <SPAN style="font-style: italic;">MODE</SPAN>.</P>
+    
+<P>Other problems exist when using the dual screen mode with both Lightning and the Pointer Environment, which can make it extremely difficult to change <SPAN style="font-style: italic;">MODE</SPAN>s on only one screen in the dual screen mode. At the moment there is no answer to this, other than to pester Digital Precision and Qjump to produce compatible products. There may also be similar problems with Speedscreen, but we have been unable to test this.</P>
+    
+<P>The other remaining problem is that current versions of Turbo and Supercharge do not support Minerva's dual screen mode, and programs compiled with either of these packages will not run in the dual screen mode.</P>
+    
+<P>A problem which users with printers may or may not have noticed, is that Minerva tends to lose characters on their way to the printer when in dual screen mode.</P>
+    
+<H3>A1.4 BORDER</H3>
+
+<P>
+    
+<P>On some early Minerva ROMs (and on one or two of the THOR
+    ROMs), the <SPAN style="font-style: italic;">BORDER</SPAN> command will not work correctly unless a parameter is supplied.</P>
+    
+<P>The original ROM accepted <SPAN style="font-style: italic;">BORDER</SPAN> on its own to switch off the border on #1 (although this was not pointed out by the QL Manual). It is therefore essential that to retain compatibility <SPAN style="font-style: italic;">BORDER 0</SPAN> is used.</P>
+    
+<H3>A1.5 EMPTY BRACKETS</H3>
+
+<P>
+    
+<P>An empty bracket is always regarded as a syntax error by original QL ROMs whereas Minerva tolerates them, for example to indicate that a function is called with a parameter, eg. <SPAN style="font-style: italic;">DATE()</SPAN>. If a program should be portable than you have to avoid this style because all ROMs other than Minerva and SMS mark such lines with a MISTake:</P>
+    
+<P><SPAN style="font-style: italic;">100 MISTake PRINT DATE()</SPAN></P>
+    
+<P>Since <SPAN style="font-style: italic;">DATE()</SPAN> and <SPAN style="font-style: italic;">VER$()</SPAN> are effectively the same as <SPAN style="font-style: italic;">DATE</SPAN> and <SPAN style="font-style: italic;">VER$</SPAN>, it is recommended to use the latter syntax.</P>
+    
+<H3>A1.6 INTEGER TOKENISATION</H3>
+
+<P>
+    
+<P>From v1.79 onwards, Minerva has tidied up the storage of numbers in SuperBASIC programs, in that if integer tokenisation is enabled, any numbers contained in a program are stored in as few bytes as possible. Although programs which are <SPAN style="font-style: italic;">LOAD</SPAN>ed are unaffected by this since the interpreter converts the ASCII characters into the internal format as the program is loaded, certain utilities are unable to cope with integer tokenisation. In particular, the Supercharge compiler and early versions of the Turbo (pre v4.3) and QLiberator (pre v3.32) compilers are unable to compile such programs.</P>
+    
+<P>If you use the <SPAN style="font-style: italic;">QLOAD</SPAN> utility from Liberation Software, this stores a program in its internal format so that it can be loaded very quickly. Unfortunately, this does mean that programs which are <SPAN style="font-style: italic;">QSAVE</SPAN>d on Minerva whilst integer tokenisation means that if when the program is <SPAN style="font-style: italic;">QLOAD</SPAN>ed with integer <SPAN style="font-style: italic;">QSAVE</SPAN>d, you can end up with a mixture of integer tokens and floating point tokens within the same program.</P>
+    
+<P>To convert a program under Minerva which has been written with Integer Tokenisation enabled so that it may be compiled with Supercharge or early versions of Turbo, or even <SPAN style="font-style: italic;">QLOAD</SPAN>ed on a different ROM version, you will need to use something along the lines of:-</P>
+    <PRE>
+SAVE ram1_convert_bas
+POKE \\212,128
+LOAD ram1_convert_bas
+</PRE>
+    
+<P>If you try to <SPAN style="font-style: italic;">QLOAD</SPAN> a program which has been <SPAN style="font-style: italic;">QSAVE</SPAN>d with Integer Tokenisation enabled, on a different ROM, you will notice that various numbers have disappeared from the listing.</P>
+    
+<H3>A1.7 MultiBASICs</H3>
+
+<P>
+    
+<P>Minerva allows you to have several BASIC interpreters which can all multitask. Essentially, you retain the original SuperBASIC interpreter together with several copies of that interpreter, each of which is known as a MultiBASIC.</P>
+    
+<P>A MultiBASIC will in fact operate in the same way as SuperBASIC, and you can link different toolkits with each copy of the interpreter, knowing that they will not be available to the other existing interpreters.</P>
+    
+<P>The only problem is that many toolkits have been written with only the original SuperBASIC interpreter in mind, and some commands are therefore unable to access the MultiBASIC's variables. Fortunately, the majority of commands and functions do in fact still work with MultiBASICs, unless used from within a compiled program.</P>
+    
+<H3>A1.8 STRINGS</H3>
+
+<P>
+    
+<P>Minerva has altered the way in which strings are handled, in much the same way as SMSQ/E - please refer to <SPAN style="font-style: italic;">DIM</SPAN> for an explanation of the way in which dimensioned and undimensioned strings are dealt with on the various QL implementations.</P>
+    
+<P>There was however a problem prior to v1.98 of Minerva in that if you concatenated two strings together to make a string longer than 32764 characters, this could corrupt BASIC. An example of concatenation is:</P>
+    
+<P><SPAN style="font-style: italic;">a$='Hello'&amp;b$</SPAN></P>
+  </DIV>
+</BODY>
+</HTML>

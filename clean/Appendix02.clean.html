@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<HTML>  <!-- Tidied by Norman Dunbar -->
+<HEAD>
+  <META name="generator" content="HTML Tidy for HTML5 for Linux version 5.3.7">
+  <META http-equiv="content-type" content="text/html; charset=utf-8">
+  <LINK rel="stylesheet" type="text/css" href="css/QLManualStyle.css" media="all">
+  <TITLE>Sinclair QL SuperBASIC/SBASIC Reference Manual - Appendix 2</TITLE>
+</HEAD>
+<BODY>
+  <DIV id="header">
+    SBASIC/SuperBASIC Reference Manual Online (c) RWAP Software
+    The Online Guide to programming the Sinclair QL Home Computer in SuperBASIC
+  </DIV>
+  <DIV id="sideBar">
+    <UL>
+      <LI><A href="Foreword.html">Foreword</A></LI>
+      <LI><A href="Introduction.html">Introduction</A></LI>
+      <LI><A href="Credits.html">Credits</A></LI>
+      <LI><A href="Structure.html">Structure</A></LI>
+      <LI><A href="WritingPrograms.html">Writing Programs</A></LI>
+      <LI style="list-style: none; display: inline">
+        <HR>
+      </LI>
+      <LI><A href="KeywordsA.html">Keywords - A</A></LI>
+      <LI><A href="KeywordsB.html">Keywords - B</A></LI>
+      <LI><A href="KeywordsC.html">Keywords - C</A></LI>
+      <LI><A href="KeywordsD.html">Keywords - D</A></LI>
+      <LI><A href="KeywordsE.html">Keywords - E</A></LI>
+      <LI><A href="KeywordsF.html">Keywords - F</A></LI>
+      <LI><A href="KeywordsG.html">Keywords - G</A></LI>
+      <LI><A href="KeywordsH.html">Keywords - H</A></LI>
+      <LI><A href="KeywordsI.html">Keywords - I</A></LI>
+      <LI><A href="KeywordsJ.html">Keywords - J</A></LI>
+      <LI><A href="KeywordsK.html">Keywords - K</A></LI>
+      <LI><A href="KeywordsL.html">Keywords - L</A></LI>
+      <LI><A href="KeywordsM.html">Keywords - M</A></LI>
+      <LI><A href="KeywordsN.html">Keywords - N</A></LI>
+      <LI><A href="KeywordsO.html">Keywords - O</A></LI>
+      <LI><A href="KeywordsP.html">Keywords - P</A></LI>
+      <LI><A href="KeywordsQ.html">Keywords - Q</A></LI>
+      <LI><A href="KeywordsR.html">Keywords - R</A></LI>
+      <LI><A href="KeywordsS.html">Keywords - S</A></LI>
+      <LI><A href="KeywordsT.html">Keywords - T</A></LI>
+      <LI><A href="KeywordsU.html">Keywords - U</A></LI>
+      <LI><A href="KeywordsV.html">Keywords - V</A></LI>
+      <LI><A href="KeywordsW.html">Keywords - W</A></LI>
+      <LI><A href="KeywordsX.html">Keywords - X</A></LI>
+      <LI><A href="KeywordsY.html">Keywords - Y</A></LI>
+      <LI><A href="KeywordsZ.html">Keywords - Z</A></LI>
+      <LI><A href="Keywords_.html">Keywords - Other</A></LI>
+      <LI style="list-style: none; display: inline">
+        <HR>
+      </LI>
+      <LI><A href="AppendicesIntro.html">Appendices Introduction</A></LI>
+      <LI><A href="Appendix01.html">Appendix 1 - Minerva</A></LI>
+      <LI><A href="Appendix02.html">Appendix 2 - SMSQE</A></LI>
+      <LI><A href="Appendix03.html">Appendix 3 - Emulators</A></LI>
+      <LI><A href="Appendix04.html">Appendix 4 - THOR Computers</A></LI>
+      <LI><A href="Appendix05.html">Appendix 5 - Expansion Boards</A></LI>
+      <LI><A href="Appendix06.html">Appendix 6 - Compatability</A></LI>
+      <LI><A href="Appendix07.html">Appendix 7 - Multiple BASICs</A></LI>
+      <LI><A href="Appendix08.html">Appendix 8 - Error Messages</A></LI>
+      <LI><A href="Appendix09.html">Appendix 9 - Character Set / Keyboard</A></LI>
+      <LI><A href="Appendix10.html">Appendix 10 - Fonts</A></LI>
+      <LI><A href="Appendix11.html">Appendix 11 - Mathematics</A></LI>
+      <LI><A href="Appendix12.html">Appendix 12 - Device Drivers</A></LI>
+      <LI><A href="Appendix13.html">Appendix 13 - Extended Pointer Environment</A></LI>
+      <LI><A href="Appendix14.html">Appendix 14 - Coercion</A></LI>
+      <LI><A href="Appendix15.html">Appendix 15 - Mouse Drivers</A></LI>
+      <LI><A href="Appendix16.html">Appendix 16 - The QL Display</A></LI>
+      <LI><A href="Appendix17.html">Appendix 17 - Networks</A></LI>
+      <LI><A href="Appendix18.html">Appendix 18 - Configuring Programs</A></LI>
+    </UL>
+  </DIV>
+  <DIV id="mainText">
+    
+<H3>A2 SMSQ/E</H3>
+
+<P>
+    
+<P>(Versions 2.78 - 2.95 tested.)</P>
+    
+<H3>A2.1 INTRODUCTION</H3>
+
+<P>
+    
+<P>SMSQ/E is a brand new operating system written by Tony Tebby which has been designed for the QL and emulators. It is currently available for standard QLs, AURORA, QPC (a PC emulator), ST/QL emulators, QXL and QXL2, the Q40 qnd Q60 computers and also the ATARI ST, STE and TT range of computers.</P>
+    
+<P>You must take care not to confuse this operating system with some of the earlier forms which have been released, namely SMS2 (a plug in add-on for Ataris) and SMSQ (supplied with the QXL and QXL2 boards) - see the Emulators Appendix for further details.</P>
+    
+<P>SMSQ/E is a complete re-write of the original operating system avoiding any copyright problems. However, to run on the original QL, SMSQ/E still requires that a QL operating system (eg. JM or JS) is installed on the chips inside the QL plus a disk drive and a Gold Card (at the minimum). This is because SMSQ/E is disk based, rather than being supplied on ROM chips - you therefore need a means of starting up the QL and loading SMSQ/E from disk. This does not apply to the QXL, QPC and Atari versions which have to load their operating systems from disk anyway.</P>
+    
+<P>If you are using SMSQ/E on the Gold Card or Super Gold Card, you should normally use the <SPAN style="font-style: italic;">LRESPR</SPAN> command to start up the copy of SMSQ/E - if this is used in a boot program, if SMSQ/E is already loaded when the <SPAN style="font-style: italic;">LRESPR</SPAN> command to load SMSQ/E is read, then it is ignored. If you use <SPAN style="font-style: italic;">RESPR</SPAN> and <SPAN style="font-style: italic;">LBYTES</SPAN>, then the boot would get into a loop - continually loading the operating system (unless you check <SPAN style="font-style: italic;">VER$='HBA'</SPAN>, although this will not work on QXL as SMSQ also reports <SPAN style="font-style: italic;">VER$='HBA'</SPAN>).</P>
+    
+<P>SMSQ/E also incorporates all of the features of the following (which are available as add on packages to the original QL operating system):</P>
+    <UL>
+      <LI>Toolkit 2</LI>
+      <LI>Pointer Interface</LI>
+      <LI>Qjump's Window Manager</LI>
+      <LI>Hotkey System II</LI>
+      <LI>DEV device driver</LI>
+      <LI>QLOAD / QSAVE from Liberation Software</LI>
+      <LI>OUTLN command.</LI>
+    </UL>
+    
+<P>As an added bonus, Gold Card and Super Gold Card users (including AURORA users) also get the Serial Mouse Driver from Albin Hessler Software which can be loaded into SMSQ/E and allows you to use a mouse plugged into the serial port.</P>
+    
+<P>QXL, QPC, Q40/Q60 and Atari users are able to use the mice supplied for their computers (provided that you load in a driver for that computer, eg. the DOS Mouse Driver for IBM Compatible PCs).</P>
+    
+<P>SMSQ/E also offers other in-built features:</P>
+    <UL>
+      <LI>named pipes and a history device</LI>
+      <LI>improved serial and parallel device drivers</LI>
+      <LI>Level-3 device drivers which allow you to access disks from IBM compatible PCs and Ataris.</LI>
+      <LI>hi-resolution displays and enhanced colours - refer to Appendix 16</LI>
+    </UL>
+    
+<P>SMSQ/E also includes the SBAS/QD F10 Thing, which allows you to automatically run SuperBASIC programs which are being edited under the QD Editor by pressing F10 (this initiates a Multiple SBASIC which then <SPAN style="font-style: italic;">LRUN</SPAN>'s the program). The FileInfo II Thing is also included which allows SuperBASIC programs with filenames ending in _BAS or _SAV to be Executed directly from the Qpac II Files Menu.</P>
+    
+<P>Unfortunately, due to the new coding, there are bound to be one or two slightly grey areas where compatibility must meet with compromise.</P>
+    
+<P>From the SuperBASIC point of view, there are no real problems with using programs written for earlier operating systems (possibly excluding FB Roms which insisted on using <SPAN style="font-style: italic;">AT</SPAN> y,x instead of <SPAN style="font-style: italic;">AT</SPAN> x,y), and SMSQ/E merely enhances this superb programming language to provide the SuperBASIC programmer with the most flexible and quickest implementations of BASIC ever devised (it is nearly as quick as SuperBASIC compiled with Qliberator).</P>
+    
+<P>Some of the enhancements made by SMSQ/E are not available on other operating systems and it is likely that in the future SMSQ/E is the only operating system which will continue to be upgraded. With free upgrades at present there is no reason why you should be using anything but the latest version!</P>
+    
+<P>The idea of this section is therefore just to point out some of the possible pitfalls with which programmers will be faced when writing SuperBASIC which is specifically designed to run on SMSQ/E and possibly also on earlier operating systems.</P>
+    
+<H3>WARNING:</H3>
+
+<P>
+    
+<P>Some versions of SMSQ/E appear to have been released in a hurry and are unreliable - most notably, v2.93 and v2.95 which should be avoided.</P>
+    
+<H3>A2.2 THE EOF FUNCTION</H3>
+
+<P>
+    
+<P>On early versions of SMSQ/E (pre v2.55) <SPAN style="font-style: italic;">EOF</SPAN> was implemented differently to the original SuperBASIC version, in that it would wait until either data or an end of file code was received from the associated channel. The original would return 1 if no data was waiting in the queue. This version of <SPAN style="font-style: italic;">EOF</SPAN> has now been renamed <SPAN style="font-style: italic;">EOFW</SPAN>.</P>
+    
+<H3>A2.3 EMPTY BRACKETS</H3>
+
+<P>
+    
+<P>An empty bracket is always regarded as a syntax error by original QL ROMs whereas SMSQ/E (in common with Minerva) tolerates them, for example to indicate that a function is called with a parameter, eg. <SPAN style="font-style: italic;">DATE()</SPAN>. If a program should be portable than you have to avoid this style because all other implementations (other than Minerva) mark such lines with a MISTake:<BR></P>
+    
+<P><SPAN style="font-style: italic;">100 MISTake PRINT DATE()</SPAN></P>
+    
+<P>Since <SPAN style="font-style: italic;">DATE()</SPAN> and <SPAN style="font-style: italic;">VER$()</SPAN> are effectively the same as <SPAN style="font-style: italic;">DATE</SPAN> and <SPAN style="font-style: italic;">VER$</SPAN>, it is recommended to use the latter syntax.</P>
+    
+<H3>A2.4 MULTIPLE SBASICS</H3>
+
+<P>
+    
+<P>SMSQ/E (in common with Minerva) allows you to have several BASIC interpreters which can all multitask. Essentially, you retain the original SuperBASIC interpreter together with several copies of that interpreter, each of which is known as a SBASIC.</P>
+    
+<P>A SBASIC will in fact operate in the same way as SuperBASIC, and you can link different toolkits with each copy of the interpreter, knowing that they will not be available to the other existing interpreters.</P>
+    
+<P>The only problem is that many toolkits have been written with only the original SuperBASIC interpreter in mind, and some commands are therefore unable to access the SBASIC's variables. Fortunately, the majority of commands and functions do in fact still work with SBASICs, unless used from within a compiled program.</P>
+    
+<P>See the separate Appendix on Multiple BASICs.</P>
+    
+<H3>A2.5 IMPROVED INTERPRETER</H3>
+
+<P>
+    
+<P>Unlike the original SuperBASIC, SMSQ/E will look at a program to ensure that all of the structures are validly constructed before it allows you to <SPAN style="font-style: italic;">SAVE</SPAN> or <SPAN style="font-style: italic;">RUN</SPAN> the program. Although this can pick up common programming mistakes (such as forgetting to add <SPAN style="font-style: italic;">END FOR</SPAN> or <SPAN style="font-style: italic;">END DEFine</SPAN>), this can mean that some SuperBASIC programs will now refuse to <SPAN style="font-style: italic;">RUN</SPAN>, reporting an Incomplete Definition. This is especially problematic as SMSQ/E (prior to v2.89) will not allow a single-line <SPAN style="font-style: italic;">PROCedure</SPAN> or <SPAN style="font-style: italic;">FuNction</SPAN> to exist without <SPAN style="font-style: italic;">END DEFine</SPAN> appearing on the line.</P>
+    
+<P>Further checks are carried out before a program is <SPAN style="font-style: italic;">RUN</SPAN> or <SPAN style="font-style: italic;">SAVE</SPAN>d and a wide range of error messages have been added to the Interpreter, which may be reported. These error messages are listed in the Errors Appendix.</P>
+    
+<H3>A2.6 NUMBERS IN PROGRAMS</H3>
+
+<P>
+    
+<P>SMSQ/E has extended SuperBASIC by allowing programs to contain both hexadecimal and binary numbers explicitly in the code, such as <SPAN style="font-style: italic;">a=%10</SPAN> (or <SPAN style="font-style: italic;">a=$02</SPAN>) is the same as <SPAN style="font-style: italic;">a=2</SPAN>. These constructs will result in a <SPAN style="font-style: italic;">MIStake</SPAN> being shown on other implementations (refer to the Mathematics Appendix).</P>
+    
+<P>Programs which use this feature can only be compiled using Turbo v4.3 or later.</P>
+    
+<H3>A2.7 IN-BUILT POINTER ENVIRONMENT</H3>
+
+<P>
+    
+<P>SMSQ/E incorporates the Pointer Environment (the files ptr_gen, wman and Hot_rext form part of the operating system and therefore cannot be loaded separately). This means that some programs which could not be run under the Pointer Environment previously, cannot be run under SMSQ/E. As far as we are aware, there are very few programs which cause a problem.</P>
+    
+<H3>A2.8 UNDEFINED VARIABLES</H3>
+
+<P>
+    
+<P>SMSQ/E differs from all other implementations of SuperBASIC in that it gives values to variables which have not yet been defined. Whereas on other implementations, if you do not have a program in memory (eg. after <SPAN style="font-style: italic;">NEW</SPAN>), and enter the following line:</P>
+    
+<P><SPAN style="font-style: italic;">PRINT a,a$ : PRINT a/10</SPAN>
+    you would see the display:</P>
+    
+<P>* *</P>
+    
+<P>on screen, and then the error 'At 0,2 : Error in Expression' would be shown.</P>
+    
+<P>Under SMSQ/E, you would see the display:</P>
+    
+<P>0</P>
+    
+<P>0</P>
+    
+<P>as an undefined numeric variable is given the value 0 and an undefined string is given the value of an empty string (the second 0 is the result of a/10 where a=0). No error would be reported.</P>
+    
+<H3>A2.9 EXTENDED DISPLAY</H3>
+
+<P>
+    
+<P>There are very few programs which will not work under SMSQ/E, these are mainly programs (or toolkits) which make assumptions about:</P>
+    
+<H3>A2.9.1 Extra Colours</H3>
+
+<P>
+    
+<P>SMSQ/E v2.98 implements a different display driver for many systems, including 65536 colours on the QXL, QPC and Q40 - see Appendix 16. Because the format of the display is different to the original QL, this may cause incompatability problems with many of the drawing commands covered in this book which assume the original QL screen format. This can however be overcome by only using these commands or programs which cause problems in the original display configuration of 512x256 pixels, with <SPAN style="font-style: italic;">MODE 4</SPAN> or <SPAN style="font-style: italic;">MODE 8</SPAN> colours. Use <SPAN style="font-style: italic;">RMODE</SPAN> to check which colour system is currently in use.</P>
+    
+<P>People have also noticed that various programs appear in various multiple colours (not intended by the original author). This tends to be due to the fact that the authors have assumed that non-standard colours will be converted by <SPAN style="font-style: italic;">MODE 4</SPAN> (for example <SPAN style="font-style: italic;">INK 3</SPAN> under <SPAN style="font-style: italic;">MODE 4</SPAN> produces red) or into stipples.</P>
+    
+<H3>A2.9.2 Hi-resolution Displays</H3>
+
+<P>
+    
+<P>Unless you are using an original QL motherboard, SMSQ/E supports higher resolution displays, up to 1600x1200 pixels. This may cause further problems for software and commands which assume the original resolution of 512x256 pixels.</P>
+    
+<H3>A2.10 PROBLEMS</H3>
+
+<P>
+    
+<P>There are very few programs which will not work under SMSQ/E, these are mainly programs (or toolkits) which make assumptions about:</P>
+    <OL>
+      <LI>the location of the screen or system variables</LI>
+      <LI>the size of the QL's screen</LI>
+      <LI>the fact that you cannot overwrite the QL's ROM (and therefore there is no need to ensure that <SPAN style="font-style: italic;">POKE</SPAN> commands are not trying to overwrite part of the ROM</LI>
+      <LI>the location of various parts of the operating system (including machine code routines)</LI>
+    </OL>
+    
+<P>Most of these programs will also have difficulty running on anything other than a standard QL (even Gold Cards mean that programs will face problems if they try to overwrite the QL's ROM).</P>
+    
+<H3>A2.10.1 Lightning / Speedscreen</H3>
+
+<P>
+    
+<P>These two programs cannot be used with SMSQ/E. However, SMSQ/E's screen driver is just as quick.</P>
+    
+<H3>A2.10.2 Toolkit III and System Toolkit</H3>
+
+<P>
+    
+<P>Neither of these toolkits will work with SMSQ/E, but then they do not really add very much to the system!</P>
+    
+<H3>A2.10.3 Serial to Parallel Converters</H3>
+
+<P>
+    
+<P>SMSQ/E has speeded up the serial ports somewhat (making them meet the design specifications) and unfortunately this means that some serial to parallel converters work too slowly and some characters are lost. Try <SPAN style="font-style: italic;">SER_PAUSE</SPAN> or a newer converter (or if your computer has a built-in parallel interface, use that!).</P>
+    
+<H3>A2.10.4 Aurora</H3>
+
+<P>
+    
+<P>Aurora users will really need to use at least v2a.85 of SMSQ/E.</P>
+    
+<H3>A2.10.5 Disk Access</H3>
+
+<P>
+    
+<P>There appears to be problems accessing DD disks (double density) under SMSQ/E after v2.91, in that later versions often report file errors or fail to format these disks. This is a major problem which will hopefully be resolved in later versions.</P>
+    
+<P>See also <SPAN style="font-style: italic;">FLP_DENSITY</SPAN>.</P>
+  </DIV>
+</BODY>
+</HTML>

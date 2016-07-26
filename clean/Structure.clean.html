@@ -1,0 +1,263 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<HTML>  <!-- Tidied by Norman Dunbar -->
+<HEAD>
+  <META name="generator" content="HTML Tidy for HTML5 for Linux version 5.3.7">
+  <META http-equiv="content-type" content="text/html; charset=utf-8">
+  <LINK rel="stylesheet" type="text/css" href="Structure_files/QLManualStyle.css" media="all">
+  <TITLE>Sinclair QL SuperBASIC/SBASIC Reference Manual - Structure</TITLE>
+</HEAD>
+<BODY>
+  <DIV id="header">
+    SBASIC/SuperBASIC Reference Manual Online (c) RWAP Software
+    The Online Guide to programming the Sinclair QL Home Computer in SuperBASIC
+  </DIV>
+  <DIV id="sideBar">
+    <UL>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/Foreword.html">Foreword</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/Introduction.html">Introduction</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/Credits.html">Credits</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/Structure.html">Structure</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/WritingPrograms.html">Writing Programs</A></LI>
+      <LI style="list-style: none; display: inline">
+        <HR>
+      </LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/KeywordsA.html">Keywords - A</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/KeywordsB.html">Keywords - B</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/KeywordsC.html">Keywords - C</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/KeywordsD.html">Keywords - D</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/KeywordsE.html">Keywords - E</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/KeywordsF.html">Keywords - F</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/KeywordsG.html">Keywords - G</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/KeywordsH.html">Keywords - H</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/KeywordsI.html">Keywords - I</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/KeywordsJ.html">Keywords - J</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/KeywordsK.html">Keywords - K</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/KeywordsL.html">Keywords - L</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/KeywordsM.html">Keywords - M</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/KeywordsN.html">Keywords - N</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/KeywordsO.html">Keywords - O</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/KeywordsP.html">Keywords - P</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/KeywordsQ.html">Keywords - Q</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/KeywordsR.html">Keywords - R</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/KeywordsS.html">Keywords - S</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/KeywordsT.html">Keywords - T</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/KeywordsU.html">Keywords - U</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/KeywordsV.html">Keywords - V</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/KeywordsW.html">Keywords - W</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/KeywordsX.html">Keywords - X</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/KeywordsY.html">Keywords - Y</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/KeywordsZ.html">Keywords - Z</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/Keywords_.html">Keywords - Other</A></LI>
+      <LI style="list-style: none; display: inline">
+        <HR>
+      </LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/AppendicesIntro.html">Appendices Introduction</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/Appendix01.html">Appendix 1 - Minerva</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/Appendix02.html">Appendix 2 - SMSQE</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/Appendix03.html">Appendix 3 - Emulators</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/Appendix04.html">Appendix 4 - THOR Computers</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/Appendix05.html">Appendix 5 - Expansion Boards</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/Appendix06.html">Appendix 6 - Compatability</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/Appendix07.html">Appendix 7 - Multiple BASICs</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/Appendix08.html">Appendix 8 - Error Messages</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/Appendix09.html">Appendix 9 - Character Set / Keyboard</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/Appendix10.html">Appendix 10 - Fonts</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/Appendix11.html">Appendix 11 - Mathematics</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/Appendix12.html">Appendix 12 - Device Drivers</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/Appendix13.html">Appendix 13 - Extended Pointer Environment</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/Appendix14.html">Appendix 14 - Coercion</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/Appendix15.html">Appendix 15 - Mouse Drivers</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/Appendix16.html">Appendix 16 - The QL Display</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/Appendix17.html">Appendix 17 - Networks</A></LI>
+      <LI><A href="http://www.rwapsoftware.co.uk/SBASIC_reference_manual_online/Appendix18.html">Appendix 18 - Configuring Programs</A></LI>
+    </UL>
+  </DIV>
+  <DIV id="mainText">
+    
+<H3>3 STRUCTURE OF THIS BOOK</H3>
+
+<P>
+    
+<P>This book consists basically of three parts.</P>
+    
+<P>The first part forms those obligatory sections, from
+    <SPAN style="font-style: italic;">Introduction</SPAN> to the <SPAN style="font-style: italic;">Writing Programs</SPAN>.</P>
+    
+<P>The second part is the main part which is explained below.</P>
+    
+<P>Finally the <SPAN style="font-style: italic;">appendices</SPAN> make up the third part. These appendices have been added to prevent repeated explanations in the main section, they are not a full-blown concepts section.</P>
+    
+<P>The main part of this book is the <SPAN style="font-style: italic;">keywords' section</SPAN>. This section is sorted alphabetically and for each keyword there will appear (at least) a description of the keyword's syntax, where it can be found and a short description. In most cases, you will also find examples and cross-references to other keywords, and from time to time some notes on using the commands. You may even come across warnings.</P>
+    
+<P>The alphabetical list is arranged in the following order (it is not case sensitive):</P>
+    
+<P>ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789 % $ _</P>
+    
+<P>This means for example that the keywords such as <SPAN style="font-style: italic;">S_LOAD</SPAN> appear at the end of all other keywords beginning with S.</P>
+    
+<H3>3.1 SYNTAX</H3>
+
+<P>
+    
+<P>Compressing all possible variations of a keyword's syntax in usually one abstract line can be difficult for those readers who are not familiar with syntax schemes. That's why we want to explain our notation in detail.</P>
+    
+<P>Throughout the book, almost everything that can be typed into the computer or returned by it, is written in a different typeface (<SPAN style="font-style: italic;">italics</SPAN>) so that you can always easily distinguish
+    those parts of the text which can be entered into the
+    computer. We have tried to be as consistent as possible in
+    this respect.</P>
+    
+<P>The syntax scheme itself contains symbols which are not to be typed in and thus appear in the normal typeface:-</P>
+    
+<H3>3.1.1 Square brackets ([ ])</H3>
+
+<P>
+    
+<P>These indicate that the enclosed parts are optional. Optional parameters (ie. parameters which can be omitted without producing an error) are always in square brackets.</P>
+    
+<H3>Example:</H3>
+
+<P>
+    
+<P><SPAN style="font-style: italic;">DLIST</SPAN> [<SPAN style="font-style: italic;">#ch</SPAN>]</P>
+    
+<P>Both <SPAN style="font-style: italic;">DLIST</SPAN> and <SPAN style="font-style: italic;">DLIST #2</SPAN> are valid.</P>
+    
+<H3>3.1.2 Square brackets with small superscript asterisks (<SUP>*</SUP>[ ]<SUP>*</SUP>)</H3>
+
+<P>
+    
+<P>These suggest that the number of optional parameters is not limited, ie. there can be any number of such parameters. Another symbol for the same meaning are nested square brackets with three dots inside.</P>
+    
+<H3>Example:</H3>
+
+<P>
+    
+<P><SPAN style="font-style: italic;">POINT x,y</SPAN> [<SPAN style="font-style: italic;">,x</SPAN><SUP>2</SUP><SPAN style="font-style: italic;">,y</SPAN><SUP>2</SUP> [<SPAN style="font-style: italic;">,x</SPAN><SUP>3</SUP><SPAN style="font-style: italic;">,y</SPAN><SUP>3</SUP><SPAN style="font-style: italic;">,</SPAN> ... ]]</P>
+    
+<P>or</P>
+    
+<P><SPAN style="font-style: italic;">POINT x,y</SPAN> <SUP>*</SUP>[<SPAN style="font-style: italic;">,x</SPAN><SUP>i</SUP><SPAN style="font-style: italic;">,y</SPAN><SUP>i</SUP>]<SUP>*</SUP></P>
+    
+<P>Any non-zero number of co-ordinate pairs are allowed. Note that the indices are also symbols, used to make reading easier. Of course you cannot type <SPAN style="font-style: italic;">POINT x</SPAN><SUP>1</SUP><SPAN style="font-style: italic;">,y</SPAN><SUP>1</SUP> but just <SPAN style="font-style: italic;">POINT x1,y1</SPAN> without any subscript characters will work.</P>
+    
+<H3>3.1.3 Curly brackets ({ })</H3>
+
+<P>
+    
+<P>These mean that the parameter can be chosen from a limited variety of types which are given in the brackets. The options are mutually exclusive and separated by a vertical line (|).</P>
+    
+<H3>Example:</H3>
+
+<P>
+    
+<P><SPAN style="font-style: italic;">KEYWORD</SPAN> {<SPAN style="font-style: italic;">test$</SPAN> | <SPAN style="font-style: italic;">test%</SPAN>}</P>
+    
+<P>Either <SPAN style="font-style: italic;">KEYWORD test$</SPAN> or <SPAN style="font-style: italic;">KEYWORD test%</SPAN> is valid.</P>
+    
+<P>The vertical line (|) can also appear in square brackets. In this case, the parameter is optional and has to be selected from one of the types listed in the brackets.</P>
+    
+<H3>Example:</H3>
+
+<P>
+    
+<P><SPAN style="font-style: italic;">SIZE test</SPAN>[<SPAN style="font-style: italic;">%</SPAN>|<SPAN style="font-style: italic;">$</SPAN>]</P>
+    
+<P><SPAN style="font-style: italic;">SIZE test%</SPAN></P>
+    
+<P><SPAN style="font-style: italic;">SIZE test$</SPAN></P>
+    
+<P><SPAN style="font-style: italic;">SIZE test</SPAN></P>
+    
+<P>are all valid.</P>
+    
+<P>We generally assume that you have some basic idea of SuperBASIC syntax because this book is not a SuperBASIC tutorial but a reference book for toolkit keywords.</P>
+    
+<H3>3.1.4 Channels (#ch)</H3>
+
+<P>
+    
+<P>Many Syntax definitions refer to a channel parameter, which is normally shown as #ch or #channel.</P>
+    
+<P>These channels can have two main types, a channel connected to a Device (or File) and a channel connected to a Window (a scr_ or con_ device). The type of a channel is specified when that channel is <SPAN style="font-style: italic;">OPEN</SPAN>ed - see the description of <SPAN style="font-style: italic;">OPEN</SPAN> for further
+    details.</P>
+    
+<P>Normally the description for each keyword will specify if the channel used by that keyword has to be of a specific type. If no mention is made, then presume that the keyword can be used on any type of channel.</P>
+    
+<H3>3.2 LOCATION</H3>
+
+<P>
+    
+<P>This is just the name of the toolkit(s) where you will find the keyword.</P>
+    
+<P>Some locations are not separately available toolkits, eg. QL ROM, Super Gold Card, Gold Card, Trump Card, ST/QL and more.</P>
+    
+<P>Where the Location is given as QL ROM, this means that the keyword is available on all versions of the QL, QL compatible computers and Emulators (unless specified).</P>
+    
+<P>Where the Location is given as Gold Cards, this covers the whole of the Gold Card range of expansion boards, namely Super Gold Card and Gold Card. However, note that commands given by these boards will not be available under SMSQ/E unless specifically stated.</P>
+    
+<P>Some keywords are available as part of the Level-2 or Level-3 device drivers.</P>
+    
+<P>Level-2 device drivers are built into Gold Card, Super Gold Card and the QUBIDE disk interface, as well as forming part of SMSQ on the QXL and the ST emulators. Level-2 device drivers are also available separately for the Trump Card.</P>
+    
+<P>Level-3 device drivers are provided with SMSQ/E and incorporate all of the features of Level-2 device drivers and more. Therefore if the location is said to be Level-2 Device Drivers, these commands will also work on Level-3 Drivers.</P>
+    
+<P>SMSQ/E is a new operating system which is compatible with QDOS and incorporates all of the original QL ROM keywords, Toolkit II, the Pointer Interface, Window Manager, Hotkey System II and Level-3 device drivers. Therefore if a keyword is listed as appearing in any of these, then it will be available to the SuperBASIC programmer under SMSQ/E.</P>
+    
+<P>SMSQ is the operating system built into QXL which can be replaced by SMSQ/E. Both operating systems are very similar in how they treat SuperBASIC keywords and we have therefore used to SMS to indicate that a comment may apply to both SMSQ/E and SMSQ. Their individual names have been used if there is a difference.</P>
+    
+<P>ST/QL refers to the full range of QL Hardware Emulators for the Atari ST (Extended Mode-4 Emulator, QVME and the original ST-QL Emulator). Any comments which refer specifically to one of the boards are covered separately.</P>
+    
+<P>Refer to the Emulators Appendix for more details on the various emulators available.</P>
+    
+<H3>3.3 DESCRIPTION</H3>
+
+<P>
+    
+<P>The description of the function of a keyword is usually abstract and relatively short. You may have to read it carefully to understand it fully. Technical details are limited to the needs of a SuperBASIC programmer, but we document the current standards in QL programming and environments.</P>
+    
+<H3>3.4 EXAMPLE(S)</H3>
+
+<P>
+    
+<P>The examples demonstrate the different syntax variations of a keyword and explain concrete usages. We have tried to write some short example programs which make sense outside pure computer applications, meaning that a brief explanation is seldom necessary.</P>
+    
+<P>All listings have been directly imported from the SuperBASIC interpreter into the word-processor via an intermediate file or pipe. The exceptional multitasking capabilities of the QL with Tony Tebby's Pointer Environment allowed us to write text, try out toolkits and develop examples, all at the same time. Due to the direct import of the latter, mistakes in the examples have been minimised. However, we are all only human.</P>
+    
+<P>It is not our intention to praise a particular style of programming. Book space, layout, typefaces and didactic considerations posed various limits. For this reason, examples or parts of examples which are designed as modules (procedures or functions), will usually not check the supplied arguments for wrong parameters.</P>
+    
+<P>All example listings are freely distributable subject to restrictions. You are allowed to develop applications from examples or make use of examples in other programs under the condition that this book and its authors are given credit accordingly.</P>
+    
+<H3>3.5 NOTES</H3>
+
+<P>
+    
+<P>These (sometimes extensive) comments vary from strange side-effects of keywords to off-topic remarks. They have been added for completeness. Very often the original documentation did not recognise all possible implementations for practical reasons: a certain configuration did not exist at the time of writing, the author did not expect users to exploit parameter ranges to the full, etc.</P>
+    
+<P>It is not necessary to know the notes but when struggling against odd phenomena, reading the notes could clarify seeming mysteries.</P>
+    
+<H3>3.6 [IMPLEMENTATION] NOTES</H3>
+
+<P>
+    
+<P>When bringing out new implementations of the QL ROM, the authors are limited by the amount of memory into which they have to squeeze all additions, modifications and corrections. They therefore tend to extend the syntax instead of adding new keywords. That is why the Implementation Notes are usually a further description of syntax and usages, possibly including examples. <SPAN style="font-style: italic;">POKE</SPAN> is a good example.</P>
+    
+<P>The more common Implementation Notes are for Minerva, THOR and SMS. Please note that throughout references to SMS refer to both the SMSQ and SMSQ/E operating systems (see above).</P>
+    
+<P>Implementation Notes may also appear for each of the different Emulators and Expansion Boards which can be used with the QL.</P>
+    
+<H3>3.7 WARNING</H3>
+
+<P>
+    
+<P>An absolutely obligatory section! Some commands and functions crash the machine under certain circumstances: the warnings are intended to help you avoid frustration and disappointment. Please do not blame the authors of the toolkits for the bugs, writing a fool-proof program is very time consuming and nobody is perfect (neither the toolkits' authors nor the writers of this book). If we forget to mention a dangerous situation, this is because we were not aware of it.</P>
+    
+<H3>3.8 CROSS-REFERENCE</H3>
+
+<P>
+    
+<P>Keywords can be connected by a couple of links. They can do almost the same or perform similar functions, in these cases we did not make use of the word-processor's block copying facilities to artificially enlarge the book but simply referred to another text passage. If the relationship between keywords is emphasised by their name, cross-references may be extremely short or missing; due to the alphabetical order of the keywords, the reference is not too far away in most cases anyway.</P>
+    
+<P>Cross-references may also give notice of other keywords where the relation is rather indirect, this has been done to encourage liberally skipping through the pages.</P>
+  </DIV>
+</BODY>
+</HTML>

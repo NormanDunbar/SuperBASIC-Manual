@@ -1,0 +1,70 @@
+/*
+ * The following are for Appendix 9. The character set 
+ * table definitely needs a border etc. id="charset"
+ * does the trick.
+ * NDunbar.
+ */
+#charset {
+    border-collapse: collapse;
+    width: 65%;
+}
+
+#charset th,
+#charset td {
+    border: 1px solid #000;
+}
+
+#charset th,
+#charset td {
+    padding: 3px;
+}
+
+#header {
+    font-family:arial;
+    font-size:14px;
+    font-weight:bold;
+    text-align:center;
+    padding:20px;
+    width:100%;    
+    border-bottom:2px solid #000;
+    height:60px;
+}
+#sideBar {
+    width:230px;
+    float:left;
+    display:inline-block;
+    font-family:arial;
+    font-size:12px;
+    position:relative;
+}
+#sideBar ul {
+    padding-left:10px;
+}
+#sideBar li {
+    list-style-type: none;
+}
+#mainText {
+	margin-left:230px; 
+    border-left:2px solid #000;
+    padding-left:15px;
+    padding-bottom:20px;
+    text-align:justify;
+}
+#mainText table {
+	border-spacing: 10px 0px;
+}
+a,
+a:visited {
+    text-decoration:none;
+    color:#3333cc;
+}
+a:hover {
+    text-decoration:underline;
+}
+.mainSeparator {
+    width: 100%; 
+    height: 2px;
+}
+.qlcode{
+    font-style:italic;
+}

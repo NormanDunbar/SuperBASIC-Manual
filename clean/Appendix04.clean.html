@@ -1,0 +1,54 @@
+    
+<H3>A4 THOR COMPUTERS</H3>
+
+<P>
+    
+<H3>A4.1 INTRODUCTION</H3>
+
+<P>
+    
+<P>Although we do not have direct access to a THOR XVI computer, we are able to report on one or two comments passed onto us by users.</P>
+    
+<P>The THOR XVI was the last in a line of various QL compatible computers originally produced by CST in the United Kingdom, and more latterly produced in Denmark by Dansoft.</P>
+    
+<P>This computer was a very nice package, with much improved hardware and also improvements to the operating system ARGOS. Unfortunately, not many of these computers seem to have been produced and the constant changes to ARGOS have made it very difficult to know where the current problems lie. There now seems little prospect of this computer ever taking off again, and it is highly unlikely that programs will be altered to suit this computer.</P>
+    
+<P>v6.40 of the THOR ROM contained various disastrous bugs and it is recommended that users alter their ROMs to either v6.39 or v6.41 (the last ROM version to be produced). However, with the apparent demise of Dansoft, you will need to try and contact other THOR members to see if they will let you use their ROMs to re-blow your chips.</P>
+    
+<P>ARGOS is generally based on an MG ROM with parts of Toolkit II added on - this helps to explain why only some of the THOR's commands support default directories. Although some of the bugs are fixed, many are left well alone, and (at least on some versions of ARGOS) new ones are introduced, which can make some programs unreliable on the THOR. We have attempted to highlight many of the known problems in the main body of this manual, but this section contains one or two further sticking points.</P>
+    
+<H3>A4.2 KEYROW</H3>
+
+<P>
+    
+<P>The main problem with the THOR range of computers has always been their handling of the <SPAN style="font-style: italic;">KEYROW</SPAN> function, which is not supported on all of the range. This was partially implemented on the THOR XVI to try and retain compatibility but programs which use <SPAN style="font-style: italic;">KEYROW</SPAN> cannot be guaranteed to run on the THOR.</P>
+    
+<H3>A4.3 MODE</H3>
+
+<P>
+    
+<P>The THOR XVI introduced a new <SPAN style="font-style: italic;">MODE 12</SPAN> which provides the same resolution as <SPAN style="font-style: italic;">MODE 8</SPAN> (256x256 pixels), but replaces the <SPAN style="font-style: italic;">FLASH</SPAN> bit by an intensity bit which enables the THOR XVI to display 16 colours on screen.</P>
+    
+<H3>A4.4 THE THOR WINDOWING SYSTEM</H3>
+
+<P>
+    
+<P>There has never been a version of the Pointer Environment which will run happily on the THOR XVI - instead Dansoft produced its own windowing environment which moves the system variables and the start address of the screen with all of the inherent problems faced by Minerva users.</P>
+    
+<P>This can however be turned off on start-up by using:</P>
+    <PRE>
+CLOSE
+POKE SYS_VARS+133,-1
+OPEN #1,con_
+OPEN #2,con_
+OPEN #0,con_
+WMON 4
+</PRE>
+    
+<H3>A4.5 BEEP</H3>
+
+<P>
+    
+<P>Although implemented on the THOR XVI, this is unlikely to match with the sounds produced on the QL.</P>
+</BODY>
+</HTML>
