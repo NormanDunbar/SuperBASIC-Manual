@@ -91,7 +91,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Appendix01.clean.html">A1. Minerva</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Appendix02.clean.html">A2. SMSQ/E</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Appendix03.clean.html">A3. Emulators</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">A4. Thor Computers</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="">A4. Thor Computers</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#a4-1-introduction">A4.1 Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#a4-2-keyrow">A4.2 KEYROW</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#a4-3-mode">A4.3 MODE</a></li>
@@ -102,11 +102,15 @@
 <li class="toctree-l1"><a class="reference internal" href="Appendix05.clean.html">A5. Expansion Boards</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Appendix06.clean.html">A6. Compatibility</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Appendix07.clean.html">A7. Multiple Basics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html">A8 ERROR MESSAGES</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#a8-1-standard-english-error-messages">A8.1 STANDARD ENGLISH ERROR MESSAGES</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#a8-2-foreign-error-messages">A8.2 Foreign Error Messages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#a8-3-dates">A8.3 Dates</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#a8-4-sms-messages">A8.4 SMS Messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html">A8. Error Messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix09.clean.html">A9. Character Set, Keyboards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix10.clean.html">A10. Designing New Character Sets (Fonts)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix11.clean.html">A11. Mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix12.clean.html">A12. Device Drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix13.clean.html">A13. Extended Pointer Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix14.clean.html">A14. Coercion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix15.clean.html">A15. Mouse Drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix16.clean.html">A16. The QL Display</a></li>
 </ul>
 
             
@@ -202,12 +206,12 @@ happily on the THOR XVI - instead Dansoft produced its own windowing
 environment which moves the system variables and the start address of
 the screen with all of the inherent problems faced by Minerva users.</p>
 <p>This can however be turned off on start-up by using:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">CLOSE</span>
-<span class="n">POKE</span> <span class="n">SYS_VARS</span><span class="o">+</span><span class="mi">133</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span>
-<span class="n">OPEN</span> <span class="c1">#1,con_</span>
-<span class="n">OPEN</span> <span class="c1">#2,con_</span>
-<span class="n">OPEN</span> <span class="c1">#0,con_</span>
-<span class="n">WMON</span> <span class="mi">4</span>
+<div class="highlight-python"><div class="highlight"><pre>CLOSE
+POKE SYS_VARS+133,-1
+OPEN #1,con_
+OPEN #2,con_
+OPEN #0,con_
+WMON 4
 </pre></div>
 </div>
 </div>

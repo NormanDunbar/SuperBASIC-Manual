@@ -17,15 +17,24 @@ Contents:
    Structure <Structure.clean>
    Writing Programs <WritingPrograms.clean>
 
-   Appendices Introduction <AppendicesIntro.clean>
-   A1. Minerva <Appendix01.clean>
-   A2. SMSQ/E <Appendix02.clean>
-   A3. Emulators <Appendix03.clean>
-   A4. Thor Computers <Appendix04.clean>
-   A5. Expansion Boards <Appendix05.clean>
-   A6. Compatibility <Appendix06.clean>
-   A7. Multiple Basics <Appendix07.clean>
-   A8. Error Messages <Appendix08.clean>
+   Appendices Introduction                   <AppendicesIntro.clean>
+   A1. Minerva                               <Appendix01.clean>
+   A2. SMSQ/E                                <Appendix02.clean>
+   A3. Emulators                             <Appendix03.clean>
+   A4. Thor Computers                        <Appendix04.clean>
+   A5. Expansion Boards                      <Appendix05.clean>
+   A6. Compatibility                         <Appendix06.clean>
+   A7. Multiple Basics                       <Appendix07.clean>
+   A8. Error Messages                        <Appendix08.clean>
+   A9. Character Set, Keyboards              <Appendix09.clean>
+   A10. Designing New Character Sets (Fonts) <Appendix10.clean>
+   A11. Mathematics                          <Appendix11.clean>
+   A12. Device Drivers                       <Appendix12.clean>
+   A13. Extended Pointer Environment         <Appendix13.clean>
+   A14. Coercion                             <Appendix14.clean>
+   A15. Mouse Drivers                        <Appendix15.clean>
+   A16. The QL Display                       <Appendix16.clean>
+   A17. Networks                             <Appendix17.clean>
 
 .. Indices and tables
    ==================

@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux/x86 (vers 25 March 2009), see www.w3.org" />
+  <meta http-equiv="content-type" content="text/html; charset=us-ascii" />
+  <link rel="stylesheet" type="text/css" href="css/QLManualStyle.css" media="all" />
+
+  <title>Sinclair QL SuperBASIC/SBASIC Reference Manual - Appendix 13</title>
+</head>
+
+<body>
+  <div id="header">
+    SBASIC/SuperBASIC Reference Manual Online (c) RWAP Software<br />
+    The Online Guide to programming the Sinclair QL Home Computer in SuperBASIC
+  </div>
+
+  <div id="sideBar">
+    <ul>
+      <li><a href="Foreword.html">Foreword</a></li>
+
+      <li><a href="Introduction.html">Introduction</a></li>
+
+      <li><a href="Credits.html">Credits</a></li>
+
+      <li><a href="Structure.html">Structure</a></li>
+
+      <li><a href="WritingPrograms.html">Writing Programs</a></li>
+
+      <li style="list-style: none; display: inline">
+        <hr />
+      </li>
+
+      <li><a href="KeywordsA.html">Keywords - A</a></li>
+
+      <li><a href="KeywordsB.html">Keywords - B</a></li>
+
+      <li><a href="KeywordsC.html">Keywords - C</a></li>
+
+      <li><a href="KeywordsD.html">Keywords - D</a></li>
+
+      <li><a href="KeywordsE.html">Keywords - E</a></li>
+
+      <li><a href="KeywordsF.html">Keywords - F</a></li>
+
+      <li><a href="KeywordsG.html">Keywords - G</a></li>
+
+      <li><a href="KeywordsH.html">Keywords - H</a></li>
+
+      <li><a href="KeywordsI.html">Keywords - I</a></li>
+
+      <li><a href="KeywordsJ.html">Keywords - J</a></li>
+
+      <li><a href="KeywordsK.html">Keywords - K</a></li>
+
+      <li><a href="KeywordsL.html">Keywords - L</a></li>
+
+      <li><a href="KeywordsM.html">Keywords - M</a></li>
+
+      <li><a href="KeywordsN.html">Keywords - N</a></li>
+
+      <li><a href="KeywordsO.html">Keywords - O</a></li>
+
+      <li><a href="KeywordsP.html">Keywords - P</a></li>
+
+      <li><a href="KeywordsQ.html">Keywords - Q</a></li>
+
+      <li><a href="KeywordsR.html">Keywords - R</a></li>
+
+      <li><a href="KeywordsS.html">Keywords - S</a></li>
+
+      <li><a href="KeywordsT.html">Keywords - T</a></li>
+
+      <li><a href="KeywordsU.html">Keywords - U</a></li>
+
+      <li><a href="KeywordsV.html">Keywords - V</a></li>
+
+      <li><a href="KeywordsW.html">Keywords - W</a></li>
+
+      <li><a href="KeywordsX.html">Keywords - X</a></li>
+
+      <li><a href="KeywordsY.html">Keywords - Y</a></li>
+
+      <li><a href="KeywordsZ.html">Keywords - Z</a></li>
+
+      <li><a href="Keywords_.html">Keywords - Other</a></li>
+
+      <li style="list-style: none; display: inline">
+        <hr />
+      </li>
+
+      <li><a href="AppendicesIntro.html">Appendices Introduction</a></li>
+
+      <li><a href="Appendix01.html">Appendix 1 - Minerva</a></li>
+
+      <li><a href="Appendix02.html">Appendix 2 - SMSQE</a></li>
+
+      <li><a href="Appendix03.html">Appendix 3 - Emulators</a></li>
+
+      <li><a href="Appendix04.html">Appendix 4 - THOR Computers</a></li>
+
+      <li><a href="Appendix05.html">Appendix 5 - Expansion Boards</a></li>
+
+      <li><a href="Appendix06.html">Appendix 6 - Compatability</a></li>
+
+      <li><a href="Appendix07.html">Appendix 7 - Multiple BASICs</a></li>
+
+      <li><a href="Appendix08.html">Appendix 8 - Error Messages</a></li>
+
+      <li><a href="Appendix09.html">Appendix 9 - Character Set / Keyboard</a></li>
+
+      <li><a href="Appendix10.html">Appendix 10 - Fonts</a></li>
+
+      <li><a href="Appendix11.html">Appendix 11 - Mathematics</a></li>
+
+      <li><a href="Appendix12.html">Appendix 12 - Device Drivers</a></li>
+
+      <li><a href="Appendix13.html">Appendix 13 - Extended Pointer Environment</a></li>
+
+      <li><a href="Appendix14.html">Appendix 14 - Coercion</a></li>
+
+      <li><a href="Appendix15.html">Appendix 15 - Mouse Drivers</a></li>
+
+      <li><a href="Appendix16.html">Appendix 16 - The QL Display</a></li>
+
+      <li><a href="Appendix17.html">Appendix 17 - Networks</a></li>
+
+      <li><a href="Appendix18.html">Appendix 18 - Configuring Programs</a></li>
+    </ul>
+  </div>
+
+  <div id="mainText">
+    <h3>A13 EXTENDED POINTER ENVIRONMENT<br /></h3>
+
+    <p>It would appear likely that future QDOS compatible operating systems will be
+    written by Tony Tebby, the original designer of QDOS, and the author of the Extended
+    Pointer Environment. The Extended Environment is supplied built-in with the Atari-QL
+    Emulators, the QXL, and SMSQ/E, and is provided with various software packages for
+    the Sinclair QL and other emulators (the only QDOS compatible computer it will not
+    work on successfully is the Thor XVI).</p>
+
+    <p>When supplied with software, the user will receive a copy of the Pointer Interface
+    (called ptr_gen), the Window Manager (called wman) and the Hotkey System II (called
+    hot_rext). These system extensions are backwardly compatible and therefore you should
+    only ever need to install the latest version of each package once to be able to run
+    all software written with the Pointer Environment in mind (although see <span style=
+    "font-style: italic;">TH_FIX</span>).</p>
+
+    <p>SMSQ/E comes complete with its own version of the Pointer Environment files built
+    in and therefore these files should not be loaded into a computer with SMSQ/E - if
+    the version of the Pointer Environment built into SMSQ/E is not recent enough for the
+    software you are using (an error will be generated), you need to update your copy of
+    SMSQ/E.</p>
+
+    <p>The Pointer Interface provides sensible control of the QL's multitasking
+    abilities, ensuring that whenever part of a program's windows are covered by another
+    program, that program is hidden and cannot try to access the screen (if you think of
+    all of the programs' windows as tiles on the screen, only those tiles which are at
+    the top of the pile can be accessed). It also provides you with a pointer which can
+    be moved around the screen with either the cursor keys or a mouse in order to select
+    different options or programs.</p>
+
+    <p>The Window Manager provides various utilities which enable programs to make use of
+    the Pointer Interface, allowing them to generate menus which can be accessed by using
+    the pointer, and which provide programs a similar feel - making it easier for a user
+    new to the program to become accustomed to how to operate the program.</p>
+
+    <p>The Hotkey System II provides both a Hotkey System and a Thing System (both are
+    independent of each other).</p>
+
+    <p>The Hotkey System allows you to set up various keys which (in combination with
+    &lt;ALT&gt;) will provide direct access to different programs, as well as allowing
+    you to stuff strings into the keyboard queue, pass information from one program to
+    another and to recall the last line to have been typed. This facility is known as
+    either ALTkeys or Hotkeys.</p>
+
+    <p>The Thing System is a means of providing QDOS with a list of named resources which
+    can be accessed by different programs, which merely need to check if the resources
+    they require are present.</p>
+
+    <p>Some general notes about writing programs which will work under the Pointer
+    Environment appear in Section 4.</p>
+
+    <h3>NOTE 1:<br /></h3>
+
+    <p>If you have Hotkey System II installed, then you will need to use the command
+    <span style="font-style: italic;">HOT_GO</span> before any of the ALTkeys will
+    work.</p>
+
+    <h3>NOTE 2:<br /></h3>
+
+    <p>Programs such as PIE and PEX affect the way in which the Pointer Environment works
+    - see <span style="font-style: italic;">PIE_ON</span> and <span style=
+    "font-style: italic;">PEON</span>.</p>
+  </div>
+</body>
+</html>

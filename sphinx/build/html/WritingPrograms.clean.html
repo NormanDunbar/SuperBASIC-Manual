@@ -86,7 +86,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Introduction.clean.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Credits.clean.html">Credits</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Structure.clean.html">Structure</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Writing Programs</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Writing Programs</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#compiling-superbasic-programs">Compiling SuperBASIC Programs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#writing-programs-to-run-under-the-pointer-environment">Writing Programs to Run Under the Pointer Environment</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#using-the-pointer-and-menu-facilities">Using the Pointer and Menu Facilities</a></li>
@@ -103,11 +103,15 @@
 <li class="toctree-l1"><a class="reference internal" href="Appendix05.clean.html">A5. Expansion Boards</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Appendix06.clean.html">A6. Compatibility</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Appendix07.clean.html">A7. Multiple Basics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html">A8 ERROR MESSAGES</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#a8-1-standard-english-error-messages">A8.1 STANDARD ENGLISH ERROR MESSAGES</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#a8-2-foreign-error-messages">A8.2 Foreign Error Messages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#a8-3-dates">A8.3 Dates</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#a8-4-sms-messages">A8.4 SMS Messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html">A8. Error Messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix09.clean.html">A9. Character Set, Keyboards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix10.clean.html">A10. Designing New Character Sets (Fonts)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix11.clean.html">A11. Mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix12.clean.html">A12. Device Drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix13.clean.html">A13. Extended Pointer Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix14.clean.html">A14. Coercion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix15.clean.html">A15. Mouse Drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix16.clean.html">A16. The QL Display</a></li>
 </ul>
 
             
@@ -234,10 +238,10 @@ However, provided that a program is compiled under TURBO with the BRIEF
 directive then it will run provided that the cache is switched off for
 the first 0.3 seconds after EXECing the program - for example, if a
 program causes problems, use:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mi">10</span> <span class="n">CACHE_OFF</span>
-<span class="mi">20</span> <span class="n">EX</span> <span class="n">flp1_PROGRAM_exe</span>
-<span class="mi">30</span> <span class="n">PAUSE</span> <span class="mi">15</span>
-<span class="mi">40</span> <span class="n">CACHE_ON</span>
+<div class="highlight-python"><div class="highlight"><pre>10 CACHE_OFF
+20 EX flp1_PROGRAM_exe
+30 PAUSE 15
+40 CACHE_ON
 </pre></div>
 </div>
 <p>Refer to CACHE_ON and CACHE_OFF for further details.</p>
@@ -297,14 +301,14 @@ contents of any windows which have been CLOSEd where those windows (or
 part of them) fall outside the new OUTLN, will disappear!! This can
 result in some programs losing parts of their display.</p>
 <p>An example of this can be seen with the program:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mi">5</span> <span class="n">OPEN</span> <span class="c1">#0,con</span>
-<span class="mi">10</span> <span class="n">OUTLN</span> <span class="c1">#0,448,200,32,16:PAPER #0,0:CLS#0:INK #0,4:PRINT #0,&#39;This is #0&#39;</span>
-<span class="mi">20</span> <span class="n">OPEN</span> <span class="c1">#1,con_400x160a40x40:PAPER 2:CLS:INK 7:PRINT &#39;This is #1&#39;</span>
-<span class="mi">30</span> <span class="n">OPEN</span> <span class="c1">#2,con_300x100a80x70:PAPER#2,7:CLS#2:INK#2,2:PRINT #2,&#39;This is #2&#39;</span>
-<span class="mi">40</span> <span class="n">PAUSE</span> <span class="c1">#0</span>
-<span class="mi">50</span> <span class="n">CLOSE</span> <span class="c1">#0</span>
-<span class="mi">55</span> <span class="n">PAUSE</span> <span class="c1">#1</span>
-<span class="mi">60</span> <span class="n">OPEN</span> <span class="c1">#0,con_448x200a32x16:PRINT #0,&#39;This is #0&#39;</span>
+<div class="highlight-python"><div class="highlight"><pre>5 OPEN #0,con
+10 OUTLN #0,448,200,32,16:PAPER #0,0:CLS#0:INK #0,4:PRINT #0,&#39;This is #0&#39;
+20 OPEN #1,con_400x160a40x40:PAPER 2:CLS:INK 7:PRINT &#39;This is #1&#39;
+30 OPEN #2,con_300x100a80x70:PAPER#2,7:CLS#2:INK#2,2:PRINT #2,&#39;This is #2&#39;
+40 PAUSE #0
+50 CLOSE #0
+55 PAUSE #1
+60 OPEN #0,con_448x200a32x16:PRINT #0,&#39;This is #0&#39;
 </pre></div>
 </div>
 <p>Try compiling this program as flp1_test_obj and then enter the command
@@ -315,8 +319,8 @@ command to define a Guardian Window - try the command: EXEP
 flp1_test_obj,g,512,256,0,0. The other answer is to OPEN another
 channel (for example #3) to be the OUTLN channel before any windows are
 OPENed - change line 5 and 10 thus:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mi">5</span> <span class="n">OPEN</span> <span class="c1">#3,con_:OUTLN #3,448,200,32,16</span>
-<span class="mi">10</span> <span class="n">OPEN</span> <span class="c1">#0,con_448x200a32x16:PAPER #0,0:CLS#0:INK #0,4:PRINT #0,&#39;This is #0&#39;</span>
+<div class="highlight-python"><div class="highlight"><pre>5 OPEN #3,con_:OUTLN #3,448,200,32,16
+10 OPEN #0,con_448x200a32x16:PAPER #0,0:CLS#0:INK #0,4:PRINT #0,&#39;This is #0&#39;
 </pre></div>
 </div>
 <p>These problems with defining OUTLN&#8217;s will become apparent if you test

@@ -1,0 +1,273 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>A13 Extended Pointer Environment &mdash; SBASIC/SuperBASIC Reference Manual Online 4.0.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="SBASIC/SuperBASIC Reference Manual Online 4.0.1 documentation" href="index.html"/>
+        <link rel="next" title="A14 Coercion" href="Appendix14.clean.html"/>
+        <link rel="prev" title="A12 Device Drivers" href="Appendix12.clean.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SBASIC/SuperBASIC Reference Manual Online
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Foreword.clean.html">Foreword</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Introduction.clean.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Credits.clean.html">Credits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Structure.clean.html">Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WritingPrograms.clean.html">Writing Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AppendicesIntro.clean.html">Appendices Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix01.clean.html">A1. Minerva</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix02.clean.html">A2. SMSQ/E</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix03.clean.html">A3. Emulators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix04.clean.html">A4. Thor Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix05.clean.html">A5. Expansion Boards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix06.clean.html">A6. Compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix07.clean.html">A7. Multiple Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html">A8. Error Messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix09.clean.html">A9. Character Set, Keyboards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix10.clean.html">A10. Designing New Character Sets (Fonts)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix11.clean.html">A11. Mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix12.clean.html">A12. Device Drivers</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">A13. Extended Pointer Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix14.clean.html">A14. Coercion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix15.clean.html">A15. Mouse Drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix16.clean.html">A16. The QL Display</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">SBASIC/SuperBASIC Reference Manual Online</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>A13 Extended Pointer Environment</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/Appendix13.clean.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="a13-extended-pointer-environment">
+<h1>A13 Extended Pointer Environment<a class="headerlink" href="#a13-extended-pointer-environment" title="Permalink to this headline">¶</a></h1>
+<p>It would appear likely that future QDOS compatible operating systems
+will be written by Tony Tebby, the original designer of QDOS, and the
+author of the Extended Pointer Environment. The Extended Environment is
+supplied built-in with the Atari-QL Emulators, the QXL, and SMSQ/E, and
+is provided with various software packages for the Sinclair QL and other
+emulators (the only QDOS compatible computer it will not work on
+successfully is the Thor XVI).</p>
+<p>When supplied with software, the user will receive a copy of the Pointer
+Interface (called ptr_gen), the Window Manager (called wman) and the
+Hotkey System II (called hot_rext). These system extensions are
+backwardly compatible and therefore you should only ever need to install
+the latest version of each package once to be able to run all software
+written with the Pointer Environment in mind (although see TH_FIX).</p>
+<p>SMSQ/E comes complete with its own version of the Pointer Environment
+files built in and therefore these files should not be loaded into a
+computer with SMSQ/E - if the version of the Pointer Environment built
+into SMSQ/E is not recent enough for the software you are using (an
+error will be generated), you need to update your copy of SMSQ/E.</p>
+<p>The Pointer Interface provides sensible control of the QL&#8217;s multitasking
+abilities, ensuring that whenever part of a program&#8217;s windows are
+covered by another program, that program is hidden and cannot try to
+access the screen (if you think of all of the programs&#8217; windows as tiles
+on the screen, only those tiles which are at the top of the pile can be
+accessed). It also provides you with a pointer which can be moved around
+the screen with either the cursor keys or a mouse in order to select
+different options or programs.</p>
+<p>The Window Manager provides various utilities which enable programs to
+make use of the Pointer Interface, allowing them to generate menus which
+can be accessed by using the pointer, and which provide programs a
+similar feel - making it easier for a user new to the program to become
+accustomed to how to operate the program.</p>
+<p>The Hotkey System II provides both a Hotkey System and a Thing System
+(both are independent of each other).</p>
+<p>The Hotkey System allows you to set up various keys which (in
+combination with &lt;ALT&gt;) will provide direct access to different
+programs, as well as allowing you to stuff strings into the keyboard
+queue, pass information from one program to another and to recall the
+last line to have been typed. This facility is known as either ALTkeys
+or Hotkeys.</p>
+<p>The Thing System is a means of providing QDOS with a list of named
+resources which can be accessed by different programs, which merely need
+to check if the resources they require are present.</p>
+<p>Some general notes about writing programs which will work under the
+Pointer Environment appear in Section 4.</p>
+<p><strong>NOTE 1</strong></p>
+<p>If you have Hotkey System II installed, then you will need to use the
+command HOT_GO before any of the ALTkeys will work.</p>
+<p><strong>NOTE 2</strong></p>
+<p>Programs such as PIE and PEX affect the way in which the Pointer
+Environment works - see PIE_ON and PEON.</p>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Appendix14.clean.html" class="btn btn-neutral float-right" title="A14 Coercion" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Appendix12.clean.html" class="btn btn-neutral" title="A12 Device Drivers" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Rich Mellor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'4.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

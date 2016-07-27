@@ -15,9 +15,14 @@ RST="${CLEAN%%html}rst"
 ERRORS="${HTML%%html}errors.txt"
 
 ./HTMLTidy.sh ${HTML} && ./HTML2rst.sh ${CLEAN}
+CHECK=$?
 
-mv ${HTML} html/
-mv ${CLEAN} clean/
-mv ${ERRORS} errors/
-mv ${RST} sphinx/source/
+if [ "${CHECK}" = "0" ]
+then
+    mv ${HTML} html/
+    mv ${CLEAN} clean/
+    mv ${ERRORS} errors/
+    mv ${RST} sphinx/source/
+fi
+
 

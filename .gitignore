@@ -1,1 +1,2 @@
 sphinx/build/doctrees/*
+*.doctree

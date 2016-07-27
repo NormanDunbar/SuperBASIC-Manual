@@ -1,0 +1,609 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html xmlns:v="urn:schemas-microsoft-com:vml">
+  <head>
+    <meta http-equiv="content-type" content="text/html;
+      charset=ISO-8859-1">
+    <link rel="stylesheet" type="text/css" href="css/QLManualStyle.css" media="all" />
+    <title>Sinclair QL SuperBASIC/SBASIC Reference Manual - Appendix 17</title>
+</head>
+<body>
+<div id="header">
+  SBASIC/SuperBASIC Reference Manual Online (c) RWAP Software
+  <br />
+  The Online Guide to programming the Sinclair QL Home Computer in SuperBASIC
+</div>
+<div id="sideBar">
+    <ul>
+        <li><a href="Foreword.html">Foreword</a></li>
+        <li><a href="Introduction.html">Introduction</a></li>
+        <li><a href="Credits.html">Credits</a></li>        
+        <li><a href="Structure.html">Structure</a></li>
+        <li><a href="WritingPrograms.html">Writing Programs</a></li>
+        <hr></hr>
+        <li><a href="KeywordsA.html">Keywords - A</a></li>
+        <li><a href="KeywordsB.html">Keywords - B</a></li>
+        <li><a href="KeywordsC.html">Keywords - C</a></li>
+        <li><a href="KeywordsD.html">Keywords - D</a></li>
+        <li><a href="KeywordsE.html">Keywords - E</a></li>
+        <li><a href="KeywordsF.html">Keywords - F</a></li>
+        <li><a href="KeywordsG.html">Keywords - G</a></li>
+        <li><a href="KeywordsH.html">Keywords - H</a></li>
+        <li><a href="KeywordsI.html">Keywords - I</a></li>
+        <li><a href="KeywordsJ.html">Keywords - J</a></li>
+        <li><a href="KeywordsK.html">Keywords - K</a></li>
+        <li><a href="KeywordsL.html">Keywords - L</a></li>
+        <li><a href="KeywordsM.html">Keywords - M</a></li>
+        <li><a href="KeywordsN.html">Keywords - N</a></li>
+        <li><a href="KeywordsO.html">Keywords - O</a></li>
+        <li><a href="KeywordsP.html">Keywords - P</a></li>
+        <li><a href="KeywordsQ.html">Keywords - Q</a></li>
+        <li><a href="KeywordsR.html">Keywords - R</a></li>
+        <li><a href="KeywordsS.html">Keywords - S</a></li>
+        <li><a href="KeywordsT.html">Keywords - T</a></li>
+        <li><a href="KeywordsU.html">Keywords - U</a></li>
+        <li><a href="KeywordsV.html">Keywords - V</a></li>
+        <li><a href="KeywordsW.html">Keywords - W</a></li>
+        <li><a href="KeywordsX.html">Keywords - X</a></li>
+        <li><a href="KeywordsY.html">Keywords - Y</a></li>
+        <li><a href="KeywordsZ.html">Keywords - Z</a></li>
+        <li><a href="Keywords_.html">Keywords - Other</a></li>
+        <hr></hr>
+        <li><a href="AppendicesIntro.html">Appendices Introduction</a></li>
+        <li><a href="Appendix01.html">Appendix 1 - Minerva</a></li>
+        <li><a href="Appendix02.html">Appendix 2 - SMSQE</a></li>
+        <li><a href="Appendix03.html">Appendix 3 - Emulators</a></li>
+        <li><a href="Appendix04.html">Appendix 4 - THOR Computers</a></li>
+        <li><a href="Appendix05.html">Appendix 5 - Expansion Boards</a></li>
+        <li><a href="Appendix06.html">Appendix 6 - Compatability</a></li>
+        <li><a href="Appendix07.html">Appendix 7 - Multiple BASICs</a></li>
+        <li><a href="Appendix08.html">Appendix 8 - Error Messages</a></li>
+        <li><a href="Appendix09.html">Appendix 9 - Character Set / Keyboard</a></li>
+        <li><a href="Appendix10.html">Appendix 10 - Fonts</a></li>
+        <li><a href="Appendix11.html">Appendix 11 - Mathematics</a></li>
+        <li><a href="Appendix12.html">Appendix 12 - Device Drivers</a></li>
+        <li><a href="Appendix13.html">Appendix 13 - Extended Pointer Environment</a></li>
+        <li><a href="Appendix14.html">Appendix 14 - Coercion</a></li>
+        <li><a href="Appendix15.html">Appendix 15 - Mouse Drivers</a></li>
+        <li><a href="Appendix16.html">Appendix 16 - The QL Display</a></li>
+        <li><a href="Appendix17.html">Appendix 17 - Networks</a></li>
+        <li><a href="Appendix18.html">Appendix 18 - Configuring Programs</a></li>
+    </ul>
+</div>
+<div id="mainText">
+
+<h3>A17 NETWORKS<br></h3>
+<p>
+A Network is a means of communicating with several other
+computers and sharing their resources.  The way in which
+networks work on a QL or deriviative depends upon the hardware
+being used.
+</p>
+<p>Standard QLs and the THOR family of computers have two
+network ports which work in exactly the same way, and enable
+up to 64 computers to be connected together serially.
+</p>
+<p>Unfortunately,  the  protocol  used  for  the  Network  is
+peculiar to Sinclair machines and only QLs (including AURORA),
+QXLs, THORs and ZX Spectrums may be connected together in this
+way. This is known as QNet.  If you only need to network these
+machines together then you can take advantage of several
+different options to get the most out of the original QNet.
+</p>
+<p>To enable ATARIs and PCs to be connected together in a
+Network with Sinclair QLs, you will need to use the SERNET and
+MIDINET drivers which allow the machines to be connected via
+serial ports and MIDI ports respectively (although MIDI ports
+can only be connected between ATARI computers).
+</p>
+<p>These networks will work alongside the standard QNet and
+therefore you can have several circles of computers networked
+together, all controlled by one central machine, say with some
+linked via SERNET, some via MIDINET and others linked via
+QNet.
+</p>
+<p>Another option available to users wishing to join machines
+together in a Network is to use Amadeus Interlink (&copy; Di -
+Ren), which allows you to connect up to 255 machines in a
+Network.  These machines can be either QLs, THORs or PCs at
+present and this Network system is significantly faster than
+the original QNet.
+</p>
+<p>Di-Ren also produce a QL-PC Fileserver which allows you to
+link a QL to a PC with a cable and then this allows the QL to
+use the PC's DOS devices (including floppy disks, CD-Rom
+drive, hard disks, Networks and Serial ports).  This will
+allow you to use PC format disks and on later versions, you
+can even use the PC's screen to display the QL's output.  This
+is therefore similar to a small Network device.
+</p>
+<p>In DIY Toolkit Volume N there is a very interesting program
+NETPAL which allows one computer to completely control another
+computer - this works by machine 2 opening a channel on
+machine 1 where the user can enter his commands, which are
+then executed on machine 2.  This can be very useful to allow
+you to use several QLs with only one Monitor (or keyboard),
+but unfortunately, this program does have its limitations due
+to problems with sending control characters over the Network
+(such as CTRL C) and also a CON device opened over the Network
+does not seem to delete characters from the screen properly..
+</p>
+
+<h3>A17.1 QNet<br></h3>
+<p>
+This  system  allows  Standard  QLs,  QXLs,  AURORAs,  THOR
+computers and ZX Spectrums (with Interface 1 attached) to be
+connected together in a network.  However, although data can
+be sent to a ZX Spectrum, the data is corrupted if the
+Spectrum tries to send more than one byte to another type of
+machine.
+</p>
+<p>Minerva, SMSQ/E and Toolkit II all improve the reliability
+of this Network system.  if you are not using Toolkit II,
+Minerva v1.96 is ideally required to ensure reliable input of
+data over the Network.
+</p>
+
+<h3>A17.1.1 Connecting Machines<br></h3>
+<p>
+To connect the machines, a cable must be used to connect
+one network port on each computer to one of the ports on the
+next computer in line. Having chained all of the computers
+together in this fashion, the Network should be completed by
+connecting the last computer in the chain to the first, thus
+completing a circle (although this is not always necessary).
+</p>
+<p>The cable need only be twin core, and it is advisable in a
+large Network to use low-capacitance cable (eg. bell wire),
+connecting the centres of each jack to each other and the
+outsides to each other. The maximum amount of cable that can
+be reliably used is approximately 100 metres, however, the
+less the better.
+</p>
+<p>Unfortunately the network hardware on the standard QL is
+not always reliable, but if you experience problems, it might
+be worth trying either a different QL or swapping the leads
+over. THOR XVIs should work without any problems, however, if
+you intend linking several QLs together, it is advisable to
+install Toolkit II on ROM (or SMSQ/E) in each of them (the
+memory only version of Toolkit II cannot improve the network
+due to timing). Minerva or SMSQ/E on all of the machines will
+also improve the Network handling.
+</p>
+<p>Each computer (known as a station) must be given a separate
+station number so that it can be clearly identified within the
+Network. This station number is given to the machine when it
+is turned on (this will always be one) and so must be reset on
+each machine by the command <span style="font-style: italic;">NET</span>.
+</p>
+
+<h3>A17.1.2 The Device Driver<br></h3>
+<p>
+Data is sent through the Network ports normally by using
+the NET device driver, which has the format:
+</p>
+<p><span style="font-style: italic;">NET</span><<span style="font-style: italic;">direction</span>><<span style="font-style: italic;">station</span>><span style="font-style: italic;">(QL ROM)
+</span></p>
+<p><span style="font-style: italic;">NET</span><<span style="font-style: italic;">direction</span>><<span style="font-style: italic;">station</span>>_<<span style="font-style: italic;">buffer</span>><span style="font-style: italic;">(Toolkit II, THOR XVI)
+</span></p>
+<p>The  parameters  of  the  <span style="font-style: italic;">NET</span>  device  have  the  following
+meanings:
+</p>
+<p><<span style="font-style: italic;">direction</span>>This is the direction in which data is to be
+sent. There is no default and this therefore must
+be one of the following letters:
+</p>
+<p>I -This is a listening station
+</p>
+<p>(input only)
+</p>
+<p>O -This is a transmitting station
+</p>
+<p>(output only)
+</p>
+<p><<span style="font-style: italic;">station</span>>This  is  the  number  of  the  station  to
+communicate with and is in the form <span style="font-style: italic;">_n</span>, where <span style="font-style: italic;">n
+</span>represents  the  station  number  of  the  other
+machine you wish to communicate with.
+</p>
+<p><span style="font-style: italic;">n=0</span> is treated as a special case - see below.
+</p>
+<p>The default is _0.
+</p>
+<p>This Device Driver allows data to either be transmitted to
+a specific machine, or broadcast to any machine which is
+listening to the Network.
+</p>
+
+<h3>A17.1.3 Sending / Receiving Data<br></h3>
+<p>
+To broadcast data (sending it to all machines in the
+Network) you need to open a channel to<span style="font-style: italic;"> NETO_0</span>, for example:
+</p>
+<p><span style="font-style: italic;">OPEN_NEW #3,NETO_0
+</span></p>
+<p>To listen to data which is being Broadcast, the listening
+stations will need to open a channel <span style="font-style: italic;">NETI_0</span>, for example with:
+</p>
+<p><span style="font-style: italic;">OPEN_IN #4,NETI_0
+</span></p>
+<p>If you open a net-in channel and specify your own station
+number, this  is  treated  as a  general  listening  station,
+allowing you to receive any data sent to that station by any
+machine in the Network.  For example, you could use:
+</p>
+<p><span style="font-style: italic;">NET 12:OPEN_IN #4,NETI_12
+</span></p>
+<p>to set up a general listening station.
+</p>
+<p>If you want to open a net-in channel which will only listen
+for data from a specific machine in the Network, you will need
+to specify the station number of that machine, for example:
+</p>
+<p>On station 3, enter:
+</p>
+<p><span style="font-style: italic;">NET 3:OPEN_NEW #3,NETO_12
+</span></p>
+<p>Then on station 12, enter:
+</p>
+<p><span style="font-style: italic;">NET 12:OPEN_IN #3,NETI_3
+</span></p>
+<p>will set up a link between stations 3 and 12 which only
+those machines can use.  To allow station 12 to send data to
+station 3, you will also need to open a net-out channel, with:
+</p>
+<p><span style="font-style: italic;">OPEN_NEW #4,NETO_3
+</span></p>
+<p>and to enable station 3 to listen to it, you could use on
+station 3:
+</p>
+<p><span style="font-style: italic;">OPEN_IN #4,NETI_3
+</span></p>
+<p>(this allows station 3 to listen to any messages sent to it
+over the network by any other machine).
+</p>
+<p>Each network channel can be input only or output only, thus
+bi-directional channels are not allowed. However, you can open
+as many channels as you like onto the Network on each machine,
+some of which may be output channels whilst others are input
+channels. If you try to send data down an input channel (or
+read data from an output channel), then a 'Bad Parameter'
+error will be returned.
+</p>
+<p>Due to the way in which the data being sent over the
+Network ports is tested, you will need to open the output side
+of a  Network  link  before  the input  side  is  opened,  as
+otherwise, the  two  computers  may miss  each  other's  data
+header. If you later need to close the output port, you will
+need to inform the computers which are listening for data
+before the port is closed, as they themselves will need to
+close their input ports (any attempt to read any further data
+once the output port has been closed will result in an 'End of
+File' error). Only once the output port has been re-opened is
+it safe for them to re-open the input ports.
+</p>
+<p>For this reason, if you plan to write a program which may
+open and close the output port several times in a session, it
+would be useful to have a secondary output port open at all
+times, which  can  be  used to  Broadcast  to  the  listening
+stations when to open and/or close their own input ports.
+</p>
+<p>Data is transmitted in packets of a specified size (the
+size depends on the type of device driver). The size of the
+packet determines the smallest amount of data that can be sent
+- any spare values will be set to zero. If the amount of data
+is greater than the packet size, then it will be sent as
+several packets. However, a packet will only be sent down the
+Network if it is full, therefore if some data remains to be
+sent which does not completely fill a packet, the sending
+machine will need to <span style="font-style: italic;">CLOSE</span> the channel, or flush the network
+(this requires a specialised routine - <span style="font-style: italic;">FLUSH</span> will not work on a
+network device) in order to send the remaining pieces of data.
+</p>
+<p>The <span style="font-style: italic;">NET</span> device is greatly improved if Toolkit II is present
+(or a THOR XVI is being used), and we shall deal with this
+separately.
+</p>
+
+<h3>A17.1.4 QNet without Toolkit II<br></h3>
+<p>
+Data is transmitted in packets of 255 bytes preceded by a
+small Network header in the following format:
+</p>
+<table>
+<tr align="left"><th>Offset</th><th>Name</th><th>Size</th><th>Description</th></tr>
+
+<tr><td>0</td><td>NET.HEDR</td><td>byte</td><td>Destination     station     number (equivalent  to  NCIRIS  on  the Spectrum)</td></tr>
+<tr><td>1</td><td>NET.SELF</td><td>byte</td><td>Number of sending station</td></tr>
+<tr><td>2</td><td>NET.BLKL</td><td>byte</td><td>LSB of data block number</td></tr>
+<tr><td>3</td><td>NET.BLKH</td><td>byte</td><td>MSB   of   data   block   number  (note the  reverse order  because of the way in  which  words are stored for the Z80 on the Spectrum)</td></tr>
+<tr><td>4</td><td>NET.TYPE</td><td>byte</td><td>Packet type: 0 data, 1 last block (EOF)</td></tr>
+<tr><td>5</td><td>NET.NBYT</td><td>byte</td><td>Number of bytes in data block (0 to 255)</td></tr>
+<tr><td>6</td><td>NET.DCHK</td><td>byte</td><td>Data checksum</td></tr>
+<tr><td>7</td><td>NET.HCHK</td><td>byte</td><td>Header checksum</td></tr>
+
+</table>
+<p>The effects of the header depend on whether the sending
+machine is Broadcasting (ie. using <span style="font-style: italic;">NETO_0</span>), in which case there
+is no handshaking, or not (in which case handshaking is
+enabled).
+</p>
+<p>Before the packet is sent down the Network, the sending
+machine listens to the Network to check if it is being used.
+Once it is free, the sending machine then sends the header and
+if handshaking is enabled, waits for an acknowledgement from
+the destination machine that it is ready to receive.
+</p>
+<p>Having  received  this  acknowledgement  (or  if  it  is
+Broadcasting), the packet is sent. Once this is sent, if
+handshaking is enabled, then the sending machine again waits
+for the destination machine to acknowledge safe receipt; and
+if no such acknowledgement is received, tries all over again.
+</p>
+<p>This means that no check is made on the data if the sending
+machine is Broadcasting, in which case it makes it very
+unreliable to  Broadcast  messages  of more  than  255  bytes
+(unless you have Toolkit II, a THOR XVI or Minerva; all of
+which improve the reliability, although it is still not 100%).
+This  does  also  mean  that  if  no  stations  are  actually
+listening, the whole of the data will be lost.
+</p>
+<p>When receiving data through the Network, the command <span style="font-style: italic;">EOF
+</span>will only detect the end of the data if there are no more
+bytes to be read from the channel and the NET.TYPE in the
+header was set to <span style="font-style: italic;">EOF</span>.  The receiving machine will need to use
+the command <span style="font-style: italic;">PEND</span> or <span style="font-style: italic;">EOFW</span> to check if there is any data in the
+channel waiting to be read, unless you wish the program to
+just wait around for the data to be sent.
+</p>
+<p>When the channel is closed, the device will try to output
+one final packet of data (this means that a minimum of one
+packet can be sent). If it fails to send the packet, then it
+will try a further 1399 times (causing an extremely long
+delay), after which the QL will give up. No error message is
+returned to tell the sending computer that it has failed to
+send the data. This means that <span style="font-style: italic;">CLOSE</span>ing a <span style="font-style: italic;">NETO</span> channel, even
+though no data has been sent through the Network, produces an
+extremely long delay before the computer can do anything else
+(and may even crash some versions of the QL ROM if nothing has
+been written to the port - see <span style="font-style: italic;">CLOSE</span>).
+</p>
+
+<h3>Example:<br></h3>
+<p>
+<span style="font-style: italic;">COPY flp1_boot TO neto_2
+</span></p>
+<p>copies the file flp1_boot to station 2. 
+</p>
+
+<h3>A17.1.5 QNet under Toolkit II<br></h3>
+<p>
+This is basically the same as the standard QNet driver,
+except that improvements have been made to improve handshaking
+and also to ensure that when an output channel is closed,
+whilst the driver keeps trying to send the last packet, the
+Break key is also checked for on the sending machine, allowing
+you to break into this early.
+</p>
+<p>The Net header for the fileserver has also been improved to
+allow blocks of up to 1000 bytes to be sent at a time and also
+to improve the checksum.
+</p>
+<p>If the driver fails to send the last packet (despite
+retrying 1399 times), or the Break key is detected, the
+message 'Net Aborted' is printed to #0 (although this does not
+stop the program), warning the user that the Network has
+failed.
+</p>
+<p>The syntax has been extended to include a parameter <<span style="font-style: italic;">buffer</span>>
+which represents the size of a buffer to be opened to receive
+bytes over the Network. It is in the form <span style="font-style: italic;">_n</span> kilobytes and is
+really only applicable where the channel is <span style="font-style: italic;">NETI_0</span>, as it
+specifies the size of the buffer (in kilobytes) to store the
+whole of a Broadcast message as it is transmitted. If no
+<<span style="font-style: italic;">buffer</span>> is specified, it will use all but 2K of the free
+memory.
+</p>
+<p>Toolkit II also implements a fileserver which allows a
+machine to directly access resources on another computer, by
+<span style="font-style: italic;">OPEN</span>ing channels over the Network.  Please refer to the <span style="font-style: italic;">FSERVE</span> and
+<span style="font-style: italic;">NFS_USE</span> keywords for details about the fileserver.
+</p>
+<p>The <span style="font-style: italic;">MEM</span> device can also be used to access another machine's
+resources over the Network.  This is discussed in the Appendix
+on Device Drivers.
+</p>
+
+<h3>A17.2 FLEXYNET (DIY TOOLKIT - VOL X)<br></h3>
+<p>
+This can be used alongside the standard and Toolkit II QNet
+(subject to certain limitations - see below).  The code will
+need to be loaded into either ROM (if you have an EPROM
+blower) or fast RAM (not the QL's internal 128K RAM - an
+expanded machine is therefore needed).  Current versions of
+Flexynet will not work on machines which do not use a 68000 or
+68008 chip (such as QXLs or Super Gold Cards), unless the
+cache has been disabled.
+</p>
+<p>It has been implemented with a view to speeding up the
+transfer of data across the QNet, by allowing you to set the
+speed at which the data is to be transmitted (using the <span style="font-style: italic;">NETRATE
+</span>command).  The speed which the Networks will support depends
+upon the machines which are connected to QNet, with faster
+machines being able to receive data much faster than under the
+standard QNet (although transmission speed depends upon the
+speed of the machine at the other end of the QNet).
+</p>
+<p>Although this can be used alongside QNet, there are really
+only two commands which allow you to send or receive multiple
+bytes sent over the network (<span style="font-style: italic;">NETSEND</span> and <span style="font-style: italic;">NETREAD</span>).  There is
+currently no way of specifying which machine the data is to be
+sent to and therefore all machines in the network will be able
+to read the data sent.
+</p>
+<p>You should not try to use both the standard QNet and
+Flexynet at the same time - we would recommend that a message
+is broadcast over the Network to all of the other machines
+first of all specifying that Flexynet is to be used and which
+machine is to receive the data and that the sending machine
+should then wait to hear that all other machines have closed
+down their network channels and that the receiving machine is
+ready to receive the data.
+</p>
+<p>The commands <span style="font-style: italic;">NETBEEP</span> and <span style="font-style: italic;">NETPOLL</span> have also been added to allow
+the QL to use the Networks as a rudimentary form of digital
+sampling and even to generate sounds through the Network
+ports.
+</p>
+
+<h3>A17.3 MIDINET<br></h3>
+<p>
+This extension provided with the Atari Emulators and SMSQ/E
+allows you to connect several ATARI computers in a Network by
+linking their MIDI ports together using suitable leads.  As
+with QNet the machines must be arranged to form a complete
+circle with the MIDI OUT port of each machine being connected
+to the MIDI IN port of the next machine in the Network.
+</p>
+<p>The Network will not work unless all machines are switched
+on (as with QNet) and unless all machines are running the
+MIDINET  device  driver,  installed  with  <span style="font-style: italic;">LRESPR  flp1_MIDINET_REXT
+</span>(although the fileserver job need not be running except on the
+master machine).
+</p>
+<p>Once connected, this system works very much in the same way
+as the QNet under Toolkit II, except that some file protection
+is provided to stop other machines on the Network accessing
+important files (see <span style="font-style: italic;">MIDINET</span>).
+</p>
+<p>The following commands are provided:
+</p>
+
+<ul>
+<li><span style="font-style: italic;">MNET</span> - Set the station number of this machine
+</li>
+<li><span style="font-style: italic;">MNET%</span> - Return the station number
+</li>
+<li><span style="font-style: italic;">MNET_S%</span> - Confirm whether a machine with a given station
+number is connected to the Network.
+</li>
+<li><span style="font-style: italic;">MNET_ON</span> - Switch on the device driver
+</li>
+<li><span style="font-style: italic;">MNET_OFF</span> - Switch off the device driver (this allows the
+MIDI port to be used independently)
+</li>
+<li><span style="font-style: italic;">MNET_USE</span> - Change the letter which identifies the device
+driver (normally N)
+</li>
+<li><span style="font-style: italic;">MIDINET</span> - Start up the fileserver
+</li>
+</ul>
+
+
+<h3>A17.4 SERNET<br></h3>
+<p>
+This extension provided with the Atari Emulators and SMSQ/E
+allows you to connect several different computers in a Network
+by linking their serial ports together using suitable leads.
+</p>
+<p>This can therefore be used to connect all machines which
+currently are able to run QL software.
+</p>
+<p>If you only have two machines in a Network, you can connect
+them by using a Null-Modem-Cable.  However, with more than two
+machines, as with QNet the machines must be arranged to form a
+complete circle so that all of the output signals from one
+machine are  connected  to  the input  signals  of  the  next
+machine.
+</p>
+<p>The Network will not work unless all machines are switched
+on (as with QNet), all machines are running the SERNET device
+driver (installed with <span style="font-style: italic;">LRESPR flp1_SERNET_REXT</span>) and SERNET has been
+configured on each machine to inform it which serial port it
+is to use for communications.  Also, all of the machines must
+be set to the same <span style="font-style: italic;">BAUD</span> rate before SERNET is loaded.
+</p>
+<p>In order to improve the network, handshaking should be
+implemented on all ports, therefore to allow SERNET to use
+ser3 you may configure it to use: SER3hd (presuming hardware
+handshaking is available).  If hardware handshaking is not
+available to some machines on the Network, you will need to
+use SER3xd on all the machines.
+</p>
+<p>Once connected, this system works very much in the same way
+as the MIDINET.
+</p>
+<p>The following commands are provided:
+</p>
+
+<ul>
+<li><span style="font-style: italic;">SNET</span> - Set the station number of this machine</li>
+<li><span style="font-style: italic;">SNET%</span> - Returns the station number</li>
+<li><span style="font-style: italic;">SNET_S%</span> - Confirm whether a machine with a given station number is connected to the Network.</li>
+<li><span style="font-style: italic;">SNET_ROPEN</span> - Re-opens the serial ports in case you have closed one from another program.</li>
+<li><span style="font-style: italic;">SNET_USE</span> - Change the letter which identifies the device driver (normally S)</li>
+<li><span style="font-style: italic;">SERNET</span> - Start up the fileserver</li>
+</ul>
+
+<h3>A17.5 AMADEUS INTERLINK<br></h3>
+<p>
+This is a box which can be linked to a QL or PC computer
+and allows you to connect up to 255 devices to a computer -
+these devices can be other Amadeus-fitted computers, printers
+or sound interfaces.  If you use this to link computers
+together it provides in effect an extremely fast Network
+system, with more speed the faster the computer!
+</p>
+<p>We do not have details of how the Network system works at
+present.
+</p>
+
+<h3>A17.6 QL - PC FILESERVER<br></h3>
+<p>
+This is a software package which allows you (with the use
+of a cable which can be supplied) to link a QL to a PC
+computer via a free serial port and allows you to access the
+various devices provided by the PC.  However, if you wish to
+use the package with Minerva, you will need at least v1.02 of
+the QL-PC Fileserver package.  The original version will not
+work with the Super Gold Card and these users will need the
+QL-PC Fileserver II version (see below).
+</p>
+<p>Basically, once the system has been set up and linked into
+both the QL and PC, you have to create a fileserver task on
+the PC by entering a new command on the PC (<span style="font-style: italic;">QLNET</span>) and then on
+the QL side, simply set the correct <span style="font-style: italic;">BAUD</span> rate (for the PC) and
+enter the command <span style="font-style: italic;">PCSERVE</span> to inform the QL which serial port on
+the QL is linked to the PC.
+</p>
+<p>Having done this, you are provided with various commands to
+find out details of the drives connected to the PC and can
+access them by simply using the device pcd, where <span style="font-style: italic;">DIR pcd1_</span> will
+provide a directory listing of drive A: on the PC, and <span style="font-style: italic;">DIR pcd3_
+</span>will provide a directory listing of drive C: on the PC
+(normally the hard disk).
+</p>
+<p>Files can be saved onto the PC's devices in QL format to be
+read at a later stage by any other QL.  You can also access
+the PC's printer (<span style="font-style: italic;">PC_DEV ser2,lpt1</span> redirects all output to ser2 to
+the lpt1 device on the PC) and even the PC's screen (the
+device PSCR is used to signify a channel is to be <span style="font-style: italic;">OPEN</span>ed on the
+PC's screen, replacing the QL's SCR device).
+</p>
+<p>Although  speed  is  somewhat  slower  than  using  devices
+plugged into the QL, at least this means that you could get
+away without having to buy any disk drives (floppy or hard
+disk) for the QL.
+</p>
+<p>One other thing that this package does is allow the QL to
+connect into a PC network, thus opening up the world of the PC
+in a cost-effective manner.
+</p>
+<p>QL-PC Fileserver II is a newer version of the package which
+is much enhanced, allowing the QL to be connected to the PC
+via Amadeus Interlink as well as the serial ports.  Full QL
+filename lengths are supported in this version and if you use
+the PC's screen to display the QL's output, this now supports
+QL windowing, colour and CON devices.
+</div>
+</body>
+</html>

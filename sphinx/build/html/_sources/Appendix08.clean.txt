@@ -1,5 +1,5 @@
-A8 ERROR MESSAGES
------------------
+A8 Error Messages
+=================
 
 The QDOS error code is a negative integer between -1 and -21 and is
 often referred to instead of the relative error message. You can either
@@ -15,7 +15,7 @@ and LANG\_USE commands.
 The instances where such error messages will be reported is actually
 dependent upon the task which was being performed at the time.
 
-A8.1 STANDARD ENGLISH ERROR MESSAGES
+A8.1 Standard English Error Messages
 ------------------------------------
 
 A very general explanation of each message is given below, according to

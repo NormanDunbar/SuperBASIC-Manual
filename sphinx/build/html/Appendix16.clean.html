@@ -1,0 +1,5359 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>A16 The QL Display &mdash; SBASIC/SuperBASIC Reference Manual Online 4.0.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="SBASIC/SuperBASIC Reference Manual Online 4.0.1 documentation" href="index.html"/>
+        <link rel="prev" title="A15 Mouse Drivers" href="Appendix15.clean.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SBASIC/SuperBASIC Reference Manual Online
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Foreword.clean.html">Foreword</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Introduction.clean.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Credits.clean.html">Credits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Structure.clean.html">Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WritingPrograms.clean.html">Writing Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AppendicesIntro.clean.html">Appendices Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix01.clean.html">A1. Minerva</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix02.clean.html">A2. SMSQ/E</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix03.clean.html">A3. Emulators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix04.clean.html">A4. Thor Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix05.clean.html">A5. Expansion Boards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix06.clean.html">A6. Compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix07.clean.html">A7. Multiple Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html">A8. Error Messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix09.clean.html">A9. Character Set, Keyboards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix10.clean.html">A10. Designing New Character Sets (Fonts)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix11.clean.html">A11. Mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix12.clean.html">A12. Device Drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix13.clean.html">A13. Extended Pointer Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix14.clean.html">A14. Coercion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix15.clean.html">A15. Mouse Drivers</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">A16. The QL Display</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#a16-1-the-screen-address">A16.1 The Screen Address</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#a16-2-the-screen-size">A16.2 The Screen Size</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#a16-3-on-screen-colours">A16.3 On-Screen Colours</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#standard-ql-colour-drivers-mode-4">Standard QL Colour Drivers MODE 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mode-8">MODE 8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#aurora-enhanced-colour-drivers">Aurora Enhanced Colour Drivers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-master-control-register-18063">The Master Control Register ($18063)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-enhanced-mode-control-register-18043">The Enhanced Mode Control Register ($18043)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-monitor-preset-register-18043">The Monitor Preset Register ($18043)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#colour-mode">16 Colour Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">256 Colour Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#qpc-qxl-enhanced-colour-drivers">QPC/QXL Enhanced Colour Drivers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ql-colour-mode-colour-ql">QL Colour Mode (COLOUR_QL)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pal-colour-mode-colour-pal">PAL Colour Mode (COLOUR_PAL)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#native-colour-mode-colour-native">Native Colour Mode (COLOUR_NATIVE)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bit-colour-mode-colour-24">24 Bit Colour Mode (COLOUR_24)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#q40-q60-enhanced-colour-drivers">Q40/Q60 Enhanced Colour Drivers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">QL Colour Mode (COLOUR_QL)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">PAL Colour Mode (COLOUR_PAL)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Native Colour Mode (COLOUR_NATIVE)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bit-enhanced-colour-drivers">24 Bit Enhanced Colour Drivers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#miscellaneous-colour-modes">MISCELLANEOUS COLOUR MODES</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#mode-2-monochrome-drivers">MODE 2 (Monochrome Drivers)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mode-12-16-colour-mode">MODE 12 (16 Colour Mode)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#a16-4-using-high-resolution-displays">A16.4 USING HIGH RESOLUTION DISPLAYS</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">SBASIC/SuperBASIC Reference Manual Online</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>A16 The QL Display</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/Appendix16.clean.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="a16-the-ql-display">
+<h1>A16 The QL Display<a class="headerlink" href="#a16-the-ql-display" title="Permalink to this headline">¶</a></h1>
+<p>The way in which the QL display is made up is fairly complex, and alters
+in different MODEs and on different resolutions. The extended display
+under SMSQ/E has also completely re-written the way in which the screen
+is addressed, causing some incompatability problems.</p>
+<p>The QL screen is in fact an area of the QL&#8217;s memory which can be altered
+using PEEK and POKE (or similar commands) as well as the more usual
+display commands such as INK, PRINT, RECOL and INPUT. However, direct
+access to the screen should be avoided wherever possible, except via the
+machine code IOW.XTOP TRAP #3 routine (D0=$09).</p>
+<p>In order to retain compatability with older software, the Aurora
+motherboard, Q40/Q60 and QPC2 v3.00+ emulators all copy data stored at
+the standard QL screen address across to the correct display area.
+However, this in itself can lead to problems unless the computer is set
+up to start in 512x256 mode, since the software does not copy changes on
+the main screen (for example made with PRINT back to the original QL
+display area).</p>
+<div class="section" id="a16-1-the-screen-address">
+<h2>A16.1 The Screen Address<a class="headerlink" href="#a16-1-the-screen-address" title="Permalink to this headline">¶</a></h2>
+<p>On a standard QL the screen is 32768 bytes long and stored in memory
+starting with the address 131072 ($20000 in Hexadecimal).</p>
+<p>In dual screen mode, another QL screen is also stored in memory,
+normally at the address $28000 (in Hexadecimal) onwards.</p>
+<p>However, in higher resolutions, this screen address has to move in order
+to make room for a larger screen size.</p>
+<p>It is therefore imperative that programs and toolkit commands do not
+make assumptions about where the QL screen is stored - use SCR_BASE,
+SCREEN or similar functions to find the start address.</p>
+<p>As the size of the screen alters, so does the amount of memory which the
+screen takes up - to find the number of bytes used to store a screen,
+use the formula:</p>
+<p>screen_size = SCR_LLEN * SCR_YLIM</p>
+</div>
+<div class="section" id="a16-2-the-screen-size">
+<h2>A16.2 The Screen Size<a class="headerlink" href="#a16-2-the-screen-size" title="Permalink to this headline">¶</a></h2>
+<p>On a standard QL, the display normally supports 256x256 pixels in MODE 8
+and 512x256 pixels in MODE 4.</p>
+<p>However, if the QL implementation you are using allows you to alter the
+size of the QL&#8217;s display (which can be anything up to 1600x1600 pixels),
+you can either configure the operating system to start up in a higher
+resolution or use a command such as SCR_SIZE.</p>
+<p>Due to the differences in the possible displays, you should use the
+functions SCR_XLIM and SCR_YLIM to find out the maximum size of the
+screen which can be addressed by your program.</p>
+<p>Another factor to be taken into account is the number of pixels which
+are used to contain the values of one pixel line of the display. On a
+standard QL this is 128 bytes and many programs assumed that this would
+never change. However, higher resolutions and extended colour drivers
+demand more storage space, so you should use SCR_LLEN to find out this
+number.</p>
+</div>
+<div class="section" id="a16-3-on-screen-colours">
+<h2>A16.3 On-Screen Colours<a class="headerlink" href="#a16-3-on-screen-colours" title="Permalink to this headline">¶</a></h2>
+<p>The QL screen is actually an area of memory which is specifically set
+aside to hold these details (the display memory). One of the QL&#8217;s chips
+looks at this memory 50 times per second (60 times per second in the sK)
+and uses the values stored there to calculate the colour of the pixels
+which you see on the screen of your Monitor or TV. Emulators copy this
+screen to the area of memory used by the display card on the native
+machine.</p>
+<p>The display memory starts at SCR_BASE which represents the top left
+hand corner of your Monitor&#8217;s screen and the size of the memory in bytes
+is calculated by the formula:</p>
+<p>SCR_YLIM * SCR_LLEN</p>
+<p>As you will see from the information set out below, you can easily
+presume that if you know the number of pixels that a display size can
+show, you should be able to calculate SCR_LLEN (and vice-versa) and in
+fact some software does just this. However, this is not always so - some
+QL implementations use a fixed number of bytes to contain the displayed
+pixels (no matter what the screen resolution) and so you should use both
+SCR_LLEN and SCR_XLIM. See the examples below as to how programs
+should be written to take account of both of these factors.</p>
+<p>The way in which the display memory is organised depends upon the screen
+mode being used, with more complex organisation methods for screen modes
+which display more colours.</p>
+<p>Under SMSQ/E v2.98+. you are able to use either the Standard QL Colour
+Drivers, or the Enhanced Colour Drivers. If the latter is used, you need
+to specify for each program which colour scheme is to be used with the
+following commands:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="82%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>COLOUR_QL</td>
+<td>use standard QL MODE 4 / MODE 8 colour definitions (this is the default scheme).</td>
+</tr>
+<tr class="row-even"><td>COLOUR_PAL</td>
+<td>use 8 bit (256 colour) palette definition.</td>
+</tr>
+<tr class="row-odd"><td>COLOUR_24</td>
+<td>use the 24 bit true colour definition.</td>
+</tr>
+<tr class="row-even"><td>COLOUR_NATIVE</td>
+<td>use the native colour definition (dependent on the hardware itself).</td>
+</tr>
+</tbody>
+</table>
+<p>You can also specify that a different colour palette is to be used to
+represent each of the INK colours, using the commands:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="19%" />
+<col width="81%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>PALETTE_QL</td>
+<td>Specify different palette for standard MODE 4/MODE 8 colours</td>
+</tr>
+<tr class="row-even"><td>PALETTE_8</td>
+<td>Specify different palette for 8 bit colours</td>
+</tr>
+</tbody>
+</table>
+<p>The MODE will always remain the same once a program is using the
+Enhanced Colour Drivers and the colour parameters expected by commands
+such as INK, PAPER, STRIP, BORDER and BLOCK will depend upon the
+following tables.</p>
+<p>To use these tables, look up the hardware the program is to be used on
+and then find the colour you need (this will need to be specified as a
+PAL value, Native Colour Value or 24 Bit Colour Value depending on which
+COLOUR_xx command has been used) - see COLOUR_PAL for an example of
+how to make a program adopt to the different hardware.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="section" id="standard-ql-colour-drivers-mode-4">
+<h3>Standard QL Colour Drivers MODE 4<a class="headerlink" href="#standard-ql-colour-drivers-mode-4" title="Permalink to this headline">¶</a></h3>
+<p>This is one of the standard display modes supported on the QL and
+compatibles, with a lot of non-leisure software expecting this MODE -
+this is because it provides a minimum display area of 512 x 256 pixels.</p>
+<p>On a standard QL colour scheme, every two bytes (a word) represent eight
+pixels on the Monitor&#8217;s screen calculated by looking at the status of
+each of the corresponding eight binary bits in each byte. The first bit
+of the first byte is combined with the first bit of the second byte to
+represent the colour of the first pixel. The second bit of the first
+byte is combined with the second bit of the second byte to represent the
+colour of the second pixel.</p>
+<p>For example, if the first two bytes stored at SCR_BASE are represented
+in binary as:</p>
+<div class="highlight-python"><div class="highlight"><pre>0 1 1 0 0 1 1 0   0 0 1 1 0 0 1 0
+} |_______________}_|
+}     2nd pixel   }
+}_________________}
+      1st pixel
+</pre></div>
+</div>
+<p>The two bits are then placed side by side to create the colour
+combination, meaning that the first pixel is represented as 00 and the
+second pixel is represented as 10.</p>
+<p>This provides us with the following colours:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="40%" />
+<col width="60%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>00</td>
+<td>BLACK</td>
+</tr>
+<tr class="row-even"><td>01</td>
+<td>RED</td>
+</tr>
+<tr class="row-odd"><td>10</td>
+<td>GREEN</td>
+</tr>
+<tr class="row-even"><td>11</td>
+<td>WHITE</td>
+</tr>
+</tbody>
+</table>
+<p>Therefore in the above example, the first eight pixels of the display
+become:</p>
+<p>00 10 11 01 00 10 11 00</p>
+<p>which equates to the following colours:</p>
+<p>BLACK, GREEN, WHITE, RED, BLACK, GREEN, WHITE, BLACK</p>
+<p><strong>Example</strong></p>
+<p>The following program will fill the screen with black and white vertical
+stripes:</p>
+<div class="highlight-python"><div class="highlight"><pre>100 MODE 4
+110 FOR x=0 TO SCR_YLIM-1
+120   FOR y=0 TO (SCR_XLIM-1)/4 STEP 2
+130     POKE SCR_BASE+ (x*SCR_LLEN) + y,    BIN (&#39;01010101&#39;)
+135     POKE SCR_BASE+ (x*SCR_LLEN) + y+1,  BIN (&#39;01010101&#39;)
+140   END FOR y
+150 END FOR x
+</pre></div>
+</div>
+</div>
+<div class="section" id="mode-8">
+<h3>MODE 8<a class="headerlink" href="#mode-8" title="Permalink to this headline">¶</a></h3>
+<p>This was one of the standard display modes but is only fully supported
+on a limited number of QL implementations. A lot of leisure software
+expects this MODE - this is because it provides more colours and the
+possibility of flashing pixels on screen. However, if this mode is not
+available, fear not, since the programs will still run quite happily in
+other screen modes, although the screen may be a little different.</p>
+<p>This mode provides a standard display area of 256 x 256 pixels.</p>
+<p>On a standard QL colour scheme, every two bytes (a word) represent four
+pixels on the Monitor&#8217;s screen calculated by looking at the status of
+each set of two corresponding binary bits in each byte. The first two
+bits of the first byte are combined with the first two bits of the
+second byte to represent the colour of the first pixel. The second two
+bits of the first byte are combined with the second two bits of the
+second byte to represent the colour of the second pixel.</p>
+<p>For example, if the first two bytes stored at SCR_BASE are represented
+in binary as:</p>
+<div class="highlight-python"><div class="highlight"><pre>0 1 1 0 0 1 1 0   0 0 1 1 0 0 1 0
+} } |__|__________}_}_|_|
+} }    2nd pixel  } }
+} }_______________} }
+       1st pixel
+</pre></div>
+</div>
+<p>The four bits are then placed side by side to define the pixel. The
+second bit specifies whether Flash is to be set (bit=1) - if flash is
+enabled by setting this bit, then this will affect all other pixels on
+that same line until another flash bit is set (disabling the Flash
+function).</p>
+<p>The other three bits are combined to create the colour, meaning that the
+first pixel is represented as 0100 and the second pixel is represented
+as 1011.</p>
+<p>This provides us with the following colours (excluding the flash bit
+which is represented here by an x):</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="42%" />
+<col width="58%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>0x00</td>
+<td>BLACK</td>
+</tr>
+<tr class="row-even"><td>0x01</td>
+<td>BLUE</td>
+</tr>
+<tr class="row-odd"><td>0x10</td>
+<td>RED</td>
+</tr>
+<tr class="row-even"><td>0x11</td>
+<td>MAGENTA</td>
+</tr>
+<tr class="row-odd"><td>1x00</td>
+<td>GREEN</td>
+</tr>
+<tr class="row-even"><td>0x01</td>
+<td>CYAN</td>
+</tr>
+<tr class="row-odd"><td>0x10</td>
+<td>YELLOW</td>
+</tr>
+<tr class="row-even"><td>0x11</td>
+<td>WHITE</td>
+</tr>
+</tbody>
+</table>
+<p>Therefore in the above example, the first four pixels of the display
+become:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="13%" />
+<col width="72%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">PIXEL</th>
+<th class="head">BITS</th>
+<th class="head">EFFECT</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0</td>
+<td>0100</td>
+<td>BLACK (Turn Flash On at this Pixel)</td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td>1011</td>
+<td>WHITE (Flashing)</td>
+</tr>
+<tr class="row-even"><td>2</td>
+<td>0100</td>
+<td>BLACK (Turn Flash Off after this Pixel)</td>
+</tr>
+<tr class="row-odd"><td>3</td>
+<td>1010</td>
+<td>YELLOW</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<p>The following program will fill the screen with magenta and cyan
+flashing vertical stripes:</p>
+<div class="highlight-python"><div class="highlight"><pre>100 MODE 8
+110 FOR x=0 TO SCR_YLIM-1
+120   FOR y=0 TO (SCR_XLIM-1)/4 STEP 2
+130     POKE SCR_BASE+ (x*SCR_LLEN) + y,    BIN (&#39;01100110&#39;)
+135     POKE SCR_BASE+ (x*SCR_LLEN) + y+1,  BIN (&#39;11011101&#39;)
+140   END FOR y
+150 END FOR x
+</pre></div>
+</div>
+<p>Note that only one in two cyan pixels flash, this is because the effect
+of each pass of the y loop is to set the following pixels:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="13%" />
+<col width="72%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">PIXEL</th>
+<th class="head">BITS</th>
+<th class="head">EFFECT</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0</td>
+<td>0111</td>
+<td>MAGENTA (Turn Flash On at this Pixel)</td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td>1001</td>
+<td>CYAN (Flashing)</td>
+</tr>
+<tr class="row-even"><td>2</td>
+<td>0111</td>
+<td>BLACK (Turn Flash Off after this Pixel)</td>
+</tr>
+<tr class="row-odd"><td>3</td>
+<td>1001</td>
+<td>CYAN (Not Flashing)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>SMSQ/E NOTES</strong></p>
+<p>Under the Enhanced Colour Drivers, available under SMSQ/E v2.98+,
+COLOUR_QL can be used to make a program resemble the original MODE 4 or
+MODE 8, generating the same colours.</p>
+<p>However, as explained in the description of the INK command, all 8
+colours available to MODE 8 are actually available whether a program is
+attempting to run in MODE 4 or MODE 8. As a result, programs written for
+the original standard QL MODE 4 may show slight colour corruption.</p>
+<p>It is possible to alter the set of 8 colours available if a different
+palette is specified with PALETTE_QL.</p>
+<p>SMSQ/E can be forced to overcome any incompatability problems by
+configuring it to load the Standard QL Colour Drivers; using
+DISP_COLOUR; or using PALETTE_QL.</p>
+</div>
+<div class="section" id="aurora-enhanced-colour-drivers">
+<h3>Aurora Enhanced Colour Drivers<a class="headerlink" href="#aurora-enhanced-colour-drivers" title="Permalink to this headline">¶</a></h3>
+<p>At present, a version of SMSQ/E which provides the Enhanced Colour
+Drivers for Aurora has not been released. The way in which these colour
+schemes are therefore used is subject to possible change.</p>
+<p>Although this can be used for testing software, unfortunately, if an
+Enhanced Colour Mode is enabled on Aurora, the display is corrupted by
+pixels being split across the screen, effectively causing the screen to
+be repeated horizontally. Programs such as the Photon JPEG viewer
+overcome this by clearing the screen and only altering the display
+memory directly (not attempting to use any standard commands/ machine
+code operating system calls). See the examples below as to how this may
+be achieved.</p>
+<p>The display mode may be changed directly by altering the value stored at
+address $18043 in memory (this is write only and cannot be read). The
+write-only Master Control Register at $18063 remains as on the standard
+QL for compatability. Attempting to read the byte stored at $18043 will
+actually return the value of the Monitor Preset Register - see below.</p>
+</div>
+<div class="section" id="the-master-control-register-18063">
+<h3>The Master Control Register ($18063)<a class="headerlink" href="#the-master-control-register-18063" title="Permalink to this headline">¶</a></h3>
+<p>A write-only register where the following bits can be used:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="7%" />
+<col width="4%" />
+<col width="89%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Bit 0</td>
+<td>-</td>
+<td>Blank Screen if set.</td>
+</tr>
+<tr class="row-even"><td>Bit 3</td>
+<td>-</td>
+<td>Use MODE 4 if clear, MODE 8 if set.</td>
+</tr>
+<tr class="row-odd"><td>Bit 7</td>
+<td>-</td>
+<td>Display SCR0 if clear, SCR1 if set. Keep this bit clear if using non-standard QL display modes and resolutions.</td>
+</tr>
+</tbody>
+</table>
+<p>All other bits should be left clear.</p>
+<p>As can be seen, Minerva&#8217;s extended MODE calls alter this register and
+should be used where available.</p>
+</div>
+<div class="section" id="the-enhanced-mode-control-register-18043">
+<h3>The Enhanced Mode Control Register ($18043)<a class="headerlink" href="#the-enhanced-mode-control-register-18043" title="Permalink to this headline">¶</a></h3>
+<p>A write-only register where the following bits can be used:</p>
+<p>Bits 0 &amp; 1 - Control display resolution as per following table:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="21%" />
+<col width="21%" />
+<col width="58%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Bit 1</th>
+<th class="head">Bit 0</th>
+<th class="head">Horizontal resolution</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0</td>
+<td>0</td>
+<td>512 pixels</td>
+</tr>
+<tr class="row-odd"><td>0</td>
+<td>1</td>
+<td>640 pixels</td>
+</tr>
+<tr class="row-even"><td>1</td>
+<td>0</td>
+<td>768 pixels</td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td>1</td>
+<td>1024 pixels</td>
+</tr>
+</tbody>
+</table>
+<p>Bits 3 &amp; 4 - Control colour mode as per following table:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="59%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Bit 4</th>
+<th class="head">Bit 3</th>
+<th class="head">Mode</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0</td>
+<td>0</td>
+<td>4 Colour Mode (MODE 4)</td>
+</tr>
+<tr class="row-odd"><td>0</td>
+<td>1</td>
+<td>8 Colour Mode (MODE 8)</td>
+</tr>
+<tr class="row-even"><td>1</td>
+<td>0</td>
+<td>16 Colour Mode</td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td>1</td>
+<td>256 Colour Mode</td>
+</tr>
+</tbody>
+</table>
+<p>Bit 7 - Control aspect ratio (which controls how the vertical resolution
+is calculated by reference to the horizontal resolution) as per
+following table:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="88%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Bit 7</th>
+<th class="head">Aspect Ratio</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0</td>
+<td>2:1 (QL Style pixels); vertical res. = horizontal res. * 1/2</td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td>4:3 (Square pixels); vertical res. = horizontal res. * 3/4</td>
+</tr>
+</tbody>
+</table>
+<p>All other bits should be left clear.</p>
+<p><strong>IMPORTANT</strong></p>
+<p>The actual resolution displayed will depend on the monitor preset, which
+can be read from the Monitor Preset Register (see below) and the mode
+selected (for reasons of limited high-resolution screen memory).</p>
+<p>The resolution selected in the Enhanced Mode Control Register ($18043)
+in principle does NOT depend on the mode, except in MODE 8, where the
+resolution selected refers to MODE 4, but the number of pixels in one
+line is halved, as per the standard QL MODE 8 (this is to maintain
+compatibility), and by limit of the high-resolution screen memory.</p>
+<p>Because the high-resolution screen memory is fixed at 240K, the
+resolutions in modes with more colours will be limited. In particular:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="16%" />
+<col width="84%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>MODE 4:</td>
+<td>No limits (high-resolution screen memory is larger than maximum resolution of 1024 x 768 pixels).</td>
+</tr>
+<tr class="row-even"><td>16 Colour Mode:</td>
+<td>Maximum vertical resolution is limited to 480 lines.</td>
+</tr>
+<tr class="row-odd"><td>256 Colour Mode:</td>
+<td>Horizontal resolution is limited to 512 pixels, and maximum vertical resolution is limited to 480 lines.</td>
+</tr>
+</tbody>
+</table>
+<p>Additional limits may apply depending on the monitor preset values.</p>
+<p>The limiting logic is simple - if the resolution chosen is higher than a
+limit, the limit is used instead. Limits apply independently for x and y
+directions. The maximum x and y coordinates have to be adjusted
+according to these limits for every given resolution and monitor preset
+setting.</p>
+</div>
+<div class="section" id="the-monitor-preset-register-18043">
+<h3>The Monitor Preset Register ($18043)<a class="headerlink" href="#the-monitor-preset-register-18043" title="Permalink to this headline">¶</a></h3>
+<p>This is a read-only register where the following bits can be used:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Bit 0</td>
+<td>&nbsp;</td>
+<td>-</td>
+<td>Interlace Enable
+Bit (IE)</td>
+</tr>
+<tr class="row-even"><td>Bit 2 (MT1) Bit 4
+(MT0)</td>
+<td>} }</td>
+<td>-</td>
+<td>General Type of
+Monitor Selected</td>
+</tr>
+</tbody>
+</table>
+<p>The maximum vertical resolutions is calculated as per the following
+table (where NI means Not Interlaced and I means Interlaced):</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="11%" />
+<col width="11%" />
+<col width="9%" />
+<col width="31%" />
+<col width="38%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">MT1</th>
+<th class="head">MT0</th>
+<th class="head">IE</th>
+<th class="head">Monitor type</th>
+<th class="head">Max. vert. resolution</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0</td>
+<td>0</td>
+<td>0</td>
+<td>QL standard</td>
+<td>NI 288 lines</td>
+</tr>
+<tr class="row-odd"><td>0</td>
+<td>0</td>
+<td>1</td>
+<td>QL standard</td>
+<td>I 576 lines</td>
+</tr>
+<tr class="row-even"><td>0</td>
+<td>1</td>
+<td>0</td>
+<td>VGA</td>
+<td>I 576 lines</td>
+</tr>
+<tr class="row-odd"><td>0</td>
+<td>1</td>
+<td>1</td>
+<td>VGA</td>
+<td>I 768 lines</td>
+</tr>
+<tr class="row-even"><td>1</td>
+<td>0</td>
+<td>0</td>
+<td>SVGA</td>
+<td>NI 576 lines</td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td>0</td>
+<td>1</td>
+<td>SVGA</td>
+<td>I 768 lines</td>
+</tr>
+<tr class="row-even"><td>1</td>
+<td>1</td>
+<td>0</td>
+<td>Multisynch</td>
+<td>I 768 lines</td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td>1</td>
+<td>1</td>
+<td>Multisynch diag.</td>
+<td>960 lines*</td>
+</tr>
+</tbody>
+</table>
+<p>* This is a special diagnostic mode which displays a 1024x960
+interlaced picture on a multisynch monitor when 1024x768 is selected,
+hence displaying the contents of the whole high-res screen area. Whether
+the software will support this is optional - this combination of MT and
+IE bits is not used in normal operation.</p>
+</div>
+<div class="section" id="colour-mode">
+<h3>16 Colour Mode<a class="headerlink" href="#colour-mode" title="Permalink to this headline">¶</a></h3>
+<p>It is planned that under the Enhanced Colour Drivers available in SMSQ/E
+v2.98+, this mode will be available as MODE 8 and support up to 1024x480
+resolution. It is not yet implemented and may be forced using the
+command:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="51%" />
+<col width="7%" />
+<col width="41%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>POKE $18043,144 (144=%10010000)</td>
+<td>-</td>
+<td>512 pixels x 480 pixels</td>
+</tr>
+<tr class="row-even"><td>POKE $18043,146 (146=%10010010)</td>
+<td>-</td>
+<td>768 pixels x 480 pixels</td>
+</tr>
+<tr class="row-odd"><td>POKE $18043,147 (147=%10010011)</td>
+<td>-</td>
+<td>1024 pixels x 480 pixels</td>
+</tr>
+</tbody>
+</table>
+<p>(See above for details)</p>
+<p>A different set of colours can be used by specifying a different palette
+with PALETTE_QL.</p>
+<p>Actually writing to the screen directly causes some problems, since
+SCR_LLEN returns 256 bytes, although in actual fact, the screen is 512
+bytes wide in this mode.</p>
+<p>Under the Enhanced Colour Drivers, this mode uses a byte to store the
+colours of 2 pixels. Here, the four adjacent bits represent the same
+pixel.</p>
+<p>The four bits are stored in the format <strong>irgb</strong>, where:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="22%" />
+<col width="57%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>i</td>
+<td>=</td>
+<td>intensity</td>
+</tr>
+<tr class="row-even"><td>g</td>
+<td>=</td>
+<td>green</td>
+</tr>
+<tr class="row-odd"><td>r</td>
+<td>=</td>
+<td>red</td>
+</tr>
+<tr class="row-even"><td>b</td>
+<td>=</td>
+<td>blue</td>
+</tr>
+</tbody>
+</table>
+<p>It is uncertain how this will be implemented - However, the following
+table details the Native Values to be used when POKEing directly to the
+screen (in machine code for example) and the probable corresponding INK
+parameter to use to achieve that colour (<strong>NOTE</strong> this is not the same as
+the original QL colour scheme). Conversion of the values to binary gives
+a clue as to how this colour scheme works:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="25%" />
+<col width="18%" />
+<col width="18%" />
+<col width="24%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head" colspan="2">&nbsp;</th>
+<th class="head" colspan="3">IRGB</th>
+</tr>
+<tr class="row-even"><th class="head">Ink
+Value</th>
+<th class="head">Colour
+Name</th>
+<th class="head">Value
+Decimal</th>
+<th class="head">Value
+Hex</th>
+<th class="head">Value
+Binary</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-odd"><td>0</td>
+<td>Black</td>
+<td>0</td>
+<td>$00</td>
+<td>0000</td>
+</tr>
+<tr class="row-even"><td>1</td>
+<td>White</td>
+<td>15</td>
+<td>$0F</td>
+<td>1111</td>
+</tr>
+<tr class="row-odd"><td>2</td>
+<td>Red</td>
+<td>12</td>
+<td>$0C</td>
+<td>1100</td>
+</tr>
+<tr class="row-even"><td>3</td>
+<td>Green</td>
+<td>10</td>
+<td>$0A</td>
+<td>1010</td>
+</tr>
+<tr class="row-odd"><td>4</td>
+<td>Blue</td>
+<td>9</td>
+<td>$09</td>
+<td>1001</td>
+</tr>
+<tr class="row-even"><td>5</td>
+<td>Magenta</td>
+<td>13</td>
+<td>$0D</td>
+<td>1101</td>
+</tr>
+<tr class="row-odd"><td>6</td>
+<td>Yellow</td>
+<td>14</td>
+<td>$0E</td>
+<td>1110</td>
+</tr>
+<tr class="row-even"><td>7</td>
+<td>Cyan</td>
+<td>11</td>
+<td>$0B</td>
+<td>1011</td>
+</tr>
+<tr class="row-odd"><td>10</td>
+<td>Dark Grey</td>
+<td>8</td>
+<td>$08</td>
+<td>1000</td>
+</tr>
+<tr class="row-even"><td>11</td>
+<td>Grey</td>
+<td>7</td>
+<td>$07</td>
+<td>0111</td>
+</tr>
+<tr class="row-odd"><td>14</td>
+<td>Dark Red</td>
+<td>4</td>
+<td>$04</td>
+<td>0100</td>
+</tr>
+<tr class="row-even"><td>17</td>
+<td>Green</td>
+<td>2</td>
+<td>$02</td>
+<td>0010</td>
+</tr>
+<tr class="row-odd"><td>19</td>
+<td>Blue</td>
+<td>1</td>
+<td>$01</td>
+<td>0001</td>
+</tr>
+<tr class="row-even"><td>??</td>
+<td>Dark Magenta</td>
+<td>5</td>
+<td>$05</td>
+<td>0101</td>
+</tr>
+<tr class="row-odd"><td>??</td>
+<td>Dark Yellow</td>
+<td>6</td>
+<td>$06</td>
+<td>0110</td>
+</tr>
+<tr class="row-even"><td>??</td>
+<td>Dark Cyan</td>
+<td>3</td>
+<td>$03</td>
+<td>0011</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<p>The following program for SMSQ/E will show the MODE 8 (16 colours)
+available on Aurora. Note the need to explicitly wipe the screen - this
+is because MODE would normally do this for you.</p>
+<div class="highlight-python"><div class="highlight"><pre>100 MODE 4
+110 POKE $18043,144 : REMark force switch to MODE 8:COLOUR_PAL (512 resolution)
+120 scr_offset=SCR_BASE(#1)
+130 scr_len=512:REMark SCR_LLEN reports the wrong value in this mode
+140 :
+150 REMark Blank out screen
+160 col=0
+170 FOR i%=0 TO 479
+180   FOR j%=0 TO 508 STEP 4
+190     POKE_L scr_offset+i%*scr_len+j%,col
+200   END FOR j%
+210 END FOR i%
+220 :
+230 REMark Draw Colours
+240 yoff=20
+250 FOR i=0 TO 1
+260   xoff=0
+270   FOR j=0 TO 15
+280     col=j+j*2^4:REMark Set two pixels at a time.
+290     scr_offset=yoff*scr_len+xoff+SCR_BASE(#1)
+300     FOR a=0 TO 10
+310       FOR b=0 TO 10
+320           POKE scr_offset+a*scr_len+b,col
+330       END FOR b
+340     END FOR a
+350     xoff=xoff+12
+360   END FOR j
+370 yoff=yoff+12
+380 END FOR i
+</pre></div>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>256 Colour Mode<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>It is planned that under the Enhanced Colour Drivers available in SMSQ/E
+v2.98+, this mode will be available as MODE 16. There is a fixed
+resolution available of 512x480 pixels. It is not yet implemented and
+may be forced using the command:</p>
+<p>POKE $18043,154 (See above for details)</p>
+<p>Here, every byte represents one pixel on the Monitor&#8217;s screen,
+calculated by looking at the status of each of the binary bits in each
+byte.</p>
+<p>Actually writing to the screen directly causes some problems, since
+SCR_LLEN returns 256 bytes, although in actual fact, the screen is 512
+bytes wide in this mode.</p>
+<p>The bits are combined to represent the amount of GREEN, RED and BLUE to
+be used for each pixel, in the format <strong>grbgrbgx</strong>, where:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="23%" />
+<col width="55%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>g</td>
+<td>=</td>
+<td>green</td>
+</tr>
+<tr class="row-even"><td>r</td>
+<td>=</td>
+<td>red</td>
+</tr>
+<tr class="row-odd"><td>b</td>
+<td>=</td>
+<td>blue</td>
+</tr>
+<tr class="row-even"><td>x</td>
+<td>=</td>
+<td>red/blue</td>
+</tr>
+</tbody>
+</table>
+<p>The colours are hard to describe due to the range and therefore require
+experimentation to obtain the correct colours. However, the following
+table details the PAL colour which should be used as the INK parameter (</p>
+<p><strong>NOTE</strong></p>
+<p>this does not correspond with the original QL colour scheme!) and the
+corresponding Native Values to be used when POKEing directly to the
+screen (in machine code for example). It is not possible to list all 256
+colours, therefore we have tried to list the most widely used ones (INK
+0 to INK 63) grouped into the different colours. Conversion of the
+values to binary gives a clue as to how this colour scheme works:</p>
+<p>grbgrbgx</p>
+<p>PAL</p>
+<p>Native</p>
+<p>Native</p>
+<p>Native</p>
+<p>Colour</p>
+<p>Colour</p>
+<p>Value</p>
+<p>Value</p>
+<p>Value</p>
+<p>Value</p>
+<p>Name</p>
+<p>(Decimal)</p>
+<p>(Hex)</p>
+<p>(Binary)</p>
+<p>0</p>
+<p>Black</p>
+<p>0</p>
+<p>$00</p>
+<p>00000000</p>
+<p>1</p>
+<p>White</p>
+<p>255</p>
+<p>$FF</p>
+<p>11111111</p>
+<p>8</p>
+<p>Dark Slate</p>
+<p>3</p>
+<p>$03</p>
+<p>00000011</p>
+<p>9</p>
+<p>Slate Grey</p>
+<p>28</p>
+<p>$1C</p>
+<p>00011100</p>
+<p>10</p>
+<p>Dark Grey</p>
+<p>31</p>
+<p>$1F</p>
+<p>00011111</p>
+<p>11</p>
+<p>Grey</p>
+<p>224</p>
+<p>$E0</p>
+<p>11100000</p>
+<p>12</p>
+<p>Light Grey</p>
+<p>227</p>
+<p>$E3</p>
+<p>11100011</p>
+<p>13</p>
+<p>Ash Grey</p>
+<p>252</p>
+<p>$FC</p>
+<p>11111100</p>
+<p>58</p>
+<p>Cerise</p>
+<p>68</p>
+<p>$44</p>
+<p>01000100</p>
+<p>14</p>
+<p>Dark Red</p>
+<p>64</p>
+<p>$40</p>
+<p>01000000</p>
+<p>2</p>
+<p>Red</p>
+<p>73</p>
+<p>$49</p>
+<p>01001001</p>
+<p>63</p>
+<p>Deep Purple</p>
+<p>40</p>
+<p>$28</p>
+<p>00101000</p>
+<p>51</p>
+<p>Plum</p>
+<p>15</p>
+<p>$0F</p>
+<p>00001111</p>
+<p>20</p>
+<p>Purple</p>
+<p>96</p>
+<p>$60</p>
+<p>01100000</p>
+<p>26</p>
+<p>Mauve</p>
+<p>100</p>
+<p>$64</p>
+<p>01100100</p>
+<p>57</p>
+<p>Faded Purple</p>
+<p>112</p>
+<p>$70</p>
+<p>01110000</p>
+<p>52</p>
+<p>Dusky Pink</p>
+<p>113</p>
+<p>$71</p>
+<p>01110001</p>
+<p>5</p>
+<p>Magenta</p>
+<p>109</p>
+<p>$6D</p>
+<p>01101101</p>
+<p>21</p>
+<p>Shocking Pink</p>
+<p>105</p>
+<p>$69</p>
+<p>01101001</p>
+<p>45</p>
+<p>Dull Pink</p>
+<p>115</p>
+<p>$73</p>
+<p>01110011</p>
+<p>31</p>
+<p>Rose Pink</p>
+<p>239</p>
+<p>$EF</p>
+<p>11101111</p>
+<p>39</p>
+<p>Pastel Rose</p>
+<p>253</p>
+<p>$FD</p>
+<p>11111101</p>
+<p>27</p>
+<p>Peach</p>
+<p>235</p>
+<p>$EB</p>
+<p>11101011</p>
+<p>50</p>
+<p>Midnight Blue</p>
+<p>7</p>
+<p>$07</p>
+<p>00000111</p>
+<p>19</p>
+<p>Dark Blue</p>
+<p>32</p>
+<p>$20</p>
+<p>00100000</p>
+<p>4</p>
+<p>Blue</p>
+<p>36</p>
+<p>$24</p>
+<p>00100100</p>
+<p>62</p>
+<p>Ultramarine</p>
+<p>48</p>
+<p>$30</p>
+<p>00110000</p>
+<p>49</p>
+<p>Dusky Blue</p>
+<p>23</p>
+<p>$17</p>
+<p>00010111</p>
+<p>44</p>
+<p>Steel Blue</p>
+<p>59</p>
+<p>$3B</p>
+<p>00111011</p>
+<p>18</p>
+<p>Sea Blue</p>
+<p>160</p>
+<p>$A0</p>
+<p>10100000</p>
+<p>25</p>
+<p>Bright Blue</p>
+<p>164</p>
+<p>$A4</p>
+<p>10100100</p>
+<p>56</p>
+<p>Dull Blue</p>
+<p>168</p>
+<p>$A8</p>
+<p>10101000</p>
+<p>43</p>
+<p>Dull Cyan</p>
+<p>171</p>
+<p>$AB</p>
+<p>10101011</p>
+<p>7</p>
+<p>Cyan</p>
+<p>182</p>
+<p>$B6</p>
+<p>10110110</p>
+<p>29</p>
+<p>Light Blue</p>
+<p>247</p>
+<p>$F7</p>
+<p>11110111</p>
+<p>30</p>
+<p>Sky Blue</p>
+<p>231</p>
+<p>$E7</p>
+<p>11100111</p>
+<p>48</p>
+<p>Dusky Green</p>
+<p>19</p>
+<p>$13</p>
+<p>00010011</p>
+<p>60</p>
+<p>Grass Green</p>
+<p>136</p>
+<p>$88</p>
+<p>10001000</p>
+<p>17</p>
+<p>Dark Green</p>
+<p>128</p>
+<p>$80</p>
+<p>10000000</p>
+<p>54</p>
+<p>Avocado</p>
+<p>198</p>
+<p>$C6</p>
+<p>11000110</p>
+<p>61</p>
+<p>Sea Green</p>
+<p>132</p>
+<p>$84</p>
+<p>10000100</p>
+<p>42</p>
+<p>Dull Green</p>
+<p>143</p>
+<p>$8F</p>
+<p>10001111</p>
+<p>3</p>
+<p>Green</p>
+<p>146</p>
+<p>$92</p>
+<p>10010010</p>
+<p>23</p>
+<p>Lime Green</p>
+<p>210</p>
+<p>$D2</p>
+<p>11010010</p>
+<p>24</p>
+<p>Apple Green</p>
+<p>178</p>
+<p>$B2</p>
+<p>10110010</p>
+<p>55</p>
+<p>Dull Turquoise</p>
+<p>170</p>
+<p>$AA</p>
+<p>10101010</p>
+<p>41</p>
+<p>Light Khaki</p>
+<p>199</p>
+<p>$C7</p>
+<p>11000111</p>
+<p>15</p>
+<p>Light Green</p>
+<p>243</p>
+<p>$F3</p>
+<p>11110011</p>
+<p>36</p>
+<p>Pastel Green</p>
+<p>254</p>
+<p>$FE</p>
+<p>11111110</p>
+<p>46</p>
+<p>Brown</p>
+<p>11</p>
+<p>$0B</p>
+<p>00001011</p>
+<p>59</p>
+<p>Tan</p>
+<p>80</p>
+<p>$50</p>
+<p>01010000</p>
+<p>6</p>
+<p>Yellow</p>
+<p>219</p>
+<p>$DB</p>
+<p>11011011</p>
+<p>22</p>
+<p>Orange</p>
+<p>201</p>
+<p>$C9</p>
+<p>11001001</p>
+<p>16</p>
+<p>Mustard</p>
+<p>192</p>
+<p>$C0</p>
+<p>11000000</p>
+<p>47</p>
+<p>Khaki</p>
+<p>27</p>
+<p>$1B</p>
+<p>00011011</p>
+<p>53</p>
+<p>Buff</p>
+<p>197</p>
+<p>$C5</p>
+<p>11000101</p>
+<p>40</p>
+<p>Brick</p>
+<p>87</p>
+<p>$57</p>
+<p>01010111</p>
+<p>33</p>
+<p>Beige</p>
+<p>249</p>
+<p>$F9</p>
+<p>11111001</p>
+<p>28</p>
+<p>Light Yellow</p>
+<p>251</p>
+<p>$FB</p>
+<p>11111011</p>
+<p>It is unknown how PAL colours 32, 34, 35, 37 and 38 will be mapped as
+these relate to the same values as PAL colours 31, 33, 36, 13 and 13
+respectively.</p>
+<p>The remainder of the colours are mapped as <strong>grbgrbgx</strong> (we would welcome
+names for each of these colours):</p>
+<p>PAL</p>
+<p>Native</p>
+<p>Native</p>
+<p>Native</p>
+<p>Colour</p>
+<p>Colour</p>
+<p>Value</p>
+<p>Value</p>
+<p>Value</p>
+<p>Value</p>
+<p>Name</p>
+<p>(Decimal)</p>
+<p>(Hex)</p>
+<p>(Binary)</p>
+<p>64</p>
+<p>4</p>
+<p>$04</p>
+<p>00000100</p>
+<p>65</p>
+<p>1</p>
+<p>$01</p>
+<p>00000001</p>
+<p>66</p>
+<p>5</p>
+<p>$05</p>
+<p>00000101</p>
+<p>67</p>
+<p>33</p>
+<p>$21</p>
+<p>00100001</p>
+<p>68</p>
+<p>37</p>
+<p>$25</p>
+<p>00100101</p>
+<p>69</p>
+<p>8</p>
+<p>$08</p>
+<p>00001000</p>
+<p>70</p>
+<p>12</p>
+<p>$0C</p>
+<p>00001100</p>
+<p>71</p>
+<p>44</p>
+<p>$2C</p>
+<p>00101100</p>
+<p>72</p>
+<p>9</p>
+<p>$09</p>
+<p>00001001</p>
+<p>73</p>
+<p>13</p>
+<p>$0D</p>
+<p>00001101</p>
+<p>74</p>
+<p>41</p>
+<p>$29</p>
+<p>00101001</p>
+<p>75</p>
+<p>45</p>
+<p>$2D</p>
+<p>00101101</p>
+<p>76</p>
+<p>65</p>
+<p>$41</p>
+<p>01000001</p>
+<p>77</p>
+<p>69</p>
+<p>$45</p>
+<p>01000101</p>
+<p>78</p>
+<p>97</p>
+<p>$61</p>
+<p>01100001</p>
+<p>79</p>
+<p>101</p>
+<p>$65</p>
+<p>01100101</p>
+<p>80</p>
+<p>72</p>
+<p>$48</p>
+<p>01001000</p>
+<p>81</p>
+<p>76</p>
+<p>$4C</p>
+<p>01001100</p>
+<p>82</p>
+<p>104</p>
+<p>$68</p>
+<p>01101000</p>
+<p>83</p>
+<p>108</p>
+<p>$6C</p>
+<p>01101100</p>
+<p>84</p>
+<p>77</p>
+<p>$4D</p>
+<p>01001101</p>
+<p>85</p>
+<p>2</p>
+<p>$02</p>
+<p>00000010</p>
+<p>86</p>
+<p>6</p>
+<p>$06</p>
+<p>00000110</p>
+<p>87</p>
+<p>34</p>
+<p>$22</p>
+<p>00100010</p>
+<p>88</p>
+<p>38</p>
+<p>$26</p>
+<p>00100110</p>
+<p>89</p>
+<p>35</p>
+<p>$23</p>
+<p>00100011</p>
+<p>90</p>
+<p>39</p>
+<p>$27</p>
+<p>00100111</p>
+<p>91</p>
+<p>10</p>
+<p>$0A</p>
+<p>00001010</p>
+<p>92</p>
+<p>14</p>
+<p>$0E</p>
+<p>00001110</p>
+<p>93</p>
+<p>42</p>
+<p>$2A</p>
+<p>00101010</p>
+<p>94</p>
+<p>46</p>
+<p>$2E</p>
+<p>00101110</p>
+<p>95</p>
+<p>43</p>
+<p>$2B</p>
+<p>00101011</p>
+<p>96</p>
+<p>47</p>
+<p>$2F</p>
+<p>00101111</p>
+<p>97</p>
+<p>66</p>
+<p>$42</p>
+<p>01000010</p>
+<p>98</p>
+<p>70</p>
+<p>$46</p>
+<p>01000110</p>
+<p>99</p>
+<p>98</p>
+<p>$62</p>
+<p>01100010</p>
+<p>100</p>
+<p>102</p>
+<p>$66</p>
+<p>01100110</p>
+<p>101</p>
+<p>67</p>
+<p>$43</p>
+<p>01000011</p>
+<p>102</p>
+<p>71</p>
+<p>$47</p>
+<p>01000111</p>
+<p>103</p>
+<p>99</p>
+<p>$63</p>
+<p>01100011</p>
+<p>104</p>
+<p>103</p>
+<p>$67</p>
+<p>01100111</p>
+<p>105</p>
+<p>74</p>
+<p>$4A</p>
+<p>01001010</p>
+<p>106</p>
+<p>78</p>
+<p>$4E</p>
+<p>01001110</p>
+<p>107</p>
+<p>106</p>
+<p>$6A</p>
+<p>01101010</p>
+<p>108</p>
+<p>110</p>
+<p>$6E</p>
+<p>01101110</p>
+<p>109</p>
+<p>75</p>
+<p>$4B</p>
+<p>01001011</p>
+<p>110</p>
+<p>79</p>
+<p>$4F</p>
+<p>01001111</p>
+<p>111</p>
+<p>107</p>
+<p>$6B</p>
+<p>01101011</p>
+<p>112</p>
+<p>95</p>
+<p>$5F</p>
+<p>01011111</p>
+<p>113</p>
+<p>16</p>
+<p>$10</p>
+<p>00010000</p>
+<p>114</p>
+<p>20</p>
+<p>$14</p>
+<p>00010100</p>
+<p>115</p>
+<p>52</p>
+<p>$34</p>
+<p>00110100</p>
+<p>116</p>
+<p>17</p>
+<p>$11</p>
+<p>00010001</p>
+<p>117</p>
+<p>21</p>
+<p>$15</p>
+<p>00010101</p>
+<p>118</p>
+<p>49</p>
+<p>$31</p>
+<p>00110001</p>
+<p>119</p>
+<p>53</p>
+<p>$35</p>
+<p>00110101</p>
+<p>120</p>
+<p>24</p>
+<p>$18</p>
+<p>00011000</p>
+<p>121</p>
+<p>56</p>
+<p>$38</p>
+<p>00111000</p>
+<p>122</p>
+<p>60</p>
+<p>$3C</p>
+<p>00111100</p>
+<p>123</p>
+<p>25</p>
+<p>$19</p>
+<p>00011001</p>
+<p>124</p>
+<p>29</p>
+<p>$1D</p>
+<p>00011101</p>
+<p>125</p>
+<p>57</p>
+<p>$39</p>
+<p>00111001</p>
+<p>126</p>
+<p>61</p>
+<p>$3D</p>
+<p>00111101</p>
+<p>127</p>
+<p>84</p>
+<p>$54</p>
+<p>01010100</p>
+<p>128</p>
+<p>116</p>
+<p>$74</p>
+<p>01110100</p>
+<p>129</p>
+<p>81</p>
+<p>$51</p>
+<p>01010001</p>
+<p>130</p>
+<p>85</p>
+<p>$55</p>
+<p>01010101</p>
+<p>131</p>
+<p>117</p>
+<p>$75</p>
+<p>01110101</p>
+<p>132</p>
+<p>88</p>
+<p>$58</p>
+<p>01011000</p>
+<p>133</p>
+<p>92</p>
+<p>$5C</p>
+<p>01011100</p>
+<p>134</p>
+<p>120</p>
+<p>$78</p>
+<p>01111000</p>
+<p>135</p>
+<p>124</p>
+<p>$7C</p>
+<p>01111100</p>
+<p>136</p>
+<p>89</p>
+<p>$59</p>
+<p>01011001</p>
+<p>137</p>
+<p>93</p>
+<p>$5D</p>
+<p>01011101</p>
+<p>138</p>
+<p>121</p>
+<p>$79</p>
+<p>01111001</p>
+<p>139</p>
+<p>125</p>
+<p>$7D</p>
+<p>01111101</p>
+<p>140</p>
+<p>18</p>
+<p>$12</p>
+<p>00010010</p>
+<p>141</p>
+<p>22</p>
+<p>$16</p>
+<p>00010110</p>
+<p>142</p>
+<p>50</p>
+<p>$32</p>
+<p>00110010</p>
+<p>143</p>
+<p>54</p>
+<p>$36</p>
+<p>00110110</p>
+<p>144</p>
+<p>51</p>
+<p>$33</p>
+<p>00110011</p>
+<p>145</p>
+<p>55</p>
+<p>$37</p>
+<p>00110111</p>
+<p>146</p>
+<p>26</p>
+<p>$1A</p>
+<p>00011010</p>
+<p>147</p>
+<p>30</p>
+<p>$1E</p>
+<p>00011110</p>
+<p>148</p>
+<p>58</p>
+<p>$3A</p>
+<p>00111010</p>
+<p>149</p>
+<p>62</p>
+<p>$3E</p>
+<p>00111110</p>
+<p>150</p>
+<p>63</p>
+<p>$3F</p>
+<p>00111111</p>
+<p>151</p>
+<p>82</p>
+<p>$52</p>
+<p>01010010</p>
+<p>152</p>
+<p>86</p>
+<p>$56</p>
+<p>01010110</p>
+<p>153</p>
+<p>114</p>
+<p>$72</p>
+<p>01110010</p>
+<p>154</p>
+<p>118</p>
+<p>$76</p>
+<p>01110110</p>
+<p>155</p>
+<p>83</p>
+<p>$53</p>
+<p>01010011</p>
+<p>156</p>
+<p>119</p>
+<p>$77</p>
+<p>01110111</p>
+<p>157</p>
+<p>90</p>
+<p>$5A</p>
+<p>01011010</p>
+<p>158</p>
+<p>94</p>
+<p>$5E</p>
+<p>01011110</p>
+<p>159</p>
+<p>122</p>
+<p>$7A</p>
+<p>01111010</p>
+<p>160</p>
+<p>126</p>
+<p>$7E</p>
+<p>01111110</p>
+<p>161</p>
+<p>91</p>
+<p>$5B</p>
+<p>01011011</p>
+<p>162</p>
+<p>95</p>
+<p>$5F</p>
+<p>01011111</p>
+<p>163</p>
+<p>123</p>
+<p>$7B</p>
+<p>01111011</p>
+<p>164</p>
+<p>127</p>
+<p>$7F</p>
+<p>01111111</p>
+<p>165</p>
+<p>129</p>
+<p>$81</p>
+<p>10000001</p>
+<p>166</p>
+<p>133</p>
+<p>$85</p>
+<p>10000101</p>
+<p>167</p>
+<p>161</p>
+<p>$A1</p>
+<p>10100001</p>
+<p>168</p>
+<p>165</p>
+<p>$A5</p>
+<p>10100101</p>
+<p>169</p>
+<p>140</p>
+<p>$8C</p>
+<p>10001100</p>
+<p>170</p>
+<p>172</p>
+<p>$AC</p>
+<p>10101100</p>
+<p>171</p>
+<p>137</p>
+<p>$89</p>
+<p>10001001</p>
+<p>172</p>
+<p>141</p>
+<p>$8D</p>
+<p>10001101</p>
+<p>173</p>
+<p>169</p>
+<p>$A9</p>
+<p>10101001</p>
+<p>174</p>
+<p>173</p>
+<p>$AD</p>
+<p>10101101</p>
+<p>175</p>
+<p>196</p>
+<p>$C4</p>
+<p>11000100</p>
+<p>176</p>
+<p>228</p>
+<p>$E4</p>
+<p>11100100</p>
+<p>177</p>
+<p>193</p>
+<p>$C1</p>
+<p>11000001</p>
+<p>178</p>
+<p>225</p>
+<p>$E1</p>
+<p>11100001</p>
+<p>179</p>
+<p>229</p>
+<p>$E5</p>
+<p>11100101</p>
+<p>180</p>
+<p>200</p>
+<p>$C8</p>
+<p>11001000</p>
+<p>181</p>
+<p>204</p>
+<p>$CC</p>
+<p>11001100</p>
+<p>182</p>
+<p>232</p>
+<p>$E8</p>
+<p>11101000</p>
+<p>183</p>
+<p>236</p>
+<p>$EC</p>
+<p>11101100</p>
+<p>184</p>
+<p>205</p>
+<p>$CD</p>
+<p>11001101</p>
+<p>185</p>
+<p>233</p>
+<p>$E9</p>
+<p>11101001</p>
+<p>186</p>
+<p>237</p>
+<p>$ED</p>
+<p>11101101</p>
+<p>187</p>
+<p>130</p>
+<p>$82</p>
+<p>10000010</p>
+<p>188</p>
+<p>134</p>
+<p>$86</p>
+<p>10000110</p>
+<p>189</p>
+<p>162</p>
+<p>$A2</p>
+<p>10100010</p>
+<p>190</p>
+<p>166</p>
+<p>$A6</p>
+<p>10100110</p>
+<p>191</p>
+<p>131</p>
+<p>$83</p>
+<p>10000011</p>
+<p>192</p>
+<p>135</p>
+<p>$87</p>
+<p>10000111</p>
+<p>193</p>
+<p>163</p>
+<p>$A3</p>
+<p>10100011</p>
+<p>194</p>
+<p>167</p>
+<p>$A7</p>
+<p>10100111</p>
+<p>195</p>
+<p>138</p>
+<p>$8A</p>
+<p>10001010</p>
+<p>196</p>
+<p>142</p>
+<p>$8E</p>
+<p>10001110</p>
+<p>197</p>
+<p>174</p>
+<p>$AE</p>
+<p>10101110</p>
+<p>198</p>
+<p>139</p>
+<p>$8B</p>
+<p>10001011</p>
+<p>199</p>
+<p>175</p>
+<p>$AF</p>
+<p>10101111</p>
+<p>200</p>
+<p>194</p>
+<p>$C2</p>
+<p>11000010</p>
+<p>201</p>
+<p>226</p>
+<p>$E2</p>
+<p>11100010</p>
+<p>202</p>
+<p>230</p>
+<p>$E6</p>
+<p>11100110</p>
+<p>203</p>
+<p>195</p>
+<p>$C3</p>
+<p>11000011</p>
+<p>204</p>
+<p>202</p>
+<p>$CA</p>
+<p>11001010</p>
+<p>205</p>
+<p>206</p>
+<p>$CE</p>
+<p>11001110</p>
+<p>206</p>
+<p>234</p>
+<p>$EA</p>
+<p>11101010</p>
+<p>207</p>
+<p>238</p>
+<p>$EE</p>
+<p>11101110</p>
+<p>208</p>
+<p>203</p>
+<p>$CB</p>
+<p>11001011</p>
+<p>209</p>
+<p>207</p>
+<p>$CF</p>
+<p>11001111</p>
+<p>210</p>
+<p>144</p>
+<p>$90</p>
+<p>10010000</p>
+<p>211</p>
+<p>148</p>
+<p>$94</p>
+<p>10010100</p>
+<p>212</p>
+<p>176</p>
+<p>$B0</p>
+<p>10110000</p>
+<p>213</p>
+<p>180</p>
+<p>$B4</p>
+<p>10110100</p>
+<p>214</p>
+<p>145</p>
+<p>$91</p>
+<p>10010001</p>
+<p>215</p>
+<p>149</p>
+<p>$95</p>
+<p>10010101</p>
+<p>216</p>
+<p>177</p>
+<p>$B1</p>
+<p>10110001</p>
+<p>217</p>
+<p>181</p>
+<p>$B5</p>
+<p>10110101</p>
+<p>218</p>
+<p>152</p>
+<p>$98</p>
+<p>10011000</p>
+<p>219</p>
+<p>156</p>
+<p>$9C</p>
+<p>10011100</p>
+<p>220</p>
+<p>184</p>
+<p>$B8</p>
+<p>10111000</p>
+<p>221</p>
+<p>188</p>
+<p>$BC</p>
+<p>10111100</p>
+<p>222</p>
+<p>153</p>
+<p>$99</p>
+<p>10011001</p>
+<p>223</p>
+<p>157</p>
+<p>$9D</p>
+<p>10011101</p>
+<p>224</p>
+<p>185</p>
+<p>$B9</p>
+<p>10111001</p>
+<p>225</p>
+<p>189</p>
+<p>$BD</p>
+<p>10111101</p>
+<p>226</p>
+<p>208</p>
+<p>$D0</p>
+<p>11010000</p>
+<p>227</p>
+<p>212</p>
+<p>$D4</p>
+<p>11010100</p>
+<p>228</p>
+<p>240</p>
+<p>$F0</p>
+<p>11110000</p>
+<p>229</p>
+<p>244</p>
+<p>$F4</p>
+<p>11110100</p>
+<p>230</p>
+<p>209</p>
+<p>$D1</p>
+<p>11010001</p>
+<p>231</p>
+<p>213</p>
+<p>$D5</p>
+<p>11010101</p>
+<p>232</p>
+<p>241</p>
+<p>$F1</p>
+<p>11110001</p>
+<p>233</p>
+<p>245</p>
+<p>$F5</p>
+<p>11110101</p>
+<p>234</p>
+<p>220</p>
+<p>$DC</p>
+<p>11011100</p>
+<p>235</p>
+<p>248</p>
+<p>$F8</p>
+<p>11111000</p>
+<p>236</p>
+<p>221</p>
+<p>$DD</p>
+<p>11011101</p>
+<p>237</p>
+<p>150</p>
+<p>$96</p>
+<p>10010110</p>
+<p>238</p>
+<p>151</p>
+<p>$97</p>
+<p>10010111</p>
+<p>239</p>
+<p>179</p>
+<p>$B3</p>
+<p>10110011</p>
+<p>240</p>
+<p>154</p>
+<p>$9A</p>
+<p>10011010</p>
+<p>241</p>
+<p>158</p>
+<p>$9E</p>
+<p>10011110</p>
+<p>242</p>
+<p>186</p>
+<p>$BA</p>
+<p>10111010</p>
+<p>243</p>
+<p>190</p>
+<p>$BE</p>
+<p>10111110</p>
+<p>244</p>
+<p>155</p>
+<p>$9B</p>
+<p>10011011</p>
+<p>245</p>
+<p>159</p>
+<p>$9F</p>
+<p>10011111</p>
+<p>246</p>
+<p>187</p>
+<p>$BB</p>
+<p>10111011</p>
+<p>247</p>
+<p>191</p>
+<p>$BF</p>
+<p>10111111</p>
+<p>248</p>
+<p>214</p>
+<p>$D6</p>
+<p>11010110</p>
+<p>249</p>
+<p>242</p>
+<p>$F2</p>
+<p>11110010</p>
+<p>250</p>
+<p>246</p>
+<p>$F6</p>
+<p>11110110</p>
+<p>251</p>
+<p>211</p>
+<p>$D3</p>
+<p>11010011</p>
+<p>252</p>
+<p>215</p>
+<p>$D7</p>
+<p>11010111</p>
+<p>253</p>
+<p>222</p>
+<p>$DE</p>
+<p>11011110</p>
+<p>254</p>
+<p>250</p>
+<p>$FA</p>
+<p>11111010</p>
+<p>255</p>
+<p>223</p>
+<p>$DF</p>
+<p>11011111</p>
+<p><strong>Example</strong></p>
+<p>The following program for SMSQ/E will show the full range of colours
+available on Aurora. Note the need to explicitly wipe the screen - this
+is because MODE would normally do this for you.</p>
+<div class="highlight-python"><div class="highlight"><pre>100 MODE 4
+110 POKE $18043,156 : REMark force switch to MODE 256:COLOUR_PAL
+120 :
+130 scr_offset=SCR_BASE(#1)
+140 scr_len=512:REMark SCR_LLEN returns the wrong figure in this mode
+150 :
+160 REMark Blank out screen
+170 col=0
+180 FOR i%=0 TO 479
+190   FOR j%=0 TO 508 STEP 4
+200     POKE_L scr_offset+i%*scr_len+j%,col
+210   END FOR j%
+220 END FOR i%
+230 :
+240 REMark Draw Colours
+250 yoff=20
+260 FOR i=0 TO 15
+270   xoff=0
+280   FOR j=0 TO 15
+290     col=i*16+j
+300     scr_offset=yoff*scr_len+xoff+SCR_BASE(#1)
+310     FOR a=0 TO 10
+320       FOR b=0 TO 10
+330         POKE scr_offset+a*scr_len+b,col
+340       END FOR b
+350     END FOR a
+360     xoff=xoff+12
+370   END FOR j
+380 yoff=yoff+12
+390 END FOR i
+</pre></div>
+</div>
+</div>
+<div class="section" id="qpc-qxl-enhanced-colour-drivers">
+<h3>QPC/QXL Enhanced Colour Drivers<a class="headerlink" href="#qpc-qxl-enhanced-colour-drivers" title="Permalink to this headline">¶</a></h3>
+<p>SMSQ/E v2.98+ provides various colour modes for QPC2 and the QXL card.
+You can configure SMSQ/E to start with either the Standard QL Colour
+Drivers or the Enhanced Colour Drivers. If the Enhanced Colour Drivers
+are loaded, RMODE will return 32.</p>
+<p>The Enhanced Colour Drivers support a QL 8 colour mode (selected with
+COLOUR_QL), a PAL Colour Mode providing 256 colours (selected with
+COLOUR_PAL), a Native Colour Mode providing 65536 colours (select with
+COLOUR_NATIVE) and a 24 bit colour mode providing over 16 million
+colours (select with COLOUR_24).</p>
+</div>
+<div class="section" id="ql-colour-mode-colour-ql">
+<h3>QL Colour Mode (COLOUR_QL)<a class="headerlink" href="#ql-colour-mode-colour-ql" title="Permalink to this headline">¶</a></h3>
+<p>This is similar to MODE 4 under the Standard QL Colour Drivers and is
+provided for compatability. However all 8 standard MODE 8 colours are
+actually available. See INK for a list of the standard MODE 8 colours.</p>
+</div>
+<div class="section" id="pal-colour-mode-colour-pal">
+<h3>PAL Colour Mode (COLOUR_PAL)<a class="headerlink" href="#pal-colour-mode-colour-pal" title="Permalink to this headline">¶</a></h3>
+<p>This allows programs to use 256 colours - it is the simplest mode to
+use, since a standard PAL Colour Value is used by any standard colour
+commands, such as INK, to describe all 256 colours on all
+implementations (including Aurora).</p>
+<p>The table on the following pages describes all 256 colours with the PAL
+Colour Value and their Native Colour Value in decimal, hexadecimal and
+binary (see below).</p>
+<p>You can use PALETTE_8 to change the 256 colours available.</p>
+</div>
+<div class="section" id="native-colour-mode-colour-native">
+<h3>Native Colour Mode (COLOUR_NATIVE)<a class="headerlink" href="#native-colour-mode-colour-native" title="Permalink to this headline">¶</a></h3>
+<p>As with the Q40/Q60, this allows programs to use 65536 colours. However,
+the Native Colour Values required for INK, STRIP, PAPER etc. depend upon
+the hardware (ie. they are different to Q40/Q60 values). The colour is
+described by the actual value which would be POKEd into the video
+memory, hence two bytes (a word) represent the colour of one pixel on
+the Monitor&#8217;s screen. It is therefore easier to use Hexadecimal values
+to represent each colour.</p>
+<p>The bits in the word represent the amount of GREEN, RED and BLUE to be
+used for each pixel, in the format <strong>rrrrrggg gggbbbbb</strong>, where:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="18%" />
+<col width="64%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>g</td>
+<td>=</td>
+<td>green (6 bits)</td>
+</tr>
+<tr class="row-even"><td>r</td>
+<td>=</td>
+<td>red (5 bits)</td>
+</tr>
+<tr class="row-odd"><td>b</td>
+<td>=</td>
+<td>blue (5 bits)</td>
+</tr>
+</tbody>
+</table>
+<p>The table on the following pages describes the first 256 colours with
+the PAL Colour Value and their Native Colour Value in decimal,
+hexadecimal and binary (see below).</p>
+<p><strong>NOTE:</strong>
+When the values are entered direct into memory with a POKE
+command or machine code routine, due to the organisation of memory on a
+PC, it is necessary to enter the low byte before the high byte. As a
+result, the value for red, in binary 11111000 00000000 (INK $F800) is
+entered as POKE address,$00F8.</p>
+</div>
+<div class="section" id="bit-colour-mode-colour-24">
+<h3>24 Bit Colour Mode (COLOUR_24)<a class="headerlink" href="#bit-colour-mode-colour-24" title="Permalink to this headline">¶</a></h3>
+<p>This is supported only on PCs with 24 bit graphics cards. However, it is
+essential to understand this mode as commands such as PALETTE_8 and
+PALETTE_QL expect colours to be described in this format. The details
+appear later in this Appendix.</p>
+<p><strong>Colour Table</strong></p>
+<p>Due to the range of colours available, it is hard to describe each
+colour; therefore it will require experimentation to obtain the correct
+colours. The following table details the PAL Colour Value and Native
+Colour Value for each colour which need to be used for INK and similar
+commands (</p>
+<p><strong>NOTE</strong></p>
+<p>this does not correspond with the orignal QL colour scheme!). We have
+tried to list the most widely used ones (INK 0 to INK 63 under
+COLOUR_PAL) grouped into the different colours followed by the values
+for the remainder of the first 256 colours. Conversion of the values to
+binary gives a clue as to how this colour scheme works:</p>
+<p>rrrrrggg gggbbbbb</p>
+<p>PAL</p>
+<p>Native</p>
+<p>Native</p>
+<p>Colour</p>
+<p>Colour</p>
+<p>Value</p>
+<p>Value</p>
+<p>Value</p>
+<p>Name</p>
+<p>(Hex)</p>
+<p>(Binary)</p>
+<p>0</p>
+<p>Black</p>
+<p>$0000</p>
+<p>00000000 00000000</p>
+<p>1</p>
+<p>White</p>
+<p>$FFFF</p>
+<p>11111111 11111111</p>
+<p>8</p>
+<p>Dark Slate</p>
+<p>$2124</p>
+<p>00100001 00100100</p>
+<p>9</p>
+<p>Slate Grey</p>
+<p>$4A49</p>
+<p>01001010 01001001</p>
+<p>10</p>
+<p>Dark Grey</p>
+<p>$6B6D</p>
+<p>01101011 01101101</p>
+<p>11</p>
+<p>Grey</p>
+<p>$9492</p>
+<p>10010100 10010010</p>
+<p>12</p>
+<p>Light Grey</p>
+<p>$B5B6</p>
+<p>10110101 10110110</p>
+<p>13</p>
+<p>Ash Grey</p>
+<p>$DEDB</p>
+<p>11011110 11011011</p>
+<p>58</p>
+<p>Cerise</p>
+<p>$9009</p>
+<p>10010000 00001001</p>
+<p>14</p>
+<p>Dark Red</p>
+<p>$9000</p>
+<p>10010000 00000000</p>
+<p>2</p>
+<p>Red</p>
+<p>$F800</p>
+<p>11111000 00000000</p>
+<p>63</p>
+<p>Deep Purple</p>
+<p>$4812</p>
+<p>01001000 00010010</p>
+<p>51</p>
+<p>Plum</p>
+<p>$692D</p>
+<p>01101001 00101101</p>
+<p>20</p>
+<p>Purple</p>
+<p>$9012</p>
+<p>10010000 00010010</p>
+<p>26</p>
+<p>Mauve</p>
+<p>$901F</p>
+<p>10010000 00011111</p>
+<p>57</p>
+<p>Faded Purple</p>
+<p>$9256</p>
+<p>10010010 01010110</p>
+<p>52</p>
+<p>Dusky Pink</p>
+<p>$B252</p>
+<p>10110010 01010010</p>
+<p>5</p>
+<p>Magenta</p>
+<p>$F81F</p>
+<p>11111000 00011111</p>
+<p>21</p>
+<p>Shocking Pink</p>
+<p>$F812</p>
+<p>11111000 00010010</p>
+<p>45</p>
+<p>Dull Pink</p>
+<p>$B376</p>
+<p>10110011 01110110</p>
+<p>32</p>
+<p>Pink</p>
+<p>$FDBB</p>
+<p>11111101 10111011</p>
+<p>31</p>
+<p>Rose Pink</p>
+<p>$FDBF</p>
+<p>11111101 10111111</p>
+<p>34</p>
+<p>Pastel Pink</p>
+<p>$FEDB</p>
+<p>11111110 11011011</p>
+<p>39</p>
+<p>Pastel Rose</p>
+<p>$FEDF</p>
+<p>11111110 11011111</p>
+<p>27</p>
+<p>Peach</p>
+<p>$FDB6</p>
+<p>11111101 10110110</p>
+<p>50</p>
+<p>Midnight Blue</p>
+<p>$212D</p>
+<p>00100001 00101101</p>
+<p>19</p>
+<p>Dark Blue</p>
+<p>$0012</p>
+<p>00000000 00010010</p>
+<p>4</p>
+<p>Blue</p>
+<p>$001F</p>
+<p>00000000 00011111</p>
+<p>62</p>
+<p>Ultramarine</p>
+<p>$0252</p>
+<p>00000010 01010010</p>
+<p>49</p>
+<p>Dusky Blue</p>
+<p>$236D</p>
+<p>00100011 01101101</p>
+<p>44</p>
+<p>Steel Blue</p>
+<p>$6B76</p>
+<p>01101011 01110110</p>
+<p>18</p>
+<p>Sea Blue</p>
+<p>$0492</p>
+<p>00000100 10010010</p>
+<p>25</p>
+<p>Bright Blue</p>
+<p>$049F</p>
+<p>00000100 10011111</p>
+<p>56</p>
+<p>Dull Blue</p>
+<p>$4C96</p>
+<p>01001100 10010110</p>
+<p>43</p>
+<p>Dull Cyan</p>
+<p>$6DB6</p>
+<p>01101101 10110110</p>
+<p>7</p>
+<p>Cyan</p>
+<p>$07FF</p>
+<p>00000111 11111111</p>
+<p>29</p>
+<p>Light Blue</p>
+<p>$B7FF</p>
+<p>10110111 11111111</p>
+<p>30</p>
+<p>Sky Blue</p>
+<p>$B5BF</p>
+<p>10110101 10111111</p>
+<p>38</p>
+<p>Pastel Blue</p>
+<p>$DEDF</p>
+<p>11011110 11011111</p>
+<p>37</p>
+<p>Pastel Cyan</p>
+<p>$DFFF</p>
+<p>11011111 11111111</p>
+<p>48</p>
+<p>Dusky Green</p>
+<p>$2364</p>
+<p>00100011 01100100</p>
+<p>60</p>
+<p>Grass Green</p>
+<p>$4C80</p>
+<p>01001100 10000000</p>
+<p>17</p>
+<p>Dark Green</p>
+<p>$0480</p>
+<p>00000100 10000000</p>
+<p>54</p>
+<p>Avocado</p>
+<p>$95A9</p>
+<p>10010101 10101001</p>
+<p>61</p>
+<p>Sea Green</p>
+<p>$0489</p>
+<p>00000100 10001001</p>
+<p>42</p>
+<p>Dull Green</p>
+<p>$6DAD</p>
+<p>01101101 10101101</p>
+<p>3</p>
+<p>Green</p>
+<p>$07E0</p>
+<p>00000111 11100000</p>
+<p>23</p>
+<p>Lime Green</p>
+<p>$97E0</p>
+<p>10010111 11100000</p>
+<p>24</p>
+<p>Apple Green</p>
+<p>$07F2</p>
+<p>00000111 11110010</p>
+<p>55</p>
+<p>Dull Turquoise</p>
+<p>$4DB2</p>
+<p>01001101 10110010</p>
+<p>41</p>
+<p>Light Khaki</p>
+<p>$B5AD</p>
+<p>10110101 10101101</p>
+<p>15</p>
+<p>Light Green</p>
+<p>$B7F6</p>
+<p>10110111 11110110</p>
+<p>36</p>
+<p>Pastel Green</p>
+<p>$DFFB</p>
+<p>11011111 11111011</p>
+<p>46</p>
+<p>Brown</p>
+<p>$6924</p>
+<p>01101001 00100100</p>
+<p>59</p>
+<p>Tan</p>
+<p>$9240</p>
+<p>10010010 01000000</p>
+<p>6</p>
+<p>Yellow</p>
+<p>$FFE0</p>
+<p>11111111 11100000</p>
+<p>22</p>
+<p>Orange</p>
+<p>$FC80</p>
+<p>11111100 10000000</p>
+<p>16</p>
+<p>Mustard</p>
+<p>$9480</p>
+<p>10010100 10000000</p>
+<p>47</p>
+<p>Khaki</p>
+<p>$6B64</p>
+<p>01101011 01100100</p>
+<p>53</p>
+<p>Buff</p>
+<p>$B489</p>
+<p>10110100 10001001</p>
+<p>40</p>
+<p>Brick</p>
+<p>$B36D</p>
+<p>10110011 01101101</p>
+<p>33</p>
+<p>Beige</p>
+<p>$FED6</p>
+<p>11111110 11010110</p>
+<p>28</p>
+<p>Light Yellow</p>
+<p>$FFF6</p>
+<p>11111111 11110110</p>
+<p>35</p>
+<p>Pastel Yellow</p>
+<p>$FFFB</p>
+<p>11111111 11111011</p>
+<p>The remainder of the first 256 colours are mapped as follows (we would
+welcome names for each of these colours):</p>
+<p>rrrrrggg gggbbbbb</p>
+<p>PAL</p>
+<p>Native</p>
+<p>Native</p>
+<p>Colour</p>
+<p>Colour</p>
+<p>Value</p>
+<p>Value</p>
+<p>Value</p>
+<p>Name</p>
+<p>(Hex)</p>
+<p>(Binary)</p>
+<p>64</p>
+<p>$0009</p>
+<p>00000000 00001001</p>
+<p>65</p>
+<p>$2004</p>
+<p>00100000 00000100</p>
+<p>66</p>
+<p>$200D</p>
+<p>00100000 00001101</p>
+<p>67</p>
+<p>$2016</p>
+<p>00100000 00010110</p>
+<p>68</p>
+<p>$201F</p>
+<p>00100000 00011111</p>
+<p>69</p>
+<p>$4800</p>
+<p>01001000 00000000</p>
+<p>70</p>
+<p>$4809</p>
+<p>01001000 00001001</p>
+<p>71</p>
+<p>$481B</p>
+<p>01001000 00011011</p>
+<p>72</p>
+<p>$6804</p>
+<p>01101000 00000100</p>
+<p>73</p>
+<p>$680D</p>
+<p>01101000 00001101</p>
+<p>74</p>
+<p>$6816</p>
+<p>01101000 00010110</p>
+<p>75</p>
+<p>$681F</p>
+<p>01101000 00011111</p>
+<p>76</p>
+<p>$B004</p>
+<p>10110000 00000100</p>
+<p>77</p>
+<p>$B00D</p>
+<p>10110000 00001101</p>
+<p>78</p>
+<p>$B016</p>
+<p>10110000 00010110</p>
+<p>79</p>
+<p>$B01F</p>
+<p>10110000 00011111</p>
+<p>80</p>
+<p>$D800</p>
+<p>11011000 00000000</p>
+<p>81</p>
+<p>$D809</p>
+<p>11011000 00001001</p>
+<p>82</p>
+<p>$D812</p>
+<p>11011000 00010010</p>
+<p>83</p>
+<p>$D81B</p>
+<p>11011000 00011011</p>
+<p>84</p>
+<p>$F80D</p>
+<p>11111000 00001101</p>
+<p>85</p>
+<p>$0120</p>
+<p>00000001 00100000</p>
+<p>86</p>
+<p>$0129</p>
+<p>00000001 00101001</p>
+<p>87</p>
+<p>$0132</p>
+<p>00000001 00110010</p>
+<p>88</p>
+<p>$013B</p>
+<p>00000001 00111011</p>
+<p>89</p>
+<p>$2136</p>
+<p>00100001 00110110</p>
+<p>90</p>
+<p>$213F</p>
+<p>00100001 00111111</p>
+<p>91</p>
+<p>$4920</p>
+<p>01001001 00100000</p>
+<p>92</p>
+<p>$4929</p>
+<p>01001001 00101001</p>
+<p>93</p>
+<p>$4932</p>
+<p>01001001 00110010</p>
+<p>94</p>
+<p>$493B</p>
+<p>01001001 00111011</p>
+<p>95</p>
+<p>$6936</p>
+<p>01101001 00110110</p>
+<p>96</p>
+<p>$693F</p>
+<p>01101001 00111111</p>
+<p>97</p>
+<p>$9120</p>
+<p>10010001 00100000</p>
+<p>98</p>
+<p>$9129</p>
+<p>10010001 00101001</p>
+<p>99</p>
+<p>$9132</p>
+<p>10010001 00110010</p>
+<p>100</p>
+<p>$913B</p>
+<p>10010001 00111011</p>
+<p>101</p>
+<p>$B124</p>
+<p>10110001 00100100</p>
+<p>102</p>
+<p>$B12D</p>
+<p>10110001 00101101</p>
+<p>103</p>
+<p>$B136</p>
+<p>10110001 00110110</p>
+<p>104</p>
+<p>$B13F</p>
+<p>10110001 00111111</p>
+<p>105</p>
+<p>$D920</p>
+<p>11011001 00100000</p>
+<p>106</p>
+<p>$D929</p>
+<p>11011001 00101001</p>
+<p>107</p>
+<p>$D932</p>
+<p>11011001 00110010</p>
+<p>108</p>
+<p>$D93B</p>
+<p>11011001 00111011</p>
+<p>109</p>
+<p>$F924</p>
+<p>11111001 00100100</p>
+<p>110</p>
+<p>$F92D</p>
+<p>11111001 00101101</p>
+<p>111</p>
+<p>$F936</p>
+<p>11111001 00110110</p>
+<p>112</p>
+<p>$F93F</p>
+<p>11111001 00111111</p>
+<p>113</p>
+<p>$0240</p>
+<p>00000010 01000000</p>
+<p>114</p>
+<p>$0249</p>
+<p>00000010 01001001</p>
+<p>115</p>
+<p>$025B</p>
+<p>00000010 01011011</p>
+<p>116</p>
+<p>$2244</p>
+<p>00100010 01000100</p>
+<p>117</p>
+<p>$224D</p>
+<p>00100010 01001101</p>
+<p>118</p>
+<p>$2256</p>
+<p>00100010 01010110</p>
+<p>119</p>
+<p>$225F</p>
+<p>00100010 01011111</p>
+<p>120</p>
+<p>$4A40</p>
+<p>01001010 01000000</p>
+<p>121</p>
+<p>$4A52</p>
+<p>01001010 01010010</p>
+<p>122</p>
+<p>$4A5B</p>
+<p>01001010 01011011</p>
+<p>123</p>
+<p>$6A44</p>
+<p>01101010 01000100</p>
+<p>124</p>
+<p>$6A4D</p>
+<p>01101010 01001101</p>
+<p>125</p>
+<p>$6456</p>
+<p>01100100 01010110</p>
+<p>126</p>
+<p>$6A5F</p>
+<p>01101010 01011111</p>
+<p>127</p>
+<p>$9249</p>
+<p>10010010 01001001</p>
+<p>128</p>
+<p>$925B</p>
+<p>10010010 01011011</p>
+<p>129</p>
+<p>$B244</p>
+<p>10110010 01000100</p>
+<p>130</p>
+<p>$B24D</p>
+<p>10110010 01001101</p>
+<p>131</p>
+<p>$B25F</p>
+<p>10110010 01011111</p>
+<p>132</p>
+<p>$DA40</p>
+<p>11011010 01000000</p>
+<p>133</p>
+<p>$DA49</p>
+<p>11011010 01001001</p>
+<p>134</p>
+<p>$DA52</p>
+<p>11011010 01010010</p>
+<p>135</p>
+<p>$DA5B</p>
+<p>11011010 01011011</p>
+<p>136</p>
+<p>$FA44</p>
+<p>11111010 01000100</p>
+<p>137</p>
+<p>$FA4D</p>
+<p>11111010 01001101</p>
+<p>138</p>
+<p>$FA56</p>
+<p>11111010 01010110</p>
+<p>139</p>
+<p>$FA5F</p>
+<p>11111010 01011111</p>
+<p>140</p>
+<p>$0360</p>
+<p>00000011 01100000</p>
+<p>141</p>
+<p>$0369</p>
+<p>00000011 01101001</p>
+<p>142</p>
+<p>$0372</p>
+<p>00000011 01110010</p>
+<p>143</p>
+<p>$037B</p>
+<p>00000011 01111011</p>
+<p>144</p>
+<p>$2376</p>
+<p>00100011 01110110</p>
+<p>145</p>
+<p>$237F</p>
+<p>00100011 01111111</p>
+<p>146</p>
+<p>$4B60</p>
+<p>01001011 01100000</p>
+<p>147</p>
+<p>$4B69</p>
+<p>01001011 01101001</p>
+<p>148</p>
+<p>$4B72</p>
+<p>01001011 01110010</p>
+<p>149</p>
+<p>$4B7B</p>
+<p>01001011 01111011</p>
+<p>150</p>
+<p>$6B7F</p>
+<p>01101011 01111111</p>
+<p>151</p>
+<p>$9360</p>
+<p>10010011 01100000</p>
+<p>152</p>
+<p>$9369</p>
+<p>10010011 01101001</p>
+<p>153</p>
+<p>$9372</p>
+<p>10010011 01110010</p>
+<p>154</p>
+<p>$937B</p>
+<p>10010011 01111011</p>
+<p>155</p>
+<p>$B364</p>
+<p>10110011 01100100</p>
+<p>156</p>
+<p>$B37F</p>
+<p>10110011 01111111</p>
+<p>157</p>
+<p>$DB60</p>
+<p>11011011 01100000</p>
+<p>158</p>
+<p>$DB69</p>
+<p>11011011 01101001</p>
+<p>159</p>
+<p>$DB72</p>
+<p>11011011 01110010</p>
+<p>160</p>
+<p>$DB7B</p>
+<p>11011011 01111011</p>
+<p>161</p>
+<p>$FB64</p>
+<p>11111011 01100100</p>
+<p>162</p>
+<p>$FB6D</p>
+<p>11111011 01101101</p>
+<p>163</p>
+<p>$FB76</p>
+<p>11111011 01110110</p>
+<p>164</p>
+<p>$FB7F</p>
+<p>11111011 01111111</p>
+<p>165</p>
+<p>$2484</p>
+<p>00100100 10000100</p>
+<p>166</p>
+<p>$248D</p>
+<p>00100100 10001101</p>
+<p>167</p>
+<p>$2496</p>
+<p>00100100 10010110</p>
+<p>168</p>
+<p>$249F</p>
+<p>00100100 10011111</p>
+<p>169</p>
+<p>$4C89</p>
+<p>01001100 10001001</p>
+<p>170</p>
+<p>$4C9B</p>
+<p>01001100 10011011</p>
+<p>171</p>
+<p>$6C84</p>
+<p>01101100 10000100</p>
+<p>172</p>
+<p>$6C8D</p>
+<p>01101100 10001101</p>
+<p>173</p>
+<p>$6C96</p>
+<p>01101100 10010110</p>
+<p>174</p>
+<p>$6C9F</p>
+<p>01101100 10011111</p>
+<p>175</p>
+<p>$9489</p>
+<p>10010100 10001001</p>
+<p>176</p>
+<p>$948B</p>
+<p>10010100 10001011</p>
+<p>177</p>
+<p>$B484</p>
+<p>10110100 10000100</p>
+<p>178</p>
+<p>$B496</p>
+<p>10110100 10010110</p>
+<p>179</p>
+<p>$B49F</p>
+<p>10110100 10011111</p>
+<p>180</p>
+<p>$DC80</p>
+<p>11011100 10000000</p>
+<p>181</p>
+<p>$DC89</p>
+<p>11011100 10001001</p>
+<p>182</p>
+<p>$DC92</p>
+<p>11011100 10010010</p>
+<p>183</p>
+<p>$DC9B</p>
+<p>11011100 10011011</p>
+<p>184</p>
+<p>$FC8D</p>
+<p>11111100 10001101</p>
+<p>185</p>
+<p>$FC96</p>
+<p>11111100 10010110</p>
+<p>186</p>
+<p>$FC9F</p>
+<p>11111100 10011111</p>
+<p>187</p>
+<p>$05A0</p>
+<p>00000101 10100000</p>
+<p>188</p>
+<p>$05A9</p>
+<p>00000101 10101001</p>
+<p>189</p>
+<p>$05B2</p>
+<p>00000101 10110010</p>
+<p>190</p>
+<p>$05BB</p>
+<p>00000101 10111011</p>
+<p>191</p>
+<p>$25A4</p>
+<p>00100101 10100100</p>
+<p>192</p>
+<p>$25AD</p>
+<p>00100101 10101101</p>
+<p>193</p>
+<p>$25B6</p>
+<p>00100101 10110110</p>
+<p>194</p>
+<p>$25BF</p>
+<p>00100101 10111111</p>
+<p>195</p>
+<p>$4DA0</p>
+<p>01001101 10100000</p>
+<p>196</p>
+<p>$4DA9</p>
+<p>01001101 10101001</p>
+<p>197</p>
+<p>$4DBB</p>
+<p>01001101 10111011</p>
+<p>198</p>
+<p>$6DA4</p>
+<p>01101101 10100100</p>
+<p>199</p>
+<p>$6DBF</p>
+<p>01101101 10111111</p>
+<p>200</p>
+<p>$95A0</p>
+<p>10010101 10100000</p>
+<p>201</p>
+<p>$95B2</p>
+<p>10010101 10110010</p>
+<p>202</p>
+<p>$95BB</p>
+<p>10010101 10111011</p>
+<p>203</p>
+<p>$B5A4</p>
+<p>10110101 10100100</p>
+<p>204</p>
+<p>$DDA0</p>
+<p>11011101 10100000</p>
+<p>205</p>
+<p>$DDA9</p>
+<p>11011101 10101001</p>
+<p>206</p>
+<p>$DDB2</p>
+<p>11011101 10110010</p>
+<p>207</p>
+<p>$DDBB</p>
+<p>11011101 10111011</p>
+<p>208</p>
+<p>$FDA4</p>
+<p>11111101 10100100</p>
+<p>209</p>
+<p>$FDAD</p>
+<p>11111101 10101101</p>
+<p>210</p>
+<p>$06C0</p>
+<p>00000110 11000000</p>
+<p>211</p>
+<p>$06C9</p>
+<p>00000110 11001001</p>
+<p>212</p>
+<p>$06D2</p>
+<p>00000110 11010010</p>
+<p>213</p>
+<p>$06DB</p>
+<p>00000110 11011011</p>
+<p>214</p>
+<p>$26C4</p>
+<p>00100110 11000100</p>
+<p>215</p>
+<p>$26CD</p>
+<p>00100110 11001101</p>
+<p>216</p>
+<p>$26D6</p>
+<p>00100110 11010110</p>
+<p>217</p>
+<p>$26DF</p>
+<p>00100110 11011111</p>
+<p>218</p>
+<p>$4EC0</p>
+<p>01001110 11000000</p>
+<p>219</p>
+<p>$4EC9</p>
+<p>01001110 11001001</p>
+<p>220</p>
+<p>$4ED2</p>
+<p>01001110 11010010</p>
+<p>221</p>
+<p>$4EDB</p>
+<p>01001110 11011011</p>
+<p>222</p>
+<p>$6EC4</p>
+<p>01101110 11000100</p>
+<p>223</p>
+<p>$6ECD</p>
+<p>01101110 11001101</p>
+<p>224</p>
+<p>$6ED6</p>
+<p>01101110 11010110</p>
+<p>225</p>
+<p>$6EDF</p>
+<p>01101110 11011111</p>
+<p>226</p>
+<p>$96C0</p>
+<p>10010110 11000000</p>
+<p>227</p>
+<p>$96C9</p>
+<p>10010110 11001001</p>
+<p>228</p>
+<p>$96D2</p>
+<p>10010110 11010010</p>
+<p>229</p>
+<p>$96DB</p>
+<p>10010110 11011011</p>
+<p>230</p>
+<p>$B6C4</p>
+<p>10110110 11000100</p>
+<p>231</p>
+<p>$B6CD</p>
+<p>10110110 11001101</p>
+<p>232</p>
+<p>$B6D6</p>
+<p>10110110 11010110</p>
+<p>233</p>
+<p>$B6DF</p>
+<p>10110110 11011111</p>
+<p>234</p>
+<p>$DEC9</p>
+<p>11011110 11001001</p>
+<p>235</p>
+<p>$DED2</p>
+<p>11011110 11010010</p>
+<p>236</p>
+<p>$FECD</p>
+<p>11111110 11001101</p>
+<p>237</p>
+<p>$07E9</p>
+<p>00000111 11101001</p>
+<p>238</p>
+<p>$27ED</p>
+<p>00100111 11101101</p>
+<p>239</p>
+<p>$27F6</p>
+<p>00100111 11110110</p>
+<p>240</p>
+<p>$4FE0</p>
+<p>01001111 11100000</p>
+<p>241</p>
+<p>$4FE9</p>
+<p>01001111 11101001</p>
+<p>242</p>
+<p>$4FF2</p>
+<p>01001111 11110010</p>
+<p>243</p>
+<p>$4FFB</p>
+<p>01001111 11111011</p>
+<p>244</p>
+<p>$6FE4</p>
+<p>01101111 11100100</p>
+<p>245</p>
+<p>$6FED</p>
+<p>01101111 11101101</p>
+<p>246</p>
+<p>$6FF6</p>
+<p>01101111 11110110</p>
+<p>247</p>
+<p>$6FFF</p>
+<p>01101111 11111111</p>
+<p>248</p>
+<p>$97E9</p>
+<p>10010111 11101001</p>
+<p>249</p>
+<p>$97F2</p>
+<p>10010111 11110010</p>
+<p>250</p>
+<p>$97FB</p>
+<p>10010111 11111011</p>
+<p>251</p>
+<p>$B7E4</p>
+<p>10110111 11100100</p>
+<p>252</p>
+<p>$B7ED</p>
+<p>10110111 11101101</p>
+<p>253</p>
+<p>$DFE9</p>
+<p>11011111 11101001</p>
+<p>254</p>
+<p>$DFF2</p>
+<p>11011111 11110010</p>
+<p>255</p>
+<p>$FFED</p>
+<p>11111111 11101101</p>
+</div>
+<div class="section" id="q40-q60-enhanced-colour-drivers">
+<h3>Q40/Q60 Enhanced Colour Drivers<a class="headerlink" href="#q40-q60-enhanced-colour-drivers" title="Permalink to this headline">¶</a></h3>
+<p>SMSQ/E v2.98+ provides various colour modes for the Q40 and Q60
+computers. You can configure SMSQ/E to start with either the Standard QL
+Colour Drivers or the Enhanced Colour Drivers. If the Enhanced Colour
+Drivers are loaded, RMODE will return 33.</p>
+<p>The Enhanced Colour Drivers support a QL 8 colour mode (selected with
+COLOUR_QL), a PAL Colour Mode providing 256 colours (selected with
+COLOUR_PAL) and a Native Colour Mode providing 65536 colours (select
+with COLOUR_NATIVE). As with the other implementations, 24 bit colours
+are used by commands such as PALETTE_8, although there is no 24 bit
+colour mode due to the limitations of the hardware.</p>
+</div>
+<div class="section" id="id2">
+<h3>QL Colour Mode (COLOUR_QL)<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>This is similar to MODE 4 under the Standard QL Colour Drivers and is
+provided for compatability. However all 8 standard MODE 8 colours are
+actually available. See INK for a list of the standard MODE 8 colours.</p>
+</div>
+<div class="section" id="id3">
+<h3>PAL Colour Mode (COLOUR_PAL)<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>This allows programs to use 256 colours - it is the simplest mode to
+use, since a standard PAL Colour Value is used by any standard colour
+commands, such as INK, to describe all 256 colours on all
+implementations (including Aurora).</p>
+<p>The table on the following pages describes all 256 colours with the PAL
+Colour Value and their Native Colour Value in decimal, hexadecimal and
+binary (see below).</p>
+<p>You can use PALETTE_8 to change the 256 colours available.</p>
+</div>
+<div class="section" id="id4">
+<h3>Native Colour Mode (COLOUR_NATIVE)<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>As with QXL and QPC2, this allows programs to use 65536 colours.
+However, the Native Colour Values required for INK, STRIP, PAPER etc.
+depend upon the hardware (ie. they are different to the QPC2/QXL
+values). The colour is described by the actual value which would be
+POKEd into the video memory, hence two bytes (a word) represent the
+colour of one pixel on the Monitor&#8217;s screen. It is therefore easier to
+use Hexadecimal values to represent each colour.</p>
+<p>The bits in the word represent the amount of GREEN, RED and BLUE to be
+used for each pixel, in the format <strong>gggggrrr rrbbbbbw</strong>, where:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="18%" />
+<col width="64%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>g</td>
+<td>=</td>
+<td>green (5 bits)</td>
+</tr>
+<tr class="row-even"><td>r</td>
+<td>=</td>
+<td>red (5 bits)</td>
+</tr>
+<tr class="row-odd"><td>b</td>
+<td>=</td>
+<td>blue (5 bits)</td>
+</tr>
+<tr class="row-even"><td>w</td>
+<td>=</td>
+<td>white</td>
+</tr>
+</tbody>
+</table>
+<p>The table on the following pages describes the first 256 colours with
+the PAL Colour Value and their Native Colour Value in decimal,
+hexadecimal and binary (see below).</p>
+<p><strong>Colour Table</strong></p>
+<p>Due to the range of colours available, it is hard to describe each
+colour; therefore it will require experimentation to obtain the correct
+colours. The following table details the PAL Colour Value and Native
+Colour Value for each colour which need to be used for INK and similar
+commands (<em>NOTE</em> this does not correspond with the orignal QL colour
+scheme!). We have tried to list the most widely used ones (INK 0 to INK
+63 under COLOUR_PAL) grouped into the different colours followed by the
+values for the remainder of the first 256 colours. Conversion of the
+values to binary gives a clue as to how this colour scheme works:</p>
+<p>gggggrrr rrbbbbbw</p>
+<p>PAL</p>
+<p>Native</p>
+<p>Native</p>
+<p>Colour</p>
+<p>Colour</p>
+<p>Value</p>
+<p>Value</p>
+<p>Value</p>
+<p>Name</p>
+<p>(Hex)</p>
+<p>(Binary)</p>
+<p>0</p>
+<p>Black</p>
+<p>$0000</p>
+<p>00000000 00000000</p>
+<p>1</p>
+<p>White</p>
+<p>$FFFF</p>
+<p>11111111 11111111</p>
+<p>8</p>
+<p>Dark Slate</p>
+<p>$2108</p>
+<p>00100001 00001000</p>
+<p>9</p>
+<p>Slate Grey</p>
+<p>$4A53</p>
+<p>01001010 01010011</p>
+<p>10</p>
+<p>Dark Grey</p>
+<p>$6B5B</p>
+<p>01101011 01011011</p>
+<p>11</p>
+<p>Grey</p>
+<p>$94A4</p>
+<p>10010100 10100100</p>
+<p>12</p>
+<p>Light Grey</p>
+<p>$B5AC</p>
+<p>10110101 10101100</p>
+<p>13</p>
+<p>Ash Grey</p>
+<p>$DEF7</p>
+<p>11011110 11110111</p>
+<p>58</p>
+<p>Cerise</p>
+<p>$0492</p>
+<p>00000100 10010010</p>
+<p>14</p>
+<p>Dark Red</p>
+<p>$0480</p>
+<p>00000100 10000000</p>
+<p>2R</p>
+<p>ed</p>
+<p>$07C0</p>
+<p>00000111 11000000</p>
+<p>63</p>
+<p>Deep Purple</p>
+<p>$0264</p>
+<p>00000010 01100100</p>
+<p>51</p>
+<p>Plum</p>
+<p>$235B</p>
+<p>00100011 01011011</p>
+<p>20</p>
+<p>Purple</p>
+<p>$04A4</p>
+<p>00000100 10100100</p>
+<p>26</p>
+<p>Mauve</p>
+<p>$04BE</p>
+<p>00000100 10111110</p>
+<p>57</p>
+<p>Faded Purple</p>
+<p>$4CAC</p>
+<p>01001100 10101100</p>
+<p>52</p>
+<p>Dusky Pink</p>
+<p>$4DA4</p>
+<p>01001101 10100100</p>
+<p>5</p>
+<p>Magenta</p>
+<p>$07FF</p>
+<p>00000111 11111111</p>
+<p>21</p>
+<p>Shocking Pink</p>
+<p>$07E4</p>
+<p>00000111 11100100</p>
+<p>45</p>
+<p>Dull Pink</p>
+<p>$6DAC</p>
+<p>01101101 10101100</p>
+<p>32</p>
+<p>Pink</p>
+<p>$B7F7</p>
+<p>10110111 11110111</p>
+<p>31</p>
+<p>Rose Pink</p>
+<p>$B7FF</p>
+<p>10110111 11111111</p>
+<p>34</p>
+<p>Pastel Pink</p>
+<p>$DFF7</p>
+<p>11011111 11110111</p>
+<p>39</p>
+<p>Pastel Rose</p>
+<p>$DFFF</p>
+<p>11011111 11111111</p>
+<p>27</p>
+<p>Peach</p>
+<p>$B7EC</p>
+<p>10110111 11101100</p>
+<p>50</p>
+<p>Midnight Blue</p>
+<p>$211A</p>
+<p>00100001 00011010</p>
+<p>19</p>
+<p>Dark Blue</p>
+<p>$0024</p>
+<p>00000000 00100100</p>
+<p>4B</p>
+<p>lue</p>
+<p>$003E</p>
+<p>00000000 00111110</p>
+<p>62</p>
+<p>Ultramarine</p>
+<p>$4824</p>
+<p>01001000 00100100</p>
+<p>49</p>
+<p>Dusky Blue</p>
+<p>$691B</p>
+<p>01101001 00011011</p>
+<p>44</p>
+<p>Steel Blue</p>
+<p>$6B6D</p>
+<p>01101011 01101101</p>
+<p>18</p>
+<p>Sea Blue</p>
+<p>$9024</p>
+<p>10010000 00100100</p>
+<p>25</p>
+<p>Bright Blue</p>
+<p>$903E</p>
+<p>10010000 00111110</p>
+<p>56</p>
+<p>Dull Blue</p>
+<p>$926C</p>
+<p>10010010 01101100</p>
+<p>43</p>
+<p>Dull Cyan</p>
+<p>$B36C</p>
+<p>10110011 01101100</p>
+<p>7</p>
+<p>Cyan</p>
+<p>$F83F</p>
+<p>11111000 00111111</p>
+<p>29</p>
+<p>Light Blue</p>
+<p>$FDBF</p>
+<p>11111101 10111111</p>
+<p>30</p>
+<p>Sky Blue</p>
+<p>$B5BE</p>
+<p>10110101 10111110</p>
+<p>38</p>
+<p>Pastel Blue</p>
+<p>$DEFF</p>
+<p>11011110 11111111</p>
+<p>37</p>
+<p>Pastel Cyan</p>
+<p>$FEFF</p>
+<p>11111110 11111111</p>
+<p>48</p>
+<p>Dusky Green</p>
+<p>$6908</p>
+<p>01101001 00001000</p>
+<p>60</p>
+<p>Grass Green</p>
+<p>$9240</p>
+<p>10010010 01000000</p>
+<p>17</p>
+<p>Dark Green</p>
+<p>$9000</p>
+<p>10010000 00000000</p>
+<p>54</p>
+<p>Avocado</p>
+<p>$B492</p>
+<p>10110100 10010010</p>
+<p>61</p>
+<p>Sea Green</p>
+<p>$9012</p>
+<p>10010000 00010010</p>
+<p>42</p>
+<p>Dull Green</p>
+<p>$B35B</p>
+<p>10110011 01011011</p>
+<p>3</p>
+<p>Green</p>
+<p>$F800</p>
+<p>11111000 00000000</p>
+<p>23</p>
+<p>Lime Green</p>
+<p>$FC80</p>
+<p>11111100 10000000</p>
+<p>24</p>
+<p>Apple Green</p>
+<p>$F824</p>
+<p>11111000 00100100</p>
+<p>55</p>
+<p>Dull Turquoise</p>
+<p>$B264</p>
+<p>10110010 01100100</p>
+<p>41</p>
+<p>Light Khaki</p>
+<p>$B59A</p>
+<p>10110101 10011010</p>
+<p>15</p>
+<p>Light Green</p>
+<p>$FDAC</p>
+<p>11111101 10101100</p>
+<p>36</p>
+<p>Pastel Green</p>
+<p>$FEF7</p>
+<p>11111110 11110111</p>
+<p>46</p>
+<p>Brown</p>
+<p>$2348</p>
+<p>00100011 01001000</p>
+<p>59</p>
+<p>Tan</p>
+<p>$4C80</p>
+<p>01001100 10000000</p>
+<p>6</p>
+<p>Yellow</p>
+<p>$FFC1</p>
+<p>11111111 11000001</p>
+<p>22</p>
+<p>Orange</p>
+<p>$97C0</p>
+<p>10010111 11000000</p>
+<p>16</p>
+<p>Mustard</p>
+<p>$9480</p>
+<p>10010100 10000000</p>
+<p>47</p>
+<p>Khaki</p>
+<p>$6B49</p>
+<p>01101011 01001001</p>
+<p>53</p>
+<p>Buff</p>
+<p>$9592</p>
+<p>10010101 10010010</p>
+<p>40</p>
+<p>Brick</p>
+<p>$6D9B</p>
+<p>01101101 10011011</p>
+<p>33</p>
+<p>Beige</p>
+<p>$DFED</p>
+<p>11011111 11101101</p>
+<p>28</p>
+<p>Light Yellow</p>
+<p>$FFED</p>
+<p>11111111 11101101</p>
+<p>35</p>
+<p>Pastel Yellow</p>
+<p>$FFF7</p>
+<p>11111111 11110111</p>
+<p>The remainder of the first 256 colours are mapped as follows (we would
+welcome names for each of these colours):</p>
+<p>gggggrrr rrbbbbbw</p>
+<p>PAL</p>
+<p>Native</p>
+<p>Native</p>
+<p>Colour</p>
+<p>Colour</p>
+<p>Value</p>
+<p>Value</p>
+<p>Value</p>
+<p>Name</p>
+<p>(Hex)</p>
+<p>(Binary)</p>
+<p>64</p>
+<p>$0012</p>
+<p>00000000 00010010</p>
+<p>65</p>
+<p>$0108</p>
+<p>00000001 00001000</p>
+<p>66</p>
+<p>$011A</p>
+<p>00000001 00011010</p>
+<p>67</p>
+<p>$012C</p>
+<p>00000001 00101100</p>
+<p>68</p>
+<p>$013E</p>
+<p>00000001 00111110</p>
+<p>69</p>
+<p>$0240</p>
+<p>00000010 01000000</p>
+<p>70</p>
+<p>$0253</p>
+<p>00000010 01010011</p>
+<p>71</p>
+<p>$0277</p>
+<p>00000010 01110111</p>
+<p>72</p>
+<p>$0348</p>
+<p>00000011 01001000</p>
+<p>73</p>
+<p>$035B</p>
+<p>00000011 01011011</p>
+<p>74</p>
+<p>$036C</p>
+<p>00000011 01101100</p>
+<p>75</p>
+<p>$037F</p>
+<p>00000011 01111111</p>
+<p>76</p>
+<p>$0588</p>
+<p>00000101 10001000</p>
+<p>77</p>
+<p>$059A</p>
+<p>00000101 10011010</p>
+<p>78</p>
+<p>$05AC</p>
+<p>00000101 10101100</p>
+<p>79</p>
+<p>$05BE</p>
+<p>00000101 10111110</p>
+<p>80</p>
+<p>$06C0</p>
+<p>00000110 11000000</p>
+<p>81</p>
+<p>$06D3</p>
+<p>00000110 11010011</p>
+<p>82</p>
+<p>$06E4</p>
+<p>00000110 11100100</p>
+<p>83</p>
+<p>$06F7</p>
+<p>00000110 11110111</p>
+<p>84</p>
+<p>$07DB</p>
+<p>00000111 11011011</p>
+<p>85</p>
+<p>$2000</p>
+<p>00100000 00000000</p>
+<p>86</p>
+<p>$2012</p>
+<p>00100000 00010010</p>
+<p>87</p>
+<p>$2024</p>
+<p>00100000 00100100</p>
+<p>88</p>
+<p>$2036</p>
+<p>00100000 00110110</p>
+<p>89</p>
+<p>$212C</p>
+<p>00100001 00101100</p>
+<p>90</p>
+<p>$213E</p>
+<p>00100001 00111110</p>
+<p>91</p>
+<p>$2240</p>
+<p>00100010 01000000</p>
+<p>92</p>
+<p>$2253</p>
+<p>00100010 01010011</p>
+<p>93</p>
+<p>$2264</p>
+<p>00100010 01100100</p>
+<p>94</p>
+<p>$2277</p>
+<p>00100010 01110111</p>
+<p>95</p>
+<p>$236C</p>
+<p>00100011 01101100</p>
+<p>96</p>
+<p>$237F</p>
+<p>00100011 01111111</p>
+<p>97</p>
+<p>$2480</p>
+<p>00100100 10000000</p>
+<p>98</p>
+<p>$2492</p>
+<p>00100100 10010010</p>
+<p>99</p>
+<p>$24A4</p>
+<p>00100100 10100100</p>
+<p>100</p>
+<p>$24B6</p>
+<p>00100100 10110110</p>
+<p>101</p>
+<p>$2588</p>
+<p>00100101 10001000</p>
+<p>102</p>
+<p>$259A</p>
+<p>00100101 10011010</p>
+<p>103</p>
+<p>$25AC</p>
+<p>00100101 10101100</p>
+<p>104</p>
+<p>$25BE</p>
+<p>00100101 10111110</p>
+<p>105</p>
+<p>$26C0</p>
+<p>00100110 11000000</p>
+<p>106</p>
+<p>$26D3</p>
+<p>00100110 11010011</p>
+<p>107</p>
+<p>$26E4</p>
+<p>00100110 11100100</p>
+<p>108</p>
+<p>$26F7</p>
+<p>00100110 11110111</p>
+<p>109</p>
+<p>$27C8</p>
+<p>00100111 11001000</p>
+<p>110</p>
+<p>$27DB</p>
+<p>00100111 11011011</p>
+<p>111</p>
+<p>$27EC</p>
+<p>00100111 11101100</p>
+<p>112</p>
+<p>$27FF</p>
+<p>00100111 11111111</p>
+<p>113</p>
+<p>$4800</p>
+<p>01001000 00000000</p>
+<p>114</p>
+<p>$4813</p>
+<p>01001000 00010011</p>
+<p>115</p>
+<p>$4837</p>
+<p>01001000 00110111</p>
+<p>116</p>
+<p>$4908</p>
+<p>01001001 00001000</p>
+<p>117</p>
+<p>$491B</p>
+<p>01001001 00011011</p>
+<p>118</p>
+<p>$492C</p>
+<p>01001001 00101100</p>
+<p>119</p>
+<p>$493F</p>
+<p>01001001 00111111</p>
+<p>120</p>
+<p>$4A41</p>
+<p>01001010 01000001</p>
+<p>121</p>
+<p>$4A65</p>
+<p>01001010 01100101</p>
+<p>122</p>
+<p>$4A77</p>
+<p>01001010 01110111</p>
+<p>123</p>
+<p>$4B49</p>
+<p>01001011 01001001</p>
+<p>124</p>
+<p>$4B5B</p>
+<p>01001011 01011011</p>
+<p>125</p>
+<p>$8B2C</p>
+<p>10001011 00101100</p>
+<p>126</p>
+<p>$4B7F</p>
+<p>01001011 01111111</p>
+<p>127</p>
+<p>$4C93</p>
+<p>01001100 10010011</p>
+<p>128</p>
+<p>$4CB7</p>
+<p>01001100 10110111</p>
+<p>129</p>
+<p>$4D88</p>
+<p>01001101 10001000</p>
+<p>130</p>
+<p>$4D9B</p>
+<p>01001101 10011011</p>
+<p>131</p>
+<p>$4DBF</p>
+<p>01001101 10111111</p>
+<p>132</p>
+<p>$4EC1</p>
+<p>01001110 11000001</p>
+<p>133</p>
+<p>$4ED3</p>
+<p>01001110 11010011</p>
+<p>134</p>
+<p>$4EE5</p>
+<p>01001110 11100101</p>
+<p>135</p>
+<p>$4EF7</p>
+<p>01001110 11110111</p>
+<p>136</p>
+<p>$4FC9</p>
+<p>01001111 11001001</p>
+<p>137</p>
+<p>$4FDB</p>
+<p>01001111 11011011</p>
+<p>138</p>
+<p>$4FED</p>
+<p>01001111 11101101</p>
+<p>139</p>
+<p>$4FFF</p>
+<p>01001111 11111111</p>
+<p>140</p>
+<p>$6800</p>
+<p>01101000 00000000</p>
+<p>141</p>
+<p>$6813</p>
+<p>01101000 00010011</p>
+<p>142</p>
+<p>$6824</p>
+<p>01101000 00100100</p>
+<p>143</p>
+<p>$6837</p>
+<p>01101000 00110111</p>
+<p>144</p>
+<p>$692C</p>
+<p>01101001 00101100</p>
+<p>145</p>
+<p>$693F</p>
+<p>01101001 00111111</p>
+<p>146</p>
+<p>$6A41</p>
+<p>01101010 01000001</p>
+<p>147</p>
+<p>$6A53</p>
+<p>01101010 01010011</p>
+<p>148</p>
+<p>$6A65</p>
+<p>01101010 01100101</p>
+<p>149</p>
+<p>$6A77</p>
+<p>01101010 01110111</p>
+<p>150</p>
+<p>$6B7F</p>
+<p>01101011 01111111</p>
+<p>151</p>
+<p>$6C80</p>
+<p>01101100 10000000</p>
+<p>152</p>
+<p>$6C93</p>
+<p>01101100 10010011</p>
+<p>153</p>
+<p>$6CA4</p>
+<p>01101100 10100100</p>
+<p>154</p>
+<p>$6CB7</p>
+<p>01101100 10110111</p>
+<p>155</p>
+<p>$6D88</p>
+<p>01101101 10001000</p>
+<p>156</p>
+<p>$6DBF</p>
+<p>01101101 10111111</p>
+<p>157</p>
+<p>$6EC1</p>
+<p>01101110 11000001</p>
+<p>158</p>
+<p>$6ED3</p>
+<p>01101110 11010011</p>
+<p>159</p>
+<p>$6EE5</p>
+<p>01101110 11100101</p>
+<p>160</p>
+<p>$6EF7</p>
+<p>01101110 11110111</p>
+<p>161</p>
+<p>$6FC9</p>
+<p>01101111 11001001</p>
+<p>162</p>
+<p>$6FDB</p>
+<p>01101111 11011011</p>
+<p>163</p>
+<p>$6FED</p>
+<p>01101111 11101101</p>
+<p>164</p>
+<p>$6FFF</p>
+<p>01101111 11111111</p>
+<p>165</p>
+<p>$9108</p>
+<p>10010001 00001000</p>
+<p>166</p>
+<p>$911A</p>
+<p>10010001 00011010</p>
+<p>167</p>
+<p>$912C</p>
+<p>10010001 00101100</p>
+<p>168</p>
+<p>$913E</p>
+<p>10010001 00111110</p>
+<p>169</p>
+<p>$9253</p>
+<p>10010010 01010011</p>
+<p>170</p>
+<p>$9277</p>
+<p>10010010 01110111</p>
+<p>171</p>
+<p>$9348</p>
+<p>10010011 01001000</p>
+<p>172</p>
+<p>$935B</p>
+<p>10010011 01011011</p>
+<p>173</p>
+<p>$936C</p>
+<p>10010011 01101100</p>
+<p>174</p>
+<p>$937F</p>
+<p>10010011 01111111</p>
+<p>175</p>
+<p>$9492</p>
+<p>10010100 10010010</p>
+<p>176</p>
+<p>$9496</p>
+<p>10010100 10010110</p>
+<p>177</p>
+<p>$9588</p>
+<p>10010101 10001000</p>
+<p>178</p>
+<p>$95AC</p>
+<p>10010101 10101100</p>
+<p>179</p>
+<p>$95BE</p>
+<p>10010101 10111110</p>
+<p>180</p>
+<p>$96C0</p>
+<p>10010110 11000000</p>
+<p>181</p>
+<p>$96D3</p>
+<p>10010110 11010011</p>
+<p>182</p>
+<p>$96E4</p>
+<p>10010110 11100100</p>
+<p>183</p>
+<p>$96F7</p>
+<p>10010110 11110111</p>
+<p>184</p>
+<p>$97DB</p>
+<p>10010111 11011011</p>
+<p>185</p>
+<p>$97EC</p>
+<p>10010111 11101100</p>
+<p>186</p>
+<p>$97FF</p>
+<p>10010111 11111111</p>
+<p>187</p>
+<p>$B000</p>
+<p>10110000 00000000</p>
+<p>188</p>
+<p>$B012</p>
+<p>10110000 00010010</p>
+<p>189</p>
+<p>$B024</p>
+<p>10110000 00100100</p>
+<p>190</p>
+<p>$B036</p>
+<p>10110000 00110110</p>
+<p>191</p>
+<p>$B108</p>
+<p>10110001 00001000</p>
+<p>192</p>
+<p>$B11A</p>
+<p>10110001 00011010</p>
+<p>193</p>
+<p>$B12C</p>
+<p>10110001 00101100</p>
+<p>194</p>
+<p>$B13E</p>
+<p>10110001 00111110</p>
+<p>195</p>
+<p>$B240</p>
+<p>10110010 01000000</p>
+<p>196</p>
+<p>$B253</p>
+<p>10110010 01010011</p>
+<p>197</p>
+<p>$B277</p>
+<p>10110010 01110111</p>
+<p>198</p>
+<p>$B348</p>
+<p>10110011 01001000</p>
+<p>199</p>
+<p>$B37F</p>
+<p>10110011 01111111</p>
+<p>200</p>
+<p>$B480</p>
+<p>10110100 10000000</p>
+<p>201</p>
+<p>$B4A4</p>
+<p>10110100 10100100</p>
+<p>202</p>
+<p>$B4B6</p>
+<p>10110100 10110110</p>
+<p>203</p>
+<p>$B588</p>
+<p>10110101 10001000</p>
+<p>204</p>
+<p>$B6C0</p>
+<p>10110110 11000000</p>
+<p>205</p>
+<p>$B6D3</p>
+<p>10110110 11010011</p>
+<p>206</p>
+<p>$B6E4</p>
+<p>10110110 11100100</p>
+<p>207</p>
+<p>$B6F7</p>
+<p>10110110 11110111</p>
+<p>208</p>
+<p>$B7C8</p>
+<p>10110111 11001000</p>
+<p>209</p>
+<p>$B7DB</p>
+<p>10110111 11011011</p>
+<p>210</p>
+<p>$D800</p>
+<p>11011000 00000000</p>
+<p>211</p>
+<p>$D813</p>
+<p>11011000 00010011</p>
+<p>212</p>
+<p>$D824</p>
+<p>11011000 00100100</p>
+<p>213</p>
+<p>$D837</p>
+<p>11011000 00110111</p>
+<p>214</p>
+<p>$D908</p>
+<p>11011001 00001000</p>
+<p>215</p>
+<p>$D91B</p>
+<p>11011001 00011011</p>
+<p>216</p>
+<p>$D92C</p>
+<p>11011001 00101100</p>
+<p>217</p>
+<p>$D93F</p>
+<p>11011001 00111111</p>
+<p>218</p>
+<p>$DA41</p>
+<p>11011010 01000001</p>
+<p>219</p>
+<p>$DA53</p>
+<p>11011010 01010011</p>
+<p>220</p>
+<p>$DA65</p>
+<p>11011010 01100101</p>
+<p>221</p>
+<p>$DA77</p>
+<p>11011010 01110111</p>
+<p>222</p>
+<p>$DB49</p>
+<p>11011011 01001001</p>
+<p>223</p>
+<p>$DB5B</p>
+<p>11011011 01011011</p>
+<p>224</p>
+<p>$DB6D</p>
+<p>11011011 01101101</p>
+<p>225</p>
+<p>$DB7F</p>
+<p>11011011 01111111</p>
+<p>226</p>
+<p>$DC80</p>
+<p>11011100 10000000</p>
+<p>227</p>
+<p>$DC93</p>
+<p>11011100 10010011</p>
+<p>228</p>
+<p>$DCA4</p>
+<p>11011100 10100100</p>
+<p>229</p>
+<p>$DCB7</p>
+<p>11011100 10110111</p>
+<p>230</p>
+<p>$DD88</p>
+<p>11011101 10001000</p>
+<p>231</p>
+<p>$DD9B</p>
+<p>11011101 10011011</p>
+<p>232</p>
+<p>$DDAC</p>
+<p>11011101 10101100</p>
+<p>233</p>
+<p>$DDBF</p>
+<p>11011101 10111111</p>
+<p>234</p>
+<p>$DED3</p>
+<p>11011110 11010011</p>
+<p>235</p>
+<p>$DEE5</p>
+<p>11011110 11100101</p>
+<p>236</p>
+<p>$DFDB</p>
+<p>11011111 11011011</p>
+<p>237</p>
+<p>$F813</p>
+<p>11111000 00010011</p>
+<p>238</p>
+<p>$F91B</p>
+<p>11111001 00011011</p>
+<p>239</p>
+<p>$F92C</p>
+<p>11111001 00101100</p>
+<p>240</p>
+<p>$FA41</p>
+<p>11111010 01000001</p>
+<p>241</p>
+<p>$FA53</p>
+<p>11111010 01010011</p>
+<p>242</p>
+<p>$FA65</p>
+<p>11111010 01100101</p>
+<p>243</p>
+<p>$FA77</p>
+<p>11111010 01110111</p>
+<p>244</p>
+<p>$FB49</p>
+<p>11111011 01001001</p>
+<p>245</p>
+<p>$FB5B</p>
+<p>11111011 01011011</p>
+<p>246</p>
+<p>$FB6D</p>
+<p>11111011 01101101</p>
+<p>247</p>
+<p>$FB7F</p>
+<p>11111011 01111111</p>
+<p>248</p>
+<p>$FC93</p>
+<p>11111100 10010011</p>
+<p>249</p>
+<p>$FCA4</p>
+<p>11111100 10100100</p>
+<p>250</p>
+<p>$FCB7</p>
+<p>11111100 10110111</p>
+<p>251</p>
+<p>$FD88</p>
+<p>11111101 10001000</p>
+<p>252</p>
+<p>$FD9B</p>
+<p>11111101 10011011</p>
+<p>253</p>
+<p>$FED3</p>
+<p>11111110 11010011</p>
+<p>254</p>
+<p>$FEE5</p>
+<p>11111110 11100101</p>
+<p>255</p>
+<p>$FFDB</p>
+<p>11111111 11011011</p>
+</div>
+<div class="section" id="bit-enhanced-colour-drivers">
+<h3>24 Bit Enhanced Colour Drivers<a class="headerlink" href="#bit-enhanced-colour-drivers" title="Permalink to this headline">¶</a></h3>
+<p>Although only available as a Colour Mode on QPC2 and the QXL, this true
+colour (24 bit) mode is used by commands such as PALETTE_QL and
+PALETTE_8 to describe approx 16 million colours in detail.</p>
+<p>Here, every four bytes (a longword) represent one pixel on the Monitor&#8217;s
+screen.</p>
+<p>The bits are combined to represent the amount of GREEN, RED and BLUE to
+be used for each pixel, in the following format <strong>rrrrrrrr gggggggg bbbbbbbb xxxxxxxx</strong>, where:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="18%" />
+<col width="64%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>g</td>
+<td>=</td>
+<td>green (8 bits)</td>
+</tr>
+<tr class="row-even"><td>r</td>
+<td>=</td>
+<td>red (8 bits)</td>
+</tr>
+<tr class="row-odd"><td>b</td>
+<td>=</td>
+<td>blue (8 bits)</td>
+</tr>
+<tr class="row-even"><td>x</td>
+<td>=</td>
+<td>unused</td>
+</tr>
+</tbody>
+</table>
+<p>In the table below, the colours represented by each of the first 256 PAL
+colours (0 to 255) closely resembles those generated under the 256
+Colour Mode on the Aurora, however, due to the way in which colour is
+stored, it is necessary to look up the comparative Hexadecimal value for
+each colour which would need to be POKEd into memory.</p>
+<p>You cannot use the PAL colour number as a parameter for INK (and other
+commands) due to the fact that this is limited to 256 - use the
+hexadecimal 24 bit value instead.</p>
+<p>Again, the colours are hard to describe due to the range and therefore
+require experimentation to obtain the correct colours. However, the
+following table details the corresponding INK parameter to use to
+achieve that colour (<em>NOTE</em> this does not correspond with the orignal QL
+colour scheme!). It is not possible to list all of the 16 million
+colours, therefore we have tried to list the most widely used ones (INK
+0 to INK 63) grouped into the different colours and the values for the
+rest of the colours in the range INK 64 to INK 255.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">PAL</th>
+<th class="head">&nbsp;</th>
+<th class="head">24 bit</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Colour</td>
+<td>Colour</td>
+<td>Value</td>
+</tr>
+<tr class="row-odd"><td>Value</td>
+<td>Name</td>
+<td>(Hex)</td>
+</tr>
+<tr class="row-even"><td>0</td>
+<td>Black</td>
+<td>$000000</td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td>White</td>
+<td>$FFFFFF</td>
+</tr>
+<tr class="row-even"><td>8</td>
+<td>Dark Slate</td>
+<td>$242424</td>
+</tr>
+<tr class="row-odd"><td>9</td>
+<td>Slate Grey</td>
+<td>$494949</td>
+</tr>
+<tr class="row-even"><td>10</td>
+<td>Dark Grey</td>
+<td>$6D6D6D</td>
+</tr>
+<tr class="row-odd"><td>11</td>
+<td>Grey</td>
+<td>$929292</td>
+</tr>
+<tr class="row-even"><td>12</td>
+<td>Light Grey</td>
+<td>$B6B6B6</td>
+</tr>
+<tr class="row-odd"><td>13</td>
+<td>Ash Grey</td>
+<td>$DBDBDB</td>
+</tr>
+<tr class="row-even"><td>58</td>
+<td>Cerise</td>
+<td>$920049</td>
+</tr>
+<tr class="row-odd"><td>14</td>
+<td>Dark Red</td>
+<td>$920000</td>
+</tr>
+<tr class="row-even"><td>2</td>
+<td>Red</td>
+<td>$FF0000</td>
+</tr>
+<tr class="row-odd"><td>63</td>
+<td>Deep Purple</td>
+<td>$490092</td>
+</tr>
+<tr class="row-even"><td>51</td>
+<td>Plum</td>
+<td>$6D246D</td>
+</tr>
+<tr class="row-odd"><td>20</td>
+<td>Purple</td>
+<td>$920092</td>
+</tr>
+<tr class="row-even"><td>26</td>
+<td>Mauve</td>
+<td>$9200FF</td>
+</tr>
+<tr class="row-odd"><td>57</td>
+<td>Faded Purple</td>
+<td>$9249B6</td>
+</tr>
+<tr class="row-even"><td>52</td>
+<td>Dusky Pink</td>
+<td>$B64992</td>
+</tr>
+<tr class="row-odd"><td>5</td>
+<td>Magenta</td>
+<td>$FF00FF</td>
+</tr>
+<tr class="row-even"><td>21</td>
+<td>Shocking Pink</td>
+<td>$FF0092</td>
+</tr>
+<tr class="row-odd"><td>45</td>
+<td>Dull Pink</td>
+<td>$B66DB6</td>
+</tr>
+<tr class="row-even"><td>32</td>
+<td>Pink</td>
+<td>$FFB6DB</td>
+</tr>
+<tr class="row-odd"><td>31</td>
+<td>Rose Pink</td>
+<td>$FFB6FF</td>
+</tr>
+<tr class="row-even"><td>34</td>
+<td>Pastel Pink</td>
+<td>$FFDBDB</td>
+</tr>
+<tr class="row-odd"><td>39</td>
+<td>Pastel Rose</td>
+<td>$FFDBFF</td>
+</tr>
+<tr class="row-even"><td>27</td>
+<td>Peach</td>
+<td>$FFB6B6</td>
+</tr>
+<tr class="row-odd"><td>50</td>
+<td>Midnight Blue</td>
+<td>$24246D</td>
+</tr>
+<tr class="row-even"><td>19</td>
+<td>Dark Blue</td>
+<td>$000092</td>
+</tr>
+<tr class="row-odd"><td>4</td>
+<td>Blue</td>
+<td>$0000FF</td>
+</tr>
+<tr class="row-even"><td>62</td>
+<td>Ultramarine</td>
+<td>$004992</td>
+</tr>
+<tr class="row-odd"><td>49</td>
+<td>Dusky Blue</td>
+<td>$246D6D</td>
+</tr>
+<tr class="row-even"><td>44</td>
+<td>Steel Blue</td>
+<td>$6D6DB6</td>
+</tr>
+<tr class="row-odd"><td>18</td>
+<td>Sea Blue</td>
+<td>$009292</td>
+</tr>
+<tr class="row-even"><td>25</td>
+<td>Bright Blue</td>
+<td>$0092FF</td>
+</tr>
+<tr class="row-odd"><td>56</td>
+<td>Dull Blue</td>
+<td>$4992B6</td>
+</tr>
+<tr class="row-even"><td>43</td>
+<td>Dull Cyan</td>
+<td>$6DB6B6</td>
+</tr>
+<tr class="row-odd"><td>7</td>
+<td>Cyan</td>
+<td>$00FFFF</td>
+</tr>
+<tr class="row-even"><td>29</td>
+<td>Light Blue</td>
+<td>$B6FFFF</td>
+</tr>
+<tr class="row-odd"><td>30</td>
+<td>Sky Blue</td>
+<td>$B6B6FF</td>
+</tr>
+<tr class="row-even"><td>38</td>
+<td>Pastel Blue</td>
+<td>$DBDBFF</td>
+</tr>
+<tr class="row-odd"><td>37</td>
+<td>Pastel Cyan</td>
+<td>$DBFFFF</td>
+</tr>
+<tr class="row-even"><td>48</td>
+<td>Dusky Green</td>
+<td>$246D24</td>
+</tr>
+<tr class="row-odd"><td>60</td>
+<td>Grass Green</td>
+<td>$499200</td>
+</tr>
+<tr class="row-even"><td>17</td>
+<td>Dark Green</td>
+<td>$009200</td>
+</tr>
+<tr class="row-odd"><td>54</td>
+<td>Avocado</td>
+<td>$92B649</td>
+</tr>
+<tr class="row-even"><td>61</td>
+<td>Sea Green</td>
+<td>$009249</td>
+</tr>
+<tr class="row-odd"><td>42</td>
+<td>Dull Green</td>
+<td>$6DB66D</td>
+</tr>
+<tr class="row-even"><td>3</td>
+<td>Green</td>
+<td>$00FF00</td>
+</tr>
+<tr class="row-odd"><td>23</td>
+<td>Lime Green</td>
+<td>$92FF00</td>
+</tr>
+<tr class="row-even"><td>24</td>
+<td>Apple Green</td>
+<td>$00FF92</td>
+</tr>
+<tr class="row-odd"><td>55</td>
+<td>Dull Turquoise</td>
+<td>$49B692</td>
+</tr>
+<tr class="row-even"><td>41</td>
+<td>Light Khaki</td>
+<td>$B6B66D</td>
+</tr>
+<tr class="row-odd"><td>15</td>
+<td>Light Green</td>
+<td>$B6FFB6</td>
+</tr>
+<tr class="row-even"><td>36</td>
+<td>Pastel Green</td>
+<td>$DBFFDB</td>
+</tr>
+<tr class="row-odd"><td>46</td>
+<td>Brown</td>
+<td>$6D2424</td>
+</tr>
+<tr class="row-even"><td>59</td>
+<td>Tan</td>
+<td>$924900</td>
+</tr>
+<tr class="row-odd"><td>6</td>
+<td>Yellow</td>
+<td>$FFFF00</td>
+</tr>
+<tr class="row-even"><td>22</td>
+<td>Orange</td>
+<td>$FF9200</td>
+</tr>
+<tr class="row-odd"><td>16</td>
+<td>Mustard</td>
+<td>$929200</td>
+</tr>
+<tr class="row-even"><td>47</td>
+<td>Khaki</td>
+<td>$6D6D24</td>
+</tr>
+<tr class="row-odd"><td>53</td>
+<td>Buff</td>
+<td>$B69249</td>
+</tr>
+<tr class="row-even"><td>40</td>
+<td>Brick</td>
+<td>$B66D6D</td>
+</tr>
+<tr class="row-odd"><td>33</td>
+<td>Beige</td>
+<td>$FFDBB6</td>
+</tr>
+<tr class="row-even"><td>28</td>
+<td>Light Yellow</td>
+<td>$FFFFB6</td>
+</tr>
+<tr class="row-odd"><td>35</td>
+<td>Pastel Yellow</td>
+<td>$FFFFDB</td>
+</tr>
+</tbody>
+</table>
+<p>The remainder of the first 256 colours are mapped as follows (we would
+welcome names for each of these colours):</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">PAL</th>
+<th class="head">&nbsp;</th>
+<th class="head">24 bit</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Colour</td>
+<td>Colour</td>
+<td>Value</td>
+</tr>
+<tr class="row-odd"><td>Value</td>
+<td>Name</td>
+<td>(Hex)</td>
+</tr>
+<tr class="row-even"><td>64</td>
+<td>&nbsp;</td>
+<td>$000049</td>
+</tr>
+<tr class="row-odd"><td>65</td>
+<td>&nbsp;</td>
+<td>$240024</td>
+</tr>
+<tr class="row-even"><td>66</td>
+<td>&nbsp;</td>
+<td>$24006D</td>
+</tr>
+<tr class="row-odd"><td>67</td>
+<td>&nbsp;</td>
+<td>$2400B6</td>
+</tr>
+<tr class="row-even"><td>68</td>
+<td>&nbsp;</td>
+<td>$2400FF</td>
+</tr>
+<tr class="row-odd"><td>69</td>
+<td>&nbsp;</td>
+<td>$490000</td>
+</tr>
+<tr class="row-even"><td>70</td>
+<td>&nbsp;</td>
+<td>$490049</td>
+</tr>
+<tr class="row-odd"><td>71</td>
+<td>&nbsp;</td>
+<td>$4900DB</td>
+</tr>
+<tr class="row-even"><td>72</td>
+<td>&nbsp;</td>
+<td>$6D0024</td>
+</tr>
+<tr class="row-odd"><td>73</td>
+<td>&nbsp;</td>
+<td>$6D006D</td>
+</tr>
+<tr class="row-even"><td>74</td>
+<td>&nbsp;</td>
+<td>$6D00B6</td>
+</tr>
+<tr class="row-odd"><td>75</td>
+<td>&nbsp;</td>
+<td>$6D00FF</td>
+</tr>
+<tr class="row-even"><td>76</td>
+<td>&nbsp;</td>
+<td>$B60024</td>
+</tr>
+<tr class="row-odd"><td>77</td>
+<td>&nbsp;</td>
+<td>$B6006D</td>
+</tr>
+<tr class="row-even"><td>78</td>
+<td>&nbsp;</td>
+<td>$B600B6</td>
+</tr>
+<tr class="row-odd"><td>79</td>
+<td>&nbsp;</td>
+<td>$B600FF</td>
+</tr>
+<tr class="row-even"><td>80</td>
+<td>&nbsp;</td>
+<td>$DB0000</td>
+</tr>
+<tr class="row-odd"><td>81</td>
+<td>&nbsp;</td>
+<td>$DB0049</td>
+</tr>
+<tr class="row-even"><td>82</td>
+<td>&nbsp;</td>
+<td>$DB0092</td>
+</tr>
+<tr class="row-odd"><td>83</td>
+<td>&nbsp;</td>
+<td>$DB00DB</td>
+</tr>
+<tr class="row-even"><td>84</td>
+<td>&nbsp;</td>
+<td>$FF006D</td>
+</tr>
+<tr class="row-odd"><td>85</td>
+<td>&nbsp;</td>
+<td>$002400</td>
+</tr>
+<tr class="row-even"><td>86</td>
+<td>&nbsp;</td>
+<td>$002449</td>
+</tr>
+<tr class="row-odd"><td>87</td>
+<td>&nbsp;</td>
+<td>$002492</td>
+</tr>
+<tr class="row-even"><td>88</td>
+<td>&nbsp;</td>
+<td>$0024DB</td>
+</tr>
+<tr class="row-odd"><td>89</td>
+<td>&nbsp;</td>
+<td>$2424B6</td>
+</tr>
+<tr class="row-even"><td>90</td>
+<td>&nbsp;</td>
+<td>$2424FF</td>
+</tr>
+<tr class="row-odd"><td>91</td>
+<td>&nbsp;</td>
+<td>$492400</td>
+</tr>
+<tr class="row-even"><td>92</td>
+<td>&nbsp;</td>
+<td>$492449</td>
+</tr>
+<tr class="row-odd"><td>93</td>
+<td>&nbsp;</td>
+<td>$492492</td>
+</tr>
+<tr class="row-even"><td>94</td>
+<td>&nbsp;</td>
+<td>$4924DB</td>
+</tr>
+<tr class="row-odd"><td>95</td>
+<td>&nbsp;</td>
+<td>$6D24B6</td>
+</tr>
+<tr class="row-even"><td>96</td>
+<td>&nbsp;</td>
+<td>$6D24FF</td>
+</tr>
+<tr class="row-odd"><td>97</td>
+<td>&nbsp;</td>
+<td>$922400</td>
+</tr>
+<tr class="row-even"><td>98</td>
+<td>&nbsp;</td>
+<td>$922449</td>
+</tr>
+<tr class="row-odd"><td>99</td>
+<td>&nbsp;</td>
+<td>$922492</td>
+</tr>
+<tr class="row-even"><td>100</td>
+<td>&nbsp;</td>
+<td>$9224DB</td>
+</tr>
+<tr class="row-odd"><td>101</td>
+<td>&nbsp;</td>
+<td>$B62424</td>
+</tr>
+<tr class="row-even"><td>102</td>
+<td>&nbsp;</td>
+<td>$B6246D</td>
+</tr>
+<tr class="row-odd"><td>103</td>
+<td>&nbsp;</td>
+<td>$B624B6</td>
+</tr>
+<tr class="row-even"><td>104</td>
+<td>&nbsp;</td>
+<td>$B624FF</td>
+</tr>
+<tr class="row-odd"><td>105</td>
+<td>&nbsp;</td>
+<td>$DB2400</td>
+</tr>
+<tr class="row-even"><td>106</td>
+<td>&nbsp;</td>
+<td>$DB2449</td>
+</tr>
+<tr class="row-odd"><td>107</td>
+<td>&nbsp;</td>
+<td>$DB2492</td>
+</tr>
+<tr class="row-even"><td>108</td>
+<td>&nbsp;</td>
+<td>$DB246D</td>
+</tr>
+<tr class="row-odd"><td>109</td>
+<td>&nbsp;</td>
+<td>$FF2424</td>
+</tr>
+<tr class="row-even"><td>110</td>
+<td>&nbsp;</td>
+<td>$FF246D</td>
+</tr>
+<tr class="row-odd"><td>111</td>
+<td>&nbsp;</td>
+<td>$FF24B6</td>
+</tr>
+<tr class="row-even"><td>112</td>
+<td>&nbsp;</td>
+<td>$FF24FF</td>
+</tr>
+<tr class="row-odd"><td>113</td>
+<td>&nbsp;</td>
+<td>$004900</td>
+</tr>
+<tr class="row-even"><td>114</td>
+<td>&nbsp;</td>
+<td>$004949</td>
+</tr>
+<tr class="row-odd"><td>115</td>
+<td>&nbsp;</td>
+<td>$0049DB</td>
+</tr>
+<tr class="row-even"><td>116</td>
+<td>&nbsp;</td>
+<td>$244924</td>
+</tr>
+<tr class="row-odd"><td>117</td>
+<td>&nbsp;</td>
+<td>$24496D</td>
+</tr>
+<tr class="row-even"><td>118</td>
+<td>&nbsp;</td>
+<td>$2449B6</td>
+</tr>
+<tr class="row-odd"><td>119</td>
+<td>&nbsp;</td>
+<td>$2449FF</td>
+</tr>
+<tr class="row-even"><td>120</td>
+<td>&nbsp;</td>
+<td>$494900</td>
+</tr>
+<tr class="row-odd"><td>121</td>
+<td>&nbsp;</td>
+<td>$494992</td>
+</tr>
+<tr class="row-even"><td>122</td>
+<td>&nbsp;</td>
+<td>$4949DB</td>
+</tr>
+<tr class="row-odd"><td>123</td>
+<td>&nbsp;</td>
+<td>$6D4924</td>
+</tr>
+<tr class="row-even"><td>124</td>
+<td>&nbsp;</td>
+<td>$6D496D</td>
+</tr>
+<tr class="row-odd"><td>125</td>
+<td>&nbsp;</td>
+<td>$6D49B6</td>
+</tr>
+<tr class="row-even"><td>126</td>
+<td>&nbsp;</td>
+<td>$6D49FF</td>
+</tr>
+<tr class="row-odd"><td>127</td>
+<td>&nbsp;</td>
+<td>$924949</td>
+</tr>
+<tr class="row-even"><td>128</td>
+<td>&nbsp;</td>
+<td>$9249DB</td>
+</tr>
+<tr class="row-odd"><td>129</td>
+<td>&nbsp;</td>
+<td>$B64924</td>
+</tr>
+<tr class="row-even"><td>130</td>
+<td>&nbsp;</td>
+<td>$B6496D</td>
+</tr>
+<tr class="row-odd"><td>131</td>
+<td>&nbsp;</td>
+<td>$B649FF</td>
+</tr>
+<tr class="row-even"><td>132</td>
+<td>&nbsp;</td>
+<td>$DB4900</td>
+</tr>
+<tr class="row-odd"><td>133</td>
+<td>&nbsp;</td>
+<td>$DB4949</td>
+</tr>
+<tr class="row-even"><td>134</td>
+<td>&nbsp;</td>
+<td>$DB4992</td>
+</tr>
+<tr class="row-odd"><td>135</td>
+<td>&nbsp;</td>
+<td>$DB49DB</td>
+</tr>
+<tr class="row-even"><td>136</td>
+<td>&nbsp;</td>
+<td>$FF4924</td>
+</tr>
+<tr class="row-odd"><td>137</td>
+<td>&nbsp;</td>
+<td>$FF496D</td>
+</tr>
+<tr class="row-even"><td>138</td>
+<td>&nbsp;</td>
+<td>$FF49B6</td>
+</tr>
+<tr class="row-odd"><td>139</td>
+<td>&nbsp;</td>
+<td>$FF49FF</td>
+</tr>
+<tr class="row-even"><td>140</td>
+<td>&nbsp;</td>
+<td>$006D00</td>
+</tr>
+<tr class="row-odd"><td>141</td>
+<td>&nbsp;</td>
+<td>$006D49</td>
+</tr>
+<tr class="row-even"><td>142</td>
+<td>&nbsp;</td>
+<td>$006D92</td>
+</tr>
+<tr class="row-odd"><td>143</td>
+<td>&nbsp;</td>
+<td>$006DDB</td>
+</tr>
+<tr class="row-even"><td>144</td>
+<td>&nbsp;</td>
+<td>$246DB6</td>
+</tr>
+<tr class="row-odd"><td>145</td>
+<td>&nbsp;</td>
+<td>$246DFF</td>
+</tr>
+<tr class="row-even"><td>146</td>
+<td>&nbsp;</td>
+<td>$496D00</td>
+</tr>
+<tr class="row-odd"><td>147</td>
+<td>&nbsp;</td>
+<td>$496D49</td>
+</tr>
+<tr class="row-even"><td>148</td>
+<td>&nbsp;</td>
+<td>$496D92</td>
+</tr>
+<tr class="row-odd"><td>149</td>
+<td>&nbsp;</td>
+<td>$496DDB</td>
+</tr>
+<tr class="row-even"><td>150</td>
+<td>&nbsp;</td>
+<td>$6D6DFF</td>
+</tr>
+<tr class="row-odd"><td>151</td>
+<td>&nbsp;</td>
+<td>$926D00</td>
+</tr>
+<tr class="row-even"><td>152</td>
+<td>&nbsp;</td>
+<td>$926D49</td>
+</tr>
+<tr class="row-odd"><td>153</td>
+<td>&nbsp;</td>
+<td>$926D92</td>
+</tr>
+<tr class="row-even"><td>154</td>
+<td>&nbsp;</td>
+<td>$926DDB</td>
+</tr>
+<tr class="row-odd"><td>155</td>
+<td>&nbsp;</td>
+<td>$B66D24</td>
+</tr>
+<tr class="row-even"><td>156</td>
+<td>&nbsp;</td>
+<td>$B66DFF</td>
+</tr>
+<tr class="row-odd"><td>157</td>
+<td>&nbsp;</td>
+<td>$DB6D00</td>
+</tr>
+<tr class="row-even"><td>158</td>
+<td>&nbsp;</td>
+<td>$DB6D49</td>
+</tr>
+<tr class="row-odd"><td>159</td>
+<td>&nbsp;</td>
+<td>$DB6D92</td>
+</tr>
+<tr class="row-even"><td>160</td>
+<td>&nbsp;</td>
+<td>$DB6DDB</td>
+</tr>
+<tr class="row-odd"><td>161</td>
+<td>&nbsp;</td>
+<td>$FF6D24</td>
+</tr>
+<tr class="row-even"><td>162</td>
+<td>&nbsp;</td>
+<td>$FF6D6D</td>
+</tr>
+<tr class="row-odd"><td>163</td>
+<td>&nbsp;</td>
+<td>$FF6DB6</td>
+</tr>
+<tr class="row-even"><td>164</td>
+<td>&nbsp;</td>
+<td>$FF6DFF</td>
+</tr>
+<tr class="row-odd"><td>165</td>
+<td>&nbsp;</td>
+<td>$249224</td>
+</tr>
+<tr class="row-even"><td>166</td>
+<td>&nbsp;</td>
+<td>$24926D</td>
+</tr>
+<tr class="row-odd"><td>167</td>
+<td>&nbsp;</td>
+<td>$2492B6</td>
+</tr>
+<tr class="row-even"><td>168</td>
+<td>&nbsp;</td>
+<td>$2492FF</td>
+</tr>
+<tr class="row-odd"><td>169</td>
+<td>&nbsp;</td>
+<td>$499249</td>
+</tr>
+<tr class="row-even"><td>170</td>
+<td>&nbsp;</td>
+<td>$4992DB</td>
+</tr>
+<tr class="row-odd"><td>171</td>
+<td>&nbsp;</td>
+<td>$6D9224</td>
+</tr>
+<tr class="row-even"><td>172</td>
+<td>&nbsp;</td>
+<td>$6D926D</td>
+</tr>
+<tr class="row-odd"><td>173</td>
+<td>&nbsp;</td>
+<td>$6D92B6</td>
+</tr>
+<tr class="row-even"><td>174</td>
+<td>&nbsp;</td>
+<td>$6D92FF</td>
+</tr>
+<tr class="row-odd"><td>175</td>
+<td>&nbsp;</td>
+<td>$929249</td>
+</tr>
+<tr class="row-even"><td>176</td>
+<td>&nbsp;</td>
+<td>$9292DB</td>
+</tr>
+<tr class="row-odd"><td>177</td>
+<td>&nbsp;</td>
+<td>$B69224</td>
+</tr>
+<tr class="row-even"><td>178</td>
+<td>&nbsp;</td>
+<td>$B692B6</td>
+</tr>
+<tr class="row-odd"><td>179</td>
+<td>&nbsp;</td>
+<td>$B692FF</td>
+</tr>
+<tr class="row-even"><td>180</td>
+<td>&nbsp;</td>
+<td>$DB9200</td>
+</tr>
+<tr class="row-odd"><td>181</td>
+<td>&nbsp;</td>
+<td>$DB9249</td>
+</tr>
+<tr class="row-even"><td>182</td>
+<td>&nbsp;</td>
+<td>$DB9292</td>
+</tr>
+<tr class="row-odd"><td>183</td>
+<td>&nbsp;</td>
+<td>$DB92DB</td>
+</tr>
+<tr class="row-even"><td>184</td>
+<td>&nbsp;</td>
+<td>$FF926D</td>
+</tr>
+<tr class="row-odd"><td>185</td>
+<td>&nbsp;</td>
+<td>$FF92B6</td>
+</tr>
+<tr class="row-even"><td>186</td>
+<td>&nbsp;</td>
+<td>$FF92FF</td>
+</tr>
+<tr class="row-odd"><td>187</td>
+<td>&nbsp;</td>
+<td>$00B600</td>
+</tr>
+<tr class="row-even"><td>188</td>
+<td>&nbsp;</td>
+<td>$00B649</td>
+</tr>
+<tr class="row-odd"><td>189</td>
+<td>&nbsp;</td>
+<td>$00B692</td>
+</tr>
+<tr class="row-even"><td>190</td>
+<td>&nbsp;</td>
+<td>$00B6DB</td>
+</tr>
+<tr class="row-odd"><td>191</td>
+<td>&nbsp;</td>
+<td>$24B624</td>
+</tr>
+<tr class="row-even"><td>192</td>
+<td>&nbsp;</td>
+<td>$24B66D</td>
+</tr>
+<tr class="row-odd"><td>193</td>
+<td>&nbsp;</td>
+<td>$24B6B6</td>
+</tr>
+<tr class="row-even"><td>194</td>
+<td>&nbsp;</td>
+<td>$24B6FF</td>
+</tr>
+<tr class="row-odd"><td>195</td>
+<td>&nbsp;</td>
+<td>$49B600</td>
+</tr>
+<tr class="row-even"><td>196</td>
+<td>&nbsp;</td>
+<td>$49B649</td>
+</tr>
+<tr class="row-odd"><td>197</td>
+<td>&nbsp;</td>
+<td>$49B6DB</td>
+</tr>
+<tr class="row-even"><td>198</td>
+<td>&nbsp;</td>
+<td>$6DB624</td>
+</tr>
+<tr class="row-odd"><td>199</td>
+<td>&nbsp;</td>
+<td>$6DB6FF</td>
+</tr>
+<tr class="row-even"><td>200</td>
+<td>&nbsp;</td>
+<td>$92B600</td>
+</tr>
+<tr class="row-odd"><td>201</td>
+<td>&nbsp;</td>
+<td>$92B692</td>
+</tr>
+<tr class="row-even"><td>202</td>
+<td>&nbsp;</td>
+<td>$92B6DB</td>
+</tr>
+<tr class="row-odd"><td>203</td>
+<td>&nbsp;</td>
+<td>$B6B624</td>
+</tr>
+<tr class="row-even"><td>204</td>
+<td>&nbsp;</td>
+<td>$DBB600</td>
+</tr>
+<tr class="row-odd"><td>205</td>
+<td>&nbsp;</td>
+<td>$DBB649</td>
+</tr>
+<tr class="row-even"><td>206</td>
+<td>&nbsp;</td>
+<td>$DBB692</td>
+</tr>
+<tr class="row-odd"><td>207</td>
+<td>&nbsp;</td>
+<td>$DBB6DB</td>
+</tr>
+<tr class="row-even"><td>208</td>
+<td>&nbsp;</td>
+<td>$FFB624</td>
+</tr>
+<tr class="row-odd"><td>209</td>
+<td>&nbsp;</td>
+<td>$FFB66D</td>
+</tr>
+<tr class="row-even"><td>210</td>
+<td>&nbsp;</td>
+<td>$00DB00</td>
+</tr>
+<tr class="row-odd"><td>211</td>
+<td>&nbsp;</td>
+<td>$00DB49</td>
+</tr>
+<tr class="row-even"><td>212</td>
+<td>&nbsp;</td>
+<td>$00DB92</td>
+</tr>
+<tr class="row-odd"><td>213</td>
+<td>&nbsp;</td>
+<td>$00DBDB</td>
+</tr>
+<tr class="row-even"><td>214</td>
+<td>&nbsp;</td>
+<td>$24DB24</td>
+</tr>
+<tr class="row-odd"><td>215</td>
+<td>&nbsp;</td>
+<td>$24DB6D</td>
+</tr>
+<tr class="row-even"><td>216</td>
+<td>&nbsp;</td>
+<td>$24DBB6</td>
+</tr>
+<tr class="row-odd"><td>217</td>
+<td>&nbsp;</td>
+<td>$24DBFF</td>
+</tr>
+<tr class="row-even"><td>218</td>
+<td>&nbsp;</td>
+<td>$49DB00</td>
+</tr>
+<tr class="row-odd"><td>219</td>
+<td>&nbsp;</td>
+<td>$49DB49</td>
+</tr>
+<tr class="row-even"><td>220</td>
+<td>&nbsp;</td>
+<td>$49DB92</td>
+</tr>
+<tr class="row-odd"><td>221</td>
+<td>&nbsp;</td>
+<td>$49DBDB</td>
+</tr>
+<tr class="row-even"><td>222</td>
+<td>&nbsp;</td>
+<td>$6DDB24</td>
+</tr>
+<tr class="row-odd"><td>223</td>
+<td>&nbsp;</td>
+<td>$6DDB6D</td>
+</tr>
+<tr class="row-even"><td>224</td>
+<td>&nbsp;</td>
+<td>$6DDBB6</td>
+</tr>
+<tr class="row-odd"><td>225</td>
+<td>&nbsp;</td>
+<td>$6DDBFF</td>
+</tr>
+<tr class="row-even"><td>226</td>
+<td>&nbsp;</td>
+<td>$92DB00</td>
+</tr>
+<tr class="row-odd"><td>227</td>
+<td>&nbsp;</td>
+<td>$92DB49</td>
+</tr>
+<tr class="row-even"><td>228</td>
+<td>&nbsp;</td>
+<td>$92DB92</td>
+</tr>
+<tr class="row-odd"><td>229</td>
+<td>&nbsp;</td>
+<td>$92DBDB</td>
+</tr>
+<tr class="row-even"><td>230</td>
+<td>&nbsp;</td>
+<td>$B6DB24</td>
+</tr>
+<tr class="row-odd"><td>231</td>
+<td>&nbsp;</td>
+<td>$B6DB6D</td>
+</tr>
+<tr class="row-even"><td>232</td>
+<td>&nbsp;</td>
+<td>$B6DBN6</td>
+</tr>
+<tr class="row-odd"><td>233</td>
+<td>&nbsp;</td>
+<td>$B6DBFF</td>
+</tr>
+<tr class="row-even"><td>234</td>
+<td>&nbsp;</td>
+<td>$DBDB49</td>
+</tr>
+<tr class="row-odd"><td>235</td>
+<td>&nbsp;</td>
+<td>$DBDB92</td>
+</tr>
+<tr class="row-even"><td>236</td>
+<td>&nbsp;</td>
+<td>$FFDB6D</td>
+</tr>
+<tr class="row-odd"><td>237</td>
+<td>&nbsp;</td>
+<td>$00FF49</td>
+</tr>
+<tr class="row-even"><td>238</td>
+<td>&nbsp;</td>
+<td>$24FF6D</td>
+</tr>
+<tr class="row-odd"><td>239</td>
+<td>&nbsp;</td>
+<td>$24FFB6</td>
+</tr>
+<tr class="row-even"><td>240</td>
+<td>&nbsp;</td>
+<td>$49FF00</td>
+</tr>
+<tr class="row-odd"><td>241</td>
+<td>&nbsp;</td>
+<td>$49FF49</td>
+</tr>
+<tr class="row-even"><td>242</td>
+<td>&nbsp;</td>
+<td>$49FF92</td>
+</tr>
+<tr class="row-odd"><td>243</td>
+<td>&nbsp;</td>
+<td>$49FFDB</td>
+</tr>
+<tr class="row-even"><td>244</td>
+<td>&nbsp;</td>
+<td>$6DFF24</td>
+</tr>
+<tr class="row-odd"><td>245</td>
+<td>&nbsp;</td>
+<td>$6DFF6D</td>
+</tr>
+<tr class="row-even"><td>246</td>
+<td>&nbsp;</td>
+<td>$6DFFB6</td>
+</tr>
+<tr class="row-odd"><td>247</td>
+<td>&nbsp;</td>
+<td>$6DFFFF</td>
+</tr>
+<tr class="row-even"><td>248</td>
+<td>&nbsp;</td>
+<td>$92FF49</td>
+</tr>
+<tr class="row-odd"><td>249</td>
+<td>&nbsp;</td>
+<td>$92FF92</td>
+</tr>
+<tr class="row-even"><td>250</td>
+<td>&nbsp;</td>
+<td>$92FFDB</td>
+</tr>
+<tr class="row-odd"><td>251</td>
+<td>&nbsp;</td>
+<td>$B6FF24</td>
+</tr>
+<tr class="row-even"><td>252</td>
+<td>&nbsp;</td>
+<td>$B6FF6D</td>
+</tr>
+<tr class="row-odd"><td>253</td>
+<td>&nbsp;</td>
+<td>$DBFF49</td>
+</tr>
+<tr class="row-even"><td>254</td>
+<td>&nbsp;</td>
+<td>$DBFF92</td>
+</tr>
+<tr class="row-odd"><td>255</td>
+<td>&nbsp;</td>
+<td>$FFFF6D</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="miscellaneous-colour-modes">
+<h3>MISCELLANEOUS COLOUR MODES<a class="headerlink" href="#miscellaneous-colour-modes" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="mode-2-monochrome-drivers">
+<h4>MODE 2 (Monochrome Drivers)<a class="headerlink" href="#mode-2-monochrome-drivers" title="Permalink to this headline">¶</a></h4>
+<p>Each byte represents eight pixels on the Monitor&#8217;s screen calculated by
+looking at the status of each of the eight binary bits which make up a
+byte - if a bit is 1 (ON) then the corresponding pixel will be white,
+otherwise it will be black.</p>
+<p>For example, if PEEK (SCR_BASE) returns the value 85, in binary this is
+represented by:</p>
+<p>0 1 0 1 0 1 0 1</p>
+<p>Therefore the top left of the Monitor screen will be showing eight
+alternating pixels of black and white.</p>
+<p><strong>Example</strong></p>
+<p>The following program will fill the screen with black and white vertical
+stripes:</p>
+<div class="highlight-python"><div class="highlight"><pre>100 MODE 2
+110 FOR x=0 TO SCR_YLIM-1
+120   FOR y=0 TO (SCR_XLIM-1)/4
+130     POKE SCR_BASE+ (x*SCR_LLEN) + y,85
+140   END FOR y
+150 END FOR x
+</pre></div>
+</div>
+<p><strong>SMSQ/E NOTE</strong></p>
+<p>Under SMSQ/E v2.98+, Enhanced Colour Drivers, this becomes MODE 0.</p>
+</div>
+<div class="section" id="mode-12-16-colour-mode">
+<h4>MODE 12 (16 Colour Mode)<a class="headerlink" href="#mode-12-16-colour-mode" title="Permalink to this headline">¶</a></h4>
+<p>This is supported only by the THOR XVI and is similar to Aurora&#8217;s 16
+Colour Mode under the Enhanced Colour Drivers in that it replaces the
+Flash bit of MODE 8 by an Intensity bit which allows you to display 16
+colours on screen at a time at a resolution of 256 x 256 pixels.</p>
+<p>(We have no details of how this was implemented).</p>
+</div>
+</div>
+</div>
+<div class="section" id="a16-4-using-high-resolution-displays">
+<h2>A16.4 USING HIGH RESOLUTION DISPLAYS<a class="headerlink" href="#a16-4-using-high-resolution-displays" title="Permalink to this headline">¶</a></h2>
+<p>There is not much adaptation required in order to use QL screen
+resolutions in excess of 512x256 pixels - all of the normal commands
+work as you would expect. OUTLN includes an example of how to allow
+programs to re-size themselves up to the maximum resolution. However,
+there are some rules which you need to observe..</p>
+<p>First of all, refer to Appendix 6.7 (Using High Resolution Screens)
+about some compatability issues.</p>
+<p>If a user chooses to run a program on a high resolution screen, they
+will find that the program will only occupy a small area of the screen.
+Even if the program allows you to resize it to take advantage of the
+larger screen, this may not be very satisfactory. Although graphics
+commands which work by reference to the graphics co-ordinates system
+(such as LINE) will take advantage of the larger windows provided by the
+program, thus giving the effect of enlarging any on-screen graphics,
+other commands which work by reference to the pixel co-ordinates system
+(such as BLOCK) will rely on the program to resize them specifically for
+the new screen. You may therefore find that the display of some programs
+is corrupted, unless the programmer has taken sufficient care.</p>
+<p>One of the main problems is that text can still only be PRINTed on
+screen in the standard QL sizes, and therefore, any text PRINTed in
+CSIZE 0,0 will be very hard to read on a 800x600 screen (let alone a
+1600x1200 screen), even with a 17&#8221; Monitor. Programs will therefore need
+to take this into account, possibly using the resize procedure to alter
+the character sizes used for text, or using the ProWeSS system from
+PROGS, which uses scaleable fonts for output.</p>
+<p>Refer to the SCALE command for a means of working out a relationship
+between graphics co-ordinates and pixel co- ordinates.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="Appendix15.clean.html" class="btn btn-neutral" title="A15 Mouse Drivers" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Rich Mellor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'4.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

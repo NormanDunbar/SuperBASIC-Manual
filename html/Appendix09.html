@@ -1,0 +1,2358 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux/x86 (vers 25 March 2009), see www.w3.org" />
+  <meta http-equiv="content-type" content="text/html; charset=us-ascii" />
+  <link rel="stylesheet" type="text/css" href="css/QLManualStyle.css" media="all" />
+
+  <title>Sinclair QL SuperBASIC/SBASIC Reference Manual - Appendix 9</title>
+</head>
+
+<body>
+  <div id="header">
+    SBASIC/SuperBASIC Reference Manual Online (c) RWAP Software<br />
+    The Online Guide to programming the Sinclair QL Home Computer in SuperBASIC
+  </div>
+
+  <div id="sideBar">
+    <ul>
+      <li><a href="Foreword.html">Foreword</a></li>
+
+      <li><a href="Introduction.html">Introduction</a></li>
+
+      <li><a href="Credits.html">Credits</a></li>
+
+      <li><a href="Structure.html">Structure</a></li>
+
+      <li><a href="WritingPrograms.html">Writing Programs</a></li>
+
+      <li style="list-style: none; display: inline">
+        <hr />
+      </li>
+
+      <li><a href="KeywordsA.html">Keywords - A</a></li>
+
+      <li><a href="KeywordsB.html">Keywords - B</a></li>
+
+      <li><a href="KeywordsC.html">Keywords - C</a></li>
+
+      <li><a href="KeywordsD.html">Keywords - D</a></li>
+
+      <li><a href="KeywordsE.html">Keywords - E</a></li>
+
+      <li><a href="KeywordsF.html">Keywords - F</a></li>
+
+      <li><a href="KeywordsG.html">Keywords - G</a></li>
+
+      <li><a href="KeywordsH.html">Keywords - H</a></li>
+
+      <li><a href="KeywordsI.html">Keywords - I</a></li>
+
+      <li><a href="KeywordsJ.html">Keywords - J</a></li>
+
+      <li><a href="KeywordsK.html">Keywords - K</a></li>
+
+      <li><a href="KeywordsL.html">Keywords - L</a></li>
+
+      <li><a href="KeywordsM.html">Keywords - M</a></li>
+
+      <li><a href="KeywordsN.html">Keywords - N</a></li>
+
+      <li><a href="KeywordsO.html">Keywords - O</a></li>
+
+      <li><a href="KeywordsP.html">Keywords - P</a></li>
+
+      <li><a href="KeywordsQ.html">Keywords - Q</a></li>
+
+      <li><a href="KeywordsR.html">Keywords - R</a></li>
+
+      <li><a href="KeywordsS.html">Keywords - S</a></li>
+
+      <li><a href="KeywordsT.html">Keywords - T</a></li>
+
+      <li><a href="KeywordsU.html">Keywords - U</a></li>
+
+      <li><a href="KeywordsV.html">Keywords - V</a></li>
+
+      <li><a href="KeywordsW.html">Keywords - W</a></li>
+
+      <li><a href="KeywordsX.html">Keywords - X</a></li>
+
+      <li><a href="KeywordsY.html">Keywords - Y</a></li>
+
+      <li><a href="KeywordsZ.html">Keywords - Z</a></li>
+
+      <li><a href="Keywords_.html">Keywords - Other</a></li>
+
+      <li style="list-style: none; display: inline">
+        <hr />
+      </li>
+
+      <li><a href="AppendicesIntro.html">Appendices Introduction</a></li>
+
+      <li><a href="Appendix01.html">Appendix 1 - Minerva</a></li>
+
+      <li><a href="Appendix02.html">Appendix 2 - SMSQE</a></li>
+
+      <li><a href="Appendix03.html">Appendix 3 - Emulators</a></li>
+
+      <li><a href="Appendix04.html">Appendix 4 - THOR Computers</a></li>
+
+      <li><a href="Appendix05.html">Appendix 5 - Expansion Boards</a></li>
+
+      <li><a href="Appendix06.html">Appendix 6 - Compatability</a></li>
+
+      <li><a href="Appendix07.html">Appendix 7 - Multiple BASICs</a></li>
+
+      <li><a href="Appendix08.html">Appendix 8 - Error Messages</a></li>
+
+      <li><a href="Appendix09.html">Appendix 9 - Character Set / Keyboard</a></li>
+
+      <li><a href="Appendix10.html">Appendix 10 - Fonts</a></li>
+
+      <li><a href="Appendix11.html">Appendix 11 - Mathematics</a></li>
+
+      <li><a href="Appendix12.html">Appendix 12 - Device Drivers</a></li>
+
+      <li><a href="Appendix13.html">Appendix 13 - Extended Pointer Environment</a></li>
+
+      <li><a href="Appendix14.html">Appendix 14 - Coercion</a></li>
+
+      <li><a href="Appendix15.html">Appendix 15 - Mouse Drivers</a></li>
+
+      <li><a href="Appendix16.html">Appendix 16 - The QL Display</a></li>
+
+      <li><a href="Appendix17.html">Appendix 17 - Networks</a></li>
+
+      <li><a href="Appendix18.html">Appendix 18 - Configuring Programs</a></li>
+    </ul>
+  </div>
+
+  <div id="mainText">
+    <h3>A9 CHARACTER SET, KEYBOARD<br /></h3>
+
+    <p>This Appendix deals with the QL character set and keyboard.</p>
+
+    <h3>A9.1 THE CHARACTER SET<br /></h3>
+
+    <p>The codes from 0 to 31 (except 10) and 192 to 254 are not standardised - they are
+    undefined on standard QLs (a checkerboard square) but Minerva sets them to the
+    characters listed below. The keying required for many of the characters seems to
+    differ on every type of machine, which is very annoying for the programmer.</p>
+
+    <p>Some of the keyings will also be different on new replacement keyboards, although
+    these normally only add to the standard set.</p>
+
+    <p>We have supplied the keyings on standard British and German QLs so that you can
+    see where problems may occur in different keyings. We recommend that you make your
+    program fully configurable if these differences appear to be a problem.</p>
+
+    <p>The full character set is:</p>
+
+    <table id="charset">
+      <tr>
+        <th>Code</th>
+
+        <th>Character</th>
+
+        <th>Keys to press</th>
+      </tr>
+
+      <tr>
+        <td align="right">0</td>
+
+        <td>NUL</td>
+
+        <td>&lt;CTRL&gt; &lt; &pound;&gt; <sup>British</sup><br />
+        &lt;CTRL&gt; &lt; ESC&gt; <sup>German</sup></td>
+      </tr>
+
+      <tr>
+        <td align="right">1</td>
+
+        <td>F1</td>
+
+        <td>&lt;CTRL&gt; &lt; A&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">2</td>
+
+        <td>F2</td>
+
+        <td>&lt;CTRL&gt; &lt; B&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">3</td>
+
+        <td>F3</td>
+
+        <td>&lt;CTRL&gt; &lt; C&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">4</td>
+
+        <td>F4</td>
+
+        <td>&lt;CTRL&gt; &lt; D&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">5</td>
+
+        <td>F5</td>
+
+        <td>&lt;CTRL&gt; &lt; E&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">6</td>
+
+        <td>AK</td>
+
+        <td>&lt;CTRL&gt; &lt; F&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">7</td>
+
+        <td>minim</td>
+
+        <td>&lt;CTRL&gt; &lt; G&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">8</td>
+
+        <td>BS</td>
+
+        <td>&lt;CTRL&gt; &lt; H&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">9</td>
+
+        <td>HT</td>
+
+        <td>&lt;CTRL&gt; &lt; I&gt;<br />
+        &lt;TAB&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">10</td>
+
+        <td>NL</td>
+
+        <td>&lt;CTRL&gt; &lt; J&gt;<br />
+        &lt;ENTER&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">11</td>
+
+        <td>VT</td>
+
+        <td>&lt;CTRL&gt;&lt;K&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">12</td>
+
+        <td>FF</td>
+
+        <td>&lt;CTRL&gt;&lt;L&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">13</td>
+
+        <td>CR</td>
+
+        <td>&lt;CTRL&gt;&lt;M&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">14</td>
+
+        <td>SO</td>
+
+        <td>&lt;CTRL&gt;&lt;N&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">15</td>
+
+        <td>SI</td>
+
+        <td>&lt;CTRL&gt;&lt;O&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">16</td>
+
+        <td><sup>0</sup> (small 0)</td>
+
+        <td>&lt;CTRL&gt;&lt;P&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">17</td>
+
+        <td><sup>1</sup> (small 1)</td>
+
+        <td>&lt;CTRL&gt;&lt;Q&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">18</td>
+
+        <td><sup>2</sup> (small 2)</td>
+
+        <td>&lt;CTRL&gt;&lt;R&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">19</td>
+
+        <td><sup>3</sup> (small 3)</td>
+
+        <td>&lt;CTRL&gt;&lt;S&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">20</td>
+
+        <td><sup>4</sup> (small 4)</td>
+
+        <td>&lt;CTRL&gt;&lt;T&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">21</td>
+
+        <td><sup>5</sup> (small 5)</td>
+
+        <td>&lt;CTRL&gt;&lt;U&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">22</td>
+
+        <td><sup>6</sup> (small 6)</td>
+
+        <td>&lt;CTRL&gt;&lt;V&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">23</td>
+
+        <td><sup>7</sup> (small 7)</td>
+
+        <td>&lt;CTRL&gt;&lt;W&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">24</td>
+
+        <td><sup>8</sup> (small 8)</td>
+
+        <td>&lt;CTRL&gt;&lt;X&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">25</td>
+
+        <td><sup>9</sup> (small 9)</td>
+
+        <td>&lt;CTRL&gt;&lt;Y&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">26</td>
+
+        <td><sup>A</sup> (small A)</td>
+
+        <td>&lt;CTRL&gt;&lt;Z&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">27</td>
+
+        <td><sup>B</sup> (small B)</td>
+
+        <td>&lt;ESC&gt;,<br />
+        &lt;CTRL&gt;&lt;SHIFT&gt;&lt;[&gt;<sup>British</sup><br />
+        &lt;CTRL&gt;&lt;SHIFT&gt;&lt;&Uuml;&gt;<sup>German</sup></td>
+      </tr>
+
+      <tr>
+        <td align="right">28</td>
+
+        <td><sup>C</sup> (small C)</td>
+
+        <td>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;\&gt;<sup>British</sup><br />
+        &lt;CTRL&gt;&lt;SHIFT&gt;&lt;&lt;&gt;<sup>German</sup></td>
+      </tr>
+
+      <tr>
+        <td align="right">29</td>
+
+        <td><sup>D</sup> (small D)</td>
+
+        <td>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;]&gt;<sup>British</sup><br />
+        &lt;CTRL&gt;&lt;SHIFT&gt;&lt;+&gt;<sup>German<br /></sup></td>
+      </tr>
+
+      <tr>
+        <td align="right">30</td>
+
+        <td><sup>E</sup> (small E)</td>
+
+        <td>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;&pound;&gt;<sup>British</sup><br />
+        &lt;CTRL&gt;&lt;SHIFT&gt;&lt;\&gt;<sup>German</sup></td>
+      </tr>
+
+      <tr>
+        <td align="right">31</td>
+
+        <td><sup>F</sup> (small F)</td>
+
+        <td>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;ESC&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">32</td>
+
+        <td>(space)</td>
+
+        <td>&lt;SPACE&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">33</td>
+
+        <td>! (exclamation)</td>
+
+        <td>&lt;SHIFT&gt;&lt;1&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">34</td>
+
+        <td>" (speech mark)</td>
+
+        <td>&lt;SHIFT&gt;&lt;'&gt;<sup>British</sup><br />
+        &lt;SHIFT&gt;&lt;2&gt;<sup>German</sup></td>
+      </tr>
+
+      <tr>
+        <td align="right">35</td>
+
+        <td># (hash)</td>
+
+        <td>&lt;SHIFT&gt;&lt;3&gt;<sup>British</sup><br />
+        &lt;#&gt;<sup>German</sup></td>
+      </tr>
+
+      <tr>
+        <td align="right">36</td>
+
+        <td>$ (dollar)</td>
+
+        <td>&lt;SHIFT&gt;&lt;4&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">37</td>
+
+        <td>% (percent)</td>
+
+        <td>&lt;SHIFT&gt;&lt;5&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">38</td>
+
+        <td>&amp; (ampersand)</td>
+
+        <td>&lt;SHIFT&gt;&lt;7&gt;<sup>British</sup><br />
+        &lt;SHIFT&gt;&lt;6&gt;<sup>German</sup></td>
+      </tr>
+
+      <tr>
+        <td align="right">39</td>
+
+        <td>' (quote)</td>
+
+        <td>&lt;'&gt;<sup>British</sup><br />
+        &lt;SHIFT&gt;&lt;#&gt;<sup>German</sup></td>
+      </tr>
+
+      <tr>
+        <td align="right">40</td>
+
+        <td>( (bracket)</td>
+
+        <td>&lt;SHIFT&gt;&lt;9&gt;<sup>British</sup><br />
+        &lt;SHIFT&gt;&lt;8&gt;<sup>German</sup></td>
+      </tr>
+
+      <tr>
+        <td align="right">41</td>
+
+        <td>) (bracket)</td>
+
+        <td>&lt;SHIFT&gt;&lt;0&gt;<sup>British</sup><br />
+        &lt;SHIFT&gt;&lt;9&gt;<sup>German</sup></td>
+      </tr>
+
+      <tr>
+        <td align="right">42</td>
+
+        <td>* (asterisk)</td>
+
+        <td>&lt;SHIFT&gt;&lt;8&gt;<sup>British</sup><br />
+        &lt;SHIFT&gt;&lt;+&gt;<sup>German</sup></td>
+      </tr>
+
+      <tr>
+        <td align="right">43</td>
+
+        <td>+ (plus)</td>
+
+        <td>&lt;SHIFT&gt;&lt;=&gt;<sup>British</sup><br />
+        &lt;+&gt;<sup>German</sup></td>
+      </tr>
+
+      <tr>
+        <td align="right">44</td>
+
+        <td>, (comma)</td>
+
+        <td>&lt;,&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">45</td>
+
+        <td>- (minus/hyphen)</td>
+
+        <td>&lt;-&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">46</td>
+
+        <td>. (fullstop)</td>
+
+        <td>&lt;.&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">47</td>
+
+        <td>/ (stroke)</td>
+
+        <td>&lt;/&gt;<sup>British</sup><br />
+        &lt;SHIFT&gt;&lt;7&gt;<sup>German</sup></td>
+      </tr>
+
+      <tr>
+        <td align="right">48</td>
+
+        <td>0</td>
+
+        <td>&lt;0&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">49</td>
+
+        <td>1</td>
+
+        <td>&lt;1&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">50</td>
+
+        <td>2</td>
+
+        <td>&lt;2&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">51</td>
+
+        <td>3</td>
+
+        <td>&lt;3&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">52</td>
+
+        <td>4</td>
+
+        <td>&lt;4&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">53</td>
+
+        <td>5</td>
+
+        <td>&lt;5&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">54</td>
+
+        <td>6</td>
+
+        <td>&lt;6&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">55</td>
+
+        <td>7</td>
+
+        <td>&lt;7&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">56</td>
+
+        <td>8</td>
+
+        <td>&lt;8&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">57</td>
+
+        <td>9</td>
+
+        <td>&lt;9&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">58</td>
+
+        <td>: (colon)</td>
+
+        <td>&lt;SHIFT&gt;&lt;;&gt;<sup>British</sup><br />
+        &lt;SHIFT&gt;&lt;.&gt;<sup>German</sup></td>
+      </tr>
+
+      <tr>
+        <td align="right">59</td>
+
+        <td>; (semicolon)</td>
+
+        <td>&lt;;&gt;<sup>British</sup><br />
+        &lt;SHIFT&gt;&lt;,&gt;<sup>German</sup></td>
+      </tr>
+
+      <tr>
+        <td align="right">60</td>
+
+        <td>&lt; (less than)</td>
+
+        <td>&lt;SHIFT&gt;&lt;,&gt;<sup>British</sup><br />
+        &lt; &lt; &gt;<sup>German</sup></td>
+      </tr>
+
+      <tr>
+        <td align="right">61</td>
+
+        <td>= (equal)</td>
+
+        <td>&lt;=&gt;<sup>British</sup><br />
+        &lt;SHIFT&gt;&lt;=&gt;<sup>German</sup></td>
+      </tr>
+
+      <tr>
+        <td align="right">62</td>
+
+        <td>&gt; (greater)</td>
+
+        <td>&lt;SHIFT&gt;&lt;.&gt;<sup>British</sup><br />
+        &lt;SHIFT&gt;&lt; &lt; &gt;<sup>German</sup></td>
+      </tr>
+
+      <tr>
+        <td align="right">63</td>
+
+        <td>? (question mark)</td>
+
+        <td>&lt;SHIFT&gt;&lt;/&gt;<sup>British</sup><br />
+        &lt;SHIFT&gt;&lt;&aacute;&gt;<sup>German</sup></td>
+      </tr>
+
+      <tr>
+        <td align="right">64</td>
+
+        <td>@ (address symbol)</td>
+
+        <td>&lt;SHIFT&gt;&lt;2&gt;<sup>British</sup><br />
+        &lt;CTRL&gt;&lt;\&gt;<sup>German</sup></td>
+      </tr>
+
+      <tr>
+        <td align="right">65</td>
+
+        <td>A</td>
+
+        <td>&lt;SHIFT&gt;&lt;A&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">66</td>
+
+        <td>B</td>
+
+        <td>&lt;SHIFT&gt;&lt;B&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">67</td>
+
+        <td>C</td>
+
+        <td>&lt;SHIFT&gt;&lt;C&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">68</td>
+
+        <td>D</td>
+
+        <td>&lt;SHIFT&gt;&lt;D&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">69</td>
+
+        <td>E</td>
+
+        <td>&lt;SHIFT&gt;&lt;E&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">70</td>
+
+        <td>F</td>
+
+        <td>&lt;SHIFT&gt;&lt;F&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">71</td>
+
+        <td>G</td>
+
+        <td>&lt;SHIFT&gt;&lt;G&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">72</td>
+
+        <td>H</td>
+
+        <td>&lt;SHIFT&gt;&lt;H&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">73</td>
+
+        <td>I</td>
+
+        <td>&lt;SHIFT&gt;&lt;I&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">74</td>
+
+        <td>J</td>
+
+        <td>&lt;SHIFT&gt;&lt;J&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">75</td>
+
+        <td>K</td>
+
+        <td>&lt;SHIFT&gt;&lt;K&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">76</td>
+
+        <td>L</td>
+
+        <td>&lt;SHIFT&gt;&lt;L&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">77</td>
+
+        <td>M</td>
+
+        <td>&lt;SHIFT&gt;&lt;M&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">78</td>
+
+        <td>N</td>
+
+        <td>&lt;SHIFT&gt;&lt;N&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">79</td>
+
+        <td>O</td>
+
+        <td>&lt;SHIFT&gt;&lt;O&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">80</td>
+
+        <td>P</td>
+
+        <td>&lt;SHIFT&gt;&lt;P&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">81</td>
+
+        <td>Q</td>
+
+        <td>&lt;SHIFT&gt;&lt;Q&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">82</td>
+
+        <td>R</td>
+
+        <td>&lt;SHIFT&gt;&lt;R&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">83</td>
+
+        <td>S</td>
+
+        <td>&lt;SHIFT&gt;&lt;S&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">84</td>
+
+        <td>T</td>
+
+        <td>&lt;SHIFT&gt;&lt;T&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">85</td>
+
+        <td>U</td>
+
+        <td>&lt;SHIFT&gt;&lt;U&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">86</td>
+
+        <td>V</td>
+
+        <td>&lt;SHIFT&gt;&lt;V&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">87</td>
+
+        <td>W</td>
+
+        <td>&lt;SHIFT&gt;&lt;W&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">88</td>
+
+        <td>X</td>
+
+        <td>&lt;SHIFT&gt;&lt;X&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">89</td>
+
+        <td>Y</td>
+
+        <td>&lt;SHIFT&gt;&lt;Y&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">90</td>
+
+        <td>Z</td>
+
+        <td>&lt;SHIFT&gt;&lt;Z&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">91</td>
+
+        <td>[ (square bracket)</td>
+
+        <td>&lt;[&gt;<sup>British</sup><br />
+        &lt;CTRL&gt;&lt;9&gt;<sup>German</sup></td>
+      </tr>
+
+      <tr>
+        <td align="right">92</td>
+
+        <td>\ (backslash)</td>
+
+        <td>&lt;\&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">93</td>
+
+        <td>] (square bracket)</td>
+
+        <td>&lt;]&gt;<sup>British</sup><br />
+        &lt;CTRL&gt;&lt;0&gt;<sup>German</sup></td>
+      </tr>
+
+      <tr>
+        <td align="right">94</td>
+
+        <td>^ (circumflex)</td>
+
+        <td>&lt;SHIFT&gt;&lt;6&gt;<sup>British</sup><br />
+        &lt;SHIFT&gt;&lt;\&gt;<sup>German</sup></td>
+      </tr>
+
+      <tr>
+        <td align="right">95</td>
+
+        <td>_ (underscore)</td>
+
+        <td>&lt;SHIFT&gt;&lt;-&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">96</td>
+
+        <td>&pound; (pound)</td>
+
+        <td>&lt;&pound;&gt;<sup>British</sup><br />
+        &lt;CTRL&gt;&lt;7&gt;<sup>German</sup></td>
+      </tr>
+
+      <tr>
+        <td align="right">97</td>
+
+        <td>a</td>
+
+        <td>&lt;A&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">98</td>
+
+        <td>b</td>
+
+        <td>&lt;B&gt;<br /></td>
+      </tr>
+
+      <tr>
+        <td align="right">99</td>
+
+        <td>c</td>
+
+        <td>&lt;C&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">100</td>
+
+        <td>d</td>
+
+        <td>&lt;D&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">101</td>
+
+        <td>e</td>
+
+        <td>&lt;E&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">102</td>
+
+        <td>f</td>
+
+        <td>&lt;F&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">103</td>
+
+        <td>g</td>
+
+        <td>&lt;G&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">104</td>
+
+        <td>h</td>
+
+        <td>&lt;H&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">105</td>
+
+        <td>i</td>
+
+        <td>&lt;I&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">106</td>
+
+        <td>j</td>
+
+        <td>&lt;J&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">107</td>
+
+        <td>k</td>
+
+        <td>&lt;K&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">108</td>
+
+        <td>l</td>
+
+        <td>&lt;L&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">109</td>
+
+        <td>m</td>
+
+        <td>&lt;M&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">110</td>
+
+        <td>n</td>
+
+        <td>&lt;N&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">111</td>
+
+        <td>o</td>
+
+        <td>&lt;O&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">112</td>
+
+        <td>p</td>
+
+        <td>&lt;P&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">113</td>
+
+        <td>q</td>
+
+        <td>&lt;Q&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">114</td>
+
+        <td>r</td>
+
+        <td>&lt;R&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">115</td>
+
+        <td>s</td>
+
+        <td>&lt;S&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">116</td>
+
+        <td>t</td>
+
+        <td>&lt;T&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">117</td>
+
+        <td>u</td>
+
+        <td>&lt;U&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">118</td>
+
+        <td>v</td>
+
+        <td>&lt;V&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">119</td>
+
+        <td>w</td>
+
+        <td>&lt;W&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">120</td>
+
+        <td>x</td>
+
+        <td>&lt;X&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">121</td>
+
+        <td>y</td>
+
+        <td>&lt;Y&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">122</td>
+
+        <td>z</td>
+
+        <td>&lt;Z&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">123</td>
+
+        <td>{ (brace)</td>
+
+        <td>&lt;SHIFT&gt;&lt;[&gt;<sup>British</sup><br />
+        &lt;CTRL&gt;&lt;&aacute;&gt;<sup>German</sup></td>
+      </tr>
+
+      <tr>
+        <td align="right">124</td>
+
+        <td>| (vertical line)</td>
+
+        <td>&lt;SHIFT&gt;&lt;\&gt;<sup>British</sup><br />
+        &lt;CTRL&gt;&lt;8&gt;<sup>German</sup></td>
+      </tr>
+
+      <tr>
+        <td align="right">125</td>
+
+        <td>} (brace)</td>
+
+        <td>&lt;SHIFT&gt;&lt;]&gt;<sup>British</sup><br />
+        &lt;CTRL&gt;&lt;#&gt;<sup>German</sup></td>
+      </tr>
+
+      <tr>
+        <td align="right">126</td>
+
+        <td>~ (tilde)</td>
+
+        <td>&lt;SHIFT&gt;&lt;&pound;&gt;<sup>British</sup><br />
+        &lt;CTRL&gt;&lt;#&gt;<sup>German</sup></td>
+      </tr>
+
+      <tr>
+        <td align="right">127</td>
+
+        <td>copyright</td>
+
+        <td>&lt;SHIFT&gt;&lt;ESC&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">128</td>
+
+        <td>a umlaut</td>
+
+        <td>&lt;CTRL&gt;&lt;ESC&gt;<sup>British</sup><br />
+        &lt;&Auml;&gt;<sup>German</sup></td>
+      </tr>
+
+      <tr>
+        <td align="right">129</td>
+
+        <td>a tilde</td>
+
+        <td>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;1&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">130</td>
+
+        <td>a circle</td>
+
+        <td>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;'&gt;<sup>British</sup><br />
+        &lt;CTRL&gt;&lt;SHIFT&gt;&lt;&Auml;&gt;<sup>German</sup></td>
+      </tr>
+
+      <tr>
+        <td align="right">131</td>
+
+        <td>e acute</td>
+
+        <td>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;3&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">132</td>
+
+        <td>o umlaut</td>
+
+        <td>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;4&gt;<sup>British</sup><br />
+        &lt;&Ouml;&gt;<sup>German</sup></td>
+      </tr>
+
+      <tr>
+        <td align="right">133</td>
+
+        <td>o tilde</td>
+
+        <td>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;5&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">134</td>
+
+        <td>o bar</td>
+
+        <td>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;7&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">135</td>
+
+        <td>u umlaut</td>
+
+        <td>&lt;CTRL&gt;&lt;'&gt;<sup>British</sup><br />
+        &lt;&Uuml;&gt;<sup>German</sup></td>
+      </tr>
+
+      <tr>
+        <td align="right">136</td>
+
+        <td>c cedilla</td>
+
+        <td>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;9&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">137</td>
+
+        <td>n tilde</td>
+
+        <td>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;0&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">138</td>
+
+        <td>ae diphthong</td>
+
+        <td>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;8&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">139</td>
+
+        <td>oe diphthong</td>
+
+        <td>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;=&gt;<sup>British</sup><br />
+        &lt;CTRL&gt;&lt;SHIFT&gt;&lt;#&gt;<sup>German</sup></td>
+      </tr>
+
+      <tr>
+        <td align="right">140</td>
+
+        <td>a acute</td>
+
+        <td>&lt;CTRL&gt;&lt;,&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">141</td>
+
+        <td>a grave</td>
+
+        <td>&lt;CTRL&gt;&lt;-&gt;<sup>British</sup><br />
+        &lt;CTRL&gt;&lt;SHIFT&gt;&lt;4&gt;<sup>German</sup></td>
+      </tr>
+
+      <tr>
+        <td align="right">142</td>
+
+        <td>a circumflex</td>
+
+        <td>&lt;CTRL&gt;&lt;.&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">143</td>
+
+        <td>e umlaut</td>
+
+        <td>&lt;CTRL&gt;&lt;/&gt;<sup>British</sup><br />
+        &lt;CTRL&gt;&lt;-&gt;<sup>German</sup></td>
+      </tr>
+
+      <tr>
+        <td align="right">144</td>
+
+        <td>e grave</td>
+
+        <td>&lt;CTRL&gt;&lt;0&gt;<sup>British</sup><br />
+        &lt;CTRL&gt;&lt;SHIFT&gt;&lt;V&gt;<sup>German</sup></td>
+      </tr>
+
+      <tr>
+        <td align="right">145</td>
+
+        <td>e circumflex</td>
+
+        <td>&lt;CTRL&gt;&lt;1&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">146</td>
+
+        <td>i umlaut</td>
+
+        <td>&lt;CTRL&gt;&lt;2&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">147</td>
+
+        <td>i acute</td>
+
+        <td>&lt;CTRL&gt;&lt;3&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">148</td>
+
+        <td>i grave</td>
+
+        <td>&lt;CTRL&gt;&lt;4&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">149</td>
+
+        <td>i circumflex</td>
+
+        <td>&lt;CTRL&gt;&lt;5&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">150</td>
+
+        <td>o acute</td>
+
+        <td>&lt;CTRL&gt;&lt;6&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">151</td>
+
+        <td>o grave</td>
+
+        <td>&lt;CTRL&gt;&lt;7&gt;<sup>British</sup><br />
+        &lt;CTRL&gt;&lt;SHIFT&gt;&lt;,&gt;<sup>German</sup></td>
+      </tr>
+
+      <tr>
+        <td align="right">152</td>
+
+        <td>o circumflex</td>
+
+        <td>&lt;CTRL&gt;&lt;8&gt;<sup>British</sup><br />
+        &lt;CTRL&gt;&lt;SHIFT&gt;&lt;D&gt;<sup>German</sup></td>
+      </tr>
+
+      <tr>
+        <td align="right">153</td>
+
+        <td>u acute</td>
+
+        <td>&lt;CTRL&gt;&lt;9&gt;<sup>British</sup><br />
+        &lt;CTRL&gt;&lt;&Auml;&gt;<sup>German</sup></td>
+      </tr>
+
+      <tr>
+        <td align="right">154</td>
+
+        <td>u grave</td>
+
+        <td>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;;&gt;<sup>British</sup><br />
+        &lt;CTRL&gt;&lt;SHIFT&gt;&lt;&Ouml;&gt;<sup>German</sup></td>
+      </tr>
+
+      <tr>
+        <td align="right">155</td>
+
+        <td>u circumflex</td>
+
+        <td>&lt;CTRL&gt;&lt;;&gt;<sup>British</sup><br />
+        &lt;CTRL&gt;&lt;&Ouml;&gt;<sup>German</sup></td>
+      </tr>
+
+      <tr>
+        <td align="right">156</td>
+
+        <td>&aacute; (beta/sz)</td>
+
+        <td>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;,&gt;<sup>British</sup><br />
+        &lt;&aacute;&gt;<sup>German</sup></td>
+      </tr>
+
+      <tr>
+        <td align="right">157</td>
+
+        <td>cent symbol</td>
+
+        <td>&lt;CTRL&gt;&lt;=&gt;<sup>British</sup><br />
+        &lt;CTRL&gt;&lt;SHIFT&gt;&lt;G&gt;<sup>German</sup></td>
+      </tr>
+
+      <tr>
+        <td align="right">158</td>
+
+        <td>yen symbol</td>
+
+        <td>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;.&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">159</td>
+
+        <td>backquote</td>
+
+        <td>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;/&gt;<sup>British</sup><br />
+        &lt;CTRL&gt;&lt;SHIFT&gt;&lt;-&gt;<sup>German</sup></td>
+      </tr>
+
+      <tr>
+        <td align="right">160</td>
+
+        <td>A umlaut</td>
+
+        <td>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;2&gt;<sup>British</sup><br />
+        &lt;SHIFT&gt;&lt;&Auml;&gt;<sup>German</sup></td>
+      </tr>
+
+      <tr>
+        <td align="right">161</td>
+
+        <td>A tilde</td>
+
+        <td>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;A&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">162</td>
+
+        <td>A circle</td>
+
+        <td>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;B&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">163</td>
+
+        <td>E acute</td>
+
+        <td>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;C&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">164</td>
+
+        <td>O umlaut</td>
+
+        <td>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;D&gt;<sup>British</sup><br />
+        &lt;SHIFT&gt;&lt;&Ouml;&gt;<sup>German</sup></td>
+      </tr>
+
+      <tr>
+        <td align="right">165</td>
+
+        <td>O tilde</td>
+
+        <td>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;E&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">166</td>
+
+        <td>O bar</td>
+
+        <td>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;F&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">167</td>
+
+        <td>U umlaut</td>
+
+        <td>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;G&gt;<sup>British</sup><br />
+        &lt;SHIFT&gt;&lt;&Uuml;&gt;<sup>German</sup></td>
+      </tr>
+
+      <tr>
+        <td align="right">168</td>
+
+        <td>C cedilla</td>
+
+        <td>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;H&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">169</td>
+
+        <td>N tilde</td>
+
+        <td>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;I&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">170</td>
+
+        <td>AE diphthong</td>
+
+        <td>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;J&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">171</td>
+
+        <td>OE diphthong</td>
+
+        <td>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;K&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">172</td>
+
+        <td>lower alpha</td>
+
+        <td>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;L&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">173</td>
+
+        <td>lower delta</td>
+
+        <td>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;M&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">174</td>
+
+        <td>upper theta</td>
+
+        <td>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;N&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">175</td>
+
+        <td>lower lambda</td>
+
+        <td>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;O&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">176</td>
+
+        <td>lower mu</td>
+
+        <td>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;P&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">177</td>
+
+        <td>lower pi</td>
+
+        <td>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;Q&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">178</td>
+
+        <td>upper phi</td>
+
+        <td>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;R&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">179</td>
+
+        <td>inverse !</td>
+
+        <td>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;S&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">180</td>
+
+        <td>inverse ?</td>
+
+        <td>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;T&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">181</td>
+
+        <td>script mark</td>
+
+        <td>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;U&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">182</td>
+
+        <td>section symbol</td>
+
+        <td>&lt;CTRL&gt;&lt;SHIFT&gt;(V)<sup>British</sup><br />
+        &lt;SHIFT&gt;&lt;3&gt;<sup>German</sup></td>
+      </tr>
+
+      <tr>
+        <td align="right">183</td>
+
+        <td>cross-circle</td>
+
+        <td>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;W&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">184</td>
+
+        <td>French quote</td>
+
+        <td>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;X&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">185</td>
+
+        <td>French quote</td>
+
+        <td>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;Y&gt;<sup>British</sup><br />
+        &lt;CTRL&gt;&lt;SHIFT&gt;&lt;Z&gt;<sup>German</sup></td>
+      </tr>
+
+      <tr>
+        <td align="right">186</td>
+
+        <td>&oslash; (degree)</td>
+
+        <td>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;Z&gt;<sup>British</sup><br />
+        &lt;CTRL&gt;&lt;SHIFT&gt;&lt;Y&gt;<sup>German</sup></td>
+      </tr>
+
+      <tr>
+        <td align="right">187</td>
+
+        <td>division</td>
+
+        <td>&lt;CTRL&gt;&lt;[&gt;<sup>British</sup><br />
+        &lt;CTRL&gt;&lt;&Uuml;&gt;<sup>German</sup></td>
+      </tr>
+
+      <tr>
+        <td align="right">188</td>
+
+        <td>left arrow</td>
+
+        <td>&lt;CTRL&gt;&lt;\&gt;<sup>British</sup><br />
+        &lt;CTRL&gt;&lt;SHIFT&gt;&lt;2&gt;<sup>German</sup></td>
+      </tr>
+
+      <tr>
+        <td align="right">189</td>
+
+        <td>right arrow</td>
+
+        <td>&lt;CTRL&gt;&lt;]&gt;<sup>British</sup><br />
+        &lt;CTRL&gt;&lt;+&gt;<sup>German</sup></td>
+      </tr>
+
+      <tr>
+        <td align="right">190</td>
+
+        <td>up arrow</td>
+
+        <td>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;6&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">191</td>
+
+        <td>down arrow</td>
+
+        <td>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;-&gt;<sup>British</sup><br />
+        &lt;CTRL&gt;&lt;SHIFT&gt;&lt;&aacute;&gt;<sup>German</sup></td>
+      </tr>
+
+      <tr>
+        <td align="right">192</td>
+
+        <td>up-left arrow</td>
+
+        <td>&lt;LEFT&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">193</td>
+
+        <td>up-right arrow</td>
+
+        <td>&lt;ALT&gt;&lt;LEFT&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">194</td>
+
+        <td>down-left arrow</td>
+
+        <td>&lt;CTRL&gt;&lt;LEFT&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">195</td>
+
+        <td>down-right arrow</td>
+
+        <td>&lt;CTRL&gt;&lt;ALT&gt;&lt;LEFT&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">196</td>
+
+        <td>upper delta</td>
+
+        <td>&lt;SHIFT&gt;&lt;LEFT&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">197</td>
+
+        <td>small eta</td>
+
+        <td>&lt;ALT&gt;&lt;SHIFT&gt;&lt;LEFT&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">198</td>
+
+        <td>large upper phi</td>
+
+        <td>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;LEFT&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">199</td>
+
+        <td>upper gamma</td>
+
+        <td>&lt;ALT&gt;&lt;CTRL&gt;&lt;SHIFT&gt;&lt;LEFT&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">200</td>
+
+        <td>spades</td>
+
+        <td>&lt;RIGHT&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">201</td>
+
+        <td>hearts</td>
+
+        <td>&lt;ALT&gt;&lt;RIGHT&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">202</td>
+
+        <td>diamonds</td>
+
+        <td>&lt;CTRL&gt;&lt;RIGHT&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">203</td>
+
+        <td>clubs</td>
+
+        <td>&lt;ALT&gt;&lt;CTRL&gt;&lt;RIGHT&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">204</td>
+
+        <td>upper lambda</td>
+
+        <td>&lt;SHIFT&gt;&lt;RIGHT&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">205</td>
+
+        <td>inverse upper delta</td>
+
+        <td>&lt;ALT&gt;&lt;SHIFT&gt;&lt;RIGHT&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">206</td>
+
+        <td>infinity</td>
+
+        <td>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;RIGHT&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">207</td>
+
+        <td>upper omega</td>
+
+        <td>&lt;ALT&gt;&lt;CTRL&gt;&lt;SHIFT&gt;&lt;RIGHT&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">208</td>
+
+        <td>upper pi</td>
+
+        <td>&lt;UP&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">209</td>
+
+        <td>upper psi</td>
+
+        <td>&lt;ALT&gt;&lt;UP&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">210</td>
+
+        <td>registered</td>
+
+        <td>&lt;CTRL&gt;&lt;UP&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">211</td>
+
+        <td>upper sigma</td>
+
+        <td>&lt;ALT&gt;&lt;CTRL&gt;&lt;UP&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">212</td>
+
+        <td>upper theta</td>
+
+        <td>&lt;SHIFT&gt;&lt;UP&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">213</td>
+
+        <td>upper upsilon</td>
+
+        <td>&lt;ALT&gt;&lt;SHIFT&gt;&lt;UP&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">214</td>
+
+        <td>dagger</td>
+
+        <td>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;UP&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">215</td>
+
+        <td>double dagger</td>
+
+        <td>&lt;ALT&gt;&lt;CTRL&gt;&lt;SHIFT&gt;&lt;UP&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">216</td>
+
+        <td>upper xi</td>
+
+        <td>&lt;DOWN&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">217</td>
+
+        <td>plus minus</td>
+
+        <td>&lt;ALT&gt;&lt;DOWN&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">218</td>
+
+        <td>[unknown]</td>
+
+        <td>&lt;CTRL&gt;&lt;DOWN&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">219</td>
+
+        <td>exactly equal</td>
+
+        <td>&lt;ALT&gt;&lt;CTRL&gt;&lt;DOWN&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">220</td>
+
+        <td>less or equal</td>
+
+        <td>&lt;SHIFT&gt;&lt;DOWN&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">221</td>
+
+        <td>not equal</td>
+
+        <td>&lt;ALT&gt;&lt;SHIFT&gt;&lt;DOWN&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">222</td>
+
+        <td>greater or equal</td>
+
+        <td>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;DOWN&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">223</td>
+
+        <td>approximately equal</td>
+
+        <td>&lt;ALT&gt;&lt;CTRL&gt;&lt;SHIFT&gt;&lt;DOWN&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">224</td>
+
+        <td>empty square</td>
+
+        <td>&lt;CAPS&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">225</td>
+
+        <td>filled square</td>
+
+        <td>&lt;ALT&gt;&lt;CAPS&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">226</td>
+
+        <td>filled circle</td>
+
+        <td>&lt;CTRL&gt;&lt;CAPS&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">227</td>
+
+        <td>lower chi</td>
+
+        <td>&lt;ALT&gt;&lt;CTRL&gt;&lt;CAPS&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">228</td>
+
+        <td>differential/del</td>
+
+        <td>&lt;SHIFT&gt;&lt;CAPS&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">229</td>
+
+        <td>element-of</td>
+
+        <td>&lt;ALT&gt;&lt;SHIFT&gt;&lt;CAPS&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">230</td>
+
+        <td>FR (French Francs)</td>
+
+        <td>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;CAPS&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">231</td>
+
+        <td>lower gamma</td>
+
+        <td>&lt;ALT&gt;&lt;CTRL&gt;&lt;SHIFT&gt;&lt;CAPS&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">232</td>
+
+        <td>upper kappa</td>
+
+        <td>&lt;F1&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">233</td>
+
+        <td>lower iota</td>
+
+        <td>&lt;CTRL&gt;&lt;F1&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">234</td>
+
+        <td>vertical line</td>
+
+        <td>&lt;SHIFT&gt;&lt;F1&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">235</td>
+
+        <td>lower kappa</td>
+
+        <td>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;F1&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">236</td>
+
+        <td>one-quarter</td>
+
+        <td>&lt;F2&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">237</td>
+
+        <td>one-half</td>
+
+        <td>&lt;CTRL&gt;&lt;F2&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">238</td>
+
+        <td>three-quarters</td>
+
+        <td>&lt;SHIFT&gt;&lt;F2&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">239</td>
+
+        <td>lower omega</td>
+
+        <td>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;F2&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">240</td>
+
+        <td>lower psi</td>
+
+        <td>&lt;F3&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">241</td>
+
+        <td>=&gt; (conclusion)</td>
+
+        <td>&lt;CTRL&gt;&lt;F3&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">242</td>
+
+        <td>lower rho</td>
+
+        <td>&lt;SHIFT&gt;&lt;F3&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">243</td>
+
+        <td>lower sigma</td>
+
+        <td>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;F3&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">244</td>
+
+        <td>lower tau</td>
+
+        <td>&lt;F4&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">245</td>
+
+        <td>lower upsilon</td>
+
+        <td>&lt;CTRL&gt;&lt;F4&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">246</td>
+
+        <td>square root</td>
+
+        <td>&lt;SHIFT&gt;&lt;F4&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">247</td>
+
+        <td>cubic root</td>
+
+        <td>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;F4&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">248</td>
+
+        <td>lower xi</td>
+
+        <td>&lt;F5&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">249</td>
+
+        <td>... (three dots)</td>
+
+        <td>&lt;CTRL&gt;&lt;F5&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">250</td>
+
+        <td>lower zeta</td>
+
+        <td>&lt;SHIFT&gt;&lt;F5&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">251</td>
+
+        <td>integral head</td>
+
+        <td>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;F5&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">252</td>
+
+        <td>integral middle</td>
+
+        <td>&lt;SHIFT&gt;&lt;SPACE&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">253</td>
+
+        <td>integral foot</td>
+
+        <td>&lt;SHIFT&gt;&lt;TAB&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">254</td>
+
+        <td>random pattern</td>
+
+        <td>&lt;SHIFT&gt;&lt;ENTER&gt;</td>
+      </tr>
+
+      <tr>
+        <td align="right">255</td>
+
+        <td>regular pattern</td>
+
+        <td>( &lt;ALT&gt; )</td>
+      </tr>
+    </table>
+
+    <p>*) Yes, there are in fact three kinds of phi!</p>
+
+    <p>Note that <span style="font-style: italic;">CHR$(255)</span> is used whenever a
+    character code is undefined.</p>
+
+    <p>To make matters worse, the JS ROM makes a distinction between
+    &lt;CTRL&gt;&lt;ESC&gt; with and without caps lock (the former is equivalent to
+    &lt;CTRL&gt;&lt;SHIFT&gt;&lt;ESC&gt;.</p>
+
+    <p>To see Minerva's pattern character assigned to <span style=
+    "font-style: italic;">CHR$(255)</span>, try the following lines. Changing the
+    <span style="font-style: italic;">CHAR_INC</span> parameters is fun, or add
+    <span style="font-style: italic;">OVER 1</span> at line 100...</p>
+    <pre>
+100 CHAR_INC 6,9: CLS
+110 FOR i=1 TO 10: PRINT FILL$(CHR$(255),30)
+</pre>
+
+    <p>If you are designing a program which should work (without annoying the user) on
+    all QLs and keyboards then avoid all of the above codes which are shown as being
+    different on British and German QLs. Alternatively, you could make your program fully
+    configurable for these keys, or store all of the different keyboard layouts in your
+    program so that it will adapt itself to the machine on which it is working - the
+    latter is however much work.</p>
+
+    <h3>A9.2 KEYBOARD LAYOUTS<br /></h3>
+
+    <p>As more and more QL Emulators appear as well as keyboard interfaces, it becomes
+    increasingly difficult to list the standard keyboard layouts which will be available
+    to a QL user. Instead, we have listed here the layouts used in the most common
+    countries on a standard QL machine (as supplied by Sinclair).</p>
+
+    <h3>British QL:<br /></h3>
+    <pre>
+F1     ESC  1   2   3   4   5   6   7   8   9   0   -   =   &pound;   \
+F2     TAB    Q   W   E   R   T   Y   U   I   O   P   [   ]
+F3     CAPS    A   S   D   F   G   H   J   K   L   ;   '      ENTER
+F4     SHIFT     Z   X   C   V   B   N   M   ,   .   /     SHIFT
+F5     CTRL  LEFT RIGHT          SPACE             UP  DOWN   ALT 
+</pre>
+
+    <h3>German QL:<br /></h3>
+    <pre>
+F1     ESC  1   2   3   4   5   6   7   8   9   0   &aacute;   #   \   &lt;
+F2     TAB    Q   W   E   R   T   Z   U   I   O   P   &Uuml;   +
+F3     CAPS    A   S   D   F   G   H   J   K   L   &Ouml;   &Auml;      ENTER
+F4     SHIFT     Y   X   C   V   B   N   M   ,   .   -     SHIFT
+F5     CTRL  LEFT RIGHT          SPACE             UP  DOWN   ALT 
+</pre>
+
+    <h3>French QL:<br /></h3>
+    <pre>
+F1     ESC  1   2   3   4   5   6   7   8   9   0   -   =   ^   &ugrave;
+F2     TAB    A   Z   E   R   T   Y   U   I   O   P   &eacute;   &egrave;
+F3     CAPS    Q   S   D   F   G   H   J   K   L   M   &agrave;      ENTER
+F4     SHIFT     W   X   C   V   B   N   ,   .   ;   &ccedil;     SHIFT
+F5     CTRL  LEFT RIGHT          SPACE             UP  DOWN   ALT 
+</pre>
+
+    <h3>Swedish QL:<br /></h3>
+    <pre>
+F1     ESC  1   2   3   4   5   6   7   8   9   0   +   '   |   &lt;
+F2     TAB    Q   W   E   R   T   Y   U   I   O   P   &Aring;   *
+F3     CAPS    A   S   D   F   G   H   J   K   L   &Ouml;   &Auml;      ENTER
+F4     SHIFT     Z   X   C   V   B   N   M   ,   .   -     SHIFT
+F5     CTRL  LEFT RIGHT          SPACE             UP  DOWN   ALT 
+</pre>
+
+    <h3>Finnish QL:<br /></h3>
+    <pre>
+F1     ESC  1   2   3   4   5   6   7   8   9   0   +   '   |   &lt;
+F2     TAB    Q   W   E   R   T   Y   U   I   O   P   &Aring;   ^
+F3     LUKITUS A   S   D   F   G   H   J   K   L   &Ouml;   &Auml;      ENTER
+F4     VAIHTO   Z   X   C   V   B   N   M   ,   .   -      VAIHTO
+F5     OHJAUS LEFT RIGHT         SPACE            UP DOWN     SIIRTO 
+</pre>
+
+    <h3>Danish QL:<br /></h3>
+    <pre>
+F1     ESC  1   2   3   4   5   6   7   8   9   0   =   +   /  DEL
+F2     TAB    Q   W   E   R   T   Y   U   I   O   P   &Aring;   "
+F3     LOCK    A   S   D   F   G   H   J   K   L   &rsquo;   \      ENTER
+F4     SHIFT    Z   X   C   V   B   N   M   ,   .   -      SHIFT
+F5     CTRL  LEFT RIGHT          SPACE             UP  DOWN   ALT
+</pre>
+  </div>
+</body>
+</html>

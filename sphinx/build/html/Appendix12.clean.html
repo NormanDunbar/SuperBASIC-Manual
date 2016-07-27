@@ -1,0 +1,1736 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>A12 Device Drivers &mdash; SBASIC/SuperBASIC Reference Manual Online 4.0.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="SBASIC/SuperBASIC Reference Manual Online 4.0.1 documentation" href="index.html"/>
+        <link rel="next" title="A13 Extended Pointer Environment" href="Appendix13.clean.html"/>
+        <link rel="prev" title="A11 MATHEMATICS" href="Appendix11.clean.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SBASIC/SuperBASIC Reference Manual Online
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Foreword.clean.html">Foreword</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Introduction.clean.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Credits.clean.html">Credits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Structure.clean.html">Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WritingPrograms.clean.html">Writing Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AppendicesIntro.clean.html">Appendices Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix01.clean.html">A1. Minerva</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix02.clean.html">A2. SMSQ/E</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix03.clean.html">A3. Emulators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix04.clean.html">A4. Thor Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix05.clean.html">A5. Expansion Boards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix06.clean.html">A6. Compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix07.clean.html">A7. Multiple Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html">A8. Error Messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix09.clean.html">A9. Character Set, Keyboards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix10.clean.html">A10. Designing New Character Sets (Fonts)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix11.clean.html">A11. Mathematics</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">A12. Device Drivers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#a12-1-devices-in-general">A12.1 Devices in General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#a12-2-directory-device-drivers">A12.2 Directory Device Drivers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#microdrive-mdv">Microdrive (MDV)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#floppy-disk-flp">Floppy Disk (FLP)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ramdisk-ram">RAMdisk (RAM)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hard-disk-win">Hard Disk (WIN)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ql-romdisq-rom">QL ROMDisq (ROM)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#a12-3-window-device-drivers">A12.3 Window Device Drivers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#console-con">Console (CON)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#screen-scr">Screen (SCR)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#a12-4-other-device-drivers">A12.4 Other Device Drivers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#parallel-port-par">Parallel Port (PAR)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#thor-xvi">THOR XVI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#st-emulators-super-gold-card-and-smsq-e">ST Emulators, Super Gold Card AND SMSQ/E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#amiga-qdos">AMIGA-QDOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#serial-ports-ser">Serial Ports (SER)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#standard-ql">Standard QL</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#a-output-serial-devices">(a) Output SERial devices</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#b-input-serial-devices">(b) Input SERial devices</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#c-the-standard-ql-device-driver">(c) The Standard QL Device Driver</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#st-emulators-and-smsq-e">ST Emulators and SMSQ/E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">THOR XVI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#serial-ports-srx">Serial Ports (SRX)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#serial-ports-stx">Serial Ports (STX)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#printer-ports-prt">Printer Ports (PRT)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#qjump-ramprt-trump-card-qxl-and-gold-cards">Qjump RAMPRT, Trump Card, QXL and Gold Cards</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">ST Emulators and SMSQ/E</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#memory-driver-mem">Memory Driver (MEM)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#network-drivers-net">Network Drivers (NET)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#communication-drivers-pipe">Communication Drivers (PIPE)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#standard-ql-rom">Standard QL ROM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#minerva-rom">Minerva ROM</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#named-pipe-drivers-sms">Named Pipe Drivers, SMS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#communication-drivers-history">Communication Drivers (HISTORY)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nul-driver-nul">Nul Driver (NUL)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#input">Input</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#output">Output</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#a12-5-direct-sector-access">A12.5 DIRECT SECTOR ACCESS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#a12-6-level-1-device-drivers">A12.6 Level-1 Device Drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#a12-7-level-2-device-drivers">A12.7 Level-2 Device Drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#a12-8-level-3-device-drivers">A12.8 Level-3 Device Drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#a12-9-using-alien-format-disks">A12.9 Using Alien Format Disks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix13.clean.html">A13. Extended Pointer Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix14.clean.html">A14. Coercion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix15.clean.html">A15. Mouse Drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix16.clean.html">A16. The QL Display</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">SBASIC/SuperBASIC Reference Manual Online</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>A12 Device Drivers</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/Appendix12.clean.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="a12-device-drivers">
+<h1>A12 Device Drivers<a class="headerlink" href="#a12-device-drivers" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="a12-1-devices-in-general">
+<h2>A12.1 Devices in General<a class="headerlink" href="#a12-1-devices-in-general" title="Permalink to this headline">¶</a></h2>
+<p>This chapter informs you about the usage of the various devices
+available on the QL and its compatibles. The QL&#8217;s operating system QDOS
+is what is known as device independent meaning that a program can be
+written to use any device without having to actually know its details
+(an exception to this rule is in the use of standard pipes). Programs
+should be written so that (at least) all of these devices can be
+accessed by the user as required.</p>
+<p>Device Drivers are programs which usually create a connection between
+hardware devices and software, in that they install a QDOS device to
+interface from software to the hardware. For example a printer is
+obviously hardware but you do not have to POKE around in memory to get
+something printed, you can simply open a SER or PAR channel, dump your
+text to that channel and voila it appears on the paper. All
+communication with drivers must go through channels, whose name is very
+well chosen: they take data from the program and transport it to the
+device driver.</p>
+<ul class="simple">
+<li>The program opens channel and writes or reads data to/from that
+channel...</li>
+<li>The channel forwards the data (also instructions) to the device
+drivers...</li>
+<li>The driver is a kind of translator which understands the language of
+the hardware...</li>
+<li>A hardware interface translates computer codes into electrical
+signals...</li>
+<li>The hardware performs physical actions, eg. printing or reading from
+a floppy disk.</li>
+</ul>
+<p>But devices can be used for all kind of connections, there are even
+general devices for communication between jobs (PIPE and HISTORY) and
+devices which interface in a special way to other devices (DEV and PTH).
+So the last two steps in the above figure are not obligatory, they can
+be different, ie. non-hardware.</p>
+<p>Devices fall into two categories, directory devices (such as FLP) and
+non-directory devices. The latter may also be further sub-divided into
+window devices (devices which access the screen, such as scr) and other
+devices. All devices (other than window devices) accept the WIDTH
+command.</p>
+<div class="highlight-python"><div class="highlight"><pre>             all devices
+               /      \
+              /        \
+directory devices    non-directory devices
+                         /           \
+                        /             \
+              window devices       other devices
+</pre></div>
+</div>
+<p>Further, if Toolkit II is present, or you are using a THOR XVI, certain
+commands will support default devices and also sub-directories on
+Level-2 directory devices.</p>
+<p>Remember that device names can be in either upper or lower case, or even
+mixed case, that does not matter at all. Device independent programs
+should be fully configurable with regard to device names (eg. printer)
+and offer up to 42 characters for each device name. However, the
+..._USE style commands and the DEV device help to overcome problems in
+this respect.</p>
+</div>
+<div class="section" id="a12-2-directory-device-drivers">
+<h2>A12.2 Directory Device Drivers<a class="headerlink" href="#a12-2-directory-device-drivers" title="Permalink to this headline">¶</a></h2>
+<p>Data in the form of files can be stored on various different directory
+device drivers, some of which allow data to be stored when the computer
+is switched off (such as Microdrives and disks) and others which lose
+their contents when the QL is reset or switched off (such as ramdisks).</p>
+<p>Such media must be FORMATted prior to use in order to prepare them for
+use by the computer.</p>
+<p>In order to speed up reading of these devices, unused parts of the
+computer&#8217;s memory are set aside to act as slave blocks which store
+copies of as much of the contents of the device as possible. Then, when
+that same information is requested again, the computer need only check
+that the data held in the slave blocks is the same as on the device, and
+will then access the data from the slave blocks. This can however slow
+down the initial access times (see DEL_DEFB).</p>
+<p>Each device contains a main directory which is made up of a copy of the
+64-byte file header for each file which is (or has been) stored on the
+device. This main directory is then examined by commands such as DIR to
+produce a list of the files contained on that device. The file headers
+contain a host of different information about each file, including the
+name of the file, its type and the length of the file (see FGETH$).</p>
+<p>When a file is accessed, various details (such as date-stamping creation
+and update dates) are updated.</p>
+<p>The way in which information is stored on a directory device really
+depends upon the Level of device driver installed (see Sections A12.6 -
+A12.8 below).</p>
+<p>Details of the types of Directory Devices follow:</p>
+<div class="section" id="microdrive-mdv">
+<h3>Microdrive (MDV)<a class="headerlink" href="#microdrive-mdv" title="Permalink to this headline">¶</a></h3>
+<p>Syntax: MDVn_file (QL ROM) or [MDVn_]file (Toolkit II only) Location:
+QL ROM, THOR XVI</p>
+<p>This is the only standard directory device driver.</p>
+<p>Microdrive cartridges are a continuous loop of video tape which store
+data in packets of 512 bytes (known as sectors). There is a theoretical
+maximum of 255 sectors on a Microdrive cartridge, although in practice
+the formatted number of sectors tends to be around 210 to 220.</p>
+<p>The tape has to be searched serially in order to find the desired
+information which causes delay as the whole tape may have to be wound
+through in order to find the information. This is where slave blocks
+save a lot of time.</p>
+<p>The standard QL supports two Microdrives (the slots to the right of the
+keyboard) into which Microdrive cartridges can be inserted on which the
+data is to be stored. However, up to a maximum of eight Microdrive ports
+can actually be recognised, if additional Microdrives are added by means
+of the Microdrive expansion port which is situated in the right hand
+side of the QL by the reset button.</p>
+<p>The THOR XVI, and QL emulators do not possess any Microdrives, although
+the THOR does still recognise the device name, as it was originally
+envisaged that a separate Microdrive might be made to link up with the
+THOR in order to retain compatibility. The QL emulators will simply not
+find any Microdrive device like MDV1_, error -7 is produced. SMSQ/E
+also does not recognise the Microdrives.</p>
+<p>Unfortunately, unless you have Toolkit II or Minerva, Microdrive files
+are not date-stamped with the creation and update dates.</p>
+<p>Unless you have Toolkit II, the first syntax of this driver must be
+used, which specifies the number of the Microdrive port to access (n),
+which must be in the range 1...8, followed by the name of the file or
+device to access (file). If neither or these are specified, you are
+likely to receive the error &#8216;Not Found&#8217; (-7), although whether or not
+the file has to be specified depends upon the command being executed.</p>
+<p>If however, Toolkit II is present, the default devices are supported.</p>
+<p><strong>Examples</strong></p>
+<p>LOAD mdv1_boot</p>
+<p>DIR mdv2_</p>
+<p>Microdrives will allow you to create a file with a null name, which will
+not be revealed on a directory listing, but which will operate in much
+the same way as any other file. For example, the following two lines are
+both acceptable:</p>
+<p>SAVE mdv1_Myprog_bas</p>
+<p>SAVE mdv1_</p>
+<p>Note that Microdrives do not possess Level-2 drivers and sub-directories
+are therefore not supported. For example creating a directory with</p>
+<p>MAKE_DIR mdv1_test_</p>
+<p>will produce error -15 and leave the file test on mdv1_.</p>
+</div>
+<div class="section" id="floppy-disk-flp">
+<h3>Floppy Disk (FLP)<a class="headerlink" href="#floppy-disk-flp" title="Permalink to this headline">¶</a></h3>
+<p>Syntax: FLPn_file or [FLPn_]file (Toolkit II only) Location: Disk
+expansion boards, THOR XVI, QL Emulators</p>
+<p>This driver is for what are commonly known as floppy disks. These come
+in various sizes, ranging from 3&#8221; to 8&#8221;, although the QL standard is now
+3.5&#8221; double sided disks with either double (720k) or extra density (3.2
+MB).</p>
+<p>The amount of space on a disk depends on the number of tracks on the
+disk, the number of sides which can be used and the disk density.
+However, all of the drivers meet with a standard Sinclair format,
+ensuring compatibility between different manufacturers.</p>
+<p>The drivers allow the same syntax as the MDV driver, although most disk
+expansion boards will support the second variant, as Toolkit II (or at
+least part of it) has become standard on disk interfaces.</p>
+<p><strong>Examples</strong></p>
+<p>MERGE flp1_Simple_bas</p>
+<p>DATA_USE flp1_Quill</p>
+<p>Some boards (such as the Gold Card, QXL, Atari Emulators and SMSQ/E)
+support Level-2 commands and therefore sub-directories. Other expansion
+boards can be fitted with these new drivers by updating a ROM chip.
+Level-2 drivers store the directory details in a separate file for
+simplicity. Unfortunately, the main directory is stored in a file with a
+null name which will automatically overwrite any earlier file with a
+null name. To see the main directory file, use:</p>
+<p>COPY flp1_ TO scr</p>
+<p>Sub-directories are stored in files with the name of the sub-directory.
+Such files have a file type of 255 and cannot be deleted or renamed
+until all of the files contained within that sub-directory have been
+removed.</p>
+<p>Level-1 drivers supported files with null names in the same way as
+Microdrives (see above). On some old drivers FLP may be replaced by FDK.</p>
+</div>
+<div class="section" id="ramdisk-ram">
+<h3>RAMdisk (RAM)<a class="headerlink" href="#ramdisk-ram" title="Permalink to this headline">¶</a></h3>
+<p>Syntax: RAMn_file or [RAMn_]file (Toolkit II only) Location: QJump
+RAMPRT, Expansion Boards, THOR XVI, ST/QL Emulators, SMSQ/E, QXL, QPC,
+Amiga QDOS Emulator</p>
+<p>This driver is used to set up areas of memory which can be used in much
+the same way as a floppy disk. Anything stored in a RAMdisk is lost when
+the QL is reset or switched off.</p>
+<p>There are actually two types of RAMdisks: a dynamic RAMdisk and a fixed
+RAMdisk.</p>
+<p>A fixed Ram disk is allocated a size when the FORMAT command is used,
+and can contain anything between 3 sectors and the whole of free memory.
+Some fixed Ram disks (most notably the Qjump ram disk which is a
+standard) do not work on the Amiga- QDOS emulator - a slower public
+domain Ram disk which does work is supplied with the Emulator.</p>
+<p>By contrast, a dynamic RAMdisk does not have a fixed size and is created
+when anything is written to it (do not use FORMAT) - it then expands and
+contracts to fit the size of the files contained in the RAMdisk.</p>
+<p>Dynamic RAMdisks (optionally fixed) are supplied as standard on most QL
+systems. The RAMdisk drivers allow exactly the same syntax to the FLP
+driver, but the Miracle drivers (eg. Gold Card and Trump Card) support
+an extra syntax to format a RAMdisk to 255 sectors and copy a whole
+Microdrive cartridge into them, eg. FORMAT ram1_mdv1.</p>
+<p><strong>Example</strong></p>
+<p>WCOPY flp1_,ram2_</p>
+<p>Level-2 drivers commands and sub-directories are also supported for the
+QJump RAMdisk driver, eg. on Gold Cards and ST/QL Emulators.</p>
+</div>
+<div class="section" id="hard-disk-win">
+<h3>Hard Disk (WIN)<a class="headerlink" href="#hard-disk-win" title="Permalink to this headline">¶</a></h3>
+<p>Syntax: WINn_file or [WINn_]file Location: Hard disk Interfaces, THOR
+XVI, QL Emulators</p>
+<p>This device driver allows you to access a hard disk drive (including
+removeable hard disks). This operates a lot more quickly than a floppy
+disk (but not as quickly as a ram disk) and can store several megabytes
+of data.</p>
+<p>Hard disks are built into nearly every system that can run a QL Emulator
+and are available as add-ons for a standard QL and AURORA system.</p>
+<p>Please refer to the original manuals because the harddisk drivers all
+differ in FORMATing.</p>
+<p>Accessing a WIN device from a program is just like accessing a FLP or
+RAM device.</p>
+</div>
+<div class="section" id="ql-romdisq-rom">
+<h3>QL ROMDisq (ROM)<a class="headerlink" href="#ql-romdisq-rom" title="Permalink to this headline">¶</a></h3>
+<p>Syntax: ROM1_file or [ROM1_]file (Toolkit II only) Location: QLROMDisq
+board</p>
+<p>This is a board which plugs into the QL&#8217;s ROM Cartridge port and
+provides a fixed ram disk of either 2 or 8 Megabytes. It is similar to a
+RAM disk in that it is very quick when loading files, but it has three
+main differences:</p>
+<ul class="simple">
+<li>It retains its contents after the QL is switched off.</li>
+<li>You can only write data to it a limited number of times (100,000).</li>
+<li>It is fairly slow when you write files to it (with SAVE, SEXEC or
+SBYTES).</li>
+</ul>
+<p>Because of these limits, this device is only really intended for storing
+files which will not change very often and are needed when the QL is
+started up (for example a new keyboard and language driver). A boot file
+stored on this device will be loaded when the QL is started up in
+preference to similar files on hard disks, floppy disks and microdrive
+cartridges.</p>
+<p>The other main benefit of this device is that you can transfer whole
+set-ups across to another QL (instead of using lots of floppy disks or
+microdrives).</p>
+</div>
+</div>
+<div class="section" id="a12-3-window-device-drivers">
+<h2>A12.3 Window Device Drivers<a class="headerlink" href="#a12-3-window-device-drivers" title="Permalink to this headline">¶</a></h2>
+<p>There are two types of window drivers, CON and SCR. The former (CON) is
+linked with a keyboard queue and can therefore accept input, as well as
+echoing any characters typed on screen. The latter (SCR) on the other
+hand is for output only to the screen.</p>
+<p>Any channels opened using these screen drivers are known as windows, and
+may have a cursor attached to them. If a cursor is attached, then it
+will normally appear as a red blob on screen (the size and shape of the
+cursor may be redefined under Minerva v1.77+), and will flash when it is
+active (ie. when it will accept input).</p>
+<p>When you press &lt;CTRL&gt;&lt;C&gt;, QDOS cycles through all of the current
+cursors, allowing you to access different Jobs. If you are using Minerva
+in its two screen mode, then each channel is also attached to a screen,
+which means that if you open a channel on scr0, then all output to that
+channel will appear on scr0 whether or not that is the currently
+Displayed Screen (see MODE).</p>
+<p>Also, when you press &lt;CTRL&gt;&lt;C&gt; on Minerva, it will switch to the screen
+attached to the newly activated channel (unfortunately in current
+versions of Minerva, this does not quite work as expected, since if the
+active cursor is on the non-Displayed Screen when you press &lt;CTRL&gt;&lt;C&gt; to
+move to a channel on the Displayed Screen, Minerva still switches
+screens, meaning that you are still not looking at the screen with the
+active cursor).</p>
+<p>Whenever a new window is opened, it is opened with black paper and green
+ink. The specified pixel parameters are also rounded up to make them
+even (if necessary) to ensure that they can be correctly displayed in
+any screen mode. The smallest possible window is two pixels wide and one
+pixel high.</p>
+<div class="section" id="console-con">
+<h3>Console (CON)<a class="headerlink" href="#console-con" title="Permalink to this headline">¶</a></h3>
+<p>Syntax: CON[&lt;size&gt;][&lt;position&gt;][&lt;buffer&gt;] Location: QL ROM</p>
+<p>This type of screen device is used for both output to the screen and
+reading the keyboard via a queue attached to that window. Depending on
+the command being executed, characters typed on the keyboard may be
+echoed on screen. This type of channel must be opened if you wish to use
+INPUT or INKEY$.</p>
+<p>There are various problems with OPENing CONsole devices over the Network
+(see FSERVE).</p>
+<p>When the computer is first started, there are three CONsole channels
+open, #0, #1 and #2; none of which should be CLOSEd or OPENed, this is
+especially true for #0!</p>
+<p>When opening a channel, you can specify the size and position of the
+window and also the length of the type-ahead buffer attached to that
+window. These can have the following values:</p>
+<p>&lt;size&gt;This sets the size of the window in pixel co-ordinates. It should
+be specified in the form:</p>
+<p>[_WIDTH][xHEIGHT]</p>
+<p>where WIDTH can have any value in the range 0...SCR_XLIM; and HEIGHT
+can have any value in the range 0...SCR_YLIM. The maximum values are
+however also dependent on &lt;position&gt;.</p>
+<p>The default value for &lt;size&gt; is _448x200.</p>
+<p>&lt;position&gt;This specifies the co-ordinates of the top left hand corner of
+the window and is in the form:</p>
+<p>a[X][xY]</p>
+<p>where X and Y can both be in the same range as WIDTH and HEIGHT (used in
+the &lt;size&gt;). However, both WIDTH+X and HEIGHT+Y must also be within the
+ranges, otherwise an &#8216;Out of Range&#8217; error will be reported.</p>
+<p>The default &lt;position&gt; is a32x16.</p>
+<p>&lt;buffer&gt;This part of the device name specifies the size of the input
+buffer associated with the window, which is in the form _N bytes. This
+value affects how many characters can be stored in the channel&#8217;s buffer
+before the keyboard has to be read again (this is known as the
+type-ahead buffer). Although this can have any value, a value of 128
+bytes tends to be large enough for most tasks, and in fact this is the
+default.</p>
+<p>Default Device: CON_448x200a32x16_128</p>
+<p><strong>Examples</strong></p>
+<p>OPEN #3,con_200Open channel #3 as CON_200x200a32x16_128</p>
+<p>OPEN #3,con__10Open channel #3 as CON_448x200a32x16_10</p>
+<p>OPEN #3,cona12Open channel #3 as CON_448x200a12x16_128</p>
+<p>OPEN #3,conax20_50Open channel #3 as CON_448x200a32x20_50</p>
+<p>The STE/QL emulator (QVME) and also other other hardware support much
+higher resolutions than 512x256, eg. QVME can go up to 1024x1024 pixels.
+However, programs should be written so that they still work with all
+other resolutions. This can be achieved by reading the possible screen
+size from system variables (the Pointer Environment must be used) and by
+not accessing screen memory directly.</p>
+</div>
+<div class="section" id="screen-scr">
+<h3>Screen (SCR)<a class="headerlink" href="#screen-scr" title="Permalink to this headline">¶</a></h3>
+<p>Syntax: SCR[&lt;size&gt;][&lt;position&gt;] Location: QL ROM</p>
+<p>This is very similar to the CONsole driver, except that SCR channels are
+for output to the screen only. No buffer size is required. Trying to
+read input from a SCR channel will give a &#8216;Bad Parameter&#8217; (-15) error.</p>
+<p>Please see the CON Window Driver.</p>
+<p>Default Device: SCR_448x200a32x16</p>
+</div>
+</div>
+<div class="section" id="a12-4-other-device-drivers">
+<h2>A12.4 Other Device Drivers<a class="headerlink" href="#a12-4-other-device-drivers" title="Permalink to this headline">¶</a></h2>
+<p>In the following, LF is the line feed (or newline) character CHR$(10),
+CR is the carriage return character (13, $0D) and FF is the form feed
+character CHR$(12). In some applications &lt;CTRL&gt;&lt;Z&gt; is used as an end of
+text character, CHR$(26).</p>
+<p>Both parallel and serial ports are means for the QL to access other
+hardware in the outside world (such as printers, modems and scanners).
+Serial ports are so called because data is sent serially, one byte at a
+time. On the other hand, parallel ports allow several bytes to be sent
+at the same time and are therefore quicker.</p>
+<p>Many printers are set up to accept parallel input and QL users may find
+that they need to purchase a serial to parallel converter (also known as
+a Centronics interface) in order to use a printer.</p>
+<p>Each driver accepts various parameters which are used to match the
+output with the type expected by the device connected to the port. The
+main parameter deals with the parity of the byte to be sent. If no
+parity is specified, then all eight bits of the given byte will be sent,
+otherwise bit 7 of the byte will be altered according to the parity
+(this is best set according to what the hardware attached to the port
+requires).</p>
+<p>You can also specify whether handshake is to be enabled, which tells the
+computer whether to wait for confirmation from the external hardware
+that the data has been received safely. If handshake is enabled, then if
+no acknowledgement is received, or the external hardware reports an
+error then the computer will try again.</p>
+<p>Finally, you can specify whether the data is to be converted as it
+passes through the port. The standard code for ending a record or a line
+is CR, however, the QL is non-standard in that it uses the code LF,
+which therefore may need to be converted prior to transmitting.</p>
+<p>Also, you may wish to send the character &lt;CTRL&gt;&lt;Z&gt; as the last character
+in order to tell the external hardware that there is no more data.</p>
+<div class="section" id="parallel-port-par">
+<h3>Parallel Port (PAR)<a class="headerlink" href="#parallel-port-par" title="Permalink to this headline">¶</a></h3>
+<p>Syntax: PAR&lt;new_line&gt;&lt;trns&gt;&lt;ff&gt;&lt;buf&gt;(THOR XVI)</p>
+<p>or PAR&lt;port&gt;&lt;translate&gt;&lt;convert&gt;&lt;eof&gt;</p>
+<p>(SMSQ/E, ST Emulators, Super Gold Card)</p>
+<p>or PAR (AMIGA QDOS) Location: THOR XVI, ST Emulators, SMSQ/E, Super Gold
+Card, Amiga QDOS Emulator</p>
+<p>Various QL implementations now come equipped with a parallel device
+driver for use with their parallel port. Parallel ports can be used for
+transmitting data only and are therefore normally used to connect
+parallel printers to the computer. Although there are various other
+expansion boards which also provide the standard QL with a PAR device,
+we do not currently have details of their syntax.</p>
+<p>Note that even with SMSQ/E the PAR device does not exist on a Gold Card
+- there is no parallel printer port!!</p>
+<p>The syntax of this device is quite complex, allowing different types of
+translations and buffers to be used. We shall therefore examine each
+variant in turn.</p>
+</div>
+<div class="section" id="thor-xvi">
+<h3>THOR XVI<a class="headerlink" href="#thor-xvi" title="Permalink to this headline">¶</a></h3>
+<p>The values of each part of the device name are as follows:</p>
+<p>&lt;new_line&gt;This dictates how end of line (LFs) and end of text markers
+are to be treated. The following values are available:</p>
+<ul class="simple">
+<li>n - This converts LF to CR,LF and sends &lt;CTRL&gt;&lt;Z&gt; at the end of the
+file. This is the default.</li>
+<li>c -This converts LF to CR and also sends &lt;CTRL&gt;&lt;Z&gt; at the end of the
+file.</li>
+<li>r -This sends the text as it is - no conversions are carried out.</li>
+<li>z - This does not convert LF, but sends &lt;CTRL&gt;&lt;Z&gt; at the end of the
+file.</li>
+</ul>
+<p>The following table may be of use:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="29%" />
+<col width="32%" />
+<col width="39%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">EOL</th>
+<th class="head">EOF</th>
+<th class="head">Use This</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>CR,LF</td>
+<td>CTRL-Z</td>
+<td>n</td>
+</tr>
+<tr class="row-odd"><td>CR</td>
+<td>CTRL-Z</td>
+<td>c</td>
+</tr>
+<tr class="row-even"><td>-</td>
+<td>-</td>
+<td>r</td>
+</tr>
+<tr class="row-odd"><td>LF</td>
+<td>CTRL-Z</td>
+<td>z</td>
+</tr>
+</tbody>
+</table>
+<p>&lt;trns&gt; This tells the THOR XVI whether or not to use its translation
+tables (set with TRA). This can have the following values:</p>
+<ul class="simple">
+<li>t -Use the translation table. This is the default if &lt;new_line&gt; is
+specified but not raw.</li>
+<li>p -Do not use translation table. This is the default if &lt;new_line&gt;
+is not specified or is raw.</li>
+</ul>
+<p>&lt;ff&gt; This says whether or not to send FF at the end of the file. The
+default depends on &lt;new_line&gt;. By default, a FF will be sent if
+&lt;new_line&gt; is set to n or c and the last character is not FF. The
+default can be overridden by setting &lt;ff&gt; to f which tells the THOR not
+to send FF unless of course there is already a FF at the end of the
+text!</p>
+<p>&lt;buf&gt; This sets the size of the output buffer in bytes, and must be in
+the form _n, where n is the size of the buffer. If you add &#8216;k&#8217; after
+the value of n, the value of n will be multiplied by 1024, for example
+_2K sets an output buffer of 2048 bytes.</p>
+<p>The default is _127.</p>
+<p><strong>Examples</strong></p>
+<p>par_90k Conversion of LF to CR, LF; translation table used; FF sent at
+end; buffer length 90 kilobytes.</p>
+<p>parrt No conversion; translation table used; no FF sent.</p>
+<p>Note the coupling between the &lt;New_line&gt; and &lt;trns&gt; arguments. This
+means that par is equal to parnt, whereas parr is equal to parrp. The
+translation table used is the one set with TRA.</p>
+<p>Default Device: PARnt_128</p>
+</div>
+<div class="section" id="st-emulators-super-gold-card-and-smsq-e">
+<h3>ST Emulators, Super Gold Card AND SMSQ/E<a class="headerlink" href="#st-emulators-super-gold-card-and-smsq-e" title="Permalink to this headline">¶</a></h3>
+<p>These allow output through the parallel ports to be buffered
+dynamically, whereby a buffer is allocated up to all of the available
+free memory or (except on the Super Gold Card without SMSQ/E) can be set
+to a specific amount of space (thus allowing printing to continue in the
+background). Several channels may be open to one output port at any
+time, in which case the data is buffered and sent through the parallel
+port in the order in which the channels are opened.</p>
+<p>Commands are implemented to allow you to set a specific output buffer or
+input buffer size (PAR_BUFF), as well as aborting output to a parallel
+port (PAR_ABORT) or clearing an output buffer (PARR_CLEAR).</p>
+<p>The values of each part of the device name are as follows:</p>
+<p>&lt;port&gt;This is provided for future compatability. It represents the
+number of the parallel port to use. It can be either 1 or 2, although
+any attempt to use par2 is currently ignored and par1 used. The default
+is therefore 1.</p>
+<p>&lt;translate&gt;This, like the THOR XVI&#8217;s &lt;trans&gt; parameter specifies the
+type of translation to be carried out on the data. This can have the
+following values:</p>
+<ul class="simple">
+<li>d - No translation is performed.</li>
+<li>t - Translate according to the translate table. This is the default.</li>
+<li>&lt;convert&gt;This specifies how LF is to be treated. It can have the
+values:<ul>
+<li>c - This converts LF to CR.</li>
+<li>r - No conversion, this is the default.</li>
+<li>a -Insert CR,LF at end of line. Insert CR,FF at end of page (added
+to ST/QL drivers in Level D-05).</li>
+</ul>
+</li>
+<li>&lt;eof&gt;This specifies how the end of the file is to be treated. It can
+be the default (do nothing) or have one of the following values:<ul>
+<li>f - Print FF at end of file</li>
+<li>z - Print CTRL-Z at end of file</li>
+</ul>
+</li>
+</ul>
+<p><strong>Example</strong></p>
+<p>PAR1cz is the same as the THOR&#8217;s PARn</p>
+<p>Default Device: PAR1tr</p>
+</div>
+<div class="section" id="amiga-qdos">
+<h3>AMIGA-QDOS<a class="headerlink" href="#amiga-qdos" title="Permalink to this headline">¶</a></h3>
+<p>This is the simplest form of parallel device driver, in that it does not
+accept any parameters (at least in v1.03 of the parallel driver). Any
+characters are sent straight through the Amiga&#8217;s parallel port without
+being altered in any way.</p>
+</div>
+<div class="section" id="serial-ports-ser">
+<h3>Serial Ports (SER)<a class="headerlink" href="#serial-ports-ser" title="Permalink to this headline">¶</a></h3>
+<p>Syntax: SER&lt;prt&gt;&lt;par&gt;&lt;handshake&gt;&lt;protocol&gt;(QL only)</p>
+<p>or SER&lt;prt&gt;&lt;par&gt;&lt;hand&gt;&lt;translate&gt;&lt;convert&gt;&lt;eof&gt;</p>
+<p>(ST Emulators, SMSQ/E)</p>
+<p>or SER&lt;prt&gt;&lt;par&gt;&lt;bits&gt;&lt;hds&gt;&lt;bpso&gt;&lt;bpsi&gt;&lt;nl&gt;&lt;trns&gt;&lt;ff&gt;&lt;buf&gt;</p>
+<p>(THOR XVI only)</p>
+<p>Location: QL ROM, ST/QL, THOR XVI</p>
+<p>The QL, and THOR XVI are each equipped with two serial ports, marked
+SER1 and SER2 on the rear panel. Other implementations of the QL can in
+fact have access to up to four serial ports (even the standard QL can
+use additional serial ports built into SuperHermes for example).</p>
+<p>If only one serial port is available (as on some STs), any attempt to
+use SER2 is treated as SER1.</p>
+<p>The Amiga-QL emulator adopts a serial driver based on the JS version of
+the QL driver. It can be used to access either of the Amiga&#8217;s two serial
+ports. It is however, unknown if current versions of the emulator&#8217;s
+driver (v1.03) support CTRL Z.</p>
+<p>Both ports on the British QL use non-standard British Telecom connectors
+and are actually wired up differently to each other (although they still
+use the same device driver). The other types of serial port tend to use
+standard 9-pin trapezium connectors.</p>
+<p>On the standard QL, both ports conform with the RS-232-C standard,
+although the port marked SER1 is configured as a data communication
+equipment (DCE) port, which is normally used to drive printers; whereas
+the port marked SER2 is set up as a data terminal equipment (DTE) port,
+which is more suited towards accepting input from other devices (such as
+a modem). Refer to the QL User Guide manual, Concepts section, for
+further details of the hardware.</p>
+<p>The rate at which data can be passed through the ports is known as the
+Baud rate which is set with the command BAUD from SuperBasic (or with a
+corresponding machine code trap call). This is supposed to be the number
+of bits per second, but due to the limitations of the QL&#8217;s hardware, the
+rate of data transfer actually falls somewhat short of these rates
+(unless you have a THOR XVI, or use Minerva or SMSQ/E which has speeded
+up the rate of data transfer considerably).</p>
+<p>Unfortunately, the 8049 IPC which controls input from both serial ports
+on the QL cannot handle different baud rates for the two ports. On the
+other hand, the THOR XVI does support different baud rates, although not
+via the BAUD command which sets the baud rate on both ports to the same.
+Hermes is a replacement for the QL&#8217;s 8049 chip and allows different
+input baud rates on each of the two serial ports. Minerva allows
+different output baud rates on each port.</p>
+<p>SMSQ/E and the ST Emulators allow you to set fully independent input and
+output BAUD rates on each port (although SuperHermes is still needed if
+this is to work on a standard QL).</p>
+<p>Either port may be used for input or output (subject to hardware
+restrictions - see above), however, only one channel can be open to a
+serial port at a time, and if a channel is already open to the given
+port, the error &#8216;In Use&#8217; will be reported.</p>
+<p>The actual implementation of the SER device driver is dependent upon the
+machine. We shall therefore deal with each machine in turn.</p>
+</div>
+<div class="section" id="standard-ql">
+<h3>Standard QL<a class="headerlink" href="#standard-ql" title="Permalink to this headline">¶</a></h3>
+<p>This enables you to open a channel to either of the two serial ports.
+The action taken by the device driver depends both upon the ROM version
+being used and whether data is being input or output.</p>
+<p>Note that input through the serial ports tends to be unreliable with
+baud rates in excess of 1200, and in any case, when receiving at 9600
+baud, two stop bits must be issued by the transmitting device. Receiving
+at 19200 baud is not possible.</p>
+<p>Unfortunately, problems in the 8049 mean that incoming data can be lost
+due to a delay in notification of the fact that the receive queue is
+full. Also, input channels can actually suffer from &#8216;serial overrun&#8217;
+where some characters are held up in the 8049, and then released only
+when a new character is read from the serial port. This can sometimes
+happen with modems, making serial input unuseable.</p>
+<p>There exists a replacement for the 8049 (called HERMES and its bigger
+brother SuperHERMES) which fixes these problems, as well as allowing
+separate baud rates for input and output channels, and which even
+supports different input rates on SER1 and SER2. This replacement also
+makes input at the higher baud rates much more reliable (including input
+at 19200 baud), without needing two stop bits at any rate.</p>
+<p>The handling of both input and output is also dependent upon the ROM
+version being used:</p>
+<div class="section" id="a-output-serial-devices">
+<h4>(a) Output SERial devices<a class="headerlink" href="#a-output-serial-devices" title="Permalink to this headline">¶</a></h4>
+<p>Pre-JS ROMs:</p>
+<p>If the C protocol has been chosen, then if the byte is a LF it is
+converted into a CR. Bit 7 of the byte is then adjusted to suit the
+parity and the byte then placed into the queue for the 8302 chip to
+read, deal with the handshaking and send through the channel. When the
+whole of the data has been sent, once the 8302 has emptied the queue,
+CTRL-Z is sent (if required).</p>
+<p>Unfortunately, this meant that the protocol could just about be altered
+before the CTRL-Z had actually been sent, resulting in a failure by the
+QL to send any CTRL-Z&#8217;s. This could happen for instance, if a series of
+small CTRL-Z files was sent to the serial channel and then the channel
+was re-opened as SERr. Another problem with the handling of CTRL-Z&#8217;s was
+that the parity (if required) was not always correct on this final byte.</p>
+<p>JS and MG ROMs:</p>
+<p>The serial driver followed the same pattern, except that if enabled by a
+TRA command (or the appropriate machine code call) the byte was
+translated according to the specified translation table after it had
+been adjusted to suit the parity (if required). This meant that bytes
+above CHR$(127) could not always be translated. The problems with CTRL-Z
+persisted.</p>
+<p>Minerva ROMs:</p>
+<p>The serial driver is much improved, in that if the protocol is C, then
+LF is swapped with CR (and vice-versa). The byte is then translated
+according to the translation table (if required) and only then is it
+altered according to the parity setting.</p>
+<p>The byte is then put into the queue to be sent to the 8302 and
+handshaking is then dealt with, leaving the 8302 to actually output the
+byte.</p>
+<p>The problems with CTRL-Z have mainly been dealt with, although to
+overcome the problem of changing protocols, a channel structure linked
+to SERz or SERc cannot be discarded until all of the data in the
+transmit queue has been sent (meaning that the channel structure may not
+ever be discarded if handshaking forces the computer to keep trying to
+send the data). The main remaining problem is that in Minerva&#8217;s two
+screen mode, characters may be lost on output.</p>
+</div>
+<div class="section" id="b-input-serial-devices">
+<h4>(b) Input SERial devices<a class="headerlink" href="#b-input-serial-devices" title="Permalink to this headline">¶</a></h4>
+<p>Pre-JS ROMs:</p>
+<p>The 8302 deals with handshaking and then puts the byte which it has read
+into the receive queue. The device driver then reads the byte from the
+receive queue and checks the parity of the byte; reporting Xmit error if
+the check fails.</p>
+<p>If the C protocol is chosen, then any CRs are converted into LFs and the
+byte returned to the user. Parity is completely ignored on CTRL-Z.</p>
+<p>JS and MG ROMs:</p>
+<p>These both still suffer from CTRL-Z.</p>
+<p>If enabled, a simple (one to one) translate is performed on the incoming
+byte as soon as it is fetched from the receive queue (see TRA). The
+parity is then altered as required, CRs converted into LFs (if
+necessary) and the byte passed onto the user.</p>
+<p>Minerva ROMs:</p>
+<p>This checks the parity on CTRL-Z if required, along with the parity on
+any other data as soon as each byte is fetched from the receive queue.
+The byte is then translated (if necessary) according to the simple (one
+to one) translation table, CRs and LFs exchanged (unless protocol R
+chosen) and the byte then passed onto the user.</p>
+</div>
+<div class="section" id="c-the-standard-ql-device-driver">
+<h4>(c) The Standard QL Device Driver<a class="headerlink" href="#c-the-standard-ql-device-driver" title="Permalink to this headline">¶</a></h4>
+<p>The parts of the device driver are made up of the following:</p>
+<p>&lt;prt&gt; This specifies which serial port is to be used, and can be 1 or any
+higher number.</p>
+<p>The default is ser1.</p>
+<p>&lt;par&gt; This sets the type of parity to be used. The default is none, which
+allows all 8 bits of the characters to be sent. &lt;par&gt; may however be
+specified for one of the following values:</p>
+<ul class="simple">
+<li>e - Even</li>
+<li>o - Odd</li>
+<li>m - Mark</li>
+<li>s - Space</li>
+</ul>
+<p>If a parity setting is used, then only seven bits of each code sent to
+the serial port are used, the last eighth bit is used to specify the
+parity.</p>
+<p>If the parity is wrong when data is received through a port then the
+error &#8216;Xmit Error&#8217; is reported.</p>
+<p>&lt;handshake&gt;This specifies whether handshaking should be used. It may
+have the values:</p>
+<ul class="simple">
+<li>i - Ignore Handshaking</li>
+<li>h - Handshaking on. This is the default.</li>
+</ul>
+<p>Handshaking is used to ensure that data is only sent through the serial
+port when the machine connected to the other end of the lead has sent a
+signal to say that it is ready to receive data.</p>
+<p>&lt;protocol&gt;This specifies the type of conversion to be used. It may have
+one of the following values:</p>
+<ul class="simple">
+<li>r - No conversion carried out. This is the default.</li>
+<li>z - Use CTRL-Z for end of file flag.</li>
+<li>c - Convert LF to CR (or vice versa on input) and use CTRL-Z as end
+of file flag. Note: on Minerva, swap LF with CR on both input and
+output.</li>
+</ul>
+<p>Default Device: SER1hr</p>
+</div>
+</div>
+<div class="section" id="st-emulators-and-smsq-e">
+<h3>ST Emulators and SMSQ/E<a class="headerlink" href="#st-emulators-and-smsq-e" title="Permalink to this headline">¶</a></h3>
+<p>These support a slightly enhanced variant of the device found in JS and
+MG ROM QLs (but with different bugs). Output through the serial ports
+can be buffered dynamically, whereby a buffer is allocated up to all of
+the available free memory or can be set to specific amount of space
+(thus allowing printing to continue in the background). Several channels
+may be open to one output port at any time, in which case the data is
+buffered and sent through the serial port in the order in which the
+channels are opened.</p>
+<p>Commands are implemented to allow you to set a specific output buffer or
+input buffer size (SER_BUFF and SER_ROOM), as well as aborting output
+to a serial port (SER_ABORT) or clearing an output buffer (SER_CLEAR).
+Even the default handshaking can be set with SER_FLOW.</p>
+<p>Serial ports may even be joined together to form a Network (SERNET).</p>
+<p>When using SMSQ/E on standard QL serial ports hardware, there are
+several ways to improve the reliability:</p>
+<ul class="simple">
+<li>Use STX instead of SER to open output only ports.</li>
+<li>Use the command SER_PAUSE to alter the length of the stop bits on
+the serial ports.</li>
+<li>Fit Hermes (or SuperHERMES) - this is especially important for using
+higher BAUD rates and can improve the XON / XOFF protocol which can
+normally fail when trying to read data on the QL at over 2400 BAUD or
+trying to send data at over 4800 BAUD. Hermes is also needed to
+receive data at a different BAUD rate on each port and also at a
+different rate to the transmission rate.</li>
+<li>Change your serial to parallel converter - SMSQ/E is now so fast on
+the QL that some older converters no longer work correctly.</li>
+</ul>
+<p>The SER device supports the various settings detailed on the following
+page. The default is ser1htr</p>
+<p>&lt;prt&gt; This is the same as on the QL.</p>
+<p>&lt;par&gt; This is also the same as on the QL.</p>
+<p>&lt;hand&gt; This specifies whether or not to use handshaking, and if so which
+type is to be used. It can take the following values:</p>
+<ul class="simple">
+<li>h - Hardware Handshaking on - the default.</li>
+<li>i - Ignore handshaking</li>
+<li>x - XON/XOFF; no handshaking (see SER_ROOM).</li>
+</ul>
+<p>Hardware Handshaking can only be used with a five-wire serial connector,
+as it uses one of the lines as a signal line to signify when the machine
+is ready to receive data.</p>
+<p>XON/XOFF was added to ST/QL Emulators in Level D-00 drivers and also
+exists in SMSQ/E - it is software based handshaking and can be used with
+three-wire serial connectors. An XOFF character is sent to the other
+machine when there are only 32 characters left in the receive buffer (or
+other figure set with SER_ROOM), telling that other machine to stop
+sending data. Once there is room in the receive buffer for twice this
+number of characters an XON character is sent to the other machine which
+tells that machine to re- start data transmission.</p>
+<p>SER_FLOW also affects this parameter.</p>
+<p>&lt;translate&gt; This specifies the type of translation to be carried out on
+the data. This can have the following values:</p>
+<ul class="simple">
+<li>d - No translation is performed.</li>
+<li>t - Translate according to the translation table. This is the
+default.</li>
+</ul>
+<p>The TRA command sets up translation tables.</p>
+<p>&lt;convert&gt; This specifies how LF is to be treated. It can have the values:</p>
+<ul class="simple">
+<li>c - This converts LF to CR.</li>
+<li>r - No conversion, this is the default.</li>
+<li>a -Automatic insertion of CR,LF at end of line and CR,FF at end of
+page. This was added to ST/QL Drivers in Level D-05.</li>
+</ul>
+<p>&lt;eof&gt; This specifies how the end of the file is to be treated. It can be
+the default (do nothing) or have one of the following values:</p>
+<ul class="simple">
+<li>f - Print FF at end of file</li>
+<li>z - Print CTRL-Z at end of file</li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h3>THOR XVI<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>The serial ports provided on the THOR XVI use a much enhanced variant of
+the original JS device driver. The new serial device syntax is upwardly
+compatible with the original, ie. the old syntax described above is
+still accepted but additional parameters are allowed. The THOR also
+supports an enhanced translate table (see TRA).</p>
+<p>The following parameters are now accepted by the device driver:</p>
+<p>&lt;prt&gt; This is the same as on the standard QL driver.</p>
+<p>&lt;par&gt; Again, as per the standard QL.</p>
+<p>&lt;bits&gt; This digit sets the number of bits per byte to be sent. It can be
+5, 6, 7 or 8. The default is 7 if parity is set, otherwise 8 for no
+parity.</p>
+<p>&lt;hds&gt; This letter sets handshaking:</p>
+<ul class="simple">
+<li>h - on (default).</li>
+<li>i - ignore.</li>
+<li>x - XON/XOFF with handshaking.</li>
+<li>y - XON/XOFF without handshaking.</li>
+</ul>
+<p>&lt;bpso&gt; This sets the current output baud rate and is specified as the
+number is preceded by a B. Valid parameters are: B75, B110, B134.5,
+B150, B300, B600, B1200, B1800, B2400, B4800, B9600, B19200.</p>
+<p>The system BAUD setting is the default. See BAUD.</p>
+<p>&lt;bpsi&gt; This sets the input baud rate as above. A THOR XVI can send and
+receive data at different speeds. The default input baud rate is the
+current output baud rate.</p>
+<p>&lt;nl&gt; This letter specifies how the end of line (EOL) and end of file
+(EOF) codes should be converted. This is the same as &lt;new_line&gt; in the
+THOR&#8217;s PAR driver, except that the default here is r (raw).</p>
+<p>&lt;trns&gt; This tells the THOR XVI whether or not to use its translation
+tables (set with TRA). This can have the following values:</p>
+<ul class="simple">
+<li>t - Use the translation table. This is the default if &lt;nl&gt; is not
+specified.</li>
+<li>p - Do not use translation table. This is the default if &lt;nl&gt; is
+specified.</li>
+</ul>
+<p>&lt;ff&gt; This says whether or not to send FF at the end of the file. The
+default depends on &lt;nl&gt;. By default, a FF will be sent if &lt;nl&gt; is set to
+n or c and the last character is not FF. The default can be overridden
+by setting &lt;ff&gt; to f which tells the THOR not to send FF unless of
+course there is already a FF at the end of the text!</p>
+<p>&lt;buf&gt; This sets the size of the output buffer in bytes, and must be in
+the form _n, where n is the size of the buffer. If you add &#8216;k&#8217; after
+the value of n, the value of n will be multiplied by 1024, for example
+_2K sets an output buffer of 2048 bytes.</p>
+<p>The default is _127.</p>
+<p><strong>Example 1</strong></p>
+<p>ser2exb75b1200cf</p>
+<p>ser2 with even parity, send 7 bits per byte, XON/XOFF with handshake on,
+set output baud rate at 75 bps and input baud rate at 1200 bps, newline
+conversion to CR and use translate table, no form feed at end of file,
+use an output buffer of 127 bytes.</p>
+<p><strong>Example 2</strong></p>
+<p>ser7b1200</p>
+<p>ser1 with no parity, send 7 bits per byte, normal handshake, both output
+and input baud rate set at 1200, no newline conversion (raw data) but
+use translate table, send form feed at end of file, use output buffer of
+127 bytes.</p>
+<p>Default Device: ser18hrt_127</p>
+<p>Note the coupling between the &lt;nl&gt; and &lt;trns&gt; arguments. This means that
+&#8216;ser1&#8217; is equal to &#8216;ser1rt&#8217;, whereas &#8216;ser1r&#8217; is equal to &#8216;ser1rp&#8217;. The
+translation table used is the one set with TRA.</p>
+</div>
+<div class="section" id="serial-ports-srx">
+<h3>Serial Ports (SRX)<a class="headerlink" href="#serial-ports-srx" title="Permalink to this headline">¶</a></h3>
+<p>Syntax: SRX&lt;prt&gt;&lt;par&gt;&lt;hand&gt;&lt;translate&gt;&lt;convert&gt;&lt;eof&gt; Location: ST
+Emulators, SMSQ/E</p>
+<p>This is a dedicated input only serial device, which has the same syntax
+as the ST Emulator&#8217;s SER device.</p>
+<p>Default Device: SRX1htr</p>
+</div>
+<div class="section" id="serial-ports-stx">
+<h3>Serial Ports (STX)<a class="headerlink" href="#serial-ports-stx" title="Permalink to this headline">¶</a></h3>
+<p>Syntax: STX&lt;prt&gt;&lt;par&gt;&lt;hand&gt;&lt;translate&gt;&lt;convert&gt;&lt;eof&gt; Location: ST
+Emulators, SMSQ/E</p>
+<p>This is a dedicated output only serial device, which has the same syntax
+as the ST Emulator&#8217;s SER device.</p>
+<p>It is recommended that if your program only needs to be able to send
+data out of the serial ports, this device is used, as this will enable
+other programs to open input devices (SRX) to the same serial port.</p>
+<p><strong>NOTE</strong></p>
+<p>On a standard QL, the same hardware is used for both serial ports, and
+therefore if you are using one port for input and one for output you
+should use the STX device on the output only port (instead of SER). If
+you use SER to open both ports then the speed of the input port will be
+unduly affected even though the other port is being used for output
+only. STX gets around this problem.</p>
+<p>Default Device: STX1htr</p>
+</div>
+<div class="section" id="printer-ports-prt">
+<h3>Printer Ports (PRT)<a class="headerlink" href="#printer-ports-prt" title="Permalink to this headline">¶</a></h3>
+<p>Syntax: PRT Location: Qjump RAMPRT, ST Emulators, SMSQ/E, QXL, Gold
+Card, Trump Card</p>
+<p>This is an unusual device driver which comes in two forms. However, in
+both forms, the idea is that a user will set up this device to point to
+the port which connects to his printer, so that a program merely needs
+to OPEN prt. In practice however, it is more advisable to allow the user
+to configure the program with the details of the port to be used for
+printing.</p>
+</div>
+<div class="section" id="qjump-ramprt-trump-card-qxl-and-gold-cards">
+<h3>Qjump RAMPRT, Trump Card, QXL and Gold Cards<a class="headerlink" href="#qjump-ramprt-trump-card-qxl-and-gold-cards" title="Permalink to this headline">¶</a></h3>
+<p>These allow the PRT device to be used to add buffers to serial and
+parallel ports (see PRT_USE).</p>
+<div class="section" id="id2">
+<h4>ST Emulators and SMSQ/E<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<p>On these implementations, the PRT device can be used to emulate either
+SER or PAR, but does not necessarily have a buffer attached. See
+PRT_USE.</p>
+</div>
+<div class="section" id="memory-driver-mem">
+<h4>Memory Driver (MEM)<a class="headerlink" href="#memory-driver-mem" title="Permalink to this headline">¶</a></h4>
+<p>Syntax: MEM_[adr1[_adr2]] (IODev)</p>
+<p>or MEM[bufnr][_buflen{p|t}] (DIY Toolkit) Location: MEM device (DIY
+Toolkit Vol N), IODev (System)</p>
+<p>The memory device allows you to access RAM memory directly via a device.
+This is functionally the same as PEEKing the values with any of PEEK&#8217;s
+available variants (PEEK$, PEEK_F etc), but the latter only allows you
+to access the memory of the local machine.</p>
+<p>The MEM device on the other hand can be installed on a different machine
+connected via the Toolkit II fileserver, which allows you to use any
+device driver on a host machine through the n&lt;nr&gt;_ fileserver interface
+(see below).</p>
+<p>Data can be read and written through a MEM device to memory with all
+commands and functions that work on files as well, so that memory
+becomes a file.</p>
+<p>The DIY MEM device supports up to eight buffers of buflen bytes in size
+for data transfer between program and memory. A buffer is specified by
+bufnr, each buffer can be either temporary (t suffix to buffer length)
+or permanent (p). The file pointer needs to be explicitly set to the
+address location which you want to read from or write to.</p>
+<p>IODev&#8217;s MEM device has a much different syntax. The two modifiers adr1
+and adr2 are numbers which indicate the start address (offset zero):
+1024*adr1+adr2.</p>
+<p>adr1 and adr2 are assumed zero if omitted.</p>
+<p><strong>Example</strong></p>
+<p>The classical demonstration for the MEM device is copying</p>
+<p>the screen from one machine to another:</p>
+<ol class="arabic simple">
+<li>IODev Variant</li>
+</ol>
+<p>This can be easily done with:</p>
+<p>SBYTES n2_mem_128,131072,32768</p>
+<p>provided that the screen address is located at 131072 (128 * 1024 =
+131072) on both machines and that both screens are 32k long. The above
+command copies the screen of the current machine to Network station
+number 2 (which must be running FSERVE).</p>
+<ol class="arabic simple" start="2">
+<li>DIY Toolkit variant</li>
+</ol>
+<p>This is defined differently and needs you to set the file pointer
+accordingly:</p>
+<div class="highlight-python"><div class="highlight"><pre>100 SBYTES_O ram1_q,131072,32768
+110 OPEN#3,n2_mem_
+120 GET#3\131072
+130 SPL ram1_q TO #3
+</pre></div>
+</div>
+<p>You will have noticed that both variants of MEM have an incompatible
+syntax. Fortunately however, it is still possible to write portable
+programs for both devices. Just use the most basic syntax; both MEMs
+will then behave identically and start at the absolute address zero.</p>
+<p>This means that the above DIY Toolkit example will also work on the
+IODev variant (however ensure that the final underscore appears in line
+110 to maintain DIY Toolkit compatability.</p>
+<p>This example can be much improved by avoiding the need for a temporary
+file and extra code to check if SPL has finished (ignored here) by using
+FWRITE.</p>
+<p><strong>NOTE</strong></p>
+<p>MEM could have problems on Minerva pre v1.78.</p>
+<p><strong>WARNING</strong></p>
+<p>The use of the MEM device is not recommended because it uses absolute
+addresses on another machine. QDOS tends to move around all kinds of
+area of memory, so that even very sophisticated communication between
+the network partners cannot provide enough safety to avoid crashes.</p>
+<p>Imagine the following (horror) scenario: Machine 1 tells machine 2 where
+its screen memory is located. Machine 2 starts to send its own screen to
+machine 1 but during the upload QDOS moves the screen on machine 1 to
+another location... BANG! The use of MEM must be declared as dirty or at
+least most dangerous. There are always alternatives which avoid MEM.</p>
+</div>
+</div>
+<div class="section" id="network-drivers-net">
+<h3>Network Drivers (NET)<a class="headerlink" href="#network-drivers-net" title="Permalink to this headline">¶</a></h3>
+<p>Syntax: NET&lt;direction&gt;&lt;station&gt;(QL ROM)</p>
+<p>or NET&lt;direction&gt;&lt;station&gt;_&lt;buffer&gt;(Toolkit II, THOR XVI) Location: QL
+ROM, Toolkit II, THOR XVI</p>
+<p>These device drivers are explained separately in the Networks appendix.</p>
+</div>
+<div class="section" id="communication-drivers-pipe">
+<h3>Communication Drivers (PIPE)<a class="headerlink" href="#communication-drivers-pipe" title="Permalink to this headline">¶</a></h3>
+<p>Syntax: PIPE_length(standard drivers)</p>
+<p>or PIPE[IDin]{X | P | T}IDout[_[length]][K](Minerva v1.97+)</p>
+<p>or PIPE_name[_length] (named drivers, SMS) Location: QL ROM, named
+pipe drivers, SMS</p>
+<p>These are basically areas of memory which are set aside to act as
+communication queues. In theory, output data can be placed into the
+queue by a Job through one channel and the data can then be read by
+another Job (or the same Job) through another channel. The Job which is
+outputting data will be told when the pipe is full and will have to wait
+for something else to read some of the data before any more can be
+placed into the pipe.</p>
+<p>Data is read out of a pipe in the order in which it is placed into it.
+This is known as First In First Out (FIFO).</p>
+<p>Pipes can only be one way (either output or input). Any attempt to send
+data through an input pipe (or to read data from an output pipe) will
+cause a &#8216;Bad Parameter&#8217; error. For compatability reasons, you should
+open output pipes with OPEN_NEW and open input pipes with OPEN_IN.</p>
+<p>A channel which is open to an input pipe cannot detect the end of data
+held within the pipe with the EOF command (unless the output channel has
+been closed) - instead, you will need to use the PEND or EOFW command to
+check if there is any more data waiting in the pipe. If you do not do
+this, then commands accessing the input pipe will merely wait around
+until they timeout (or wait indefinitely if the timeout is negative!).</p>
+<p>More recently, the concept of Named Pipes has been introduced to QDOS
+which make the handling of pipes much easier, as you only need supply
+the name of the pipe to the input channel.</p>
+<p>Again, we need to look at the various implementations of pipes:</p>
+<div class="section" id="standard-ql-rom">
+<h4>Standard QL ROM<a class="headerlink" href="#standard-ql-rom" title="Permalink to this headline">¶</a></h4>
+<p><strong>(1) Output Pipes</strong></p>
+<p>It is easy to open an output pipe, with the syntax:</p>
+<p>PIPE_length</p>
+<p>where:</p>
+<p>length Defines the length of the pipe, this is the number of bytes which
+can be stored in the queue at any one time. This cannot be extended at a
+later date (at least not very easily without losing all of the data).</p>
+<p>length must be in the range 2...32767.</p>
+<p>There is no default.</p>
+<p><strong>(2) Input Pipes</strong></p>
+<p>The problem comes when you try to link an input channel to this pipe. To
+do this, you need to open a channel to PIPE_0 with the channel ID of
+the first pipe in the machine code register D3.</p>
+<p>Unfortunately there is no easy way of doing this in SuperBASIC, unless
+you have Minerva v1.82+ (see OPEN) or use a toolkit command such as
+QLINK which connects an existing channel to the given pipe.</p>
+<p><strong>WARNING</strong></p>
+<p>More than one input pipe may be connected to the same output pipe
+inadvertently, and you could even connect one input pipe to another.
+Both of these will eventually crash the system.</p>
+</div>
+<div class="section" id="minerva-rom">
+<h4>Minerva ROM<a class="headerlink" href="#minerva-rom" title="Permalink to this headline">¶</a></h4>
+<p>This allows pipes to be created which are the same as on the standard QL
+ROM, except that length can have the letter K appended to multiply it by
+1024. However, it is easier to link up input pipes to existing output
+pipes by using the extended OPEN commands implemented on Minerva v1.82+.</p>
+<p><strong>Example</strong></p>
+<p>Open a pipe between two programs, with a buffer of 10K</p>
+<div class="highlight-python"><div class="highlight"><pre>100 PCHAN=3
+110 OPEN_NEW #PCHAN,pipe_10K
+120 pipeID=PEEK_W(\48\PCHAN*40+2)
+</pre></div>
+</div>
+<p>then in another program, having transferred the pipeID from the above
+program (by example using a temporary file):</p>
+<div class="highlight-python"><div class="highlight"><pre>130 OPEN_IN #5,pipe_,pipeID
+</pre></div>
+</div>
+<p>However, a more flexible type of pipe has been implemented in Minerva
+v1.93+, with the syntax:</p>
+<p>PIPE[IDin]{X | P | T}IDout[_[length]][K]</p>
+<p>Pipes are identified by ID numbers (IDin) and (IDout), both of which can
+be any integer number in the range -32768 to 32767. The effect of
+omitting either ID numbers depends on the circumstances (see below).</p>
+<p>In keeping with the other pipe drivers, length can be any integer
+between 0 ans 32767, appended by K if you want to multiply it by 1024.
+If omitted, it defaults to 0.</p>
+<p>This sets up a system of pipes which are very similar to named pipes and
+channels can actually be opened to pipes which can both read from and
+output data to that pipe. The first channel to open a pipe to a
+particular IDin or IDout will need to specify the buffer length - any
+future channel which tries to specify a buffer length for the same pipe
+IDin or IDout will have no effect on the buffer.</p>
+<p>The effect of the pipe depends on the values of IDin, IDout and whether
+the X, P or T parameter is specified.</p>
+<ul class="simple">
+<li>If IDin is omitted then the channel opened to the pipe will be
+write-only. IDin defaults to zero.</li>
+<li>If IDout is omitted or a negative number, and IDin is specified
+together with the X, P or T parameter then it will default to the
+same as IDin. - see (3) below. However, If IDout is omitted and the
+above paragraph does not apply, IDout is taken to be zero (or if
+IDout is specified to be zero) then the channel opened to the pipe
+will be read-only (you will need to specify X, P or T parameter if
+Minerva is to recognise IDout whether it is there or not).</li>
+<li>If both IDin and IDout are non-zero (or IDout was made to be the same
+as IDin under (2) above), then the channel opened to the pipe will
+read data from IDin and send data to IDout. If IDin and IDout are the
+same then this will form a circular queue.</li>
+<li>If both IDin and IDout are omitted and the X, P or T parameter is not
+specified, then you have created a standard QL pipe! If you specify
+the P or T parameter in this instance, see note 1 and note 2 below.
+PIPEX has no meaning!</li>
+<li>If a P parameter is specified, then this pipe will be marked as
+permanent and will retain its data even if no channels are open to
+it.</li>
+<li>A T parameter marks a pipe as temporary and can be used to remove a
+permanent pipe, eg: OPEN #3,&#8217;pipe1p2&#8217;Open a permanent input pipe
+(ID=1) and a permanent output pipe (ID=2). OPEN #3,&#8217;pipet2&#8217;:CLOSE
+#3Remove the pipe (ID=2) once all information has been read from it.</li>
+<li>An X parameter is used to merely separate IDin and IDout - this will
+create a temporary pipe which will mark the end of the data &#8216;End of
+File&#8217; when the last channel which can output data to the specified
+pipe ID has been closed. When there are no channels at all left open
+to that pipe ID then any data in that pipe is lost and the memory
+released.</li>
+</ul>
+<p><strong>Examples</strong></p>
+<p>OPEN #3,pipe3x_100Open a read only pipe with a 100 byte buffer.</p>
+<p>OPEN #3,pipex3_100Open the write only end of the above pipe.</p>
+<p>Any easy way to transfer data between two programs:</p>
+<p>From SuperBASIC enter the program:</p>
+<div class="highlight-python"><div class="highlight"><pre>100 OPEN #3,pipe1t3_300
+110 REPeat wait_loop
+120   INPUT #3,info$
+130   IF info$=&#39;PROG 2 IS READY - SEND&#39;
+140     INPUT #3,datan,dummy$
+150     EXIT wait_loop
+160   END IF
+170 END REPeat wait_loop
+180 FOR i=1 TO datan
+190   INPUT &#39;Enter Data Entry &#39;;(i);&#39;: &#39;;a$
+200   PRINT #3,a$
+210 END FOR i
+220 REPeat end_WAIT
+230   INPUT #3,a$
+240   IF a$=&#39;THANKYOU&#39;:PRINT &#39;DATA SENT SUCCESSFULLY&#39;:EXIT end_WAIT
+250 END REPeat end_WAIT
+260 CLOSE #3
+</pre></div>
+</div>
+<p>Use EX pipep to start a MultiBASIC and enter the program:</p>
+<div class="highlight-python"><div class="highlight"><pre>100 OPEN #3,pipe3t1_300
+110 space=10
+120 DIM rd$(space,100)
+130 PRINT #3,&#39;PROG 2 IS READY - SEND&#39;
+140 PRINT #3,space
+150 PRINT #3,&#39;DATA&#39;
+160 FOR i=1 TO space
+170   INPUT #3,rd$(i)
+180 END FOR i
+190 PRINT #3,&#39;THANKYOU&#39;
+200 CLOSE #3
+</pre></div>
+</div>
+<p>Now RUN the program in the MultiBASIC, &lt;CTRL&gt;&lt;C&gt; to SuperBASIC and enter
+RUN. Any data you enter into the SuperBASIC program will then be sent to
+the MultiBASIC program. Both programs can be RUN in either order!!</p>
+<p><strong>NOTE 1</strong></p>
+<p>PIPEP without any other parameters was implemented to automatically
+start up a MultiBasic, by using for example: EX pipep</p>
+<p>see EW for details.</p>
+<p><strong>NOTE 2</strong></p>
+<p>PIPET opens a pipe similar to a NUL device - any attempt to read data
+from it will always report &#8216;End of File&#8217;, whereas any data sent to it
+will be thrown away.</p>
+<p><strong>NOTE 3</strong></p>
+<p>In v1.97 PIPEP and PIPET were the wrong way around when opened as an
+input pipe. You will therefore need to use a line such as:</p>
+<p>IF VER$(1)=&#8216;1.97&#8217; : OPEN_IN #3,PIPEP2 : ELSE : OPEN_IN #3,PIPET2</p>
+<p><strong>NOTE 4</strong></p>
+<p>It is recommended that in order to overcome problems with multitasking
+jobs trying to access the same pipe IDs inadvertantly, a Job should use
+its own Job number*100 plus the pipe ID number. This can be calculated
+with:</p>
+<p>jobID=VER$(-1) : JobNr=JobID-INT(JobID/65536)*65536</p>
+<p>JobID=(PEEK_L(!!100)-PEEK_L(!!104)) DIV 4</p>
+</div>
+</div>
+<div class="section" id="named-pipe-drivers-sms">
+<h3>Named Pipe Drivers, SMS<a class="headerlink" href="#named-pipe-drivers-sms" title="Permalink to this headline">¶</a></h3>
+<p>SMS, the ST/QL Emulators (Level D-00 onwards) and various other
+utilities implement named pipe drivers.</p>
+<p>Named pipes solve many of the problems associated with QDOS&#8217;s native
+pipes, in that there is no need to know the channel ID of the output
+pipe in order to open the input pipe.</p>
+<p>Most versions will also allow you to open the input side before opening
+the output side, but oddly enough some non- standard versions will lose
+any data stored in a pipe if there is neither an output nor an input
+channel associated with it.</p>
+<p>Input and output pipes can be closed in any order - information
+contained in them will not be lost, so you can close both the input and
+output pipes, but if there is still information contained in the pipe,
+you can then open a new input pipe to read this remaining data.</p>
+<p>SMS v2.79 has further extended the concept of named pipes, allowing you
+to DELETE and DIR pipes.</p>
+<p>DIR pipe</p>
+<p>will list all named pipes which exist</p>
+<p>DELETE pipe_name</p>
+<p>will delete the specified pipe.</p>
+<p>You can also VIEW pipe_name.</p>
+<p>In current drivers, a maximum of 15 or 16 named pipes can be open at any
+one time. The syntax of this driver is:</p>
+<p>PIPE_name_length for an output pipe, or</p>
+<p>PIPE_name for an input pipe.</p>
+<p>where:</p>
+<p>name The name of the pipe (up to 32766 characters long), which must be in
+the standard name format (ie. the first character must be a letter or
+&#8216;_&#8217; symbol, with any other characters following).</p>
+<p>There is no default.</p>
+<p>length The length of the queue associated with the pipe (ie. how many
+characters can be stored in the pipe at a time). This must be in the
+range 2...32767. If a length of zero is given, this is taken to be an
+input pipe.</p>
+<p>Default is 0.</p>
+<p><strong>NOTE 1</strong></p>
+<p>As there is no guarantee when you open an input channel to a pipe that
+it is empty (or contains only the information which you expect - for
+example another copy of your program may already be in use!!), it is
+normal for the first information to be sent by a program through a pipe
+to be some identification information (see the Minerva examples).</p>
+<p><strong>Examples</strong></p>
+<p>OPEN_NEW #3,PIPE_100</p>
+<p>Open a standard output pipe which can hold up to 100 characters at a
+time.</p>
+<p>OPEN_NEW #4,PIPE_xover_50</p>
+<p>Open an output pipe named xover which can hold up to 50 characters at a
+time.</p>
+<p>OPEN_IN #5,PIPE_xover</p>
+<p>Open an input channel to the pipe xover.</p>
+<p>OPEN_NEW #2,PIPE_quill_exp_100</p>
+<p>Open an output pipe named quill_exp with a buffer for 100 characters.</p>
+<p>PIPE_0</p>
+<p>Open a general input channel to a pipe - see standard QL version above!</p>
+<p><strong>NOTE 2</strong></p>
+<p>Before Level D-06 of the ST/QL Drivers, PIPE_ or PIPE_0 could cause
+problems with TURBO compiled programs.</p>
+<p><strong>WARNING</strong></p>
+<p>When using SMSQ/E&#8217;s named pipes, if you try to DELETE a pipe but a
+channel is OPEN to that pipe, then the error &#8216;in use&#8217; is reported.
+However, when all channels to that pipe are CLOSEd, the pipe will
+immediately be DELETEd.</p>
+</div>
+<div class="section" id="communication-drivers-history">
+<h3>Communication Drivers (HISTORY)<a class="headerlink" href="#communication-drivers-history" title="Permalink to this headline">¶</a></h3>
+<p>Syntax: HISTORY_name[_length]</p>
+<p>or HISTORY[_length] Location: SMSQ/E</p>
+<p>The first syntax to this device creates a Public History Device - this
+is similar to the named pipes driver on the SMSQ/E except that it works
+as a Last In First Out (LIFO) device, so that information read from a
+HISTORY appears in the opposite order to which it was placed in the
+HISTORY and can be read from any program. Also if a HISTORY device
+becomes full, the oldest message is thrown away. Messages are separated
+by NewLine characters.</p>
+<p>Note that the name should not be a single character to allow for future
+improvements to this device.</p>
+<p>The second syntax creates a Private History Device, which still stores
+messages so that they are fetched out of the History in the reverse
+order to how they were stored. However, no other program will be able to
+open a channel to this History and therefore it can only be read by the
+program which has opened it.</p>
+<p>In both versions, if length is not specified, then it is presumed to be
+1024 bytes.</p>
+<p>As with Named Pipes, as from v2.79 of SMSQ/E, you can use DIR, VIEW and
+DELETE to get a directory of Public Histories, look at one of them and
+Delete them.</p>
+<p><strong>Example</strong></p>
+<p>Grab the name of the last file on a disk:</p>
+<div class="highlight-python"><div class="highlight"><pre>OPEN_NEW #4,HISTORY_FILE_10000
+DIR #4,flp1_
+
+VIEW HISTORY_file: REMark Just a quick look at the contents - it does  not  alter  the  contents  of  the HISTORY
+
+INPUT #4,name$
+CLOSE #4
+DIR HISTORY
+DELETE HISTORY_file
+</pre></div>
+</div>
+</div>
+<div class="section" id="nul-driver-nul">
+<h3>Nul Driver (NUL)<a class="headerlink" href="#nul-driver-nul" title="Permalink to this headline">¶</a></h3>
+<p>Syntax: NUL</p>
+<p>or NULZ</p>
+<p>or NULF</p>
+<p>or NULL</p>
+<p>or NULP Location: ST/QL Emulators and SMS</p>
+<p>A nul device is generally just an empty input only device that can
+consume anything put into it at great speed. It enables you to write
+software which can easily turn off its normal output by merely
+re-opening its output channel to a nul device should the user choose to
+do so.</p>
+<p>All nul drivers are added by additional hardware and software. The
+standard device name is NUL, but there are also NULZ, NULF, NULL and
+NULP.</p>
+<div class="section" id="input">
+<h4>Input<a class="headerlink" href="#input" title="Permalink to this headline">¶</a></h4>
+<p>The only real difference is if you try to read one of the nul drivers.</p>
+<ul class="simple">
+<li>NUL - This is an output only device, and returns bad parameter if you
+try to read information from it. Any attempt to read window
+information will return a zero parameter. Any attempt to read pointer
+information will return an invalid parameter.</li>
+<li>NULF - This emulates a null file - the EOF function will always be
+true on this channel. If you read the file header (with HGET for
+example) then a 14 byte header full of zeros is returned. Any attempt
+to read window information or pointer information has the same result
+as on NUL.</li>
+<li>NULL - This emulates a file filled with Line Feed characters
+CHR$(10). The file position can be set anywhere and the file header
+is 14 zero bytes. Any attempt to read window information or pointer
+information has the same result as on NUL.</li>
+<li>NULZ - This emulates a file full of zeros. You can set the file
+position to any value, but reading the header or data from the file
+will always return zeros. Any attempt to read window information or
+pointer information has the same result as on NUL.</li>
+<li>NULP - This will force the program to wait forever (or until any
+specified timeout has elapsed).</li>
+</ul>
+</div>
+<div class="section" id="output">
+<h4>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h4>
+<p>There is no difference when writing - all of the drivers just forget any
+data sent to them (eating it up at very high speeds).</p>
+</div>
+</div>
+</div>
+<div class="section" id="a12-5-direct-sector-access">
+<h2>A12.5 DIRECT SECTOR ACCESS<a class="headerlink" href="#a12-5-direct-sector-access" title="Permalink to this headline">¶</a></h2>
+<p>All standard directory device drivers (WIN, FLP, MDV and RAM) support
+direct sector access. This allow you to access the contents of a
+directory device without having to rely on the directory itself - it can
+therefore be used to rescue corrupt disks and even change the formatting
+of a disk (for example one utility uses this feature to squeeze extra
+room onto a normal Double Density floppy disk).</p>
+<p>To use direct sector access, it is necessary to OPEN a channel to a
+special filename, in the form:</p>
+<p>DRIVEn_*Dsd</p>
+<p>Where:</p>
+<p>DRIVEn_ This should be the name of the device followed by the drive
+number, for example FLP1_</p>
+<p>*D This is the direct access identifier and must remain the same.</p>
+<p>s This is a number which represents the length of a sector. s should be
+one of the following numbers:</p>
+<ul class="simple">
+<li>0 = 128 bytes</li>
+<li>1 = 256 bytes</li>
+<li>2 = 512 bytes (DD and HD disks)</li>
+<li>3 = 1024 bytes</li>
+<li>4 = 2048 bytes (ED disks)</li>
+</ul>
+<p>The value of 4 is only supported on Super Gold Cards. Values other than
+2 are only supported on SMSQ/E and ST/QL Drivers from Level D-05
+onwards.</p>
+<p>d This is a letter in lower case which represents the density of the
+device, and should be:</p>
+<ul class="simple">
+<li>d - Double Density</li>
+<li>h - High Density</li>
+<li>e - Extra High Density</li>
+</ul>
+<p>Once this file is OPENed, the file pointer is positioned at the start of
+the first sector of side 0 track 0 on the disk. Except on the ST/QL
+Drivers (pre D-04), no other file can be OPEN on the disk if this access
+is to work. For further details on how data is stored on a directory
+device, please refer to the documentation of the device driver.</p>
+<p><strong>Example</strong></p>
+<p>Read the name of a HD disk inserted in flp1_</p>
+<div class="highlight-python"><div class="highlight"><pre>100 OPEN_IN #3,&#39;flp1_*D2h&#39;
+110 GET #3\1+ 0*256 + 0*2^16,sector$
+120 CLOSE #3
+130 PRINT &#39;The First Sector of the disk is;&#39;sector$
+140 PRINT &#39;The name of the disk appears in this sector - it is &#39;;sector$(5 to 14)
+</pre></div>
+</div>
+<p><strong>NOTE 1</strong></p>
+<p>Some older floppy disk interfaces do not support this.</p>
+<p><strong>NOTE 2</strong></p>
+<p>MIDINET and SERNET include code to stop you using this facility over the
+Network to access protected files.</p>
+</div>
+<div class="section" id="a12-6-level-1-device-drivers">
+<h2>A12.6 Level-1 Device Drivers<a class="headerlink" href="#a12-6-level-1-device-drivers" title="Permalink to this headline">¶</a></h2>
+<p>These were the first Directory Device Drivers provided with the QL (and
+early QL floppy / hard disk controllers) and allowed the QL to access
+files on microdrives, ram disk, floppy disk and hard disk relatively
+easily. Hard disks introduced their own system of storing a directory of
+the files (and also some introduced their own non-standard sub-directory
+filing system).</p>
+<p>DIR would produce a list of all files present on the device (normally)
+in the order in which they were created. You could even have files with
+no names (for example flp1_ ).</p>
+<p>The main problem with these drives was when you had a hard disk (or even
+a floppy disk) containing hundreds of files, it could be very difficult
+to find the required file.</p>
+<p>The drivers could also not read files which had been placed in
+sub-directories on disks created by Level-2 Device Drivers.</p>
+</div>
+<div class="section" id="a12-7-level-2-device-drivers">
+<h2>A12.7 Level-2 Device Drivers<a class="headerlink" href="#a12-7-level-2-device-drivers" title="Permalink to this headline">¶</a></h2>
+<p>Level-2 device drivers were first introduced for the ST/QL emulator but
+are now available on several emulators and QL expansion boards. These
+allow the user to define sub-directories of sets of files on certain
+directory devices.</p>
+<p>Sub-directories are identified by grouping together all files which have
+the same prefix. The main directory will only recognise the name of the
+sub-directory and you will then need to look at the sub-directory to
+obtain details of that set of files. For example, DIR flp1_ may produce
+the following output:-</p>
+<div class="highlight-python"><div class="highlight"><pre>Example1
+870/1440 sectors
+boot
+PSION-&gt;
+</pre></div>
+</div>
+<p>This would show that the disk in flp1_ had the medium name &#8216;Example1&#8217;
+(see FORMAT), had a maximum of 1440 sectors (720K) of which 870 remain
+unused, a boot file and a sub-directory called &#8216;PSION&#8217; (see MAKE_DIR).
+You could then use</p>
+<p>DIR flp1_PSION</p>
+<p>to produce the following:</p>
+<div class="highlight-python"><div class="highlight"><pre>Example1
+870/1440 sectors
+PSION_boot
+PSION_Quill
+</pre></div>
+</div>
+<p>This still provides the same information about the disk, but goes on to
+show that the sub-directory &#8216;PSION&#8217; contains the files &#8216;PSION_boot&#8217; and
+&#8216;PSION_Quill&#8217;.</p>
+<p>The use of sub-directories help to make the finding of files much more
+easy, especially on devices like hard disk drives where there could be
+several thousand file names to sort through.</p>
+</div>
+<div class="section" id="a12-8-level-3-device-drivers">
+<h2>A12.8 Level-3 Device Drivers<a class="headerlink" href="#a12-8-level-3-device-drivers" title="Permalink to this headline">¶</a></h2>
+<p>These device drivers provide all of the facilities of earlier device
+drivers (allowing you to create sub-directories on Hard Disks, RAM Disks
+and Floppy Disks), plus giving you the ability to read from and write to
+PC and Atari TOS disks.</p>
+<p>The DIR command prints the type of the disk in the specified device.</p>
+<p>Unfortunately, there are limited means of formatting PC and ATARI disks
+under the QL operating system and you have to use one of the various
+public domain utility programs to do so (or use the commands AFORMAT and
+IFORMAT if available).</p>
+<p>If you try to write to an ATARI or PC format disk, then the filing
+system will look at the file name which you are using and if it is an
+invalid ATARI / PC filename (namely eight characters followed by a dot
+and a three letter extension) then a Not Found error may be reported.
+You are allowed to create sub-directories (up to four letters long) on
+an ATARI or PC disk with MAKE_DIR and also save filenames without an
+extension (up to a maximum of 8 characters still).</p>
+<p>Oddly, however, if you try to precede the three letter filename
+extension by an underscore (as would normally be the case on the QL),
+this is not translated to a dot, instead, this underscore is counted as
+one of the 8 characters in the filename.</p>
+<p>A slight inconsistency (possibly in the way in which PCs handle
+sub-directories) is that if you make a sub-directory with the command:</p>
+<p>MAKE_DIR flp1_TEST</p>
+<p>SAVE flp1_TEST.BAS</p>
+<p>will not actually place this file in the sub-directory - compare SAVE
+flp1_TEST_TEST.BAS. You must also be aware that in keeping with PCs,
+you must create a sub-directory on DOS or TOS disks before you try to
+store a file in that sub-directory.</p>
+<p>Until v2.52 of SMSQ/E, the filename needed to be in quote marks if it
+was to include a dot.</p>
+<p>There is also a problem in that if you read some information from a DOS
+or TOS disk (for example with LOAD) and then remove that disk from the
+drive and alter it on another computer, replacing the disk in the
+original computer&#8217;s disk drive (not having used another disk in the mean
+time), it is impossible to tell that the disk has been modified, so any
+further attempt to access that disk may render it unuseable. If you must
+insist on doing this, use DEL_DEFB before trying to access the disk a
+second time.</p>
+<p>One more difficulty that has been rectified from version 2.87 of SMSQ/E,
+is that on earlier versions you could not use EXEC or EXEC_W (or
+similar command) to execute a file from a DOS or TOS disk - this is
+because the file type will not be 1. You needed to copy the file from
+the DOS or TOS disk to RAM disk and then use commands such as:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">OPEN</span> <span class="c1">#3,ram1_File_exe</span>
+<span class="n">HGET</span> <span class="c1">#3,length</span>
+<span class="n">HPUT</span> <span class="c1">#3,length,0,1,exdat</span>
+<span class="n">CLOSE</span> <span class="c1">#3</span>
+</pre></div>
+</div>
+<p>exdat will depend upon the file itself (it is the extra information
+which can be stored in a QDOS file header) - you will need to read this
+from the original QDOS version of the file when it was created.</p>
+<p>You will also find that some programs will not be able to use PC
+formatted disks - for example the Psion programs (such as Quill and
+QL-Xchange) which will both add a three letter extension preceded by an
+underscore if one does not exist (such as _doc).</p>
+</div>
+<div class="section" id="a12-9-using-alien-format-disks">
+<h2>A12.9 Using Alien Format Disks<a class="headerlink" href="#a12-9-using-alien-format-disks" title="Permalink to this headline">¶</a></h2>
+<p>QL Emulators which run on non-QL based hardware normally have a means of
+creating a section of the hard-disk connected to a computer which can be
+used for storage of QL files.</p>
+<p>QPC also includes commands to allow you to access CD-ROM drives (see
+CD_PLAY).</p>
+<p>However, the problem comes when you need to try and read data from (or
+save data to) a floppy disk which is not in standard QDOS format.</p>
+<p>There are several Public Domain and Commercial utilities which allow you
+to convert files from or to IBM or Atari Format disks into a QDOS
+format. Included amongst these utilities is the toolkit ATARIDOS (see
+IQCONVERT for example). Other good examples are the public domain
+IBMDISK program, the commercial program XOVER (by Digital Precision) and
+the shareware program MultiDISCOVER (by Dave Walker).</p>
+<p>However, if you want really flexible access to such disks, then you will
+need an operating system which includes Level-3 Device Drivers (see
+above).</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Appendix13.clean.html" class="btn btn-neutral float-right" title="A13 Extended Pointer Environment" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Appendix11.clean.html" class="btn btn-neutral" title="A11 MATHEMATICS" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Rich Mellor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'4.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

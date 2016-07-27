@@ -90,7 +90,7 @@
 <li class="toctree-l1"><a class="reference internal" href="AppendicesIntro.clean.html">Appendices Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Appendix01.clean.html">A1. Minerva</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Appendix02.clean.html">A2. SMSQ/E</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">A3. Emulators</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="">A3. Emulators</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#a3-1-introduction">A3.1 Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#a3-2-apple-macintosh">A3.2 Apple Macintosh</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#a3-2-1-q-emulator">A3.2.1 Q-Emulator</a></li>
@@ -147,11 +147,15 @@
 <li class="toctree-l1"><a class="reference internal" href="Appendix05.clean.html">A5. Expansion Boards</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Appendix06.clean.html">A6. Compatibility</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Appendix07.clean.html">A7. Multiple Basics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html">A8 ERROR MESSAGES</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#a8-1-standard-english-error-messages">A8.1 STANDARD ENGLISH ERROR MESSAGES</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#a8-2-foreign-error-messages">A8.2 Foreign Error Messages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#a8-3-dates">A8.3 Dates</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html#a8-4-sms-messages">A8.4 SMS Messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html">A8. Error Messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix09.clean.html">A9. Character Set, Keyboards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix10.clean.html">A10. Designing New Character Sets (Fonts)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix11.clean.html">A11. Mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix12.clean.html">A12. Device Drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix13.clean.html">A13. Extended Pointer Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix14.clean.html">A14. Coercion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix15.clean.html">A15. Mouse Drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix16.clean.html">A16. The QL Display</a></li>
 </ul>
 
             
@@ -238,7 +242,7 @@ also an acknowledgement is included in the manual. In North America, the
 copyright is not owned by Amstrad plc. QLAY (at least) includes a copy
 of the JS QDOS ROM, otherwise, can make your own copy of the QL&#8217;s
 operating system (from a standard QL) by using the command:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">SBYTES</span> <span class="n">flp1</span>\<span class="n">_OSROM</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">49152</span>
+<div class="highlight-python"><div class="highlight"><pre>SBYTES flp1\_OSROM,0,49152
 </pre></div>
 </div>
 <p>Note that you cannot do this with a Gold Card or Super Gold Card plugged
@@ -442,7 +446,7 @@ medium and give it a new name, such as QUILL.MDV. When you start up QLAY
 (from DOS), you can pass it the names of the two microdrive files it is
 to use as MDV1_ and MDV2_ and then any files which are SAVEd to MDV1_
 (or MDV2_) will be stored as part of the DOS file. For example:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">QLAY</span> <span class="o">-</span><span class="mi">1</span><span class="n">QUILL</span><span class="o">.</span><span class="n">MDV</span> <span class="o">-</span><span class="mi">2</span><span class="n">DATA</span><span class="o">.</span><span class="n">MDV</span>
+<div class="highlight-python"><div class="highlight"><pre>QLAY -1QUILL.MDV -2DATA.MDV
 </pre></div>
 </div>
 <p>will allow you to enter the command (inside QLAY) SAVE MDV2_TEST_bas
@@ -554,11 +558,11 @@ driver and the Hotkey System II.</p>
 <p>The emulator cannot support microdrives and if you try to access the
 microdrive, error -7 (not found) will be reported. If a program has been
 written for microdrives, either use</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">EXCHG</span> <span class="n">flp1</span>\<span class="n">_file</span><span class="p">,</span><span class="s1">&#39;mdv&#39;</span><span class="p">,</span><span class="s1">&#39;flp&#39;</span>
+<div class="highlight-python"><div class="highlight"><pre>EXCHG flp1\_file,&#39;mdv&#39;,&#39;flp&#39;
 </pre></div>
 </div>
 <p>or</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">FLP</span>\<span class="n">_USE</span> <span class="s1">&#39;mdv&#39;</span><span class="o">.</span>
+<div class="highlight-python"><div class="highlight"><pre>FLP\_USE &#39;mdv&#39;.
 </pre></div>
 </div>
 </div>
@@ -769,10 +773,10 @@ by POKEing the hardware. To do this, you will need to POKE_W a new word
 value (up to 4095) into one of the following addresses, each one
 representing one of the QL&#8217;s standard 4 colours (note the need for quote
 marks around the address due to the limitations of QL maths):</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">POKE_W</span> <span class="s1">&#39;14676352&#39;</span><span class="p">,</span> <span class="n">black</span>
-<span class="n">POKE_W</span> <span class="s1">&#39;14676354&#39;</span><span class="p">,</span> <span class="n">red</span>
-<span class="n">POKE_W</span> <span class="s1">&#39;14676356&#39;</span><span class="p">,</span> <span class="n">green</span>
-<span class="n">POKE_W</span> <span class="s1">&#39;14676358&#39;</span><span class="p">,</span> <span class="n">white</span>
+<div class="highlight-python"><div class="highlight"><pre>POKE_W &#39;14676352&#39;, black
+POKE_W &#39;14676354&#39;, red
+POKE_W &#39;14676356&#39;, green
+POKE_W &#39;14676358&#39;, white
 </pre></div>
 </div>
 <p>Beware that you should not try to read the values at these addresses

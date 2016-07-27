@@ -17,7 +17,7 @@ CHECK=${?}
 
 if [ "${CHECK}" != "0" ]
 then
-    echo "HTML Tidy failed, error ${CHECK}, Cannot continue."
+    echo "HTML Tidy failed, error ${CHECK}."
     echo "(1 = Warnings, 2 = Errors)"
     if [ "${CHECK}" = "2" ]
     then
@@ -25,7 +25,8 @@ then
         grep "Error:" ${ERRS}
         exit ${CHECK}
     else
-        echo "Check the warnings in '${ERRS}' before continuing."
+        echo "Check the following warnings in 'errors/${ERRS}' before continuing."
+        grep "Warning:" ${ERRS}
     fi
 fi
 
@@ -43,4 +44,4 @@ fi
 
 # All done. Sort of. Need to go manual now.
 echo "Done."
-
+exit ${CHECK}

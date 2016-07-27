@@ -1,0 +1,288 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux/x86 (vers 25 March 2009), see www.w3.org" />
+  <meta http-equiv="content-type" content="text/html; charset=us-ascii" />
+  <link rel="stylesheet" type="text/css" href="css/QLManualStyle.css" media="all" />
+
+  <title>Sinclair QL SuperBASIC/SBASIC Reference Manual - Appendix 10</title>
+</head>
+
+<body>
+  <div id="header">
+    SBASIC/SuperBASIC Reference Manual Online (c) RWAP Software<br />
+    The Online Guide to programming the Sinclair QL Home Computer in SuperBASIC
+  </div>
+
+  <div id="sideBar">
+    <ul>
+      <li><a href="Foreword.html">Foreword</a></li>
+
+      <li><a href="Introduction.html">Introduction</a></li>
+
+      <li><a href="Credits.html">Credits</a></li>
+
+      <li><a href="Structure.html">Structure</a></li>
+
+      <li><a href="WritingPrograms.html">Writing Programs</a></li>
+
+      <li style="list-style: none; display: inline">
+        <hr />
+      </li>
+
+      <li><a href="KeywordsA.html">Keywords - A</a></li>
+
+      <li><a href="KeywordsB.html">Keywords - B</a></li>
+
+      <li><a href="KeywordsC.html">Keywords - C</a></li>
+
+      <li><a href="KeywordsD.html">Keywords - D</a></li>
+
+      <li><a href="KeywordsE.html">Keywords - E</a></li>
+
+      <li><a href="KeywordsF.html">Keywords - F</a></li>
+
+      <li><a href="KeywordsG.html">Keywords - G</a></li>
+
+      <li><a href="KeywordsH.html">Keywords - H</a></li>
+
+      <li><a href="KeywordsI.html">Keywords - I</a></li>
+
+      <li><a href="KeywordsJ.html">Keywords - J</a></li>
+
+      <li><a href="KeywordsK.html">Keywords - K</a></li>
+
+      <li><a href="KeywordsL.html">Keywords - L</a></li>
+
+      <li><a href="KeywordsM.html">Keywords - M</a></li>
+
+      <li><a href="KeywordsN.html">Keywords - N</a></li>
+
+      <li><a href="KeywordsO.html">Keywords - O</a></li>
+
+      <li><a href="KeywordsP.html">Keywords - P</a></li>
+
+      <li><a href="KeywordsQ.html">Keywords - Q</a></li>
+
+      <li><a href="KeywordsR.html">Keywords - R</a></li>
+
+      <li><a href="KeywordsS.html">Keywords - S</a></li>
+
+      <li><a href="KeywordsT.html">Keywords - T</a></li>
+
+      <li><a href="KeywordsU.html">Keywords - U</a></li>
+
+      <li><a href="KeywordsV.html">Keywords - V</a></li>
+
+      <li><a href="KeywordsW.html">Keywords - W</a></li>
+
+      <li><a href="KeywordsX.html">Keywords - X</a></li>
+
+      <li><a href="KeywordsY.html">Keywords - Y</a></li>
+
+      <li><a href="KeywordsZ.html">Keywords - Z</a></li>
+
+      <li><a href="Keywords_.html">Keywords - Other</a></li>
+
+      <li style="list-style: none; display: inline">
+        <hr />
+      </li>
+
+      <li><a href="AppendicesIntro.html">Appendices Introduction</a></li>
+
+      <li><a href="Appendix01.html">Appendix 1 - Minerva</a></li>
+
+      <li><a href="Appendix02.html">Appendix 2 - SMSQE</a></li>
+
+      <li><a href="Appendix03.html">Appendix 3 - Emulators</a></li>
+
+      <li><a href="Appendix04.html">Appendix 4 - THOR Computers</a></li>
+
+      <li><a href="Appendix05.html">Appendix 5 - Expansion Boards</a></li>
+
+      <li><a href="Appendix06.html">Appendix 6 - Compatability</a></li>
+
+      <li><a href="Appendix07.html">Appendix 7 - Multiple BASICs</a></li>
+
+      <li><a href="Appendix08.html">Appendix 8 - Error Messages</a></li>
+
+      <li><a href="Appendix09.html">Appendix 9 - Character Set / Keyboard</a></li>
+
+      <li><a href="Appendix10.html">Appendix 10 - Fonts</a></li>
+
+      <li><a href="Appendix11.html">Appendix 11 - Mathematics</a></li>
+
+      <li><a href="Appendix12.html">Appendix 12 - Device Drivers</a></li>
+
+      <li><a href="Appendix13.html">Appendix 13 - Extended Pointer Environment</a></li>
+
+      <li><a href="Appendix14.html">Appendix 14 - Coercion</a></li>
+
+      <li><a href="Appendix15.html">Appendix 15 - Mouse Drivers</a></li>
+
+      <li><a href="Appendix16.html">Appendix 16 - The QL Display</a></li>
+
+      <li><a href="Appendix17.html">Appendix 17 - Networks</a></li>
+
+      <li><a href="Appendix18.html">Appendix 18 - Configuring Programs</a></li>
+    </ul>
+  </div>
+
+  <div id="mainText">
+    <h3>A10 DESIGNING NEW CHARACTER SETS<br /></h3>
+
+    <p>(FONTS)</p>
+
+    <p>A font is a character set used by the computer to display characters (normally
+    letters and numbers) on screen. A wide range of fonts can be used, which allow you to
+    make letters appear differently on screen for different programs.</p>
+
+    <h3>A10.1 FONTS ON THE QL<br /></h3>
+
+    <p>On the QL, each window can have two fonts attached. There are actually two default
+    fonts, the first of which defines the characters from 32 to 127 and the second of
+    which defines the characters from 127 to 255.</p>
+
+    <p>The reason that <span style="font-style: italic;">CHR$(127)</span> is defined
+    twice is that the definition in the first font is the definition used for the
+    copyright symbol, whereas the definition in the second font is that used if a
+    character is undefined, such as <span style="font-style: italic;">CHR$(2)</span>.</p>
+
+    <p>Normally this is not noticeable and when you open a new window (scr_ or con_), the
+    standard QL fonts are attached to that channel.</p>
+
+    <p>Minerva users can use the commands:</p>
+
+    <p><span style="font-style: italic;">POKE_L !124!40, font1</span></p>
+
+    <p>and</p>
+
+    <p><span style="font-style: italic;">POKE_L !124!44, font2</span></p>
+
+    <p>to alter these default fonts and thereby attach user-defined fonts to every single
+    window that is opened after this command.</p>
+
+    <p>SMSQ/E users can use the command <span style="font-style: italic;">CHAR_DEF</span>
+    to achieve a similar result.</p>
+
+    <h3>A10.2 CHANGING FONTS IN PROGRAMS<br /></h3>
+
+    <p>When a character is <span style="font-style: italic;">PRINT</span>ed, the QL looks
+    up the code in the first font to find the binary definition of the character (see
+    below). If the code is found in this first font then it is <span style=
+    "font-style: italic;">PRINT</span>ed, otherwise, the QL looks for the code in the
+    second font and if found <span style="font-style: italic;">PRINT</span>s this
+    out.</p>
+
+    <p>If however the character is still not found, then the first character of the
+    second font is printed out.</p>
+
+    <p>This therefore means that although substitute fonts need not have the same range
+    as the QL standard fonts, it is important that a font contains all of the characters
+    which will be used by a program!</p>
+
+    <p>On a QL, a font is stored in the following format:</p>
+
+    <table>
+      <tr align="left">
+        <th>Offset</th>
+
+        <th>Value</th>
+      </tr>
+
+      <tr>
+        <td>$0</td>
+
+        <td>Byte giving code of first character defined in the font</td>
+      </tr>
+
+      <tr>
+        <td>$1</td>
+
+        <td>Byte giving the number of characters defined (minus 1)</td>
+      </tr>
+
+      <tr>
+        <td>$2...$A</td>
+
+        <td>Nine bytes defining the first character</td>
+      </tr>
+
+      <tr>
+        <td>$B...</td>
+
+        <td>Nine bytes for each subsequent character...</td>
+      </tr>
+    </table>
+
+    <p>Each character contained in the font is designed on a grid 8 pixels wide by 9
+    pixels high, and therefore the easiest way of calculating the nine bytes which make
+    up each character is to design the character on a sheet of graph paper (if you do not
+    have a font design program) and then each row must be converted from binary to
+    decimal.</p>
+
+    <p>Each square in the grid which contains a 1 will be shown as a pixel in the current
+    <span style="font-style: italic;">INK</span> colour when <span style=
+    "font-style: italic;">PRINT</span>ed to the screen. For instance, this is the binary
+    representation of the character k:</p>
+    <pre>
+  |     BIT  7 6 5 4 3 2 1 0
+--+-------------------------------
+  |0         0 1 0 0 0 0 0 0 =  64
+  |1         0 1 0 0 0 0 0 0 =  64
+  |2         0 1 0 0 0 1 0 0 =  68
+R |3         0 1 0 0 1 0 0 0 =  72
+O |4         0 1 1 1 0 0 0 0 = 112
+W |5         0 1 0 0 1 0 0 0 =  72
+  |6         0 1 0 0 0 1 0 0 =  68
+  |7         0 0 0 0 0 0 0 0 =   0
+  |8         0 0 0 0 0 0 0 0 =   0
+--+-------------------------------
+</pre>
+
+    <p>Therefore a small program to set the character a to the same as the character k in
+    channel #1 would be:</p>
+
+    <pre>
+10 a=RESPR(11)
+20 POKE a,97 : REMark 97=CODE('a') - first character in font
+30 POKE a+1,0: REMark Only one character is being redefined
+40 RESTORE
+50 FOR i=0 TO 8:READ bit:POKE a+2+i,bit
+60 DATA 64,64,68,72,112,72,68,0,0
+70 CHAR_USE #1,a,0
+</pre>
+
+    <p>Note that unfortunately no other characters will be printed correctly! This is
+    because, when re-designing a font, it needs to include all of the characters which
+    may be used in the window to which the font is attached.</p>
+
+    <p>When designing fonts for use on the QL, it is important that certain rules are
+    followed to ensure that when characters are <span style=
+    "font-style: italic;">PRINT</span>ed on screen, they have the desired appearance in
+    all screen modes. The QL converts a given character into the desired mode by doubling
+    up various rows or columns (depending on the size set using the <span style=
+    "font-style: italic;">CSIZE</span> command). If you intend to re-design letters, the
+    rightmost two columns (bits 0 and 1) should always be left empty as these are ignored
+    in current versions of the QL ROM.</p>
+
+    <p>The leftmost column (bit 7) is normally left blank to ensure a gap between
+    adjacent characters, however, should you want to use this column also, you must be
+    wary of the fact that pre-JS ROMs cannot display fonts correctly which use this
+    column (bit 7) and so this should always be left blank unless you know that your font
+    is going to be used specifically on later ROMs (see <span style=
+    "font-style: italic;">CSIZE</span>).</p>
+
+    <p>In fact, if you are clever, you can use this bit 7 to obtain interesting effects
+    on pre-JS ROMs, whilst still retaining the full 8 pixel wide characters (the effects
+    vary depending on the ROM version and cannot be guaranteed!).</p>
+
+    <p>You should also be aware of the fact that an extra blank row is generally left
+    between each line of characters. Toolkit II users can however prevent this by using
+    <span style="font-style: italic;">CHAR_INC</span>.</p>
+  </div>
+</body>
+</html>

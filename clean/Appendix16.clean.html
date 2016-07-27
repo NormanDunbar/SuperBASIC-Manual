@@ -1,0 +1,7324 @@
+    
+<H3>A16 THE QL DISPLAY</H3>
+    
+<P>The way in which the QL display is made up is fairly complex, and alters in different <SPAN style="font-style: italic;">MODE</SPAN>s and on different resolutions. The extended display under SMSQ/E has also completely re-written the way in which the screen is addressed, causing some incompatability problems.</P>
+    
+<P>The QL screen is in fact an area of the QL's memory which can be altered using <SPAN style="font-style: italic;">PEEK</SPAN> and <SPAN style="font-style: italic;">POKE</SPAN> (or similar commands) as well as the more usual display commands such as <SPAN style="font-style: italic;">INK</SPAN>, <SPAN style="font-style: italic;">PRINT</SPAN>, <SPAN style="font-style: italic;">RECOL</SPAN> and <SPAN style="font-style: italic;">INPUT</SPAN>. However, direct access to the screen should be avoided wherever possible, except via the machine code <SPAN style="font-style: italic;">IOW.XTOP</SPAN> TRAP #3 routine (D0=$09).</P>
+    
+<P>In order to retain compatability with older software, the Aurora motherboard, Q40/Q60 and QPC2 v3.00+ emulators all copy data stored at the standard QL screen address across to the correct display area. However, this in itself can lead to problems unless the computer is set up to start in 512x256 mode, since the software does not copy changes on the main screen (for example made with <SPAN style="font-style: italic;">PRINT</SPAN> back to the original QL display area).</P>
+    
+<H3>A16.1 THE SCREEN ADDRESS</H3>
+    
+<P>On a standard QL the screen is 32768 bytes long and stored in memory starting with the address 131072 ($20000 in Hexadecimal).</P>
+    
+<P>In dual screen mode, another QL screen is also stored in memory, normally at the address $28000 (in Hexadecimal) onwards.</P>
+    
+<P>However, in higher resolutions, this screen address has to move in order to make room for a larger screen size.</P>
+    
+<P>It is therefore imperative that programs and toolkit commands do not make assumptions about where the QL screen is stored - use <SPAN style="font-style: italic;">SCR_BASE</SPAN>, <SPAN style="font-style: italic;">SCREEN</SPAN> or similar functions to find the start address.</P>
+    
+<P>As the size of the screen alters, so does the amount of memory which the screen takes up - to find the number of bytes used to store a screen, use the formula:</P>
+    
+<P><SPAN style="font-style: italic;">screen_size = SCR_LLEN * SCR_YLIM</SPAN></P>
+    
+<H3>A16.2 THE SCREEN SIZE</H3>
+    
+<P>On a standard QL, the display normally supports 256x256 pixels in <SPAN style="font-style: italic;">MODE 8</SPAN> and 512x256 pixels in <SPAN style="font-style: italic;">MODE 4</SPAN>.</P>
+    
+<P>However, if the QL implementation you are using allows you to alter the size of the QL's display (which can be anything up to 1600x1600 pixels), you can either configure the operating system to start up in a higher resolution or use a command such as <SPAN style="font-style: italic;">SCR_SIZE</SPAN>.</P>
+    
+<P>Due to the differences in the possible displays, you should use the functions <SPAN style="font-style: italic;">SCR_XLIM</SPAN> and <SPAN style="font-style: italic;">SCR_YLIM</SPAN> to find out the maximum size of the screen which can be addressed by your program.</P>
+    
+<P>Another factor to be taken into account is the number of pixels which are used to contain the values of one pixel line of the display. On a standard QL this is 128 bytes and many programs assumed that this would never change. However, higher resolutions and extended colour drivers demand more storage space, so you should use <SPAN style="font-style: italic;">SCR_LLEN</SPAN> to find out this number.</P>
+    
+<H3>A16.3 ON-SCREEN COLOURS</H3>
+    
+<P>The QL screen is actually an area of memory which is specifically set aside to hold these details (the display memory). One of the QL's chips looks at this memory 50 times per second (60 times per second in the sK) and uses the values stored there to calculate the colour of the pixels which you see on the screen of your Monitor or TV. Emulators copy this screen to the area of memory used by the display card on the native machine.</P>
+    
+<P>The display memory starts at <SPAN style="font-style: italic;">SCR_BASE</SPAN> which represents the top left hand corner of your Monitor's screen and the size of the memory in bytes is calculated by the formula:</P>
+    
+<P><SPAN style="font-style: italic;">SCR_YLIM * SCR_LLEN</SPAN></P>
+    
+<P>As you will see from the information set out below, you can easily presume that if you know the number of pixels that a display size can show, you should be able to calculate <SPAN style="font-style: italic;">SCR_LLEN</SPAN> (and vice-versa) and in fact some software does just this. However, this is not always so - some QL implementations use a fixed number of bytes to contain the displayed pixels (no matter what the screen resolution) and so you should use both <SPAN style="font-style: italic;">SCR_LLEN</SPAN> and <SPAN style="font-style: italic;">SCR_XLIM</SPAN>. See the examples below as to how programs should be written to take account of both of these factors.</P>
+    
+<P>The way in which the display memory is organised depends upon the screen mode being used, with more complex organisation methods for screen modes which display more colours.</P>
+    
+<P>Under SMSQ/E v2.98+. you are able to use either the Standard QL Colour Drivers, or the Enhanced Colour Drivers. If the latter is used, you need to specify for each program which colour scheme is to be used with the following commands:</P>
+    <TABLE>
+      <TR>
+        <TD><SPAN style="font-style: italic;">COLOUR_QL</SPAN></TD>
+        <TD>use standard QL <SPAN style="font-style: italic;">MODE 4</SPAN> / <SPAN style="font-style: italic;">MODE 8</SPAN> colour definitions (this is the default scheme).</TD>
+      </TR>
+      <TR>
+        <TD><SPAN style="font-style: italic;">COLOUR_PAL</SPAN></TD>
+        <TD>use 8 bit (256 colour) palette definition.</TD>
+      </TR>
+      <TR>
+        <TD><SPAN style="font-style: italic;">COLOUR_24</SPAN></TD>
+        <TD>use the 24 bit true colour definition.</TD>
+      </TR>
+      <TR>
+        <TD><SPAN style="font-style: italic;">COLOUR_NATIVE</SPAN></TD>
+        <TD>use the native colour definition (dependent on the hardware itself).</TD>
+      </TR>
+    </TABLE>
+    
+<P>You can also specify that a different colour palette is to be used to represent each of the <SPAN style="font-style: italic;">INK</SPAN> colours, using the commands:</P>
+    <TABLE>
+      <TR>
+        <TD><SPAN style="font-style: italic;">PALETTE_QL</SPAN></TD>
+        <TD>Specify different palette for standard <SPAN style="font-style: italic;">MODE 4</SPAN>/<SPAN style="font-style: italic;">MODE 8</SPAN> colours</TD>
+      </TR>
+      <TR>
+        <TD><SPAN style="font-style: italic;">PALETTE_8</SPAN></TD>
+        <TD>Specify different palette for 8 bit colours</TD>
+      </TR>
+    </TABLE>
+    
+<P>The <SPAN style="font-style: italic;">MODE</SPAN> will always remain the same once a program is using the Enhanced Colour Drivers and the colour parameters expected by commands such as <SPAN style="font-style: italic;">INK</SPAN>, <SPAN style="font-style: italic;">PAPER</SPAN>, <SPAN style="font-style: italic;">STRIP</SPAN>, <SPAN style="font-style: italic;">BORDER</SPAN> and <SPAN style="font-style: italic;">BLOCK</SPAN> will depend upon the following tables.</P>
+    
+<P>To use these tables, look up the hardware the program is to be used on and then find the colour you need (this will need to be specified as a PAL value, Native Colour Value or 24 Bit Colour Value depending on which <SPAN style="font-style: italic;">COLOUR_xx</SPAN> command has been used) - see <SPAN style="font-style: italic;">COLOUR_PAL</SPAN> for an example of how to make a program adopt to the different hardware.</P>
+    
+<P><BR></P>
+    
+<H3>Standard QL Colour Drivers
+    
+    <SPAN style="font-style: italic;">MODE 4</SPAN></H3>
+    
+<P>This is one of the standard display modes supported on the QL and compatibles, with a lot of non-leisure software expecting this <SPAN style="font-style: italic;">MODE</SPAN> - this is because it provides a minimum display area of 512 x 256 pixels.</P>
+    
+<P>On a standard QL colour scheme, every two bytes (a word) represent eight pixels on the Monitor's screen calculated by looking at the status of each of the corresponding eight binary bits in each byte. The first bit of the first byte is combined with the first bit of the second byte to represent the colour of the first pixel. The second bit of the first byte is combined with the second bit of the second byte to represent the colour of the second pixel.</P>
+    
+<P>For example, if the first two bytes stored at <SPAN style="font-style: italic;">SCR_BASE</SPAN> are represented in binary as:</P>
+    <PRE>
+        0 1 1 0 0 1 1 0   0 0 1 1 0 0 1 0
+        } |_______________}_|
+        }     2nd pixel   }
+        }_________________}
+              1st pixel
+</PRE>
+    
+<P>The two bits are then placed side by side to create the colour combination, meaning that the first pixel is represented as 00 and the second pixel is represented as 10.</P>
+    
+<P>This provides us with the following colours:</P>
+    <TABLE>
+      <TR>
+        <TD>00</TD>
+        <TD>BLACK</TD>
+      </TR>
+      <TR>
+        <TD>01</TD>
+        <TD>RED</TD>
+      </TR>
+      <TR>
+        <TD>10</TD>
+        <TD>GREEN</TD>
+      </TR>
+      <TR>
+        <TD>11</TD>
+        <TD>WHITE</TD>
+      </TR>
+    </TABLE>
+    
+<P>Therefore in the above example, the first eight pixels of the display become:</P>
+    
+<P>00 10 11 01 00 10 11 00</P>
+    
+<P>which equates to the following colours:</P>
+    
+<P>BLACK, GREEN, WHITE, RED, BLACK, GREEN, WHITE, BLACK</P>
+    
+<H3>Example:</H3>
+    
+<P>The following program will fill the screen with black and white vertical stripes:</P>
+    <PRE>
+        100 MODE 4
+        110 FOR x=0 TO SCR_YLIM-1
+        120   FOR y=0 TO (SCR_XLIM-1)/4 STEP 2
+        130     POKE SCR_BASE+ (x*SCR_LLEN) + y,    BIN ('01010101')
+        135     POKE SCR_BASE+ (x*SCR_LLEN) + y+1,  BIN ('01010101')
+        140   END FOR y
+        150 END FOR x
+</PRE>
+    
+<H3><SPAN style="font-style: italic;">MODE 8</SPAN></H3>
+    
+<P>This was one of the standard display modes but is only fully supported on a limited number of QL implementations. A lot of leisure software expects this <SPAN style="font-style: italic;">MODE</SPAN> - this is because it provides more colours and the possibility of flashing pixels on screen. However, if this mode is not available, fear not, since the programs will still run quite happily in other screen modes, although the screen may be a little different.</P>
+    
+<P>This mode provides a standard display area of 256 x 256 pixels.</P>
+    
+<P>On a standard QL colour scheme, every two bytes (a word) represent four pixels on the Monitor's screen calculated by looking at the status of each set of two corresponding binary bits in each byte. The first two bits of the first byte are combined with the first two bits of the second byte to represent the colour of the first pixel. The second two bits of the first byte are combined with the second two bits of the second byte to represent the colour of the second pixel.</P>
+    
+<P>For example, if the first two bytes stored at <SPAN style="font-style: italic;">SCR_BASE</SPAN> are represented in binary as:</P>
+    <PRE>
+        0 1 1 0 0 1 1 0   0 0 1 1 0 0 1 0
+        } } |__|__________}_}_|_|
+        } }    2nd pixel  } }
+        } }_______________} }
+               1st pixel
+</PRE>
+    
+<P>The four bits are then placed side by side to define the pixel. The second bit specifies whether Flash is to be set (bit=1) - if flash is enabled by setting this bit, then this will affect all other pixels on that same line until another flash bit is set (disabling the Flash function).</P>
+    
+<P>The other three bits are combined to create the colour, meaning that the first pixel is represented as 0100 and the second pixel is represented as 1011.</P>
+    
+<P>This provides us with the following colours (excluding the flash bit which is represented here by an x):</P>
+    <TABLE>
+      <TR>
+        <TD>0x00</TD>
+        <TD>BLACK</TD>
+      </TR>
+      <TR>
+        <TD>0x01</TD>
+        <TD>BLUE</TD>
+      </TR>
+      <TR>
+        <TD>0x10</TD>
+        <TD>RED</TD>
+      </TR>
+      <TR>
+        <TD>0x11</TD>
+        <TD>MAGENTA</TD>
+      </TR>
+      <TR>
+        <TD>1x00</TD>
+        <TD>GREEN</TD>
+      </TR>
+      <TR>
+        <TD>0x01</TD>
+        <TD>CYAN</TD>
+      </TR>
+      <TR>
+        <TD>0x10</TD>
+        <TD>YELLOW</TD>
+      </TR>
+      <TR>
+        <TD>0x11</TD>
+        <TD>WHITE</TD>
+      </TR>
+    </TABLE>
+    
+<P>Therefore in the above example, the first four pixels of the display become:</P>
+    <TABLE>
+      <TR>
+        <TH>PIXEL</TH>
+        <TH>BITS</TH>
+        <TH>EFFECT</TH>
+      </TR>
+      <TR>
+        <TD align="center">0</TD>
+        <TD>0100</TD>
+        <TD>BLACK (Turn Flash On at this Pixel)</TD>
+      </TR>
+      <TR>
+        <TD align="center">1</TD>
+        <TD>1011</TD>
+        <TD>WHITE (Flashing)</TD>
+      </TR>
+      <TR>
+        <TD align="center">2</TD>
+        <TD>0100</TD>
+        <TD>BLACK (Turn Flash Off after this Pixel)</TD>
+      </TR>
+      <TR>
+        <TD align="center">3</TD>
+        <TD>1010</TD>
+        <TD>YELLOW</TD>
+      </TR>
+    </TABLE>
+    
+<H3>Example:</H3>
+    
+<P>The following program will fill the screen with magenta and cyan flashing vertical stripes:</P>
+    <PRE>
+        100 MODE 8
+        110 FOR x=0 TO SCR_YLIM-1
+        120   FOR y=0 TO (SCR_XLIM-1)/4 STEP 2
+        130     POKE SCR_BASE+ (x*SCR_LLEN) + y,    BIN ('01100110')
+        135     POKE SCR_BASE+ (x*SCR_LLEN) + y+1,  BIN ('11011101')
+        140   END FOR y
+        150 END FOR x
+</PRE>
+    
+<P>Note that only one in two cyan pixels flash, this is because the effect of each pass of the y loop is to set the following pixels:</P>
+    <TABLE>
+      <TR>
+        <TH>PIXEL</TH>
+        <TH>BITS</TH>
+        <TH>EFFECT</TH>
+      </TR>
+      <TR>
+        <TD align="center">0</TD>
+        <TD>0111</TD>
+        <TD>MAGENTA (Turn Flash On at this Pixel)</TD>
+      </TR>
+      <TR>
+        <TD align="center">1</TD>
+        <TD>1001</TD>
+        <TD>CYAN (Flashing)</TD>
+      </TR>
+      <TR>
+        <TD align="center">2</TD>
+        <TD>0111</TD>
+        <TD>BLACK (Turn Flash Off after this Pixel)</TD>
+      </TR>
+      <TR>
+        <TD align="center">3</TD>
+        <TD>1001</TD>
+        <TD>CYAN (Not Flashing)</TD>
+      </TR>
+    </TABLE>
+    
+<H3><SPAN style="font-style: italic;"><BR></SPAN>SMSQ/E NOTES:</H3>
+    
+<P>Under the Enhanced Colour Drivers, available under SMSQ/E v2.98+, <SPAN style="font-style: italic;">COLOUR_QL</SPAN> can be used to make a program resemble the original <SPAN style="font-style: italic;">MODE 4</SPAN> or <SPAN style="font-style: italic;">MODE 8</SPAN>, generating the same colours.</P>
+    
+<P>However, as explained in the description of the <SPAN style="font-style: italic;">INK</SPAN> command, all 8 colours available to <SPAN style="font-style: italic;">MODE 8</SPAN> are actually available whether a program is attempting to run in <SPAN style="font-style: italic;">MODE 4</SPAN> or <SPAN style="font-style: italic;">MODE 8</SPAN>. As a result, programs written for the original standard QL <SPAN style="font-style: italic;">MODE 4</SPAN> may show slight colour corruption.</P>
+    
+<P>It is possible to alter the set of 8 colours available if a different palette is specified with <SPAN style="font-style: italic;">PALETTE_QL</SPAN>.</P>
+    
+<P>SMSQ/E can be forced to overcome any incompatability problems by configuring it to load the Standard QL Colour Drivers; using <SPAN style="font-style: italic;">DISP_COLOUR</SPAN>; or using <SPAN style="font-style: italic;">PALETTE_QL</SPAN>.</P>
+    
+<H3>Aurora Enhanced Colour Drivers</H3>
+    
+<P>At present, a version of SMSQ/E which provides the Enhanced Colour Drivers for Aurora has not been released. The way in which these colour schemes are therefore used is subject to possible change.</P>
+    
+<P>Although this can be used for testing software, unfortunately, if an Enhanced Colour Mode is enabled on Aurora, the display is corrupted by pixels being split across the screen, effectively causing the screen to be repeated horizontally. Programs such as the Photon JPEG viewer overcome this by clearing the screen and only altering the display memory directly (not attempting to use any standard commands/ machine code operating system calls). See the examples below as to how this may be achieved.</P>
+    
+<P>The display mode may be changed directly by altering the value stored at address $18043 in memory (this is write only and cannot be read). The write-only Master Control Register at $18063 remains as on the standard QL for compatability. Attempting to read the byte stored at $18043 will actually return the value of the Monitor Preset Register - see below.</P>
+    
+<H3>The Master Control Register ($18063)</H3>
+    
+<P>A write-only register where the following bits can be used:</P>
+    <TABLE>
+      <TR>
+        <TD>Bit 0</TD>
+        <TD>-</TD>
+        <TD>Blank Screen if set.</TD>
+      </TR>
+      <TR>
+        <TD>Bit 3</TD>
+        <TD>-</TD>
+        <TD>Use <SPAN style="font-style: italic;">MODE 4</SPAN> if clear, <SPAN style="font-style: italic;">MODE 8</SPAN> if set.</TD>
+      </TR>
+      <TR>
+        <TD>Bit 7</TD>
+        <TD>-</TD>
+        <TD>Display SCR0 if clear, SCR1 if set. Keep this bit clear if using non-standard QL display modes and resolutions.</TD>
+      </TR>
+    </TABLE>
+    
+<P>All other bits should be left clear.</P>
+    
+<P>As can be seen, Minerva's extended <SPAN style="font-style: italic;">MODE</SPAN> calls alter this register and should be used where available.</P>
+    
+<H3>The Enhanced Mode Control Register ($18043)</H3>
+    
+<P>A write-only register where the following bits can be used:</P>
+    
+<P>Bits 0 &amp; 1 - Control display resolution as per following table:</P>
+    <TABLE>
+      <TR>
+        <TH>Bit 1</TH>
+        <TH>Bit 0</TH>
+        <TH>Horizontal resolution</TH>
+      </TR>
+      <TR>
+        <TD align="center">0</TD>
+        <TD align="center">0</TD>
+        <TD>512 pixels</TD>
+      </TR>
+      <TR>
+        <TD align="center">0</TD>
+        <TD align="center">1</TD>
+        <TD>640 pixels</TD>
+      </TR>
+      <TR>
+        <TD align="center">1</TD>
+        <TD align="center">0</TD>
+        <TD>768 pixels</TD>
+      </TR>
+      <TR>
+        <TD align="center">1</TD>
+        <TD align="center">1</TD>
+        <TD>1024 pixels</TD>
+      </TR>
+    </TABLE>
+    
+<P>Bits 3 &amp; 4 - Control colour mode as per following table:</P>
+    <TABLE>
+      <TR>
+        <TH>Bit 4</TH>
+        <TH>Bit 3</TH>
+        <TH>Mode</TH>
+      </TR>
+      <TR>
+        <TD align="center">0</TD>
+        <TD align="center">0</TD>
+        <TD>4 Colour Mode (<SPAN style="font-style: italic;">MODE 4</SPAN>)</TD>
+      </TR>
+      <TR>
+        <TD align="center">0</TD>
+        <TD align="center">1</TD>
+        <TD>8 Colour Mode (<SPAN style="font-style: italic;">MODE 8</SPAN>)</TD>
+      </TR>
+      <TR>
+        <TD align="center">1</TD>
+        <TD align="center">0</TD>
+        <TD>16 Colour Mode</TD>
+      </TR>
+      <TR>
+        <TD align="center">1</TD>
+        <TD align="center">1</TD>
+        <TD>256 Colour Mode</TD>
+      </TR>
+    </TABLE>
+    
+<P>Bit 7 - Control aspect ratio (which controls how the vertical resolution is calculated by reference to the horizontal resolution) as per following table:</P>
+    <TABLE>
+      <TR>
+        <TH>Bit 7</TH>
+        <TH>Aspect Ratio</TH>
+      </TR>
+      <TR>
+        <TD align="center">0</TD>
+        <TD>2:1 (QL Style pixels); vertical res. = horizontal res. * 1/2</TD>
+      </TR>
+      <TR>
+        <TD align="center">1</TD>
+        <TD>4:3 (Square pixels); vertical res. = horizontal res. * 3/4</TD>
+      </TR>
+    </TABLE>
+    
+<P>All other bits should be left clear.</P>
+    
+<H3>IMPORTANT:</H3>
+    
+<P>The actual resolution displayed will depend on the monitor preset, which can be read from the Monitor Preset Register (see below) and the mode selected (for reasons of limited high-resolution screen memory).</P>
+    
+<P>The resolution selected in the Enhanced Mode Control Register ($18043) in principle does NOT depend on the mode, except in <SPAN style="font-style: italic;">MODE 8</SPAN>, where the resolution selected refers to <SPAN style="font-style: italic;">MODE 4</SPAN>, but the number of pixels in one line is halved, as per the standard QL <SPAN style="font-style: italic;">MODE 8</SPAN> (this is to maintain compatibility), and by limit of the high-resolution screen memory.</P>
+    
+<P>Because the high-resolution screen memory is fixed at 240K, the resolutions in modes with more colours will be limited. In particular:</P>
+    <TABLE>
+      <TR>
+        <TD><SPAN style="font-style: italic;">MODE 4</SPAN>:</TD>
+        <TD>No limits (high-resolution screen memory is larger than maximum resolution of 1024 x 768 pixels).</TD>
+      </TR>
+      <TR>
+        <TD>16 Colour Mode:</TD>
+        <TD>Maximum vertical resolution is limited to 480 lines.</TD>
+      </TR>
+      <TR>
+        <TD>256 Colour Mode:</TD>
+        <TD>Horizontal resolution is limited to 512 pixels, and maximum vertical resolution is limited to 480 lines.</TD>
+      </TR>
+    </TABLE>
+    
+<P>Additional limits may apply depending on the monitor preset values.</P>
+    
+<P>The limiting logic is simple - if the resolution chosen is higher than a limit, the limit is used instead. Limits apply independently for x and y directions. The maximum x and y coordinates have to be adjusted according to these limits for every given resolution and monitor preset setting.</P>
+    
+<H3>The Monitor Preset Register ($18043)</H3>
+    
+<P>This is a read-only register where the following bits can be used:</P>
+    <TABLE>
+      <TR>
+        <TD>Bit 0</TD>
+        <TD></TD>
+        <TD>-</TD>
+        <TD>Interlace Enable Bit (IE)</TD>
+      </TR>
+      <TR>
+        <TD>Bit 2 (MT1)
+        Bit 4 (MT0)</TD>
+        <TD>}
+        }</TD>
+        <TD>-</TD>
+        <TD>General Type of Monitor Selected</TD>
+      </TR>
+    </TABLE>
+    
+<P>The maximum vertical resolutions is calculated as per the following table (where NI means Not Interlaced and I means Interlaced):</P>
+    <TABLE>
+      <TR>
+        <TH>MT1</TH>
+        <TH>MT0</TH>
+        <TH>IE</TH>
+        <TH>Monitor type</TH>
+        <TH>Max. vert. resolution</TH>
+      </TR>
+      <TR>
+        <TD align="center">0</TD>
+        <TD align="center">0</TD>
+        <TD align="center">0</TD>
+        <TD>QL standard</TD>
+        <TD>NI 288 lines</TD>
+      </TR>
+      <TR>
+        <TD align="center">0</TD>
+        <TD align="center">0</TD>
+        <TD align="center">1</TD>
+        <TD>QL standard</TD>
+        <TD>I 576 lines</TD>
+      </TR>
+      <TR>
+        <TD align="center">0</TD>
+        <TD align="center">1</TD>
+        <TD align="center">0</TD>
+        <TD>VGA</TD>
+        <TD>I 576 lines</TD>
+      </TR>
+      <TR>
+        <TD align="center">0</TD>
+        <TD align="center">1</TD>
+        <TD align="center">1</TD>
+        <TD>VGA</TD>
+        <TD>I 768 lines</TD>
+      </TR>
+      <TR>
+        <TD align="center">1</TD>
+        <TD align="center">0</TD>
+        <TD align="center">0</TD>
+        <TD>SVGA</TD>
+        <TD>NI 576 lines</TD>
+      </TR>
+      <TR>
+        <TD align="center">1</TD>
+        <TD align="center">0</TD>
+        <TD align="center">1</TD>
+        <TD>SVGA</TD>
+        <TD>I 768 lines</TD>
+      </TR>
+      <TR>
+        <TD align="center">1</TD>
+        <TD align="center">1</TD>
+        <TD align="center">0</TD>
+        <TD>Multisynch</TD>
+        <TD>I 768 lines</TD>
+      </TR>
+      <TR>
+        <TD align="center">1</TD>
+        <TD align="center">1</TD>
+        <TD align="center">1</TD>
+        <TD>Multisynch diag.</TD>
+        <TD>960 lines*</TD>
+      </TR>
+    </TABLE>
+    
+<P>* This is a special diagnostic mode which displays a 1024x960 interlaced picture on a multisynch monitor when 1024x768 is selected, hence displaying the contents of the whole high-res screen area. Whether the software will support this is optional - this combination of MT and IE bits is not used in normal operation.</P>
+    
+<H3>16 Colour Mode</H3>
+    
+<P>It is planned that under the Enhanced Colour Drivers available in SMSQ/E v2.98+, this mode will be available as <SPAN style="font-style: italic;">MODE 8</SPAN> and support up to 1024x480 resolution. It is not yet implemented and may be forced using the command:</P>
+    <TABLE>
+      <TR>
+        <TD><SPAN style="font-style: italic;">POKE $18043,144</SPAN> (144=%10010000)</TD>
+        <TD>-</TD>
+        <TD>512 pixels x 480 pixels</TD>
+      </TR>
+      <TR>
+        <TD><SPAN style="font-style: italic;">POKE $18043,146</SPAN> (146=%10010010)</TD>
+        <TD>-</TD>
+        <TD>768 pixels x 480 pixels</TD>
+      </TR>
+      <TR>
+        <TD><SPAN style="font-style: italic;">POKE $18043,147</SPAN> (147=%10010011)</TD>
+        <TD>-</TD>
+        <TD>1024 pixels x 480 pixels</TD>
+      </TR>
+    </TABLE>
+    
+<P>(See above for details)</P>
+    
+<P>A different set of colours can be used by specifying a different palette with <SPAN style="font-style: italic;">PALETTE_QL</SPAN>.</P>
+    
+<P>Actually writing to the screen directly causes some problems, since <SPAN style="font-style: italic;">SCR_LLEN</SPAN> returns 256 bytes, although in actual fact, the screen is 512 bytes wide in this mode.</P>
+    
+<P>Under the Enhanced Colour Drivers, this mode uses a byte to store the colours of 2 pixels. Here, the four adjacent bits represent the same pixel.</P>
+    
+<P>The four bits are stored in the format:</P>
+    
+<H3>irgb</H3>
+    
+<P>where:</P>
+    <TABLE>
+      <TR>
+        <TD>i</TD>
+        <TD>=</TD>
+        <TD>intensity</TD>
+      </TR>
+      <TR>
+        <TD>g</TD>
+        <TD>=</TD>
+        <TD>green</TD>
+      </TR>
+      <TR>
+        <TD>r</TD>
+        <TD>=</TD>
+        <TD>red</TD>
+      </TR>
+      <TR>
+        <TD>b</TD>
+        <TD>=</TD>
+        <TD>blue</TD>
+      </TR>
+    </TABLE>
+    
+<P>It is uncertain how this will be implemented - However, the following table details the Native Values to be used when <SPAN style="font-style: italic;">POKE</SPAN>ing directly to the screen (in machine code for example) and the probable corresponding <SPAN style="font-style: italic;">INK</SPAN> parameter to use to achieve that colour (<EM>NOTE</EM> this is not the same as the original QL colour scheme). Conversion of the values to binary gives a clue as to how this colour scheme works:</P>
+    <TABLE>
+      <TR>
+        <TH colspan="2"></TH>
+        <TH colspan="3">irgb</TH>
+      </TR>
+      <TR>
+        <TH>INK</TH>
+        <TH></TH>
+        <TH>Native</TH>
+        <TH>Native</TH>
+        <TH>Native</TH>
+      </TR>
+      <TR>
+        <TH>Colour</TH>
+        <TH>Colour</TH>
+        <TH>Value</TH>
+        <TH>Value</TH>
+        <TH>Value</TH>
+      </TR>
+      <TR>
+        <TH>Value</TH>
+        <TH>Name</TH>
+        <TH>(Decimal)</TH>
+        <TH>(Hex)</TH>
+        <TH>(Binary)</TH>
+      </TR>
+      <TR align="center">
+        <TD>0</TD>
+        <TD>Black</TD>
+        <TD>0</TD>
+        <TD>$00</TD>
+        <TD>0000</TD>
+      </TR>
+      <TR align="center">
+        <TD>1</TD>
+        <TD>White</TD>
+        <TD>15</TD>
+        <TD>$0F</TD>
+        <TD>1111</TD>
+      </TR>
+      <TR align="center">
+        <TD>2</TD>
+        <TD>Red</TD>
+        <TD>12</TD>
+        <TD>$0C</TD>
+        <TD>1100</TD>
+      </TR>
+      <TR align="center">
+        <TD>3</TD>
+        <TD>Green</TD>
+        <TD>10</TD>
+        <TD>$0A</TD>
+        <TD>1010</TD>
+      </TR>
+      <TR align="center">
+        <TD>4</TD>
+        <TD>Blue</TD>
+        <TD>9</TD>
+        <TD>$09</TD>
+        <TD>1001</TD>
+      </TR>
+      <TR align="center">
+        <TD>5</TD>
+        <TD>Magenta</TD>
+        <TD>13</TD>
+        <TD>$0D</TD>
+        <TD>1101</TD>
+      </TR>
+      <TR align="center">
+        <TD>6</TD>
+        <TD>Yellow</TD>
+        <TD>14</TD>
+        <TD>$0E</TD>
+        <TD>1110</TD>
+      </TR>
+      <TR align="center">
+        <TD>7</TD>
+        <TD>Cyan</TD>
+        <TD>11</TD>
+        <TD>$0B</TD>
+        <TD>1011</TD>
+      </TR>
+      <TR align="center">
+        <TD>10</TD>
+        <TD>Dark Grey</TD>
+        <TD>8</TD>
+        <TD>$08</TD>
+        <TD>1000</TD>
+      </TR>
+      <TR align="center">
+        <TD>11</TD>
+        <TD>Grey</TD>
+        <TD>7</TD>
+        <TD>$07</TD>
+        <TD>0111</TD>
+      </TR>
+      <TR align="center">
+        <TD>14</TD>
+        <TD>Dark Red</TD>
+        <TD>4</TD>
+        <TD>$04</TD>
+        <TD>0100</TD>
+      </TR>
+      <TR align="center">
+        <TD>17</TD>
+        <TD>Green</TD>
+        <TD>2</TD>
+        <TD>$02</TD>
+        <TD>0010</TD>
+      </TR>
+      <TR align="center">
+        <TD>19</TD>
+        <TD>Blue</TD>
+        <TD>1</TD>
+        <TD>$01</TD>
+        <TD>0001</TD>
+      </TR>
+      <TR align="center">
+        <TD>??</TD>
+        <TD>Dark Magenta</TD>
+        <TD>5</TD>
+        <TD>$05</TD>
+        <TD>0101</TD>
+      </TR>
+      <TR align="center">
+        <TD>??</TD>
+        <TD>Dark Yellow</TD>
+        <TD>6</TD>
+        <TD>$06</TD>
+        <TD>0110</TD>
+      </TR>
+      <TR align="center">
+        <TD>??</TD>
+        <TD>Dark Cyan</TD>
+        <TD>3</TD>
+        <TD>$03</TD>
+        <TD>0011</TD>
+      </TR>
+    </TABLE>
+    
+<H3>Example:</H3>
+    
+<P>The following program for SMSQ/E will show the <SPAN style="font-style: italic;">MODE 8</SPAN> (16 colours) available on Aurora. Note the need to explicitly wipe the screen - this is because <SPAN style="font-style: italic;">MODE</SPAN> would normally do this for you.</P>
+    <PRE>
+        100 MODE 4
+        110 POKE $18043,144 : REMark force switch to MODE 8:COLOUR_PAL (512 resolution)
+        120 scr_offset=SCR_BASE(#1)
+        130 scr_len=512:REMark SCR_LLEN reports the wrong value in this mode
+        140 :
+        150 REMark Blank out screen
+        160 col=0
+        170 FOR i%=0 TO 479
+        180   FOR j%=0 TO 508 STEP 4
+        190     POKE_L scr_offset+i%*scr_len+j%,col
+        200   END FOR j%
+        210 END FOR i%
+        220 :
+        230 REMark Draw Colours
+        240 yoff=20
+        250 FOR i=0 TO 1
+        260   xoff=0
+        270   FOR j=0 TO 15
+        280     col=j+j*2^4:REMark Set two pixels at a time.
+        290     scr_offset=yoff*scr_len+xoff+SCR_BASE(#1)
+        300     FOR a=0 TO 10
+        310       FOR b=0 TO 10
+        320           POKE scr_offset+a*scr_len+b,col
+        330       END FOR b
+        340     END FOR a
+        350     xoff=xoff+12
+        360   END FOR j
+        370 yoff=yoff+12
+        380 END FOR i
+</PRE>
+    
+<H3>256 Colour Mode</H3>
+    
+<P>It is planned that under the Enhanced Colour Drivers available in SMSQ/E v2.98+, this mode will be available as <SPAN style="font-style: italic;">MODE 16</SPAN>. There is a fixed resolution available of 512x480 pixels. It is not yet implemented and may be forced using the command:</P>
+    
+<P><SPAN style="font-style: italic;">POKE $18043,154</SPAN>
+    (See above for details)</P>
+    
+<P>Here, every byte represents one pixel on the Monitor's screen, calculated by looking at the status of each of the binary bits in each byte.</P>
+    
+<P>Actually writing to the screen directly causes some problems, since <SPAN style="font-style: italic;">SCR_LLEN</SPAN> returns 256 bytes, although in actual fact, the screen is 512 bytes wide in this mode.</P>
+    
+<P>The bits are combined to represent the amount of GREEN, RED and BLUE to be used for each pixel, in the following format:</P>
+    
+<H3>grbgrbgx</H3>
+    
+<P>where:</P>
+    <TABLE>
+      <TR>
+        <TD>g</TD>
+        <TD>=</TD>
+        <TD>green</TD>
+      </TR>
+      <TR>
+        <TD>r</TD>
+        <TD>=</TD>
+        <TD>red</TD>
+      </TR>
+      <TR>
+        <TD>b</TD>
+        <TD>=</TD>
+        <TD>blue</TD>
+      </TR>
+      <TR>
+        <TD>x</TD>
+        <TD>=</TD>
+        <TD>red/blue</TD>
+      </TR>
+    </TABLE>
+    
+<P>The colours are hard to describe due to the range and therefore require experimentation to obtain the correct colours. However, the following table details the PAL colour which should be used as the <SPAN style="font-style: italic;">INK</SPAN> parameter (</P>
+    
+<H3>NOTE</H3>this does not correspond with the original QL colour scheme!) and the corresponding Native Values to be used when <SPAN style="font-style: italic;">POKE</SPAN>ing directly to the screen (in machine code for example). It is not possible to list all 256 colours, therefore we have tried to list the most widely used ones (<SPAN style="font-style: italic;">INK 0</SPAN> to <SPAN style="font-style: italic;">INK 63</SPAN>) grouped into the different colours. Conversion of the values to binary gives a clue as to how this colour scheme works:
+    <TABLE>
+      <TR>
+        <TH colspan="2"></TH>
+        <TH colspan="3">grbgrbgx</TH>
+      </TR>
+      <TR>
+        <TH>PAL</TH>
+        <TH></TH>
+        <TH>Native</TH>
+        <TH>Native</TH>
+        <TH>Native</TH>
+      </TR>
+      <TR>
+        <TH>Colour</TH>
+        <TH>Colour</TH>
+        <TH>Value</TH>
+        <TH>Value</TH>
+        <TH>Value</TH>
+      </TR>
+      <TR>
+        <TH>Value</TH>
+        <TH>Name</TH>
+        <TH>(Decimal)</TH>
+        <TH>(Hex)</TH>
+        <TH>(Binary)</TH>
+      </TR>
+      <TR align="center">
+        <TD>0</TD>
+        <TD>Black</TD>
+        <TD>0</TD>
+        <TD>$00</TD>
+        <TD>00000000</TD>
+      </TR>
+      <TR align="center">
+        <TD>1</TD>
+        <TD>White</TD>
+        <TD>255</TD>
+        <TD>$FF</TD>
+        <TD>11111111</TD>
+      </TR>
+      <TR align="center">
+        <TD>8</TD>
+        <TD>Dark Slate</TD>
+        <TD>3</TD>
+        <TD>$03</TD>
+        <TD>00000011</TD>
+      </TR>
+      <TR align="center">
+        <TD>9</TD>
+        <TD>Slate Grey</TD>
+        <TD>28</TD>
+        <TD>$1C</TD>
+        <TD>00011100</TD>
+      </TR>
+      <TR align="center">
+        <TD>10</TD>
+        <TD>Dark Grey</TD>
+        <TD>31</TD>
+        <TD>$1F</TD>
+        <TD>00011111</TD>
+      </TR>
+      <TR align="center">
+        <TD>11</TD>
+        <TD>Grey</TD>
+        <TD>224</TD>
+        <TD>$E0</TD>
+        <TD>11100000</TD>
+      </TR>
+      <TR align="center">
+        <TD>12</TD>
+        <TD>Light Grey</TD>
+        <TD>227</TD>
+        <TD>$E3</TD>
+        <TD>11100011</TD>
+      </TR>
+      <TR align="center">
+        <TD>13</TD>
+        <TD>Ash Grey</TD>
+        <TD>252</TD>
+        <TD>$FC</TD>
+        <TD>11111100</TD>
+      </TR>
+      <TR align="center">
+        <TD>58</TD>
+        <TD>Cerise</TD>
+        <TD>68</TD>
+        <TD>$44</TD>
+        <TD>01000100</TD>
+      </TR>
+      <TR align="center">
+        <TD>14</TD>
+        <TD>Dark Red</TD>
+        <TD>64</TD>
+        <TD>$40</TD>
+        <TD>01000000</TD>
+      </TR>
+      <TR align="center">
+        <TD>2</TD>
+        <TD>Red</TD>
+        <TD>73</TD>
+        <TD>$49</TD>
+        <TD>01001001</TD>
+      </TR>
+      <TR align="center">
+        <TD>63</TD>
+        <TD>Deep Purple</TD>
+        <TD>40</TD>
+        <TD>$28</TD>
+        <TD>00101000</TD>
+      </TR>
+      <TR align="center">
+        <TD>51</TD>
+        <TD>Plum</TD>
+        <TD>15</TD>
+        <TD>$0F</TD>
+        <TD>00001111</TD>
+      </TR>
+      <TR align="center">
+        <TD>20</TD>
+        <TD>Purple</TD>
+        <TD>96</TD>
+        <TD>$60</TD>
+        <TD>01100000</TD>
+      </TR>
+      <TR align="center">
+        <TD>26</TD>
+        <TD>Mauve</TD>
+        <TD>100</TD>
+        <TD>$64</TD>
+        <TD>01100100</TD>
+      </TR>
+      <TR align="center">
+        <TD>57</TD>
+        <TD>Faded Purple</TD>
+        <TD>112</TD>
+        <TD>$70</TD>
+        <TD>01110000</TD>
+      </TR>
+      <TR align="center">
+        <TD>52</TD>
+        <TD>Dusky Pink</TD>
+        <TD>113</TD>
+        <TD>$71</TD>
+        <TD>01110001</TD>
+      </TR>
+      <TR align="center">
+        <TD>5</TD>
+        <TD>Magenta</TD>
+        <TD>109</TD>
+        <TD>$6D</TD>
+        <TD>01101101</TD>
+      </TR>
+      <TR align="center">
+        <TD>21</TD>
+        <TD>Shocking Pink</TD>
+        <TD>105</TD>
+        <TD>$69</TD>
+        <TD>01101001</TD>
+      </TR>
+      <TR align="center">
+        <TD>45</TD>
+        <TD>Dull Pink</TD>
+        <TD>115</TD>
+        <TD>$73</TD>
+        <TD>01110011</TD>
+      </TR>
+      <TR align="center">
+        <TD>31</TD>
+        <TD>Rose Pink</TD>
+        <TD>239</TD>
+        <TD>$EF</TD>
+        <TD>11101111</TD>
+      </TR>
+      <TR align="center">
+        <TD>39</TD>
+        <TD>Pastel Rose</TD>
+        <TD>253</TD>
+        <TD>$FD</TD>
+        <TD>11111101</TD>
+      </TR>
+      <TR align="center">
+        <TD>27</TD>
+        <TD>Peach</TD>
+        <TD>235</TD>
+        <TD>$EB</TD>
+        <TD>11101011</TD>
+      </TR>
+      <TR align="center">
+        <TD>50</TD>
+        <TD>Midnight Blue</TD>
+        <TD>7</TD>
+        <TD>$07</TD>
+        <TD>00000111</TD>
+      </TR>
+      <TR align="center">
+        <TD>19</TD>
+        <TD>Dark Blue</TD>
+        <TD>32</TD>
+        <TD>$20</TD>
+        <TD>00100000</TD>
+      </TR>
+      <TR align="center">
+        <TD>4</TD>
+        <TD>Blue</TD>
+        <TD>36</TD>
+        <TD>$24</TD>
+        <TD>00100100</TD>
+      </TR>
+      <TR align="center">
+        <TD>62</TD>
+        <TD>Ultramarine</TD>
+        <TD>48</TD>
+        <TD>$30</TD>
+        <TD>00110000</TD>
+      </TR>
+      <TR align="center">
+        <TD>49</TD>
+        <TD>Dusky Blue</TD>
+        <TD>23</TD>
+        <TD>$17</TD>
+        <TD>00010111</TD>
+      </TR>
+      <TR align="center">
+        <TD>44</TD>
+        <TD>Steel Blue</TD>
+        <TD>59</TD>
+        <TD>$3B</TD>
+        <TD>00111011</TD>
+      </TR>
+      <TR align="center">
+        <TD>18</TD>
+        <TD>Sea Blue</TD>
+        <TD>160</TD>
+        <TD>$A0</TD>
+        <TD>10100000</TD>
+      </TR>
+      <TR align="center">
+        <TD>25</TD>
+        <TD>Bright Blue</TD>
+        <TD>164</TD>
+        <TD>$A4</TD>
+        <TD>10100100</TD>
+      </TR>
+      <TR align="center">
+        <TD>56</TD>
+        <TD>Dull Blue</TD>
+        <TD>168</TD>
+        <TD>$A8</TD>
+        <TD>10101000</TD>
+      </TR>
+      <TR align="center">
+        <TD>43</TD>
+        <TD>Dull Cyan</TD>
+        <TD>171</TD>
+        <TD>$AB</TD>
+        <TD>10101011</TD>
+      </TR>
+      <TR align="center">
+        <TD>7</TD>
+        <TD>Cyan</TD>
+        <TD>182</TD>
+        <TD>$B6</TD>
+        <TD>10110110</TD>
+      </TR>
+      <TR align="center">
+        <TD>29</TD>
+        <TD>Light Blue</TD>
+        <TD>247</TD>
+        <TD>$F7</TD>
+        <TD>11110111</TD>
+      </TR>
+      <TR align="center">
+        <TD>30</TD>
+        <TD>Sky Blue</TD>
+        <TD>231</TD>
+        <TD>$E7</TD>
+        <TD>11100111</TD>
+      </TR>
+      <TR align="center">
+        <TD>48</TD>
+        <TD>Dusky Green</TD>
+        <TD>19</TD>
+        <TD>$13</TD>
+        <TD>00010011</TD>
+      </TR>
+      <TR align="center">
+        <TD>60</TD>
+        <TD>Grass Green</TD>
+        <TD>136</TD>
+        <TD>$88</TD>
+        <TD>10001000</TD>
+      </TR>
+      <TR align="center">
+        <TD>17</TD>
+        <TD>Dark Green</TD>
+        <TD>128</TD>
+        <TD>$80</TD>
+        <TD>10000000</TD>
+      </TR>
+      <TR align="center">
+        <TD>54</TD>
+        <TD>Avocado</TD>
+        <TD>198</TD>
+        <TD>$C6</TD>
+        <TD>11000110</TD>
+      </TR>
+      <TR align="center">
+        <TD>61</TD>
+        <TD>Sea Green</TD>
+        <TD>132</TD>
+        <TD>$84</TD>
+        <TD>10000100</TD>
+      </TR>
+      <TR align="center">
+        <TD>42</TD>
+        <TD>Dull Green</TD>
+        <TD>143</TD>
+        <TD>$8F</TD>
+        <TD>10001111</TD>
+      </TR>
+      <TR align="center">
+        <TD>3</TD>
+        <TD>Green</TD>
+        <TD>146</TD>
+        <TD>$92</TD>
+        <TD>10010010</TD>
+      </TR>
+      <TR align="center">
+        <TD>23</TD>
+        <TD>Lime Green</TD>
+        <TD>210</TD>
+        <TD>$D2</TD>
+        <TD>11010010</TD>
+      </TR>
+      <TR align="center">
+        <TD>24</TD>
+        <TD>Apple Green</TD>
+        <TD>178</TD>
+        <TD>$B2</TD>
+        <TD>10110010</TD>
+      </TR>
+      <TR align="center">
+        <TD>55</TD>
+        <TD>Dull Turquoise</TD>
+        <TD>170</TD>
+        <TD>$AA</TD>
+        <TD>10101010</TD>
+      </TR>
+      <TR align="center">
+        <TD>41</TD>
+        <TD>Light Khaki</TD>
+        <TD>199</TD>
+        <TD>$C7</TD>
+        <TD>11000111</TD>
+      </TR>
+      <TR align="center">
+        <TD>15</TD>
+        <TD>Light Green</TD>
+        <TD>243</TD>
+        <TD>$F3</TD>
+        <TD>11110011</TD>
+      </TR>
+      <TR align="center">
+        <TD>36</TD>
+        <TD>Pastel Green</TD>
+        <TD>254</TD>
+        <TD>$FE</TD>
+        <TD>11111110</TD>
+      </TR>
+      <TR align="center">
+        <TD>46</TD>
+        <TD>Brown</TD>
+        <TD>11</TD>
+        <TD>$0B</TD>
+        <TD>00001011</TD>
+      </TR>
+      <TR align="center">
+        <TD>59</TD>
+        <TD>Tan</TD>
+        <TD>80</TD>
+        <TD>$50</TD>
+        <TD>01010000</TD>
+      </TR>
+      <TR align="center">
+        <TD>6</TD>
+        <TD>Yellow</TD>
+        <TD>219</TD>
+        <TD>$DB</TD>
+        <TD>11011011</TD>
+      </TR>
+      <TR align="center">
+        <TD>22</TD>
+        <TD>Orange</TD>
+        <TD>201</TD>
+        <TD>$C9</TD>
+        <TD>11001001</TD>
+      </TR>
+      <TR align="center">
+        <TD>16</TD>
+        <TD>Mustard</TD>
+        <TD>192</TD>
+        <TD>$C0</TD>
+        <TD>11000000</TD>
+      </TR>
+      <TR align="center">
+        <TD>47</TD>
+        <TD>Khaki</TD>
+        <TD>27</TD>
+        <TD>$1B</TD>
+        <TD>00011011</TD>
+      </TR>
+      <TR align="center">
+        <TD>53</TD>
+        <TD>Buff</TD>
+        <TD>197</TD>
+        <TD>$C5</TD>
+        <TD>11000101</TD>
+      </TR>
+      <TR align="center">
+        <TD>40</TD>
+        <TD>Brick</TD>
+        <TD>87</TD>
+        <TD>$57</TD>
+        <TD>01010111</TD>
+      </TR>
+      <TR align="center">
+        <TD>33</TD>
+        <TD>Beige</TD>
+        <TD>249</TD>
+        <TD>$F9</TD>
+        <TD>11111001</TD>
+      </TR>
+      <TR align="center">
+        <TD>28</TD>
+        <TD>Light Yellow</TD>
+        <TD>251</TD>
+        <TD>$FB</TD>
+        <TD>11111011</TD>
+      </TR>
+    </TABLE>
+    
+<P>It is unknown how PAL colours 32, 34, 35, 37 and 38 will be mapped as these relate to the same values as PAL colours 31, 33, 36, 13 and 13 respectively.</P>
+    
+<P>The remainder of the colours are mapped as follows (we would welcome names for each of these colours):</P>
+    <TABLE>
+      <TR>
+        <TH colspan="2"></TH>
+        <TH colspan="3">grbgrbgx</TH>
+      </TR>
+      <TR>
+        <TH>PAL</TH>
+        <TH></TH>
+        <TH>Native</TH>
+        <TH>Native</TH>
+        <TH>Native</TH>
+      </TR>
+      <TR>
+        <TH>Colour</TH>
+        <TH>Colour</TH>
+        <TH>Value</TH>
+        <TH>Value</TH>
+        <TH>Value</TH>
+      </TR>
+      <TR>
+        <TH>Value</TH>
+        <TH>Name</TH>
+        <TH>(Decimal)</TH>
+        <TH>(Hex)</TH>
+        <TH>(Binary)</TH>
+      </TR>
+      <TR align="center">
+        <TD>64</TD>
+        <TD></TD>
+        <TD>4</TD>
+        <TD>$04</TD>
+        <TD>00000100</TD>
+      </TR>
+      <TR align="center">
+        <TD>65</TD>
+        <TD></TD>
+        <TD>1</TD>
+        <TD>$01</TD>
+        <TD>00000001</TD>
+      </TR>
+      <TR align="center">
+        <TD>66</TD>
+        <TD></TD>
+        <TD>5</TD>
+        <TD>$05</TD>
+        <TD>00000101</TD>
+      </TR>
+      <TR align="center">
+        <TD>67</TD>
+        <TD></TD>
+        <TD>33</TD>
+        <TD>$21</TD>
+        <TD>00100001</TD>
+      </TR>
+      <TR align="center">
+        <TD>68</TD>
+        <TD></TD>
+        <TD>37</TD>
+        <TD>$25</TD>
+        <TD>00100101</TD>
+      </TR>
+      <TR align="center">
+        <TD>69</TD>
+        <TD></TD>
+        <TD>8</TD>
+        <TD>$08</TD>
+        <TD>00001000</TD>
+      </TR>
+      <TR align="center">
+        <TD>70</TD>
+        <TD></TD>
+        <TD>12</TD>
+        <TD>$0C</TD>
+        <TD>00001100</TD>
+      </TR>
+      <TR align="center">
+        <TD>71</TD>
+        <TD></TD>
+        <TD>44</TD>
+        <TD>$2C</TD>
+        <TD>00101100</TD>
+      </TR>
+      <TR align="center">
+        <TD>72</TD>
+        <TD></TD>
+        <TD>9</TD>
+        <TD>$09</TD>
+        <TD>00001001</TD>
+      </TR>
+      <TR align="center">
+        <TD>73</TD>
+        <TD></TD>
+        <TD>13</TD>
+        <TD>$0D</TD>
+        <TD>00001101</TD>
+      </TR>
+      <TR align="center">
+        <TD>74</TD>
+        <TD></TD>
+        <TD>41</TD>
+        <TD>$29</TD>
+        <TD>00101001</TD>
+      </TR>
+      <TR align="center">
+        <TD>75</TD>
+        <TD></TD>
+        <TD>45</TD>
+        <TD>$2D</TD>
+        <TD>00101101</TD>
+      </TR>
+      <TR align="center">
+        <TD>76</TD>
+        <TD></TD>
+        <TD>65</TD>
+        <TD>$41</TD>
+        <TD>01000001</TD>
+      </TR>
+      <TR align="center">
+        <TD>77</TD>
+        <TD></TD>
+        <TD>69</TD>
+        <TD>$45</TD>
+        <TD>01000101</TD>
+      </TR>
+      <TR align="center">
+        <TD>78</TD>
+        <TD></TD>
+        <TD>97</TD>
+        <TD>$61</TD>
+        <TD>01100001</TD>
+      </TR>
+      <TR align="center">
+        <TD>79</TD>
+        <TD></TD>
+        <TD>101</TD>
+        <TD>$65</TD>
+        <TD>01100101</TD>
+      </TR>
+      <TR align="center">
+        <TD>80</TD>
+        <TD></TD>
+        <TD>72</TD>
+        <TD>$48</TD>
+        <TD>01001000</TD>
+      </TR>
+      <TR align="center">
+        <TD>81</TD>
+        <TD></TD>
+        <TD>76</TD>
+        <TD>$4C</TD>
+        <TD>01001100</TD>
+      </TR>
+      <TR align="center">
+        <TD>82</TD>
+        <TD></TD>
+        <TD>104</TD>
+        <TD>$68</TD>
+        <TD>01101000</TD>
+      </TR>
+      <TR align="center">
+        <TD>83</TD>
+        <TD></TD>
+        <TD>108</TD>
+        <TD>$6C</TD>
+        <TD>01101100</TD>
+      </TR>
+      <TR align="center">
+        <TD>84</TD>
+        <TD></TD>
+        <TD>77</TD>
+        <TD>$4D</TD>
+        <TD>01001101</TD>
+      </TR>
+      <TR align="center">
+        <TD>85</TD>
+        <TD></TD>
+        <TD>2</TD>
+        <TD>$02</TD>
+        <TD>00000010</TD>
+      </TR>
+      <TR align="center">
+        <TD>86</TD>
+        <TD></TD>
+        <TD>6</TD>
+        <TD>$06</TD>
+        <TD>00000110</TD>
+      </TR>
+      <TR align="center">
+        <TD>87</TD>
+        <TD></TD>
+        <TD>34</TD>
+        <TD>$22</TD>
+        <TD>00100010</TD>
+      </TR>
+      <TR align="center">
+        <TD>88</TD>
+        <TD></TD>
+        <TD>38</TD>
+        <TD>$26</TD>
+        <TD>00100110</TD>
+      </TR>
+      <TR align="center">
+        <TD>89</TD>
+        <TD></TD>
+        <TD>35</TD>
+        <TD>$23</TD>
+        <TD>00100011</TD>
+      </TR>
+      <TR align="center">
+        <TD>90</TD>
+        <TD></TD>
+        <TD>39</TD>
+        <TD>$27</TD>
+        <TD>00100111</TD>
+      </TR>
+      <TR align="center">
+        <TD>91</TD>
+        <TD></TD>
+        <TD>10</TD>
+        <TD>$0A</TD>
+        <TD>00001010</TD>
+      </TR>
+      <TR align="center">
+        <TD>92</TD>
+        <TD></TD>
+        <TD>14</TD>
+        <TD>$0E</TD>
+        <TD>00001110</TD>
+      </TR>
+      <TR align="center">
+        <TD>93</TD>
+        <TD></TD>
+        <TD>42</TD>
+        <TD>$2A</TD>
+        <TD>00101010</TD>
+      </TR>
+      <TR align="center">
+        <TD>94</TD>
+        <TD></TD>
+        <TD>46</TD>
+        <TD>$2E</TD>
+        <TD>00101110</TD>
+      </TR>
+      <TR align="center">
+        <TD>95</TD>
+        <TD></TD>
+        <TD>43</TD>
+        <TD>$2B</TD>
+        <TD>00101011</TD>
+      </TR>
+      <TR align="center">
+        <TD>96</TD>
+        <TD></TD>
+        <TD>47</TD>
+        <TD>$2F</TD>
+        <TD>00101111</TD>
+      </TR>
+      <TR align="center">
+        <TD>97</TD>
+        <TD></TD>
+        <TD>66</TD>
+        <TD>$42</TD>
+        <TD>01000010</TD>
+      </TR>
+      <TR align="center">
+        <TD>98</TD>
+        <TD></TD>
+        <TD>70</TD>
+        <TD>$46</TD>
+        <TD>01000110</TD>
+      </TR>
+      <TR align="center">
+        <TD>99</TD>
+        <TD></TD>
+        <TD>98</TD>
+        <TD>$62</TD>
+        <TD>01100010</TD>
+      </TR>
+      <TR align="center">
+        <TD>100</TD>
+        <TD></TD>
+        <TD>102</TD>
+        <TD>$66</TD>
+        <TD>01100110</TD>
+      </TR>
+      <TR align="center">
+        <TD>101</TD>
+        <TD></TD>
+        <TD>67</TD>
+        <TD>$43</TD>
+        <TD>01000011</TD>
+      </TR>
+      <TR align="center">
+        <TD>102</TD>
+        <TD></TD>
+        <TD>71</TD>
+        <TD>$47</TD>
+        <TD>01000111</TD>
+      </TR>
+      <TR align="center">
+        <TD>103</TD>
+        <TD></TD>
+        <TD>99</TD>
+        <TD>$63</TD>
+        <TD>01100011</TD>
+      </TR>
+      <TR align="center">
+        <TD>104</TD>
+        <TD></TD>
+        <TD>103</TD>
+        <TD>$67</TD>
+        <TD>01100111</TD>
+      </TR>
+      <TR align="center">
+        <TD>105</TD>
+        <TD></TD>
+        <TD>74</TD>
+        <TD>$4A</TD>
+        <TD>01001010</TD>
+      </TR>
+      <TR align="center">
+        <TD>106</TD>
+        <TD></TD>
+        <TD>78</TD>
+        <TD>$4E</TD>
+        <TD>01001110</TD>
+      </TR>
+      <TR align="center">
+        <TD>107</TD>
+        <TD></TD>
+        <TD>106</TD>
+        <TD>$6A</TD>
+        <TD>01101010</TD>
+      </TR>
+      <TR align="center">
+        <TD>108</TD>
+        <TD></TD>
+        <TD>110</TD>
+        <TD>$6E</TD>
+        <TD>01101110</TD>
+      </TR>
+      <TR align="center">
+        <TD>109</TD>
+        <TD></TD>
+        <TD>75</TD>
+        <TD>$4B</TD>
+        <TD>01001011</TD>
+      </TR>
+      <TR align="center">
+        <TD>110</TD>
+        <TD></TD>
+        <TD>79</TD>
+        <TD>$4F</TD>
+        <TD>01001111</TD>
+      </TR>
+      <TR align="center">
+        <TD>111</TD>
+        <TD></TD>
+        <TD>107</TD>
+        <TD>$6B</TD>
+        <TD>01101011</TD>
+      </TR>
+      <TR align="center">
+        <TD>112</TD>
+        <TD></TD>
+        <TD>95</TD>
+        <TD>$5F</TD>
+        <TD>01011111</TD>
+      </TR>
+      <TR align="center">
+        <TD>113</TD>
+        <TD></TD>
+        <TD>16</TD>
+        <TD>$10</TD>
+        <TD>00010000</TD>
+      </TR>
+      <TR align="center">
+        <TD>114</TD>
+        <TD></TD>
+        <TD>20</TD>
+        <TD>$14</TD>
+        <TD>00010100</TD>
+      </TR>
+      <TR align="center">
+        <TD>115</TD>
+        <TD></TD>
+        <TD>52</TD>
+        <TD>$34</TD>
+        <TD>00110100</TD>
+      </TR>
+      <TR align="center">
+        <TD>116</TD>
+        <TD></TD>
+        <TD>17</TD>
+        <TD>$11</TD>
+        <TD>00010001</TD>
+      </TR>
+      <TR align="center">
+        <TD>117</TD>
+        <TD></TD>
+        <TD>21</TD>
+        <TD>$15</TD>
+        <TD>00010101</TD>
+      </TR>
+      <TR align="center">
+        <TD>118</TD>
+        <TD></TD>
+        <TD>49</TD>
+        <TD>$31</TD>
+        <TD>00110001</TD>
+      </TR>
+      <TR align="center">
+        <TD>119</TD>
+        <TD></TD>
+        <TD>53</TD>
+        <TD>$35</TD>
+        <TD>00110101</TD>
+      </TR>
+      <TR align="center">
+        <TD>120</TD>
+        <TD></TD>
+        <TD>24</TD>
+        <TD>$18</TD>
+        <TD>00011000</TD>
+      </TR>
+      <TR align="center">
+        <TD>121</TD>
+        <TD></TD>
+        <TD>56</TD>
+        <TD>$38</TD>
+        <TD>00111000</TD>
+      </TR>
+      <TR align="center">
+        <TD>122</TD>
+        <TD></TD>
+        <TD>60</TD>
+        <TD>$3C</TD>
+        <TD>00111100</TD>
+      </TR>
+      <TR align="center">
+        <TD>123</TD>
+        <TD></TD>
+        <TD>25</TD>
+        <TD>$19</TD>
+        <TD>00011001</TD>
+      </TR>
+      <TR align="center">
+        <TD>124</TD>
+        <TD></TD>
+        <TD>29</TD>
+        <TD>$1D</TD>
+        <TD>00011101</TD>
+      </TR>
+      <TR align="center">
+        <TD>125</TD>
+        <TD></TD>
+        <TD>57</TD>
+        <TD>$39</TD>
+        <TD>00111001</TD>
+      </TR>
+      <TR align="center">
+        <TD>126</TD>
+        <TD></TD>
+        <TD>61</TD>
+        <TD>$3D</TD>
+        <TD>00111101</TD>
+      </TR>
+      <TR align="center">
+        <TD>127</TD>
+        <TD></TD>
+        <TD>84</TD>
+        <TD>$54</TD>
+        <TD>01010100</TD>
+      </TR>
+      <TR align="center">
+        <TD>128</TD>
+        <TD></TD>
+        <TD>116</TD>
+        <TD>$74</TD>
+        <TD>01110100</TD>
+      </TR>
+      <TR align="center">
+        <TD>129</TD>
+        <TD></TD>
+        <TD>81</TD>
+        <TD>$51</TD>
+        <TD>01010001</TD>
+      </TR>
+      <TR align="center">
+        <TD>130</TD>
+        <TD></TD>
+        <TD>85</TD>
+        <TD>$55</TD>
+        <TD>01010101</TD>
+      </TR>
+      <TR align="center">
+        <TD>131</TD>
+        <TD></TD>
+        <TD>117</TD>
+        <TD>$75</TD>
+        <TD>01110101</TD>
+      </TR>
+      <TR align="center">
+        <TD>132</TD>
+        <TD></TD>
+        <TD>88</TD>
+        <TD>$58</TD>
+        <TD>01011000</TD>
+      </TR>
+      <TR align="center">
+        <TD>133</TD>
+        <TD></TD>
+        <TD>92</TD>
+        <TD>$5C</TD>
+        <TD>01011100</TD>
+      </TR>
+      <TR align="center">
+        <TD>134</TD>
+        <TD></TD>
+        <TD>120</TD>
+        <TD>$78</TD>
+        <TD>01111000</TD>
+      </TR>
+      <TR align="center">
+        <TD>135</TD>
+        <TD></TD>
+        <TD>124</TD>
+        <TD>$7C</TD>
+        <TD>01111100</TD>
+      </TR>
+      <TR align="center">
+        <TD>136</TD>
+        <TD></TD>
+        <TD>89</TD>
+        <TD>$59</TD>
+        <TD>01011001</TD>
+      </TR>
+      <TR align="center">
+        <TD>137</TD>
+        <TD></TD>
+        <TD>93</TD>
+        <TD>$5D</TD>
+        <TD>01011101</TD>
+      </TR>
+      <TR align="center">
+        <TD>138</TD>
+        <TD></TD>
+        <TD>121</TD>
+        <TD>$79</TD>
+        <TD>01111001</TD>
+      </TR>
+      <TR align="center">
+        <TD>139</TD>
+        <TD></TD>
+        <TD>125</TD>
+        <TD>$7D</TD>
+        <TD>01111101</TD>
+      </TR>
+      <TR align="center">
+        <TD>140</TD>
+        <TD></TD>
+        <TD>18</TD>
+        <TD>$12</TD>
+        <TD>00010010</TD>
+      </TR>
+      <TR align="center">
+        <TD>141</TD>
+        <TD></TD>
+        <TD>22</TD>
+        <TD>$16</TD>
+        <TD>00010110</TD>
+      </TR>
+      <TR align="center">
+        <TD>142</TD>
+        <TD></TD>
+        <TD>50</TD>
+        <TD>$32</TD>
+        <TD>00110010</TD>
+      </TR>
+      <TR align="center">
+        <TD>143</TD>
+        <TD></TD>
+        <TD>54</TD>
+        <TD>$36</TD>
+        <TD>00110110</TD>
+      </TR>
+      <TR align="center">
+        <TD>144</TD>
+        <TD></TD>
+        <TD>51</TD>
+        <TD>$33</TD>
+        <TD>00110011</TD>
+      </TR>
+      <TR align="center">
+        <TD>145</TD>
+        <TD></TD>
+        <TD>55</TD>
+        <TD>$37</TD>
+        <TD>00110111</TD>
+      </TR>
+      <TR align="center">
+        <TD>146</TD>
+        <TD></TD>
+        <TD>26</TD>
+        <TD>$1A</TD>
+        <TD>00011010</TD>
+      </TR>
+      <TR align="center">
+        <TD>147</TD>
+        <TD></TD>
+        <TD>30</TD>
+        <TD>$1E</TD>
+        <TD>00011110</TD>
+      </TR>
+      <TR align="center">
+        <TD>148</TD>
+        <TD></TD>
+        <TD>58</TD>
+        <TD>$3A</TD>
+        <TD>00111010</TD>
+      </TR>
+      <TR align="center">
+        <TD>149</TD>
+        <TD></TD>
+        <TD>62</TD>
+        <TD>$3E</TD>
+        <TD>00111110</TD>
+      </TR>
+      <TR align="center">
+        <TD>150</TD>
+        <TD></TD>
+        <TD>63</TD>
+        <TD>$3F</TD>
+        <TD>00111111</TD>
+      </TR>
+      <TR align="center">
+        <TD>151</TD>
+        <TD></TD>
+        <TD>82</TD>
+        <TD>$52</TD>
+        <TD>01010010</TD>
+      </TR>
+      <TR align="center">
+        <TD>152</TD>
+        <TD></TD>
+        <TD>86</TD>
+        <TD>$56</TD>
+        <TD>01010110</TD>
+      </TR>
+      <TR align="center">
+        <TD>153</TD>
+        <TD></TD>
+        <TD>114</TD>
+        <TD>$72</TD>
+        <TD>01110010</TD>
+      </TR>
+      <TR align="center">
+        <TD>154</TD>
+        <TD></TD>
+        <TD>118</TD>
+        <TD>$76</TD>
+        <TD>01110110</TD>
+      </TR>
+      <TR align="center">
+        <TD>155</TD>
+        <TD></TD>
+        <TD>83</TD>
+        <TD>$53</TD>
+        <TD>01010011</TD>
+      </TR>
+      <TR align="center">
+        <TD>156</TD>
+        <TD></TD>
+        <TD>119</TD>
+        <TD>$77</TD>
+        <TD>01110111</TD>
+      </TR>
+      <TR align="center">
+        <TD>157</TD>
+        <TD></TD>
+        <TD>90</TD>
+        <TD>$5A</TD>
+        <TD>01011010</TD>
+      </TR>
+      <TR align="center">
+        <TD>158</TD>
+        <TD></TD>
+        <TD>94</TD>
+        <TD>$5E</TD>
+        <TD>01011110</TD>
+      </TR>
+      <TR align="center">
+        <TD>159</TD>
+        <TD></TD>
+        <TD>122</TD>
+        <TD>$7A</TD>
+        <TD>01111010</TD>
+      </TR>
+      <TR align="center">
+        <TD>160</TD>
+        <TD></TD>
+        <TD>126</TD>
+        <TD>$7E</TD>
+        <TD>01111110</TD>
+      </TR>
+      <TR align="center">
+        <TD>161</TD>
+        <TD></TD>
+        <TD>91</TD>
+        <TD>$5B</TD>
+        <TD>01011011</TD>
+      </TR>
+      <TR align="center">
+        <TD>162</TD>
+        <TD></TD>
+        <TD>95</TD>
+        <TD>$5F</TD>
+        <TD>01011111</TD>
+      </TR>
+      <TR align="center">
+        <TD>163</TD>
+        <TD></TD>
+        <TD>123</TD>
+        <TD>$7B</TD>
+        <TD>01111011</TD>
+      </TR>
+      <TR align="center">
+        <TD>164</TD>
+        <TD></TD>
+        <TD>127</TD>
+        <TD>$7F</TD>
+        <TD>01111111</TD>
+      </TR>
+      <TR align="center">
+        <TD>165</TD>
+        <TD></TD>
+        <TD>129</TD>
+        <TD>$81</TD>
+        <TD>10000001</TD>
+      </TR>
+      <TR align="center">
+        <TD>166</TD>
+        <TD></TD>
+        <TD>133</TD>
+        <TD>$85</TD>
+        <TD>10000101</TD>
+      </TR>
+      <TR align="center">
+        <TD>167</TD>
+        <TD></TD>
+        <TD>161</TD>
+        <TD>$A1</TD>
+        <TD>10100001</TD>
+      </TR>
+      <TR align="center">
+        <TD>168</TD>
+        <TD></TD>
+        <TD>165</TD>
+        <TD>$A5</TD>
+        <TD>10100101</TD>
+      </TR>
+      <TR align="center">
+        <TD>169</TD>
+        <TD></TD>
+        <TD>140</TD>
+        <TD>$8C</TD>
+        <TD>10001100</TD>
+      </TR>
+      <TR align="center">
+        <TD>170</TD>
+        <TD></TD>
+        <TD>172</TD>
+        <TD>$AC</TD>
+        <TD>10101100</TD>
+      </TR>
+      <TR align="center">
+        <TD>171</TD>
+        <TD></TD>
+        <TD>137</TD>
+        <TD>$89</TD>
+        <TD>10001001</TD>
+      </TR>
+      <TR align="center">
+        <TD>172</TD>
+        <TD></TD>
+        <TD>141</TD>
+        <TD>$8D</TD>
+        <TD>10001101</TD>
+      </TR>
+      <TR align="center">
+        <TD>173</TD>
+        <TD></TD>
+        <TD>169</TD>
+        <TD>$A9</TD>
+        <TD>10101001</TD>
+      </TR>
+      <TR align="center">
+        <TD>174</TD>
+        <TD></TD>
+        <TD>173</TD>
+        <TD>$AD</TD>
+        <TD>10101101</TD>
+      </TR>
+      <TR align="center">
+        <TD>175</TD>
+        <TD></TD>
+        <TD>196</TD>
+        <TD>$C4</TD>
+        <TD>11000100</TD>
+      </TR>
+      <TR align="center">
+        <TD>176</TD>
+        <TD></TD>
+        <TD>228</TD>
+        <TD>$E4</TD>
+        <TD>11100100</TD>
+      </TR>
+      <TR align="center">
+        <TD>177</TD>
+        <TD></TD>
+        <TD>193</TD>
+        <TD>$C1</TD>
+        <TD>11000001</TD>
+      </TR>
+      <TR align="center">
+        <TD>178</TD>
+        <TD></TD>
+        <TD>225</TD>
+        <TD>$E1</TD>
+        <TD>11100001</TD>
+      </TR>
+      <TR align="center">
+        <TD>179</TD>
+        <TD></TD>
+        <TD>229</TD>
+        <TD>$E5</TD>
+        <TD>11100101</TD>
+      </TR>
+      <TR align="center">
+        <TD>180</TD>
+        <TD></TD>
+        <TD>200</TD>
+        <TD>$C8</TD>
+        <TD>11001000</TD>
+      </TR>
+      <TR align="center">
+        <TD>181</TD>
+        <TD></TD>
+        <TD>204</TD>
+        <TD>$CC</TD>
+        <TD>11001100</TD>
+      </TR>
+      <TR align="center">
+        <TD>182</TD>
+        <TD></TD>
+        <TD>232</TD>
+        <TD>$E8</TD>
+        <TD>11101000</TD>
+      </TR>
+      <TR align="center">
+        <TD>183</TD>
+        <TD></TD>
+        <TD>236</TD>
+        <TD>$EC</TD>
+        <TD>11101100</TD>
+      </TR>
+      <TR align="center">
+        <TD>184</TD>
+        <TD></TD>
+        <TD>205</TD>
+        <TD>$CD</TD>
+        <TD>11001101</TD>
+      </TR>
+      <TR align="center">
+        <TD>185</TD>
+        <TD></TD>
+        <TD>233</TD>
+        <TD>$E9</TD>
+        <TD>11101001</TD>
+      </TR>
+      <TR align="center">
+        <TD>186</TD>
+        <TD></TD>
+        <TD>237</TD>
+        <TD>$ED</TD>
+        <TD>11101101</TD>
+      </TR>
+      <TR align="center">
+        <TD>187</TD>
+        <TD></TD>
+        <TD>130</TD>
+        <TD>$82</TD>
+        <TD>10000010</TD>
+      </TR>
+      <TR align="center">
+        <TD>188</TD>
+        <TD></TD>
+        <TD>134</TD>
+        <TD>$86</TD>
+        <TD>10000110</TD>
+      </TR>
+      <TR align="center">
+        <TD>189</TD>
+        <TD></TD>
+        <TD>162</TD>
+        <TD>$A2</TD>
+        <TD>10100010</TD>
+      </TR>
+      <TR align="center">
+        <TD>190</TD>
+        <TD></TD>
+        <TD>166</TD>
+        <TD>$A6</TD>
+        <TD>10100110</TD>
+      </TR>
+      <TR align="center">
+        <TD>191</TD>
+        <TD></TD>
+        <TD>131</TD>
+        <TD>$83</TD>
+        <TD>10000011</TD>
+      </TR>
+      <TR align="center">
+        <TD>192</TD>
+        <TD></TD>
+        <TD>135</TD>
+        <TD>$87</TD>
+        <TD>10000111</TD>
+      </TR>
+      <TR align="center">
+        <TD>193</TD>
+        <TD></TD>
+        <TD>163</TD>
+        <TD>$A3</TD>
+        <TD>10100011</TD>
+      </TR>
+      <TR align="center">
+        <TD>194</TD>
+        <TD></TD>
+        <TD>167</TD>
+        <TD>$A7</TD>
+        <TD>10100111</TD>
+      </TR>
+      <TR align="center">
+        <TD>195</TD>
+        <TD></TD>
+        <TD>138</TD>
+        <TD>$8A</TD>
+        <TD>10001010</TD>
+      </TR>
+      <TR align="center">
+        <TD>196</TD>
+        <TD></TD>
+        <TD>142</TD>
+        <TD>$8E</TD>
+        <TD>10001110</TD>
+      </TR>
+      <TR align="center">
+        <TD>197</TD>
+        <TD></TD>
+        <TD>174</TD>
+        <TD>$AE</TD>
+        <TD>10101110</TD>
+      </TR>
+      <TR align="center">
+        <TD>198</TD>
+        <TD></TD>
+        <TD>139</TD>
+        <TD>$8B</TD>
+        <TD>10001011</TD>
+      </TR>
+      <TR align="center">
+        <TD>199</TD>
+        <TD></TD>
+        <TD>175</TD>
+        <TD>$AF</TD>
+        <TD>10101111</TD>
+      </TR>
+      <TR align="center">
+        <TD>200</TD>
+        <TD></TD>
+        <TD>194</TD>
+        <TD>$C2</TD>
+        <TD>11000010</TD>
+      </TR>
+      <TR align="center">
+        <TD>201</TD>
+        <TD></TD>
+        <TD>226</TD>
+        <TD>$E2</TD>
+        <TD>11100010</TD>
+      </TR>
+      <TR align="center">
+        <TD>202</TD>
+        <TD></TD>
+        <TD>230</TD>
+        <TD>$E6</TD>
+        <TD>11100110</TD>
+      </TR>
+      <TR align="center">
+        <TD>203</TD>
+        <TD></TD>
+        <TD>195</TD>
+        <TD>$C3</TD>
+        <TD>11000011</TD>
+      </TR>
+      <TR align="center">
+        <TD>204</TD>
+        <TD></TD>
+        <TD>202</TD>
+        <TD>$CA</TD>
+        <TD>11001010</TD>
+      </TR>
+      <TR align="center">
+        <TD>205</TD>
+        <TD></TD>
+        <TD>206</TD>
+        <TD>$CE</TD>
+        <TD>11001110</TD>
+      </TR>
+      <TR align="center">
+        <TD>206</TD>
+        <TD></TD>
+        <TD>234</TD>
+        <TD>$EA</TD>
+        <TD>11101010</TD>
+      </TR>
+      <TR align="center">
+        <TD>207</TD>
+        <TD></TD>
+        <TD>238</TD>
+        <TD>$EE</TD>
+        <TD>11101110</TD>
+      </TR>
+      <TR align="center">
+        <TD>208</TD>
+        <TD></TD>
+        <TD>203</TD>
+        <TD>$CB</TD>
+        <TD>11001011</TD>
+      </TR>
+      <TR align="center">
+        <TD>209</TD>
+        <TD></TD>
+        <TD>207</TD>
+        <TD>$CF</TD>
+        <TD>11001111</TD>
+      </TR>
+      <TR align="center">
+        <TD>210</TD>
+        <TD></TD>
+        <TD>144</TD>
+        <TD>$90</TD>
+        <TD>10010000</TD>
+      </TR>
+      <TR align="center">
+        <TD>211</TD>
+        <TD></TD>
+        <TD>148</TD>
+        <TD>$94</TD>
+        <TD>10010100</TD>
+      </TR>
+      <TR align="center">
+        <TD>212</TD>
+        <TD></TD>
+        <TD>176</TD>
+        <TD>$B0</TD>
+        <TD>10110000</TD>
+      </TR>
+      <TR align="center">
+        <TD>213</TD>
+        <TD></TD>
+        <TD>180</TD>
+        <TD>$B4</TD>
+        <TD>10110100</TD>
+      </TR>
+      <TR align="center">
+        <TD>214</TD>
+        <TD></TD>
+        <TD>145</TD>
+        <TD>$91</TD>
+        <TD>10010001</TD>
+      </TR>
+      <TR align="center">
+        <TD>215</TD>
+        <TD></TD>
+        <TD>149</TD>
+        <TD>$95</TD>
+        <TD>10010101</TD>
+      </TR>
+      <TR align="center">
+        <TD>216</TD>
+        <TD></TD>
+        <TD>177</TD>
+        <TD>$B1</TD>
+        <TD>10110001</TD>
+      </TR>
+      <TR align="center">
+        <TD>217</TD>
+        <TD></TD>
+        <TD>181</TD>
+        <TD>$B5</TD>
+        <TD>10110101</TD>
+      </TR>
+      <TR align="center">
+        <TD>218</TD>
+        <TD></TD>
+        <TD>152</TD>
+        <TD>$98</TD>
+        <TD>10011000</TD>
+      </TR>
+      <TR align="center">
+        <TD>219</TD>
+        <TD></TD>
+        <TD>156</TD>
+        <TD>$9C</TD>
+        <TD>10011100</TD>
+      </TR>
+      <TR align="center">
+        <TD>220</TD>
+        <TD></TD>
+        <TD>184</TD>
+        <TD>$B8</TD>
+        <TD>10111000</TD>
+      </TR>
+      <TR align="center">
+        <TD>221</TD>
+        <TD></TD>
+        <TD>188</TD>
+        <TD>$BC</TD>
+        <TD>10111100</TD>
+      </TR>
+      <TR align="center">
+        <TD>222</TD>
+        <TD></TD>
+        <TD>153</TD>
+        <TD>$99</TD>
+        <TD>10011001</TD>
+      </TR>
+      <TR align="center">
+        <TD>223</TD>
+        <TD></TD>
+        <TD>157</TD>
+        <TD>$9D</TD>
+        <TD>10011101</TD>
+      </TR>
+      <TR align="center">
+        <TD>224</TD>
+        <TD></TD>
+        <TD>185</TD>
+        <TD>$B9</TD>
+        <TD>10111001</TD>
+      </TR>
+      <TR align="center">
+        <TD>225</TD>
+        <TD></TD>
+        <TD>189</TD>
+        <TD>$BD</TD>
+        <TD>10111101</TD>
+      </TR>
+      <TR align="center">
+        <TD>226</TD>
+        <TD></TD>
+        <TD>208</TD>
+        <TD>$D0</TD>
+        <TD>11010000</TD>
+      </TR>
+      <TR align="center">
+        <TD>227</TD>
+        <TD></TD>
+        <TD>212</TD>
+        <TD>$D4</TD>
+        <TD>11010100</TD>
+      </TR>
+      <TR align="center">
+        <TD>228</TD>
+        <TD></TD>
+        <TD>240</TD>
+        <TD>$F0</TD>
+        <TD>11110000</TD>
+      </TR>
+      <TR align="center">
+        <TD>229</TD>
+        <TD></TD>
+        <TD>244</TD>
+        <TD>$F4</TD>
+        <TD>11110100</TD>
+      </TR>
+      <TR align="center">
+        <TD>230</TD>
+        <TD></TD>
+        <TD>209</TD>
+        <TD>$D1</TD>
+        <TD>11010001</TD>
+      </TR>
+      <TR align="center">
+        <TD>231</TD>
+        <TD></TD>
+        <TD>213</TD>
+        <TD>$D5</TD>
+        <TD>11010101</TD>
+      </TR>
+      <TR align="center">
+        <TD>232</TD>
+        <TD></TD>
+        <TD>241</TD>
+        <TD>$F1</TD>
+        <TD>11110001</TD>
+      </TR>
+      <TR align="center">
+        <TD>233</TD>
+        <TD></TD>
+        <TD>245</TD>
+        <TD>$F5</TD>
+        <TD>11110101</TD>
+      </TR>
+      <TR align="center">
+        <TD>234</TD>
+        <TD></TD>
+        <TD>220</TD>
+        <TD>$DC</TD>
+        <TD>11011100</TD>
+      </TR>
+      <TR align="center">
+        <TD>235</TD>
+        <TD></TD>
+        <TD>248</TD>
+        <TD>$F8</TD>
+        <TD>11111000</TD>
+      </TR>
+      <TR align="center">
+        <TD>236</TD>
+        <TD></TD>
+        <TD>221</TD>
+        <TD>$DD</TD>
+        <TD>11011101</TD>
+      </TR>
+      <TR align="center">
+        <TD>237</TD>
+        <TD></TD>
+        <TD>150</TD>
+        <TD>$96</TD>
+        <TD>10010110</TD>
+      </TR>
+      <TR align="center">
+        <TD>238</TD>
+        <TD></TD>
+        <TD>151</TD>
+        <TD>$97</TD>
+        <TD>10010111</TD>
+      </TR>
+      <TR align="center">
+        <TD>239</TD>
+        <TD></TD>
+        <TD>179</TD>
+        <TD>$B3</TD>
+        <TD>10110011</TD>
+      </TR>
+      <TR align="center">
+        <TD>240</TD>
+        <TD></TD>
+        <TD>154</TD>
+        <TD>$9A</TD>
+        <TD>10011010</TD>
+      </TR>
+      <TR align="center">
+        <TD>241</TD>
+        <TD></TD>
+        <TD>158</TD>
+        <TD>$9E</TD>
+        <TD>10011110</TD>
+      </TR>
+      <TR align="center">
+        <TD>242</TD>
+        <TD></TD>
+        <TD>186</TD>
+        <TD>$BA</TD>
+        <TD>10111010</TD>
+      </TR>
+      <TR align="center">
+        <TD>243</TD>
+        <TD></TD>
+        <TD>190</TD>
+        <TD>$BE</TD>
+        <TD>10111110</TD>
+      </TR>
+      <TR align="center">
+        <TD>244</TD>
+        <TD></TD>
+        <TD>155</TD>
+        <TD>$9B</TD>
+        <TD>10011011</TD>
+      </TR>
+      <TR align="center">
+        <TD>245</TD>
+        <TD></TD>
+        <TD>159</TD>
+        <TD>$9F</TD>
+        <TD>10011111</TD>
+      </TR>
+      <TR align="center">
+        <TD>246</TD>
+        <TD></TD>
+        <TD>187</TD>
+        <TD>$BB</TD>
+        <TD>10111011</TD>
+      </TR>
+      <TR align="center">
+        <TD>247</TD>
+        <TD></TD>
+        <TD>191</TD>
+        <TD>$BF</TD>
+        <TD>10111111</TD>
+      </TR>
+      <TR align="center">
+        <TD>248</TD>
+        <TD></TD>
+        <TD>214</TD>
+        <TD>$D6</TD>
+        <TD>11010110</TD>
+      </TR>
+      <TR align="center">
+        <TD>249</TD>
+        <TD></TD>
+        <TD>242</TD>
+        <TD>$F2</TD>
+        <TD>11110010</TD>
+      </TR>
+      <TR align="center">
+        <TD>250</TD>
+        <TD></TD>
+        <TD>246</TD>
+        <TD>$F6</TD>
+        <TD>11110110</TD>
+      </TR>
+      <TR align="center">
+        <TD>251</TD>
+        <TD></TD>
+        <TD>211</TD>
+        <TD>$D3</TD>
+        <TD>11010011</TD>
+      </TR>
+      <TR align="center">
+        <TD>252</TD>
+        <TD></TD>
+        <TD>215</TD>
+        <TD>$D7</TD>
+        <TD>11010111</TD>
+      </TR>
+      <TR align="center">
+        <TD>253</TD>
+        <TD></TD>
+        <TD>222</TD>
+        <TD>$DE</TD>
+        <TD>11011110</TD>
+      </TR>
+      <TR align="center">
+        <TD>254</TD>
+        <TD></TD>
+        <TD>250</TD>
+        <TD>$FA</TD>
+        <TD>11111010</TD>
+      </TR>
+      <TR align="center">
+        <TD>255</TD>
+        <TD></TD>
+        <TD>223</TD>
+        <TD>$DF</TD>
+        <TD>11011111</TD>
+      </TR>
+    </TABLE>
+    
+<H3>Example:</H3>
+    
+<P>The following program for SMSQ/E will show the full range of colours available on Aurora. Note the need to explicitly wipe the screen - this is because <SPAN style="font-style: italic;">MODE</SPAN> would normally do this for you.</P>
+    <PRE>
+        100 MODE 4
+        110 POKE $18043,156 : REMark force switch to MODE 256:COLOUR_PAL
+        120 :
+        130 scr_offset=SCR_BASE(#1)
+        140 scr_len=512:REMark SCR_LLEN returns the wrong figure in this mode
+        150 :
+        160 REMark Blank out screen
+        170 col=0
+        180 FOR i%=0 TO 479
+        190   FOR j%=0 TO 508 STEP 4
+        200     POKE_L scr_offset+i%*scr_len+j%,col
+        210   END FOR j%
+        220 END FOR i%
+        230 :
+        240 REMark Draw Colours
+        250 yoff=20
+        260 FOR i=0 TO 15
+        270   xoff=0
+        280   FOR j=0 TO 15
+        290     col=i*16+j
+        300     scr_offset=yoff*scr_len+xoff+SCR_BASE(#1)
+        310     FOR a=0 TO 10
+        320       FOR b=0 TO 10
+        330         POKE scr_offset+a*scr_len+b,col
+        340       END FOR b
+        350     END FOR a
+        360     xoff=xoff+12
+        370   END FOR j
+        380 yoff=yoff+12
+        390 END FOR i
+</PRE>
+    
+<H3>QPC/QXL Enhanced Colour Drivers</H3>
+    
+<P>SMSQ/E v2.98+ provides various colour modes for QPC2 and the QXL card. You can configure SMSQ/E to start with either the Standard QL Colour Drivers or the Enhanced Colour Drivers. If the Enhanced Colour Drivers are loaded, <SPAN style="font-style: italic;">RMODE</SPAN> will return 32.</P>
+    
+<P>The Enhanced Colour Drivers support a QL 8 colour mode (selected with <SPAN style="font-style: italic;">COLOUR_QL</SPAN>), a PAL Colour Mode providing 256 colours (selected with <SPAN style="font-style: italic;">COLOUR_PAL</SPAN>), a Native Colour Mode providing 65536 colours (select with <SPAN style="font-style: italic;">COLOUR_NATIVE</SPAN>) and a 24 bit colour mode providing over 16 million colours (select with <SPAN style="font-style: italic;">COLOUR_24</SPAN>).</P>
+    
+<H3>QL Colour Mode (<SPAN style="font-style: italic;">COLOUR_QL</SPAN>)</H3>
+    
+<P>This is similar to <SPAN style="font-style: italic;">MODE 4</SPAN> under the Standard QL Colour Drivers and is provided for compatability. However all 8 standard <SPAN style="font-style: italic;">MODE 8</SPAN> colours are actually available. See <SPAN style="font-style: italic;">INK</SPAN> for a list of the standard <SPAN style="font-style: italic;">MODE 8</SPAN> colours.</P>
+    
+<H3>PAL Colour Mode (<SPAN style="font-style: italic;">COLOUR_PAL</SPAN>)</H3>
+    
+<P>This allows programs to use 256 colours - it is the simplest mode to use, since a standard PAL Colour Value is used by any standard colour commands, such as <SPAN style="font-style: italic;">INK</SPAN>, to describe all 256 colours on all implementations (including Aurora).</P>
+    
+<P>The table on the following pages describes all 256 colours with the PAL Colour Value and their Native Colour Value in decimal, hexadecimal and binary (see below).</P>
+    
+<P>You can use <SPAN style="font-style: italic;">PALETTE_8</SPAN> to change the 256 colours available.</P>
+    
+<H3>Native Colour Mode (<SPAN style="font-style: italic;">COLOUR_NATIVE</SPAN>)</H3>
+    
+<P>As with the Q40/Q60, this allows programs to use 65536 colours. However, the Native Colour Values required for <SPAN style="font-style: italic;">INK</SPAN>, <SPAN style="font-style: italic;">STRIP</SPAN>, <SPAN style="font-style: italic;">PAPER</SPAN> etc. depend upon the hardware (ie. they are different to Q40/Q60 values). The colour is described by the actual value which would be <SPAN style="font-style: italic;">POKE</SPAN>d into the video memory, hence two bytes (a word) represent the colour of one pixel on the Monitor's screen. It is therefore easier to use Hexadecimal values to represent each colour.</P>
+    
+<P>The bits in the word represent the amount of GREEN, RED and BLUE to be used for each pixel, in the following format:</P>
+    
+<H3>rrrrrggg gggbbbbb</H3>
+    
+<P>where:</P>
+    <TABLE>
+      <TR>
+        <TD>g</TD>
+        <TD>=</TD>
+        <TD>green (6 bits)</TD>
+      </TR>
+      <TR>
+        <TD>r</TD>
+        <TD>=</TD>
+        <TD>red (5 bits)</TD>
+      </TR>
+      <TR>
+        <TD>b</TD>
+        <TD>=</TD>
+        <TD>blue (5 bits)</TD>
+      </TR>
+    </TABLE>
+    
+<P>The table on the following pages describes the first 256 colours with the PAL Colour Value and their Native Colour Value in decimal, hexadecimal and binary (see below).</P>
+    
+<P><EM>NOTE:</EM> When the values are entered direct into memory with a <SPAN style="font-style: italic;">POKE</SPAN> command or machine code routine, due to the organisation of memory on a PC, it is necessary to enter the low byte before the high byte. As a result, the value for red, in binary 11111000 00000000 (<SPAN style="font-style: italic;">INK $F800</SPAN>) is entered as <SPAN style="font-style: italic;">POKE address,$00F8</SPAN>.</P>
+    
+<H3>24 Bit Colour Mode (<SPAN style="font-style: italic;">COLOUR_24</SPAN>)</H3>
+    
+<P>This is supported only on PCs with 24 bit graphics cards. However, it is essential to understand this mode as commands such as <SPAN style="font-style: italic;">PALETTE_8</SPAN> and <SPAN style="font-style: italic;">PALETTE_QL</SPAN> expect colours to be described in this format. The details appear later in this Appendix.</P>
+    
+<H3>Colour Table</H3>
+    
+<P>Due to the range of colours available, it is hard to describe each colour; therefore it will require experimentation to obtain the correct colours. The following table details the PAL Colour Value and Native Colour Value for each colour which need to be used for <SPAN style="font-style: italic;">INK</SPAN> and similar commands (</P>
+    
+<H3>NOTE</H3>this does not correspond with the orignal QL colour scheme!). We have tried to list the most widely used ones (<SPAN style="font-style: italic;">INK 0</SPAN> to <SPAN style="font-style: italic;">INK 63</SPAN> under <SPAN style="font-style: italic;">COLOUR_PAL</SPAN>) grouped into the different colours followed by the values for the remainder of the first 256 colours. Conversion of the values to binary gives a clue as to how this colour scheme works:
+    <TABLE>
+      <TR>
+        <TH colspan="2"></TH>
+        <TH colspan="2">rrrrrggg gggbbbbb</TH>
+      </TR>
+      <TR>
+        <TH>PAL</TH>
+        <TH></TH>
+        <TH>Native</TH>
+        <TH>Native</TH>
+      </TR>
+      <TR>
+        <TH>Colour</TH>
+        <TH>Colour</TH>
+        <TH>Value</TH>
+        <TH>Value</TH>
+      </TR>
+      <TR>
+        <TH>Value</TH>
+        <TH>Name</TH>
+        <TH>(Hex)</TH>
+        <TH>(Binary)</TH>
+      </TR>
+      <TR align="center">
+        <TD>0</TD>
+        <TD>Black</TD>
+        <TD>$0000</TD>
+        <TD>00000000 00000000</TD>
+      </TR>
+      <TR align="center">
+        <TD>1</TD>
+        <TD>White</TD>
+        <TD>$FFFF</TD>
+        <TD>11111111 11111111</TD>
+      </TR>
+      <TR align="center">
+        <TD>8</TD>
+        <TD>Dark Slate</TD>
+        <TD>$2124</TD>
+        <TD>00100001 00100100</TD>
+      </TR>
+      <TR align="center">
+        <TD>9</TD>
+        <TD>Slate Grey</TD>
+        <TD>$4A49</TD>
+        <TD>01001010 01001001</TD>
+      </TR>
+      <TR align="center">
+        <TD>10</TD>
+        <TD>Dark Grey</TD>
+        <TD>$6B6D</TD>
+        <TD>01101011 01101101</TD>
+      </TR>
+      <TR align="center">
+        <TD>11</TD>
+        <TD>Grey</TD>
+        <TD>$9492</TD>
+        <TD>10010100 10010010</TD>
+      </TR>
+      <TR align="center">
+        <TD>12</TD>
+        <TD>Light Grey</TD>
+        <TD>$B5B6</TD>
+        <TD>10110101 10110110</TD>
+      </TR>
+      <TR align="center">
+        <TD>13</TD>
+        <TD>Ash Grey</TD>
+        <TD>$DEDB</TD>
+        <TD>11011110 11011011</TD>
+      </TR>
+      <TR align="center">
+        <TD>58</TD>
+        <TD>Cerise</TD>
+        <TD>$9009</TD>
+        <TD>10010000 00001001</TD>
+      </TR>
+      <TR align="center">
+        <TD>14</TD>
+        <TD>Dark Red</TD>
+        <TD>$9000</TD>
+        <TD>10010000 00000000</TD>
+      </TR>
+      <TR align="center">
+        <TD>2</TD>
+        <TD>Red</TD>
+        <TD>$F800</TD>
+        <TD>11111000 00000000</TD>
+      </TR>
+      <TR align="center">
+        <TD>63</TD>
+        <TD>Deep Purple</TD>
+        <TD>$4812</TD>
+        <TD>01001000 00010010</TD>
+      </TR>
+      <TR align="center">
+        <TD>51</TD>
+        <TD>Plum</TD>
+        <TD>$692D</TD>
+        <TD>01101001 00101101</TD>
+      </TR>
+      <TR align="center">
+        <TD>20</TD>
+        <TD>Purple</TD>
+        <TD>$9012</TD>
+        <TD>10010000 00010010</TD>
+      </TR>
+      <TR align="center">
+        <TD>26</TD>
+        <TD>Mauve</TD>
+        <TD>$901F</TD>
+        <TD>10010000 00011111</TD>
+      </TR>
+      <TR align="center">
+        <TD>57</TD>
+        <TD>Faded Purple</TD>
+        <TD>$9256</TD>
+        <TD>10010010 01010110</TD>
+      </TR>
+      <TR align="center">
+        <TD>52</TD>
+        <TD>Dusky Pink</TD>
+        <TD>$B252</TD>
+        <TD>10110010 01010010</TD>
+      </TR>
+      <TR align="center">
+        <TD>5</TD>
+        <TD>Magenta</TD>
+        <TD>$F81F</TD>
+        <TD>11111000 00011111</TD>
+      </TR>
+      <TR align="center">
+        <TD>21</TD>
+        <TD>Shocking Pink</TD>
+        <TD>$F812</TD>
+        <TD>11111000 00010010</TD>
+      </TR>
+      <TR align="center">
+        <TD>45</TD>
+        <TD>Dull Pink</TD>
+        <TD>$B376</TD>
+        <TD>10110011 01110110</TD>
+      </TR>
+      <TR align="center">
+        <TD>32</TD>
+        <TD>Pink</TD>
+        <TD>$FDBB</TD>
+        <TD>11111101 10111011</TD>
+      </TR>
+      <TR align="center">
+        <TD>31</TD>
+        <TD>Rose Pink</TD>
+        <TD>$FDBF</TD>
+        <TD>11111101 10111111</TD>
+      </TR>
+      <TR align="center">
+        <TD>34</TD>
+        <TD>Pastel Pink</TD>
+        <TD>$FEDB</TD>
+        <TD>11111110 11011011</TD>
+      </TR>
+      <TR align="center">
+        <TD>39</TD>
+        <TD>Pastel Rose</TD>
+        <TD>$FEDF</TD>
+        <TD>11111110 11011111</TD>
+      </TR>
+      <TR align="center">
+        <TD>27</TD>
+        <TD>Peach</TD>
+        <TD>$FDB6</TD>
+        <TD>11111101 10110110</TD>
+      </TR>
+      <TR align="center">
+        <TD>50</TD>
+        <TD>Midnight Blue</TD>
+        <TD>$212D</TD>
+        <TD>00100001 00101101</TD>
+      </TR>
+      <TR align="center">
+        <TD>19</TD>
+        <TD>Dark Blue</TD>
+        <TD>$0012</TD>
+        <TD>00000000 00010010</TD>
+      </TR>
+      <TR align="center">
+        <TD>4</TD>
+        <TD>Blue</TD>
+        <TD>$001F</TD>
+        <TD>00000000 00011111</TD>
+      </TR>
+      <TR align="center">
+        <TD>62</TD>
+        <TD>Ultramarine</TD>
+        <TD>$0252</TD>
+        <TD>00000010 01010010</TD>
+      </TR>
+      <TR align="center">
+        <TD>49</TD>
+        <TD>Dusky Blue</TD>
+        <TD>$236D</TD>
+        <TD>00100011 01101101</TD>
+      </TR>
+      <TR align="center">
+        <TD>44</TD>
+        <TD>Steel Blue</TD>
+        <TD>$6B76</TD>
+        <TD>01101011 01110110</TD>
+      </TR>
+      <TR align="center">
+        <TD>18</TD>
+        <TD>Sea Blue</TD>
+        <TD>$0492</TD>
+        <TD>00000100 10010010</TD>
+      </TR>
+      <TR align="center">
+        <TD>25</TD>
+        <TD>Bright Blue</TD>
+        <TD>$049F</TD>
+        <TD>00000100 10011111</TD>
+      </TR>
+      <TR align="center">
+        <TD>56</TD>
+        <TD>Dull Blue</TD>
+        <TD>$4C96</TD>
+        <TD>01001100 10010110</TD>
+      </TR>
+      <TR align="center">
+        <TD>43</TD>
+        <TD>Dull Cyan</TD>
+        <TD>$6DB6</TD>
+        <TD>01101101 10110110</TD>
+      </TR>
+      <TR align="center">
+        <TD>7</TD>
+        <TD>Cyan</TD>
+        <TD>$07FF</TD>
+        <TD>00000111 11111111</TD>
+      </TR>
+      <TR align="center">
+        <TD>29</TD>
+        <TD>Light Blue</TD>
+        <TD>$B7FF</TD>
+        <TD>10110111 11111111</TD>
+      </TR>
+      <TR align="center">
+        <TD>30</TD>
+        <TD>Sky Blue</TD>
+        <TD>$B5BF</TD>
+        <TD>10110101 10111111</TD>
+      </TR>
+      <TR align="center">
+        <TD>38</TD>
+        <TD>Pastel Blue</TD>
+        <TD>$DEDF</TD>
+        <TD>11011110 11011111</TD>
+      </TR>
+      <TR align="center">
+        <TD>37</TD>
+        <TD>Pastel Cyan</TD>
+        <TD>$DFFF</TD>
+        <TD>11011111 11111111</TD>
+      </TR>
+      <TR align="center">
+        <TD>48</TD>
+        <TD>Dusky Green</TD>
+        <TD>$2364</TD>
+        <TD>00100011 01100100</TD>
+      </TR>
+      <TR align="center">
+        <TD>60</TD>
+        <TD>Grass Green</TD>
+        <TD>$4C80</TD>
+        <TD>01001100 10000000</TD>
+      </TR>
+      <TR align="center">
+        <TD>17</TD>
+        <TD>Dark Green</TD>
+        <TD>$0480</TD>
+        <TD>00000100 10000000</TD>
+      </TR>
+      <TR align="center">
+        <TD>54</TD>
+        <TD>Avocado</TD>
+        <TD>$95A9</TD>
+        <TD>10010101 10101001</TD>
+      </TR>
+      <TR align="center">
+        <TD>61</TD>
+        <TD>Sea Green</TD>
+        <TD>$0489</TD>
+        <TD>00000100 10001001</TD>
+      </TR>
+      <TR align="center">
+        <TD>42</TD>
+        <TD>Dull Green</TD>
+        <TD>$6DAD</TD>
+        <TD>01101101 10101101</TD>
+      </TR>
+      <TR align="center">
+        <TD>3</TD>
+        <TD>Green</TD>
+        <TD>$07E0</TD>
+        <TD>00000111 11100000</TD>
+      </TR>
+      <TR align="center">
+        <TD>23</TD>
+        <TD>Lime Green</TD>
+        <TD>$97E0</TD>
+        <TD>10010111 11100000</TD>
+      </TR>
+      <TR align="center">
+        <TD>24</TD>
+        <TD>Apple Green</TD>
+        <TD>$07F2</TD>
+        <TD>00000111 11110010</TD>
+      </TR>
+      <TR align="center">
+        <TD>55</TD>
+        <TD>Dull Turquoise</TD>
+        <TD>$4DB2</TD>
+        <TD>01001101 10110010</TD>
+      </TR>
+      <TR align="center">
+        <TD>41</TD>
+        <TD>Light Khaki</TD>
+        <TD>$B5AD</TD>
+        <TD>10110101 10101101</TD>
+      </TR>
+      <TR align="center">
+        <TD>15</TD>
+        <TD>Light Green</TD>
+        <TD>$B7F6</TD>
+        <TD>10110111 11110110</TD>
+      </TR>
+      <TR align="center">
+        <TD>36</TD>
+        <TD>Pastel Green</TD>
+        <TD>$DFFB</TD>
+        <TD>11011111 11111011</TD>
+      </TR>
+      <TR align="center">
+        <TD>46</TD>
+        <TD>Brown</TD>
+        <TD>$6924</TD>
+        <TD>01101001 00100100</TD>
+      </TR>
+      <TR align="center">
+        <TD>59</TD>
+        <TD>Tan</TD>
+        <TD>$9240</TD>
+        <TD>10010010 01000000</TD>
+      </TR>
+      <TR align="center">
+        <TD>6</TD>
+        <TD>Yellow</TD>
+        <TD>$FFE0</TD>
+        <TD>11111111 11100000</TD>
+      </TR>
+      <TR align="center">
+        <TD>22</TD>
+        <TD>Orange</TD>
+        <TD>$FC80</TD>
+        <TD>11111100 10000000</TD>
+      </TR>
+      <TR align="center">
+        <TD>16</TD>
+        <TD>Mustard</TD>
+        <TD>$9480</TD>
+        <TD>10010100 10000000</TD>
+      </TR>
+      <TR align="center">
+        <TD>47</TD>
+        <TD>Khaki</TD>
+        <TD>$6B64</TD>
+        <TD>01101011 01100100</TD>
+      </TR>
+      <TR align="center">
+        <TD>53</TD>
+        <TD>Buff</TD>
+        <TD>$B489</TD>
+        <TD>10110100 10001001</TD>
+      </TR>
+      <TR align="center">
+        <TD>40</TD>
+        <TD>Brick</TD>
+        <TD>$B36D</TD>
+        <TD>10110011 01101101</TD>
+      </TR>
+      <TR align="center">
+        <TD>33</TD>
+        <TD>Beige</TD>
+        <TD>$FED6</TD>
+        <TD>11111110 11010110</TD>
+      </TR>
+      <TR align="center">
+        <TD>28</TD>
+        <TD>Light Yellow</TD>
+        <TD>$FFF6</TD>
+        <TD>11111111 11110110</TD>
+      </TR>
+      <TR align="center">
+        <TD>35</TD>
+        <TD>Pastel Yellow</TD>
+        <TD>$FFFB</TD>
+        <TD>11111111 11111011</TD>
+      </TR>
+    </TABLE>
+    
+<P>The remainder of the first 256 colours are mapped as follows (we would welcome names for each of these colours):</P>
+    <TABLE>
+      <TR>
+        <TH colspan="2"></TH>
+        <TH colspan="2">rrrrrggg gggbbbbb</TH>
+      </TR>
+      <TR>
+        <TH>PAL</TH>
+        <TH></TH>
+        <TH>Native</TH>
+        <TH>Native</TH>
+      </TR>
+      <TR>
+        <TH>Colour</TH>
+        <TH>Colour</TH>
+        <TH>Value</TH>
+        <TH>Value</TH>
+      </TR>
+      <TR>
+        <TH>Value</TH>
+        <TH>Name</TH>
+        <TH>(Hex)</TH>
+        <TH>(Binary)</TH>
+      </TR>
+      <TR align="center">
+        <TD>64</TD>
+        <TD></TD>
+        <TD>$0009</TD>
+        <TD>00000000 00001001</TD>
+      </TR>
+      <TR align="center">
+        <TD>65</TD>
+        <TD></TD>
+        <TD>$2004</TD>
+        <TD>00100000 00000100</TD>
+      </TR>
+      <TR align="center">
+        <TD>66</TD>
+        <TD></TD>
+        <TD>$200D</TD>
+        <TD>00100000 00001101</TD>
+      </TR>
+      <TR align="center">
+        <TD>67</TD>
+        <TD></TD>
+        <TD>$2016</TD>
+        <TD>00100000 00010110</TD>
+      </TR>
+      <TR align="center">
+        <TD>68</TD>
+        <TD></TD>
+        <TD>$201F</TD>
+        <TD>00100000 00011111</TD>
+      </TR>
+      <TR align="center">
+        <TD>69</TD>
+        <TD></TD>
+        <TD>$4800</TD>
+        <TD>01001000 00000000</TD>
+      </TR>
+      <TR align="center">
+        <TD>70</TD>
+        <TD></TD>
+        <TD>$4809</TD>
+        <TD>01001000 00001001</TD>
+      </TR>
+      <TR align="center">
+        <TD>71</TD>
+        <TD></TD>
+        <TD>$481B</TD>
+        <TD>01001000 00011011</TD>
+      </TR>
+      <TR align="center">
+        <TD>72</TD>
+        <TD></TD>
+        <TD>$6804</TD>
+        <TD>01101000 00000100</TD>
+      </TR>
+      <TR align="center">
+        <TD>73</TD>
+        <TD></TD>
+        <TD>$680D</TD>
+        <TD>01101000 00001101</TD>
+      </TR>
+      <TR align="center">
+        <TD>74</TD>
+        <TD></TD>
+        <TD>$6816</TD>
+        <TD>01101000 00010110</TD>
+      </TR>
+      <TR align="center">
+        <TD>75</TD>
+        <TD></TD>
+        <TD>$681F</TD>
+        <TD>01101000 00011111</TD>
+      </TR>
+      <TR align="center">
+        <TD>76</TD>
+        <TD></TD>
+        <TD>$B004</TD>
+        <TD>10110000 00000100</TD>
+      </TR>
+      <TR align="center">
+        <TD>77</TD>
+        <TD></TD>
+        <TD>$B00D</TD>
+        <TD>10110000 00001101</TD>
+      </TR>
+      <TR align="center">
+        <TD>78</TD>
+        <TD></TD>
+        <TD>$B016</TD>
+        <TD>10110000 00010110</TD>
+      </TR>
+      <TR align="center">
+        <TD>79</TD>
+        <TD></TD>
+        <TD>$B01F</TD>
+        <TD>10110000 00011111</TD>
+      </TR>
+      <TR align="center">
+        <TD>80</TD>
+        <TD></TD>
+        <TD>$D800</TD>
+        <TD>11011000 00000000</TD>
+      </TR>
+      <TR align="center">
+        <TD>81</TD>
+        <TD></TD>
+        <TD>$D809</TD>
+        <TD>11011000 00001001</TD>
+      </TR>
+      <TR align="center">
+        <TD>82</TD>
+        <TD></TD>
+        <TD>$D812</TD>
+        <TD>11011000 00010010</TD>
+      </TR>
+      <TR align="center">
+        <TD>83</TD>
+        <TD></TD>
+        <TD>$D81B</TD>
+        <TD>11011000 00011011</TD>
+      </TR>
+      <TR align="center">
+        <TD>84</TD>
+        <TD></TD>
+        <TD>$F80D</TD>
+        <TD>11111000 00001101</TD>
+      </TR>
+      <TR align="center">
+        <TD>85</TD>
+        <TD></TD>
+        <TD>$0120</TD>
+        <TD>00000001 00100000</TD>
+      </TR>
+      <TR align="center">
+        <TD>86</TD>
+        <TD></TD>
+        <TD>$0129</TD>
+        <TD>00000001 00101001</TD>
+      </TR>
+      <TR align="center">
+        <TD>87</TD>
+        <TD></TD>
+        <TD>$0132</TD>
+        <TD>00000001 00110010</TD>
+      </TR>
+      <TR align="center">
+        <TD>88</TD>
+        <TD></TD>
+        <TD>$013B</TD>
+        <TD>00000001 00111011</TD>
+      </TR>
+      <TR align="center">
+        <TD>89</TD>
+        <TD></TD>
+        <TD>$2136</TD>
+        <TD>00100001 00110110</TD>
+      </TR>
+      <TR align="center">
+        <TD>90</TD>
+        <TD></TD>
+        <TD>$213F</TD>
+        <TD>00100001 00111111</TD>
+      </TR>
+      <TR align="center">
+        <TD>91</TD>
+        <TD></TD>
+        <TD>$4920</TD>
+        <TD>01001001 00100000</TD>
+      </TR>
+      <TR align="center">
+        <TD>92</TD>
+        <TD></TD>
+        <TD>$4929</TD>
+        <TD>01001001 00101001</TD>
+      </TR>
+      <TR align="center">
+        <TD>93</TD>
+        <TD></TD>
+        <TD>$4932</TD>
+        <TD>01001001 00110010</TD>
+      </TR>
+      <TR align="center">
+        <TD>94</TD>
+        <TD></TD>
+        <TD>$493B</TD>
+        <TD>01001001 00111011</TD>
+      </TR>
+      <TR align="center">
+        <TD>95</TD>
+        <TD></TD>
+        <TD>$6936</TD>
+        <TD>01101001 00110110</TD>
+      </TR>
+      <TR align="center">
+        <TD>96</TD>
+        <TD></TD>
+        <TD>$693F</TD>
+        <TD>01101001 00111111</TD>
+      </TR>
+      <TR align="center">
+        <TD>97</TD>
+        <TD></TD>
+        <TD>$9120</TD>
+        <TD>10010001 00100000</TD>
+      </TR>
+      <TR align="center">
+        <TD>98</TD>
+        <TD></TD>
+        <TD>$9129</TD>
+        <TD>10010001 00101001</TD>
+      </TR>
+      <TR align="center">
+        <TD>99</TD>
+        <TD></TD>
+        <TD>$9132</TD>
+        <TD>10010001 00110010</TD>
+      </TR>
+      <TR align="center">
+        <TD>100</TD>
+        <TD></TD>
+        <TD>$913B</TD>
+        <TD>10010001 00111011</TD>
+      </TR>
+      <TR align="center">
+        <TD>101</TD>
+        <TD></TD>
+        <TD>$B124</TD>
+        <TD>10110001 00100100</TD>
+      </TR>
+      <TR align="center">
+        <TD>102</TD>
+        <TD></TD>
+        <TD>$B12D</TD>
+        <TD>10110001 00101101</TD>
+      </TR>
+      <TR align="center">
+        <TD>103</TD>
+        <TD></TD>
+        <TD>$B136</TD>
+        <TD>10110001 00110110</TD>
+      </TR>
+      <TR align="center">
+        <TD>104</TD>
+        <TD></TD>
+        <TD>$B13F</TD>
+        <TD>10110001 00111111</TD>
+      </TR>
+      <TR align="center">
+        <TD>105</TD>
+        <TD></TD>
+        <TD>$D920</TD>
+        <TD>11011001 00100000</TD>
+      </TR>
+      <TR align="center">
+        <TD>106</TD>
+        <TD></TD>
+        <TD>$D929</TD>
+        <TD>11011001 00101001</TD>
+      </TR>
+      <TR align="center">
+        <TD>107</TD>
+        <TD></TD>
+        <TD>$D932</TD>
+        <TD>11011001 00110010</TD>
+      </TR>
+      <TR align="center">
+        <TD>108</TD>
+        <TD></TD>
+        <TD>$D93B</TD>
+        <TD>11011001 00111011</TD>
+      </TR>
+      <TR align="center">
+        <TD>109</TD>
+        <TD></TD>
+        <TD>$F924</TD>
+        <TD>11111001 00100100</TD>
+      </TR>
+      <TR align="center">
+        <TD>110</TD>
+        <TD></TD>
+        <TD>$F92D</TD>
+        <TD>11111001 00101101</TD>
+      </TR>
+      <TR align="center">
+        <TD>111</TD>
+        <TD></TD>
+        <TD>$F936</TD>
+        <TD>11111001 00110110</TD>
+      </TR>
+      <TR align="center">
+        <TD>112</TD>
+        <TD></TD>
+        <TD>$F93F</TD>
+        <TD>11111001 00111111</TD>
+      </TR>
+      <TR align="center">
+        <TD>113</TD>
+        <TD></TD>
+        <TD>$0240</TD>
+        <TD>00000010 01000000</TD>
+      </TR>
+      <TR align="center">
+        <TD>114</TD>
+        <TD></TD>
+        <TD>$0249</TD>
+        <TD>00000010 01001001</TD>
+      </TR>
+      <TR align="center">
+        <TD>115</TD>
+        <TD></TD>
+        <TD>$025B</TD>
+        <TD>00000010 01011011</TD>
+      </TR>
+      <TR align="center">
+        <TD>116</TD>
+        <TD></TD>
+        <TD>$2244</TD>
+        <TD>00100010 01000100</TD>
+      </TR>
+      <TR align="center">
+        <TD>117</TD>
+        <TD></TD>
+        <TD>$224D</TD>
+        <TD>00100010 01001101</TD>
+      </TR>
+      <TR align="center">
+        <TD>118</TD>
+        <TD></TD>
+        <TD>$2256</TD>
+        <TD>00100010 01010110</TD>
+      </TR>
+      <TR align="center">
+        <TD>119</TD>
+        <TD></TD>
+        <TD>$225F</TD>
+        <TD>00100010 01011111</TD>
+      </TR>
+      <TR align="center">
+        <TD>120</TD>
+        <TD></TD>
+        <TD>$4A40</TD>
+        <TD>01001010 01000000</TD>
+      </TR>
+      <TR align="center">
+        <TD>121</TD>
+        <TD></TD>
+        <TD>$4A52</TD>
+        <TD>01001010 01010010</TD>
+      </TR>
+      <TR align="center">
+        <TD>122</TD>
+        <TD></TD>
+        <TD>$4A5B</TD>
+        <TD>01001010 01011011</TD>
+      </TR>
+      <TR align="center">
+        <TD>123</TD>
+        <TD></TD>
+        <TD>$6A44</TD>
+        <TD>01101010 01000100</TD>
+      </TR>
+      <TR align="center">
+        <TD>124</TD>
+        <TD></TD>
+        <TD>$6A4D</TD>
+        <TD>01101010 01001101</TD>
+      </TR>
+      <TR align="center">
+        <TD>125</TD>
+        <TD></TD>
+        <TD>$6456</TD>
+        <TD>01100100 01010110</TD>
+      </TR>
+      <TR align="center">
+        <TD>126</TD>
+        <TD></TD>
+        <TD>$6A5F</TD>
+        <TD>01101010 01011111</TD>
+      </TR>
+      <TR align="center">
+        <TD>127</TD>
+        <TD></TD>
+        <TD>$9249</TD>
+        <TD>10010010 01001001</TD>
+      </TR>
+      <TR align="center">
+        <TD>128</TD>
+        <TD></TD>
+        <TD>$925B</TD>
+        <TD>10010010 01011011</TD>
+      </TR>
+      <TR align="center">
+        <TD>129</TD>
+        <TD></TD>
+        <TD>$B244</TD>
+        <TD>10110010 01000100</TD>
+      </TR>
+      <TR align="center">
+        <TD>130</TD>
+        <TD></TD>
+        <TD>$B24D</TD>
+        <TD>10110010 01001101</TD>
+      </TR>
+      <TR align="center">
+        <TD>131</TD>
+        <TD></TD>
+        <TD>$B25F</TD>
+        <TD>10110010 01011111</TD>
+      </TR>
+      <TR align="center">
+        <TD>132</TD>
+        <TD></TD>
+        <TD>$DA40</TD>
+        <TD>11011010 01000000</TD>
+      </TR>
+      <TR align="center">
+        <TD>133</TD>
+        <TD></TD>
+        <TD>$DA49</TD>
+        <TD>11011010 01001001</TD>
+      </TR>
+      <TR align="center">
+        <TD>134</TD>
+        <TD></TD>
+        <TD>$DA52</TD>
+        <TD>11011010 01010010</TD>
+      </TR>
+      <TR align="center">
+        <TD>135</TD>
+        <TD></TD>
+        <TD>$DA5B</TD>
+        <TD>11011010 01011011</TD>
+      </TR>
+      <TR align="center">
+        <TD>136</TD>
+        <TD></TD>
+        <TD>$FA44</TD>
+        <TD>11111010 01000100</TD>
+      </TR>
+      <TR align="center">
+        <TD>137</TD>
+        <TD></TD>
+        <TD>$FA4D</TD>
+        <TD>11111010 01001101</TD>
+      </TR>
+      <TR align="center">
+        <TD>138</TD>
+        <TD></TD>
+        <TD>$FA56</TD>
+        <TD>11111010 01010110</TD>
+      </TR>
+      <TR align="center">
+        <TD>139</TD>
+        <TD></TD>
+        <TD>$FA5F</TD>
+        <TD>11111010 01011111</TD>
+      </TR>
+      <TR align="center">
+        <TD>140</TD>
+        <TD></TD>
+        <TD>$0360</TD>
+        <TD>00000011 01100000</TD>
+      </TR>
+      <TR align="center">
+        <TD>141</TD>
+        <TD></TD>
+        <TD>$0369</TD>
+        <TD>00000011 01101001</TD>
+      </TR>
+      <TR align="center">
+        <TD>142</TD>
+        <TD></TD>
+        <TD>$0372</TD>
+        <TD>00000011 01110010</TD>
+      </TR>
+      <TR align="center">
+        <TD>143</TD>
+        <TD></TD>
+        <TD>$037B</TD>
+        <TD>00000011 01111011</TD>
+      </TR>
+      <TR align="center">
+        <TD>144</TD>
+        <TD></TD>
+        <TD>$2376</TD>
+        <TD>00100011 01110110</TD>
+      </TR>
+      <TR align="center">
+        <TD>145</TD>
+        <TD></TD>
+        <TD>$237F</TD>
+        <TD>00100011 01111111</TD>
+      </TR>
+      <TR align="center">
+        <TD>146</TD>
+        <TD></TD>
+        <TD>$4B60</TD>
+        <TD>01001011 01100000</TD>
+      </TR>
+      <TR align="center">
+        <TD>147</TD>
+        <TD></TD>
+        <TD>$4B69</TD>
+        <TD>01001011 01101001</TD>
+      </TR>
+      <TR align="center">
+        <TD>148</TD>
+        <TD></TD>
+        <TD>$4B72</TD>
+        <TD>01001011 01110010</TD>
+      </TR>
+      <TR align="center">
+        <TD>149</TD>
+        <TD></TD>
+        <TD>$4B7B</TD>
+        <TD>01001011 01111011</TD>
+      </TR>
+      <TR align="center">
+        <TD>150</TD>
+        <TD></TD>
+        <TD>$6B7F</TD>
+        <TD>01101011 01111111</TD>
+      </TR>
+      <TR align="center">
+        <TD>151</TD>
+        <TD></TD>
+        <TD>$9360</TD>
+        <TD>10010011 01100000</TD>
+      </TR>
+      <TR align="center">
+        <TD>152</TD>
+        <TD></TD>
+        <TD>$9369</TD>
+        <TD>10010011 01101001</TD>
+      </TR>
+      <TR align="center">
+        <TD>153</TD>
+        <TD></TD>
+        <TD>$9372</TD>
+        <TD>10010011 01110010</TD>
+      </TR>
+      <TR align="center">
+        <TD>154</TD>
+        <TD></TD>
+        <TD>$937B</TD>
+        <TD>10010011 01111011</TD>
+      </TR>
+      <TR align="center">
+        <TD>155</TD>
+        <TD></TD>
+        <TD>$B364</TD>
+        <TD>10110011 01100100</TD>
+      </TR>
+      <TR align="center">
+        <TD>156</TD>
+        <TD></TD>
+        <TD>$B37F</TD>
+        <TD>10110011 01111111</TD>
+      </TR>
+      <TR align="center">
+        <TD>157</TD>
+        <TD></TD>
+        <TD>$DB60</TD>
+        <TD>11011011 01100000</TD>
+      </TR>
+      <TR align="center">
+        <TD>158</TD>
+        <TD></TD>
+        <TD>$DB69</TD>
+        <TD>11011011 01101001</TD>
+      </TR>
+      <TR align="center">
+        <TD>159</TD>
+        <TD></TD>
+        <TD>$DB72</TD>
+        <TD>11011011 01110010</TD>
+      </TR>
+      <TR align="center">
+        <TD>160</TD>
+        <TD></TD>
+        <TD>$DB7B</TD>
+        <TD>11011011 01111011</TD>
+      </TR>
+      <TR align="center">
+        <TD>161</TD>
+        <TD></TD>
+        <TD>$FB64</TD>
+        <TD>11111011 01100100</TD>
+      </TR>
+      <TR align="center">
+        <TD>162</TD>
+        <TD></TD>
+        <TD>$FB6D</TD>
+        <TD>11111011 01101101</TD>
+      </TR>
+      <TR align="center">
+        <TD>163</TD>
+        <TD></TD>
+        <TD>$FB76</TD>
+        <TD>11111011 01110110</TD>
+      </TR>
+      <TR align="center">
+        <TD>164</TD>
+        <TD></TD>
+        <TD>$FB7F</TD>
+        <TD>11111011 01111111</TD>
+      </TR>
+      <TR align="center">
+        <TD>165</TD>
+        <TD></TD>
+        <TD>$2484</TD>
+        <TD>00100100 10000100</TD>
+      </TR>
+      <TR align="center">
+        <TD>166</TD>
+        <TD></TD>
+        <TD>$248D</TD>
+        <TD>00100100 10001101</TD>
+      </TR>
+      <TR align="center">
+        <TD>167</TD>
+        <TD></TD>
+        <TD>$2496</TD>
+        <TD>00100100 10010110</TD>
+      </TR>
+      <TR align="center">
+        <TD>168</TD>
+        <TD></TD>
+        <TD>$249F</TD>
+        <TD>00100100 10011111</TD>
+      </TR>
+      <TR align="center">
+        <TD>169</TD>
+        <TD></TD>
+        <TD>$4C89</TD>
+        <TD>01001100 10001001</TD>
+      </TR>
+      <TR align="center">
+        <TD>170</TD>
+        <TD></TD>
+        <TD>$4C9B</TD>
+        <TD>01001100 10011011</TD>
+      </TR>
+      <TR align="center">
+        <TD>171</TD>
+        <TD></TD>
+        <TD>$6C84</TD>
+        <TD>01101100 10000100</TD>
+      </TR>
+      <TR align="center">
+        <TD>172</TD>
+        <TD></TD>
+        <TD>$6C8D</TD>
+        <TD>01101100 10001101</TD>
+      </TR>
+      <TR align="center">
+        <TD>173</TD>
+        <TD></TD>
+        <TD>$6C96</TD>
+        <TD>01101100 10010110</TD>
+      </TR>
+      <TR align="center">
+        <TD>174</TD>
+        <TD></TD>
+        <TD>$6C9F</TD>
+        <TD>01101100 10011111</TD>
+      </TR>
+      <TR align="center">
+        <TD>175</TD>
+        <TD></TD>
+        <TD>$9489</TD>
+        <TD>10010100 10001001</TD>
+      </TR>
+      <TR align="center">
+        <TD>176</TD>
+        <TD></TD>
+        <TD>$948B</TD>
+        <TD>10010100 10001011</TD>
+      </TR>
+      <TR align="center">
+        <TD>177</TD>
+        <TD></TD>
+        <TD>$B484</TD>
+        <TD>10110100 10000100</TD>
+      </TR>
+      <TR align="center">
+        <TD>178</TD>
+        <TD></TD>
+        <TD>$B496</TD>
+        <TD>10110100 10010110</TD>
+      </TR>
+      <TR align="center">
+        <TD>179</TD>
+        <TD></TD>
+        <TD>$B49F</TD>
+        <TD>10110100 10011111</TD>
+      </TR>
+      <TR align="center">
+        <TD>180</TD>
+        <TD></TD>
+        <TD>$DC80</TD>
+        <TD>11011100 10000000</TD>
+      </TR>
+      <TR align="center">
+        <TD>181</TD>
+        <TD></TD>
+        <TD>$DC89</TD>
+        <TD>11011100 10001001</TD>
+      </TR>
+      <TR align="center">
+        <TD>182</TD>
+        <TD></TD>
+        <TD>$DC92</TD>
+        <TD>11011100 10010010</TD>
+      </TR>
+      <TR align="center">
+        <TD>183</TD>
+        <TD></TD>
+        <TD>$DC9B</TD>
+        <TD>11011100 10011011</TD>
+      </TR>
+      <TR align="center">
+        <TD>184</TD>
+        <TD></TD>
+        <TD>$FC8D</TD>
+        <TD>11111100 10001101</TD>
+      </TR>
+      <TR align="center">
+        <TD>185</TD>
+        <TD></TD>
+        <TD>$FC96</TD>
+        <TD>11111100 10010110</TD>
+      </TR>
+      <TR align="center">
+        <TD>186</TD>
+        <TD></TD>
+        <TD>$FC9F</TD>
+        <TD>11111100 10011111</TD>
+      </TR>
+      <TR align="center">
+        <TD>187</TD>
+        <TD></TD>
+        <TD>$05A0</TD>
+        <TD>00000101 10100000</TD>
+      </TR>
+      <TR align="center">
+        <TD>188</TD>
+        <TD></TD>
+        <TD>$05A9</TD>
+        <TD>00000101 10101001</TD>
+      </TR>
+      <TR align="center">
+        <TD>189</TD>
+        <TD></TD>
+        <TD>$05B2</TD>
+        <TD>00000101 10110010</TD>
+      </TR>
+      <TR align="center">
+        <TD>190</TD>
+        <TD></TD>
+        <TD>$05BB</TD>
+        <TD>00000101 10111011</TD>
+      </TR>
+      <TR align="center">
+        <TD>191</TD>
+        <TD></TD>
+        <TD>$25A4</TD>
+        <TD>00100101 10100100</TD>
+      </TR>
+      <TR align="center">
+        <TD>192</TD>
+        <TD></TD>
+        <TD>$25AD</TD>
+        <TD>00100101 10101101</TD>
+      </TR>
+      <TR align="center">
+        <TD>193</TD>
+        <TD></TD>
+        <TD>$25B6</TD>
+        <TD>00100101 10110110</TD>
+      </TR>
+      <TR align="center">
+        <TD>194</TD>
+        <TD></TD>
+        <TD>$25BF</TD>
+        <TD>00100101 10111111</TD>
+      </TR>
+      <TR align="center">
+        <TD>195</TD>
+        <TD></TD>
+        <TD>$4DA0</TD>
+        <TD>01001101 10100000</TD>
+      </TR>
+      <TR align="center">
+        <TD>196</TD>
+        <TD></TD>
+        <TD>$4DA9</TD>
+        <TD>01001101 10101001</TD>
+      </TR>
+      <TR align="center">
+        <TD>197</TD>
+        <TD></TD>
+        <TD>$4DBB</TD>
+        <TD>01001101 10111011</TD>
+      </TR>
+      <TR align="center">
+        <TD>198</TD>
+        <TD></TD>
+        <TD>$6DA4</TD>
+        <TD>01101101 10100100</TD>
+      </TR>
+      <TR align="center">
+        <TD>199</TD>
+        <TD></TD>
+        <TD>$6DBF</TD>
+        <TD>01101101 10111111</TD>
+      </TR>
+      <TR align="center">
+        <TD>200</TD>
+        <TD></TD>
+        <TD>$95A0</TD>
+        <TD>10010101 10100000</TD>
+      </TR>
+      <TR align="center">
+        <TD>201</TD>
+        <TD></TD>
+        <TD>$95B2</TD>
+        <TD>10010101 10110010</TD>
+      </TR>
+      <TR align="center">
+        <TD>202</TD>
+        <TD></TD>
+        <TD>$95BB</TD>
+        <TD>10010101 10111011</TD>
+      </TR>
+      <TR align="center">
+        <TD>203</TD>
+        <TD></TD>
+        <TD>$B5A4</TD>
+        <TD>10110101 10100100</TD>
+      </TR>
+      <TR align="center">
+        <TD>204</TD>
+        <TD></TD>
+        <TD>$DDA0</TD>
+        <TD>11011101 10100000</TD>
+      </TR>
+      <TR align="center">
+        <TD>205</TD>
+        <TD></TD>
+        <TD>$DDA9</TD>
+        <TD>11011101 10101001</TD>
+      </TR>
+      <TR align="center">
+        <TD>206</TD>
+        <TD></TD>
+        <TD>$DDB2</TD>
+        <TD>11011101 10110010</TD>
+      </TR>
+      <TR align="center">
+        <TD>207</TD>
+        <TD></TD>
+        <TD>$DDBB</TD>
+        <TD>11011101 10111011</TD>
+      </TR>
+      <TR align="center">
+        <TD>208</TD>
+        <TD></TD>
+        <TD>$FDA4</TD>
+        <TD>11111101 10100100</TD>
+      </TR>
+      <TR align="center">
+        <TD>209</TD>
+        <TD></TD>
+        <TD>$FDAD</TD>
+        <TD>11111101 10101101</TD>
+      </TR>
+      <TR align="center">
+        <TD>210</TD>
+        <TD></TD>
+        <TD>$06C0</TD>
+        <TD>00000110 11000000</TD>
+      </TR>
+      <TR align="center">
+        <TD>211</TD>
+        <TD></TD>
+        <TD>$06C9</TD>
+        <TD>00000110 11001001</TD>
+      </TR>
+      <TR align="center">
+        <TD>212</TD>
+        <TD></TD>
+        <TD>$06D2</TD>
+        <TD>00000110 11010010</TD>
+      </TR>
+      <TR align="center">
+        <TD>213</TD>
+        <TD></TD>
+        <TD>$06DB</TD>
+        <TD>00000110 11011011</TD>
+      </TR>
+      <TR align="center">
+        <TD>214</TD>
+        <TD></TD>
+        <TD>$26C4</TD>
+        <TD>00100110 11000100</TD>
+      </TR>
+      <TR align="center">
+        <TD>215</TD>
+        <TD></TD>
+        <TD>$26CD</TD>
+        <TD>00100110 11001101</TD>
+      </TR>
+      <TR align="center">
+        <TD>216</TD>
+        <TD></TD>
+        <TD>$26D6</TD>
+        <TD>00100110 11010110</TD>
+      </TR>
+      <TR align="center">
+        <TD>217</TD>
+        <TD></TD>
+        <TD>$26DF</TD>
+        <TD>00100110 11011111</TD>
+      </TR>
+      <TR align="center">
+        <TD>218</TD>
+        <TD></TD>
+        <TD>$4EC0</TD>
+        <TD>01001110 11000000</TD>
+      </TR>
+      <TR align="center">
+        <TD>219</TD>
+        <TD></TD>
+        <TD>$4EC9</TD>
+        <TD>01001110 11001001</TD>
+      </TR>
+      <TR align="center">
+        <TD>220</TD>
+        <TD></TD>
+        <TD>$4ED2</TD>
+        <TD>01001110 11010010</TD>
+      </TR>
+      <TR align="center">
+        <TD>221</TD>
+        <TD></TD>
+        <TD>$4EDB</TD>
+        <TD>01001110 11011011</TD>
+      </TR>
+      <TR align="center">
+        <TD>222</TD>
+        <TD></TD>
+        <TD>$6EC4</TD>
+        <TD>01101110 11000100</TD>
+      </TR>
+      <TR align="center">
+        <TD>223</TD>
+        <TD></TD>
+        <TD>$6ECD</TD>
+        <TD>01101110 11001101</TD>
+      </TR>
+      <TR align="center">
+        <TD>224</TD>
+        <TD></TD>
+        <TD>$6ED6</TD>
+        <TD>01101110 11010110</TD>
+      </TR>
+      <TR align="center">
+        <TD>225</TD>
+        <TD></TD>
+        <TD>$6EDF</TD>
+        <TD>01101110 11011111</TD>
+      </TR>
+      <TR align="center">
+        <TD>226</TD>
+        <TD></TD>
+        <TD>$96C0</TD>
+        <TD>10010110 11000000</TD>
+      </TR>
+      <TR align="center">
+        <TD>227</TD>
+        <TD></TD>
+        <TD>$96C9</TD>
+        <TD>10010110 11001001</TD>
+      </TR>
+      <TR align="center">
+        <TD>228</TD>
+        <TD></TD>
+        <TD>$96D2</TD>
+        <TD>10010110 11010010</TD>
+      </TR>
+      <TR align="center">
+        <TD>229</TD>
+        <TD></TD>
+        <TD>$96DB</TD>
+        <TD>10010110 11011011</TD>
+      </TR>
+      <TR align="center">
+        <TD>230</TD>
+        <TD></TD>
+        <TD>$B6C4</TD>
+        <TD>10110110 11000100</TD>
+      </TR>
+      <TR align="center">
+        <TD>231</TD>
+        <TD></TD>
+        <TD>$B6CD</TD>
+        <TD>10110110 11001101</TD>
+      </TR>
+      <TR align="center">
+        <TD>232</TD>
+        <TD></TD>
+        <TD>$B6D6</TD>
+        <TD>10110110 11010110</TD>
+      </TR>
+      <TR align="center">
+        <TD>233</TD>
+        <TD></TD>
+        <TD>$B6DF</TD>
+        <TD>10110110 11011111</TD>
+      </TR>
+      <TR align="center">
+        <TD>234</TD>
+        <TD></TD>
+        <TD>$DEC9</TD>
+        <TD>11011110 11001001</TD>
+      </TR>
+      <TR align="center">
+        <TD>235</TD>
+        <TD></TD>
+        <TD>$DED2</TD>
+        <TD>11011110 11010010</TD>
+      </TR>
+      <TR align="center">
+        <TD>236</TD>
+        <TD></TD>
+        <TD>$FECD</TD>
+        <TD>11111110 11001101</TD>
+      </TR>
+      <TR align="center">
+        <TD>237</TD>
+        <TD></TD>
+        <TD>$07E9</TD>
+        <TD>00000111 11101001</TD>
+      </TR>
+      <TR align="center">
+        <TD>238</TD>
+        <TD></TD>
+        <TD>$27ED</TD>
+        <TD>00100111 11101101</TD>
+      </TR>
+      <TR align="center">
+        <TD>239</TD>
+        <TD></TD>
+        <TD>$27F6</TD>
+        <TD>00100111 11110110</TD>
+      </TR>
+      <TR align="center">
+        <TD>240</TD>
+        <TD></TD>
+        <TD>$4FE0</TD>
+        <TD>01001111 11100000</TD>
+      </TR>
+      <TR align="center">
+        <TD>241</TD>
+        <TD></TD>
+        <TD>$4FE9</TD>
+        <TD>01001111 11101001</TD>
+      </TR>
+      <TR align="center">
+        <TD>242</TD>
+        <TD></TD>
+        <TD>$4FF2</TD>
+        <TD>01001111 11110010</TD>
+      </TR>
+      <TR align="center">
+        <TD>243</TD>
+        <TD></TD>
+        <TD>$4FFB</TD>
+        <TD>01001111 11111011</TD>
+      </TR>
+      <TR align="center">
+        <TD>244</TD>
+        <TD></TD>
+        <TD>$6FE4</TD>
+        <TD>01101111 11100100</TD>
+      </TR>
+      <TR align="center">
+        <TD>245</TD>
+        <TD></TD>
+        <TD>$6FED</TD>
+        <TD>01101111 11101101</TD>
+      </TR>
+      <TR align="center">
+        <TD>246</TD>
+        <TD></TD>
+        <TD>$6FF6</TD>
+        <TD>01101111 11110110</TD>
+      </TR>
+      <TR align="center">
+        <TD>247</TD>
+        <TD></TD>
+        <TD>$6FFF</TD>
+        <TD>01101111 11111111</TD>
+      </TR>
+      <TR align="center">
+        <TD>248</TD>
+        <TD></TD>
+        <TD>$97E9</TD>
+        <TD>10010111 11101001</TD>
+      </TR>
+      <TR align="center">
+        <TD>249</TD>
+        <TD></TD>
+        <TD>$97F2</TD>
+        <TD>10010111 11110010</TD>
+      </TR>
+      <TR align="center">
+        <TD>250</TD>
+        <TD></TD>
+        <TD>$97FB</TD>
+        <TD>10010111 11111011</TD>
+      </TR>
+      <TR align="center">
+        <TD>251</TD>
+        <TD></TD>
+        <TD>$B7E4</TD>
+        <TD>10110111 11100100</TD>
+      </TR>
+      <TR align="center">
+        <TD>252</TD>
+        <TD></TD>
+        <TD>$B7ED</TD>
+        <TD>10110111 11101101</TD>
+      </TR>
+      <TR align="center">
+        <TD>253</TD>
+        <TD></TD>
+        <TD>$DFE9</TD>
+        <TD>11011111 11101001</TD>
+      </TR>
+      <TR align="center">
+        <TD>254</TD>
+        <TD></TD>
+        <TD>$DFF2</TD>
+        <TD>11011111 11110010</TD>
+      </TR>
+      <TR align="center">
+        <TD>255</TD>
+        <TD></TD>
+        <TD>$FFED</TD>
+        <TD>11111111 11101101</TD>
+      </TR>
+    </TABLE>
+    
+<H3>Q40/Q60 Enhanced Colour Drivers</H3>
+    
+<P>SMSQ/E v2.98+ provides various colour modes for the Q40 and Q60 computers. You can configure SMSQ/E to start with either the Standard QL Colour Drivers or the Enhanced Colour Drivers. If the Enhanced Colour Drivers are loaded, <SPAN style="font-style: italic;">RMODE</SPAN> will return 33.</P>
+    
+<P>The Enhanced Colour Drivers support a QL 8 colour mode (selected with <SPAN style="font-style: italic;">COLOUR_QL</SPAN>), a PAL Colour Mode providing 256 colours (selected with <SPAN style="font-style: italic;">COLOUR_PAL</SPAN>) and a Native Colour Mode providing 65536 colours (select with <SPAN style="font-style: italic;">COLOUR_NATIVE</SPAN>). As with the other implementations, 24 bit colours are used by commands such as <SPAN style="font-style: italic;">PALETTE_8</SPAN>, although there is no 24 bit colour mode due to the limitations of the hardware.</P>
+    
+<H3>QL Colour Mode (<SPAN style="font-style: italic;">COLOUR_QL</SPAN>)</H3>
+    
+<P>This is similar to <SPAN style="font-style: italic;">MODE 4</SPAN> under the Standard QL Colour Drivers and is provided for compatability. However all 8 standard <SPAN style="font-style: italic;">MODE 8</SPAN> colours are actually available. See <SPAN style="font-style: italic;">INK</SPAN> for a list of the standard <SPAN style="font-style: italic;">MODE 8</SPAN> colours.</P>
+    
+<H3>PAL Colour Mode (<SPAN style="font-style: italic;">COLOUR_PAL</SPAN>)</H3>
+    
+<P>This allows programs to use 256 colours - it is the simplest mode to use, since a standard PAL Colour Value is used by any standard colour commands, such as <SPAN style="font-style: italic;">INK</SPAN>, to describe all 256 colours on all implementations (including Aurora).</P>
+    
+<P>The table on the following pages describes all 256 colours with the PAL Colour Value and their Native Colour Value in decimal, hexadecimal and binary (see below).</P>
+    
+<P>You can use <SPAN style="font-style: italic;">PALETTE_8</SPAN> to change the 256 colours available.</P>
+    
+<H3>Native Colour Mode (<SPAN style="font-style: italic;">COLOUR_NATIVE</SPAN>)</H3>
+    
+<P>As with QXL and QPC2, this allows programs to use 65536 colours. However, the Native Colour Values required for <SPAN style="font-style: italic;">INK</SPAN>, <SPAN style="font-style: italic;">STRIP</SPAN>, <SPAN style="font-style: italic;">PAPER</SPAN> etc. depend upon the hardware (ie. they are different to the QPC2/QXL values). The colour is described by the actual value which would be <SPAN style="font-style: italic;">POKE</SPAN>d into the video memory, hence two bytes (a word) represent the colour of one pixel on the Monitor's screen. It is therefore easier to use Hexadecimal values to represent each colour.</P>
+    
+<P>The bits in the word represent the amount of GREEN, RED and BLUE to be used for each pixel, in the following format:</P>
+    
+<H3>gggggrrr rrbbbbbw</H3>where:
+    <TABLE>
+      <TR>
+        <TD>g</TD>
+        <TD>=</TD>
+        <TD>green (5 bits)</TD>
+      </TR>
+      <TR>
+        <TD>r</TD>
+        <TD>=</TD>
+        <TD>red (5 bits)</TD>
+      </TR>
+      <TR>
+        <TD>b</TD>
+        <TD>=</TD>
+        <TD>blue (5 bits)</TD>
+      </TR>
+      <TR>
+        <TD>w</TD>
+        <TD>=</TD>
+        <TD>white</TD>
+      </TR>
+    </TABLE>
+    
+<P>The table on the following pages describes the first 256 colours with the PAL Colour Value and their Native Colour Value in decimal, hexadecimal and binary (see below).</P>
+    
+<H3>Colour Table</H3>
+    
+<P>Due to the range of colours available, it is hard to describe each colour; therefore it will require experimentation to obtain the correct colours. The following table details the PAL Colour Value and Native Colour Value for each colour which need to be used for <SPAN style="font-style: italic;">INK</SPAN> and similar commands (<EM>NOTE</EM> this does not correspond with the orignal QL colour scheme!). We have tried to list the most widely used ones (<SPAN style="font-style: italic;">INK 0</SPAN> to <SPAN style="font-style: italic;">INK 63</SPAN> under <SPAN style="font-style: italic;">COLOUR_PAL</SPAN>) grouped into the different colours followed by the values for the remainder of the first 256 colours. Conversion of the values to binary gives a clue as to how this colour scheme works:</P>
+    <TABLE>
+      <TR>
+        <TH colspan="2"></TH>
+        <TH colspan="2">gggggrrr rrbbbbbw</TH>
+      </TR>
+      <TR>
+        <TH>PAL</TH>
+        <TH></TH>
+        <TH>Native</TH>
+        <TH>Native</TH>
+      </TR>
+      <TR>
+        <TH>Colour</TH>
+        <TH>Colour</TH>
+        <TH>Value</TH>
+        <TH>Value</TH>
+      </TR>
+      <TR>
+        <TH>Value</TH>
+        <TH>Name</TH>
+        <TH>(Hex)</TH>
+        <TH>(Binary)</TH>
+      </TR>
+      <TR align="center">
+        <TD>0</TD>
+        <TD>Black</TD>
+        <TD>$0000</TD>
+        <TD>00000000 00000000</TD>
+      </TR>
+      <TR align="center">
+        <TD>1</TD>
+        <TD>White</TD>
+        <TD>$FFFF</TD>
+        <TD>11111111 11111111</TD>
+      </TR>
+      <TR align="center">
+        <TD>8</TD>
+        <TD>Dark Slate</TD>
+        <TD>$2108</TD>
+        <TD>00100001 00001000</TD>
+      </TR>
+      <TR align="center">
+        <TD>9</TD>
+        <TD>Slate Grey</TD>
+        <TD>$4A53</TD>
+        <TD>01001010 01010011</TD>
+      </TR>
+      <TR align="center">
+        <TD>10</TD>
+        <TD>Dark Grey</TD>
+        <TD>$6B5B</TD>
+        <TD>01101011 01011011</TD>
+      </TR>
+      <TR align="center">
+        <TD>11</TD>
+        <TD>Grey</TD>
+        <TD>$94A4</TD>
+        <TD>10010100 10100100</TD>
+      </TR>
+      <TR align="center">
+        <TD>12</TD>
+        <TD>Light Grey</TD>
+        <TD>$B5AC</TD>
+        <TD>10110101 10101100</TD>
+      </TR>
+      <TR align="center">
+        <TD>13</TD>
+        <TD>Ash Grey</TD>
+        <TD>$DEF7</TD>
+        <TD>11011110 11110111</TD>
+      </TR>
+      <TR align="center">
+        <TD>58</TD>
+        <TD>Cerise</TD>
+        <TD>$0492</TD>
+        <TD>00000100 10010010</TD>
+      </TR>
+      <TR align="center">
+        <TD>14</TD>
+        <TD>Dark Red</TD>
+        <TD>$0480</TD>
+        <TD>00000100 10000000</TD>
+      </TR>
+      <TR align="center">
+        <TD>2R</TD>
+        <TD>ed</TD>
+        <TD>$07C0</TD>
+        <TD>00000111 11000000</TD>
+      </TR>
+      <TR align="center">
+        <TD>63</TD>
+        <TD>Deep Purple</TD>
+        <TD>$0264</TD>
+        <TD>00000010 01100100</TD>
+      </TR>
+      <TR align="center">
+        <TD>51</TD>
+        <TD>Plum</TD>
+        <TD>$235B</TD>
+        <TD>00100011 01011011</TD>
+      </TR>
+      <TR align="center">
+        <TD>20</TD>
+        <TD>Purple</TD>
+        <TD>$04A4</TD>
+        <TD>00000100 10100100</TD>
+      </TR>
+      <TR align="center">
+        <TD>26</TD>
+        <TD>Mauve</TD>
+        <TD>$04BE</TD>
+        <TD>00000100 10111110</TD>
+      </TR>
+      <TR align="center">
+        <TD>57</TD>
+        <TD>Faded Purple</TD>
+        <TD>$4CAC</TD>
+        <TD>01001100 10101100</TD>
+      </TR>
+      <TR align="center">
+        <TD>52</TD>
+        <TD>Dusky Pink</TD>
+        <TD>$4DA4</TD>
+        <TD>01001101 10100100</TD>
+      </TR>
+      <TR align="center">
+        <TD>5</TD>
+        <TD>Magenta</TD>
+        <TD>$07FF</TD>
+        <TD>00000111 11111111</TD>
+      </TR>
+      <TR align="center">
+        <TD>21</TD>
+        <TD>Shocking Pink</TD>
+        <TD>$07E4</TD>
+        <TD>00000111 11100100</TD>
+      </TR>
+      <TR align="center">
+        <TD>45</TD>
+        <TD>Dull Pink</TD>
+        <TD>$6DAC</TD>
+        <TD>01101101 10101100</TD>
+      </TR>
+      <TR align="center">
+        <TD>32</TD>
+        <TD>Pink</TD>
+        <TD>$B7F7</TD>
+        <TD>10110111 11110111</TD>
+      </TR>
+      <TR align="center">
+        <TD>31</TD>
+        <TD>Rose Pink</TD>
+        <TD>$B7FF</TD>
+        <TD>10110111 11111111</TD>
+      </TR>
+      <TR align="center">
+        <TD>34</TD>
+        <TD>Pastel Pink</TD>
+        <TD>$DFF7</TD>
+        <TD>11011111 11110111</TD>
+      </TR>
+      <TR align="center">
+        <TD>39</TD>
+        <TD>Pastel Rose</TD>
+        <TD>$DFFF</TD>
+        <TD>11011111 11111111</TD>
+      </TR>
+      <TR align="center">
+        <TD>27</TD>
+        <TD>Peach</TD>
+        <TD>$B7EC</TD>
+        <TD>10110111 11101100</TD>
+      </TR>
+      <TR align="center">
+        <TD>50</TD>
+        <TD>Midnight Blue</TD>
+        <TD>$211A</TD>
+        <TD>00100001 00011010</TD>
+      </TR>
+      <TR align="center">
+        <TD>19</TD>
+        <TD>Dark Blue</TD>
+        <TD>$0024</TD>
+        <TD>00000000 00100100</TD>
+      </TR>
+      <TR align="center">
+        <TD>4B</TD>
+        <TD>lue</TD>
+        <TD>$003E</TD>
+        <TD>00000000 00111110</TD>
+      </TR>
+      <TR align="center">
+        <TD>62</TD>
+        <TD>Ultramarine</TD>
+        <TD>$4824</TD>
+        <TD>01001000 00100100</TD>
+      </TR>
+      <TR align="center">
+        <TD>49</TD>
+        <TD>Dusky Blue</TD>
+        <TD>$691B</TD>
+        <TD>01101001 00011011</TD>
+      </TR>
+      <TR align="center">
+        <TD>44</TD>
+        <TD>Steel Blue</TD>
+        <TD>$6B6D</TD>
+        <TD>01101011 01101101</TD>
+      </TR>
+      <TR align="center">
+        <TD>18</TD>
+        <TD>Sea Blue</TD>
+        <TD>$9024</TD>
+        <TD>10010000 00100100</TD>
+      </TR>
+      <TR align="center">
+        <TD>25</TD>
+        <TD>Bright Blue</TD>
+        <TD>$903E</TD>
+        <TD>10010000 00111110</TD>
+      </TR>
+      <TR align="center">
+        <TD>56</TD>
+        <TD>Dull Blue</TD>
+        <TD>$926C</TD>
+        <TD>10010010 01101100</TD>
+      </TR>
+      <TR align="center">
+        <TD>43</TD>
+        <TD>Dull Cyan</TD>
+        <TD>$B36C</TD>
+        <TD>10110011 01101100</TD>
+      </TR>
+      <TR align="center">
+        <TD>7</TD>
+        <TD>Cyan</TD>
+        <TD>$F83F</TD>
+        <TD>11111000 00111111</TD>
+      </TR>
+      <TR align="center">
+        <TD>29</TD>
+        <TD>Light Blue</TD>
+        <TD>$FDBF</TD>
+        <TD>11111101 10111111</TD>
+      </TR>
+      <TR align="center">
+        <TD>30</TD>
+        <TD>Sky Blue</TD>
+        <TD>$B5BE</TD>
+        <TD>10110101 10111110</TD>
+      </TR>
+      <TR align="center">
+        <TD>38</TD>
+        <TD>Pastel Blue</TD>
+        <TD>$DEFF</TD>
+        <TD>11011110 11111111</TD>
+      </TR>
+      <TR align="center">
+        <TD>37</TD>
+        <TD>Pastel Cyan</TD>
+        <TD>$FEFF</TD>
+        <TD>11111110 11111111</TD>
+      </TR>
+      <TR align="center">
+        <TD>48</TD>
+        <TD>Dusky Green</TD>
+        <TD>$6908</TD>
+        <TD>01101001 00001000</TD>
+      </TR>
+      <TR align="center">
+        <TD>60</TD>
+        <TD>Grass Green</TD>
+        <TD>$9240</TD>
+        <TD>10010010 01000000</TD>
+      </TR>
+      <TR align="center">
+        <TD>17</TD>
+        <TD>Dark Green</TD>
+        <TD>$9000</TD>
+        <TD>10010000 00000000</TD>
+      </TR>
+      <TR align="center">
+        <TD>54</TD>
+        <TD>Avocado</TD>
+        <TD>$B492</TD>
+        <TD>10110100 10010010</TD>
+      </TR>
+      <TR align="center">
+        <TD>61</TD>
+        <TD>Sea Green</TD>
+        <TD>$9012</TD>
+        <TD>10010000 00010010</TD>
+      </TR>
+      <TR align="center">
+        <TD>42</TD>
+        <TD>Dull Green</TD>
+        <TD>$B35B</TD>
+        <TD>10110011 01011011</TD>
+      </TR>
+      <TR align="center">
+        <TD>3</TD>
+        <TD>Green</TD>
+        <TD>$F800</TD>
+        <TD>11111000 00000000</TD>
+      </TR>
+      <TR align="center">
+        <TD>23</TD>
+        <TD>Lime Green</TD>
+        <TD>$FC80</TD>
+        <TD>11111100 10000000</TD>
+      </TR>
+      <TR align="center">
+        <TD>24</TD>
+        <TD>Apple Green</TD>
+        <TD>$F824</TD>
+        <TD>11111000 00100100</TD>
+      </TR>
+      <TR align="center">
+        <TD>55</TD>
+        <TD>Dull Turquoise</TD>
+        <TD>$B264</TD>
+        <TD>10110010 01100100</TD>
+      </TR>
+      <TR align="center">
+        <TD>41</TD>
+        <TD>Light Khaki</TD>
+        <TD>$B59A</TD>
+        <TD>10110101 10011010</TD>
+      </TR>
+      <TR align="center">
+        <TD>15</TD>
+        <TD>Light Green</TD>
+        <TD>$FDAC</TD>
+        <TD>11111101 10101100</TD>
+      </TR>
+      <TR align="center">
+        <TD>36</TD>
+        <TD>Pastel Green</TD>
+        <TD>$FEF7</TD>
+        <TD>11111110 11110111</TD>
+      </TR>
+      <TR align="center">
+        <TD>46</TD>
+        <TD>Brown</TD>
+        <TD>$2348</TD>
+        <TD>00100011 01001000</TD>
+      </TR>
+      <TR align="center">
+        <TD>59</TD>
+        <TD>Tan</TD>
+        <TD>$4C80</TD>
+        <TD>01001100 10000000</TD>
+      </TR>
+      <TR align="center">
+        <TD>6</TD>
+        <TD>Yellow</TD>
+        <TD>$FFC1</TD>
+        <TD>11111111 11000001</TD>
+      </TR>
+      <TR align="center">
+        <TD>22</TD>
+        <TD>Orange</TD>
+        <TD>$97C0</TD>
+        <TD>10010111 11000000</TD>
+      </TR>
+      <TR align="center">
+        <TD>16</TD>
+        <TD>Mustard</TD>
+        <TD>$9480</TD>
+        <TD>10010100 10000000</TD>
+      </TR>
+      <TR align="center">
+        <TD>47</TD>
+        <TD>Khaki</TD>
+        <TD>$6B49</TD>
+        <TD>01101011 01001001</TD>
+      </TR>
+      <TR align="center">
+        <TD>53</TD>
+        <TD>Buff</TD>
+        <TD>$9592</TD>
+        <TD>10010101 10010010</TD>
+      </TR>
+      <TR align="center">
+        <TD>40</TD>
+        <TD>Brick</TD>
+        <TD>$6D9B</TD>
+        <TD>01101101 10011011</TD>
+      </TR>
+      <TR align="center">
+        <TD>33</TD>
+        <TD>Beige</TD>
+        <TD>$DFED</TD>
+        <TD>11011111 11101101</TD>
+      </TR>
+      <TR align="center">
+        <TD>28</TD>
+        <TD>Light Yellow</TD>
+        <TD>$FFED</TD>
+        <TD>11111111 11101101</TD>
+      </TR>
+      <TR align="center">
+        <TD>35</TD>
+        <TD>Pastel Yellow</TD>
+        <TD>$FFF7</TD>
+        <TD>11111111 11110111</TD>
+      </TR>
+    </TABLE>
+    
+<P>The remainder of the first 256 colours are mapped as follows (we would welcome names for each of these colours):</P>
+    <TABLE>
+      <TR>
+        <TH colspan="2"></TH>
+        <TH colspan="2">gggggrrr rrbbbbbw</TH>
+      </TR>
+      <TR>
+        <TH>PAL</TH>
+        <TH></TH>
+        <TH>Native</TH>
+        <TH>Native</TH>
+      </TR>
+      <TR>
+        <TH>Colour</TH>
+        <TH>Colour</TH>
+        <TH>Value</TH>
+        <TH>Value</TH>
+      </TR>
+      <TR>
+        <TH>Value</TH>
+        <TH>Name</TH>
+        <TH>(Hex)</TH>
+        <TH>(Binary)</TH>
+      </TR>
+      <TR align="center">
+        <TD>64</TD>
+        <TD></TD>
+        <TD>$0012</TD>
+        <TD>00000000 00010010</TD>
+      </TR>
+      <TR align="center">
+        <TD>65</TD>
+        <TD></TD>
+        <TD>$0108</TD>
+        <TD>00000001 00001000</TD>
+      </TR>
+      <TR align="center">
+        <TD>66</TD>
+        <TD></TD>
+        <TD>$011A</TD>
+        <TD>00000001 00011010</TD>
+      </TR>
+      <TR align="center">
+        <TD>67</TD>
+        <TD></TD>
+        <TD>$012C</TD>
+        <TD>00000001 00101100</TD>
+      </TR>
+      <TR align="center">
+        <TD>68</TD>
+        <TD></TD>
+        <TD>$013E</TD>
+        <TD>00000001 00111110</TD>
+      </TR>
+      <TR align="center">
+        <TD>69</TD>
+        <TD></TD>
+        <TD>$0240</TD>
+        <TD>00000010 01000000</TD>
+      </TR>
+      <TR align="center">
+        <TD>70</TD>
+        <TD></TD>
+        <TD>$0253</TD>
+        <TD>00000010 01010011</TD>
+      </TR>
+      <TR align="center">
+        <TD>71</TD>
+        <TD></TD>
+        <TD>$0277</TD>
+        <TD>00000010 01110111</TD>
+      </TR>
+      <TR align="center">
+        <TD>72</TD>
+        <TD></TD>
+        <TD>$0348</TD>
+        <TD>00000011 01001000</TD>
+      </TR>
+      <TR align="center">
+        <TD>73</TD>
+        <TD></TD>
+        <TD>$035B</TD>
+        <TD>00000011 01011011</TD>
+      </TR>
+      <TR align="center">
+        <TD>74</TD>
+        <TD></TD>
+        <TD>$036C</TD>
+        <TD>00000011 01101100</TD>
+      </TR>
+      <TR align="center">
+        <TD>75</TD>
+        <TD></TD>
+        <TD>$037F</TD>
+        <TD>00000011 01111111</TD>
+      </TR>
+      <TR align="center">
+        <TD>76</TD>
+        <TD></TD>
+        <TD>$0588</TD>
+        <TD>00000101 10001000</TD>
+      </TR>
+      <TR align="center">
+        <TD>77</TD>
+        <TD></TD>
+        <TD>$059A</TD>
+        <TD>00000101 10011010</TD>
+      </TR>
+      <TR align="center">
+        <TD>78</TD>
+        <TD></TD>
+        <TD>$05AC</TD>
+        <TD>00000101 10101100</TD>
+      </TR>
+      <TR align="center">
+        <TD>79</TD>
+        <TD></TD>
+        <TD>$05BE</TD>
+        <TD>00000101 10111110</TD>
+      </TR>
+      <TR align="center">
+        <TD>80</TD>
+        <TD></TD>
+        <TD>$06C0</TD>
+        <TD>00000110 11000000</TD>
+      </TR>
+      <TR align="center">
+        <TD>81</TD>
+        <TD></TD>
+        <TD>$06D3</TD>
+        <TD>00000110 11010011</TD>
+      </TR>
+      <TR align="center">
+        <TD>82</TD>
+        <TD></TD>
+        <TD>$06E4</TD>
+        <TD>00000110 11100100</TD>
+      </TR>
+      <TR align="center">
+        <TD>83</TD>
+        <TD></TD>
+        <TD>$06F7</TD>
+        <TD>00000110 11110111</TD>
+      </TR>
+      <TR align="center">
+        <TD>84</TD>
+        <TD></TD>
+        <TD>$07DB</TD>
+        <TD>00000111 11011011</TD>
+      </TR>
+      <TR align="center">
+        <TD>85</TD>
+        <TD></TD>
+        <TD>$2000</TD>
+        <TD>00100000 00000000</TD>
+      </TR>
+      <TR align="center">
+        <TD>86</TD>
+        <TD></TD>
+        <TD>$2012</TD>
+        <TD>00100000 00010010</TD>
+      </TR>
+      <TR align="center">
+        <TD>87</TD>
+        <TD></TD>
+        <TD>$2024</TD>
+        <TD>00100000 00100100</TD>
+      </TR>
+      <TR align="center">
+        <TD>88</TD>
+        <TD></TD>
+        <TD>$2036</TD>
+        <TD>00100000 00110110</TD>
+      </TR>
+      <TR align="center">
+        <TD>89</TD>
+        <TD></TD>
+        <TD>$212C</TD>
+        <TD>00100001 00101100</TD>
+      </TR>
+      <TR align="center">
+        <TD>90</TD>
+        <TD></TD>
+        <TD>$213E</TD>
+        <TD>00100001 00111110</TD>
+      </TR>
+      <TR align="center">
+        <TD>91</TD>
+        <TD></TD>
+        <TD>$2240</TD>
+        <TD>00100010 01000000</TD>
+      </TR>
+      <TR align="center">
+        <TD>92</TD>
+        <TD></TD>
+        <TD>$2253</TD>
+        <TD>00100010 01010011</TD>
+      </TR>
+      <TR align="center">
+        <TD>93</TD>
+        <TD></TD>
+        <TD>$2264</TD>
+        <TD>00100010 01100100</TD>
+      </TR>
+      <TR align="center">
+        <TD>94</TD>
+        <TD></TD>
+        <TD>$2277</TD>
+        <TD>00100010 01110111</TD>
+      </TR>
+      <TR align="center">
+        <TD>95</TD>
+        <TD></TD>
+        <TD>$236C</TD>
+        <TD>00100011 01101100</TD>
+      </TR>
+      <TR align="center">
+        <TD>96</TD>
+        <TD></TD>
+        <TD>$237F</TD>
+        <TD>00100011 01111111</TD>
+      </TR>
+      <TR align="center">
+        <TD>97</TD>
+        <TD></TD>
+        <TD>$2480</TD>
+        <TD>00100100 10000000</TD>
+      </TR>
+      <TR align="center">
+        <TD>98</TD>
+        <TD></TD>
+        <TD>$2492</TD>
+        <TD>00100100 10010010</TD>
+      </TR>
+      <TR align="center">
+        <TD>99</TD>
+        <TD></TD>
+        <TD>$24A4</TD>
+        <TD>00100100 10100100</TD>
+      </TR>
+      <TR align="center">
+        <TD>100</TD>
+        <TD></TD>
+        <TD>$24B6</TD>
+        <TD>00100100 10110110</TD>
+      </TR>
+      <TR align="center">
+        <TD>101</TD>
+        <TD></TD>
+        <TD>$2588</TD>
+        <TD>00100101 10001000</TD>
+      </TR>
+      <TR align="center">
+        <TD>102</TD>
+        <TD></TD>
+        <TD>$259A</TD>
+        <TD>00100101 10011010</TD>
+      </TR>
+      <TR align="center">
+        <TD>103</TD>
+        <TD></TD>
+        <TD>$25AC</TD>
+        <TD>00100101 10101100</TD>
+      </TR>
+      <TR align="center">
+        <TD>104</TD>
+        <TD></TD>
+        <TD>$25BE</TD>
+        <TD>00100101 10111110</TD>
+      </TR>
+      <TR align="center">
+        <TD>105</TD>
+        <TD></TD>
+        <TD>$26C0</TD>
+        <TD>00100110 11000000</TD>
+      </TR>
+      <TR align="center">
+        <TD>106</TD>
+        <TD></TD>
+        <TD>$26D3</TD>
+        <TD>00100110 11010011</TD>
+      </TR>
+      <TR align="center">
+        <TD>107</TD>
+        <TD></TD>
+        <TD>$26E4</TD>
+        <TD>00100110 11100100</TD>
+      </TR>
+      <TR align="center">
+        <TD>108</TD>
+        <TD></TD>
+        <TD>$26F7</TD>
+        <TD>00100110 11110111</TD>
+      </TR>
+      <TR align="center">
+        <TD>109</TD>
+        <TD></TD>
+        <TD>$27C8</TD>
+        <TD>00100111 11001000</TD>
+      </TR>
+      <TR align="center">
+        <TD>110</TD>
+        <TD></TD>
+        <TD>$27DB</TD>
+        <TD>00100111 11011011</TD>
+      </TR>
+      <TR align="center">
+        <TD>111</TD>
+        <TD></TD>
+        <TD>$27EC</TD>
+        <TD>00100111 11101100</TD>
+      </TR>
+      <TR align="center">
+        <TD>112</TD>
+        <TD></TD>
+        <TD>$27FF</TD>
+        <TD>00100111 11111111</TD>
+      </TR>
+      <TR align="center">
+        <TD>113</TD>
+        <TD></TD>
+        <TD>$4800</TD>
+        <TD>01001000 00000000</TD>
+      </TR>
+      <TR align="center">
+        <TD>114</TD>
+        <TD></TD>
+        <TD>$4813</TD>
+        <TD>01001000 00010011</TD>
+      </TR>
+      <TR align="center">
+        <TD>115</TD>
+        <TD></TD>
+        <TD>$4837</TD>
+        <TD>01001000 00110111</TD>
+      </TR>
+      <TR align="center">
+        <TD>116</TD>
+        <TD></TD>
+        <TD>$4908</TD>
+        <TD>01001001 00001000</TD>
+      </TR>
+      <TR align="center">
+        <TD>117</TD>
+        <TD></TD>
+        <TD>$491B</TD>
+        <TD>01001001 00011011</TD>
+      </TR>
+      <TR align="center">
+        <TD>118</TD>
+        <TD></TD>
+        <TD>$492C</TD>
+        <TD>01001001 00101100</TD>
+      </TR>
+      <TR align="center">
+        <TD>119</TD>
+        <TD></TD>
+        <TD>$493F</TD>
+        <TD>01001001 00111111</TD>
+      </TR>
+      <TR align="center">
+        <TD>120</TD>
+        <TD></TD>
+        <TD>$4A41</TD>
+        <TD>01001010 01000001</TD>
+      </TR>
+      <TR align="center">
+        <TD>121</TD>
+        <TD></TD>
+        <TD>$4A65</TD>
+        <TD>01001010 01100101</TD>
+      </TR>
+      <TR align="center">
+        <TD>122</TD>
+        <TD></TD>
+        <TD>$4A77</TD>
+        <TD>01001010 01110111</TD>
+      </TR>
+      <TR align="center">
+        <TD>123</TD>
+        <TD></TD>
+        <TD>$4B49</TD>
+        <TD>01001011 01001001</TD>
+      </TR>
+      <TR align="center">
+        <TD>124</TD>
+        <TD></TD>
+        <TD>$4B5B</TD>
+        <TD>01001011 01011011</TD>
+      </TR>
+      <TR align="center">
+        <TD>125</TD>
+        <TD></TD>
+        <TD>$8B2C</TD>
+        <TD>10001011 00101100</TD>
+      </TR>
+      <TR align="center">
+        <TD>126</TD>
+        <TD></TD>
+        <TD>$4B7F</TD>
+        <TD>01001011 01111111</TD>
+      </TR>
+      <TR align="center">
+        <TD>127</TD>
+        <TD></TD>
+        <TD>$4C93</TD>
+        <TD>01001100 10010011</TD>
+      </TR>
+      <TR align="center">
+        <TD>128</TD>
+        <TD></TD>
+        <TD>$4CB7</TD>
+        <TD>01001100 10110111</TD>
+      </TR>
+      <TR align="center">
+        <TD>129</TD>
+        <TD></TD>
+        <TD>$4D88</TD>
+        <TD>01001101 10001000</TD>
+      </TR>
+      <TR align="center">
+        <TD>130</TD>
+        <TD></TD>
+        <TD>$4D9B</TD>
+        <TD>01001101 10011011</TD>
+      </TR>
+      <TR align="center">
+        <TD>131</TD>
+        <TD></TD>
+        <TD>$4DBF</TD>
+        <TD>01001101 10111111</TD>
+      </TR>
+      <TR align="center">
+        <TD>132</TD>
+        <TD></TD>
+        <TD>$4EC1</TD>
+        <TD>01001110 11000001</TD>
+      </TR>
+      <TR align="center">
+        <TD>133</TD>
+        <TD></TD>
+        <TD>$4ED3</TD>
+        <TD>01001110 11010011</TD>
+      </TR>
+      <TR align="center">
+        <TD>134</TD>
+        <TD></TD>
+        <TD>$4EE5</TD>
+        <TD>01001110 11100101</TD>
+      </TR>
+      <TR align="center">
+        <TD>135</TD>
+        <TD></TD>
+        <TD>$4EF7</TD>
+        <TD>01001110 11110111</TD>
+      </TR>
+      <TR align="center">
+        <TD>136</TD>
+        <TD></TD>
+        <TD>$4FC9</TD>
+        <TD>01001111 11001001</TD>
+      </TR>
+      <TR align="center">
+        <TD>137</TD>
+        <TD></TD>
+        <TD>$4FDB</TD>
+        <TD>01001111 11011011</TD>
+      </TR>
+      <TR align="center">
+        <TD>138</TD>
+        <TD></TD>
+        <TD>$4FED</TD>
+        <TD>01001111 11101101</TD>
+      </TR>
+      <TR align="center">
+        <TD>139</TD>
+        <TD></TD>
+        <TD>$4FFF</TD>
+        <TD>01001111 11111111</TD>
+      </TR>
+      <TR align="center">
+        <TD>140</TD>
+        <TD></TD>
+        <TD>$6800</TD>
+        <TD>01101000 00000000</TD>
+      </TR>
+      <TR align="center">
+        <TD>141</TD>
+        <TD></TD>
+        <TD>$6813</TD>
+        <TD>01101000 00010011</TD>
+      </TR>
+      <TR align="center">
+        <TD>142</TD>
+        <TD></TD>
+        <TD>$6824</TD>
+        <TD>01101000 00100100</TD>
+      </TR>
+      <TR align="center">
+        <TD>143</TD>
+        <TD></TD>
+        <TD>$6837</TD>
+        <TD>01101000 00110111</TD>
+      </TR>
+      <TR align="center">
+        <TD>144</TD>
+        <TD></TD>
+        <TD>$692C</TD>
+        <TD>01101001 00101100</TD>
+      </TR>
+      <TR align="center">
+        <TD>145</TD>
+        <TD></TD>
+        <TD>$693F</TD>
+        <TD>01101001 00111111</TD>
+      </TR>
+      <TR align="center">
+        <TD>146</TD>
+        <TD></TD>
+        <TD>$6A41</TD>
+        <TD>01101010 01000001</TD>
+      </TR>
+      <TR align="center">
+        <TD>147</TD>
+        <TD></TD>
+        <TD>$6A53</TD>
+        <TD>01101010 01010011</TD>
+      </TR>
+      <TR align="center">
+        <TD>148</TD>
+        <TD></TD>
+        <TD>$6A65</TD>
+        <TD>01101010 01100101</TD>
+      </TR>
+      <TR align="center">
+        <TD>149</TD>
+        <TD></TD>
+        <TD>$6A77</TD>
+        <TD>01101010 01110111</TD>
+      </TR>
+      <TR align="center">
+        <TD>150</TD>
+        <TD></TD>
+        <TD>$6B7F</TD>
+        <TD>01101011 01111111</TD>
+      </TR>
+      <TR align="center">
+        <TD>151</TD>
+        <TD></TD>
+        <TD>$6C80</TD>
+        <TD>01101100 10000000</TD>
+      </TR>
+      <TR align="center">
+        <TD>152</TD>
+        <TD></TD>
+        <TD>$6C93</TD>
+        <TD>01101100 10010011</TD>
+      </TR>
+      <TR align="center">
+        <TD>153</TD>
+        <TD></TD>
+        <TD>$6CA4</TD>
+        <TD>01101100 10100100</TD>
+      </TR>
+      <TR align="center">
+        <TD>154</TD>
+        <TD></TD>
+        <TD>$6CB7</TD>
+        <TD>01101100 10110111</TD>
+      </TR>
+      <TR align="center">
+        <TD>155</TD>
+        <TD></TD>
+        <TD>$6D88</TD>
+        <TD>01101101 10001000</TD>
+      </TR>
+      <TR align="center">
+        <TD>156</TD>
+        <TD></TD>
+        <TD>$6DBF</TD>
+        <TD>01101101 10111111</TD>
+      </TR>
+      <TR align="center">
+        <TD>157</TD>
+        <TD></TD>
+        <TD>$6EC1</TD>
+        <TD>01101110 11000001</TD>
+      </TR>
+      <TR align="center">
+        <TD>158</TD>
+        <TD></TD>
+        <TD>$6ED3</TD>
+        <TD>01101110 11010011</TD>
+      </TR>
+      <TR align="center">
+        <TD>159</TD>
+        <TD></TD>
+        <TD>$6EE5</TD>
+        <TD>01101110 11100101</TD>
+      </TR>
+      <TR align="center">
+        <TD>160</TD>
+        <TD></TD>
+        <TD>$6EF7</TD>
+        <TD>01101110 11110111</TD>
+      </TR>
+      <TR align="center">
+        <TD>161</TD>
+        <TD></TD>
+        <TD>$6FC9</TD>
+        <TD>01101111 11001001</TD>
+      </TR>
+      <TR align="center">
+        <TD>162</TD>
+        <TD></TD>
+        <TD>$6FDB</TD>
+        <TD>01101111 11011011</TD>
+      </TR>
+      <TR align="center">
+        <TD>163</TD>
+        <TD></TD>
+        <TD>$6FED</TD>
+        <TD>01101111 11101101</TD>
+      </TR>
+      <TR align="center">
+        <TD>164</TD>
+        <TD></TD>
+        <TD>$6FFF</TD>
+        <TD>01101111 11111111</TD>
+      </TR>
+      <TR align="center">
+        <TD>165</TD>
+        <TD></TD>
+        <TD>$9108</TD>
+        <TD>10010001 00001000</TD>
+      </TR>
+      <TR align="center">
+        <TD>166</TD>
+        <TD></TD>
+        <TD>$911A</TD>
+        <TD>10010001 00011010</TD>
+      </TR>
+      <TR align="center">
+        <TD>167</TD>
+        <TD></TD>
+        <TD>$912C</TD>
+        <TD>10010001 00101100</TD>
+      </TR>
+      <TR align="center">
+        <TD>168</TD>
+        <TD></TD>
+        <TD>$913E</TD>
+        <TD>10010001 00111110</TD>
+      </TR>
+      <TR align="center">
+        <TD>169</TD>
+        <TD></TD>
+        <TD>$9253</TD>
+        <TD>10010010 01010011</TD>
+      </TR>
+      <TR align="center">
+        <TD>170</TD>
+        <TD></TD>
+        <TD>$9277</TD>
+        <TD>10010010 01110111</TD>
+      </TR>
+      <TR align="center">
+        <TD>171</TD>
+        <TD></TD>
+        <TD>$9348</TD>
+        <TD>10010011 01001000</TD>
+      </TR>
+      <TR align="center">
+        <TD>172</TD>
+        <TD></TD>
+        <TD>$935B</TD>
+        <TD>10010011 01011011</TD>
+      </TR>
+      <TR align="center">
+        <TD>173</TD>
+        <TD></TD>
+        <TD>$936C</TD>
+        <TD>10010011 01101100</TD>
+      </TR>
+      <TR align="center">
+        <TD>174</TD>
+        <TD></TD>
+        <TD>$937F</TD>
+        <TD>10010011 01111111</TD>
+      </TR>
+      <TR align="center">
+        <TD>175</TD>
+        <TD></TD>
+        <TD>$9492</TD>
+        <TD>10010100 10010010</TD>
+      </TR>
+      <TR align="center">
+        <TD>176</TD>
+        <TD></TD>
+        <TD>$9496</TD>
+        <TD>10010100 10010110</TD>
+      </TR>
+      <TR align="center">
+        <TD>177</TD>
+        <TD></TD>
+        <TD>$9588</TD>
+        <TD>10010101 10001000</TD>
+      </TR>
+      <TR align="center">
+        <TD>178</TD>
+        <TD></TD>
+        <TD>$95AC</TD>
+        <TD>10010101 10101100</TD>
+      </TR>
+      <TR align="center">
+        <TD>179</TD>
+        <TD></TD>
+        <TD>$95BE</TD>
+        <TD>10010101 10111110</TD>
+      </TR>
+      <TR align="center">
+        <TD>180</TD>
+        <TD></TD>
+        <TD>$96C0</TD>
+        <TD>10010110 11000000</TD>
+      </TR>
+      <TR align="center">
+        <TD>181</TD>
+        <TD></TD>
+        <TD>$96D3</TD>
+        <TD>10010110 11010011</TD>
+      </TR>
+      <TR align="center">
+        <TD>182</TD>
+        <TD></TD>
+        <TD>$96E4</TD>
+        <TD>10010110 11100100</TD>
+      </TR>
+      <TR align="center">
+        <TD>183</TD>
+        <TD></TD>
+        <TD>$96F7</TD>
+        <TD>10010110 11110111</TD>
+      </TR>
+      <TR align="center">
+        <TD>184</TD>
+        <TD></TD>
+        <TD>$97DB</TD>
+        <TD>10010111 11011011</TD>
+      </TR>
+      <TR align="center">
+        <TD>185</TD>
+        <TD></TD>
+        <TD>$97EC</TD>
+        <TD>10010111 11101100</TD>
+      </TR>
+      <TR align="center">
+        <TD>186</TD>
+        <TD></TD>
+        <TD>$97FF</TD>
+        <TD>10010111 11111111</TD>
+      </TR>
+      <TR align="center">
+        <TD>187</TD>
+        <TD></TD>
+        <TD>$B000</TD>
+        <TD>10110000 00000000</TD>
+      </TR>
+      <TR align="center">
+        <TD>188</TD>
+        <TD></TD>
+        <TD>$B012</TD>
+        <TD>10110000 00010010</TD>
+      </TR>
+      <TR align="center">
+        <TD>189</TD>
+        <TD></TD>
+        <TD>$B024</TD>
+        <TD>10110000 00100100</TD>
+      </TR>
+      <TR align="center">
+        <TD>190</TD>
+        <TD></TD>
+        <TD>$B036</TD>
+        <TD>10110000 00110110</TD>
+      </TR>
+      <TR align="center">
+        <TD>191</TD>
+        <TD></TD>
+        <TD>$B108</TD>
+        <TD>10110001 00001000</TD>
+      </TR>
+      <TR align="center">
+        <TD>192</TD>
+        <TD></TD>
+        <TD>$B11A</TD>
+        <TD>10110001 00011010</TD>
+      </TR>
+      <TR align="center">
+        <TD>193</TD>
+        <TD></TD>
+        <TD>$B12C</TD>
+        <TD>10110001 00101100</TD>
+      </TR>
+      <TR align="center">
+        <TD>194</TD>
+        <TD></TD>
+        <TD>$B13E</TD>
+        <TD>10110001 00111110</TD>
+      </TR>
+      <TR align="center">
+        <TD>195</TD>
+        <TD></TD>
+        <TD>$B240</TD>
+        <TD>10110010 01000000</TD>
+      </TR>
+      <TR align="center">
+        <TD>196</TD>
+        <TD></TD>
+        <TD>$B253</TD>
+        <TD>10110010 01010011</TD>
+      </TR>
+      <TR align="center">
+        <TD>197</TD>
+        <TD></TD>
+        <TD>$B277</TD>
+        <TD>10110010 01110111</TD>
+      </TR>
+      <TR align="center">
+        <TD>198</TD>
+        <TD></TD>
+        <TD>$B348</TD>
+        <TD>10110011 01001000</TD>
+      </TR>
+      <TR align="center">
+        <TD>199</TD>
+        <TD></TD>
+        <TD>$B37F</TD>
+        <TD>10110011 01111111</TD>
+      </TR>
+      <TR align="center">
+        <TD>200</TD>
+        <TD></TD>
+        <TD>$B480</TD>
+        <TD>10110100 10000000</TD>
+      </TR>
+      <TR align="center">
+        <TD>201</TD>
+        <TD></TD>
+        <TD>$B4A4</TD>
+        <TD>10110100 10100100</TD>
+      </TR>
+      <TR align="center">
+        <TD>202</TD>
+        <TD></TD>
+        <TD>$B4B6</TD>
+        <TD>10110100 10110110</TD>
+      </TR>
+      <TR align="center">
+        <TD>203</TD>
+        <TD></TD>
+        <TD>$B588</TD>
+        <TD>10110101 10001000</TD>
+      </TR>
+      <TR align="center">
+        <TD>204</TD>
+        <TD></TD>
+        <TD>$B6C0</TD>
+        <TD>10110110 11000000</TD>
+      </TR>
+      <TR align="center">
+        <TD>205</TD>
+        <TD></TD>
+        <TD>$B6D3</TD>
+        <TD>10110110 11010011</TD>
+      </TR>
+      <TR align="center">
+        <TD>206</TD>
+        <TD></TD>
+        <TD>$B6E4</TD>
+        <TD>10110110 11100100</TD>
+      </TR>
+      <TR align="center">
+        <TD>207</TD>
+        <TD></TD>
+        <TD>$B6F7</TD>
+        <TD>10110110 11110111</TD>
+      </TR>
+      <TR align="center">
+        <TD>208</TD>
+        <TD></TD>
+        <TD>$B7C8</TD>
+        <TD>10110111 11001000</TD>
+      </TR>
+      <TR align="center">
+        <TD>209</TD>
+        <TD></TD>
+        <TD>$B7DB</TD>
+        <TD>10110111 11011011</TD>
+      </TR>
+      <TR align="center">
+        <TD>210</TD>
+        <TD></TD>
+        <TD>$D800</TD>
+        <TD>11011000 00000000</TD>
+      </TR>
+      <TR align="center">
+        <TD>211</TD>
+        <TD></TD>
+        <TD>$D813</TD>
+        <TD>11011000 00010011</TD>
+      </TR>
+      <TR align="center">
+        <TD>212</TD>
+        <TD></TD>
+        <TD>$D824</TD>
+        <TD>11011000 00100100</TD>
+      </TR>
+      <TR align="center">
+        <TD>213</TD>
+        <TD></TD>
+        <TD>$D837</TD>
+        <TD>11011000 00110111</TD>
+      </TR>
+      <TR align="center">
+        <TD>214</TD>
+        <TD></TD>
+        <TD>$D908</TD>
+        <TD>11011001 00001000</TD>
+      </TR>
+      <TR align="center">
+        <TD>215</TD>
+        <TD></TD>
+        <TD>$D91B</TD>
+        <TD>11011001 00011011</TD>
+      </TR>
+      <TR align="center">
+        <TD>216</TD>
+        <TD></TD>
+        <TD>$D92C</TD>
+        <TD>11011001 00101100</TD>
+      </TR>
+      <TR align="center">
+        <TD>217</TD>
+        <TD></TD>
+        <TD>$D93F</TD>
+        <TD>11011001 00111111</TD>
+      </TR>
+      <TR align="center">
+        <TD>218</TD>
+        <TD></TD>
+        <TD>$DA41</TD>
+        <TD>11011010 01000001</TD>
+      </TR>
+      <TR align="center">
+        <TD>219</TD>
+        <TD></TD>
+        <TD>$DA53</TD>
+        <TD>11011010 01010011</TD>
+      </TR>
+      <TR align="center">
+        <TD>220</TD>
+        <TD></TD>
+        <TD>$DA65</TD>
+        <TD>11011010 01100101</TD>
+      </TR>
+      <TR align="center">
+        <TD>221</TD>
+        <TD></TD>
+        <TD>$DA77</TD>
+        <TD>11011010 01110111</TD>
+      </TR>
+      <TR align="center">
+        <TD>222</TD>
+        <TD></TD>
+        <TD>$DB49</TD>
+        <TD>11011011 01001001</TD>
+      </TR>
+      <TR align="center">
+        <TD>223</TD>
+        <TD></TD>
+        <TD>$DB5B</TD>
+        <TD>11011011 01011011</TD>
+      </TR>
+      <TR align="center">
+        <TD>224</TD>
+        <TD></TD>
+        <TD>$DB6D</TD>
+        <TD>11011011 01101101</TD>
+      </TR>
+      <TR align="center">
+        <TD>225</TD>
+        <TD></TD>
+        <TD>$DB7F</TD>
+        <TD>11011011 01111111</TD>
+      </TR>
+      <TR align="center">
+        <TD>226</TD>
+        <TD></TD>
+        <TD>$DC80</TD>
+        <TD>11011100 10000000</TD>
+      </TR>
+      <TR align="center">
+        <TD>227</TD>
+        <TD></TD>
+        <TD>$DC93</TD>
+        <TD>11011100 10010011</TD>
+      </TR>
+      <TR align="center">
+        <TD>228</TD>
+        <TD></TD>
+        <TD>$DCA4</TD>
+        <TD>11011100 10100100</TD>
+      </TR>
+      <TR align="center">
+        <TD>229</TD>
+        <TD></TD>
+        <TD>$DCB7</TD>
+        <TD>11011100 10110111</TD>
+      </TR>
+      <TR align="center">
+        <TD>230</TD>
+        <TD></TD>
+        <TD>$DD88</TD>
+        <TD>11011101 10001000</TD>
+      </TR>
+      <TR align="center">
+        <TD>231</TD>
+        <TD></TD>
+        <TD>$DD9B</TD>
+        <TD>11011101 10011011</TD>
+      </TR>
+      <TR align="center">
+        <TD>232</TD>
+        <TD></TD>
+        <TD>$DDAC</TD>
+        <TD>11011101 10101100</TD>
+      </TR>
+      <TR align="center">
+        <TD>233</TD>
+        <TD></TD>
+        <TD>$DDBF</TD>
+        <TD>11011101 10111111</TD>
+      </TR>
+      <TR align="center">
+        <TD>234</TD>
+        <TD></TD>
+        <TD>$DED3</TD>
+        <TD>11011110 11010011</TD>
+      </TR>
+      <TR align="center">
+        <TD>235</TD>
+        <TD></TD>
+        <TD>$DEE5</TD>
+        <TD>11011110 11100101</TD>
+      </TR>
+      <TR align="center">
+        <TD>236</TD>
+        <TD></TD>
+        <TD>$DFDB</TD>
+        <TD>11011111 11011011</TD>
+      </TR>
+      <TR align="center">
+        <TD>237</TD>
+        <TD></TD>
+        <TD>$F813</TD>
+        <TD>11111000 00010011</TD>
+      </TR>
+      <TR align="center">
+        <TD>238</TD>
+        <TD></TD>
+        <TD>$F91B</TD>
+        <TD>11111001 00011011</TD>
+      </TR>
+      <TR align="center">
+        <TD>239</TD>
+        <TD></TD>
+        <TD>$F92C</TD>
+        <TD>11111001 00101100</TD>
+      </TR>
+      <TR align="center">
+        <TD>240</TD>
+        <TD></TD>
+        <TD>$FA41</TD>
+        <TD>11111010 01000001</TD>
+      </TR>
+      <TR align="center">
+        <TD>241</TD>
+        <TD></TD>
+        <TD>$FA53</TD>
+        <TD>11111010 01010011</TD>
+      </TR>
+      <TR align="center">
+        <TD>242</TD>
+        <TD></TD>
+        <TD>$FA65</TD>
+        <TD>11111010 01100101</TD>
+      </TR>
+      <TR align="center">
+        <TD>243</TD>
+        <TD></TD>
+        <TD>$FA77</TD>
+        <TD>11111010 01110111</TD>
+      </TR>
+      <TR align="center">
+        <TD>244</TD>
+        <TD></TD>
+        <TD>$FB49</TD>
+        <TD>11111011 01001001</TD>
+      </TR>
+      <TR align="center">
+        <TD>245</TD>
+        <TD></TD>
+        <TD>$FB5B</TD>
+        <TD>11111011 01011011</TD>
+      </TR>
+      <TR align="center">
+        <TD>246</TD>
+        <TD></TD>
+        <TD>$FB6D</TD>
+        <TD>11111011 01101101</TD>
+      </TR>
+      <TR align="center">
+        <TD>247</TD>
+        <TD></TD>
+        <TD>$FB7F</TD>
+        <TD>11111011 01111111</TD>
+      </TR>
+      <TR align="center">
+        <TD>248</TD>
+        <TD></TD>
+        <TD>$FC93</TD>
+        <TD>11111100 10010011</TD>
+      </TR>
+      <TR align="center">
+        <TD>249</TD>
+        <TD></TD>
+        <TD>$FCA4</TD>
+        <TD>11111100 10100100</TD>
+      </TR>
+      <TR align="center">
+        <TD>250</TD>
+        <TD></TD>
+        <TD>$FCB7</TD>
+        <TD>11111100 10110111</TD>
+      </TR>
+      <TR align="center">
+        <TD>251</TD>
+        <TD></TD>
+        <TD>$FD88</TD>
+        <TD>11111101 10001000</TD>
+      </TR>
+      <TR align="center">
+        <TD>252</TD>
+        <TD></TD>
+        <TD>$FD9B</TD>
+        <TD>11111101 10011011</TD>
+      </TR>
+      <TR align="center">
+        <TD>253</TD>
+        <TD></TD>
+        <TD>$FED3</TD>
+        <TD>11111110 11010011</TD>
+      </TR>
+      <TR align="center">
+        <TD>254</TD>
+        <TD></TD>
+        <TD>$FEE5</TD>
+        <TD>11111110 11100101</TD>
+      </TR>
+      <TR align="center">
+        <TD>255</TD>
+        <TD></TD>
+        <TD>$FFDB</TD>
+        <TD>11111111 11011011</TD>
+      </TR>
+    </TABLE>
+    
+<H3>24 Bit Enhanced Colour Drivers</H3>
+    
+<P>Although only available as a Colour Mode on QPC2 and the QXL, this true colour (24 bit) mode is used by commands such as <SPAN style="font-style: italic;">PALETTE_QL</SPAN> and <SPAN style="font-style: italic;">PALETTE_8</SPAN> to describe approx 16 million colours in detail.</P>
+    
+<P>Here, every four bytes (a longword) represent one pixel on the Monitor's screen.</P>
+    
+<P>The bits are combined to represent the amount of GREEN, RED and BLUE to be used for each pixel, in the following format:</P>
+    
+<H3>rrrrrrrr gggggggg bbbbbbbb xxxxxxxx</H3>
+    
+<P>where:</P>
+    <TABLE>
+      <TR>
+        <TD>g</TD>
+        <TD>=</TD>
+        <TD>green (8 bits)</TD>
+      </TR>
+      <TR>
+        <TD>r</TD>
+        <TD>=</TD>
+        <TD>red (8 bits)</TD>
+      </TR>
+      <TR>
+        <TD>b</TD>
+        <TD>=</TD>
+        <TD>blue (8 bits)</TD>
+      </TR>
+      <TR>
+        <TD>x</TD>
+        <TD>=</TD>
+        <TD>unused</TD>
+      </TR>
+    </TABLE>
+    
+<P>In the table below, the colours represented by each of the first 256 PAL colours (0 to 255) closely resembles those generated under the 256 Colour Mode on the Aurora, however, due to the way in which colour is stored, it is necessary to look up the comparative Hexadecimal value for each colour which would need to be <SPAN style="font-style: italic;">POKE</SPAN>d into memory.</P>
+    
+<P>You cannot use the PAL colour number as a parameter for <SPAN style="font-style: italic;">INK</SPAN> (and other commands) due to the fact that this is limited to 256 - use the hexadecimal 24 bit value instead.</P>
+    
+<P>Again, the colours are hard to describe due to the range and therefore require experimentation to obtain the correct colours. However, the following table details the corresponding <SPAN style="font-style: italic;">INK</SPAN> parameter to use to achieve that colour (<EM>NOTE</EM> this does not correspond with the orignal QL colour scheme!). It is not possible to list all of the 16 million colours, therefore we have tried to list the most widely used ones (<SPAN style="font-style: italic;">INK 0</SPAN> to <SPAN style="font-style: italic;">INK 63</SPAN>) grouped into the different colours and the values for the rest of the colours in the range <SPAN style="font-style: italic;">INK 64</SPAN> to <SPAN style="font-style: italic;">INK 255</SPAN>.</P>
+    <TABLE>
+      <TR>
+        <TH>PAL</TH>
+        <TH></TH>
+        <TH>24 bit</TH>
+      </TR>
+      <TR>
+        <TH>Colour</TH>
+        <TH>Colour</TH>
+        <TH>Value</TH>
+      </TR>
+      <TR>
+        <TH>Value</TH>
+        <TH>Name</TH>
+        <TH>(Hex)</TH>
+      </TR>
+      <TR align="center">
+        <TD>0</TD>
+        <TD>Black</TD>
+        <TD>$000000</TD>
+      </TR>
+      <TR align="center">
+        <TD>1</TD>
+        <TD>White</TD>
+        <TD>$FFFFFF</TD>
+      </TR>
+      <TR align="center">
+        <TD>8</TD>
+        <TD>Dark Slate</TD>
+        <TD>$242424</TD>
+      </TR>
+      <TR align="center">
+        <TD>9</TD>
+        <TD>Slate Grey</TD>
+        <TD>$494949</TD>
+      </TR>
+      <TR align="center">
+        <TD>10</TD>
+        <TD>Dark Grey</TD>
+        <TD>$6D6D6D</TD>
+      </TR>
+      <TR align="center">
+        <TD>11</TD>
+        <TD>Grey</TD>
+        <TD>$929292</TD>
+      </TR>
+      <TR align="center">
+        <TD>12</TD>
+        <TD>Light Grey</TD>
+        <TD>$B6B6B6</TD>
+      </TR>
+      <TR align="center">
+        <TD>13</TD>
+        <TD>Ash Grey</TD>
+        <TD>$DBDBDB</TD>
+      </TR>
+      <TR align="center">
+        <TD>58</TD>
+        <TD>Cerise</TD>
+        <TD>$920049</TD>
+      </TR>
+      <TR align="center">
+        <TD>14</TD>
+        <TD>Dark Red</TD>
+        <TD>$920000</TD>
+      </TR>
+      <TR align="center">
+        <TD>2</TD>
+        <TD>Red</TD>
+        <TD>$FF0000</TD>
+      </TR>
+      <TR align="center">
+        <TD>63</TD>
+        <TD>Deep Purple</TD>
+        <TD>$490092</TD>
+      </TR>
+      <TR align="center">
+        <TD>51</TD>
+        <TD>Plum</TD>
+        <TD>$6D246D</TD>
+      </TR>
+      <TR align="center">
+        <TD>20</TD>
+        <TD>Purple</TD>
+        <TD>$920092</TD>
+      </TR>
+      <TR align="center">
+        <TD>26</TD>
+        <TD>Mauve</TD>
+        <TD>$9200FF</TD>
+      </TR>
+      <TR align="center">
+        <TD>57</TD>
+        <TD>Faded Purple</TD>
+        <TD>$9249B6</TD>
+      </TR>
+      <TR align="center">
+        <TD>52</TD>
+        <TD>Dusky Pink</TD>
+        <TD>$B64992</TD>
+      </TR>
+      <TR align="center">
+        <TD>5</TD>
+        <TD>Magenta</TD>
+        <TD>$FF00FF</TD>
+      </TR>
+      <TR align="center">
+        <TD>21</TD>
+        <TD>Shocking Pink</TD>
+        <TD>$FF0092</TD>
+      </TR>
+      <TR align="center">
+        <TD>45</TD>
+        <TD>Dull Pink</TD>
+        <TD>$B66DB6</TD>
+      </TR>
+      <TR align="center">
+        <TD>32</TD>
+        <TD>Pink</TD>
+        <TD>$FFB6DB</TD>
+      </TR>
+      <TR align="center">
+        <TD>31</TD>
+        <TD>Rose Pink</TD>
+        <TD>$FFB6FF</TD>
+      </TR>
+      <TR align="center">
+        <TD>34</TD>
+        <TD>Pastel Pink</TD>
+        <TD>$FFDBDB</TD>
+      </TR>
+      <TR align="center">
+        <TD>39</TD>
+        <TD>Pastel Rose</TD>
+        <TD>$FFDBFF</TD>
+      </TR>
+      <TR align="center">
+        <TD>27</TD>
+        <TD>Peach</TD>
+        <TD>$FFB6B6</TD>
+      </TR>
+      <TR align="center">
+        <TD>50</TD>
+        <TD>Midnight Blue</TD>
+        <TD>$24246D</TD>
+      </TR>
+      <TR align="center">
+        <TD>19</TD>
+        <TD>Dark Blue</TD>
+        <TD>$000092</TD>
+      </TR>
+      <TR align="center">
+        <TD>4</TD>
+        <TD>Blue</TD>
+        <TD>$0000FF</TD>
+      </TR>
+      <TR align="center">
+        <TD>62</TD>
+        <TD>Ultramarine</TD>
+        <TD>$004992</TD>
+      </TR>
+      <TR align="center">
+        <TD>49</TD>
+        <TD>Dusky Blue</TD>
+        <TD>$246D6D</TD>
+      </TR>
+      <TR align="center">
+        <TD>44</TD>
+        <TD>Steel Blue</TD>
+        <TD>$6D6DB6</TD>
+      </TR>
+      <TR align="center">
+        <TD>18</TD>
+        <TD>Sea Blue</TD>
+        <TD>$009292</TD>
+      </TR>
+      <TR align="center">
+        <TD>25</TD>
+        <TD>Bright Blue</TD>
+        <TD>$0092FF</TD>
+      </TR>
+      <TR align="center">
+        <TD>56</TD>
+        <TD>Dull Blue</TD>
+        <TD>$4992B6</TD>
+      </TR>
+      <TR align="center">
+        <TD>43</TD>
+        <TD>Dull Cyan</TD>
+        <TD>$6DB6B6</TD>
+      </TR>
+      <TR align="center">
+        <TD>7</TD>
+        <TD>Cyan</TD>
+        <TD>$00FFFF</TD>
+      </TR>
+      <TR align="center">
+        <TD>29</TD>
+        <TD>Light Blue</TD>
+        <TD>$B6FFFF</TD>
+      </TR>
+      <TR align="center">
+        <TD>30</TD>
+        <TD>Sky Blue</TD>
+        <TD>$B6B6FF</TD>
+      </TR>
+      <TR align="center">
+        <TD>38</TD>
+        <TD>Pastel Blue</TD>
+        <TD>$DBDBFF</TD>
+      </TR>
+      <TR align="center">
+        <TD>37</TD>
+        <TD>Pastel Cyan</TD>
+        <TD>$DBFFFF</TD>
+      </TR>
+      <TR align="center">
+        <TD>48</TD>
+        <TD>Dusky Green</TD>
+        <TD>$246D24</TD>
+      </TR>
+      <TR align="center">
+        <TD>60</TD>
+        <TD>Grass Green</TD>
+        <TD>$499200</TD>
+      </TR>
+      <TR align="center">
+        <TD>17</TD>
+        <TD>Dark Green</TD>
+        <TD>$009200</TD>
+      </TR>
+      <TR align="center">
+        <TD>54</TD>
+        <TD>Avocado</TD>
+        <TD>$92B649</TD>
+      </TR>
+      <TR align="center">
+        <TD>61</TD>
+        <TD>Sea Green</TD>
+        <TD>$009249</TD>
+      </TR>
+      <TR align="center">
+        <TD>42</TD>
+        <TD>Dull Green</TD>
+        <TD>$6DB66D</TD>
+      </TR>
+      <TR align="center">
+        <TD>3</TD>
+        <TD>Green</TD>
+        <TD>$00FF00</TD>
+      </TR>
+      <TR align="center">
+        <TD>23</TD>
+        <TD>Lime Green</TD>
+        <TD>$92FF00</TD>
+      </TR>
+      <TR align="center">
+        <TD>24</TD>
+        <TD>Apple Green</TD>
+        <TD>$00FF92</TD>
+      </TR>
+      <TR align="center">
+        <TD>55</TD>
+        <TD>Dull Turquoise</TD>
+        <TD>$49B692</TD>
+      </TR>
+      <TR align="center">
+        <TD>41</TD>
+        <TD>Light Khaki</TD>
+        <TD>$B6B66D</TD>
+      </TR>
+      <TR align="center">
+        <TD>15</TD>
+        <TD>Light Green</TD>
+        <TD>$B6FFB6</TD>
+      </TR>
+      <TR align="center">
+        <TD>36</TD>
+        <TD>Pastel Green</TD>
+        <TD>$DBFFDB</TD>
+      </TR>
+      <TR align="center">
+        <TD>46</TD>
+        <TD>Brown</TD>
+        <TD>$6D2424</TD>
+      </TR>
+      <TR align="center">
+        <TD>59</TD>
+        <TD>Tan</TD>
+        <TD>$924900</TD>
+      </TR>
+      <TR align="center">
+        <TD>6</TD>
+        <TD>Yellow</TD>
+        <TD>$FFFF00</TD>
+      </TR>
+      <TR align="center">
+        <TD>22</TD>
+        <TD>Orange</TD>
+        <TD>$FF9200</TD>
+      </TR>
+      <TR align="center">
+        <TD>16</TD>
+        <TD>Mustard</TD>
+        <TD>$929200</TD>
+      </TR>
+      <TR align="center">
+        <TD>47</TD>
+        <TD>Khaki</TD>
+        <TD>$6D6D24</TD>
+      </TR>
+      <TR align="center">
+        <TD>53</TD>
+        <TD>Buff</TD>
+        <TD>$B69249</TD>
+      </TR>
+      <TR align="center">
+        <TD>40</TD>
+        <TD>Brick</TD>
+        <TD>$B66D6D</TD>
+      </TR>
+      <TR align="center">
+        <TD>33</TD>
+        <TD>Beige</TD>
+        <TD>$FFDBB6</TD>
+      </TR>
+      <TR align="center">
+        <TD>28</TD>
+        <TD>Light Yellow</TD>
+        <TD>$FFFFB6</TD>
+      </TR>
+      <TR align="center">
+        <TD>35</TD>
+        <TD>Pastel Yellow</TD>
+        <TD>$FFFFDB</TD>
+      </TR>
+    </TABLE>
+    
+<P>The remainder of the first 256 colours are mapped as follows (we would welcome names for each of these colours):</P>
+    <TABLE>
+      <TR>
+        <TH>PAL</TH>
+        <TH></TH>
+        <TH>24 bit</TH>
+      </TR>
+      <TR>
+        <TH>Colour</TH>
+        <TH>Colour</TH>
+        <TH>Value</TH>
+      </TR>
+      <TR>
+        <TH>Value</TH>
+        <TH>Name</TH>
+        <TH>(Hex)</TH>
+      </TR>
+      <TR align="center">
+        <TD>64</TD>
+        <TD></TD>
+        <TD>$000049</TD>
+      </TR>
+      <TR align="center">
+        <TD>65</TD>
+        <TD></TD>
+        <TD>$240024</TD>
+      </TR>
+      <TR align="center">
+        <TD>66</TD>
+        <TD></TD>
+        <TD>$24006D</TD>
+      </TR>
+      <TR align="center">
+        <TD>67</TD>
+        <TD></TD>
+        <TD>$2400B6</TD>
+      </TR>
+      <TR align="center">
+        <TD>68</TD>
+        <TD></TD>
+        <TD>$2400FF</TD>
+      </TR>
+      <TR align="center">
+        <TD>69</TD>
+        <TD></TD>
+        <TD>$490000</TD>
+      </TR>
+      <TR align="center">
+        <TD>70</TD>
+        <TD></TD>
+        <TD>$490049</TD>
+      </TR>
+      <TR align="center">
+        <TD>71</TD>
+        <TD></TD>
+        <TD>$4900DB</TD>
+      </TR>
+      <TR align="center">
+        <TD>72</TD>
+        <TD></TD>
+        <TD>$6D0024</TD>
+      </TR>
+      <TR align="center">
+        <TD>73</TD>
+        <TD></TD>
+        <TD>$6D006D</TD>
+      </TR>
+      <TR align="center">
+        <TD>74</TD>
+        <TD></TD>
+        <TD>$6D00B6</TD>
+      </TR>
+      <TR align="center">
+        <TD>75</TD>
+        <TD></TD>
+        <TD>$6D00FF</TD>
+      </TR>
+      <TR align="center">
+        <TD>76</TD>
+        <TD></TD>
+        <TD>$B60024</TD>
+      </TR>
+      <TR align="center">
+        <TD>77</TD>
+        <TD></TD>
+        <TD>$B6006D</TD>
+      </TR>
+      <TR align="center">
+        <TD>78</TD>
+        <TD></TD>
+        <TD>$B600B6</TD>
+      </TR>
+      <TR align="center">
+        <TD>79</TD>
+        <TD></TD>
+        <TD>$B600FF</TD>
+      </TR>
+      <TR align="center">
+        <TD>80</TD>
+        <TD></TD>
+        <TD>$DB0000</TD>
+      </TR>
+      <TR align="center">
+        <TD>81</TD>
+        <TD></TD>
+        <TD>$DB0049</TD>
+      </TR>
+      <TR align="center">
+        <TD>82</TD>
+        <TD></TD>
+        <TD>$DB0092</TD>
+      </TR>
+      <TR align="center">
+        <TD>83</TD>
+        <TD></TD>
+        <TD>$DB00DB</TD>
+      </TR>
+      <TR align="center">
+        <TD>84</TD>
+        <TD></TD>
+        <TD>$FF006D</TD>
+      </TR>
+      <TR align="center">
+        <TD>85</TD>
+        <TD></TD>
+        <TD>$002400</TD>
+      </TR>
+      <TR align="center">
+        <TD>86</TD>
+        <TD></TD>
+        <TD>$002449</TD>
+      </TR>
+      <TR align="center">
+        <TD>87</TD>
+        <TD></TD>
+        <TD>$002492</TD>
+      </TR>
+      <TR align="center">
+        <TD>88</TD>
+        <TD></TD>
+        <TD>$0024DB</TD>
+      </TR>
+      <TR align="center">
+        <TD>89</TD>
+        <TD></TD>
+        <TD>$2424B6</TD>
+      </TR>
+      <TR align="center">
+        <TD>90</TD>
+        <TD></TD>
+        <TD>$2424FF</TD>
+      </TR>
+      <TR align="center">
+        <TD>91</TD>
+        <TD></TD>
+        <TD>$492400</TD>
+      </TR>
+      <TR align="center">
+        <TD>92</TD>
+        <TD></TD>
+        <TD>$492449</TD>
+      </TR>
+      <TR align="center">
+        <TD>93</TD>
+        <TD></TD>
+        <TD>$492492</TD>
+      </TR>
+      <TR align="center">
+        <TD>94</TD>
+        <TD></TD>
+        <TD>$4924DB</TD>
+      </TR>
+      <TR align="center">
+        <TD>95</TD>
+        <TD></TD>
+        <TD>$6D24B6</TD>
+      </TR>
+      <TR align="center">
+        <TD>96</TD>
+        <TD></TD>
+        <TD>$6D24FF</TD>
+      </TR>
+      <TR align="center">
+        <TD>97</TD>
+        <TD></TD>
+        <TD>$922400</TD>
+      </TR>
+      <TR align="center">
+        <TD>98</TD>
+        <TD></TD>
+        <TD>$922449</TD>
+      </TR>
+      <TR align="center">
+        <TD>99</TD>
+        <TD></TD>
+        <TD>$922492</TD>
+      </TR>
+      <TR align="center">
+        <TD>100</TD>
+        <TD></TD>
+        <TD>$9224DB</TD>
+      </TR>
+      <TR align="center">
+        <TD>101</TD>
+        <TD></TD>
+        <TD>$B62424</TD>
+      </TR>
+      <TR align="center">
+        <TD>102</TD>
+        <TD></TD>
+        <TD>$B6246D</TD>
+      </TR>
+      <TR align="center">
+        <TD>103</TD>
+        <TD></TD>
+        <TD>$B624B6</TD>
+      </TR>
+      <TR align="center">
+        <TD>104</TD>
+        <TD></TD>
+        <TD>$B624FF</TD>
+      </TR>
+      <TR align="center">
+        <TD>105</TD>
+        <TD></TD>
+        <TD>$DB2400</TD>
+      </TR>
+      <TR align="center">
+        <TD>106</TD>
+        <TD></TD>
+        <TD>$DB2449</TD>
+      </TR>
+      <TR align="center">
+        <TD>107</TD>
+        <TD></TD>
+        <TD>$DB2492</TD>
+      </TR>
+      <TR align="center">
+        <TD>108</TD>
+        <TD></TD>
+        <TD>$DB246D</TD>
+      </TR>
+      <TR align="center">
+        <TD>109</TD>
+        <TD></TD>
+        <TD>$FF2424</TD>
+      </TR>
+      <TR align="center">
+        <TD>110</TD>
+        <TD></TD>
+        <TD>$FF246D</TD>
+      </TR>
+      <TR align="center">
+        <TD>111</TD>
+        <TD></TD>
+        <TD>$FF24B6</TD>
+      </TR>
+      <TR align="center">
+        <TD>112</TD>
+        <TD></TD>
+        <TD>$FF24FF</TD>
+      </TR>
+      <TR align="center">
+        <TD>113</TD>
+        <TD></TD>
+        <TD>$004900</TD>
+      </TR>
+      <TR align="center">
+        <TD>114</TD>
+        <TD></TD>
+        <TD>$004949</TD>
+      </TR>
+      <TR align="center">
+        <TD>115</TD>
+        <TD></TD>
+        <TD>$0049DB</TD>
+      </TR>
+      <TR align="center">
+        <TD>116</TD>
+        <TD></TD>
+        <TD>$244924</TD>
+      </TR>
+      <TR align="center">
+        <TD>117</TD>
+        <TD></TD>
+        <TD>$24496D</TD>
+      </TR>
+      <TR align="center">
+        <TD>118</TD>
+        <TD></TD>
+        <TD>$2449B6</TD>
+      </TR>
+      <TR align="center">
+        <TD>119</TD>
+        <TD></TD>
+        <TD>$2449FF</TD>
+      </TR>
+      <TR align="center">
+        <TD>120</TD>
+        <TD></TD>
+        <TD>$494900</TD>
+      </TR>
+      <TR align="center">
+        <TD>121</TD>
+        <TD></TD>
+        <TD>$494992</TD>
+      </TR>
+      <TR align="center">
+        <TD>122</TD>
+        <TD></TD>
+        <TD>$4949DB</TD>
+      </TR>
+      <TR align="center">
+        <TD>123</TD>
+        <TD></TD>
+        <TD>$6D4924</TD>
+      </TR>
+      <TR align="center">
+        <TD>124</TD>
+        <TD></TD>
+        <TD>$6D496D</TD>
+      </TR>
+      <TR align="center">
+        <TD>125</TD>
+        <TD></TD>
+        <TD>$6D49B6</TD>
+      </TR>
+      <TR align="center">
+        <TD>126</TD>
+        <TD></TD>
+        <TD>$6D49FF</TD>
+      </TR>
+      <TR align="center">
+        <TD>127</TD>
+        <TD></TD>
+        <TD>$924949</TD>
+      </TR>
+      <TR align="center">
+        <TD>128</TD>
+        <TD></TD>
+        <TD>$9249DB</TD>
+      </TR>
+      <TR align="center">
+        <TD>129</TD>
+        <TD></TD>
+        <TD>$B64924</TD>
+      </TR>
+      <TR align="center">
+        <TD>130</TD>
+        <TD></TD>
+        <TD>$B6496D</TD>
+      </TR>
+      <TR align="center">
+        <TD>131</TD>
+        <TD></TD>
+        <TD>$B649FF</TD>
+      </TR>
+      <TR align="center">
+        <TD>132</TD>
+        <TD></TD>
+        <TD>$DB4900</TD>
+      </TR>
+      <TR align="center">
+        <TD>133</TD>
+        <TD></TD>
+        <TD>$DB4949</TD>
+      </TR>
+      <TR align="center">
+        <TD>134</TD>
+        <TD></TD>
+        <TD>$DB4992</TD>
+      </TR>
+      <TR align="center">
+        <TD>135</TD>
+        <TD></TD>
+        <TD>$DB49DB</TD>
+      </TR>
+      <TR align="center">
+        <TD>136</TD>
+        <TD></TD>
+        <TD>$FF4924</TD>
+      </TR>
+      <TR align="center">
+        <TD>137</TD>
+        <TD></TD>
+        <TD>$FF496D</TD>
+      </TR>
+      <TR align="center">
+        <TD>138</TD>
+        <TD></TD>
+        <TD>$FF49B6</TD>
+      </TR>
+      <TR align="center">
+        <TD>139</TD>
+        <TD></TD>
+        <TD>$FF49FF</TD>
+      </TR>
+      <TR align="center">
+        <TD>140</TD>
+        <TD></TD>
+        <TD>$006D00</TD>
+      </TR>
+      <TR align="center">
+        <TD>141</TD>
+        <TD></TD>
+        <TD>$006D49</TD>
+      </TR>
+      <TR align="center">
+        <TD>142</TD>
+        <TD></TD>
+        <TD>$006D92</TD>
+      </TR>
+      <TR align="center">
+        <TD>143</TD>
+        <TD></TD>
+        <TD>$006DDB</TD>
+      </TR>
+      <TR align="center">
+        <TD>144</TD>
+        <TD></TD>
+        <TD>$246DB6</TD>
+      </TR>
+      <TR align="center">
+        <TD>145</TD>
+        <TD></TD>
+        <TD>$246DFF</TD>
+      </TR>
+      <TR align="center">
+        <TD>146</TD>
+        <TD></TD>
+        <TD>$496D00</TD>
+      </TR>
+      <TR align="center">
+        <TD>147</TD>
+        <TD></TD>
+        <TD>$496D49</TD>
+      </TR>
+      <TR align="center">
+        <TD>148</TD>
+        <TD></TD>
+        <TD>$496D92</TD>
+      </TR>
+      <TR align="center">
+        <TD>149</TD>
+        <TD></TD>
+        <TD>$496DDB</TD>
+      </TR>
+      <TR align="center">
+        <TD>150</TD>
+        <TD></TD>
+        <TD>$6D6DFF</TD>
+      </TR>
+      <TR align="center">
+        <TD>151</TD>
+        <TD></TD>
+        <TD>$926D00</TD>
+      </TR>
+      <TR align="center">
+        <TD>152</TD>
+        <TD></TD>
+        <TD>$926D49</TD>
+      </TR>
+      <TR align="center">
+        <TD>153</TD>
+        <TD></TD>
+        <TD>$926D92</TD>
+      </TR>
+      <TR align="center">
+        <TD>154</TD>
+        <TD></TD>
+        <TD>$926DDB</TD>
+      </TR>
+      <TR align="center">
+        <TD>155</TD>
+        <TD></TD>
+        <TD>$B66D24</TD>
+      </TR>
+      <TR align="center">
+        <TD>156</TD>
+        <TD></TD>
+        <TD>$B66DFF</TD>
+      </TR>
+      <TR align="center">
+        <TD>157</TD>
+        <TD></TD>
+        <TD>$DB6D00</TD>
+      </TR>
+      <TR align="center">
+        <TD>158</TD>
+        <TD></TD>
+        <TD>$DB6D49</TD>
+      </TR>
+      <TR align="center">
+        <TD>159</TD>
+        <TD></TD>
+        <TD>$DB6D92</TD>
+      </TR>
+      <TR align="center">
+        <TD>160</TD>
+        <TD></TD>
+        <TD>$DB6DDB</TD>
+      </TR>
+      <TR align="center">
+        <TD>161</TD>
+        <TD></TD>
+        <TD>$FF6D24</TD>
+      </TR>
+      <TR align="center">
+        <TD>162</TD>
+        <TD></TD>
+        <TD>$FF6D6D</TD>
+      </TR>
+      <TR align="center">
+        <TD>163</TD>
+        <TD></TD>
+        <TD>$FF6DB6</TD>
+      </TR>
+      <TR align="center">
+        <TD>164</TD>
+        <TD></TD>
+        <TD>$FF6DFF</TD>
+      </TR>
+      <TR align="center">
+        <TD>165</TD>
+        <TD></TD>
+        <TD>$249224</TD>
+      </TR>
+      <TR align="center">
+        <TD>166</TD>
+        <TD></TD>
+        <TD>$24926D</TD>
+      </TR>
+      <TR align="center">
+        <TD>167</TD>
+        <TD></TD>
+        <TD>$2492B6</TD>
+      </TR>
+      <TR align="center">
+        <TD>168</TD>
+        <TD></TD>
+        <TD>$2492FF</TD>
+      </TR>
+      <TR align="center">
+        <TD>169</TD>
+        <TD></TD>
+        <TD>$499249</TD>
+      </TR>
+      <TR align="center">
+        <TD>170</TD>
+        <TD></TD>
+        <TD>$4992DB</TD>
+      </TR>
+      <TR align="center">
+        <TD>171</TD>
+        <TD></TD>
+        <TD>$6D9224</TD>
+      </TR>
+      <TR align="center">
+        <TD>172</TD>
+        <TD></TD>
+        <TD>$6D926D</TD>
+      </TR>
+      <TR align="center">
+        <TD>173</TD>
+        <TD></TD>
+        <TD>$6D92B6</TD>
+      </TR>
+      <TR align="center">
+        <TD>174</TD>
+        <TD></TD>
+        <TD>$6D92FF</TD>
+      </TR>
+      <TR align="center">
+        <TD>175</TD>
+        <TD></TD>
+        <TD>$929249</TD>
+      </TR>
+      <TR align="center">
+        <TD>176</TD>
+        <TD></TD>
+        <TD>$9292DB</TD>
+      </TR>
+      <TR align="center">
+        <TD>177</TD>
+        <TD></TD>
+        <TD>$B69224</TD>
+      </TR>
+      <TR align="center">
+        <TD>178</TD>
+        <TD></TD>
+        <TD>$B692B6</TD>
+      </TR>
+      <TR align="center">
+        <TD>179</TD>
+        <TD></TD>
+        <TD>$B692FF</TD>
+      </TR>
+      <TR align="center">
+        <TD>180</TD>
+        <TD></TD>
+        <TD>$DB9200</TD>
+      </TR>
+      <TR align="center">
+        <TD>181</TD>
+        <TD></TD>
+        <TD>$DB9249</TD>
+      </TR>
+      <TR align="center">
+        <TD>182</TD>
+        <TD></TD>
+        <TD>$DB9292</TD>
+      </TR>
+      <TR align="center">
+        <TD>183</TD>
+        <TD></TD>
+        <TD>$DB92DB</TD>
+      </TR>
+      <TR align="center">
+        <TD>184</TD>
+        <TD></TD>
+        <TD>$FF926D</TD>
+      </TR>
+      <TR align="center">
+        <TD>185</TD>
+        <TD></TD>
+        <TD>$FF92B6</TD>
+      </TR>
+      <TR align="center">
+        <TD>186</TD>
+        <TD></TD>
+        <TD>$FF92FF</TD>
+      </TR>
+      <TR align="center">
+        <TD>187</TD>
+        <TD></TD>
+        <TD>$00B600</TD>
+      </TR>
+      <TR align="center">
+        <TD>188</TD>
+        <TD></TD>
+        <TD>$00B649</TD>
+      </TR>
+      <TR align="center">
+        <TD>189</TD>
+        <TD></TD>
+        <TD>$00B692</TD>
+      </TR>
+      <TR align="center">
+        <TD>190</TD>
+        <TD></TD>
+        <TD>$00B6DB</TD>
+      </TR>
+      <TR align="center">
+        <TD>191</TD>
+        <TD></TD>
+        <TD>$24B624</TD>
+      </TR>
+      <TR align="center">
+        <TD>192</TD>
+        <TD></TD>
+        <TD>$24B66D</TD>
+      </TR>
+      <TR align="center">
+        <TD>193</TD>
+        <TD></TD>
+        <TD>$24B6B6</TD>
+      </TR>
+      <TR align="center">
+        <TD>194</TD>
+        <TD></TD>
+        <TD>$24B6FF</TD>
+      </TR>
+      <TR align="center">
+        <TD>195</TD>
+        <TD></TD>
+        <TD>$49B600</TD>
+      </TR>
+      <TR align="center">
+        <TD>196</TD>
+        <TD></TD>
+        <TD>$49B649</TD>
+      </TR>
+      <TR align="center">
+        <TD>197</TD>
+        <TD></TD>
+        <TD>$49B6DB</TD>
+      </TR>
+      <TR align="center">
+        <TD>198</TD>
+        <TD></TD>
+        <TD>$6DB624</TD>
+      </TR>
+      <TR align="center">
+        <TD>199</TD>
+        <TD></TD>
+        <TD>$6DB6FF</TD>
+      </TR>
+      <TR align="center">
+        <TD>200</TD>
+        <TD></TD>
+        <TD>$92B600</TD>
+      </TR>
+      <TR align="center">
+        <TD>201</TD>
+        <TD></TD>
+        <TD>$92B692</TD>
+      </TR>
+      <TR align="center">
+        <TD>202</TD>
+        <TD></TD>
+        <TD>$92B6DB</TD>
+      </TR>
+      <TR align="center">
+        <TD>203</TD>
+        <TD></TD>
+        <TD>$B6B624</TD>
+      </TR>
+      <TR align="center">
+        <TD>204</TD>
+        <TD></TD>
+        <TD>$DBB600</TD>
+      </TR>
+      <TR align="center">
+        <TD>205</TD>
+        <TD></TD>
+        <TD>$DBB649</TD>
+      </TR>
+      <TR align="center">
+        <TD>206</TD>
+        <TD></TD>
+        <TD>$DBB692</TD>
+      </TR>
+      <TR align="center">
+        <TD>207</TD>
+        <TD></TD>
+        <TD>$DBB6DB</TD>
+      </TR>
+      <TR align="center">
+        <TD>208</TD>
+        <TD></TD>
+        <TD>$FFB624</TD>
+      </TR>
+      <TR align="center">
+        <TD>209</TD>
+        <TD></TD>
+        <TD>$FFB66D</TD>
+      </TR>
+      <TR align="center">
+        <TD>210</TD>
+        <TD></TD>
+        <TD>$00DB00</TD>
+      </TR>
+      <TR align="center">
+        <TD>211</TD>
+        <TD></TD>
+        <TD>$00DB49</TD>
+      </TR>
+      <TR align="center">
+        <TD>212</TD>
+        <TD></TD>
+        <TD>$00DB92</TD>
+      </TR>
+      <TR align="center">
+        <TD>213</TD>
+        <TD></TD>
+        <TD>$00DBDB</TD>
+      </TR>
+      <TR align="center">
+        <TD>214</TD>
+        <TD></TD>
+        <TD>$24DB24</TD>
+      </TR>
+      <TR align="center">
+        <TD>215</TD>
+        <TD></TD>
+        <TD>$24DB6D</TD>
+      </TR>
+      <TR align="center">
+        <TD>216</TD>
+        <TD></TD>
+        <TD>$24DBB6</TD>
+      </TR>
+      <TR align="center">
+        <TD>217</TD>
+        <TD></TD>
+        <TD>$24DBFF</TD>
+      </TR>
+      <TR align="center">
+        <TD>218</TD>
+        <TD></TD>
+        <TD>$49DB00</TD>
+      </TR>
+      <TR align="center">
+        <TD>219</TD>
+        <TD></TD>
+        <TD>$49DB49</TD>
+      </TR>
+      <TR align="center">
+        <TD>220</TD>
+        <TD></TD>
+        <TD>$49DB92</TD>
+      </TR>
+      <TR align="center">
+        <TD>221</TD>
+        <TD></TD>
+        <TD>$49DBDB</TD>
+      </TR>
+      <TR align="center">
+        <TD>222</TD>
+        <TD></TD>
+        <TD>$6DDB24</TD>
+      </TR>
+      <TR align="center">
+        <TD>223</TD>
+        <TD></TD>
+        <TD>$6DDB6D</TD>
+      </TR>
+      <TR align="center">
+        <TD>224</TD>
+        <TD></TD>
+        <TD>$6DDBB6</TD>
+      </TR>
+      <TR align="center">
+        <TD>225</TD>
+        <TD></TD>
+        <TD>$6DDBFF</TD>
+      </TR>
+      <TR align="center">
+        <TD>226</TD>
+        <TD></TD>
+        <TD>$92DB00</TD>
+      </TR>
+      <TR align="center">
+        <TD>227</TD>
+        <TD></TD>
+        <TD>$92DB49</TD>
+      </TR>
+      <TR align="center">
+        <TD>228</TD>
+        <TD></TD>
+        <TD>$92DB92</TD>
+      </TR>
+      <TR align="center">
+        <TD>229</TD>
+        <TD></TD>
+        <TD>$92DBDB</TD>
+      </TR>
+      <TR align="center">
+        <TD>230</TD>
+        <TD></TD>
+        <TD>$B6DB24</TD>
+      </TR>
+      <TR align="center">
+        <TD>231</TD>
+        <TD></TD>
+        <TD>$B6DB6D</TD>
+      </TR>
+      <TR align="center">
+        <TD>232</TD>
+        <TD></TD>
+        <TD>$B6DBN6</TD>
+      </TR>
+      <TR align="center">
+        <TD>233</TD>
+        <TD></TD>
+        <TD>$B6DBFF</TD>
+      </TR>
+      <TR align="center">
+        <TD>234</TD>
+        <TD></TD>
+        <TD>$DBDB49</TD>
+      </TR>
+      <TR align="center">
+        <TD>235</TD>
+        <TD></TD>
+        <TD>$DBDB92</TD>
+      </TR>
+      <TR align="center">
+        <TD>236</TD>
+        <TD></TD>
+        <TD>$FFDB6D</TD>
+      </TR>
+      <TR align="center">
+        <TD>237</TD>
+        <TD></TD>
+        <TD>$00FF49</TD>
+      </TR>
+      <TR align="center">
+        <TD>238</TD>
+        <TD></TD>
+        <TD>$24FF6D</TD>
+      </TR>
+      <TR align="center">
+        <TD>239</TD>
+        <TD></TD>
+        <TD>$24FFB6</TD>
+      </TR>
+      <TR align="center">
+        <TD>240</TD>
+        <TD></TD>
+        <TD>$49FF00</TD>
+      </TR>
+      <TR align="center">
+        <TD>241</TD>
+        <TD></TD>
+        <TD>$49FF49</TD>
+      </TR>
+      <TR align="center">
+        <TD>242</TD>
+        <TD></TD>
+        <TD>$49FF92</TD>
+      </TR>
+      <TR align="center">
+        <TD>243</TD>
+        <TD></TD>
+        <TD>$49FFDB</TD>
+      </TR>
+      <TR align="center">
+        <TD>244</TD>
+        <TD></TD>
+        <TD>$6DFF24</TD>
+      </TR>
+      <TR align="center">
+        <TD>245</TD>
+        <TD></TD>
+        <TD>$6DFF6D</TD>
+      </TR>
+      <TR align="center">
+        <TD>246</TD>
+        <TD></TD>
+        <TD>$6DFFB6</TD>
+      </TR>
+      <TR align="center">
+        <TD>247</TD>
+        <TD></TD>
+        <TD>$6DFFFF</TD>
+      </TR>
+      <TR align="center">
+        <TD>248</TD>
+        <TD></TD>
+        <TD>$92FF49</TD>
+      </TR>
+      <TR align="center">
+        <TD>249</TD>
+        <TD></TD>
+        <TD>$92FF92</TD>
+      </TR>
+      <TR align="center">
+        <TD>250</TD>
+        <TD></TD>
+        <TD>$92FFDB</TD>
+      </TR>
+      <TR align="center">
+        <TD>251</TD>
+        <TD></TD>
+        <TD>$B6FF24</TD>
+      </TR>
+      <TR align="center">
+        <TD>252</TD>
+        <TD></TD>
+        <TD>$B6FF6D</TD>
+      </TR>
+      <TR align="center">
+        <TD>253</TD>
+        <TD></TD>
+        <TD>$DBFF49</TD>
+      </TR>
+      <TR align="center">
+        <TD>254</TD>
+        <TD></TD>
+        <TD>$DBFF92</TD>
+      </TR>
+      <TR align="center">
+        <TD>255</TD>
+        <TD></TD>
+        <TD>$FFFF6D</TD>
+      </TR>
+    </TABLE>
+    
+<H3>MISCELLANEOUS COLOUR MODES</H3>
+    
+<H3><SPAN style="font-style: italic;">MODE 2</SPAN> (Monochrome Drivers)</H3>
+    
+<P>Each byte represents eight pixels on the Monitor's screen calculated by looking at the status of each of the eight binary bits which make up a byte - if a bit is 1 (ON) then the corresponding pixel will be white, otherwise it will be black.</P>
+    
+<P>For example, if <SPAN style="font-style: italic;">PEEK (SCR_BASE)</SPAN> returns the value 85, in binary this is represented by:</P>
+    
+<P>0 1 0 1 0 1 0 1</P>
+    
+<P>Therefore the top left of the Monitor screen will be showing eight alternating pixels of black and white.</P>
+    
+<H3>Example:</H3>
+    
+<P>The following program will fill the screen with black and white vertical stripes:</P>
+    <PRE>
+        100 MODE 2
+        110 FOR x=0 TO SCR_YLIM-1
+        120   FOR y=0 TO (SCR_XLIM-1)/4
+        130     POKE SCR_BASE+ (x*SCR_LLEN) + y,85
+        140   END FOR y
+        150 END FOR x
+</PRE>
+    
+<H3>SMSQ/E NOTE:</H3>
+    
+<P>Under SMSQ/E v2.98+, Enhanced Colour Drivers, this becomes <SPAN style="font-style: italic;">MODE 0</SPAN>.</P>
+    
+<H3><SPAN style="font-style: italic;">MODE 12</SPAN> (16 Colour Mode)</H3>
+    
+<P>This is supported only by the THOR XVI and is similar to Aurora's 16 Colour Mode under the Enhanced Colour Drivers in that it replaces the Flash bit of <SPAN style="font-style: italic;">MODE 8</SPAN> by an Intensity bit which allows you to display 16 colours on screen at a time at a resolution of 256 x 256 pixels.</P>
+    
+<P>(We have no details of how this was implemented).</P>
+    
+<H3>A16.4 USING HIGH RESOLUTION DISPLAYS</H3>
+    
+<P>There is not much adaptation required in order to use QL screen resolutions in excess of 512x256 pixels - all of the normal commands work as you would expect. <SPAN style="font-style: italic;">OUTLN</SPAN> includes an example of how to allow programs to re-size themselves up to the maximum resolution. However, there are some rules which you need to observe..</P>
+    
+<P>First of all, refer to Appendix 6.7 (Using High Resolution Screens) about some compatability issues.</P>
+    
+<P>If a user chooses to run a program on a high resolution screen, they will find that the program will only occupy a small area of the screen. Even if the program allows you to resize it to take advantage of the larger screen, this may not be very satisfactory. Although graphics commands which work by reference to the graphics co-ordinates system (such as <SPAN style="font-style: italic;">LINE</SPAN>) will take advantage of the larger windows provided by the program, thus giving the effect of enlarging any on-screen graphics, other commands which work by reference to the pixel co-ordinates system (such as <SPAN style="font-style: italic;">BLOCK</SPAN>) will rely on the program to resize them specifically for the new screen. You may therefore find that the display of some programs is corrupted, unless the programmer has taken sufficient care.</P>
+    
+<P>One of the main problems is that text can still only be <SPAN style="font-style: italic;">PRINT</SPAN>ed on screen in the standard QL sizes, and therefore, any text <SPAN style="font-style: italic;">PRINT</SPAN>ed in <SPAN style="font-style: italic;">CSIZE 0,0</SPAN> will be very hard to read on a 800x600 screen (let alone a 1600x1200 screen), even with a 17" Monitor. Programs will therefore need to take this into account, possibly using the resize procedure to alter the character sizes used for text, or using the ProWeSS system from PROGS, which uses scaleable fonts for output.</P>
+    
+<P>Refer to the <SPAN style="font-style: italic;">SCALE</SPAN> command for a means of working out a relationship between graphics co-ordinates and pixel co- ordinates.</P>
+</BODY>
+</HTML>
