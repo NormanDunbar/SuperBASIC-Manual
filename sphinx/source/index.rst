@@ -11,11 +11,13 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
-   Foreword <Foreword.clean>
-   Introduction <Introduction.clean>
-   Credits <Credits.clean>
-   Structure <Structure.clean>
-   Writing Programs <WritingPrograms.clean>
+   Foreword                                  <Foreword.clean>
+   Introduction                              <Introduction.clean>
+   Credits                                   <Credits.clean>
+   Structure                                 <Structure.clean>
+   Writing Programs                          <WritingPrograms.clean>
+
+   Keywords A                                <KeywordsA.clean>
 
    Appendices Introduction                   <AppendicesIntro.clean>
    A1. Minerva                               <Appendix01.clean>
@@ -35,6 +37,8 @@ Contents:
    A15. Mouse Drivers                        <Appendix15.clean>
    A16. The QL Display                       <Appendix16.clean>
    A17. Networks                             <Appendix17.clean>
+   A18. Configuring Programs                 <Appendix18.clean>
+
 
 .. Indices and tables
    ==================

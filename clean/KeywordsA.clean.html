@@ -1,0 +1,1792 @@
+    
+<H3>5 KEYWORDS</H3>
+
+<P>
+    
+<P>The following is a general description of the various commands available to the SuperBASIC programmer, as provided by Public Domain toolkits, QL Emulators and SuperBASIC itself.</P>
+    
+<P>We have indicated which of the commands are functions (and therefore must appear in a program in the form):</P>
+    
+<P><SPAN style="font-style: italic;">x=FUNCTION ( parameter )</SPAN></P>
+    
+<P>or:
+    <SPAN style="font-style: italic;">
+    IF FUNCTION ( parameter ) = value</SPAN></P>
+    
+<P>and those which are procedures (also known as commands) which must therefore appear in a program in the form: <SPAN style="font-style: italic;">
+    PROCEDURE parameter</SPAN></P>
+    
+<H3>NOTE:</H3>
+
+<P>
+    
+<P>Many toolkits insist that you initialise the toolkit before you can use the various keywords contained in those toolkits. Refer to Section 1.1 for details. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="ABS"></a>ABS</h1><br>Syntax: <span style="font-style: italic;">ABS (number) --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="ABS" id="ABS"></A>ABS</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">ABS (number)<BR></SPAN>
+    or <SPAN style="font-style: italic;">ABS (number1</SPAN> <SUP>*</SUP>[<SPAN style="font-style: italic;">,number</SPAN><SUP>x</SUP>]<SUP>*</SUP>) <SPAN style="font-style: italic;">(Minerva only)<BR></SPAN> Location: <SPAN style="font-style: italic;">QL ROM</SPAN></P>
+    
+<P>This function returns the absolute value of a number - ie. the positive difference (or distance) between zero and the number. The absolute value of a positive number (including zero) therefore, is the number itself - negative numbers are converted to positive. This function will happily handle 32-bit integer numbers (<SPAN style="font-style: italic;">-INTMAX..INTMAX</SPAN>, roughly -1E9..1E9).</P>
+    
+<H3>Example 1:</H3>
+
+<P>
+    
+<P>The <SPAN style="font-style: italic;">SIGN%</SPAN> function returns 1 if the supplied parameter is positive, -1 if negative, or 0 if it is zero, for example,</P>
+    
+<P><SPAN style="font-style: italic;">PRINT SIGN%(-10)</SPAN> will print -1 on screen.</P>
+    
+<P>This version rounds values which are very close to zero (use <SPAN style="font-style: italic;">=</SPAN> in line 110 instead of <SPAN style="font-style: italic;">==</SPAN> if you want to avoid this).</P>
+    
+<P>Note that line 110 is needed to avoid an error when line 120 tries to divide by zero.</P>
+    <PRE>100 DEFine FuNction SIGN% (number)
+110  IF number==0 THEN RETurn 0
+120  RETurn number/ABS(number)
+130 END DEFine
+</PRE>
+    
+<H3><SPAN style="font-style: italic;">Example 2:</SPAN></H3>
+
+<P>
+    
+<P>Here is a simple implementation of the cosine function. Of course, it cannot compete with the speed of a machine code function, but it allows you to specify the precision of the result. You can optimise the function by exploiting the symmetries of the cosine function.</P>
+    <PRE>100 DEFine FuNction MYCOS (x, prec)
+110  LOCal fct, result, xpower, i, lagrange, sqrx
+120  fct = 1: result = 1
+130  xpower = 1: sqrx = x*x
+140  i = 2
+150  REPeat taylor
+160    fct = fct * (i-1) * i
+170    xpower = - xpower * sqrx
+180    result = result + xpower/fct
+190    lagrange = ABS(xpower*x / fct / (i+1))
+200    IF lagrange &lt; prec THEN EXIT taylor
+210    i = i + 2
+220  END REPeat taylor
+230  RETurn result
+240 END DEFine MYCOS
+</PRE>
+    
+<H3></H3>
+
+<P>
+    
+<H3>MINERVA NOTE:</H3>
+
+<P>
+    
+<P><SPAN style="font-style: italic;">ABS</SPAN> can accept more than one parameter. This version of <SPAN style="font-style: italic;">ABS</SPAN> will square each parameter, and return the square root of the total of those squares, eg. <SPAN style="font-style: italic;">ABS(x,y)=SQRT(x2+y2)</SPAN>. This is therefore useful to calculate the distance between two points (using pythagoras' method).</P>
+    
+<P>For example, to calculate the distance between the points on screen at <SPAN style="font-style: italic;">(10,20)</SPAN> and <SPAN style="font-style: italic;">(100,75)</SPAN>, simply type in: <SPAN style="font-style: italic;">PRINT ABS(100-10,75-20)</SPAN></P>
+    
+<P>Three parameters can be used to find the distance between two points in three dimensional space. Any more parameters take you into the realm of theoretical mathematics (we always thought that time was the fourth dimension!).</P>
+    
+<P>For example, to calculate the length of a diagonal in a standard cube (length of sides = 1), use: <SPAN style="font-style: italic;">PRINT ABS(1,1,1)</SPAN></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P>See <A style="font-style: italic;" href="KeywordsS.html#SGN">SGN</A> and <A style="font-style: italic;" href="KeywordsS.html#SGN%">SGN%</A> for similar machine code versions of our example function <A style="font-style: italic;" href="KeywordsS.html#SIGN%">SIGN%</A>. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="ACCEL_OFF"></a>ACCEL_OFF</h1><br>Syntax: <span style="font-style: italic;">ACCEL_OFF --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="ACCEL_OFF" id="ACCEL_OFF"></A>ACCEL_OFF</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">ACCEL_OFF<BR></SPAN> Location: <SPAN style="font-style: italic;">ST/QL</SPAN></P>
+    
+<P>See <SPAN style="font-style: italic;">ACCEL_ON</SPAN> below! <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="ACCEL_ON"></a>ACCEL_ON</h1><br>Syntax: <span style="font-style: italic;">ACCEL_ON --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="ACCEL_ON" id="ACCEL_ON"></A>ACCEL_ON</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">ACCEL_ON<BR></SPAN> Location: <SPAN style="font-style: italic;">ST/QL</SPAN></P>
+    
+<P>The ST/QL Emulator supports several of the accelerator boards which can be plugged into the Atari ST computer, thus allowing much greater operational speed. This command both enables the 16MHz mode on the Atari ST and tells the attached accelerator board to use its memory cache (if built in).</P>
+    
+<H3>NOTE:</H3>
+
+<P>
+    
+<P>This and the other <SPAN style="font-style: italic;">ACCEL_</SPAN>... commands will be ignored unless you have previously used <SPAN style="font-style: italic;">ACCEL_SET</SPAN> to define the type of accelerator board attached to the Atari ST. <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsA.html#ACCEL_OFF">ACCEL_OFF</a> turns off the 16MHz mode (if possible) and also --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P><A style="font-style: italic;" href="KeywordsA.html#ACCEL_OFF">ACCEL_OFF</A> turns off the 16MHz mode (if possible) and also tells the accelerator board that it should no longer use its memory cache. Also see <A style="font-style: italic;" href="KeywordsA.html#ACCEL_SET">ACCEL_SET</A>. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="ACCEL_SET"></a>ACCEL_SET</h1><br>Syntax: <span style="font-style: italic;">ACCEL_SET type,option --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="ACCEL_SET" id="ACCEL_SET"></A>ACCEL_SET</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">ACCEL_SET type,option<BR></SPAN> Location: <SPAN style="font-style: italic;">ST/QL</SPAN></P>
+    
+<P>Before the ST/QL Emulator can use an accelerator board plugged into the Atari ST, it is necessary to use the command <SPAN style="font-style: italic;">ACCEL_SET</SPAN> to tell the Emulator about the board and to activate the board.</P>
+    
+<P>There are currently five accelerator boards which are recognised by the Emulator. Use the following values for <SPAN style="font-style: italic;">type</SPAN> to tell the Emulator which one is attached:</P>
+    <UL>
+      <LI><SPAN style="font-style: italic;">H</SPAN> - HyperCache (ProVME)</LI>
+      <LI><SPAN style="font-style: italic;">A</SPAN> - AdSpeed (ICD)</LI>
+      <LI><SPAN style="font-style: italic;">M</SPAN> - MegaSTE (ATARI)</LI>
+      <LI><SPAN style="font-style: italic;">P</SPAN> - HyperCache 030 (ProVME), 68030 Board</LI>
+      <LI><SPAN style="font-style: italic;">T</SPAN> - TT (ATARI)</LI>
+    </UL>
+    
+<P>If you have a 68030 board attached, the ST/QL Emulator can only use external caches with this board.</P>
+    
+<P>The <SPAN style="font-style: italic;">option</SPAN> parameter currently only has any effect when HyperCache is attached. This can have the value 6 or 7 (default is 6). This is used to specify which bit of the Atari's sound chip is used to switch HyperCache. If you have the HyperCache 030 attached, you can pass the parameter 0 (default) to enable external caches only, 1 to enable the internal caches only or 2 to enable both external and internal caches.</P>
+    
+<H3>NOTE:</H3>
+
+<P>
+    
+<P>Unfortunately, due to the higher speed of the Atari ST with an accelerator board enabled, you may encounter problems with the parallel printer board - use the command <SPAN style="font-style: italic;">PAR_PULSE</SPAN>. <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br>See also <a style="font-style: italic;" href="KeywordsA.html#ACCEL_ON">ACCEL_ON</a>, <a style="font-style: italic;" href="KeywordsA.html#ACCEL_OFF">ACCEL_OFF</a> and <a style="font-style: italic;" href="KeywordsA.html#ACCEL_STATE">ACCEL_STATE</a>. --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P>See also <A style="font-style: italic;" href="KeywordsA.html#ACCEL_ON">ACCEL_ON</A>, <A style="font-style: italic;" href="KeywordsA.html#ACCEL_OFF">ACCEL_OFF</A> and <A style="font-style: italic;" href="KeywordsA.html#ACCEL_STATE">ACCEL_STATE</A>. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="ACCEL_STATE"></a>ACCEL_STATE</h1><br>Syntax: <span style="font-style: italic;">ACCEL_STATE --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="ACCEL_STATE" id="ACCEL_STATE"></A>ACCEL_STATE</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">ACCEL_STATE<BR></SPAN> Location: <SPAN style="font-style: italic;">ST/QL</SPAN></P>
+    
+<P>This function returns the value 1 if the ST/QL Emulator has been told that an accelerator board is enabled. Otherwise, it returns the value 0. <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsA.html#ACCEL_SET">ACCEL_SET</a> tells the Emulator that an accelerator board is --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P><A style="font-style: italic;" href="KeywordsA.html#ACCEL_SET">ACCEL_SET</A> tells the Emulator that an accelerator board is enabled. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="ACOPY"></a>ACOPY</h1><br>Syntax: <span style="font-style: italic;">ACOPY filename1,filename2 --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="ACOPY" id="ACOPY"></A>ACOPY</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">ACOPY filename1,filename2<BR></SPAN> Location: <SPAN style="font-style: italic;">ATARIDOS</SPAN></P>
+    
+<P>This command is similar to <SPAN style="font-style: italic;">COPY</SPAN> except that it copies a file from a QL Format disk to an Atari Format disk. No conversion takes place.</P>
+    
+<H3>NOTE:</H3>
+
+<P>
+    
+<P>You will need to pass the Atari filename in quote marks if it includes a three letter extension preceded by a dot eg:</P>
+    
+<P><SPAN style="font-style: italic;">ACOPY flp1_PROGRAM_BAS, "flp2_PROGRAM.BAS"</SPAN></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P><A style="font-style: italic;" href="KeywordsQ.html#QCOPY">QCOPY</A> copies a file from an Atari disk to a QL disk.</P>
+    
+<P>See <SPAN style="font-style: italic;"><A href="KeywordsA.html#AFORMAT">AFORMAT</A> and <A href="KeywordsA.html#QACONVERT">QACONVERT</A>.</SPAN></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="ACOS" id="ACOS"></A>ACOS</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">ACOS (x)<BR></SPAN> Location: <SPAN style="font-style: italic;">QL ROM</SPAN></P>
+    
+<P>The function <SPAN style="font-style: italic;">ACOS</SPAN>, is the arc-cosine function, that is to say the opposite to the cosine function (<SPAN style="font-style: italic;">COS</SPAN> in SuperBASIC). However, <SPAN style="font-style: italic;">x</SPAN> must always be in the range -1...1 as the cosine of an angle can only ever be in this range. Anything outside of this range will produce an Overflow Error.</P>
+    
+<P>The angle returned will be in the range 0...PI with <SPAN style="font-style: italic;">ACOS(1)=0</SPAN> and <SPAN style="font-style: italic;">ACOS(-1)=PI</SPAN>. This means that the maximum angle which can be found with the <SPAN style="font-style: italic;">ACOS</SPAN> function is 180 degrees. It is up to you to check whether this angle appears above or below the base line of the triangle (check the co-ordinates of the corners).</P>
+    
+<P>Note that if a negative value of x is provided, the angle returned will be the obtuse angle (ie. greater than 90 degrees).</P>
+    
+<H3>Example:</H3>
+
+<P>
+    
+<P>To calculate the angle at which a projectile was fired which has travelled a horizontal distance of 250 metres after 10 minutes and is travelling at 3 kilometres per hour (ignoring the effects of gravity):</P>
+    <PRE>100 Speed=3:Distan=250/1000
+110 Time_elapsed=10
+120 Actual_distance=(Speed/60)*Time_elapsed
+130 PRINT 'Projectile fired at an angle of ';
+140 PRINT DEG(ACOS(Distan/Actual_distance))&amp;' degrees'
+</PRE>
+    
+<H3>NOTE:</H3>
+
+<P>
+    
+<P>The angle returned will be in radians - if you wish to convert this angle to degrees, use <SPAN style="font-style: italic;">DEG ( ACOS (x) )</SPAN>.</P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P><SPAN style="font-style: italic;"><A href="KeywordsC.html#COS">COS</A>, <A href="KeywordsA.html#ASIN">ASIN</A>, <A href="KeywordsS.html#SIN">SIN</A>, <A href="KeywordsR.html#RAD">RAD</A></SPAN>.</P>
+    
+<P>Compare <SPAN style="font-style: italic;"><A href="KeywordsA.html#ARCOSH">ARCOSH</A>.</SPAN></P>
+    
+<P>Also please see the Mathematics section in the Appendix.</P><!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="ACOT"></a>ACOT</h1><br>Syntax: <span style="font-style: italic;">ACOT (x) -->
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="ACOT" id="ACOT"></A>ACOT</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">ACOT (x)<BR></SPAN>
+    or <SPAN style="font-style: italic;">ACOT (y,x)</SPAN> <SPAN style="font-style: italic;">(Minerva v1.90+ only)<BR></SPAN> Location: <SPAN style="font-style: italic;">QL ROM</SPAN></P>
+    
+<P>The function <SPAN style="font-style: italic;">ACOT</SPAN>, is the arc-cotangent function, that is to say the inverse of the cotangent function (<SPAN style="font-style: italic;">COT</SPAN> in SuperBASIC): <SPAN style="font-style: italic;">COT(ACOT(x))=x</SPAN> for all values of x, but due to the periodic nature of <SPAN style="font-style: italic;">COT</SPAN>, <SPAN style="font-style: italic;">ACOT(COT(x))=x</SPAN> is only true for where: 0&lt;x&lt;PI.</P>
+    
+<P>Note that if a negative value of x is provided, the angle returned will be the obtuse angle (ie. greater than 90 degrees).</P>
+    
+<H3>MINERVA NOTE:</H3>
+
+<P>
+    
+<P><SPAN style="font-style: italic;">ACOT</SPAN> can accept two parameters. If you specify two parameters then <SPAN style="font-style: italic;">ACOT(y,x)</SPAN> will give the angle from the origin to the point <SPAN style="font-style: italic;">(x,y)</SPAN>. This is actually the same as <SPAN style="font-style: italic;">ACOT(x/y)</SPAN> although it does also cater for when <SPAN style="font-style: italic;">y=0</SPAN> which would otherwise give an overflow error. <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsC.html#COT">COT</a>, <a style="font-style: italic;" href="KeywordsA.html#ATAN">ATAN</a>, <a style="font-style: italic;" href="KeywordsT.html#TAN">TAN</a>. --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P><A style="font-style: italic;" href="KeywordsC.html#COT">COT</A>, <A style="font-style: italic;" href="KeywordsA.html#ATAN">ATAN</A>, <A style="font-style: italic;" href="KeywordsT.html#TAN">TAN</A>.</P>
+    
+<P>Please see the Mathematics section in the Appendix.</P>
+    
+<P>See also <A style="font-style: italic;" href="KeywordsA.html#ARCOTH">ARCOTH</A>. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="ADATE"></a>ADATE</h1><br>Syntax: <span style="font-style: italic;">ADATE seconds --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="ADATE" id="ADATE"></A>ADATE</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">ADATE seconds<BR></SPAN> Location: <SPAN style="font-style: italic;">QL ROM</SPAN></P>
+    
+<P><SPAN style="font-style: italic;">ADATE</SPAN> adjusts the current system clock by the given number of seconds, so <SPAN style="font-style: italic;">ADATE 60</SPAN> would advance the internal clock by a minute and <SPAN style="font-style: italic;">ADATE -86400</SPAN> sets it back by one day.</P>
+    
+<H3><SPAN style="font-style: italic;">Example:<BR></SPAN></H3>
+    
+<P>Apart from adjusting the clock relatively, <SPAN style="font-style: italic;">ADATE</SPAN> can also be used to set the time and date absolutely. This is because the function <SPAN style="font-style: italic;">DATE</SPAN> contains the system time in seconds after a fictional 'Birth Date' (Midnight on 1 January 1961 on all ROM implementations):-</P>
+    
+<P><SPAN style="font-style: italic;">ADATE -DATE</SPAN> will set the clock to that Birth Date (when <SPAN style="font-style: italic;">DATE=0</SPAN>)</P>
+    
+<P><SPAN style="font-style: italic;">ADATE 1E9</SPAN> advances the clock by roughly 31 years and nine months.</P>
+    
+<P><SPAN style="font-style: italic;">ADATE</SPAN>s can then be combined by adding values:</P>
+    
+<P><SPAN style="font-style: italic;">ADATE 1E9-DATE</SPAN> sets the clock to <SPAN style="font-style: italic;">DATE$="1992 Sep 09 01:46:40"</SPAN></P>
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    
+<P><SPAN style="font-style: italic;">ADATE</SPAN> generally needs one second to execute because some ROMs (notably the THOR XVI, MG ROM and Minerva) will wait for the next full second before amending the time (therefore do not use <SPAN style="font-style: italic;">ADATE 1</SPAN> to wind the clock on!).</P>
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    
+<P>Any attempts to wind the system clock back to earlier than 1st Jan 1961 will actually deduct the difference from 6th Feb 2097. However, the system clock (on implementations other than Minerva and SMS) runs into trouble here because any date later than 3.14:07 on 19th Jan 2029 should produce a negative number (!) whenever the function <SPAN style="font-style: italic;">DATE</SPAN> is used. However, on non-Minerva ROMs and non-SMS systems, a positive number is produced, preventing <SPAN style="font-style: italic;">DATE</SPAN> from recognising later dates.</P>
+    
+<P>The system clock itself, does however appear able to support dates and times between 0.0:00 on 1st Jan 1961 and 6.28:15 on 6th Feb 2097.</P>
+    
+<H3>NOTE 3:</H3>
+
+<P>
+    
+<P>On Minerva v1.63 and Minerva v1.98, the <SPAN style="font-style: italic;">ADATE</SPAN> command did not work properly - use <SPAN style="font-style: italic;">SDATE DATE+seconds</SPAN> instead!</P>
+    
+<H3>WARNING:</H3>
+
+<P>
+    
+<P><SPAN style="font-style: italic;">ADATE</SPAN> will affect the time on battery backed clocks unless they are protected in some way (see <SPAN style="font-style: italic;">PROT_DATE</SPAN>). <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsD.html#DATE$">DATE$</a> returns the current system date and time as a string, --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P><A style="font-style: italic;" href="KeywordsD.html#DATE$">DATE$</A> returns the current system date and time as a string, <A style="font-style: italic;" href="KeywordsD.html#DATE">DATE</A> does the same but in a less readable form - in seconds after the initial date.</P>
+    
+<P><A style="font-style: italic;" href="KeywordsS.html#SDATE">SDATE</A> sets the clock to an absolute date and time.</P>
+    
+<P>Battery backed clocks generally have their own methods of altering their date and time. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="ADDREG"></a>ADDREG</h1><br>Syntax: <span style="font-style: italic;">ADDREG --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="ADDREG" id="ADDREG"></A>ADDREG</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">ADDREG<BR></SPAN> Location: <SPAN style="font-style: italic;">TRAPS (DIY Toolkit Vol T)</SPAN></P>
+    
+<P>This function returns the value of the following Machine code address register following the completion of a <SPAN style="font-style: italic;">MTRAP</SPAN>, <SPAN style="font-style: italic;">QTRAP</SPAN> or <SPAN style="font-style: italic;">BTRAP</SPAN> command.</P>
+    <TABLE>
+      <TR>
+        <TH>Command</TH>
+        <TH>Machine Code Register Value Returned.</TH>
+      </TR>
+      <TR>
+        <TD><SPAN style="font-style: italic;">MTRAP</SPAN></TD>
+        <TD>A0</TD>
+      </TR>
+      <TR>
+        <TD><SPAN style="font-style: italic;">QTRAP</SPAN></TD>
+        <TD>A1</TD>
+      </TR>
+      <TR>
+        <TD><SPAN style="font-style: italic;">BTRAP</SPAN></TD>
+        <TD>A1 (relative to A6) - can be used by <SPAN style="font-style: italic;">BPEEK%</SPAN>.</TD>
+      </TR>
+    </TABLE>
+    
+<H3>Example:</H3>
+
+<P>
+    
+<P>You could replace the <SPAN style="font-style: italic;">ALCHP</SPAN> function with:</P>
+    <PRE>
+100 bytes=100 : REMark Number of bytes required
+110 MTRAP 24,bytes,-1
+120 IF DATAREG &lt; 0 : REPORT DATAREG : REMark an error has occurred
+130 IF DATAREG (1) &lt; bytes : PRINT 'Requested area not allocated':STOP
+140 base=ADDREG
+</PRE><!-- PREVIOUSLY <br></span><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsD.html#DATAREG">DATAREG</a> allows you to read machine code data registers. -->
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P><A style="font-style: italic;" href="KeywordsD.html#DATAREG">DATAREG</A> allows you to read machine code data registers.</P>
+    
+<P>See <A style="font-style: italic;" href="KeywordsM.html#MTRAP">MTRAP</A>, <A style="font-style: italic;" href="KeywordsQ.html#QTRAP">QTRAP</A> and <A style="font-style: italic;" href="KeywordsB.html#BTRAP">BTRAP</A>. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="ADELETE"></a>ADELETE</h1><br>Syntax: <span style="font-style: italic;">ADELETE filename --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="ADELETE" id="ADELETE"></A>ADELETE</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">ADELETE filename<BR></SPAN> Location: <SPAN style="font-style: italic;">ATARIDOS</SPAN></P>
+    
+<P>This command is the same as the standard <SPAN style="font-style: italic;">DELETE</SPAN> command, except that it works on Atari and IBM PS/2 format disks.</P>
+    
+<H3>NOTE:</H3>
+
+<P>
+    
+<P>You will need to pass the filename in quote marks if it includes a three letter extension preceded by a dot eg:</P>
+    
+<P><SPAN style="font-style: italic;">ADELETE "flp1_TEST.BAS"</SPAN></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P>See <SPAN style="font-style: italic;"><A href="KeywordsD.html#DELETE">DELETE</A></SPAN>!</P>
+    
+<P>See <SPAN style="font-style: italic;"><A href="KeywordsA.html#ADIR">ADIR</A>, <A href="KeywordsA.html#AFORMAT">AFORMAT</A>, <A href="KeywordsA.html#QACONVERT">QACONVERT</A>.</SPAN></P><!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="ADIR"></a>ADIR</h1><br>Syntax: <span style="font-style: italic;">ADIR </span>[<span style="font-style: italic;">#channel,</span>]<span style="font-style: italic;"> device -->
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="ADIR" id="ADIR"></A>ADIR</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">ADIR</SPAN> [<SPAN style="font-style: italic;">#channel,</SPAN>] <SPAN style="font-style: italic;">device<BR></SPAN> Location: <SPAN style="font-style: italic;">ATARIDOS</SPAN></P>
+    
+<P>This command is the same as <SPAN style="font-style: italic;">DIR</SPAN> except that it works on ATARI disks or IBM PS/2 Disks. <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsD.html#DIR">DIR</a>. --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P>See <A style="font-style: italic;" href="KeywordsD.html#DIR">DIR</A>.</P>
+    
+<P>Other commands added are <A style="font-style: italic;" href="KeywordsA.html#ASTAT">ASTAT</A>, <A style="font-style: italic;" href="KeywordsA.html#ADELETE">ADELETE</A>, <A style="font-style: italic;" href="KeywordsA.html#ACOPY">ACOPY</A> and <A style="font-style: italic;" href="KeywordsA.html#AFORMAT">AFORMAT</A>. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="AFORMAT"></a>AFORMAT</h1><br>Syntax: <span style="font-style: italic;">AFORMAT device_</span>[<span style="font-style: italic;">name</span>] --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="AFORMAT" id="AFORMAT"></A>AFORMAT</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">AFORMAT device_</SPAN>[<SPAN style="font-style: italic;">name</SPAN>] Location: <SPAN style="font-style: italic;">ATARIDOS</SPAN></P>
+    
+<P>This command formats the specified device in Atari disk format, giving it the specified name (if any).</P>
+    
+<P>As with <SPAN style="font-style: italic;">FORMAT</SPAN>, this will normally format a disk to the highest possible density - however, you can force it to format a disk as single-sided by making the last character of the filename an asterisk (*). <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsF.html#FORMAT">FORMAT</a> and <a style="font-style: italic;" href="KeywordsI.html#IFORMAT">IFORMAT</a>. --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P>See <A style="font-style: italic;" href="KeywordsF.html#FORMAT">FORMAT</A> and <A style="font-style: italic;" href="KeywordsI.html#IFORMAT">IFORMAT</A>.</P>
+    
+<P>Other commands added are <A style="font-style: italic;" href="KeywordsA.html#ASTAT">ASTAT</A>, <A style="font-style: italic;" href="KeywordsA.html#ADELETE">ADELETE</A>, <A style="font-style: italic;" href="KeywordsA.html#ADIR">ADIR</A> and <A style="font-style: italic;" href="KeywordsA.html#ACOPY">ACOPY</A>. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="AJOB"></a>AJOB</h1><br>Syntax: <span style="font-style: italic;">AJOB jobname,priority --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="AJOB" id="AJOB"></A>AJOB</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">AJOB jobname,priority<BR></SPAN>
+    or <SPAN style="font-style: italic;">AJOB jobnr,tag,priority<BR></SPAN>
+    or <SPAN style="font-style: italic;">AJOB job_id,priority<BR></SPAN> Location: <SPAN style="font-style: italic;">Toolkit II</SPAN></P>
+    
+<P>This command forces the specified job (described by either its <SPAN style="font-style: italic;">jobname</SPAN>, its job number and tag, or its job identification number) to be re-started at the given <SPAN style="font-style: italic;">priority</SPAN> (which should be in the range 0...127 to maintain Minerva compatability - see <SPAN style="font-style: italic;">SPJOB</SPAN>).</P>
+    
+<P>This will only work if the current priority of the given job is set to zero, in any other case, a 'Not Complete' (-1) error will be reported.</P>
+    
+<H3>NOTE:</H3>
+
+<P>
+    
+<P>It is possible that on early versions of Toolkit II, only the second syntax works. <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsS.html#SJOB">SJOB</a> suspends a job. --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P><A style="font-style: italic;" href="KeywordsS.html#SJOB">SJOB</A> suspends a job.</P>
+    
+<P><A style="font-style: italic;" href="KeywordsR.html#REL_JOB">REL_JOB</A> releases a job.</P>
+    
+<P><A style="font-style: italic;" href="KeywordsS.html#SPJOB">SPJOB</A> sets the priority of a job without restarting it. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="ALARM"></a>ALARM</h1><br>Syntax: <span style="font-style: italic;">ALARM hour,minutes --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="ALARM" id="ALARM"></A>ALARM</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">ALARM hour,minutes<BR></SPAN> Location: <SPAN style="font-style: italic;">Toolkit II</SPAN></P>
+    
+<P>This command creates a Job at low priority which makes the QL sound several beeps when the alarm time is reached and then removes itself. Naturally, this facility only works if the system clock is correct.</P>
+    
+<P>The <SPAN style="font-style: italic;">hour</SPAN> is based on the 24-hour clock and must therefore be specified in the range 0...23 and the <SPAN style="font-style: italic;">minutes</SPAN> in the range 0...59.</P>
+    
+<H3><SPAN style="font-style: italic;">Example:<BR></SPAN></H3>
+    
+<P>How about a hourly alarm to remind you to switch off the cassette player and listen to the news on the radio?</P>
+    <PRE>100 FOR hour=8 to 18
+110   ALARM hour-1,59
+120 END FOR hour
+</PRE><!-- PREVIOUSLY <br></span><br><h3>CROSS-REFERENCE:<br></h3><br>Set the system clock with <a style="font-style: italic;" href="KeywordsS.html#SDATE">SDATE</a>, adjust it with <a style="font-style: italic;" href="KeywordsA.html#ADATE">ADATE</a>. -->
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P>Set the system clock with <A style="font-style: italic;" href="KeywordsS.html#SDATE">SDATE</A>, adjust it with <A style="font-style: italic;" href="KeywordsA.html#ADATE">ADATE</A>.</P>
+    
+<P>Alarm jobs can be killed by using <A style="font-style: italic;" href="KeywordsR.html#RJOB">RJOB</A> for example. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="ALCHP"></a>ALCHP</h1><br>Syntax: <span style="font-style: italic;">ALCHP (space) --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="ALCHP" id="ALCHP"></A>ALCHP</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">ALCHP (space)<BR></SPAN>
+    or <SPAN style="font-style: italic;">ALCHP (space</SPAN> [<SPAN style="font-style: italic;">,</SPAN>[<SPAN style="font-style: italic;">jobID</SPAN>]]<SPAN style="font-style: italic;">)</SPAN> <SPAN style="font-style: italic;">(BTool only)<BR></SPAN> Location: <SPAN style="font-style: italic;">Toolkit II, THOR XVI, BTool</SPAN></P>
+    
+<P>The function <SPAN style="font-style: italic;">ALCHP</SPAN> allocates <SPAN style="font-style: italic;">space</SPAN> bytes in the common heap and returns the start address of the memory set aside to be altered freely. This, unlike <SPAN style="font-style: italic;">RESPR</SPAN>, works even if there is a task running in memory.</P>
+    
+<P>If <SPAN style="font-style: italic;">ALCHP</SPAN> fails due to lack of available memory, then it will return 0 instead of breaking with error -3 (Out of Memory).</P>
+    
+<P>The BTool version of <SPAN style="font-style: italic;">ALCHP</SPAN> allows an extended syntax. If <SPAN style="font-style: italic;">space</SPAN> is followed by a comma '<SPAN style="font-style: italic;">,</SPAN>' then the allocated memory can only be removed with <SPAN style="font-style: italic;">RECHP</SPAN> or <SPAN style="font-style: italic;">CLCHP</SPAN> (unlike the other versions where this is done automatically with <SPAN style="font-style: italic;">NEW</SPAN> and <SPAN style="font-style: italic;">CLEAR</SPAN>). If the <SPAN style="font-style: italic;">jobID</SPAN> is specified then not only will this be done, but the memory will also be linked to the Job identified by <SPAN style="font-style: italic;">jobID</SPAN>.</P>
+    
+<H3><SPAN style="font-style: italic;">Example 1:<BR></SPAN></H3>
+    
+<P>The following program loads two uncompressed screens from</P>
+    
+<P>disk into memory and shows them alternately:</P>
+    <PRE>100 adr=ALCHP(2*32768)
+110 LBYTES flp1_Screen1_scr,adr
+120 LBYTES flp1_Screen2_scr,adr+32768
+130 REPeat Picture_Show
+140   SCRBASE adr : REFRESH : PAUSE 150
+150   SCRBASE adr+32768 : REFRESH : PAUSE 150
+160 END REPeat Picture_Show
+</PRE>
+    
+<H3>
+    Example 2:</H3>
+
+<P>
+    
+<P>This is an alternative to the <SPAN style="font-style: italic;">LRESPR</SPAN> command (although see Note 2 below):</P>
+    <PRE>100 DEFine PROCedure LALCHP (mc_file$)
+110  LOCal length,adress
+120  length=FLEN(\mc_file$)
+130  adress=ALCHP(length)
+140  LBYTES mc_file$,adress
+150  CALL adress
+160 END DEFine LALCHP
+</PRE>
+    
+<H3></H3>
+
+<P>
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    
+<P><SPAN style="font-style: italic;">ALCHP</SPAN> reserves memory in 512 byte chunks.</P>
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    
+<P>Memory reserved by <SPAN style="font-style: italic;">ALCHP</SPAN> is indirectly cleared by <SPAN style="font-style: italic;">NEW</SPAN>, <SPAN style="font-style: italic;">CLEAR</SPAN>, <SPAN style="font-style: italic;">LOAD</SPAN> and <SPAN style="font-style: italic;">LRUN</SPAN> (this does not apply to the Btool extended variant - see above).</P>
+    
+<H3>WARNING 1:</H3>
+
+<P>
+    
+<P>Never run device drivers in the common heap - this memory can be easily cleared, causing a spectacular crash if a device driver was stored there. This is true for other machine code, too.</P>
+    
+<H3>WARNING 2:</H3>
+
+<P>
+    
+<P>There is no checking on the parameter for <SPAN style="font-style: italic;">ALCHP</SPAN> - accordingly negative values can be supplied. These are likely to lead to unexpected results and will probably crash the computer - for example, <SPAN style="font-style: italic;">x=ALCHP(-100)</SPAN> crashes a JM ROM. On a Minerva ROM, values below -5 will return 0. On SMS although only values below -20 return 0, any attempt to reclaim the areas set aside with <SPAN style="font-style: italic;">CLCHP</SPAN> or <SPAN style="font-style: italic;">RECHP</SPAN> will crash the system.</P>
+    
+<H3>WARNING 3:</H3>
+
+<P>
+    
+<P>Since <SPAN style="font-style: italic;">ALCHP</SPAN> returns 0 if there is not enough memory, you should always check the value returned by <SPAN style="font-style: italic;">ALCHP</SPAN> for this before writing to the address. Otherwise, it is possible that you will be over-writing the operating system... crash! <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br>The reserved parts of memory can be given back to QDOS' --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P>The reserved parts of memory can be given back to QDOS' memory management by <SPAN style="font-style: italic;"><A href="KeywordsR.html#RECHP">RECHP</A> base_address or <A href="KeywordsC.html#CLCHP">CLCHP</A></SPAN>.</P>
+    
+<P><A style="font-style: italic;" href="KeywordsR.html#RESPR">RESPR</A>, <A style="font-style: italic;" href="KeywordsT.html#TTALL">TTALL</A>, <A style="font-style: italic;" href="KeywordsA.html#ALLOCATION">ALLOCATION</A> and especially <A style="font-style: italic;" href="KeywordsG.html#GRAB">GRAB</A> and <A style="font-style: italic;" href="KeywordsR.html#RESERVE">RESERVE</A> work similar to <A style="font-style: italic;" href="KeywordsA.html#ALCHP">ALCHP</A>.</P>
+    
+<P>See <A style="font-style: italic;" href="KeywordsD.html#DEL_DEFB">DEL_DEFB</A> concerning heap fragmentation. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="ALIAS"></a>ALIAS</h1><br>Syntax: <span style="font-style: italic;">ALIAS old_keyword$ TO new_keyword</span>(ALIAS_CODE) --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="ALIAS" id="ALIAS"></A>ALIAS</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">ALIAS old_keyword$ TO new_keyword</SPAN>(ALIAS_CODE)
+    
+    or <SPAN style="font-style: italic;">ALIAS new_keyword TO old_keyword$</SPAN>(SAILA_CODE) Location: <SPAN style="font-style: italic;">ALIAS (DIY Toolkit - Vol A)</SPAN></P>
+    
+<P>This command is similar to <SPAN style="font-style: italic;">NEW_NAME</SPAN> and <SPAN style="font-style: italic;">REPLACE</SPAN>.</P>
+    
+<P>It allows you to assign another name to machine code Procedures and Functions which are currently resident in memory. Both versions of the command are the same, except that the second variant expects you to pass the two parameters in the opposite order.</P>
+    
+<P>We shall deal with the first variant.</P>
+    
+<P>The first parameter (<SPAN style="font-style: italic;">old_keyword$</SPAN>) must appear as a string and is the original name of the Procedure or Function which is to be renamed. The second parameter (<SPAN style="font-style: italic;">new_keyword</SPAN>) is the new name to be used - this must not appear as a string, but simply as the actual keyword to use.</P>
+    
+<P>The original definition is not lost and therefore you can still use the original name to call the machine code procedure or function (as well as the new name).</P>
+    
+<P>If <SPAN style="font-style: italic;">old_keyword$</SPAN> does not contain the name of a machine code Procedure or Function, then either a 'Not Found' or 'Bad Name' error will be reported.</P>
+    
+<H3>Example:</H3>
+
+<P>
+    
+<P>Try the following short program:</P>
+    <PRE>10 INPUT 'Enter Your Name: '; a$
+20 PRINT a$
+30 ALIAS 'INPUT' TO XINPUT
+40 XINPUT 'Enter My Name with XINPUT: '; s$
+50 INPUT 'You can still use INPUT to Enter your Name: ';t$
+60 PRINT s$ / t$
+</PRE>
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    
+<P>Because the original definition is not lost, you can go on to assign further 'aliases' to the original name, but any attempt to assign an alias to the new name (<SPAN style="font-style: italic;">XINPUT</SPAN> in the above example will give a Not Found error).</P>
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    
+<P>You should not use <SPAN style="font-style: italic;">ALIAS</SPAN> from within programs compiled with TURBO and SuperCharge.</P>
+    
+<H3>NOTE 3:</H3>
+
+<P>
+    
+<P>If a program compiled with TURBO or SuperCharge reports an error when you try to <SPAN style="font-style: italic;">EXEC</SPAN>ute the program, such as 'SYS_VARS is Not Defined', you could use <SPAN style="font-style: italic;">ALIAS</SPAN> from SuperBASIC to circumvent this problem, for example by using:</P>
+    
+<P><SPAN style="font-style: italic;">ALIAS 'SYSBASE','SYS_VARS'</SPAN></P>
+    
+<H3>NOTE 4:</H3>
+
+<P>
+    
+<P>The new alias is not converted by this command to uppercase - that is up to you (not all keywords are in uppercase after all).</P>
+    
+<H3>NOTE 5:</H3>
+
+<P>
+    
+<P>You should not use all of the new names set with <SPAN style="font-style: italic;">ALIAS</SPAN> in programs which are to be compiled with TURBO or SuperCharge if you want to make the most of those compilers. In particular, <SPAN style="font-style: italic;">ALIAS</SPAN>es of the following keywords will cause problems:</P>
+    
+<P><SPAN style="font-style: italic;">RESPR</SPAN> (unless it has been redefined to work in the common heap before you used <SPAN style="font-style: italic;">ALIAS</SPAN>).</P>
+    
+<P><SPAN style="font-style: italic;">RUN</SPAN>, <SPAN style="font-style: italic;">INPUT</SPAN>, <SPAN style="font-style: italic;">READ</SPAN>, <SPAN style="font-style: italic;">EOF</SPAN>, <SPAN style="font-style: italic;">CLEAR</SPAN>, <SPAN style="font-style: italic;">DIMN</SPAN>, <SPAN style="font-style: italic;">STOP</SPAN>, <SPAN style="font-style: italic;">NEW</SPAN> and various TURBO toolkit commands.</P>
+    
+<P>You will also lose out on optimisations on the following:</P>
+    
+<P><SPAN style="font-style: italic;">PRINT</SPAN>, <SPAN style="font-style: italic;">BLOCK</SPAN>, <SPAN style="font-style: italic;">CODE</SPAN>, <SPAN style="font-style: italic;">CHR$</SPAN>, <SPAN style="font-style: italic;">LEN</SPAN>, <SPAN style="font-style: italic;">PI</SPAN>, <SPAN style="font-style: italic;">PEEK</SPAN>, <SPAN style="font-style: italic;">PEEK_W</SPAN>, <SPAN style="font-style: italic;">PEEK_L</SPAN>, <SPAN style="font-style: italic;">POKE</SPAN>, <SPAN style="font-style: italic;">POKE_W</SPAN> and <SPAN style="font-style: italic;">POKE_L</SPAN>.</P>
+    
+<H3>NOTE 6:</H3>
+
+<P>
+    
+<P>If you wish to use <SPAN style="font-style: italic;">ALIAS</SPAN> for <SPAN style="font-style: italic;">MODE</SPAN> and use Speedscreen, ensure Speedscreen is loaded and enabled before you use <SPAN style="font-style: italic;">ALIAS</SPAN> (Speedscreen redefines <SPAN style="font-style: italic;">MODE</SPAN>).</P>
+    
+<P>If you wish to use <SPAN style="font-style: italic;">ALIAS</SPAN> for mathematical functions and use the Lightning fast maths routines, again, ensure that Lighning maths is loaded before you use <SPAN style="font-style: italic;">ALIAS</SPAN> if you want the faster routines implemented by Lightning.</P>
+    
+<H3>NOTE 7:</H3>
+
+<P>
+    
+<P>If you want to use this command from within a Multiple SBASIC on SMS or a MultiBASIC on Minerva, you will need to use the variant of the command implemented in the file SAILA_CODE. <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br>See also <a style="font-style: italic;" href="KeywordsR.html#REPLACE">REPLACE</a> and <a style="font-style: italic;" href="KeywordsN.html#NEW_NAME">NEW_NAME</a>. --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P>See also <A style="font-style: italic;" href="KeywordsR.html#REPLACE">REPLACE</A> and <A style="font-style: italic;" href="KeywordsN.html#NEW_NAME">NEW_NAME</A>.</P>
+    
+<P><A style="font-style: italic;" href="Keywords_.html#_NAME$">_NAME$</A> allows you to look at the name table. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="ALINE"></a>ALINE</h1><br>Syntax: <span style="font-style: italic;">ALINE x1,y1 TO x2,y2, Colour --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="ALINE" id="ALINE"></A>ALINE</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">ALINE x1,y1 TO x2,y2, Colour<BR></SPAN> Location: <SPAN style="font-style: italic;">Shape Toolkit</SPAN></P>
+    
+<P>This command quickly draws a line between the specified absolute, window independent co-ordinates, <SPAN style="font-style: italic;">(x1,y1)</SPAN> and <SPAN style="font-style: italic;">(x2,y2)</SPAN>, on the screen. <SPAN style="font-style: italic;">ALINE</SPAN> uses XOR mode, which means that the line can be removed without destroying the contents of the screen by drawing exactly the same line again. - This does however mean that the colour of the line as it appears on screen may not be the same as the specified parameter (see <SPAN style="font-style: italic;">OVER -1</SPAN>).</P>
+    
+<H3>Example:</H3>
+
+<P>
+    
+<P>The procedure <SPAN style="font-style: italic;">HAIRCROSS x,y</SPAN> allows you to move a cross wire around the screen with the cursor keys, to alter the values of x and y. Press &lt;SPACE&gt; to make x and y equal the new values, or press &lt;ESC&gt; to keep the old values.</P>
+    <PRE>100 DEFine PROCedure HAIRCROSS (px,py)
+110  LOCal Size,Key,Stepp,old_px,old_py
+120  Size=31 : old_px=px : old_py=py
+140  REPeat Move_it
+150    CROSS px,py
+160    REPeat Wait_for_key
+170      Key=KEYROW(1): Stepp=4*(KEYROW(7))+1
+180      IF Key THEN EXIT Wait_for_key
+190    END REPeat Wait_for_key
+200    CROSS px,py
+210    IF Key&amp;&amp;2 THEN px=px-Stepp
+220    IF Key&amp;&amp;16 THEN px=px+Stepp
+230    IF Key&amp;&amp;4 THEN py=py-Stepp
+240    IF Key&amp;&amp;128 THEN py=py+Stepp
+250    IF px&lt;Size THEN px=Size
+260    IF px&gt;511-Size THEN px=511-Size
+270    IF py&lt;Size THEN py=Size
+280    IF py&gt;255-Size THEN py=Size
+290    SELect ON Key
+300      =64: EXIT Move_it
+310      =8: px=old_px: py=old_py
+320          EXIT Move_it
+330    END SELect
+340  END REPeat Move_it
+350 END DEFine HAIRCROSS
+360 :
+370 DEFine PROCedure CROSS (ax,ay)
+380  ALINE ax-Size,ay-Size TO ax+Size,ay+Size ,7
+390  ALINE ax+Size,ay-Size TO ax-Size,ay+Size ,7
+400 END DEFine CROSS
+</PRE>
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    
+<P><SPAN style="font-style: italic;">ALINE</SPAN> assumes that the screen starts at $20000 and will therefore not work on Minerva's / Amiga QDOS's / QDOS Classic's second screen or on higher resolution displays.</P>
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    
+<P><SPAN style="font-style: italic;">ALINE</SPAN> also assumes that the screen measures 512x256 pixels and cannot therefore work on higher resolution screens.</P>
+    
+<H3>NOTE 3:</H3>
+
+<P>
+    
+<P><SPAN style="font-style: italic;">ALINE</SPAN> only works in <SPAN style="font-style: italic;">MODE 4</SPAN>. <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsD.html#DRAW">DRAW</a> has the same syntax as <a style="font-style: italic;" href="KeywordsA.html#ALINE">ALINE</a> but does not work in XOR --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P><A style="font-style: italic;" href="KeywordsD.html#DRAW">DRAW</A> has the same syntax as <A style="font-style: italic;" href="KeywordsA.html#ALINE">ALINE</A> but does not work in XOR mode.<A style="font-style: italic;" href="KeywordsD.html#DRAW">DRAW</A> is also able to draw lines on screens stored in memory.</P>
+    
+<P><A style="font-style: italic;" href="KeywordsL.html#LINE">LINE</A> and <A style="font-style: italic;" href="KeywordsL.html#LINE_R">LINE_R</A> are much more flexible. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="ALLOCATION"></a>ALLOCATION</h1><br>Syntax: <span style="font-style: italic;">ALLOCATION (bytes </span>[<span style="font-style: italic;">,taskno%,tasktag%</span>]<span style="font-style: italic;">) --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="ALLOCATION" id="ALLOCATION"></A>ALLOCATION</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">ALLOCATION (bytes</SPAN> [<SPAN style="font-style: italic;">,taskno%,tasktag%</SPAN>]<SPAN style="font-style: italic;">)<BR></SPAN> Location: <SPAN style="font-style: italic;">Turbo Toolkit</SPAN></P>
+    
+<P>This function is very similar to <SPAN style="font-style: italic;">RESERVE</SPAN>. It allocates an area in the common heap which may be associated with a specified job. If <SPAN style="font-style: italic;">taskno%</SPAN> and <SPAN style="font-style: italic;">taskid%</SPAN> are not specified, then the area is linked with the current job and removed when the current job is removed. <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsD.html#DEALLOCATE">DEALLOCATE</a> should be used to remove the allocated area. --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P><A style="font-style: italic;" href="KeywordsD.html#DEALLOCATE">DEALLOCATE</A> should be used to remove the allocated area.</P>
+    
+<P>The <A style="font-style: italic;" href="Keywordst.html#taskno%">taskno%</A> and <A style="font-style: italic;" href="Keywordst.html#taskid%">taskid%</A> can be found using <A style="font-style: italic;" href="KeywordsJ.html#JOBS">JOBS</A> or <A style="font-style: italic;" href="KeywordsL.html#LIST_TASKS">LIST_TASKS</A>. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="ALT"></a>ALT</h1><br>Syntax: <span style="font-style: italic;">ALT --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="ALT" id="ALT"></A>ALT</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">ALT<BR></SPAN> Location: <SPAN style="font-style: italic;">Beuletools</SPAN></P>
+    
+<P>This function returns the control codes needed to switch to the alternative font (normally italics) on an EPSON compatible printer: <SPAN style="font-style: italic;">PRINT #ch,ALT</SPAN></P>
+    
+<P>is therefore eqivalent to: <SPAN style="font-style: italic;">PRINT #ch,CHR$(27)&amp;"6"</SPAN></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P><SPAN style="font-style: italic;"><A href="KeywordsN.html#NORM">NORM</A>, <A href="KeywordsB.html#BLD">BLD</A>, <A href="KeywordsE.html#EL">EL</A>, <A href="KeywordsD.html#DBL">DBL</A>, <A href="KeywordsE.html#ENL">ENL</A>, <A href="KeywordsP.html#PRO">PRO</A>, <A href="KeywordsS.html#SI">SI</A>, <A href="KeywordsN.html#NRM">NRM</A>, <A href="KeywordsU.html#UNL">UNL</A>, <A href="KeywordsE.html#ESC">ESC</A>, <A href="KeywordsF.html#FF">FF</A>, <A href="KeywordsL.html#LMAR">LMAR</A>, <A href="KeywordsR.html#RMAR">RMAR</A>, <A href="KeywordsP.html#PAGDIS">PAGDIS</A>, <A href="KeywordsP.html#PAGLEN">PAGLEN</A>.</SPAN></P><!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="ALTER"></a>ALTER</h1><br>Syntax: <span style="font-style: italic;">ALTER 'variable' TO value -->
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="ALTER" id="ALTER"></A>ALTER</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">ALTER 'variable' TO value<BR></SPAN> Location: <SPAN style="font-style: italic;">ALTER (DIY Toolkit - Vol U)</SPAN></P>
+    
+<P>This command works alongside <SPAN style="font-style: italic;">SET</SPAN> from the same toolkit and allows you to re-define the universal constants created with <SPAN style="font-style: italic;">SET</SPAN>.</P>
+    
+<P>Unlike <SPAN style="font-style: italic;">SET</SPAN>, the constant to be re-defined must appear in quotes as the first parameter (otherwise the value of the constant is passed to be altered by the command!!). As with <SPAN style="font-style: italic;">SET</SPAN>, the constant and the value must be of the same type, otherwise an 'error in expression' will be reported.</P>
+    
+<P>If the constant has not previously been defined with <SPAN style="font-style: italic;">SET</SPAN>, then if it is recognised for some other reason an 'In Use' error will be reported. If it is not recognised at all, then 'Not Found' will be reported.</P>
+    
+<P>Unlike <SPAN style="font-style: italic;">SET</SPAN>, you can use <SPAN style="font-style: italic;">ALTER</SPAN> from any program which is being used on the QL and therefore you can use this to update constants or possibly device names (or anything else you can invent).</P>
+    
+<H3>Example:</H3>
+
+<P>
+    
+<P>Set the following from SuperBASIC:</P>
+    
+<P><SPAN style="font-style: italic;">10 SET DEF_DRIVE$ TO 'flp1_'</SPAN></P>
+    
+<P>If whilst using another program, the user re-defines the default device, that program can use a line such as: <SPAN style="font-style: italic;">ALTER 'DEF_DRIVE$' TO 'win1_prog_'</SPAN> which will then alter the default device for all programs which read this constant.</P>
+    
+<H3>NOTE:</H3>
+
+<P>
+    
+<P><SPAN style="font-style: italic;">ALTER</SPAN> does not work on SMS. <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsS.html#SET">SET</a>. --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P>See <A style="font-style: italic;" href="KeywordsS.html#SET">SET</A>. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="ALTKEY"></a>ALTKEY</h1><br>Syntax: <span style="font-style: italic;">ALTKEY character$,string$ </span>[<span style="font-style: italic;">,string2$ </span>[<span style="font-style: italic;">,string2$</span>... ]] --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="ALTKEY" id="ALTKEY"></A>ALTKEY</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">ALTKEY character$,string$</SPAN> [<SPAN style="font-style: italic;">,string2$</SPAN> [<SPAN style="font-style: italic;">,string2$</SPAN>... ]]
+    
+    or <SPAN style="font-style: italic;">ALTKEY character$<BR></SPAN>
+    or <SPAN style="font-style: italic;">ALTKEY<BR></SPAN> Location: <SPAN style="font-style: italic;">Toolkit II</SPAN></P>
+    
+<P>This command defines a key macro which will be typed into the computer when you press the &lt;ALT&gt; key at the same time as the &lt;<SPAN style="font-style: italic;">character$</SPAN>&gt; key. If more than one string follows the definition, then an &lt;ENTER&gt; (line feed) character is inserted between each string.</P>
+    
+<P><SPAN style="font-style: italic;">ALTKEY</SPAN> without any parameters deletes all previously defined <SPAN style="font-style: italic;">ALTKEY</SPAN>s, whereas <SPAN style="font-style: italic;">ALTKEY character$</SPAN> will just kill the specified definition (whether there was one or not).</P>
+    
+<P>A line feed will not be appended to the final string unless you add a nul string to the definition.</P>
+    
+<H3><SPAN style="font-style: italic;">Example 1:</SPAN></H3>
+
+<P>
+    
+<P><SPAN style="font-style: italic;">ALTKEY " ","RUN",""</SPAN> types in <SPAN style="font-style: italic;">RUN</SPAN> &lt;ENTER&gt; if &lt;ALT&gt;&lt;SPACE&gt; is pressed.</P>
+    
+<P><SPAN style="font-style: italic;">ALTKEY"a","flp1_"</SPAN> types in flp1_ when &lt;ALT&gt;&lt;A&gt; is pressed.</P>
+    
+<P><SPAN style="font-style: italic;">ALTKEY</SPAN> removes all <SPAN style="font-style: italic;">ALTKEY</SPAN> definitions.</P>
+    
+<P><SPAN style="font-style: italic;">ALTKEY "a"</SPAN> remove definition for &lt;ALT&gt;&lt;A&gt;.</P>
+    
+<P><SPAN style="font-style: italic;">ALTKEY 1,"1000"</SPAN> same as <SPAN style="font-style: italic;">ALTKEY "1","1000"</SPAN></P>
+    
+<H3><SPAN style="font-style: italic;">Example 2:<BR></SPAN></H3>
+    
+<P>There are many programs which do not support the Toolkit II default device names and sub-directories.</P>
+    
+<P>To avoid having to enter <SPAN style="font-style: italic;">FLP1_Archive_Adresses_</SPAN> in front of every file name, one could compile the following line, then <SPAN style="font-style: italic;">EXEC</SPAN>ute the resultant program (using <SPAN style="font-style: italic;">EX</SPAN> or <SPAN style="font-style: italic;">EXEC</SPAN>) with the priority set to 1.</P>
+    <PRE>100 PRIO 1
+110 REPeat Always
+120   ALTKEY "p",DATAD$
+130   ALTKEY "P",PROGD$
+140 END REPeat Always
+</PRE>
+    
+<P>You can replace <SPAN style="font-style: italic;">PRIO</SPAN> by <SPAN style="font-style: italic;">QP QMYJOB,1</SPAN> with QLiberator or <SPAN style="font-style: italic;">PRIORITY 1</SPAN> with Turbo, or <SPAN style="font-style: italic;">SPJOB -1,1</SPAN> with Toolkit II</P>
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    
+<P>If <SPAN style="font-style: italic;">character$</SPAN> is an upper case letter, then you will need to press &lt;ALT&gt;&lt;SHIFT&gt; and the &lt;key&gt; (or &lt;ALT&gt;&lt;key&gt; in CAPSLOCK) to call the macro.</P>
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    
+<P>The combination &lt;ALT&gt;&lt;ENTER&gt; is always set aside for the last line recall (ie. when these two keys are pressed all characters typed inbetween the last two &lt;ENTER&gt;s are put into the keyboard buffer again).</P>
+    
+<H3>NOTE 3:</H3>
+
+<P>
+    
+<P>The Hotkey System is usually configured to type in the Hotkey Stuffer contents if &lt;ALT&gt;&lt;SPACE&gt; is pressed.</P>
+    
+<P>&lt;ALT&gt; &lt;SHIFT&gt; &lt;SPACE&gt; gets previous Stuffers.</P>
+    
+<H3>WARNING:</H3>
+
+<P>
+    
+<P>If you have Hotkey System II loaded, then <SPAN style="font-style: italic;">ALTKEY</SPAN> will not have any effect until you use the <SPAN style="font-style: italic;">HOT_GO</SPAN> command.</P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P><SPAN style="font-style: italic;"><A href="KeywordsF.html#FORCE_TYPE">FORCE_TYPE</A></SPAN> and <SPAN style="font-style: italic;"><A style="font-style: italic;" href="KeywordsS.html#STAMP">STAMP</A></SPAN> allow programs to access the keyboard, <SPAN style="font-style: italic;"><A style="font-style: italic;" href="KeywordsK.html#KEY">KEY</A> defines macros on function keys.</SPAN></P><!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="AND"></a>AND</h1><br>Syntax: <span style="font-style: italic;">condition1 AND condition2 -->
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="AND" id="AND"></A>AND</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">condition1 AND condition2<BR></SPAN> Location: <SPAN style="font-style: italic;">QL ROM</SPAN></P>
+    
+<P>This combination operator combines two condition tests together and will have the value 1 if both <SPAN style="font-style: italic;">condition1</SPAN> and <SPAN style="font-style: italic;">condition2</SPAN> are true or 0 if either <SPAN style="font-style: italic;">condition1</SPAN> or <SPAN style="font-style: italic;">condition2</SPAN> are false.</P>
+    
+<P>A value is said to be false if it is equal to zero, anything else will cause that value to be true.</P>
+    
+<P>Please note the difference between this and the bitwise and operator: <SPAN style="font-style: italic;">x&amp;&amp;y</SPAN>, which compares x and y bit by bit.</P>
+    
+<H3><SPAN style="font-style: italic;">Examples:<BR></SPAN></H3>
+    
+<P><SPAN style="font-style: italic;">PRINT 1 AND 0</SPAN> Returns 0</P>
+    
+<P><SPAN style="font-style: italic;">PRINT 12 AND 10</SPAN> Returns 1</P>
+    
+<P>(compare <SPAN style="font-style: italic;">PRINT 12&amp;&amp;10</SPAN> which returns 8).</P>
+    <PRE>10 FOR x=1 TO 5
+20   FOR y=1 TO 5
+30     IF x=3 AND y&gt;3 THEN PRINT x;' =&gt; ';y,
+40   END FOR y
+50 END FOR x
+</PRE>
+    
+<P>produces the following output:</P>
+    
+<P>3=&gt;4 3=&gt;5 <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsO.html#OR">OR</a>, <a style="font-style: italic;" href="KeywordsN.html#NOT">NOT</a> and <a style="font-style: italic;" href="KeywordsX.html#XOR">XOR</a> are the other combination operators. --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P><A style="font-style: italic;" href="KeywordsO.html#OR">OR</A>, <A style="font-style: italic;" href="KeywordsN.html#NOT">NOT</A> and <A style="font-style: italic;" href="KeywordsX.html#XOR">XOR</A> are the other combination operators. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="APOINT"></a>APOINT</h1><br>Syntax: <span style="font-style: italic;">APPOINT x,y,colour --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="APOINT" id="APOINT"></A>APOINT</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">APPOINT x,y,colour<BR></SPAN> Location: <SPAN style="font-style: italic;">Shape Toolkit</SPAN></P>
+    
+<P>This command is similar to <SPAN style="font-style: italic;">POINT</SPAN>, except that it uses absolute co-ordinates and plots the point in XOR mode (as with <SPAN style="font-style: italic;">ALINE</SPAN>).</P>
+    
+<H3>NOTE:</H3>
+
+<P>
+    
+<P><SPAN style="font-style: italic;">APOINT</SPAN> suffers from the same problems and limitations as <SPAN style="font-style: italic;">ALINE</SPAN>. <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br>Use <a style="font-style: italic;" href="KeywordsP.html#POINT">POINT</a> instead!! --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P>Use <A style="font-style: italic;" href="KeywordsP.html#POINT">POINT</A> instead!! <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="APPEND"></a>APPEND</h1><br>Syntax: <span style="font-style: italic;">APPEND file1,file2 --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="APPEND" id="APPEND"></A>APPEND</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">APPEND file1,file2<BR></SPAN> Location: <SPAN style="font-style: italic;">ST/QL</SPAN></P>
+    
+<P>This command allows you to merge two files together by appending <SPAN style="font-style: italic;">file2</SPAN> to the end of <SPAN style="font-style: italic;">file1</SPAN>.</P>
+    
+<H3>NOTE:</H3>
+
+<P>
+    
+<P>Both <SPAN style="font-style: italic;">file1</SPAN> and <SPAN style="font-style: italic;">file2</SPAN> must include the device name. <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br>The THOR XVI has a special form of <a style="font-style: italic;" href="KeywordsC.html#COPY">COPY</a> which is similar to --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P>The THOR XVI has a special form of <A style="font-style: italic;" href="KeywordsC.html#COPY">COPY</A> which is similar to this. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="AQCONVERT"></a>AQCONVERT</h1><br>Syntax: <span style="font-style: italic;">AQCONVERT filename --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="AQCONVERT" id="AQCONVERT"></A>AQCONVERT</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">AQCONVERT filename<BR></SPAN> Location: <SPAN style="font-style: italic;">ATARIDOS</SPAN></P>
+    
+<P>This command takes a file which is stored on a QL Format disk and presumes that it was originally an Atari format file. It will then convert special characters in that file to QL compatible characters as well as converting any occurence of a Carriage Return character (CR) followed by a Line Feed character (LF) to a single Line Feed character LF. <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br>Compare <a style="font-style: italic;" href="KeywordsI.html#IQCONVERT">IQCONVERT</a> and <a style="font-style: italic;" href="KeywordsQ.html#QACONVERT">QACONVERT</a>. --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P>Compare <A style="font-style: italic;" href="KeywordsI.html#IQCONVERT">IQCONVERT</A> and <A style="font-style: italic;" href="KeywordsQ.html#QACONVERT">QACONVERT</A>.</P>
+    
+<P>See also <SPAN style="font-style: italic;"><A href="KeywordsA.html#ACOPY">ACOPY</A></SPAN> and <SPAN style="font-style: italic;"><A style="font-style: italic;" href="KeywordsQ.html#QCOPY">QCOPY</A></SPAN>.</P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="ARC" id="ARC"></A>ARC</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">ARC</SPAN> [<SPAN style="font-style: italic;">#ch</SPAN>][<SPAN style="font-style: italic;">,x</SPAN><SUP>1</SUP><SPAN style="font-style: italic;">,y</SPAN><SUP>1</SUP>] <SPAN style="font-style: italic;">TO x</SPAN><SUP>2</SUP><SPAN style="font-style: italic;">,y</SPAN><SUP>2</SUP><SPAN style="font-style: italic;">,angle</SPAN> <SUP>*</SUP>[[<SPAN style="font-style: italic;">;x</SPAN><SUP>i</SUP><SPAN style="font-style: italic;">,y</SPAN><SUP>i</SUP>] <SPAN style="font-style: italic;">TO x</SPAN><SUP>j</SUP><SPAN style="font-style: italic;">,y</SPAN><SUP>j</SUP><SPAN style="font-style: italic;">,angle</SPAN><SUP>j</SUP>]<SUP>*<BR></SUP>
+    Location: QL ROM</P>
+    
+<P><SPAN style="font-style: italic;">ARC</SPAN> causes the two points at the co-ordinates <SPAN style="font-style: italic;">(x</SPAN><SUP>1</SUP><SPAN style="font-style: italic;">,y</SPAN><SUP>1</SUP><SPAN style="font-style: italic;">)</SPAN> and <SPAN style="font-style: italic;">(x</SPAN><SUP>2</SUP><SPAN style="font-style: italic;">,y</SPAN><SUP>2</SUP><SPAN style="font-style: italic;">)</SPAN> to be connected with an arc. The arc is defined as the sector of the circle formed by drawing two straight lines from the two given co-ordinates to the centre of the circle, where <SPAN style="font-style: italic;">angle</SPAN> is the angle (in radians) between those two lines. Therefore, <SPAN style="font-style: italic;">angle=0</SPAN> is a straight line and <SPAN style="font-style: italic;">angle=PI</SPAN>, half a circle.</P>
+    
+<P>It therefore follows that the greater <SPAN style="font-style: italic;">ABS(angle)</SPAN>, the more pronounced is the curve on the arc.</P>
+    
+<P>Multiple arcs can be draw with the same command by adding extra sets of parameters for each additional arc. For example:</P>
+    
+<P><SPAN style="font-style: italic;">ARC 100,10 TO 120,40,3 TO 80,70,3</SPAN></P>
+    
+<P>will actually draw two arcs, one between the points <SPAN style="font-style: italic;">(100,10)</SPAN> and <SPAN style="font-style: italic;">(120,40)</SPAN> with <SPAN style="font-style: italic;">angle=3</SPAN> and the second between the points <SPAN style="font-style: italic;">(120,40)</SPAN> and <SPAN style="font-style: italic;">(80,70)</SPAN>, also with <SPAN style="font-style: italic;">angle=3</SPAN>.</P>
+    
+<P>When drawing multiple arcs, there is actually no need for the next arc in the series to begin at the end of the previous arc, provided that a semicolon '<SPAN style="font-style: italic;">;</SPAN>' is inserted between each set of parameters. For example:</P>
+    
+<P><SPAN style="font-style: italic;">ARC 100,10 TO 120,40,3;30,40 TO 50,60,3</SPAN></P>
+    
+<P>Whether the arc is drawn clockwise or anti-clockwise depends upon two factors: If <SPAN style="font-style: italic;">y</SPAN><SUP>1</SUP><SPAN style="font-style: italic;">&gt;y</SPAN><SUP>2</SUP> and <SPAN style="font-style: italic;">angle&gt;0</SPAN>, then the arc will be drawn anti-clockwise. Swapping the two co-ordinates or making the angle negative will force the arc to be drawn clockwise.</P>
+    
+<P>Co-ordinates refer to the window relative graphic co-ordinate system, which is relative to the graphic origin. The size and position of the arc also depend upon the <SPAN style="font-style: italic;">SCALE</SPAN> of the window. If no first point is given then the current position of the graphic cursor is used. The graphic cursor is set to the last point of the arc on completion of the command.</P>
+    
+<H3><SPAN style="font-style: italic;">Example 1:<BR></SPAN></H3>
+    <PRE>100 WINDOW 448,200,32,16: CLS: SCALE 4,-2,-2
+110 FOR t=PI/16 TO 2*PI STEP PI/16
+120   ARC SIN(t),COS(t) TO COS(t),SIN(t),PI*SIN(t/2)
+130 END FOR t
+</PRE>
+    
+<H3><SPAN style="font-style: italic;">Example 2:<BR></SPAN></H3>
+    <PRE>100 WINDOW 448,200,32,16: CLS: SCALE 100,0,0
+110 FOR x=10 TO 90 STEP 10
+120   FOR y=10 TO 90 STEP 10
+130     ARC x,y TO y,x,PI/2
+140   END FOR y
+150 END FOR x
+</PRE>
+    
+<H3><SPAN style="font-style: italic;">Example 3:<BR></SPAN></H3>
+    <PRE>100 POINT #2,150,50
+110 FOR x=50 TO 150 STEP 20
+120   ARC #2 TO x,50,PI/2
+130 END FOR x
+</PRE>
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    
+<P>On non Minerva v1.89+ ROMs, <SPAN style="font-style: italic;">ARC</SPAN> does not work properly - small angles produce rubbish, wrong co-ordinates are used and the last pixel of the arc is not always drawn. Even SMS does not cure these problems.</P>
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    
+<P>An <SPAN style="font-style: italic;">angle</SPAN> of <SPAN style="font-style: italic;">2*PI</SPAN> would form a complete circle and cannot be drawn, therefore the maximum value for <SPAN style="font-style: italic;">ABS(angle)</SPAN> is a value just less than <SPAN style="font-style: italic;">2*PI</SPAN>.</P>
+    
+<H3>NOTE 3:</H3>
+
+<P>
+    
+<P>On some ROM versions, the command does not check that the <SPAN style="font-style: italic;">TO</SPAN> separator is present - however, SMSQ/E (at least) does and therefore some programs may fail if used under SMSQ/E and they have used a comma instead of <SPAN style="font-style: italic;">TO</SPAN>.</P>
+    
+<H3>WARNING:</H3>
+
+<P>
+    
+<P>Some QDOS implementations of this command can corrupt the hard disk drive in some obscure circumstances. Get Minerva or SMSQ/E to be safe!! <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsA.html#ARC_R">ARC_R</a> works in exactly the same way as <a style="font-style: italic;" href="KeywordsA.html#ARC">ARC</a> but uses a --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P><A style="font-style: italic;" href="KeywordsA.html#ARC_R">ARC_R</A> works in exactly the same way as <A style="font-style: italic;" href="KeywordsA.html#ARC">ARC</A> but uses a relative co-ordinate system, where the origin is the current position of the graphic cursor.</P>
+    
+<P><A style="font-style: italic;" href="KeywordsS.html#SCALE">SCALE</A> sets the graphic origin and also the size of the window. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="ARC_R"></a>ARC_R</h1><br>Syntax: <span style="font-style: italic;">ARC_R </span>[<span style="font-style: italic;">#ch</span>]<span style="font-style: italic;"> </span>[<span style="font-style: italic;">,x</span><sup>1</sup><span style="font-style: italic;">,y</span><sup>1</sup>]<span style="font-style: italic;"> TO x</span><sup>2</sup><span style="font-style: italic;">,y</span><sup>2</sup><span style="font-style: italic;">,angle </span><sup>*</sup>[[<span style="font-style: italic;">;x</span><sup>i</sup><span style="font-style: italic;">,y</span><sup>i</sup>]<span style="font-style: italic;"> TO x</span><sup>j</sup><span style="font-style: italic;">,y</span><sup>j</sup><span style="font-style: italic;">,angle</span><sup>j</sup>]<sup>* --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="ARC_R" id="ARC_R"></A>ARC_R</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">ARC_R</SPAN> [<SPAN style="font-style: italic;">#ch</SPAN>][<SPAN style="font-style: italic;">,x</SPAN><SUP>1</SUP><SPAN style="font-style: italic;">,y</SPAN><SUP>1</SUP>] <SPAN style="font-style: italic;">TO x</SPAN><SUP>2</SUP><SPAN style="font-style: italic;">,y</SPAN><SUP>2</SUP><SPAN style="font-style: italic;">,angle</SPAN> <SUP>*</SUP>[[<SPAN style="font-style: italic;">;x</SPAN><SUP>i</SUP><SPAN style="font-style: italic;">,y</SPAN><SUP>i</SUP>] <SPAN style="font-style: italic;">TO x</SPAN><SUP>j</SUP><SPAN style="font-style: italic;">,y</SPAN><SUP>j</SUP><SPAN style="font-style: italic;">,angle</SPAN><SUP>j</SUP>]<SUP>*<BR></SUP> Location: <SPAN style="font-style: italic;">QL ROM</SPAN></P>
+    
+<P>This command draws an arc relative to the current graphic cursor. This means that rather than the co-ordinates <SPAN style="font-style: italic;">(x,y)</SPAN> being relative to the graphic origin, they are relative to the current graphic cursor. Arcs are however still affected by the current <SPAN style="font-style: italic;">SCALE</SPAN>.</P>
+    
+<P>Each set of co-ordinates used in the <SPAN style="font-style: italic;">ARC_R</SPAN> command moves the graphic cursor, which means for example that <SPAN style="font-style: italic;">(x</SPAN><SUP>1</SUP><SPAN style="font-style: italic;">,y</SPAN><SUP>1</SUP><SPAN style="font-style: italic;">)</SPAN> is relative to the graphic cursor when <SPAN style="font-style: italic;">ARC_R</SPAN> is first called, whereas <SPAN style="font-style: italic;">(x</SPAN><SUP>2</SUP><SPAN style="font-style: italic;">,y</SPAN><SUP>2</SUP><SPAN style="font-style: italic;">)</SPAN> is relative to <SPAN style="font-style: italic;">(x</SPAN><SUP>1</SUP><SPAN style="font-style: italic;">,y</SPAN><SUP>1</SUP><SPAN style="font-style: italic;">)</SPAN>.</P>
+    
+<H3><SPAN style="font-style: italic;">Example 1:<BR></SPAN></H3>
+    
+<P>A short program to draw several equi-distant arcs using <SPAN style="font-style: italic;">ARC_R</SPAN>:</P>
+    <PRE>100 WINDOW 448,200,32,16:SCALE 100,0,0
+110 PAPER 0:INK 4:CLS
+120 ARC 20,20 TO 90,20,PI/4
+130 FOR i=1 TO 4
+140   ARC_R 0,10 TO -70,0,-PI/4
+150   ARC_R 0,10 TO 70,0,PI/4
+160 END FOR i
+</PRE>
+    
+<H3><SPAN style="font-style: italic;">Example 2:<BR></SPAN></H3>
+    
+<P>The same routine, but altered to use <SPAN style="font-style: italic;">ARC</SPAN>:</P>
+    <PRE>100 WINDOW 448,200,32,16:SCALE 100,0,0
+110 PAPER 0:INK 4:CLS
+120 ARC 20,20 TO 90,20,PI/4
+130 FOR i=30 TO 100 STEP 10
+140   ARC 20,i TO 90,i,PI/4
+150 END FOR i
+</PRE><!-- PREVIOUSLY <br></span><br><h3>CROSS-REFERENCE:<br></h3><br>The graphic cursor is moved with commands such as <a style="font-style: italic;" href="KeywordsP.html#POINT">POINT</a>, <a style="font-style: italic;" href="KeywordsA.html#ARC">ARC</a>, -->
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P>The graphic cursor is moved with commands such as <A style="font-style: italic;" href="KeywordsP.html#POINT">POINT</A>, <A style="font-style: italic;" href="KeywordsA.html#ARC">ARC</A>, <A style="font-style: italic;" href="KeywordsC.html#CIRCLE">CIRCLE</A> and <A style="font-style: italic;" href="KeywordsL.html#LINE">LINE</A>.</P>
+    
+<P>Please also see <A style="font-style: italic;" href="KeywordsA.html#ARC">ARC</A>. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="ARCOSH"></a>ARCOSH</h1><br>Syntax: <span style="font-style: italic;">ARCOSH (x) --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="ARCOSH" id="ARCOSH"></A>ARCOSH</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">ARCOSH (x)<BR></SPAN> Location: <SPAN style="font-style: italic;">Hyper</SPAN></P>
+    
+<P>This function returns the arc hyperbolic cosine of the specified value, that is to say it will return the value which must be passed to the hyperbolic cosine to return the given result, so:</P>
+    
+<P><SPAN style="font-style: italic;">COSH ( ARCOSH ( x ))=x</SPAN></P>
+    
+<P>The <SPAN style="font-style: italic;">ARCOSH</SPAN> function can be expressed as a combination of SuperBASIC keywords: it's the same as <SPAN style="font-style: italic;">LN(x + SQRT(x*x-1))</SPAN>.</P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P>See <A style="font-style: italic;" href="KeywordsA.html#ACOS">ACOS</A>, <A style="font-style: italic;" href="KeywordsA.html#ASIN">ASIN</A>, <A style="font-style: italic;" href="KeywordsA.html#ACOT">ACOT</A>, <A style="font-style: italic;" href="KeywordsA.html#ATAN">ATAN</A>, <A style="font-style: italic;" href="KeywordsC.html#COSH">COSH</A>, <A style="font-style: italic;" href="KeywordsA.html#ARCOTH">ARCOTH</A>, <A style="font-style: italic;" href="KeywordsA.html#ARSINH">ARSINH</A> and <A style="font-style: italic;" href="KeywordsA.html#ARTANH">ARTANH</A>. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="ARCOTH"></a>ARCOTH</h1><br>Syntax: <span style="font-style: italic;">ARCOTH (x) --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="ARCOTH" id="ARCOTH"></A>ARCOTH</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">ARCOTH (x)<BR></SPAN> Location: <SPAN style="font-style: italic;">Hyper</SPAN></P>
+    
+<P>This function returns the arc hyperbolic cotangent of the specified value ie.</P>
+    
+<P><SPAN style="font-style: italic;">ARCOTH ( COTH ( x )) = x</SPAN></P>
+    
+<P>Or to keep it simple, it can be returned with the equivalent expression <SPAN style="font-style: italic;">LN((x+1) / (x-1)) / 2</SPAN></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P>See <SPAN style="font-style: italic;"><A href="KeywordsA.html#ACO">ACO</A>T</SPAN>, <SPAN style="font-style: italic;"><A href="KeywordsA.html#ARCOSH">ARCOSH</A></SPAN>, and <SPAN style="font-style: italic;"><A href="KeywordsA.html#ARTANH">ARTANH</A></SPAN>.</P><!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="ARSINH"></a>ARSINH</h1><br>Syntax: <span style="font-style: italic;">ARSINH (x) -->
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="ARSINH" id="ARSINH"></A>ARSINH</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">ARSINH (x)<BR></SPAN> Location: <SPAN style="font-style: italic;">Hyper</SPAN></P>
+    
+<P>This function is the arc hyperbolic sine (ie. the complementary function to <SPAN style="font-style: italic;">SINH</SPAN>).</P>
+    
+<P>The SuperBASIC expression:</P>
+    
+<P><SPAN style="font-style: italic;">LN(x + SQRT(x*x-1))</SPAN></P>
+    
+<P>gives the same value. <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsA.html#ASIN">ASIN</a>, <a style="font-style: italic;" href="KeywordsA.html#ARCOSH">ARCOSH</a>, and <a style="font-style: italic;" href="KeywordsA.html#ARCOTH">ARCOTH</a>. --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P>See <A style="font-style: italic;" href="KeywordsA.html#ASIN">ASIN</A>, <A style="font-style: italic;" href="KeywordsA.html#ARCOSH">ARCOSH</A>, and <A style="font-style: italic;" href="KeywordsA.html#ARCOTH">ARCOTH</A>. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="ARTANH"></a>ARTANH</h1><br>Syntax: <span style="font-style: italic;">ARTANH (x) --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="ARTANH" id="ARTANH"></A>ARTANH</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">ARTANH (x)<BR></SPAN> Location: <SPAN style="font-style: italic;">Hyper</SPAN></P>
+    
+<P>The function <SPAN style="font-style: italic;">ARTANH</SPAN> returns the value which must be passed to <SPAN style="font-style: italic;">TANH</SPAN> to give the specified result, so:</P>
+    
+<P><SPAN style="font-style: italic;">TANH ( ARTANH ( x )) = ARTANH ( TANH ( x )) = x</SPAN></P>
+    
+<P><SPAN style="font-style: italic;">ARTANH(x)</SPAN> could be replaced by: <SPAN style="font-style: italic;">LN((1+x) / (1-x)) / 2</SPAN> <!-- PREVIOUSLY <br></span><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsA.html#ATAN">ATAN</a>, <a style="font-style: italic;" href="KeywordsA.html#ARCOTH">ARCOTH</a>, and <a style="font-style: italic;" href="KeywordsA.html#ARSINH">ARSINH</a>. --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P>See <SPAN style="font-style: italic;"><A href="KeywordsA.html#ATAN">ATAN</A></SPAN>, <SPAN style="font-style: italic;"><A href="KeywordsA.html#ARCOTH">ARCOTH</A></SPAN>, and <SPAN style="font-style: italic;"><A href="KeywordsA.html#ARSINH">ARSINH</A></SPAN>.</P><!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="ASIN"></a>ASIN</h1><br>Syntax: <span style="font-style: italic;">ASIN (x) -->
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="ASIN" id="ASIN"></A>ASIN</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">ASIN (x)<BR></SPAN> Location: <SPAN style="font-style: italic;">QL ROM</SPAN></P>
+    
+<P>This function calculates the arc-sine (in radians) which is the opposite of the sine function, ie:</P>
+    
+<P><SPAN style="font-style: italic;">x = SIN ( ASIN ( x )) = ASIN ( SIN ( x ))</SPAN></P>
+    
+<P>The only valid values of <SPAN style="font-style: italic;">x</SPAN> are in the range -1...1. This means that the range of angles supported by this command are -PI/2...PI/2. A negative angle means that the hypotenuse appears below the base line of the triangle (you must therefore always bear the orientation of the screen in mind when using this command).</P>
+    
+<H3>Example:</H3>
+
+<P>
+    
+<P>Given that there are two points on the screen at (10,20) and (100,75), find the angle of the line between those two points (from the horizontal):</P>
+    <PRE>100 PRINT CALC_ANGLE(10,20 TO 100,75)
+110 STOP
+120 :
+200 DEFine FuNction CALC_ANGLE(x1,y1,x2,y2)
+210  LOCal Distan, Radian_angle
+220  Distan = SQRT((x2-x1)^2 + (y2-y1)^2)
+230  Radian_angle = ASIN((y2-y1) / Distan)
+240  RETurn DEG(Radian_angle)
+250 END DEFine
+</PRE>
+    
+<H3>MINERVA NOTE:</H3>
+
+<P>
+    
+<P>On a Minerva you can replace line 220 with: <SPAN style="font-style: italic;">220 Distan = ABS(x2-x1,y2-y1)</SPAN></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P><SPAN style="font-style: italic;"><A href="KeywordsA.html#ACOS">ACOS</A>, <A href="KeywordsA.html#ATAN">ATAN</A>, <A href="KeywordsA.html#ACOT">ACOT</A></SPAN> are other arc functions, <SPAN style="font-style: italic;"><A style="font-style: italic;" href="KeywordsS.html#SIN">SIN</A>, <A style="font-style: italic;" href="KeywordsC.html#COS">COS</A>, <A style="font-style: italic;" href="KeywordsT.html#TAN">TAN</A></SPAN> and <SPAN style="font-style: italic;"><A style="font-style: italic;" href="KeywordsC.html#COT">COT</A></SPAN>their relatives.</P>
+    
+<P>Please also see the Mathematics section of the Appendix.</P>
+    
+<P>Compare <SPAN style="font-style: italic;"><A href="KeywordsA.html#ARSINH">ARSINH</A></SPAN>.</P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="ASK" id="ASK"></A>ASK</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">ASK (</SPAN>[<SPAN style="font-style: italic;">#wind,</SPAN>] <SPAN style="font-style: italic;">question$)<BR></SPAN> Location: <SPAN style="font-style: italic;">BTool</SPAN></P>
+    
+<P><SPAN style="font-style: italic;">ASK</SPAN> is a function which prints the <SPAN style="font-style: italic;">question$</SPAN> (plus a question mark (<SPAN style="font-style: italic;">?</SPAN>) if this was not found at the end of the string), enables the text cursor and reads the keyboard. If the next key pressed is &lt;Y&gt; (for Yes), &lt;J&gt; (for Ja) or &lt;N&gt; (for No or Nein) then <SPAN style="font-style: italic;">ASK</SPAN> will disable the cursor, echo the key next to the prompt and return 1 if either &lt;Y&gt; or &lt;J&gt; was pressed, or 0 if &lt;N&gt; was pressed. If any other key is pressed, <SPAN style="font-style: italic;">ASK</SPAN> will <SPAN style="font-style: italic;">BEEP</SPAN> and try again.</P>
+    
+<H3>Example:</H3>
+
+<P>
+    
+<P>In early computer days, this was a classical game which needed a hundred lines on a (modern at the time) programmable pocket calculator:</P>
+    <PRE>100 CLS: x1 = 0: x2 = 100
+110 PRINT "I am going to find out a number"
+120 PRINT "from"!x1!"to"!x2!"which only you know."\\
+130 REPeat find_out
+140   PRINT x1;"..";x2
+150   x = (x2+x1) DIV 2
+160   ok = ASK("Is it "&amp;x)
+170   IF ok THEN EXIT find_out
+180   IF x1 = x2 THEN PRINT "You are cheating.": STOP
+190   large = ASK(x&amp;" too large")
+200   IF large THEN x2 = x-1: ELSE x1 = x+1
+210 END REPeat find_out
+220 PRINT "Yippee, I found it."
+</PRE>
+    
+<H3>NOTE:</H3>
+
+<P>
+    
+<P><SPAN style="font-style: italic;">ASK</SPAN> is set up for 'yes' and 'no' in English and 'ja' and 'nein' in German. For other languages where 'yes' is not usually connected with &lt;Y&gt;, eg. 'oui' in French or 'si' in Spanish, you will need to write your own routine. <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsC.html#CUR">CUR</a>, <a style="font-style: italic;" href="KeywordsR.html#REPLY --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P><SPAN style="font-style: italic;"><A href="KeywordsC.html#CUR">CUR</A></SPAN>, <SPAN style="font-style: italic;"><A href="KeywordsR.html#REPLY">REPLY</A></SPAN>.</P>
+    
+<H3></H3>
+
+<P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="ASTAT" id="ASTAT"></A>ASTAT</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">ASTAT</SPAN> [<SPAN style="font-style: italic;">#channel,</SPAN>] <SPAN style="font-style: italic;">device</SPAN> Location: <SPAN style="font-style: italic;">ATARIDOS</SPAN></P>
+    
+<P>This command is similar to <SPAN style="font-style: italic;">ADIR</SPAN> except that it also provides extra information, such as the length of each file, the update time and any marks folder. <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsA.html#ADIR">ADIR</a>.  <a style="font-style: italic;" href="KeywordsW.html#WSTAT">WSTAT</a> is similar on QL Format disks. --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P>See <A style="font-style: italic;" href="KeywordsA.html#ADIR">ADIR</A>. <A style="font-style: italic;" href="KeywordsW.html#WSTAT">WSTAT</A> is similar on QL Format disks.</P>
+    
+<P>Other commands added are <A style="font-style: italic;" href="KeywordsA.html#ADELETE">ADELETE</A>, <A style="font-style: italic;" href="KeywordsA.html#ACOPY">ACOPY</A> and <A style="font-style: italic;" href="KeywordsA.html#AFORMAT">AFORMAT</A>. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="AT"></a>AT</h1><br>Syntax: <span style="font-style: italic;">AT </span>[<span style="font-style: italic;">#ch,</span>]<span style="font-style: italic;"> row, column --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="AT" id="AT"></A>AT</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">AT</SPAN> [<SPAN style="font-style: italic;">#ch,</SPAN>] <SPAN style="font-style: italic;">row, column<BR></SPAN>
+    or <SPAN style="font-style: italic;">AT</SPAN> [<SPAN style="font-style: italic;">#ch,</SPAN>] <SPAN style="font-style: italic;">column,row</SPAN> <SPAN style="font-style: italic;">(pre AH ROMs only)<BR></SPAN> Location: <SPAN style="font-style: italic;">QL ROM</SPAN></P>
+    
+<P>This command sets the current print position in the given window (default #1) to the given <SPAN style="font-style: italic;">row</SPAN> and <SPAN style="font-style: italic;">column</SPAN> number. The top left hand corner of any window is always the position (0,0), however, the maximum values of the <SPAN style="font-style: italic;">row</SPAN> and <SPAN style="font-style: italic;">column</SPAN> numbers depends on both the size of the window and the current character size. Anything outside of this will give the error 'Out of Range' (-4).</P>
+    
+<P>Unlike the <SPAN style="font-style: italic;">PRINT</SPAN> parameter <SPAN style="font-style: italic;">TO</SPAN>, this command does not print any spaces on screen, thus allowing you to place text precisely on screen without deleting any other parts of the screen.</P>
+    
+<P>Unfortunately for users who learnt to program on early versions of Sinclair BASIC (on the ZX81 or Spectrum), this command is implemented differently.</P>
+    
+<P>Some implementations of BASIC allow you to set the print position from within the <SPAN style="font-style: italic;">PRINT</SPAN> command, for example:</P>
+    
+<P><SPAN style="font-style: italic;">PRINT AT 3,5;'Hello'</SPAN></P>
+    
+<P>On the QL, you would need the line:</P>
+    
+<P><SPAN style="font-style: italic;">AT 3,5: PRINT 'Hello'</SPAN></P>
+    
+<H3>Example:</H3>
+
+<P>
+    
+<P>A program which uses the <SPAN style="font-style: italic;">AT</SPAN> command to create an interesting effect on screen. This will not work on pre JS ROMs as it relies upon the <SPAN style="font-style: italic;">WHEN ERRor</SPAN> command:</P>
+    <PRE>1000 WHEN ERRor
+1010   IF ERR_OR THEN dir1=-dir1: y=y-2: RETRY 1070
+1020 END WHEN
+1025 :
+1030 MODE 4:WINDOW 448,200,32,16:CSIZE 0,0
+1040 x=0: dir1=1
+1050 FOR y=0 TO 63
+1060   AT x,y:PRINT 'Sinclair QL'
+1070   x=x+dir1
+1080 END FOR y
+</PRE>
+    
+<H3>NOTE:</H3>
+
+<P>
+    
+<P>On early QL ROMs (pre AH), the parameters were mixed up meaning that the syntax was <SPAN style="font-style: italic;">AT column,row</SPAN>. This can of course create many problems in uncompiled SuperBASIC, however, there should not be many of these machines left.</P>
+    
+<P>If you do have one of these early machines, it is recommended that you do update the ROM.</P><!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsC.html#CSIZE">CSIZE</a> sets the current character size for the given window -->
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P><A style="font-style: italic;" href="KeywordsC.html#CSIZE">CSIZE</A> sets the current character size for the given window</P>
+    
+<P><A style="font-style: italic;" href="KeywordsW.html#WINDOW">WINDOW</A> alters the physical size of a given window.</P>
+    
+<P><A href="KeywordsC.html#CURSOR">CURSOR</A> allows you to set the print position more exactly.</P>
+    
+<P><A href="KeywordsP.html#PRINT">PRINT</A> actually prints things on screen at the current print position.</P>
+    
+<P><A href="KeywordsV.html#VER$">VER$</A> allows you to check the ROM version.</P>
+    
+<P>Also see <A style="font-style: italic;" href="KeywordsL.html#LEFT">LEFT</A>.</P><!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="ATAN"></a>ATAN</h1><br>Syntax: <span style="font-style: italic;">ATAN (x) -->
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="ATAN" id="ATAN"></A>ATAN</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">ATAN (x)<BR></SPAN>
+    or <SPAN style="font-style: italic;">ATAN (x,y)</SPAN> <SPAN style="font-style: italic;">(Minerva and SMS only)<BR></SPAN> Location: <SPAN style="font-style: italic;">QL ROM</SPAN></P>
+    
+<P>The function <SPAN style="font-style: italic;">ATAN</SPAN>, is the arc-tangent function, that is to say the inverse of the tangent function (<SPAN style="font-style: italic;">TAN</SPAN> in SuperBASIC).</P>
+    
+<P><SPAN style="font-style: italic;">TAN ( ATAN ( x )) = x</SPAN></P>
+    
+<P>for all values of <SPAN style="font-style: italic;">x</SPAN>, but due to the fact that <SPAN style="font-style: italic;">TAN</SPAN> works on periods; <SPAN style="font-style: italic;">
+    ATAN ( TAN ( x )) = x</SPAN></P>
+    
+<P>is only true for where: -PI/2 &lt; x &lt; PI/2.</P>
+    
+<P>A negative angle indicates that the hypotenuse appears below the base line of the triangle, and it is therefore important to bear in mind the orientation of the screen when using this command.</P>
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    
+<P>Because trigonometrical functions are calculated using polynomial approximations, large parameters can produce small errors.</P>
+    
+<P>For example, on all implementations:</P>
+    
+<P><SPAN style="font-style: italic;">PRINT TAN (ATAN ( 123456 ))</SPAN></P>
+    
+<P>gives 123461.2 instead of 123456.</P>
+    
+<P>The maximum error rises in direct proportion to the parameter for the above example.</P>
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    
+<P>There is a very obscure bug contained in the code for <SPAN style="font-style: italic;">ATAN</SPAN> which means that the command may crash on non-Minerva ROMs if used in a program which is longer than 32K.</P>
+    
+<H3>MINERVA NOTE:</H3>
+
+<P>
+    
+<P><SPAN style="font-style: italic;">ATAN</SPAN> can accept two parameters. If you specify two parameters then <SPAN style="font-style: italic;">ATAN(x,y)</SPAN> will give the angle from the origin to the point <SPAN style="font-style: italic;">(x,y)</SPAN>. This is actually the same as <SPAN style="font-style: italic;">ATAN(y/x)</SPAN>, although it does also cater for when <SPAN style="font-style: italic;">x=0</SPAN> which would otherwise give an overflow error.</P>
+    
+<P>This variant also supports a full circle, for example the following can be used to calculate the bearing travelled (with 0 degrees being north), given that you have moved <SPAN style="font-style: italic;">x</SPAN> miles east (or west if <SPAN style="font-style: italic;">x&lt;0</SPAN>) and <SPAN style="font-style: italic;">y</SPAN> miles north (or south if <SPAN style="font-style: italic;">y&lt;0</SPAN>):</P>
+    <PRE>100 DEFine PROCedure BEARING (x,y)
+110 direction=DEG (ATAN (y,x))
+120 IF x&gt;=0: RETurn direction: ELSE RETurn 360+direction
+130 END DEFine
+</PRE>
+    
+<P>The need for line 120 is because the value returned by <SPAN style="font-style: italic;">ATAN</SPAN> is in the range <SPAN style="font-style: italic;">-PI ... PI</SPAN> (which converts to <SPAN style="font-style: italic;">-180 ... +180</SPAN> degrees) - the value returned needs to be in the range <SPAN style="font-style: italic;">0 ... 360</SPAN>. Note that <SPAN style="font-style: italic;">x</SPAN> and <SPAN style="font-style: italic;">y</SPAN> are swapped around in line 110 - this is to circumvent the problem that a bearing of 0 is north, whereas in the mathematical functions, a zero is taken to be horizontal.</P>
+    
+<H3>SMS NOTE:</H3>
+
+<P>
+    
+<P>The <SPAN style="font-style: italic;">ATAN</SPAN> function has been extended to be the same as on Minerva, although the range of values it returns have been made into four quadrant results (as with <SPAN style="font-style: italic;">ATN2</SPAN> ), so that for <SPAN style="font-style: italic;">ATAN(x,y)</SPAN> if x&gt;0, the result is now in the range -PI/2...PI/2 instead of the usual 0...PI. <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsT.html#TAN">TAN</a>, <a style="font-style: italic;" href="KeywordsA.html#ATN">ATN</a>, <a style="font-style: italic;" href="KeywordsA.html#ATN2">ATN2</a> and <a style="font-style: italic;" href="KeywordsA.html#ARTANH">ARTANH</a>.  Also please refer to the Mathematics --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P><A style="font-style: italic;" href="KeywordsT.html#TAN">TAN</A>, <A style="font-style: italic;" href="KeywordsA.html#ATN">ATN</A>, <A style="font-style: italic;" href="KeywordsA.html#ATN2">ATN2</A> and <A style="font-style: italic;" href="KeywordsA.html#ARTANH">ARTANH</A>. Also please refer to the Mathematics section in the Appendix. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="ATARI"></a>ATARI</h1><br>Syntax: <span style="font-style: italic;">ATARI --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="ATARI" id="ATARI"></A>ATARI</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">ATARI<BR></SPAN> Location: <SPAN style="font-style: italic;">Beuletools</SPAN></P>
+    
+<P>On the Atari QL-Emulator, this command switches to Atari mode. Naturally, on other machines, it has no effect. It will also fail if a QL ROM was found at the start address of the ROM-TOS ($FC0000) - it is possible to load QDOS to that address.</P>
+    
+<H3>NOTE:</H3>
+
+<P>
+    
+<P>The FN Toolkit (pre v1.04) contained a function of the same name which had a different effect - this has now been renamed <SPAN style="font-style: italic;">QuATARI</SPAN> (see below).</P>
+    
+<H3>WARNING:</H3>
+
+<P>
+    
+<P>This command will most probably fail on the latest ST/QL drivers. <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsQ.html#QuATARI">QuATARI</a>. --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P>See <A style="font-style: italic;" href="KeywordsQ.html#QuATARI">QuATARI</A>. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="ATARI_EXT"></a>ATARI_EXT</h1><br>Syntax: <span style="font-style: italic;">ATARI_EXT --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="ATARI_EXT" id="ATARI_EXT"></A>ATARI_EXT</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">ATARI_EXT<BR></SPAN> Location: <SPAN style="font-style: italic;">ATARI_REXT (v2.15+)</SPAN></P>
+    
+<P>The Atari QL-Emulators come with the additional toolkits, ATARI_REXT and ATARIDOS.</P>
+    
+<P>This command is used to enable various commands in the ATARI_REXT toolkit as well as the sound extensions (such as <SPAN style="font-style: italic;">BELL</SPAN>).</P>
+    
+<P>It therefore replaced the original <SPAN style="font-style: italic;">SND_EXT</SPAN> command.</P>
+    
+<H3>WARNING:</H3>
+
+<P>
+    
+<P>ATARI_REXT pre v2.37 may crash SMS. <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsT.html#TK2_EXT">TK2_EXT</a> and <a style="font-style: italic;" href="KeywordsB.html#Beule_EXT">Beule_EXT</a>. --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P>See <A style="font-style: italic;" href="KeywordsT.html#TK2_EXT">TK2_EXT</A> and <A style="font-style: italic;" href="KeywordsB.html#Beule_EXT">Beule_EXT</A>.</P>
+    
+<P>See also <A style="font-style: italic;" href="KeywordsS.html#SND_EXT">SND_EXT</A>. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="ATN"></a>ATN</h1><br>Syntax: <span style="font-style: italic;">ATN (x) --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="ATN" id="ATN"></A>ATN</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">ATN (x)<BR></SPAN> Location: <SPAN style="font-style: italic;">Math Package</SPAN></P>
+    
+<P>This function is the same as the original QL ROM variant of <SPAN style="font-style: italic;">ATAN</SPAN>.</P>
+    
+<H3>NOTE:</H3>
+
+<P>
+    
+<P><SPAN style="font-style: italic;">ATN</SPAN> has been implemented to make porting programs written in other BASIC dialects easier. <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsA.html#ATAN">ATAN</a>. --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P>See <A style="font-style: italic;" href="KeywordsA.html#ATAN">ATAN</A>. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="ATN2"></a>ATN2</h1><br>Syntax: <span style="font-style: italic;">ATN2 (x,y) --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="ATN2" id="ATN2"></A>ATN2</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">ATN2 (x,y)<BR></SPAN> Location: <SPAN style="font-style: italic;">Math Package</SPAN></P>
+    
+<P><SPAN style="font-style: italic;">ATN2</SPAN> calculates <SPAN style="font-style: italic;">ATAN(x/y)</SPAN> but expands the result from 0...PI to -PI...PI which allows you to convert cartesian and polar co-ordinates in both directions without loss of information.</P>
+    
+<H3>Example:</H3>
+
+<P>
+    
+<P>Run this graphics demonstration and you will understand the advantage of <SPAN style="font-style: italic;">ATN2</SPAN> and the difference from <SPAN style="font-style: italic;">ATAN</SPAN>:</P>
+    <PRE>100 WTV 4: SCALE 4,-3,-2: INK 7
+110 PAPER 0: OVER -1: CLS
+120 radius=1.5: reso=128
+130 FOR angle0=PI/reso TO 2*PI STEP PI/reso
+140   x0=radius*COS(angle0): y0=radius*SIN(angle0)
+150   angle1 = ATAN(y0/x0)
+160   x1=radius*COS(angle1): y1=radius*SIN(angle1)
+170   angle2 = ATN2(x0,y0)
+180   x2=radius*COS(angle2): y2=radius*SIN(angle2)
+190   ARRAYS: PAUSE 2: ARRAYS
+200 END FOR angle0
+210 :
+220 DEFine PROCedure ARRAYS
+230  INK 3
+240  FILL 1: CIRCLE 1.25*x0,1.25*y0,5E-2: FILL 0
+250  IF x1==x2 AND y1==y2 THEN
+260    INK 7: LINE x1/5,y1/5 TO x1,y1: INK 5
+270    CURSOR x1,y1,0,0: PRINT "ATAN/ATN2"
+280  ELSE
+290    INK 7: LINE x1/5,y1/5 TO x1,y1: INK 5
+300    CURSOR x1,y1,0,0: PRINT "ATAN"
+310    INK 7: LINE x2/5,y2/5 TO x2,y2: INK 5
+320    CURSOR x2,y2,0,0: PRINT "ATN2"
+330  END IF
+340  angle=INT(DEG(angle0))
+350  CURSOR 0,0,-3*LEN(angle),-5: PRINT angle
+360 END DEFine ARRAYS
+</PRE><!-- PREVIOUSLY <br></span><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsA.html#ATAN">ATAN</a> which is the same on Minerva and SMS. -->
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P><A style="font-style: italic;" href="KeywordsA.html#ATAN">ATAN</A> which is the same on Minerva and SMS. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="AUTO"></a>AUTO</h1><br>Syntax: <span style="font-style: italic;">AUTO </span>[<span style="font-style: italic;">start_number</span>][<span style="font-style: italic;">,step</span>] --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="AUTO" id="AUTO"></A>AUTO</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">AUTO</SPAN> [<SPAN style="font-style: italic;">start_number</SPAN>][<SPAN style="font-style: italic;">,step</SPAN>] Location: <SPAN style="font-style: italic;">QL ROM</SPAN></P>
+    
+<P>This command automatically creates line numbers in the command line (#0) to assist in entering SuperBASIC programs. It would normally only be entered as a direct command (although you can include it in a program line, the line numbers will not be generated until the program has finished its work).</P>
+    
+<P>Once entered, you will be presented with the first line <SPAN style="font-style: italic;">start_number</SPAN> (default 100) - if this line already exists in the program, then the existing line will be presented. Otherwise, you will only see the current line number. Pressing the up and down arrow keys will move you to the previous line or the next line (respectively) in the program, although if there is no previous (or next) line, then you will exit the <SPAN style="font-style: italic;">AUTO</SPAN> mode. However, if you press the Enter key, the next line number will be generated by adding <SPAN style="font-style: italic;">step</SPAN> (default 10) to the current line number.</P>
+    
+<P>If you wish to escape this sequence, press the Break key &lt;CTRL&gt;&lt;SPACE&gt;.</P>
+    
+<H3>Example 1:</H3>
+
+<P>
+    
+<P>Generating program lines: <SPAN style="font-style: italic;">AUTO 1000,10</SPAN></P>
+    
+<P>generates lines 1000,1010,1020,1030,... <SPAN style="font-style: italic;">AUTO 10</SPAN></P>
+    
+<P>generates lines 10,20,30,40,.... <SPAN style="font-style: italic;">AUTO ,5</SPAN></P>
+    
+<P>generates lines 100,105,110,115,...</P>
+    
+<H3>Example 2:</H3>
+
+<P>
+    
+<P>Adding line numbers to a numberless boot program: <SPAN style="font-style: italic;">AUTO 100,10: MERGE flp1_boot</SPAN></P>
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    
+<P>A <SPAN style="font-style: italic;">step</SPAN> value of zero returns 'Bad Parameter' (-15). You can however achieve this by using <SPAN style="font-style: italic;">EDIT start_number</SPAN> instead.</P>
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    
+<P>Did you realise that <SPAN style="font-style: italic;">AUTO 200,10</SPAN> is the same as <SPAN style="font-style: italic;">EDIT 200,10</SPAN> ?</P>
+    
+<H3>NOTE 3:</H3>
+
+<P>
+    
+<P>On non-Minerva ROMs <SPAN style="font-style: italic;">AUTO</SPAN> uses the same routine as <SPAN style="font-style: italic;">RENUM</SPAN> to check its parameters, which means that you can specify a <SPAN style="font-style: italic;">start_line</SPAN> and an <SPAN style="font-style: italic;">end_line</SPAN>, although they do nothing. For example:</P>
+    
+<P><SPAN style="font-style: italic;">AUTO 100 TO 1000;1000,20</SPAN></P>
+    
+<P>would create lines 1000,1020,1040,...</P>
+    
+<H3>NOTE 4:</H3>
+
+<P>
+    
+<P>The maximum line number is 32767 - trying to use a higher line number will cause an overflow error.</P>
+    
+<H3>NOTE 5:</H3>
+
+<P>
+    
+<P>If <SPAN style="font-style: italic;">start_number</SPAN> and <SPAN style="font-style: italic;">step</SPAN> are not integer numbers, they will be rounded either up or down to the nearest integer (compare <SPAN style="font-style: italic;">INT</SPAN>).</P>
+    
+<H3>SMS NOTE:</H3>
+
+<P>
+    
+<P>On current versions of SMS <SPAN style="font-style: italic;">AUTO</SPAN> has been re-coded to be the same as <SPAN style="font-style: italic;">ED</SPAN>, therefore it will not allow a second parameter, and merely places you in <SPAN style="font-style: italic;">ED</SPAN> mode with the cursor at the specified start line number. <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br>Please refer to <a style="font-style: italic;" href="KeywordsE.html#EDIT">EDIT</a> which is very similar. --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P>Please refer to <A style="font-style: italic;" href="KeywordsE.html#EDIT">EDIT</A> which is very similar.</P>
+    
+<P><A style="font-style: italic;" href="KeywordsD.html#DLINE">DLINE</A> allows you to delete SuperBASIC lines. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="AUTO_DIS"></a>AUTO_DIS</h1><br>Syntax: <span style="font-style: italic;">AUTO_DIS --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="AUTO_DIS" id="AUTO_DIS"></A>AUTO_DIS</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">AUTO_DIS<BR></SPAN> Location: <SPAN style="font-style: italic;">Super Gold Card, Gold Card v2.67+</SPAN></P>
+    
+<P>The Super Gold Card allows you to automatically start-up the QL (overcoming the need to press F1 or F2 on the title screen), and also automatically start up Toolkit II.</P>
+    
+<P>This command switches off these features.</P>
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    
+<P>On Minerva these commands only dictate whether Toolkit II should automatically be started up, as Minerva contains its own auto-boot code.</P>
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    
+<P>These commands have no effect under SMSQ/E which already includes Toolkit II and does not show a start-up screen. <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br>See<a style="font-style: italic;" href="KeywordsA.html#AUTO_TK2F1">AUTO_TK2F1</a> and <a style="font-style: italic;" href="KeywordsA.html#AUTO_TK2F2">AUTO_TK2F2</a> also. --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P>See<A style="font-style: italic;" href="KeywordsA.html#AUTO_TK2F1">AUTO_TK2F1</A> and <A style="font-style: italic;" href="KeywordsA.html#AUTO_TK2F2">AUTO_TK2F2</A> also. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="AUTO_TK2F1"></a>AUTO_TK2F1</h1><br>Syntax: <span style="font-style: italic;">AUTO_TK2F1 --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="AUTO_TK2F1" id="AUTO_TK2F1"></A>AUTO_TK2F1</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">AUTO_TK2F1<BR></SPAN> Location: <SPAN style="font-style: italic;">Super Gold Card, Gold Card v2.67+</SPAN></P>
+    
+<P>The Super Gold Card allows you to automatically boot up the machine whenever it is switched on or reset.</P>
+    
+<P>This command enables this auto-booting (starting the machine up in Monitor mode) and also ensures that Toolkit II is initialised as soon as the machine is switched on. The status set by this command is remembered by the Super Gold Card even when the power is disconnected. <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br>See also <a style="font-style: italic;" href="KeywordsA.html#AUTO_DIS">AUTO_DIS</a> and <a style="font-style: italic;" href="KeywordsA.html#AUTO_TK2F2">AUTO_TK2F2</a>. --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P>See also <A style="font-style: italic;" href="KeywordsA.html#AUTO_DIS">AUTO_DIS</A> and <A style="font-style: italic;" href="KeywordsA.html#AUTO_TK2F2">AUTO_TK2F2</A>.</P>
+    
+<P><A style="font-style: italic;" href="KeywordsT.html#TK2_EXT">TK2_EXT</A> is needed to initialise Toolkit II if this command has not been used. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="AUTO_TK2F2"></a>AUTO_TK2F2</h1><br>Syntax: <span style="font-style: italic;">AUTO_TK2F2 --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="AUTO_TK2F2" id="AUTO_TK2F2"></A>AUTO_TK2F2</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">AUTO_TK2F2<BR></SPAN> Location: <SPAN style="font-style: italic;">Super Gold Card, Gold Card v2.67+</SPAN></P>
+    
+<P>This command is the same as <SPAN style="font-style: italic;">AUTO_TK2F1</SPAN> except that the machine is started up in F2 TV mode. <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br>See<a style="font-style: italic;" href="KeywordsA.html#AUTO_TK2F1">AUTO_TK2F1</a>. --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P>See<A style="font-style: italic;" href="KeywordsA.html#AUTO_TK2F1">AUTO_TK2F1</A>. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="A_BLANK"></a>A_BLANK</h1><br>Syntax: <span style="font-style: italic;">A_BLANK</span> [<span style="font-style: italic;">minutes</span>] --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="A_BLANK" id="A_BLANK"></A>A_BLANK</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">A_BLANK</SPAN> [<SPAN style="font-style: italic;">minutes</SPAN>] Location: <SPAN style="font-style: italic;">ST/QL (Pre v2.24)</SPAN></P>
+    
+<P>This command creates a small job which blanks out the screen if a key has not been pressed for a specified number of minutes (default 5).</P>
+    
+<P>This command is useful, because if a very bright picture is drawn on screen (eg. a white line on black paper), and the screen does not alter, this can lead to what is known as 'burn in' when the monitor screen becomes permanently marked with the 'ghost' of the picture. This does not tend to happen very often nowadays, but in the past, monitors tended to become unuseable as more and more of their screen became covered with these 'ghosts'.</P>
+    
+<H3>NOTE:</H3>
+
+<P>
+    
+<P>This command will only work within the Pointer Environment. <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsB.html#BLS">BLS</a> is a similar function under SERMouse. --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P><A style="font-style: italic;" href="KeywordsB.html#BLS">BLS</A> is a similar function under SERMouse. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="A_EMULATOR"></a>A_EMULATOR</h1><br>Syntax: <span style="font-style: italic;">A_EMULATOR --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="A_EMULATOR" id="A_EMULATOR"></A>A_EMULATOR</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">A_EMULATOR<BR></SPAN> Location: <SPAN style="font-style: italic;">ATARI_REXT v2.22+</SPAN></P>
+    
+<P>This function returns a number to signify the type of ST/QL EMulator which is being used with the Atari computer. The value returned may be one of the following:</P>
+    <UL>
+      <LI>0 - QL Emulator (the original QL Emulator)</LI>
+      <LI>1 - Extended-Mode4 Emulator</LI>
+      <LI>2 - QVME Emulator</LI>
+    </UL>
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    
+<P>This will only work with Level E-20 of the Drivers or later.</P>
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    
+<P>It is impossible to tell whether the original QL Emulator supports <SPAN style="font-style: italic;">MODE 8</SPAN> or not.</P>
+    
+<H3>NOTE 3:</H3>
+
+<P>
+    
+<P>You can also use <SPAN style="font-style: italic;">DISP_TYPE</SPAN> to find out the Emulator type. <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br>See also <a style="font-style: italic;" href="KeywordsP.html#PROCESSOR">PROCESSOR</a> and <a style="font-style: italic;" href="KeywordsM.html#MACHINE">MACHINE</a>. --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P>See also <A style="font-style: italic;" href="KeywordsP.html#PROCESSOR">PROCESSOR</A> and <A style="font-style: italic;" href="KeywordsM.html#MACHINE">MACHINE</A>. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="A_MACHINE"></a>A_MACHINE</h1><br>Syntax: <span style="font-style: italic;">A_MACHINE --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="A_MACHINE" id="A_MACHINE"></A>A_MACHINE</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">A_MACHINE<BR></SPAN> Location: <SPAN style="font-style: italic;">ATARI_REXT v2.22+</SPAN></P>
+    
+<P>This function is the same as <SPAN style="font-style: italic;">MACHINE</SPAN>. <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br>See<a style="font-style: italic;" href="KeywordsM.html#MACHINE">MACHINE</a> and also <a style="font-style: italic;" href="KeywordsA.html#A_EMULATOR">A_EMULATOR</a>. --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P>See<A style="font-style: italic;" href="KeywordsM.html#MACHINE">MACHINE</A> and also <A style="font-style: italic;" href="KeywordsA.html#A_EMULATOR">A_EMULATOR</A>. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="A_OLDSCR"></a>A_OLDSCR</h1><br>Syntax: <span style="font-style: italic;">A_OLDSCR --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="A_OLDSCR" id="A_OLDSCR"></A>A_OLDSCR</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">A_OLDSCR<BR></SPAN> Location: <SPAN style="font-style: italic;">ATARI_REXT (v2.27+)</SPAN></P>
+    
+<P>A lot of software (mainly non-pointer driver programs), and some of the toolkits covered by this book, written for the Sinclair QL in the past always assumed that the QL screen would appear at the memory location 131072 ($20000 in hexadecimal).</P>
+    
+<P>These programs and toolkits will not work properly (if at all) on the QVME board or some higher resolution screens. One of the solutions to this is to use the command <SPAN style="font-style: italic;">A_OLDSCR</SPAN> which forces ST/QL Emulators to set up a Job copying the QL's screen as stored at 131072 (onwards) to the real display screen 20 times a second. This obviously slows down the operation of the computer and thus if possible, a new version of the software should be produced / obtained.</P>
+    
+<P>As from v2.30, this command will not affect the display speed as much on a machine fitted with a blitter chip.</P>
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    
+<P>This command cannot fix the problem with programs and toolkits which assume that the QL's display is 512x256 pixels.</P>
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    
+<P>This command reports 'Not Implemented' on other ST-QL Emulators.</P>
+    
+<H3>NOTE 3:</H3>
+
+<P>
+    
+<P>SuperBasic (Job 0) must be the only Job running on the machine when this command is issued, otherwise the error 'Not Complete' is reported.</P>
+    
+<H3>NOTE 4:</H3>
+
+<P>
+    
+<P>If you try to use this command after it has already been issued, the errror 'Already Exists' is reported. <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsS.html#SCREEN">SCREEN</a> can be used to find the screen address. --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P><A style="font-style: italic;" href="KeywordsS.html#SCREEN">SCREEN</A> can be used to find the screen address.</P>
+    
+<P><A style="font-style: italic;" href="KeywordsS.html#SCR_SIZE">SCR_SIZE</A> can be used to set the resolution of the display - much software will insist that this is set to 512x256 pixels also. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="A_PROCESSOR"></a>A_PROCESSOR</h1><br>Syntax: <span style="font-style: italic;">A_PROCESSOR --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="A_PROCESSOR" id="A_PROCESSOR"></A>A_PROCESSOR</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">A_PROCESSOR<BR></SPAN> Location: <SPAN style="font-style: italic;">ATARI_REXT v2.22+</SPAN></P>
+    
+<P>This function is the same as <SPAN style="font-style: italic;">PROCESSOR</SPAN>. <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br>See<a style="font-style: italic;" href="KeywordsP.html#PROCESSOR">PROCESSOR</a>! --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P>See <A style="font-style: italic;" href="KeywordsP.html#PROCESSOR">PROCESSOR</A>! <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="A_RDATE"></a>A_RDATE</h1><br>Syntax: <span style="font-style: italic;">A_RDATE --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="A_RDATE" id="A_RDATE"></A>A_RDATE</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">A_RDATE<BR></SPAN> Location: <SPAN style="font-style: italic;">ATARI_REXT (v2.10+)</SPAN></P>
+    
+<P>This command sets the QL's internal clock to the date and time contained in the battery-backed clock on the ST (if available).</P>
+    
+<H3>NOTE:</H3>
+
+<P>
+    
+<P>Before v2.28, this command did not support the TT's battery backed clock. <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br>See<a style="font-style: italic;" href="KeywordsA.html#A_SDATE">A_SDATE</a>. --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P>See <A style="font-style: italic;" href="KeywordsA.html#A_SDATE">A_SDATE</A>. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="A_SDATE"></a>A_SDATE</h1><br>Syntax: <span style="font-style: italic;">A_SDATE year, month, day, hour, minute, second --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="A_SDATE" id="A_SDATE"></A>A_SDATE</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">A_SDATE year, month, day, hour, minute, second<BR></SPAN> Location: <SPAN style="font-style: italic;">ATARI_REXT</SPAN></P>
+    
+<P>The Atari ST has a built in battery-backed clock which maintains the time whilst the machine is switched off. This time is automatically copied across to the Emulator's own internal clock when the Atari ST is started up. However, it can be necessary to alter the Atari's battery backed clock.</P>
+    
+<P>This is achieved by using the command <SPAN style="font-style: italic;">A_SDATE</SPAN> in exactly the same way as you would use <SPAN style="font-style: italic;">SDATE</SPAN> to set the internal clock.</P>
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    
+<P>Before v2.19 of Atari_rext (and in v2.23), this command will not alter the Emulator's internal clock until the Atari is reset.</P>
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    
+<P>Before v2.29, this command did not support the TT's battery backed clock. <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsS.html#SDATE">SDATE</a>. --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P>See <A style="font-style: italic;" href="KeywordsS.html#SDATE">SDATE</A>.</P>
+    
+<P><A style="font-style: italic;" href="KeywordsA.html#A_RDATE">A_RDATE</A> will set the internal clock to the same date and time as the battery backed clock. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="A_SPEED"></a>A_SPEED</h1><br>Syntax: <span style="font-style: italic;">A_SPEED value --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="A_SPEED" id="A_SPEED"></A>A_SPEED</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">A_SPEED value<BR></SPAN> Location: <SPAN style="font-style: italic;">ATARI_REXT</SPAN></P>
+    
+<P>Due to the enhanced hardware on which the ST/QL Emulator is running, you may find that as with the QXL, Super Gold Card and Gold Card, some programs run too quickly. The command <SPAN style="font-style: italic;">A_SPEED</SPAN> allows you to slow the Emulator down so that you can use these programs. <SPAN style="font-style: italic;">
+    value</SPAN> must be in the range 0..7.</P>
+    
+<P>0 allows the Emulator to run at full speed, whereas 7 makes it run very slowly. <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsS.html#SLUG">SLUG</a> is very similar. --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P><A style="font-style: italic;" href="KeywordsS.html#SLUG">SLUG</A> is very similar.</P>
+</BODY>
+</HTML>
