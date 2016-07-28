@@ -1,3 +1,4 @@
+tools/fixSyntax
 sphinx/build/doctrees/*
 *.doctree
 *.pickle
