@@ -5,7 +5,7 @@
 # Norman Dunbar
 # 26th July 2016
 #
-# Expects to find HTMLTidy.sh and HTML2rst.sh in the current directory.
+# Expects to find HTMLTidy.sh and HTML2rst.sh on $PATH.
 #
 
 # Clean up the HTML and create a file called x.clean.html from x.html.
@@ -14,7 +14,7 @@ CLEAN="${HTML%%html}clean.html"
 RST="${CLEAN%%html}rst"
 ERRORS="${HTML%%html}errors.txt"
 
-./HTMLTidy.sh ${HTML} && ./HTML2rst.sh ${CLEAN}
+HTMLTidy.sh ${HTML} && HTML2rst.sh ${CLEAN}
 CHECK=$?
 
 if [ "${CHECK}" = "0" ]

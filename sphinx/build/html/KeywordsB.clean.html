@@ -1,0 +1,2310 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Keywords B &mdash; SBASIC/SuperBASIC Reference Manual Online 4.0.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="SBASIC/SuperBASIC Reference Manual Online 4.0.1 documentation" href="index.html"/>
+        <link rel="next" title="Appendices Introduction" href="AppendicesIntro.clean.html"/>
+        <link rel="prev" title="Keywords A" href="KeywordsA.clean.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SBASIC/SuperBASIC Reference Manual Online
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Foreword.clean.html">Foreword</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Introduction.clean.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Credits.clean.html">Credits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Structure.clean.html">Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WritingPrograms.clean.html">Writing Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KeywordsIntro.html">Keywords Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KeywordsA.clean.html">Keywords A</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Keywords B</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#basic">BASIC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#basicp">BASICP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#basic-b">BASIC_B</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#basic-w">BASIC_W</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#basic-l">BASIC_L</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">BASIC_B%</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#basic-f">BASIC_F</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">BASIC_W%</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#basic-index">BASIC_INDEX%</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#basic-name">BASIC_NAME$</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#basic-pointer">BASIC_POINTER</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#basic-type">BASIC_TYPE%</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bat">BAT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">BAT$</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bat-use">BAT_USE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#baud">BAUD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#baudrate">BAUDRATE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bclear">BCLEAR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#beep">BEEP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#beeping">BEEPING</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bell">BELL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#beule-ext">Beule_EXT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bgcolour-ql">BGCOLOUR_QL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bgcolour-24">BGCOLOUR_24</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bget">BGET</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bgimage">BGIMAGE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bicop">BICOP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bin">BIN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">BIN$</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#binom">BINOM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bit">BIT%</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bld">BLD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#block">BLOCK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#blook">BLOOK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bls">BLS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bmove">BMOVE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#border">BORDER</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bpeek">BPEEK%</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bpeek-w">BPEEK_W%</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bpeek-l">BPEEK_L</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bpoke">BPOKE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bpoke-w">BPOKE_W</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bpoke-l">BPOKE_L</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bput">BPUT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#break-on">BREAK_ON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#break-off">BREAK_OFF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#break">BREAK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">BREAK%</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#btool-ext">BTool_EXT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#btool-rmv">BTool_RMV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#btrap">BTRAP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#button">BUTTON%</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bver">BVER$</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="AppendicesIntro.clean.html">Appendices Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix01.clean.html">A1. Minerva</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix02.clean.html">A2. SMSQ/E</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix03.clean.html">A3. Emulators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix04.clean.html">A4. Thor Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix05.clean.html">A5. Expansion Boards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix06.clean.html">A6. Compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix07.clean.html">A7. Multiple Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix08.clean.html">A8. Error Messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix09.clean.html">A9. Character Set, Keyboards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix10.clean.html">A10. Designing New Character Sets (Fonts)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix11.clean.html">A11. Mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix12.clean.html">A12. Device Drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix13.clean.html">A13. Extended Pointer Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix14.clean.html">A14. Coercion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix15.clean.html">A15. Mouse Drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix16.clean.html">A16. The QL Display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix17.clean.html">A17. Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix18.clean.html">A18. Configuring Programs</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">SBASIC/SuperBASIC Reference Manual Online</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Keywords B</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/KeywordsB.clean.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="keywords-b">
+<h1>Keywords B<a class="headerlink" href="#keywords-b" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="basic">
+<h2>BASIC<a class="headerlink" href="#basic" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>BASIC [(offset)]</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>BTool</td>
+</tr>
+</tbody>
+</table>
+<p>The function BASIC is identical to BASICP except that if no parameter is
+supplied, the function BASIC will return the base address of the
+SuperBASIC program area.</p>
+<p><strong>NOTE</strong></p>
+<p>Although this function is written in such a way that it can be used from
+within compiled programs to access SuperBASIC variables, it cannot
+access MultiBASIC variables on Minerva nor SBASIC variables on SMS and
+will always return a value representing the location of the equivalent
+SuperBASIC variable.</p>
+<p><strong>WARNING</strong></p>
+<p>You should use commands such as the extended PEEK or POKE provided by
+Minerva and SMS to read or set the tables pointed to by the values
+returned by this function, as the SuperBASIC tables can move when tasks
+are started up or removed from memory.</p>
+<p><strong>CROSS-REFERENCE</strong></p>
+<p>See <a class="reference external" href="KeywordsB.html#BASICP">BASICP</a> and
+<a class="reference external" href="KeywordsB.html#BASIC_W">BASIC_W</a>.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="basicp">
+<h2>BASICP<a class="headerlink" href="#basicp" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>BASICP (offset)</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>TinyToolkit</td>
+</tr>
+</tbody>
+</table>
+<p>This function returns an internal pointer (address) used by the
+SuperBASIC interpreter. offset must be non-negative and a multiple of 2
+(up to a maximum of HEX(&#8216;64&#8217;).</p>
+<p>Refer to system documentation for more information.</p>
+<p><strong>Example</strong></p>
+<p>PRINT BASICP(16)</p>
+<p>returns the start address of the current SuperBASIC program in memory.</p>
+<p>PRINT BASICP(32)</p>
+<p>returns the start address of the SuperBASIC name list.</p>
+<p><strong>NOTE</strong></p>
+<p>This suffers from the same problem as BASIC.</p>
+<p><strong>CROSS-REFERENCE</strong></p>
+<p><a class="reference external" href="KeywordsB.html#BASIC_B">BASIC_B</a>,
+<a class="reference external" href="KeywordsB.html#BASIC_L">BASIC_L</a>,
+<a class="reference external" href="KeywordsB.html#BASIC_W">BASIC_W</a>. See
+<a class="reference external" href="KeywordsN.html#NEW_NAME">NEW_NAME</a> for a useful example!</p>
+<p><a class="reference external" href="KeywordsB.html#BASIC_POINTER">BASIC_POINTER</a> is the same as this
+function.</p>
+<p><a class="reference external" href="Keywords_.html#_NAME$">_NAME$</a> and
+<a class="reference external" href="KeywordsB.html#BASIC_NAME$">BASIC_NAME$</a> allow you to access the
+SuperBASIC name list safely.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="basic-b">
+<h2>BASIC_B<a class="headerlink" href="#basic-b" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="basic-w">
+<h2>BASIC_W<a class="headerlink" href="#basic-w" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="basic-l">
+<h2>BASIC_L<a class="headerlink" href="#basic-l" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>BASIC_B (offset) and
+BASIC_W (offset)
+BASIC_L (offset)</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>TinyToolkit, BTool, Turbo Toolkit (BASIC_L only)</td>
+</tr>
+</tbody>
+</table>
+<p>These three functions are modified version of PEEK which return values
+at memory locations in the SuperBASIC system variables, which are used
+for storage by the SuperBASIC interpreter.</p>
+<p>BASIC_B returns bytes, BASIC_W words and BASIC_L long words.</p>
+<p><strong>Example</strong></p>
+<p>Although additional information about internal machine structures is
+necessary to make full use of these functions, some simple tasks can be
+performed without this knowledge, for example:</p>
+<p>PRINT BASIC_W ( 1076 )</p>
+<p>gives the first line number of a program in memory - this enables a
+machine code program to check if a program is actually loaded in the
+machine. The value returned by this example will always be zero from the
+interpreter.</p>
+<div class="highlight-python"><div class="highlight"><pre>100 IF NOT BASIC_W (1076) THEN
+110   PRINT &quot;No SuperBASIC program loaded&quot;
+120 END IF
+</pre></div>
+</div>
+<p><strong>NOTE</strong></p>
+<p>These functions generally suffer the same problem as BASIC.</p>
+<p>A file called TurboFix_bin can be used to allow BASIC_L to access
+Minerva MultiBASIC and SMS SBASIC variables. Some early versions of
+TurboFix_bin have bugs in it. Beware that not all versions of this file
+supports SMS SBASICs.</p>
+<p><strong>CROSS-REFERENCE</strong></p>
+<p><a class="reference external" href="KeywordsP.html#PEEK">PEEK</a>, <a class="reference external" href="KeywordsP.html#PEEK_W">PEEK_W</a>,
+<a class="reference external" href="KeywordsP.html#PEEK_L">PEEK_L</a>, <a class="reference external" href="KeywordsB.html#BASICP">BASICP</a>.</p>
+<p><a class="reference external" href="KeywordsB.html#BASIC_B%,%20BASIC_W%,%20BPEEK%">BASIC_B%, BASIC_W%,
+BPEEK%</a>,
+<a class="reference external" href="KeywordsB.html#BPEEK_W">BPEEK_W</a>% and
+<a class="reference external" href="KeywordsB.html#BPEEK_L">BPEEK_L</a> are similar.</p>
+<p>See also <a class="reference external" href="KeywordsB.html#BASIC_F">BASIC_F</a> and
+<a class="reference external" href="KeywordsP.html#PEEK_F">PEEK_F</a>.</p>
+<p>The SuperBASIC variables appear in the QDOS/SMS Reference Manual
+(Section 18.3)</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="id1">
+<h2>BASIC_B%<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="basic-f">
+<h2>BASIC_F<a class="headerlink" href="#basic-f" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="id2">
+<h2>BASIC_W%<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>BASIC_B% (offset) and
+BASIC_W% (offset) and
+BASIC_F (offset)</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>Turbo Toolkit, BTool, Turbo Toolkit (BASIC_L only)</td>
+</tr>
+</tbody>
+</table>
+<p>The functions BASIC_B% and BASIC_W% are similar to BASIC_B and
+BASIC_W. BASIC_F is a further function which can be used to return a
+floating point number stored as six bytes starting at the specified
+offset within the SuperBASIC system variables.</p>
+<p><strong>NOTE</strong></p>
+<p>A file called TurboFix_bin can be used to allow these functions to
+access Minerva MultiBASIC / SBASIC variables. Some early versions of
+TurboFix_bin have bugs in it. Beware that not all versions of this file
+supports SMS SBASICs.</p>
+<p><strong>CROSS-REFERENCE</strong></p>
+<p>Refer to <a class="reference external" href="KeywordsB.html#BASIC_B">BASIC_B</a> and
+<a class="reference external" href="KeywordsB.html#BASIC_W">BASIC_W</a>.<a class="reference external" href="KeywordsP.html#PEEK_F">PEEK_F</a>
+is similar to <a class="reference external" href="KeywordsB.html#BASIC_F">BASIC_F</a>.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="basic-index">
+<h2>BASIC_INDEX%<a class="headerlink" href="#basic-index" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>BASIC_INDEX% (name$)</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>Turbo Toolkit</td>
+</tr>
+</tbody>
+</table>
+<p>This function is similar to LOOKUP%, except it does not suffer with any
+problems under SMS.</p>
+<p>If the specified name$ does not exist, -12 is returned. -7 is returned
+if there is some mismatch between table entries.</p>
+<p><strong>NOTE</strong></p>
+<p>A file called TurboFix_bin can be used to allow BASIC_INDEX% to access
+the Minvera MultiBASIC and SMS SBASIC name tables. Some early versions
+of TurboFix_bin have bugs in it. Beware that not all versions of this
+file supports SMS SBASICs.</p>
+<p><strong>CROSS-REFERENCE</strong></p>
+<p>Refer to <a class="reference external" href="KeywordsL.html#LOOKUP%">LOOKUP%</a> and
+<a class="reference external" href="KeywordsB.html#BASIC_NAME$">BASIC_NAME$</a>.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="basic-name">
+<h2>BASIC_NAME$<a class="headerlink" href="#basic-name" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>BASIC_NAME$ (index)</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>Turbo Toolkit</td>
+</tr>
+</tbody>
+</table>
+<p>This function is exactly the same as _NAME$.</p>
+<p>If the specified index is greater than the maximum name table entry, a
+bad parameter error is returned. If it is smaller than 0, an error may
+be generated, or junk may be returned.</p>
+<p><strong>NOTE</strong></p>
+<p>A file called TurboFix_bin can be used to allow BASIC_NAME$ to access
+the Minvera MultiBASIC and SMS SBASIC name tables. Some early versions
+of TurboFix_bin have bugs in it. Beware that not all versions of this
+file supports SMS SBASICs.</p>
+<p><strong>CROSS-REFERENCE</strong></p>
+<p>Refer to <a class="reference external" href="Keywords_.html#_NAME$">_NAME$</a> and
+<a class="reference external" href="KeywordsB.html#BASIC_INDEX%">BASIC_INDEX%</a>.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="basic-pointer">
+<h2>BASIC_POINTER<a class="headerlink" href="#basic-pointer" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>BASIC_POINTER (offset)</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>Turbo Toolkit</td>
+</tr>
+</tbody>
+</table>
+<p>This function is exactly the same as BASICP.</p>
+<p><strong>NOTE</strong></p>
+<p>A file called TurboFix_bin can be used to allow BASIC_POINTER to
+access the Minvera MultiBASIC and SMS SBASIC name tables. Some early
+versions of TurboFix_bin have bugs in it. Beware that not all versions
+of this file supports SMS SBASICs.</p>
+<p><strong>CROSS-REFERENCE</strong></p>
+<p>Refer to <a class="reference external" href="KeywordsB.html#BASICP">BASICP</a>.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="basic-type">
+<h2>BASIC_TYPE%<a class="headerlink" href="#basic-type" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>BASIC_TYPE% (offset)</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>Turbo Toolkit</td>
+</tr>
+</tbody>
+</table>
+<p>This function looks at the entry in the SuperBASIC name table for Job 0
+at the specified offset and returns its type in accordance with the
+following values:</p>
+<ul class="simple">
+<li>0 .... no type</li>
+<li>1 .... string</li>
+<li>2 .... floating point</li>
+<li>4 .... integer</li>
+</ul>
+<p>If the specified offset is greater than the maximum name table entry, a
+bad parameter error is returned. If it is smaller than 0, an error may
+be generated, or junk may be returned.</p>
+<p><strong>NOTE</strong></p>
+<p>A file called TurboFix_bin can be used to allow BASIC_TYPE% to access
+the Minvera MultiBASIC and SMS SBASIC name tables. Some early versions
+of TurboFix_bin have bugs in it. Beware that not all versions of this
+file supports SMS SBASICs.</p>
+<p><strong>CROSS-REFERENCE</strong></p>
+<p><a class="reference external" href="KeywordsT.html#TYPE">TYPE</a> is similar.</p>
+<p>See also <a class="reference external" href="KeywordsB.html#BASIC_NAME$">BASIC_NAME$</a>.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="bat">
+<h2>BAT<a class="headerlink" href="#bat" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>BAT</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>Beuletools</td>
+</tr>
+</tbody>
+</table>
+<p>This command forces the command string defined with BAT_USE to be typed
+into the command line (#0). No parameters are allowed. BAT will work
+okay in Minerva&#8217;s MultiBASICs, SMS&#8217;s SBASICs and even if #0 has been
+redefined.</p>
+<p><strong>CROSS-REFERENCE</strong></p>
+<p>See <a class="reference external" href="KeywordsB.html#BAT_USE">BAT_USE</a> for an example.</p>
+<p>Refer to <a class="reference external" href="KeywordsT.html#TYPE_IN">TYPE_IN</a> also.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="id3">
+<h2>BAT$<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>BAT$</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>Beuletools</td>
+</tr>
+</tbody>
+</table>
+<p>This function returns the current string (if any) which has been set up
+with the BAT_USE command.</p>
+<p><strong>CROSS-REFERENCE</strong></p>
+<p>See <a class="reference external" href="KeywordsB.html#BAT_USE">BAT_USE</a> and
+<a class="reference external" href="KeywordsB.html#BAT">BAT</a> for more details.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="bat-use">
+<h2>BAT_USE<a class="headerlink" href="#bat-use" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>BAT_USE batch$</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>Beuletools</td>
+</tr>
+</tbody>
+</table>
+<p>This command is used to specify a command string containing SuperBASIC
+keywords which will be typed into the command line (#0) when the command
+BAT is issued. The string may be up to 128 characters long. You may add
+CHR$(10) to the end of the string in order to emulate an &lt;ENTER&gt;
+keypress (as in the example below).</p>
+<p><strong>Example</strong></p>
+<p>BAT_USE &#8220;PAPER 3: INK 7: PAPER#2,3: PAPER#2,3: INK#2,7: WMON 4: BORDER
+1,0: BORDER#2,0&#8221; &amp; CHR$(10)</p>
+<p>The command BAT will now reset the standard start-up windows.</p>
+<p><strong>CROSS-REFERENCE</strong></p>
+<p><a class="reference external" href="KeywordsB.html#BAT">BAT</a> executes the batch string set with
+<a class="reference external" href="KeywordsB.html#BAT_USE">BAT_USE</a>.</p>
+<p>See
+<a class="reference external" href="KeywordsF.html#FORCE_TYPE">FORCE_TYPE</a>,<a class="reference external" href="KeywordsS.html#STAMP">STAMP</a>
+and <a class="reference external" href="KeywordsT.html#TYPE_IN">TYPE_IN</a> also.</p>
+<p><a class="reference external" href="KeywordsD.html#DO">DO</a> allows batch files of any size to be
+executed.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="baud">
+<h2>BAUD<a class="headerlink" href="#baud" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>BAUD bps  or BAUD [port,] bps(SMS and ST/QL only)</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>QL ROM</td>
+</tr>
+</tbody>
+</table>
+<p>The serial port(s) use a certain speed to communicate with printers,
+modems, other computers, interfaces etc. This speed is set with BAUD.
+The only values allowed are set out below, any other value for bps will
+produce an error. The unit of the parameter is bits per second.</p>
+<p>BAUD will set the same output and input baud rate for both serial ports.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="30%" />
+<col width="42%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Bits/Sec</th>
+<th class="head">Bytes/Sec</th>
+<th class="head">Time/32Kb</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>75</td>
+<td>9.375</td>
+<td>58 min, 15 sec</td>
+</tr>
+<tr class="row-odd"><td>300</td>
+<td>37.5</td>
+<td>14 min, 34 sec</td>
+</tr>
+<tr class="row-even"><td>600</td>
+<td>75</td>
+<td>7 min, 17 sec</td>
+</tr>
+<tr class="row-odd"><td>1200</td>
+<td>150</td>
+<td>3 min, 38 sec</td>
+</tr>
+<tr class="row-even"><td>2400</td>
+<td>300</td>
+<td>1 min, 49 sec</td>
+</tr>
+<tr class="row-odd"><td>4800</td>
+<td>600</td>
+<td>55 sec</td>
+</tr>
+<tr class="row-even"><td>9600</td>
+<td>1200</td>
+<td>27 sec</td>
+</tr>
+<tr class="row-odd"><td>19200</td>
+<td>2400</td>
+<td>14 sec</td>
+</tr>
+</tbody>
+</table>
+<p><strong>NOTE 1</strong></p>
+<p>The effect of BAUD 19200 depends on the hardware. On standard QLs the
+serial port can only send data at that baud rate and tends to be
+affected by the QL&#8217;s sound chip.</p>
+<p><strong>NOTE 2</strong></p>
+<p>On a standard QL without Minerva the actual baudrate is slighty lower
+than that stated above.</p>
+<p><strong>NOTE 3</strong></p>
+<p>In practice, data is compressed and transmitted with transfer protocols
+(to reduce transmission errors), so the above transmission times refer
+to the actual speed of the hardware, not the amount of data.</p>
+<p><strong>NOTE 4</strong></p>
+<p>The standard QL cannot safely handle the input of data at baud rates
+greater than 1200.</p>
+<p><strong>NOTE 5</strong></p>
+<p>A modified co-processor Hermes which replaces the 8049 chip by a 8749 is
+available, which allows independent input baud rates and (if Minerva
+v1.95+ is present) independent output baud rates as well as fixing all
+mentioned problems for QLs and AURORA boards. The more expensive version
+of Hermes (SuperHermes) also provides three additional low speed RS232
+input ports (supporting 30 to 1200 bps) and a high speed RS232 two way
+serial port (supporting up to 57,600 bps, which equates to 4800
+characters per second).</p>
+<p><strong>NOTE 6</strong></p>
+<p>On a QXL board without SMS v2.57+, a BAUD command would not have
+immediate effect if a serial channel was open - it waited until you
+closed the channel.</p>
+<p><strong>NOTE 7</strong></p>
+<p>It is possible to connect a mouse to a QL through the standard serial
+port. Although the mouse operates at 1200 baud, you can use the mouse
+alongside a printer (or modem) either with the assistance of Hermes or
+by configuring the mouse software to de-activate whilst the higher baud
+rate is in use.</p>
+<p><strong>THOR XVI NOTES</strong></p>
+<p>The THOR XVI allows the following additional baud rates:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="30%" />
+<col width="42%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Bits/Sec</th>
+<th class="head">Bytes/Sec</th>
+<th class="head">Time/32Kb</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>110</td>
+<td>13.75</td>
+<td>39 min, 43 sec</td>
+</tr>
+<tr class="row-odd"><td>134.5</td>
+<td>16.8125</td>
+<td>32 min, 29 sec</td>
+</tr>
+<tr class="row-even"><td>150</td>
+<td>18.75</td>
+<td>29 min, 08 sec</td>
+</tr>
+<tr class="row-odd"><td>1800</td>
+<td>225</td>
+<td>2 min, 26 sec</td>
+</tr>
+</tbody>
+</table>
+<p>Independent baud rates may also be used on output and input channels
+when the channel is opened by using an extended device name.</p>
+<p><strong>MINERVA NOTES</strong></p>
+<p>Minerva v1.93+ now enables you to set different output baudrates for
+ser1 and ser2 - if you want different input baudrates for the two ports,
+you will need Hermes (see above). Unfortunately, this enhancement will
+only work on QLs without Hermes if both ports are output only.</p>
+<p>If you want to disable the ability to handle different output baud
+rates, do so with the command: POKE !124 !49,2</p>
+<p>In order to set the two baudrates independently, BAUD will now accept
+additional values in the range -1 to -128. This is calculated by looking
+at the following table, working out which features you will need and
+adding the values accordingly to -128:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="19%" />
+<col width="81%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value to Add</th>
+<th class="head">Effect</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>64</td>
+<td>Alters ser2 baudrate (ser1 is default)</td>
+</tr>
+<tr class="row-odd"><td>16</td>
+<td>Prevents standard BAUD command from altering baudrate on this port</td>
+</tr>
+<tr class="row-even"><td>7</td>
+<td>Selects BAUD 75 on this port</td>
+</tr>
+<tr class="row-odd"><td>6</td>
+<td>Selects BAUD 300 on this port</td>
+</tr>
+<tr class="row-even"><td>5</td>
+<td>Selects BAUD 600 on this port</td>
+</tr>
+<tr class="row-odd"><td>4</td>
+<td>Selects BAUD 1200 on this port</td>
+</tr>
+<tr class="row-even"><td>3</td>
+<td>Selects BAUD 2400 on this port</td>
+</tr>
+<tr class="row-odd"><td>2</td>
+<td>Selects BAUD 4800 on this port</td>
+</tr>
+<tr class="row-even"><td>1</td>
+<td>Selects BAUD 9600 on this port</td>
+</tr>
+<tr class="row-odd"><td>0</td>
+<td>Selects BAUD 19200 on this port</td>
+</tr>
+</tbody>
+</table>
+<p>Please only try to add one baud rate value!!</p>
+<p><strong>Minerva Examples</strong></p>
+<p>BAUD -128</p>
+<p>sets the baud rate for ser1 output at 19200. ser2 is unaffected.</p>
+<p>BAUD -47</p>
+<p>fixes the baud rate for ser2 output at 9600. ser1 is unaffected (-47 =
+-128+64+16+1).</p>
+<p><strong>SMSQ AND ST/QL NOTES</strong></p>
+<p>If BAUD is only followed by one parameter, then it sets the baud rates
+for both SER1 and SER2 on the QL, AURORA and QXL boards. However, if
+SMSQ/E is running on an ATARI computer, or the command is used on an
+ST/QL Emulator then it only sets the baud rate on SER1.</p>
+<p>You can however supply two parameters to the command to set independent
+baud rates (note that on a standard QL or Aurora, Hermes is needed for
+independent baud rates on each serial port). In this case, the first
+parameter is the number of the serial port to be set and the second
+number is the new baud rate, for example:</p>
+<p>BAUD 1,19200</p>
+<p>sets the baud rate on SER1 to 19200 - any other serial ports are left
+unaffected. If the rate (bps) is specified as zero, this selects the
+highest possible BAUD rate on that port.</p>
+<p>Please also note that if a translate has been set up with the TRA
+command, changing the BAUD rate will make that translate apply to all
+channels opened to the serial ports, whether or not they are already
+open. See TRA for more details.</p>
+<p>The following additional BAUD rates are also supported on the specified
+SMSQ/E version:</p>
+<p><strong>GOLD CARD &amp; SUPER GOLD CARD</strong></p>
+<ul class="simple">
+<li>1275(1200 receive and 75 transmit - only works with HERMES)</li>
+<li>75(75 receive and 1200 transmit - only works with HERMES)</li>
+</ul>
+<p>(The standard 1200 and 75 Baud rates are not supported)</p>
+<p><strong>ATARI ST and TT</strong></p>
+<p>On these computers, the different serial ports support different baud
+rates. An ST/STE only has one serial port (SER1), a Mega STE has three
+(SER1, SER2 and SER4), and a TT has four (SER1, SER2, SER3 and SER4).</p>
+<p>Support for SER2, SER3 and SER4 was only added to the ST/QL Emulators in
+version E-37 of the Drivers. It has always existed in SMSQ/E.</p>
+<p>SER1</p>
+<ul class="simple">
+<li>supports all the standard baud rates from 300 to 19200, except 7200.</li>
+</ul>
+<p>SER2</p>
+<ul class="simple">
+<li>supports all the standard baud rates from 300 to 19200 (including
+7200) as well as 38,400, 76,800, 83,333 and 125,000 baud (1x and 2x
+MIDI speeds).<ul>
+<li>If the rate specified is 0, the rate used is 153,600.</li>
+</ul>
+</li>
+<li>Note that 38,400 on the TT was implemented in v2.69. 38,400, 76,800,
+83,333, 125,000 and 153,600 BAUD were implemented for the STE and TT
+in v2.73.</li>
+</ul>
+<p>SER3</p>
+<ul class="simple">
+<li>supports the same rates as SER1.</li>
+<li>Hardware handshaking is not available on this port.</li>
+</ul>
+<p>SER4</p>
+<ul class="simple">
+<li>supports all the standard baud rates from 300 to 38,400 plus 57,600.</li>
+<li>If the rate specified is 0, the rate used is 230,000.</li>
+</ul>
+<p><strong>QXL</strong></p>
+<p>All of the standard baud rates available to the normal QL are supported
+except for 75 Baud.</p>
+<p><strong>QPC</strong></p>
+<p>All of the same baud rates as the QXL implementation are supported plus
+38,400 and 57,600 baud.</p>
+<p><strong>QXL AND QPC NOTES</strong></p>
+<p>If one of the PC&#8217;s serial ports is already linked to a mouse (in DOS)
+then the BAUD command will not affect that port.</p>
+<p><strong>CROSS-REFERENCE</strong></p>
+<p>The Devices Appendix supplies details about the serial device ser and
+parallel device par. <a class="reference external" href="KeywordsS.html#SER">SER_</a> ... and
+<a class="reference external" href="KeywordsP.html#PAR">PAR_</a> ... commands allow you to set various
+other parameters for serial and parallel ports.</p>
+<p>You can check the current baud rate setting with
+<a class="reference external" href="KeywordsB.html#BAUDRATE">BAUDRATE</a>.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="baudrate">
+<h2>BAUDRATE<a class="headerlink" href="#baudrate" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>BAUDRATE</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>SERMouse</td>
+</tr>
+</tbody>
+</table>
+<p>This function returns the actual baud rate of the system which will be
+used on any newly opened serial port channel.</p>
+<p><strong>CROSS-REFERENCE</strong></p>
+<p>The system&#8217;s baud rate is set with <a class="reference external" href="KeywordsB.html#BAUD">BAUD</a>.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="bclear">
+<h2>BCLEAR<a class="headerlink" href="#bclear" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>BCLEAR</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>BeuleTools, TinyToolkit, BTool</td>
+</tr>
+</tbody>
+</table>
+<p>Each console channel has what is known as an input queue, a small area
+of memory where keypresses are stored before they are read by INPUT,
+INKEY$ etc. The command BCLEAR clears the buffer of the current input
+queue so that any keypresses which have not yet been processed are not
+seen by the program. This is useful to prevent overrun on keys.</p>
+<p><strong>Examples</strong></p>
+<p>(1) Type this line as a direct command into the interpreter, press
+&lt;ENTER&gt; and then type some keys. REPeat a: REMark</p>
+<p>Now press break and all of those keypresses which you performed after
+entering the line will be shown. Replace REMark by BCLEAR and try the
+same.</p>
+<p>Normally it is okay for all keypresses to be stored in a buffer - if a
+program cannot cope with the typist&#8217;s speed, no keypresses will be lost.
+But sometimes this feature may not be welcome.</p>
+<p>(2) Even on very good keyboards the phenomenon of key-bounce appears,
+where the user has pressed a key once but the program thinks that the
+same key has been pressed a few times. This generally happens with poor
+quality keyboards or if the user is not used to either the keyboard or
+program speed.</p>
+<p>This is a queue clearing version of the GETCHAR% function shown at CUR.
+Dangerous inputs should always clear the keyboard queue, for example
+where the program is asking the question: &#8220;Do you really want to format
+that disk (y/n) ?&#8221;</p>
+<div class="highlight-python"><div class="highlight"><pre>100 DEFine FuNction GETCHAR% (channel,timeout)
+110  LOCal char$,dummy
+120  dummy=PEND(#channel): BCLEAR
+130  CUR #channel,1
+140  char$=INKEY$(#channel,timeout)
+150  CUR #channel,0
+160  RETurn CODE(char$)
+170 END DEFine GETCHAR%
+</pre></div>
+</div>
+<p><strong>CROSS-REFERENCE</strong></p>
+<p>The current keyboard queue can be selected by a dummy
+<a class="reference external" href="KeywordsI.html#INKEY$">INKEY$</a> or <a class="reference external" href="KeywordsP.html#PEND">PEND</a>.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="beep">
+<h2>BEEP<a class="headerlink" href="#beep" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="88%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>BEEP length, pitch [,pitch_2, grd_x, grd_y [,wrap [,fuzz [,rndom ]]]] or
+BEEP</td>
+</tr>
+<tr class="row-even"><td colspan="2">Location : QL ROM</td>
+</tr>
+</tbody>
+</table>
+<p>This command allows you to access the QL&#8217;s rather poor sound generation
+chip. It can be extremely difficult to use this command, and a lot of
+trial and error will generally be needed before you can find anything
+similar to the sound you are after.</p>
+<p>BEEP without any parameters will turn off the sound altogether. You must
+also be aware of the fact that as soon as a BEEP command is encountered,
+the QL will cancel the current sound and emit the new one (whether or
+not the earlier sound had finished).</p>
+<p>Each of the various parameters have different ranges and different
+effects on the sound produced:</p>
+<ul>
+<li><p class="first">length This specifies the duration of the sound in 72 microsecond
+units (there are one million microseconds in a second). A length of
+zero means emit the sound until another BEEP command is encountered.
+The range is 0...32767 (a value of 32767 lasts for approximately 2.36
+seconds).</p>
+</li>
+<li><p class="first">pitch This affects the tone of the sound produced. The allowable
+range is 0...255. A pitch of 0 is the highest which can be produced,
+ranging to 255 which is the deepest tone. The purity of the sound
+will be affected if any other parameters are specified.</p>
+</li>
+<li><p class="first">pitch_2 This represents a second pitch level, which will have no
+effect if the tone is the same (or higher) than pitch. If however,
+the value of this parameter is higher (the tone is lower) than that
+of pitch, this specifies a range between which the sound can &#8216;bounce&#8217;
+by use of the next two parameters, creating a sequence of notes (the
+length of the sequence will depend on the length parameter).</p>
+</li>
+<li><p class="first">grd_x Assuming that the BEEP command is now being used to produce a
+sequence of notes, this parameter specifies the time interval (in 72
+microsecond units) of each note in the sequence. The permitted range
+is again 0...32767. Larger time intervals make each note in the
+sequence more distinct (low values tend to produce just buzzing).</p>
+</li>
+<li><p class="first">grd_y This parameter specifies the step between each note in the
+sequence. This must be in the range 0...15. However, this may make
+more sense if the correct range was said to be -7..8.</p>
+<p>A value of zero produces no step - you are returned to a single note
+again.</p>
+<p>A value between 1 and 7 means that each note will be that many
+pitches below the last one (unless that would bring the pitch below
+pitch_2).</p>
+<p>A value of 8 makes the BEEP command fit as many notes into the
+sequence (in the range) as possible.</p>
+<p>Values of 9 to 15 (or -7 to -1) mean that each note will be that many
+pitches above the last one (these correspond to the values 7 to 1
+respectively), unless this would bring the pitch above pitch. When
+the top or bottom of the range pitch to pitch_2 is reached, the step
+direction is reversed to cause the sound to &#8216;bounce&#8217;.</p>
+</li>
+<li><p class="first">wrap If this parameter is specified, the range of notes between the
+two pitch parameters will be repeated the specified number of times
+before the step direction is altered. The range for this parameter is
+0..15.</p>
+<p>The last note in the range will not be sounded, but will appear as
+the first note in the opposite direction.</p>
+</li>
+<li><p class="first">fuzzThis affects the purity of each note, by blurring its sound. The
+effective range is 8...15, with a value of 15 producing an awful
+buzz.</p>
+</li>
+<li><p class="first">rndomThis parameter allows you to specify a certain amount of
+&#8216;randomness&#8217; which is to be added to each note.</p>
+<p>The effective range is once again 8...15, with the given value being
+used to alter from how far away from the original sequence the QL can
+pick a note. The higher the value, the more random notes appear in
+the sequence.</p>
+</li>
+</ul>
+<p><strong>Examples</strong></p>
+<p>BEEP 0,20,40,10070,2</p>
+<p>will keep sounding every other note between 20 and 40 moving down and
+then up the scale.</p>
+<p>BEEP 0,20,30,10070,2,1</p>
+<p>will sound the notes in the following sequence 20, 22, 24, 26, 28, 20,
+22, 24, 26, 28, 30, 28, 26, 24, 22, 30, 28, 26,....</p>
+<p><strong>NOTE 1</strong></p>
+<p>On all ROMs if you set a very high pitch value, the QL finds it very
+difficult to read the keyboard. BEEP 0,0 and BEEP 0,1 will make typing
+rather difficult.</p>
+<p><strong>NOTE 2</strong></p>
+<p>Unless used on a THOR XVI, BEEP does not enter the QL into supervisor
+mode and therefore if BASIC is trying to use BEEP whilst a task is
+loaded or unloaded, then the system is likely to crash!</p>
+<p><strong>NOTE 3</strong></p>
+<p>BEEP does not do anything on ST/QLs or the Amiga-QDOS Emulator (pre
+v3.23).</p>
+<p><strong>NOTE 4</strong></p>
+<p>The pitch of the sound is actually shifted on QLs by different values of
+length, fuzz and rndom. The length of the sound is also somewhat
+dependent on the pitch! Both of these problems are however fixed by the
+replacement co-processor Hermes.</p>
+<p><strong>CROSS-REFERENCE</strong></p>
+<p><a class="reference external" href="KeywordsB.html#BEEPING">BEEPING</a> allows you to check if a sound is
+currently being emitted.</p>
+<p><a class="reference external" href="KeywordsP.html#PAUSE">PAUSE</a> allows you to specify a time interval
+during which the computer will wait (allowing you to play much longer
+notes).</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="beeping">
+<h2>BEEPING<a class="headerlink" href="#beeping" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>BEEPING</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>QL ROM</td>
+</tr>
+</tbody>
+</table>
+<p>This is a simple function which returns either 1 (true) if any sound
+output from BEEP is still running or 0 (false) if not.</p>
+<p><strong>Example</strong></p>
+<p>BEEPING is rather useless in a formulation like: IF BEEPING THEN BEEP</p>
+<p>because this is less efficient than BEEP on its own which has the same
+effect. However, where you want to ensure that your program generates
+the chosen sound, because of the QL&#8217;s multi-tasking abilities, it may be
+useful to use this function in case another program is executing a BEEP
+command when you want to - you could then either wait or simply override
+that sound by using BEEP followed by your own sound generating BEEP
+command. For example:</p>
+<div class="highlight-python"><div class="highlight"><pre>10 REPeat check_beep: IF NOT BEEPING THEN EXIT check_beep
+20 BEEP 100,20
+</pre></div>
+</div>
+<p><strong>NOTE</strong></p>
+<p>This function did not work correctly on Minerva before v1.98.</p>
+<p><strong>CROSS-REFERENCE</strong></p>
+<p><a class="reference external" href="KeywordsB.html#BEEP">BEEP</a> activates the speaker.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="bell">
+<h2>BELL<a class="headerlink" href="#bell" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>BELL</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>ST/QL, QSound</td>
+</tr>
+</tbody>
+</table>
+<p>This command produces the sound of a ringing phone.</p>
+<p><strong>CROSS-REFERENCE</strong></p>
+<p><a class="reference external" href="KeywordsS.html#SND_EXT">SND_EXT</a>, <a class="reference external" href="KeywordsS.html#SHOOT">SHOOT</a>,
+<a class="reference external" href="KeywordsE.html#EXPLODE">EXPLODE</a>.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="beule-ext">
+<h2>Beule_EXT<a class="headerlink" href="#beule-ext" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>Beule_EXT</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>Beuletools</td>
+</tr>
+</tbody>
+</table>
+<p>This command is used to update all of the keywords which are added by
+the Beuletools Toolkit. The new keywords were automatically added when
+the Toolkit was loaded but keywords can be overwritten by other
+Toolkits, renamed or ZAPped.</p>
+<p>Beule_EXT undoes these changes and restores the default status.</p>
+<p><strong>WARNING</strong></p>
+<p>Do not load the Beuletools toolkit into anything other than resident
+procedure memory (ie. do not have any Jobs running other than Job 0 when
+the toolkit is loaded). This may crash the system.</p>
+<p><strong>CROSS-REFERENCE</strong></p>
+<p><a class="reference external" href="KeywordsT.html#TK2_EXT">TK2_EXT</a> and
+<a class="reference external" href="KeywordsT.html#TINY_EXT">TINY_EXT</a> do the same for Toolkit II and
+TinyToolkit keywords.</p>
+<p>See also <a class="reference external" href="KeywordsA.html#ATARI_EXT">ATARI_EXT</a>.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="bgcolour-ql">
+<h2>BGCOLOUR_QL<a class="headerlink" href="#bgcolour-ql" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>BGCOLOUR_QL [#ch,] colour</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>SMSQ/E v2.98+</td>
+</tr>
+</tbody>
+</table>
+<p>It is possible under the latest version of SMSQ/E to set a &#8216;wallpaper&#8217; -
+this is an image which covers the whole of the available screen (in any
+resolution) and which forms a background for any programs which may be
+running. Normally, this would appear as a black area of the screen.</p>
+<p>A valid window channel must be open, default #1 (or #0 on a SBASIC with
+only #0 open), although one may also be supplied as #ch. BGCOLOUR_QL
+allows you to specify any standard QL colour - the parameters allowed
+are the same as for the INK command (in either Standard QL Colour Mode
+or COLOUR_QL mode), which thus allows for you to specify composite
+colours as well as palette mapped colours with PALETTE_QL.</p>
+<p><strong>Example</strong></p>
+<p>BGCOLOUR_QL 2,7 - sets a red and white checkerboard pattern.</p>
+<p><strong>CROSS-REFERENCE</strong></p>
+<p>Refer to Appendix 16 and <a class="reference external" href="KeywordsI.html#INK">INK</a> for more details
+on colours.</p>
+<p><a class="reference external" href="KeywordsB.html#BGCOLOUR_24">BGCOLOUR_24</a> is similar.</p>
+<p><a class="reference external" href="KeywordsB.html#BGIMAGE">BGIMAGE</a> may be used to set a screen image
+as the wallpaper.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="bgcolour-24">
+<h2>BGCOLOUR_24<a class="headerlink" href="#bgcolour-24" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>BGCOLOUR_24 [#ch,] colour</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>SMSQ/E v2.98+</td>
+</tr>
+</tbody>
+</table>
+<p>This is similar to BGCOLOUR_QL in that it allows you to set a wallpaper
+to cover the whole of the available screen (in any resolution).</p>
+<p>A valid window channel must be open, default #1 (or #0 on a SBASIC with
+only #0 open), although one may also be supplied as #ch.</p>
+<p>BGCOLOUR_24 allows you to specify any 24 Bit Colour - the parameters
+allowed are the same as for the INK command (in COLOUR_24 mode), which
+thus allows for you to specify composite colours.</p>
+<p><strong>Example</strong></p>
+<p>BGCOLOUR_24 $920000,$ff0092,3 -sets a checkerboard pattern of Dark Red
+and Shocking Pink.</p>
+<p><strong>CROSS-REFERENCE</strong></p>
+<p>Refer to Appendix 16 and <a class="reference external" href="KeywordsI.html#INK">INK</a> for more details
+on colours.</p>
+<p><a class="reference external" href="KeywordsB.html#BGCOLOUR_QL">BGCOLOUR_QL</a> gives more detail.</p>
+<p><a class="reference external" href="KeywordsB.html#BGIMAGE">BGIMAGE</a> may be used to set a screen image
+as the wallpaper.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="bget">
+<h2>BGET<a class="headerlink" href="#bget" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="88%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>BGET [#ch\position,] [item <sup>*</sup>[,item<sup>i</sup>]<sup>*</sup> ..] or
+BGET [#ch,] [item</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>Toolkit II, THOR XVI</td>
+</tr>
+</tbody>
+</table>
+<p>This command is very similar to GET, although this only fetches one byte
+at a time (in the range 0..255) from the given channel (default #3).</p>
+<p>Each item to be fetched must therefore be either an integer or a
+floating point variable, for example: BGET #3\100,byte1%,keying</p>
+<p>If the channel specified is not a file, then the command will wait for a
+key to be pressed for each item, and then set the value of each item to
+the character code of the key pressed.</p>
+<p>As with GET, the items will be fetched from the current (or specified)
+file position, which is taken to be an absolute distance from the start
+of the file. If no item is specified, then the first variant can be used
+to set the current file position. position will be updated (unless it is
+an expression!) with the current file position at the end of the
+command.</p>
+<p><strong>Examples</strong></p>
+<p>BGET #3\100 Set file pointer on #3 to position 100.</p>
+<p>BGET a% Read the byte at the current file pointer in channel #3.</p>
+<p><strong>NOTE 1</strong></p>
+<p>Current versions of the Turbo and Supercharge compilers are not able to
+compile programs which use BGET.</p>
+<p><strong>NOTE 2</strong></p>
+<p>Characters which are read from a channel using BGET are affected by TRA.</p>
+<p><strong>SMS NOTE</strong></p>
+<p>BGET will accept a parameter which is a sub-string of a string array to
+read in several bytes at once. For example:</p>
+<p>DIM a$(10):a$=FILL$(&#8216; &#8216;,10):BGET #3,a$(4 to 7)</p>
+<p>This will read 4 bytes from channel #3 into the middle of a$.</p>
+<p>Please note that a$ cannot be an empty string if this is to work since
+the sub-string would not be valid!!</p>
+<p><strong>CROSS-REFERENCE</strong></p>
+<p>See <a class="reference external" href="KeywordsB.html#BPUT">BPUT</a>, <a class="reference external" href="KeywordsP.html#PUT">PUT</a>,
+<a class="reference external" href="KeywordsG.html#GET">GET</a>. <a class="reference external" href="KeywordsF.html#FPOS">FPOS</a> allows you
+to find out the current file position.
+<a class="reference external" href="KeywordsT.html#TRUNCATE">TRUNCATE</a> allows you to truncate a file to
+the current file position. <a class="reference external" href="KeywordsP.html#PEEK">PEEK</a> fetches one
+byte from memory.</p>
+<p><a class="reference external" href="KeywordsO.html#OPEN_DIR">OPEN_DIR</a> contains an example of the use
+of <a class="reference external" href="KeywordsB.html#BGET">BGET</a>.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="bgimage">
+<h2>BGIMAGE<a class="headerlink" href="#bgimage" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>BGIMAGE [#ch,] filename</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>SMSQ/E v2.98+</td>
+</tr>
+</tbody>
+</table>
+<p>This command allows you to load a screen image as a wallpaper to cover
+the whole of the available screen (in any resolution).</p>
+<p>A valid window channel must be open, default #1 (or #0 on a SBASIC with
+only #0 open), although one may also be supplied as #ch.</p>
+<p>The file will need to be a screen snapshot - the Photon JPEG viewer can
+be used to convert JPEG files to screen snapshots.</p>
+<p><strong>Example</strong></p>
+<p>BGIMAGE win1_wallpapers_cats - load a wallpaper.</p>
+<p><strong>NOTE</strong></p>
+<p>The command expects the screen to have been saved in the current
+resolution and colour depth, therefore any attempt to load a screen
+image in a different resolution or colour depth to the one in existence
+when the screen was saved will result in a corrupt image.</p>
+<p><strong>CROSS-REFERENCE</strong></p>
+<p><a class="reference external" href="KeywordsS.html#SBYTES">SBYTES</a> gives details on how to store a
+screen on disk.</p>
+<p>In many ways, this command is similar to
+<a class="reference external" href="KeywordsL.html#LOADPIC">LOADPIC</a>, except that it caters for
+non-standard QL resolutions and colour depths.</p>
+<p><a class="reference external" href="KeywordsB.html#BGCOLOUR_QL">BGCOLOUR_QL</a> and
+<a class="reference external" href="KeywordsB.html#BGCOLOUR_24">BGCOLOUR_24</a> can be used to set a
+single colour wallpaper.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="bicop">
+<h2>BICOP<a class="headerlink" href="#bicop" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>BICOP</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>HCO</td>
+</tr>
+</tbody>
+</table>
+<p>This procedure will send a screen dump to the port ser1hr - it is aimed
+at Epson compatible dot-matrix printers and uses grey scales to
+represent the different colours. It is up to you to set the BAUD rate.</p>
+<p><strong>NOTE</strong></p>
+<p>It will only work on a standard 512x256 screen stored at $20000.</p>
+<p><strong>CROSS-REFERENCE</strong></p>
+<p><a class="reference external" href="KeywordsS.html#SDUMP">SDUMP</a> is more flexible.</p>
+<p>See also <a class="reference external" href="KeywordsH.html#HCO">HCO</a> and <a class="reference external" href="KeywordsF.html#FCO">FCO</a>.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="bin">
+<h2>BIN<a class="headerlink" href="#bin" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>BIN (binary$)  or BIN (binary) where binary=0..111111</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>Toolkit II, THOR XVI</td>
+</tr>
+</tbody>
+</table>
+<p>This function returns the decimal value of a binary number (given as a
+string). For small numbers, a floating point number can be used but will
+cause problems if this is not a valid binary number.</p>
+<p><strong>Examples</strong></p>
+<ol class="arabic simple">
+<li>PRINT BIN ( &#8216;1001&#8217; )</li>
+</ol>
+<p>will print the value 9</p>
+<ol class="arabic simple" start="2">
+<li>As it stands, the function BIN cannot handle binary dots</li>
+</ol>
+<p>(eg. 1001.101=9.625), therefore a BASIC function to provide this
+facility is:</p>
+<div class="highlight-python"><div class="highlight"><pre>100 DEFine FuNction BINN(a$)
+110   LOCal i,dot,dota,value_a,loop
+120   IF a$=&#39;&#39; THEN RETurn 0
+130   FOR i=1 TO LEN(a$): IF a$(i) INSTR &#39;10.&#39;=0: REPORT -17: STOP
+140   dot=&#39;.&#39; INSTR a$: IF dot=0 THEN RETurn BIN(a$)
+150   value_a=0:dota=0
+160   IF dot&gt;1 THEN value_a=value_a+BIN(a$(1 TO dot-1))
+170   IF &#39;.&#39; INSTR a$(dot+1 TO ): REPORT -17: STOP
+180   REPeat loop
+190     IF dot&gt;=LEN(a$):EXIT loop
+200     a$=a$(dot+1 TO )
+210     dot=&#39;1&#39; INSTR a$: IF NOT dot THEN EXIT loop
+220     value_a=value_a+1/(2^(dot+dota)):dota=dota+dot
+230   END REPeat loop
+240   RETurn value_a
+250 END DEFine BINN
+</pre></div>
+</div>
+<p><strong>NOTE</strong></p>
+<p>Any digit other than 0 or 1 will produce odd results.</p>
+<p><strong>CROSS-REFERENCE</strong></p>
+<p><a class="reference external" href="KeywordsB.html#BIN$">BIN$</a> works the other way around, converting
+decimal numbers into their binary equivalent. See
+<a class="reference external" href="KeywordsH.html#HEX">HEX</a> and <a class="reference external" href="KeywordsH.html#HEX$">HEX$</a> for the
+hexadecimal versions. <a class="reference external" href="KeywordsB.html#BIT%">BIT%</a> is also useful.</p>
+<p>SMS users can achieve the same thing by using, for example <a class="reference external" href="KeywordsP.html#PRINT%20%1001">PRINT
+%1001</a> instead of <a class="reference external" href="KeywordsP.html#PRINT%20BIN%20('1001')">PRINT BIN
+(&#8216;1001&#8217;)</a>.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="id4">
+<h2>BIN$<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>BIN$ (decimal,digits)  or BIN$ (decimal [,digits]) (THOR only)</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>Toolkit II, THOR XVI</td>
+</tr>
+</tbody>
+</table>
+<p>This function converts a signed integer decimal number to the equivalent
+binary number (to a specified number of binary digits ranging from 1 to
+32). Negative values are also handled correctly.</p>
+<p><strong>Examples</strong></p>
+<ol class="arabic simple">
+<li>BIN (BIN$ (x,4)) = x</li>
+</ol>
+<p>if x is any number between 0 and 15.</p>
+<p>(2) A short function to compare two numbers using the mathematical &#8216;OR&#8217;
+function. Do note however that the same function already exists on the
+QL, and the commands</p>
+<p>PRINT 100||10 and PRINT _or(100,10) have exactly the same effect,
+although the BASIC version below does enable you to see what the
+function actually does:</p>
+<div class="highlight-python"><div class="highlight"><pre>100 DEFine FuNction _or(x,y)
+110  a$=BIN$(x,32): b$=BIN$(y,32)
+115  PRINT a$,b$
+120  c$=FILL$(&#39;0&#39;,32)
+130  FOR i=1 TO 32
+140    IF a$(i)=1 OR b$(i)=1: c$(i)=1
+150  END FOR i
+155  PRINT c$
+160  RETurn BIN(c$)
+170 END DEFine _or
+</pre></div>
+</div>
+<p><strong>THOR XVI NOTE</strong></p>
+<p>The THOR XVI version of BIN$ will accept a value of zero for digits {or
+even the command in the form BIN$(decimal)}. In both of these cases the
+result is returned in the least number of Binary digits necessary to
+store the number, for example: PRINT BIN$(10)gives the result 1010.</p>
+<p><strong>THOR XVI WARNING</strong></p>
+<p>A second parameter of zero may crash some versions of this command other
+than on v6.41 of the THOR XVI.</p>
+<p><strong>CROSS-REFERENCE</strong></p>
+<p>See <a class="reference external" href="KeywordsB.html#BIN">BIN</a> and <a class="reference external" href="KeywordsH.html#HEX">HEX</a>,
+<a class="reference external" href="KeywordsH.html#HEX$">HEX$</a>. Also refer to
+<a class="reference external" href="KeywordsB.html#BIT%">BIT%</a>.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="binom">
+<h2>BINOM<a class="headerlink" href="#binom" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>BINOM (n,k)</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>Math Package</td>
+</tr>
+</tbody>
+</table>
+<p>The function BINOM returns the value of the binomial coefficient which
+is defined as the following (where n &gt;= k):</p>
+<p>n * (n - 1) * (n - 2) * ... * (n - k + 1) ) / ( 1 * 2 * ... * k )
+or, FACT(n) / ( FACT(k) * FACT(n-k) )</p>
+<p>The binomial coefficient gives the kth coefficient of the variables in
+an expanded binomial series, this is called the binomial theorem:</p>
+<p>(a+b)^n = BINOM(n,0) * a^n + BINOM(n,1) * a^(n-1) * b + BINOM(n,2) *
+a^(n-2) * b^2 + ... + BINOM(n,n-1) * a * b^(n-1) + BINOM(n,n) * b^n</p>
+<p>The binomial coefficient can also be used to calculate combinations and
+probabilities. As the example shows, it is important to know the
+mathematical theory behind this function to make full use of it.</p>
+<p><strong>Example</strong></p>
+<p>The following program calculates 2<sup>n</sup>:</p>
+<div class="highlight-python"><div class="highlight"><pre>100 n=10: s=0
+110 FOR k=0 TO n: s=s+BINOM(n,k)
+120 PRINT s,2^n
+</pre></div>
+</div>
+<p>It can be optimised by exploiting the fact that:</p>
+<p>BINOM (n,k) = BINOM (n,n-k) which saves half of the loops:</p>
+<div class="highlight-python"><div class="highlight"><pre>100 n=10
+110 IF NOT n MOD 2 THEN s=BINOM(n,n DIV 2): ELSE s=0
+120 FOR k=0 TO n DIV 2 - NOT n MOD 2
+130   s=s+2*BINOM(n,k)
+140 END FOR k
+150 PRINT s,2^n
+</pre></div>
+</div>
+<p><strong>CROSS-REFERENCE</strong></p>
+<p><a class="reference external" href="KeywordsF.html#FACT">FACT</a></p>
+<p>` &lt;KeywordsF.html#FACT&gt;`__</p>
+<p>` &lt;KeywordsF.html#FACT&gt;`__</p>
+<p>` &lt;KeywordsF.html#FACT&gt;`__</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="bit">
+<h2>BIT%<a class="headerlink" href="#bit" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="16%" />
+<col width="84%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>BIT% (number%,bitnr) with bitnr=0..15</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>BIT</td>
+</tr>
+</tbody>
+</table>
+<p>All numbers are internally stored as a series of values, each of which
+can either be 1 or 0 (or, if you prefer, true or false). This is known
+as the binary system. The set of digits which make up a binary number
+are known as a stream of bits.</p>
+<p>The function BIT% returns the status of a specified bit of an integer
+number%, a value of either 0 or 1. Bit 0 means the rightmost bit,
+whereas bit 15 would be the leftmost.</p>
+<p><strong>Example 1</strong></p>
+<p>Here is a function which converts a number to the binary
+system. It allows a greater range than BIN$ and needs just one
+parameter. The first version needs the REV$ and LOG2 extensions, the
+second does not.</p>
+<p>Version 1:</p>
+<div class="highlight-python"><div class="highlight"><pre>100 DEFine FuNction BIT$ (x%)
+110  LOCal b$,i: b$=&quot;&quot;
+120  FOR i=0 TO LOG2(ABS(x%)):b$=b$ &amp; BIT%(x%,i)
+130  RETurn REV$(b$)
+140 END DEFine BIT$
+</pre></div>
+</div>
+<p>Version 2:</p>
+<div class="highlight-python"><div class="highlight"><pre>100 DEFine FuNction BIT$ (x%)
+110  LOCal b$,i: b$=&quot;&quot;
+120  FOR i=0 TO LN(ABS(x%))/LN(2): b$=BIT%(x%,i) &amp; b$
+130  RETurn b$
+140 END DEFine BIT$
+</pre></div>
+</div>
+<p><strong>Example 2</strong></p>
+<p>The following logical function returns 1 (true) if the given parameter
+was an upper case character, or 0 (false) if it was lower case. This
+function will work with all international character sets supported on
+the original QL.</p>
+<div class="highlight-python"><div class="highlight"><pre>100 DEFine FuNction UPPER% (c$)
+110  RETurn NOT BIT%(CODE(c$),5) ^^ BIT%(CODE(c$),7)
+120 END DEFine UPPER%
+</pre></div>
+</div>
+<p>In any given character, bit 5 indicates the case and bit 7 the character
+set.</p>
+<p><strong>CROSS-REFERENCE</strong></p>
+<p><a class="reference external" href="KeywordsB.html#BIN$">BIN$</a> also converts a decimal number to a
+binary and <a class="reference external" href="KeywordsB.html#BIN">BIN</a> back again.
+<a class="reference external" href="KeywordsU.html#UPPER$">UPPER$</a> returns a string in upper characters.</p>
+<p>The length of a number x in binary form is <a class="reference external" href="KeywordsI.html#INT%20(LOG2%20(ABS%20(x))+1)">INT (LOG2 (ABS
+(x))+1)</a>.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="bld">
+<h2>BLD<a class="headerlink" href="#bld" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>BLD</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>Beuletools</td>
+</tr>
+</tbody>
+</table>
+<p>This function returns the control codes needed to switch on double
+strike (&#8216;bold&#8217;) on an EPSON compatible printer:</p>
+<p>PRINT BLD is the same as PRINT CHR$(27)&amp;&#8221;G&#8221;</p>
+<p><strong>Example</strong></p>
+<p>LPRINT &#8220;I &#8221; &amp; BLD&amp;&#8221;hate&#8221;&amp;NRM &amp; &#8221; these functions.&#8221;</p>
+<p><strong>CROSS-REFERENCE</strong></p>
+<p><a class="reference external" href="KeywordsN.html#NORM">NORM</a>, <a class="reference external" href="KeywordsE.html#EL">EL</a>,
+<a class="reference external" href="KeywordsD.html#DBL">DBL</a>, <a class="reference external" href="KeywordsE.html#ENL">ENL</a>,
+<a class="reference external" href="KeywordsP.html#PRO">PRO</a>, <a class="reference external" href="KeywordsS.html#SI">SI</a>,
+<a class="reference external" href="KeywordsN.html#NRM">NRM</a>, <a class="reference external" href="KeywordsU.html#UNL">UNL</a>,
+<a class="reference external" href="KeywordsA.html#ALT">ALT</a>, <a class="reference external" href="KeywordsE.html#ESC">ESC</a>,
+<a class="reference external" href="KeywordsF.html#FF">FF</a>, <a class="reference external" href="KeywordsL.html#LMAR">LMAR</a>,
+<a class="reference external" href="KeywordsR.html#RMAR">RMAR</a>, <a class="reference external" href="KeywordsP.html#PAGDIS">PAGDIS</a>,
+<a class="reference external" href="KeywordsP.html#PAGLEN">PAGLEN</a>.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="block">
+<h2>BLOCK<a class="headerlink" href="#block" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>BLOCK [#channel,] width, height, x, y, colour</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>QL ROM</td>
+</tr>
+</tbody>
+</table>
+<p>This command draws a block of size width x height at position x,y of the
+given colour in the specified window (default #1). Both the position and
+the block size are given in absolute pixel co-ordinates, with the
+maximum ranges specified by the physical size of the window.</p>
+<p>This means that for example, in a window which is defined as
+448x200a32x16, the maximum block which can be drawn is a block of size
+448 x 200 in position (0,0). You can also use OVER to produce other
+effects with BLOCK.</p>
+<p>As with other graphics commands, the colour can be made up of up to
+three parameters, giving the background, contrast and stipple pattern
+(composite colours).</p>
+<p><strong>Example</strong></p>
+<p>A program printing out the set of numbers 1 to 100 and then quickly
+recolouring the two halves of the window:</p>
+<div class="highlight-python"><div class="highlight"><pre>100 WINDOW 300,60,102,56
+110 PAPER 0: CLS
+120 FOR i=1 TO 100: PRINT !i!
+130 OVER -1
+140 BLOCK 150,60,0,0,7
+150 BLOCK 150,60,150,0,2
+160 OVER 0
+</pre></div>
+</div>
+<p><strong>NOTE 1</strong></p>
+<p>Some ROMs (not SMS) will allow you to specify blocks which lie partly
+outside of a window without reporting the error &#8216;Out of Range&#8217;. However,
+this can also crash some ROMs!</p>
+<p><strong>NOTE 2</strong></p>
+<p>Odd values for width and x are always rounded down to an even number
+(eg. 23 pixels wide becomes 22 pixels). This is to ensure compatibility
+between MODE 4 and MODE 8. The only problem is that you cannot specify a
+block one pixel wide, or even have a gap of one pixel between two
+blocks.</p>
+<p><strong>NOTE 3</strong></p>
+<p>Unless you have a Minerva ROM or SMS, you cannot draw a block 512 pixels
+wide - you need to use two adjacent blocks instead!</p>
+<p><strong>NOTE 4</strong></p>
+<p>BLOCK provides an extremely quick way of drawing horizontal or vertical
+lines on screen.</p>
+<p><strong>MINERVA NOTE</strong></p>
+<p>Early versions of Minerva (pre v1.83) contained code to ensure that the
+given block would appear wholly within the specified window. However,
+later versions had to be altered to ensure compatibility with certain
+programs. These later versions allow width, height, x and y to be within
+the range -32768...32767 - only that part of the block (if any) which
+appears in the given window will be drawn!</p>
+<p>For example:</p>
+<p>BLOCK 200,10,-20,255,7 has the same effect as:</p>
+<p>BLOCK 180,1,0,255,7</p>
+<p><strong>CROSS-REFERENCE</strong></p>
+<p><a class="reference external" href="KeywordsI.html#INK">INK</a> contains information concerning composite
+colours.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="blook">
+<h2>BLOOK<a class="headerlink" href="#blook" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>BLOOK (tofind$, adr1 TO adr2)</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>HCO</td>
+</tr>
+</tbody>
+</table>
+<p>See SEARCH but note the different syntax. The string being looked for by
+BLOOK is not case-sensitive.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="bls">
+<h2>BLS<a class="headerlink" href="#bls" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>BLS time%</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>SERMouse</td>
+</tr>
+</tbody>
+</table>
+<p>This command sets up a job which will blank the screen after a certain
+amount of time if a key is not pressed or the mouse not moved. The delay
+depends on the value of time% (1-20 = seconds), (21-59 = minutes).</p>
+<p>To turn off this function, use time%=0.</p>
+<p>Pressing a key or moving the mouse will reactivate the screen.</p>
+<p><strong>CROSS-REFERENCE</strong></p>
+<p>See <a class="reference external" href="KeywordsA.html#A_BLANK">A_BLANK</a>.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="bmove">
+<h2>BMOVE<a class="headerlink" href="#bmove" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>BMOVE adr1a, adr1b, adr2</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>HCO</td>
+</tr>
+</tbody>
+</table>
+<p>BMOVE is a procedure which copies the whole of the memory stored between
+the two addresses adr1a and adr1b to the new address pointed to by adr2,
+so the number of bytes moved is adr1b-adr1a.</p>
+<p><strong>Example</strong></p>
+<p>Dump some memory to screen (note that this only works with the screen at
+131072 and at 512 x 256 resolution):</p>
+<div class="highlight-python"><div class="highlight"><pre>100 FOR a = 0 TO 10240 STEP 128
+110   BMOVE a, a+HEX(&quot;8000&quot;) TO HEX(&quot;20000&quot;)
+120 END FOR a
+</pre></div>
+</div>
+<p><strong>WARNING</strong></p>
+<p>Always ensure that there is sufficient available free memory at adr2 to
+hold the data from adr1a to adr1b, otherwise your machine is most likely
+to crash.</p>
+<p><strong>CROSS-REFERENCE</strong></p>
+<p>It is a good idea to check with <a class="reference external" href="KeywordsV.html#VER$">VER$</a> if
+Minerva is present and use its extremely fast MM.MOVE machine code trap
+via <a class="reference external" href="KeywordsC.html#CALL">CALL</a> as an alternative to
+<a class="reference external" href="KeywordsB.html#BMOVE">BMOVE</a>; this is demonstrated by the example at
+<a class="reference external" href="KeywordsL.html#LDRAW">LDRAW</a>.</p>
+<p><a class="reference external" href="KeywordsC.html#COPY_B">COPY_B</a>,
+<a class="reference external" href="KeywordsT.html#TTPOKEM">TTPOKEM</a>,
+<a class="reference external" href="KeywordsC.html#COPY_W">COPY_W</a> and
+<a class="reference external" href="KeywordsC.html#COPY_L">COPY_L</a> also allow you to move memory.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="border">
+<h2>BORDER<a class="headerlink" href="#border" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>BORDER [#channel,] size [,colour] or
+BORDER [#channel] Location: QL ROM</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>QL ROM</td>
+</tr>
+</tbody>
+</table>
+<p>This command allows you to add a coloured border around the inside of
+the edge of the specified window (default #1). If the second syntax is
+used, this will turn off the border on the specified window - this is
+the same as:</p>
+<p>BORDER [#channel,] 0</p>
+<p>If a border is present around the window, the physical size of the
+window is altered, so that PRINT and LINE commands (for instance) will
+not overwrite the border. Please note however, that the window is reset
+to its original size prior to a BORDER command and therefore two
+successive border commands only have the same effect as the second
+BORDER command on its own.</p>
+<p>If the specified size is too large to fit in the given window, the error
+&#8216;Out of Range&#8217; will be reported.</p>
+<p>As with other graphics commands, colour can actually be up to three
+parameters forming a composite colour.</p>
+<p>For example: BORDER #2,2,4</p>
+<p>has the same effect as BORDER #2,2,4,4,3</p>
+<p>or even BORDER #2,2,4,4</p>
+<p>If no value is given for colour a transparent border will be added to
+the given window. This means that a border will be created, but anything
+which already appears in that border will not be affected.</p>
+<p>Once the border has been re-drawn the cursor is automatically placed at
+the top left hand position (0,0) just inside the border.</p>
+<p><strong>Examples</strong></p>
+<p>To produce a screen with a title, allowing you to scroll</p>
+<p>text and do all sorts on the screen without affecting the title:</p>
+<div class="highlight-python"><div class="highlight"><pre>100 MODE 4
+110 WINDOW 448,200,32,16
+120 PAPER 0: BORDER 0 : CLS
+130 AT 0,30: PRINT &quot;THE TITLE PAGE&quot;
+140 BORDER 9
+150 PAPER 2:CLS
+</pre></div>
+</div>
+<p>To produce a &#8216;take-off&#8217; effect:</p>
+<div class="highlight-python"><div class="highlight"><pre>100 MODE 8
+110 WINDOW 448,200,32,16
+120 FOR i=1 TO 99
+130   BORDER i,2
+140 END FOR i
+</pre></div>
+</div>
+<p><strong>NOTE 1</strong></p>
+<p>If a border appears in a window, there is always a width of at least two
+pixels down the sides to ensure that the border will appear in MODE 8.
+Take the width value and if it is odd, add one for the width down the
+sides of the window.</p>
+<p><strong>NOTE 2</strong></p>
+<p>The second syntax will not work on Minerva (pre v1.79) and the THOR XVI
+- you will need to specify a width of zero instead.</p>
+<p><strong>CROSS-REFERENCE</strong></p>
+<p><a class="reference external" href="KeywordsI.html#INK">INK</a> describes composite colours.</p>
+<p>Also see <a class="reference external" href="KeywordsW.html#WINDOW">WINDOW</a>.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="bpeek">
+<h2>BPEEK%<a class="headerlink" href="#bpeek" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="bpeek-w">
+<h2>BPEEK_W%<a class="headerlink" href="#bpeek-w" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="bpeek-l">
+<h2>BPEEK_L<a class="headerlink" href="#bpeek-l" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>BPEEK% (offset)    and
+BPEEK_W% (offset) and
+BPEEK_L (offset)</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>BPEEKS, BPOKE (DIY Toolkit - Vol B)</td>
+</tr>
+</tbody>
+</table>
+<p>These three functions are exactly the same as BASIC_B, BASIC_W and
+BASIC_W, and suffer with the same problem that they always access the
+SuperBASIC variables of Job 0 (SuperBASIC) and cannot therefore be used
+on a Multiple BASIC interpreter.</p>
+<p><strong>CROSS-REFERENCE</strong></p>
+<p>See <a class="reference external" href="KeywordsB.html#BASIC_W">BASIC_W</a> and
+<a class="reference external" href="KeywordsB.html#BASIC">BASIC</a>.</p>
+<p><a class="reference external" href="KeywordsB.html#BPOKE">BPOKE</a> and related commands allow you to alter
+the values of the SuperBASIC variables.</p>
+</div>
+<div class="section" id="bpoke">
+<h2>BPOKE<a class="headerlink" href="#bpoke" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="bpoke-w">
+<h2>BPOKE_W<a class="headerlink" href="#bpoke-w" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="bpoke-l">
+<h2>BPOKE_L<a class="headerlink" href="#bpoke-l" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="77%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>BPOKE offset, value   and
+BPOKE_W offset, value
+BPOKE_L offset, value</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>BPOKE (DIY Toolkit - Vol B)</td>
+</tr>
+</tbody>
+</table>
+<p>These three commands allow you to alter the value of SuperBASIC
+variables in much the same was as the extended POKE commands do on
+Minerva and SMS.</p>
+<p>BPOKE_W and BPOKE_L were added in v0.7 of the toolkit.</p>
+<p>They unfortunately always access the SuperBASIC variables of Job 0
+(SuperBASIC) and cannot therefore be used on a Multiple BASIC
+interpreter.</p>
+<p><strong>CROSS-REFERENCE</strong></p>
+<p>See <a class="reference external" href="KeywordsP.html#POKE">POKE</a>.</p>
+<p><a class="reference external" href="KeywordsB.html#BPEEK%">BPEEK%</a> and related commands allow you to
+read the values of the SuperBASIC variables.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="bput">
+<h2>BPUT<a class="headerlink" href="#bput" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="88%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>BPUT [#ch\position,] [item <sup>*</sup>[,item<sup>i</sup>]<sup>*</sup> ..] or
+BPUT [#ch,] [item</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>Toolkit II, THOR XVI</td>
+</tr>
+</tbody>
+</table>
+<p>This command is the complement to BGET, in that it places the byte value
+for each item into the specified channel (default #3) at the current
+file position (or the specified position if the first variant is used).</p>
+<p>If the value of item is outside the range 0...255, an overflow error
+will result, whereas if item is not an integer or floating point number,
+then an error in expression will result. On the other hand, if a
+non-integer floating point is given as an item, then the value will be
+rounded to the nearest integer and this placed into the given channel.</p>
+<p>Provided that the second variant of this command is used, the specified
+channel need not be open to a file, in which case each item is taken as
+being a character, for example: BPUT #2,72,101,108,108,111</p>
+<p>will print the word Hello in channel #2. This can of course be used to
+send control codes to a printer much more easily than the PRINT command.</p>
+<p>For example:</p>
+<p>BPUT #3,27,70</p>
+<p>is a lot easier to understand than:</p>
+<p>PRINT #3,CHR$(27)&amp;&#8217;F&#8217;</p>
+<p>to switch off emphasised mode.</p>
+<p>As with BGET, if no item is specified, then the first variant can be
+used to set the current file position. position will also be updated at
+the end of the command to contain the current file pointer.</p>
+<p><strong>Example</strong></p>
+<p>BPUT #ch,4.5,&#8216;100&#8217;,52,a+1</p>
+<p>places the values 5,100,52 and (a+1) at the current file position.</p>
+<p><strong>NOTE</strong></p>
+<p>The codes sent by BPUT are affected by any translate that is active (see
+TRA).</p>
+<p><strong>SMS NOTE</strong></p>
+<p>BPUT will now accept string parameters to allow you to pass several
+bytes at a time, for example: a$=&#8217;Hello&#8217;:BPUT #3,a$</p>
+<p>is equivalent to: BPUT #2,72,101,108,108,111</p>
+<p><strong>CROSS-REFERENCE</strong></p>
+<p>See <a class="reference external" href="KeywordsF.html#FGETB">FGETB</a>, <a class="reference external" href="KeywordsB.html#BPUT">BPUT</a>,
+<a class="reference external" href="KeywordsP.html#PUT">PUT</a>, <a class="reference external" href="KeywordsG.html#GET">GET</a>,
+<a class="reference external" href="KeywordsL.html#LPUT">LPUT</a>, <a class="reference external" href="KeywordsU.html#UPUT">UPUT</a> and
+<a class="reference external" href="KeywordsW.html#WPUT">WPUT</a>.</p>
+<p><a class="reference external" href="KeywordsF.html#FPOS">FPOS</a> allows you to find the current file
+position.</p>
+<p><a class="reference external" href="KeywordsT.html#TRUNCATE">TRUNCATE</a> allows you to truncate a file to
+the current file position.</p>
+<p><a class="reference external" href="KeywordsP.html#PEEK">PEEK</a> fetches one byte from memory.</p>
+<p><a class="reference external" href="KeywordsU.html#UPUT">UPUT</a> allows you to send bytes without them
+being translated.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="break-on">
+<h2>BREAK_ON<a class="headerlink" href="#break-on" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="break-off">
+<h2>BREAK_OFF<a class="headerlink" href="#break-off" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="40%" />
+<col width="60%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>BREAK_ON
+BREAK_OFF</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>TinyToolkit</td>
+</tr>
+</tbody>
+</table>
+<p>The command BREAK_OFF de-activates the functioning of both
+&lt;CTRL&gt;&lt;SPACE&gt; (the Break Key) and &lt;CTRL&gt;&lt;F5&gt; (the Pause Screen key)
+during the running of interpreted SuperBASIC programs so that they
+cannot be stopped by the user unless they stop either due to an error or
+a STOP command.</p>
+<p>The command BREAK_ON reactivates both keys.</p>
+<p>The function BREAK returns the current status:</p>
+<p>IF BREAK=1 means the Break Key is active, while</p>
+<p>IF BREAK=0 means that it is inactive.</p>
+<p><strong>NOTE 1</strong></p>
+<p>BREAK_OFF may not work on Minerva ROMs unless you have v1.10 or later
+of the Toolkit, which uses the new Minerva System Xtensions to overcome
+any problem.</p>
+<p><strong>NOTE 2</strong></p>
+<p>BREAK_OFF does not currently work with SMS.</p>
+<p><strong>CROSS-REFERENCE</strong></p>
+<p><a class="reference external" href="KeywordsS.html#STOP">STOP</a> terminates interpreted programs even if
+the Break Key is disabled. Do not confuse with the command
+<a class="reference external" href="KeywordsB.html#BREAK">BREAK</a>.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="break">
+<h2>BREAK<a class="headerlink" href="#break" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>BREAK switch</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>BTool</td>
+</tr>
+</tbody>
+</table>
+<p>The command BREAK takes the parameter of either ON (=1) or OFF (=0) and
+enables or disables the ability to stop a program with the Break key
+&lt;CTRL&gt;&lt;SPACE&gt; (and &lt;ESC&gt; on Minerva) accordingly.</p>
+<p><strong>Example</strong></p>
+<div class="highlight-python"><div class="highlight"><pre>100 WINDOW 136,100,100,40: INK 7
+110 BORDER 1,4,3: PAPER 3,0: CLS
+120 SCALE 100,-50,-50: POINT 0,0
+130 fast=ASK( &quot;Fast (y/n)&quot; ): CLS
+140 BREAK fast
+150 FOR n=0 TO 4000
+160   IF BREAK% THEN AT 0,0: PRINT n
+170   x=RND(-50 TO 50): y=RND(-50 TO 50)
+180   z=SIN(PI*SQRT(x*x+y*y)/10)+1
+190   IF z &gt; 2*RND THEN POINT x,y
+200 END FOR n
+210 BREAK ON
+</pre></div>
+</div>
+<p><strong>NOTE 1</strong></p>
+<p>After the Break key has been disabled and re-enabled, if you try to
+Break from the interpreter&#8217;s command window #0 it might be disturbed.
+Instead of printing &#8216;not complete&#8217; (error -1) in #0 when &lt;CTRL&gt;&lt;SPACE&gt;
+is pressed, that message may appear in #2 and Break will work only once,
+the interpreter will not accept any further Breaks... A single &lt;ENTER&gt;
+after you initially press the Break key cures this.</p>
+<p><strong>NOTE 2</strong></p>
+<p>This command does not work under SMS.</p>
+<p><strong>CROSS-REFERENCE</strong></p>
+<p>See also <a class="reference external" href="KeywordsB.html#BREAK%">BREAK%</a>,
+<a class="reference external" href="KeywordsF.html#FREEZE">FREEZE</a> and
+<a class="reference external" href="KeywordsF.html#FREEZE%">FREEZE%</a>.</p>
+<p>Do not confuse BTool&#8217;s command <a class="reference external" href="KeywordsB.html#BREAK">BREAK</a> with
+TinyToolkit&#8217;s function <a class="reference external" href="KeywordsB.html#BREAK">BREAK</a> (although you
+can use both in the same program!)</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="id5">
+<h2>BREAK%<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>BREAK%</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>BTool</td>
+</tr>
+</tbody>
+</table>
+<p>The function BREAK% returns the current state as to whether the Break
+key is enabled, either ON or OFF.</p>
+<p><strong>CROSS-REFERENCE</strong></p>
+<p>See <a class="reference external" href="KeywordsB.html#BREAK">BREAK</a>!!</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="btool-ext">
+<h2>BTool_EXT<a class="headerlink" href="#btool-ext" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>BTool_EXT</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>BTool</td>
+</tr>
+</tbody>
+</table>
+<p>This command is similar to TK2_EXT and TINY_EXT, in that it installs
+BTool so that keyword definitions with the same name as those provided
+in other Toolkits are overwritten with the Btool definition.</p>
+<p><strong>WARNING</strong></p>
+<p>BTool_EXT will hang SuperBASIC if the BTool Toolkit has been loaded
+into the common heap - this is most likely to happen on later versions
+of Toolkit II where LRESPR uses the common heap if jobs are running. Try
+LINKUP instead.</p>
+<p>See also <a class="reference external" href="KeywordsK.html#KILL">KILL</a> which removes all current jobs.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="btool-rmv">
+<h2>BTool_RMV<a class="headerlink" href="#btool-rmv" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>BTool_RMV</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>BTool</td>
+</tr>
+</tbody>
+</table>
+<p>All keywords implemented by BTool (except BTool_EXT) are removed from
+the SuperBASIC name list. The Toolkit itself remains in memory and can
+be re-activated with BTool_EXT.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="btrap">
+<h2>BTRAP<a class="headerlink" href="#btrap" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="16%" />
+<col width="84%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>BTRAP #ch,key [,d1 [,d2 [,d3 [,a1 [,a2 ]]]]]</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>TRAPS (DIY Toolkit Vol T)</td>
+</tr>
+</tbody>
+</table>
+<p>This command is identical to QTRAP, except that the address parameters
+(a1 and a2) are taken to be relative to A6, therefore allowing you to
+access system calls which need to access the SuperBASIC variables, so
+that you can for example save and load arrays direct!!</p>
+<p><strong>WARNING</strong></p>
+<p>Several TRAP #3 calls can crash the computer - make certain that you
+know what you are doing!</p>
+<p><strong>CROSS-REFERENCE</strong></p>
+<p>See <a class="reference external" href="KeywordsI.html#IO_TRAP">IO_TRAP</a>,
+<a class="reference external" href="KeywordsM.html#MTRAP">MTRAP</a> and <a class="reference external" href="KeywordsQ.html#QTRAP">QTRAP</a>.</p>
+<p>Any return parameters can be read with
+<a class="reference external" href="KeywordsD.html#DATAREG">DATAREG</a> and
+<a class="reference external" href="KeywordsA.html#ADDREG">ADDREG</a>.</p>
+<p><a class="reference external" href="KeywordsC.html#CLS">CLS</a>, <a class="reference external" href="KeywordsP.html#PAN">PAN</a> and
+<a class="reference external" href="KeywordsS.html#SCROLL">SCROLL</a> can also be used to call TRAP #3.</p>
+<p>Refer to the QDOS/SMS Reference Manual (Section 15) for details of the
+various system TRAP #3 calls.</p>
+<p>Also refer to the DIY Toolkit documentation for this command.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="button">
+<h2>BUTTON%<a class="headerlink" href="#button" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>BUTTON% (flag)</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>KMOUSE, MOUSE (DIY Toolkit - Vol I), Amiga QDOS v3.20+</td>
+</tr>
+</tbody>
+</table>
+<p>This function can be used to find out if any mouse buttons have been
+pressed and if so which ones. Unfortunately, you cannot use this to find
+out if a button has been pressed twice quickly in succession (known as
+double-clicking).</p>
+<p>The value of flag is used to tell the function which buttons you wish to
+interrogate:</p>
+<ul class="simple">
+<li>0 - Has any key been pressed ? If so, the value returned will be 0
+plus the following numbers if the relevant key(s) has been pressed:<ul>
+<li>+1 - Button One Pressed</li>
+<li>+2 - Button Two Pressed</li>
+<li>+4 - Button Three Pressed</li>
+</ul>
+</li>
+<li>1 - Has Button One been pressed (this is the left hand mouse button)?
+If so 1 is returned, otherwise 0.</li>
+<li>2 - Has Button Two been pressed (this is the right hand mouse
+button)? If so, 1 is returned, otherwise 0.</li>
+<li>3 - Has Button Three been pressed (this is the middle mouse button)?
+If so, 1 is returned, otherwise 0.</li>
+</ul>
+<p><strong>Example</strong></p>
+<p>A routine to wait for the user to press the right and left mouse button
+at the same time:</p>
+<div class="highlight-python"><div class="highlight"><pre>100 DEFine PROCedure WAIT_MOUSE
+110 REPeat mloop
+120   IF BUTTON%(0)=1+2:RETurn
+130 END REPeat mloop
+140 END DEFine
+</pre></div>
+</div>
+<p><strong>CROSS-REFERENCE</strong></p>
+<p><a class="reference external" href="KeywordsX.html#X_PTR%">X_PTR%</a>, <a class="reference external" href="KeywordsY.html#Y_PTR%">Y_PTR%</a>
+and <a class="reference external" href="KeywordsP.html#PTR_FN%">PTR_FN%</a> can also be used to
+interrogate the mouse.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="bver">
+<h2>BVER$<a class="headerlink" href="#bver" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>BVER$</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>BeuleTools</td>
+</tr>
+</tbody>
+</table>
+<p>This function returns the version number of the Beule Toolkit. This may
+be useful if a program makes use of commands or functions which were not
+supported by older versions.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="AppendicesIntro.clean.html" class="btn btn-neutral float-right" title="Appendices Introduction" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="KeywordsA.clean.html" class="btn btn-neutral" title="Keywords A" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2005-2016, Rich Mellor.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'4.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

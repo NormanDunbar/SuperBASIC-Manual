@@ -46,7 +46,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'SBASIC/SuperBASIC Reference Manual Online'
-copyright = u'2016, Rich Mellor'
+copyright = u'2005-2016, Rich Mellor'
 author = u'Rich Mellor'
 
 # The version info for the project you're documenting, acts as replacement for

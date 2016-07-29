@@ -1,0 +1,160 @@
+line 22 column 13 - Warning: discarding unexpected </hr>
+line 50 column 13 - Warning: discarding unexpected </hr>
+line 75 column 8 - Warning: inserting implicit <p>
+line 131 column 1 - Warning: inserting implicit <p>
+line 139 column 38 - Warning: <hr> isn't allowed in <h1> elements
+line 139 column 1 - Info: <h1> previously mentioned
+line 139 column 109 - Warning: <hr> isn't allowed in <h1> elements
+line 139 column 38 - Info: <h1> previously mentioned
+line 194 column 40 - Warning: <hr> isn't allowed in <h1> elements
+line 194 column 1 - Info: <h1> previously mentioned
+line 194 column 111 - Warning: <hr> isn't allowed in <h1> elements
+line 194 column 40 - Info: <h1> previously mentioned
+line 351 column 123 - Warning: unescaped & which should be written as &amp;
+line 545 column 15 - Warning: unescaped & which should be written as &amp;
+line 673 column 87 - Warning: <a> discarding newline in URI reference
+line 833 column 1 - Warning: inserting implicit <p>
+line 840 column 15 - Warning: missing </span> before </p>
+line 842 column 1 - Warning: inserting implicit <span>
+line 842 column 1 - Warning: missing </span> before <p>
+line 842 column 4 - Warning: inserting implicit <span>
+line 872 column 15 - Warning: missing </span> before </p>
+line 874 column 1 - Warning: inserting implicit <span>
+line 874 column 1 - Warning: missing </span> before <p>
+line 874 column 4 - Warning: inserting implicit <span>
+line 968 column 22 - Warning: missing </span> before </p>
+line 970 column 1 - Warning: inserting implicit <span>
+line 970 column 1 - Warning: missing </span> before <p>
+line 970 column 4 - Warning: inserting implicit <span>
+line 1069 column 1 - Warning: inserting implicit <p>
+line 1157 column 4 - Warning: discarding unexpected </span>
+line 1169 column 33 - Warning: <a> discarding newline in URI reference
+line 1169 column 33 - Warning: missing </a> before </p>
+line 1173 column 1 - Warning: inserting implicit <a>
+line 1173 column 1 - Warning: missing </a> before <h3>
+line 1173 column 5 - Warning: inserting implicit <a>
+line 1175 column 1 - Warning: inserting implicit <a>
+line 1175 column 1 - Warning: missing </a> before <hr>
+line 1177 column 8 - Warning: inserting implicit <p>
+line 1199 column 37 - Warning: unescaped & which should be written as &amp;
+line 1206 column 50 - Warning: unescaped & which should be written as &amp;
+line 1227 column 1 - Warning: inserting implicit <p>
+line 1238 column 72 - Warning: unescaped & which should be written as &amp;
+line 1238 column 24 - Warning: missing </span> before </p>
+line 1241 column 1 - Warning: inserting implicit <span>
+line 1241 column 1 - Warning: missing </span> before <h3>
+line 1241 column 5 - Warning: inserting implicit <span>
+line 1243 column 1 - Warning: inserting implicit <span>
+line 1243 column 47 - Warning: unescaped & which should be written as &amp;
+line 1243 column 52 - Warning: unescaped & which should be written as &amp;
+line 1243 column 59 - Warning: unescaped & or unknown entity "&NRM"
+line 1243 column 64 - Warning: unescaped & which should be written as &amp;
+line 1243 column 1 - Warning: missing </span> before <h3>
+line 1324 column 4 - Warning: missing </span> before <h3>
+line 1326 column 5 - Warning: inserting implicit <span>
+line 1326 column 33 - Warning: inserting implicit <span>
+line 1326 column 33 - Warning: missing </span> before <hr>
+line 1330 column 5 - Warning: inserting implicit <span>
+line 1330 column 38 - Warning: inserting implicit <span>
+line 1356 column 22 - Warning: missing </span> before </p>
+line 1358 column 1 - Warning: inserting implicit <span>
+line 1358 column 1 - Warning: missing </span> before <p>
+line 1358 column 4 - Warning: inserting implicit <span>
+line 1471 column 82 - Warning: <hr> isn't allowed in <h1> elements
+line 1471 column 1 - Info: <h1> previously mentioned
+line 1471 column 132 - Warning: <hr> isn't allowed in <h1> elements
+line 1471 column 82 - Info: <h1> previously mentioned
+line 1491 column 14 - Warning: <hr> isn't allowed in <h1> elements
+line 1491 column 1 - Info: <h1> previously mentioned
+line 1491 column 63 - Warning: <hr> isn't allowed in <h1> elements
+line 1491 column 14 - Info: <h1> previously mentioned
+line 1546 column 55 - Warning: unescaped & which should be written as &amp;
+line 1577 column 1 - Warning: missing </span> before </p>
+line 1580 column 5 - Warning: inserting implicit <span>
+line 1580 column 33 - Warning: inserting implicit <span>
+line 1582 column 1 - Warning: inserting implicit <span>
+line 1582 column 1 - Warning: missing </span> before <p>
+line 1582 column 4 - Warning: inserting implicit <span>
+line 1584 column 1 - Warning: inserting implicit <span>
+line 1584 column 1 - Warning: missing </span> before <p>
+line 1584 column 4 - Warning: inserting implicit <span>
+line 1587 column 1 - Warning: inserting implicit <span>
+line 1587 column 1 - Warning: missing </span> before <p>
+line 1587 column 4 - Warning: inserting implicit <span>
+line 1589 column 1 - Warning: inserting implicit <span>
+line 1589 column 1 - Warning: missing </span> before <p>
+line 1589 column 4 - Warning: inserting implicit <span>
+line 1592 column 1 - Warning: inserting implicit <span>
+line 1592 column 1 - Warning: missing </span> before <h3>
+line 1592 column 5 - Warning: inserting implicit <span>
+line 1592 column 5 - Warning: missing </span> before <hr>
+line 1592 column 17 - Warning: <hr> isn't allowed in <h3> elements
+line 1592 column 1 - Info: <h3> previously mentioned
+line 1594 column 1 - Warning: inserting implicit <span>
+line 1599 column 22 - Warning: missing </span> before </p>
+line 1601 column 1 - Warning: inserting implicit <span>
+line 1601 column 1 - Warning: missing </span> before <p>
+line 1601 column 4 - Warning: inserting implicit <span>
+line 186 column 4 - Warning: <a> escaping malformed URI reference
+line 378 column 1 - Warning: <table> lacks "summary" attribute
+line 455 column 1 - Warning: <table> lacks "summary" attribute
+line 487 column 1 - Warning: <table> lacks "summary" attribute
+line 1071 column 1 - Warning: <a> escaping malformed URI reference
+line 1071 column 93 - Warning: <a> escaping malformed URI reference
+line 1228 column 47 - Warning: <a> escaping malformed URI reference
+line 75 column 8 - Warning: trimming empty <p>
+line 131 column 1 - Warning: trimming empty <p>
+line 453 column 1 - Warning: trimming empty <p>
+line 833 column 1 - Warning: trimming empty <p>
+line 842 column 1 - Warning: trimming empty <span>
+line 842 column 4 - Warning: trimming empty <span>
+line 874 column 1 - Warning: trimming empty <span>
+line 874 column 4 - Warning: trimming empty <span>
+line 970 column 1 - Warning: trimming empty <span>
+line 970 column 4 - Warning: trimming empty <span>
+line 1069 column 1 - Warning: trimming empty <p>
+line 1177 column 8 - Warning: trimming empty <p>
+line 1227 column 1 - Warning: trimming empty <p>
+line 1241 column 1 - Warning: trimming empty <span>
+line 1358 column 1 - Warning: trimming empty <span>
+line 1582 column 1 - Warning: trimming empty <span>
+line 1584 column 1 - Warning: trimming empty <span>
+line 1587 column 1 - Warning: trimming empty <span>
+line 1589 column 1 - Warning: trimming empty <span>
+line 1592 column 1 - Warning: trimming empty <span>
+line 1601 column 1 - Warning: trimming empty <span>
+line 1601 column 4 - Warning: trimming empty <span>
+line 2 column 1 - Warning: <html> proprietary attribute "xmlns:v"
+line 488 column 18 - Warning: <th> proprietary attribute "border"
+Info: Doctype given is "-//W3C//DTD HTML 4.0 Transitional//EN"
+Info: Document content looks like HTML Proprietary
+Tidy found 119 warnings and 0 errors!
+
+URIs must be properly escaped, they must not contain unescaped
+characters below U+0021 including the space character and not
+above U+007E. Tidy escapes the URI for you as recommended by
+HTML 4.01 section B.2.1 and XML 1.0 section 4.2.2. Some user agents
+use another algorithm to escape such URIs and some server-sided
+scripts depend on that. If you want to depend on that, you must
+escape the URI on your own. For more information please refer to
+http://www.w3.org/International/O-URL-and-ident.html
+
+The table summary attribute should be used to describe
+the table structure. It is very helpful for people using
+non-visual browsers. The scope and headers attributes for
+table cells are useful for specifying which headers apply
+to each table cell, enabling non-visual browsers to provide
+a meaningful context for each cell.
+
+For further advice on how to make your pages accessible
+see http://www.w3.org/WAI/GL.
+About HTML Tidy: https://github.com/htacg/tidy-html5
+Bug reports and comments: https://github.com/htacg/tidy-html5/issues
+Official mailing list: https://lists.w3.org/Archives/Public/public-htacg/
+Latest HTML specification: http://dev.w3.org/html5/spec-author-view/
+Validate your HTML documents: http://validator.w3.org/nu/
+Lobby your company to join the W3C: http://www.w3.org/Consortium
+
+Do you speak a language other than English, or a different variant of 
+English? Consider helping us to localize HTML Tidy. For details please see 
+https://github.com/htacg/tidy-html5/blob/master/README/LOCALIZE.md

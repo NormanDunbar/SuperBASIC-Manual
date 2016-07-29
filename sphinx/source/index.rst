@@ -17,7 +17,9 @@ Contents:
    Structure                                 <Structure.clean>
    Writing Programs                          <WritingPrograms.clean>
 
+   Keywords Introduction                     <KeywordsIntro>
    Keywords A                                <KeywordsA.clean>
+   Keywords B                                <KeywordsB.clean>
 
    Appendices Introduction                   <AppendicesIntro.clean>
    A1. Minerva                               <Appendix01.clean>
