@@ -1,0 +1,1708 @@
+    
+<H1><A name="BASIC"></A>BASIC</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">BASIC</SPAN> [<SPAN style="font-style: italic;">(offset)</SPAN>]
+    Location: <SPAN style="font-style: italic;">BTool</SPAN>
+    
+<P>The function <SPAN style="font-style: italic;">BASIC</SPAN> is identical to <SPAN style="font-style: italic;">BASICP</SPAN> except that if no parameter is supplied, the function <SPAN style="font-style: italic;">BASIC</SPAN> will return the base address of the SuperBASIC program area.</P>
+    
+<H3>NOTE:</H3>
+
+<P>
+    
+<P>Although this function is written in such a way that it can be used from within compiled programs to access SuperBASIC variables, it cannot access MultiBASIC variables on Minerva nor SBASIC variables on SMS and will always return a value representing the location of the equivalent SuperBASIC variable.</P>
+    
+<H3>WARNING:</H3>
+
+<P>
+    
+<P>You should use commands such as the extended <SPAN style="font-style: italic;">PEEK</SPAN> or <SPAN style="font-style: italic;">POKE</SPAN> provided by Minerva and SMS to read or set the tables pointed to by the values returned by this function, as the SuperBASIC tables can move when tasks are started up or removed from memory.</P>
+    
+<H3>CROSS- REFERENCE:</H3>
+
+<P>
+    
+<P>See <A style="font-style: italic;" href="KeywordsB.html#BASICP">BASICP</A> and <A style="font-style: italic;" href="KeywordsB.html#BASIC_W">BASIC_W</A>. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="BASICP"></a>BASICP</h1><br>Syntax: <span style="font-style: italic;">BASICP (offset) --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="BASICP"></A>BASICP</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">BASICP (offset)<BR></SPAN> Location: <SPAN style="font-style: italic;">TinyToolkit</SPAN></P>
+    
+<P>This function returns an internal pointer (address) used by the SuperBASIC interpreter. <SPAN style="font-style: italic;">offset</SPAN> must be non-negative and a multiple of 2 (up to a maximum of <SPAN style="font-style: italic;">HEX('64')</SPAN>.</P>
+    
+<P>Refer to system documentation for more information.</P>
+    
+<H3>Example:</H3>
+
+<P>
+    
+<P><SPAN style="font-style: italic;">PRINT BASICP(16)</SPAN></P>
+    
+<P>returns the start address of the current SuperBASIC program in memory.</P>
+    
+<P><SPAN style="font-style: italic;">PRINT BASICP(32)</SPAN></P>
+    
+<P>returns the start address of the SuperBASIC name list.</P>
+    
+<H3>NOTE:</H3>
+
+<P>
+    
+<P>This suffers from the same problem as <SPAN style="font-style: italic;">BASIC</SPAN>. <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><a   style="font-style: italic;"href="KeywordsB.html#BASIC_B">BASIC_B</a>, <a style="font-style: italic;" href="KeywordsB.html#BASIC_L">BASIC_L</a>, <a style="font-style: italic;" href="KeywordsB.html#BASIC_W">BASIC_W</a>. See <a style="font-style: italic;" href="KeywordsN.html#NEW_NAME">NEW_NAME</a> for a useful example! --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P><A style="font-style: italic;" href="KeywordsB.html#BASIC_B">BASIC_B</A>, <A style="font-style: italic;" href="KeywordsB.html#BASIC_L">BASIC_L</A>, <A style="font-style: italic;" href="KeywordsB.html#BASIC_W">BASIC_W</A>. See <A style="font-style: italic;" href="KeywordsN.html#NEW_NAME">NEW_NAME</A> for a useful example!
+    
+<P><A style="font-style: italic;" href="KeywordsB.html#BASIC_POINTER">BASIC_POINTER</A> is the same as this function.</P>
+    
+<P><A style="font-style: italic;" href="Keywords_.html#_NAME$">_NAME$</A> and <A style="font-style: italic;" href="KeywordsB.html#BASIC_NAME$">BASIC_NAME$</A> allow you to access the SuperBASIC name list safely.</P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="BASIC_B"></A>BASIC_B</H1>
+
+<P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="BASIC_W"></A>BASIC_W</H1>
+
+<P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="BASIC_L"></A>BASIC_L</H1>
+
+<P>
+    
+<P>Syntax: <SPAN style="font-style: italic;">BASIC_B (offset)</SPAN></P>
+    
+<P>and <SPAN style="font-style: italic;">BASIC_W (offset)</SPAN></P>
+    
+<P>and <SPAN style="font-style: italic;">BASIC_L (offset)</SPAN>
+    Location: <SPAN style="font-style: italic;">TinyToolkit, BTool, Turbo Toolkit (BASIC_L only)</SPAN></P>
+    
+<P>These three functions are modified version of <SPAN style="font-style: italic;">PEEK</SPAN> which return values at memory locations in the SuperBASIC system variables, which are used for storage by the SuperBASIC interpreter.</P>
+    
+<P><SPAN style="font-style: italic;">BASIC_B</SPAN> returns bytes, <SPAN style="font-style: italic;">BASIC_W</SPAN> words and <SPAN style="font-style: italic;">BASIC_L</SPAN> long words.</P>
+    
+<H3>Example:</H3>
+
+<P>
+    
+<P>Although additional information about internal machine structures is necessary to make full use of these functions, some simple tasks can be performed without this knowledge, for example:</P>
+    
+<P><SPAN style="font-style: italic;">PRINT BASIC_W ( 1076 )</SPAN></P>
+    
+<P>gives the first line number of a program in memory - this enables a machine code program to check if a program is actually loaded in the machine. The value returned by this example will always be zero from the interpreter.</P>
+    <PRE>100 IF NOT BASIC_W (1076) THEN
+110   PRINT "No SuperBASIC program loaded"
+120 END IF
+</PRE>
+    
+<H3>NOTE:</H3>
+
+<P>
+    
+<P>These functions generally suffer the same problem as <SPAN style="font-style: italic;">BASIC</SPAN>.</P>
+    
+<P>A file called TurboFix_bin can be used to allow <SPAN style="font-style: italic;">BASIC_L</SPAN> to access Minerva MultiBASIC and SMS SBASIC variables. Some early versions of TurboFix_bin have bugs in it. Beware that not all versions of this file supports SMS SBASICs. <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsP.html#PEEK">PEEK</a>, <a style="font-style: italic;" href="KeywordsP.html#PEEK_W">PEEK_W</a>, <a style="font-style: italic;" href="KeywordsP.html#PEEK_L">PEEK_L</a>, <a style="font-style: italic;" href="KeywordsB.html#BASICP">BASICP</a>. --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P><A style="font-style: italic;" href="KeywordsP.html#PEEK">PEEK</A>, <A style="font-style: italic;" href="KeywordsP.html#PEEK_W">PEEK_W</A>, <A style="font-style: italic;" href="KeywordsP.html#PEEK_L">PEEK_L</A>, <A style="font-style: italic;" href="KeywordsB.html#BASICP">BASICP</A>.</P>
+    
+<P><A style="font-style: italic;" href="KeywordsB.html#BASIC_B%,%20BASIC_W%,%20BPEEK%">BASIC_B%, BASIC_W%, BPEEK%</A>, <A style="font-style: italic;" href="KeywordsB.html#BPEEK_W">BPEEK_W</A>% and <A style="font-style: italic;" href="KeywordsB.html#BPEEK_L">BPEEK_L</A> are similar.</P>
+    
+<P>See also <A style="font-style: italic;" href="KeywordsB.html#BASIC_F">BASIC_F</A> and <A style="font-style: italic;" href="KeywordsP.html#PEEK_F">PEEK_F</A>.</P>
+    
+<P>The SuperBASIC variables appear in the QDOS/SMS Reference Manual (Section 18.3)</P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="BASIC_B%"></A>BASIC_B%</H1>
+
+<P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="BASIC_F"></A>BASIC_F</H1>
+
+<P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="BASIC_W%"></A>BASIC_W%</H1>
+
+<P><!--<h3>BASIC_B%<br><hr style="width: 100%; height: 2px;">BASIC_F<br><hr style="width: 100%; height: 2px;">BASIC_W%</h3> -->
+    
+<P>Syntax: <SPAN style="font-style: italic;">BASIC_B% (offset)</SPAN></P>
+    
+<P>and <SPAN style="font-style: italic;">BASIC_F (offset)</SPAN></P>
+    
+<P>and <SPAN style="font-style: italic;">BASIC_W% (offset)</SPAN>
+    Location: <SPAN style="font-style: italic;">Turbo Toolkit</SPAN></P>
+    
+<P>The functions <SPAN style="font-style: italic;">BASIC_B%</SPAN> and <SPAN style="font-style: italic;">BASIC_W%</SPAN> are similar to <SPAN style="font-style: italic;">BASIC_B</SPAN> and <SPAN style="font-style: italic;">BASIC_W</SPAN>. <SPAN style="font-style: italic;">BASIC_F</SPAN> is a further function which can be used to return a floating point number stored as six bytes starting at the specified offset within the SuperBASIC system variables.</P>
+    
+<H3>NOTE:</H3>
+
+<P>
+    
+<P>A file called TurboFix_bin can be used to allow these functions to access Minerva MultiBASIC / SBASIC variables. Some early versions of TurboFix_bin have bugs in it. Beware that not all versions of this file supports SMS SBASICs. <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br>Refer to <a style="font-style: italic;" href="KeywordsB.html#BASIC_B">BASIC_B</a> and <a style="font-style: italic;" href="KeywordsB.html#BASIC_W">BASIC_W</a>.<a style="font-style: italic;" href="KeywordsP.html#PEEK_F">PEEK_F</a> is similar to <a style="font-style: italic;" href="KeywordsB.html#BASIC_F">BASIC_F</a>. --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P>Refer to <A style="font-style: italic;" href="KeywordsB.html#BASIC_B">BASIC_B</A> and <A style="font-style: italic;" href="KeywordsB.html#BASIC_W">BASIC_W</A>.<A style="font-style: italic;" href="KeywordsP.html#PEEK_F">PEEK_F</A> is similar to <A style="font-style: italic;" href="KeywordsB.html#BASIC_F">BASIC_F</A>. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="BASIC_INDEX%"></a>BASIC_INDEX%</h1><br>Syntax: <span style="font-style: italic;">BASIC_INDEX% (name$) --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="BASIC_INDEX%"></A>BASIC_INDEX%</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">BASIC_INDEX% (name$)<BR></SPAN> Location: <SPAN style="font-style: italic;">Turbo Toolkit</SPAN></P>
+    
+<P>This function is similar to <SPAN style="font-style: italic;">LOOKUP%</SPAN>, except it does not suffer with any problems under SMS.</P>
+    
+<P>If the specified <SPAN style="font-style: italic;">name$</SPAN> does not exist, -12 is returned. -7 is returned if there is some mismatch between table entries.</P>
+    
+<H3>NOTE:</H3>
+
+<P>
+    
+<P>A file called TurboFix_bin can be used to allow <SPAN style="font-style: italic;">BASIC_INDEX%</SPAN> to access the Minvera MultiBASIC and SMS SBASIC name tables. Some early versions of TurboFix_bin have bugs in it. Beware that not all versions of this file supports SMS SBASICs. <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br>Refer to <a style="font-style: italic;" href="KeywordsL.html#LOOKUP%">LOOKUP%</a> and <a style="font-style: italic;" href="KeywordsB.html#BASIC_NAME$">BASIC_NAME$</a>. --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P>Refer to <A style="font-style: italic;" href="KeywordsL.html#LOOKUP%">LOOKUP%</A> and <A style="font-style: italic;" href="KeywordsB.html#BASIC_NAME$">BASIC_NAME$</A>. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="BASIC_NAME$"></a>BASIC_NAME$</h1><br>Syntax: <span style="font-style: italic;">BASIC_NAME$ (index) --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="BASIC_NAME$"></A>BASIC_NAME$</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">BASIC_NAME$ (index)<BR></SPAN> Location: <SPAN style="font-style: italic;">Turbo Toolkit</SPAN></P>
+    
+<P>This function is exactly the same as <SPAN style="font-style: italic;">_NAME$</SPAN>.</P>
+    
+<P>If the specified <SPAN style="font-style: italic;">index</SPAN> is greater than the maximum name table entry, a bad parameter error is returned. If it is smaller than 0, an error may be generated, or junk may be returned.</P>
+    
+<H3>NOTE:</H3>
+
+<P>
+    
+<P>A file called TurboFix_bin can be used to allow <SPAN style="font-style: italic;">BASIC_NAME$</SPAN> to access the Minvera MultiBASIC and SMS SBASIC name tables. Some early versions of TurboFix_bin have bugs in it. Beware that not all versions of this file supports SMS SBASICs. <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br>Refer to <a style="font-style: italic;" href="Keywords_.html#_NAME$">_NAME$</a> and <a style="font-style: italic;" href="KeywordsB.html#BASIC_INDEX%">BASIC_INDEX%</a>. --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P>Refer to <A style="font-style: italic;" href="Keywords_.html#_NAME$">_NAME$</A> and <A style="font-style: italic;" href="KeywordsB.html#BASIC_INDEX%">BASIC_INDEX%</A>. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="BASIC_POINTER"></a>BASIC_POINTER</h1><br>Syntax: <span style="font-style: italic;">BASIC_POINTER (offset) --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="BASIC_POINTER"></A>BASIC_POINTER</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">BASIC_POINTER (offset)<BR></SPAN> Location: <SPAN style="font-style: italic;">Turbo Toolkit</SPAN></P>
+    
+<P>This function is exactly the same as <SPAN style="font-style: italic;">BASICP</SPAN>.</P>
+    
+<H3>NOTE:</H3>
+
+<P>
+    
+<P>A file called TurboFix_bin can be used to allow <SPAN style="font-style: italic;">BASIC_POINTER</SPAN> to access the Minvera MultiBASIC and SMS SBASIC name tables. Some early versions of TurboFix_bin have bugs in it. Beware that not all versions of this file supports SMS SBASICs. <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br>Refer to <a style="font-style: italic;" href="KeywordsB.html#BASICP">BASICP</a>. --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P>Refer to <A style="font-style: italic;" href="KeywordsB.html#BASICP">BASICP</A>.</P><!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="BASIC_TYPE%"></a>BASIC_TYPE%</h1><br>Syntax: <span style="font-style: italic;">BASIC_TYPE% (offset) -->
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="BASIC_TYPE%"></A>BASIC_TYPE%</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">BASIC_TYPE% (offset)<BR></SPAN> Location: <SPAN style="font-style: italic;">Turbo Toolkit</SPAN></P>
+    
+<P>This function looks at the entry in the SuperBASIC name table for Job 0 at the specified <SPAN style="font-style: italic;">offset</SPAN> and returns its type in accordance with the following values:</P>
+    <UL>
+      <LI>0 .... no type</LI>
+      <LI>1 .... string</LI>
+      <LI>2 .... floating point</LI>
+      <LI>4 .... integer</LI>
+    </UL>
+    
+<P>If the specified <SPAN style="font-style: italic;">offset</SPAN> is greater than the maximum name table entry, a bad parameter error is returned. If it is smaller than 0, an error may be generated, or junk may be returned.</P>
+    
+<H3>NOTE:</H3>
+
+<P>
+    
+<P>A file called TurboFix_bin can be used to allow <SPAN style="font-style: italic;">BASIC_TYPE%</SPAN> to access the Minvera MultiBASIC and SMS SBASIC name tables. Some early versions of TurboFix_bin have bugs in it. Beware that not all versions of this file supports SMS SBASICs. <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsT.html#TYPE">TYPE</a> is similar. --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P><A style="font-style: italic;" href="KeywordsT.html#TYPE">TYPE</A> is similar.</P>
+    
+<P>See also <A style="font-style: italic;" href="KeywordsB.html#BASIC_NAME$">BASIC_NAME$</A>. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="BAT"></a>BAT</h1><br>Syntax: <span style="font-style: italic;">BAT --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="BAT"></A>BAT</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">BAT<BR></SPAN> Location: <SPAN style="font-style: italic;">Beuletools</SPAN></P>
+    
+<P>This command forces the command string defined with <SPAN style="font-style: italic;">BAT_USE</SPAN> to be typed into the command line (#0). No parameters are allowed. <SPAN style="font-style: italic;">BAT</SPAN> will work okay in Minerva's MultiBASICs, SMS's SBASICs and even if #0 has been redefined. <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsB.html#BAT_USE">BAT_USE</a> for an example. --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P>See <A style="font-style: italic;" href="KeywordsB.html#BAT_USE">BAT_USE</A> for an example.</P>
+    
+<P>Refer to <A style="font-style: italic;" href="KeywordsT.html#TYPE_IN">TYPE_IN</A> also. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="BAT$"></a>BAT$</h1><br>Syntax: <span style="font-style: italic;">BAT$ --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="BAT$"></A>BAT$</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">BAT$<BR></SPAN> Location: <SPAN style="font-style: italic;">Beuletools</SPAN></P>
+    
+<P>This function returns the current string (if any) which has been set up with the <SPAN style="font-style: italic;">BAT_USE</SPAN> command. <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsB.html#BAT_USE">BAT_USE</a> and <a style="font-style: italic;" href="KeywordsB.html#BAT">BAT</a> for more details. --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P>See <A style="font-style: italic;" href="KeywordsB.html#BAT_USE">BAT_USE</A> and <A style="font-style: italic;" href="KeywordsB.html#BAT">BAT</A> for more details. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="BAT_USE"></a>BAT_USE</h1><br>Syntax: <span style="font-style: italic;">BAT_USE batch$ --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="BAT_USE"></A>BAT_USE</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">BAT_USE batch$<BR></SPAN> Location: <SPAN style="font-style: italic;">Beuletools</SPAN></P>
+    
+<P>This command is used to specify a command string containing SuperBASIC keywords which will be typed into the command line (#0) when the command <SPAN style="font-style: italic;">BAT</SPAN> is issued. The string may be up to 128 characters long. You may add <SPAN style="font-style: italic;">CHR$(10)</SPAN> to the end of the string in order to emulate an &lt;ENTER&gt; keypress (as in the example below).</P>
+    
+<H3>Example:</H3>
+
+<P>
+    
+<P><SPAN style="font-style: italic;">BAT_USE "PAPER 3: INK 7: PAPER#2,3: PAPER#2,3: INK#2,7: WMON 4: BORDER 1,0: BORDER#2,0" &amp; CHR$(10)</SPAN></P>
+    
+<P>The command <SPAN style="font-style: italic;">BAT</SPAN> will now reset the standard start-up windows.</P><!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsB.html#BAT">BAT</a> executes the batch string set with <a style="font-style: italic;" href="KeywordsB.html#BAT_USE">BAT_USE</a>. -->
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P><A style="font-style: italic;" href="KeywordsB.html#BAT">BAT</A> executes the batch string set with <A style="font-style: italic;" href="KeywordsB.html#BAT_USE">BAT_USE</A>.</P>
+    
+<P>See <A style="font-style: italic;" href="KeywordsF.html#FORCE_TYPE">FORCE_TYPE</A>,<A style="font-style: italic;" href="KeywordsS.html#STAMP">STAMP</A> and <A style="font-style: italic;" href="KeywordsT.html#TYPE_IN">TYPE_IN</A> also.</P>
+    
+<P><A style="font-style: italic;" href="KeywordsD.html#DO">DO</A> allows batch files of any size to be executed. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="BAUD"></a>BAUD</h1><br>Syntax: <span style="font-style: italic;">BAUD bps --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="BAUD"></A>BAUD</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">BAUD bps<BR></SPAN>
+    or <SPAN style="font-style: italic;">BAUD</SPAN> [<SPAN style="font-style: italic;">port,</SPAN>] <SPAN style="font-style: italic;">bps</SPAN><SPAN style="font-style: italic;">(SMS and ST/QL only)<BR></SPAN> Location: <SPAN style="font-style: italic;">QL ROM</SPAN></P>
+    
+<P>The serial port(s) use a certain speed to communicate with printers, modems, other computers, interfaces etc. This speed is set with <SPAN style="font-style: italic;">BAUD</SPAN>. The only values allowed are set out below, any other value for <SPAN style="font-style: italic;">bps</SPAN> will produce an error. The unit of the parameter is bits per second.</P>
+    
+<P><SPAN style="font-style: italic;">BAUD</SPAN> will set the same output and input baud rate for both serial ports.</P>
+    <TABLE>
+      <TR align="left">
+        <TH>Bits/Sec</TH>
+        <TH>Bytes/Sec</TH>
+        <TH>Time/32Kb</TH>
+      </TR>
+      <TR align="right">
+        <TD>75</TD>
+        <TD>9.375</TD>
+        <TD>58 min, 15 sec</TD>
+      </TR>
+      <TR align="right">
+        <TD>300</TD>
+        <TD>37.5</TD>
+        <TD>14 min, 34 sec</TD>
+      </TR>
+      <TR align="right">
+        <TD>600</TD>
+        <TD>75</TD>
+        <TD>7 min, 17 sec</TD>
+      </TR>
+      <TR align="right">
+        <TD>1200</TD>
+        <TD>150</TD>
+        <TD>3 min, 38 sec</TD>
+      </TR>
+      <TR align="right">
+        <TD>2400</TD>
+        <TD>300</TD>
+        <TD>1 min, 49 sec</TD>
+      </TR>
+      <TR align="right">
+        <TD>4800</TD>
+        <TD>600</TD>
+        <TD>55 sec</TD>
+      </TR>
+      <TR align="right">
+        <TD>9600</TD>
+        <TD>1200</TD>
+        <TD>27 sec</TD>
+      </TR>
+      <TR align="right">
+        <TD>19200</TD>
+        <TD>2400</TD>
+        <TD>14 sec</TD>
+      </TR>
+    </TABLE>
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    
+<P>The effect of <SPAN style="font-style: italic;">BAUD 19200</SPAN> depends on the hardware. On standard QLs the serial port can only send data at that baud rate and tends to be affected by the QL's sound chip.</P>
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    
+<P>On a standard QL without Minerva the actual baudrate is slighty lower than that stated above.</P>
+    
+<H3>NOTE 3:</H3>
+
+<P>
+    
+<P>In practice, data is compressed and transmitted with transfer protocols (to reduce transmission errors), so the above transmission times refer to the actual speed of the hardware, not the amount of data.</P>
+    
+<H3>NOTE 4:</H3>
+
+<P>
+    
+<P>The standard QL cannot safely handle the input of data at baud rates greater than 1200.</P>
+    
+<H3>NOTE 5:</H3>
+
+<P>
+    
+<P>A modified co-processor Hermes which replaces the 8049 chip by a 8749 is available, which allows independent input baud rates and (if Minerva v1.95+ is present) independent output baud rates as well as fixing all mentioned problems for QLs and AURORA boards. The more expensive version of Hermes (SuperHermes) also provides three additional low speed RS232 input ports (supporting 30 to 1200 bps) and a high speed RS232 two way serial port (supporting up to 57,600 bps, which equates to 4800 characters per second).</P>
+    
+<H3>NOTE 6:</H3>
+
+<P>
+    
+<P>On a QXL board without SMS v2.57+, a <SPAN style="font-style: italic;">BAUD</SPAN> command would not have immediate effect if a serial channel was open - it waited until you closed the channel.</P>
+    
+<H3>NOTE 7:</H3>
+
+<P>
+    
+<P>It is possible to connect a mouse to a QL through the standard serial port. Although the mouse operates at 1200 baud, you can use the mouse alongside a printer (or modem) either with the assistance of Hermes or by configuring the mouse software to de-activate whilst the higher baud rate is in use.</P>
+    
+<H3>THOR XVI NOTES:</H3>
+
+<P>
+    
+<P>The THOR XVI allows the following additional baud rates:</P>
+    
+<H3>bits/secbytes/sectime/32K</H3>
+
+<P>
+    <TABLE>
+      <TR align="left">
+        <TH>Bits/Sec</TH>
+        <TH>Bytes/Sec</TH>
+        <TH>Time/32Kb</TH>
+      </TR>
+      <TR align="right">
+        <TD>110</TD>
+        <TD>13.75</TD>
+        <TD>39 min, 43 sec</TD>
+      </TR>
+      <TR align="right">
+        <TD>134.5</TD>
+        <TD>16.8125</TD>
+        <TD>32 min, 29 sec</TD>
+      </TR>
+      <TR align="right">
+        <TD>150</TD>
+        <TD>18.75</TD>
+        <TD>29 min, 08 sec</TD>
+      </TR>
+      <TR align="right">
+        <TD>1800</TD>
+        <TD>225</TD>
+        <TD>2 min, 26 sec</TD>
+      </TR>
+    </TABLE>
+    
+<P>Independent baud rates may also be used on output and input channels when the channel is opened by using an extended device name.</P>
+    
+<H3>MINERVA NOTES:</H3>
+
+<P>
+    
+<P>Minerva v1.93+ now enables you to set different output baudrates for ser1 and ser2 - if you want different input baudrates for the two ports, you will need Hermes (see above). Unfortunately, this enhancement will only work on QLs without Hermes if both ports are output only.</P>
+    
+<P>If you want to disable the ability to handle different output baud rates, do so with the command: <SPAN style="font-style: italic;">POKE !124 !49,2</SPAN></P>
+    
+<P>In order to set the two baudrates independently, <SPAN style="font-style: italic;">BAUD</SPAN> will now accept additional values in the range -1 to -128. This is calculated by looking at the following table, working out which features you will need and adding the values accordingly to -128:</P>
+    <TABLE>
+      <TR align="left">
+        <TH border="1">Value to Add</TH>
+        <TH>Effect</TH>
+      </TR>
+      <TR>
+        <TD align="center">64</TD>
+        <TD>Alters ser2 baudrate (ser1 is default)</TD>
+      </TR>
+      <TR>
+        <TD align="center">16</TD>
+        <TD>Prevents standard <SPAN style="font-style: italic;">BAUD</SPAN> command from altering baudrate on this port</TD>
+      </TR>
+      <TR>
+        <TD align="center">7</TD>
+        <TD>Selects <SPAN style="font-style: italic;">BAUD 75</SPAN> on this port</TD>
+      </TR>
+      <TR>
+        <TD align="center">6</TD>
+        <TD>Selects <SPAN style="font-style: italic;">BAUD 300</SPAN> on this port</TD>
+      </TR>
+      <TR>
+        <TD align="center">5</TD>
+        <TD>Selects <SPAN style="font-style: italic;">BAUD 600</SPAN> on this port</TD>
+      </TR>
+      <TR>
+        <TD align="center">4</TD>
+        <TD>Selects <SPAN style="font-style: italic;">BAUD 1200</SPAN> on this port</TD>
+      </TR>
+      <TR>
+        <TD align="center">3</TD>
+        <TD>Selects <SPAN style="font-style: italic;">BAUD 2400</SPAN> on this port</TD>
+      </TR>
+      <TR>
+        <TD align="center">2</TD>
+        <TD>Selects <SPAN style="font-style: italic;">BAUD 4800</SPAN> on this port</TD>
+      </TR>
+      <TR>
+        <TD align="center">1</TD>
+        <TD>Selects <SPAN style="font-style: italic;">BAUD 9600</SPAN> on this port</TD>
+      </TR>
+      <TR>
+        <TD align="center">0</TD>
+        <TD>Selects <SPAN style="font-style: italic;">BAUD 19200</SPAN> on this port</TD>
+      </TR>
+    </TABLE>
+    
+<P>Please only try to add one baud rate value!!</P>
+    
+<H3>Minerva Examples:</H3>
+
+<P>
+    
+<P><SPAN style="font-style: italic;">BAUD -128</SPAN></P>
+    
+<P>sets the baud rate for ser1 output at 19200. ser2 is unaffected.</P>
+    
+<P><SPAN style="font-style: italic;">BAUD -47</SPAN></P>
+    
+<P>fixes the baud rate for ser2 output at 9600. ser1 is unaffected (-47 = -128+64+16+1).</P>
+    
+<H3>SMSQ AND ST/QL NOTES:</H3>
+
+<P>
+    
+<P>If <SPAN style="font-style: italic;">BAUD</SPAN> is only followed by one parameter, then it sets the baud rates for both SER1 and SER2 on the QL, AURORA and QXL boards. However, if SMSQ/E is running on an ATARI computer, or the command is used on an ST/QL Emulator then it only sets the baud rate on SER1.</P>
+    
+<P>You can however supply two parameters to the command to set independent baud rates (note that on a standard QL or Aurora, Hermes is needed for independent baud rates on each serial port). In this case, the first parameter is the number of the serial port to be set and the second number is the new baud rate, for example:</P>
+    
+<P><SPAN style="font-style: italic;">BAUD 1,19200</SPAN></P>
+    
+<P>sets the baud rate on SER1 to 19200 - any other serial ports are left unaffected. If the rate (<SPAN style="font-style: italic;">bps</SPAN>) is specified as zero, this selects the highest possible <SPAN style="font-style: italic;">BAUD</SPAN> rate on that port.</P>
+    
+<P>Please also note that if a translate has been set up with the <SPAN style="font-style: italic;">TRA</SPAN> command, changing the <SPAN style="font-style: italic;">BAUD</SPAN> rate will make that translate apply to all channels opened to the serial ports, whether or not they are already open. See <SPAN style="font-style: italic;">TRA</SPAN> for more details.</P>
+    
+<P>The following additional <SPAN style="font-style: italic;">BAUD</SPAN> rates are also supported on the specified SMSQ/E version:</P>
+    
+<H3>GOLD CARD &amp; SUPER GOLD CARD</H3>
+
+<P>
+    <UL>
+      <LI>1275(1200 receive and 75 transmit - only works with HERMES)</LI>
+      <LI>75(75 receive and 1200 transmit - only works with HERMES)</LI>
+    </UL>
+    
+<P>(The standard 1200 and 75 Baud rates are not supported)</P>
+    
+<H3>ATARI ST and TT</H3>
+
+<P>
+    
+<P>On these computers, the different serial ports support different baud rates. An ST/STE only has one serial port (SER1), a Mega STE has three (SER1, SER2 and SER4), and a TT has four (SER1, SER2, SER3 and SER4).</P>
+    
+<P>Support for SER2, SER3 and SER4 was only added to the ST/QL Emulators in version E-37 of the Drivers. It has always existed in SMSQ/E.</P>
+    <UL>
+      <LI>SER1</LI>
+      <UL>
+        <LI>supports all the standard baud rates from 300 to 19200, except 7200.</LI>
+      </UL>
+      <LI>SER2</LI>
+      <UL>
+        <LI>supports all the standard baud rates from 300 to 19200 (including 7200) as well as 38,400, 76,800, 83,333 and 125,000 baud (1x and 2x MIDI speeds).</LI>
+        <LI>If the rate specified is 0, the rate used is 153,600.</LI>
+        <LI>Note that 38,400 on the TT was implemented in v2.69. 38,400, 76,800, 83,333, 125,000 and 153,600 <SPAN style="font-style: italic;">BAUD</SPAN> were implemented for the STE and TT in v2.73.</LI>
+      </UL>
+      <LI>SER3</LI>
+      <UL>
+        <LI>supports the same rates as SER1.</LI>
+        <LI>Hardware handshaking is not available on this port.</LI>
+      </UL>
+      <LI>SER4</LI>
+      <UL>
+        <LI>supports all the standard baud rates from 300 to 38,400 plus 57,600.</LI>
+        <LI>If the rate specified is 0, the rate used is 230,000.</LI>
+      </UL>
+    </UL>
+    
+<H3>QXL</H3>
+
+<P>
+    
+<P>All of the standard baud rates available to the normal QL are supported except for 75 Baud.</P>
+    
+<H3>QPC</H3>
+
+<P>
+    
+<P>All of the same baud rates as the QXL implementation are supported plus 38,400 and 57,600 baud.</P>
+    
+<H3>QXL AND QPC NOTES:</H3>
+
+<P>
+    
+<P>If one of the PC's serial ports is already linked to a mouse (in DOS) then the <SPAN style="font-style: italic;">BAUD</SPAN> command will not affect that port. <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br>The Devices Appendix supplies details about the serial --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P>The Devices Appendix supplies details about the serial device ser and parallel device par. <A style="font-style: italic;" href="KeywordsS.html#SER_">SER_</A>... and <A style="font-style: italic;" href="KeywordsP.html#PAR_">PAR_</A>... commands allow you to set various other parameters for serial and parallel ports.</P>
+    
+<P>You can check the current baud rate setting with <A style="font-style: italic;" href="KeywordsB.html#BAUDRATE">BAUDRATE</A>. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="BAUDRATE"></a>BAUDRATE</h1><br>Syntax: <span style="font-style: italic;">BAUDRATE --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="BAUDRATE"></A>BAUDRATE</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">BAUDRATE<BR></SPAN> Location: <SPAN style="font-style: italic;">SERMouse</SPAN></P>
+    
+<P>This function returns the actual baud rate of the system which will be used on any newly opened serial port channel. <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br>The system's baud rate is set with <a style="font-style: italic;" href="KeywordsB.html#BAUD">BAUD</a>. --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P>The system's baud rate is set with <A style="font-style: italic;" href="KeywordsB.html#BAUD">BAUD</A>. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="BCLEAR"></a>BCLEAR</h1><br>Syntax: <span style="font-style: italic;">BCLEAR --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="BCLEAR"></A>BCLEAR</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">BCLEAR<BR></SPAN> Location: <SPAN style="font-style: italic;">BeuleTools, TinyToolkit, BTool</SPAN></P>
+    
+<P>Each console channel has what is known as an input queue, a small area of memory where keypresses are stored before they are read by <SPAN style="font-style: italic;">INPUT</SPAN>, <SPAN style="font-style: italic;">INKEY$</SPAN> etc. The command <SPAN style="font-style: italic;">BCLEAR</SPAN> clears the buffer of the current input queue so that any keypresses which have not yet been processed are not seen by the program. This is useful to prevent overrun on keys.</P>
+    
+<H3>Examples:</H3>
+
+<P>
+    
+<P>(1) Type this line as a direct command into the interpreter, press &lt;ENTER&gt; and then type some keys. <SPAN style="font-style: italic;">REPeat a: REMark</SPAN></P>
+    
+<P>Now press break and all of those keypresses which you performed after entering the line will be shown. Replace <SPAN style="font-style: italic;">REMark</SPAN> by <SPAN style="font-style: italic;">BCLEAR</SPAN> and try the same.</P>
+    
+<P>Normally it is okay for all keypresses to be stored in a buffer - if a program cannot cope with the typist's speed, no keypresses will be lost. But sometimes this feature may not be welcome.</P>
+    
+<P>(2) Even on very good keyboards the phenomenon of key-bounce appears, where the user has pressed a key once but the program thinks that the same key has been pressed a few times. This generally happens with poor quality keyboards or if the user is not used to either the keyboard or program speed.</P>
+    
+<P>This is a queue clearing version of the <SPAN style="font-style: italic;">GETCHAR%</SPAN> function shown at <SPAN style="font-style: italic;">CUR</SPAN>. Dangerous inputs should always clear the keyboard queue, for example where the program is asking the question: "Do you really want to format that disk (y/n) ?"</P>
+    <PRE>100 DEFine FuNction GETCHAR% (channel,timeout)
+110  LOCal char$,dummy
+120  dummy=PEND(#channel): BCLEAR
+130  CUR #channel,1
+140  char$=INKEY$(#channel,timeout)
+150  CUR #channel,0
+160  RETurn CODE(char$)
+170 END DEFine GETCHAR%
+</PRE><!-- PREVIOUSLY <br></span><br><h3>CROSS-REFERENCE:<br></h3><br>The current keyboard queue can be selected by a dummy <a style="font-style: italic;" href="KeywordsI.html#INKEY$ -->
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P>The current keyboard queue can be selected by a dummy <A style="font-style: italic;" href="KeywordsI.html#INKEY$">INKEY$</A> or <A style="font-style: italic;" href="KeywordsP.html#PEND">PEND</A>. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="BEEP"></a>BEEP</h1><br>Syntax: <span style="font-style: italic;">BEEP</span> <span style="font-style: italic;">length, pitch</span> [<span style="font-style: italic;">,pitch_2, grd_x, grd_y</span> [<span style="font-style: italic;">,wrap</span> [<span style="font-style: italic;">,fuzz</span> [<span style="font-style: italic;">,rndom</span> ]]]] --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="BEEP"></A>BEEP</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">BEEP</SPAN> <SPAN style="font-style: italic;">length, pitch</SPAN> [<SPAN style="font-style: italic;">,pitch_2, grd_x, grd_y</SPAN> [<SPAN style="font-style: italic;">,wrap</SPAN> [<SPAN style="font-style: italic;">,fuzz</SPAN> [<SPAN style="font-style: italic;">,rndom</SPAN> ]]]]
+    
+    or <SPAN style="font-style: italic;">BEEP<BR></SPAN> Location: QL ROM</P>
+    
+<P>This command allows you to access the QL's rather poor sound generation chip. It can be extremely difficult to use this command, and a lot of trial and error will generally be needed before you can find anything similar to the sound you are after.</P>
+    
+<P><SPAN style="font-style: italic;">BEEP</SPAN> without any parameters will turn off the sound altogether. You must also be aware of the fact that as soon as a <SPAN style="font-style: italic;">BEEP</SPAN> command is encountered, the QL will cancel the current sound and emit the new one (whether or not the earlier sound had finished).</P>
+    
+<P>Each of the various parameters have different ranges and different effects on the sound produced:</P>
+    <UL>
+      <LI>
+        
+<P><SPAN style="font-style: italic;">length</SPAN> This specifies the duration of the sound in 72 microsecond units (there are one million microseconds in a second). A <SPAN style="font-style: italic;">length</SPAN> of zero means emit the sound until another <SPAN style="font-style: italic;">BEEP</SPAN> command is encountered. The range is 0...32767 (a value of 32767 lasts for approximately 2.36 seconds).</P>
+      </LI>
+      <LI>
+        
+<P><SPAN style="font-style: italic;">pitch</SPAN> This affects the tone of the sound produced. The allowable range is 0...255. A <SPAN style="font-style: italic;">pitch</SPAN> of 0 is the highest which can be produced, ranging to 255 which is the deepest tone. The purity of the sound will be affected if any other parameters are specified.</P>
+      </LI>
+      <LI>
+        
+<P><SPAN style="font-style: italic;">pitch_2</SPAN> This represents a second pitch level, which will have no effect if the tone is the same (or higher) than <SPAN style="font-style: italic;">pitch</SPAN>. If however, the value of this parameter is higher (the tone is lower) than that of <SPAN style="font-style: italic;">pitch</SPAN>, this specifies a range between which the sound can 'bounce' by use of the next two parameters, creating a sequence of notes (the length of the sequence will depend on the length parameter).</P>
+      </LI>
+      <LI>
+        
+<P><SPAN style="font-style: italic;">grd_x</SPAN> Assuming that the <SPAN style="font-style: italic;">BEEP</SPAN> command is now being used to produce a sequence of notes, this parameter specifies the time interval (in 72 microsecond units) of each note in the sequence. The permitted range is again 0...32767. Larger time intervals make each note in the sequence more distinct (low values tend to produce just buzzing).</P>
+      </LI>
+      <LI>
+        
+<P><SPAN style="font-style: italic;">grd_y</SPAN> This parameter specifies the step between each note in the sequence. This must be in the range 0...15. However, this may make more sense if the correct range was said to be -7..8.</P>
+        
+<P>A value of zero produces no step - you are returned to a single note again.</P>
+        
+<P>A value between 1 and 7 means that each note will be that many pitches below the last one (unless that would bring the pitch below <SPAN style="font-style: italic;">pitch_2</SPAN>).</P>
+        
+<P>A value of 8 makes the <SPAN style="font-style: italic;">BEEP</SPAN> command fit as many notes into the sequence (in the range) as possible.</P>
+        
+<P>Values of 9 to 15 (or -7 to -1) mean that each note will be that many pitches above the last one (these correspond to the values 7 to 1 respectively), unless this would bring the pitch above <SPAN style="font-style: italic;">pitch</SPAN>. When the top or bottom of the range <SPAN style="font-style: italic;">pitch</SPAN> to <SPAN style="font-style: italic;">pitch_2</SPAN> is reached, the step direction is reversed to cause the sound to 'bounce'.</P>
+      </LI>
+      <LI>
+        
+<P><SPAN style="font-style: italic;">wrap</SPAN> If this parameter is specified, the range of notes between the two pitch parameters will be repeated the specified number of times before the step direction is altered. The range for this parameter is 0..15.</P>
+        
+<P>The last note in the range will not be sounded, but will appear as the first note in the opposite direction.</P>
+      </LI>
+      <LI>
+        
+<P><SPAN style="font-style: italic;">fuzz</SPAN>This affects the purity of each note, by blurring its sound. The effective range is 8...15, with a value of 15 producing an awful buzz.</P>
+      </LI>
+      <LI>
+        
+<P><SPAN style="font-style: italic;">rndom</SPAN>This parameter allows you to specify a certain amount of 'randomness' which is to be added to each note.</P>
+        
+<P>The effective range is once again 8...15, with the given value being used to alter from how far away from the original sequence the QL can pick a note. The higher the value, the more random notes appear in the sequence.</P>
+      </LI>
+    </UL>
+    
+<H3>Examples:</H3>
+
+<P>
+    
+<P><SPAN style="font-style: italic;">BEEP 0,20,40,10070,2</SPAN></P>
+    
+<P>will keep sounding every other note between 20 and 40 moving down and then up the scale.</P>
+    
+<P><SPAN style="font-style: italic;">BEEP 0,20,30,10070,2,1</SPAN></P>
+    
+<P>will sound the notes in the following sequence 20, 22, 24, 26, 28, 20, 22, 24, 26, 28, 30, 28, 26, 24, 22, 30, 28, 26,....</P>
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    
+<P>On all ROMs if you set a very high pitch value, the QL finds it very difficult to read the keyboard. <SPAN style="font-style: italic;">BEEP 0,0</SPAN> and <SPAN style="font-style: italic;">BEEP 0,1</SPAN> will make typing rather difficult.</P>
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    
+<P>Unless used on a THOR XVI, <SPAN style="font-style: italic;">BEEP</SPAN> does not enter the QL into supervisor mode and therefore if BASIC is trying to use <SPAN style="font-style: italic;">BEEP</SPAN> whilst a task is loaded or unloaded, then the system is likely to crash!</P>
+    
+<H3>NOTE 3:</H3>
+
+<P>
+    
+<P><SPAN style="font-style: italic;">BEEP</SPAN> does not do anything on ST/QLs or the Amiga-QDOS Emulator (pre v3.23).</P>
+    
+<H3>NOTE 4:</H3>
+
+<P>
+    
+<P>The pitch of the sound is actually shifted on QLs by different values of <SPAN style="font-style: italic;">length</SPAN>, <SPAN style="font-style: italic;">fuzz</SPAN> and <SPAN style="font-style: italic;">rndom</SPAN>. The length of the sound is also somewhat dependent on the pitch! Both of these problems are however fixed by the replacement co-processor Hermes.</P><!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsB.html#BEEPING">BEEPING</a> allows you to check if a sound is currently being -->
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P><A style="font-style: italic;" href="KeywordsB.html#BEEPING">BEEPING</A> allows you to check if a sound is currently being emitted.</P>
+    
+<P><A style="font-style: italic;" href="KeywordsP.html#PAUSE">PAUSE</A> allows you to specify a time interval during which the computer will wait (allowing you to play much longer notes). <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="BEEPING"></a>BEEPING</h1><br>Syntax: <span style="font-style: italic;">BEEPING --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="BEEPING"></A>BEEPING</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">BEEPING<BR></SPAN> Location: <SPAN style="font-style: italic;">QL ROM</SPAN></P>
+    
+<P>This is a simple function which returns either 1 (true) if any sound output from <SPAN style="font-style: italic;">BEEP</SPAN> is still running or 0 (false) if not.</P>
+    
+<H3>Example:</H3>
+
+<P>
+    
+<P><SPAN style="font-style: italic;">BEEPING</SPAN> is rather useless in a formulation like:
+    <SPAN style="font-style: italic;">IF BEEPING THEN BEEP</SPAN></P>
+    
+<P>because this is less efficient than <SPAN style="font-style: italic;">BEEP</SPAN> on its own which has the same effect. However, where you want to ensure that your program generates the chosen sound, because of the QL's multi-tasking abilities, it may be useful to use this function in case another program is executing a <SPAN style="font-style: italic;">BEEP</SPAN> command when you want to - you could then either wait or simply override that sound by using <SPAN style="font-style: italic;">BEEP</SPAN> followed by your own sound generating <SPAN style="font-style: italic;">BEEP</SPAN> command. For example:</P>
+    <PRE>10 REPeat check_beep: IF NOT BEEPING THEN EXIT check_beep
+20 BEEP 100,20
+</PRE>
+    
+<H3>NOTE:</H3>
+
+<P>
+    
+<P>This function did not work correctly on Minerva before v1.98. <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsB.html#BEEP">BEEP</a> activates the speaker. --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P><A style="font-style: italic;" href="KeywordsB.html#BEEP">BEEP</A> activates the speaker. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="BELL"></a>BELL</h1><br>Syntax: <span style="font-style: italic;">BELL --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="BELL"></A>BELL</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">BELL<BR></SPAN> Location: <SPAN style="font-style: italic;">ST/QL, QSound</SPAN></P>
+    
+<P>This command produces the sound of a ringing phone. <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsS.html#SND_EXT">SND_EXT</a>, <a style="font-style: italic;" href="KeywordsS.html#SHOOT">SHOOT</a>, <a style="font-style: italic;" href="KeywordsE.html#EXPLODE">EXPLODE</a>. --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P><A style="font-style: italic;" href="KeywordsS.html#SND_EXT">SND_EXT</A>, <A style="font-style: italic;" href="KeywordsS.html#SHOOT">SHOOT</A>, <A style="font-style: italic;" href="KeywordsE.html#EXPLODE">EXPLODE</A>. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="Beule_EXT"></a>Beule_EXT</h1><br>Syntax: <span style="font-style: italic;">Beule_EXT --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="Beule_EXT"></A>Beule_EXT</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">Beule_EXT<BR></SPAN> Location: <SPAN style="font-style: italic;">Beuletools</SPAN></P>
+    
+<P>This command is used to update all of the keywords which are added by the Beuletools Toolkit. The new keywords were automatically added when the Toolkit was loaded but keywords can be overwritten by other Toolkits, renamed or <SPAN style="font-style: italic;">ZAP</SPAN>ped.</P>
+    
+<P><SPAN style="font-style: italic;">Beule_EXT</SPAN> undoes these changes and restores the default status.</P>
+    
+<H3>WARNING:</H3>
+
+<P>
+    
+<P>Do not load the Beuletools toolkit into anything other than resident procedure memory (ie. do not have any Jobs running other than Job 0 when the toolkit is loaded). This may crash the system. <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br href="KeywordsT.html#TK2_EXT">TK2_EXT</a> and <a style="font-style: italic;" href="KeywordsT.html#TINY_EXT">TINY_EXT</a> do the same for Toolkit II and TinyToolkit --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P><A style="font-style: italic;" href="KeywordsT.html#TK2_EXT">TK2_EXT</A> and <A style="font-style: italic;" href="KeywordsT.html#TINY_EXT">TINY_EXT</A> do the same for Toolkit II and TinyToolkit keywords.
+    
+<P>See also <A style="font-style: italic;" href="KeywordsA.html#ATARI_EXT">ATARI_EXT</A>. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="BGCOLOUR_QL"></a>BGCOLOUR_QL</h1><br>Syntax: <span style="font-style: italic;">BGCOLOUR_QL </span>[<span style="font-style: italic;">#ch,</span>]<span style="font-style: italic;"> colour --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="BGCOLOUR_QL"></A>BGCOLOUR_QL</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">BGCOLOUR_QL</SPAN> [<SPAN style="font-style: italic;">#ch,</SPAN>] <SPAN style="font-style: italic;">colour<BR></SPAN>
+    or <SPAN style="font-style: italic;">BGCOLOUR_QL</SPAN> [<SPAN style="font-style: italic;">#ch,</SPAN>] <SPAN style="font-style: italic;">colour1,colour2</SPAN> [<SPAN style="font-style: italic;">,pattern</SPAN>]
+    Location: <SPAN style="font-style: italic;">SMSQ/E v2.98+</SPAN></P>
+    
+<P>It is possible under the latest version of SMSQ/E to set a 'wallpaper' - this is an image which covers the whole of the available screen (in any resolution) and which forms a background for any programs which may be running. Normally, this would appear as a black area of the screen.</P>
+    
+<P>A valid window channel must be open, default #1 (or #0 on a SBASIC with only #0 open), although one may also be supplied as <SPAN style="font-style: italic;">#ch</SPAN>. <SPAN style="font-style: italic;">
+    BGCOLOUR_QL</SPAN> allows you to specify any standard QL colour - the parameters allowed are the same as for the <SPAN style="font-style: italic;">INK</SPAN> command (in either Standard QL Colour Mode or COLOUR_QL mode), which thus allows for you to specify composite colours as well as palette mapped colours with <SPAN style="font-style: italic;">PALETTE_QL</SPAN>.</P>
+    
+<H3>Example:</H3>
+
+<P>
+    
+<P><SPAN style="font-style: italic;">BGCOLOUR_QL 2,7</SPAN> - sets a red and white checkerboard pattern. <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br>Refer to Appendix 16 and <a style="font-style: italic;" href="KeywordsI.html#INK">INK</a> for more details on colours. --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P>Refer to Appendix 16 and <A style="font-style: italic;" href="KeywordsI.html#INK">INK</A> for more details on colours.</P>
+    
+<P><A style="font-style: italic;" href="KeywordsB.html#BGCOLOUR_24">BGCOLOUR_24</A> is similar.</P>
+    
+<P><A style="font-style: italic;" href="KeywordsB.html#BGIMAGE">BGIMAGE</A> may be used to set a screen image as the wallpaper. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="BGCOLOUR_24"></a>BGCOLOUR_24</h1><br>Syntax: <span style="font-style: italic;">BGCOLOUR_24 </span>[<span style="font-style: italic;">#ch,</span>]<span style="font-style: italic;"> colour --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="BGCOLOUR_24"></A>BGCOLOUR_24</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">BGCOLOUR_24</SPAN> [<SPAN style="font-style: italic;">#ch,</SPAN>] <SPAN style="font-style: italic;">colour<BR></SPAN>
+    or <SPAN style="font-style: italic;">BGCOLOUR_24</SPAN> [<SPAN style="font-style: italic;">#ch,</SPAN>] <SPAN style="font-style: italic;">colour1,colour2</SPAN> [<SPAN style="font-style: italic;">,pattern</SPAN>]
+    Location: <SPAN style="font-style: italic;">SMSQ/E v2.98+</SPAN></P>
+    
+<P>This is similar to <SPAN style="font-style: italic;">BGCOLOUR_QL</SPAN> in that it allows you to set a wallpaper to cover the whole of the available screen (in any resolution).</P>
+    
+<P>A valid window channel must be open, default #1 (or #0 on a SBASIC with only #0 open), although one may also be supplied as #ch.</P>
+    
+<P><SPAN style="font-style: italic;">BGCOLOUR_24</SPAN> allows you to specify any 24 Bit Colour - the parameters allowed are the same as for the <SPAN style="font-style: italic;">INK</SPAN> command (in <SPAN style="font-style: italic;">COLOUR_24</SPAN> mode), which thus allows for you to specify composite colours.</P>
+    
+<H3>Example:</H3>
+
+<P>
+    
+<P><SPAN style="font-style: italic;">BGCOLOUR_24 $920000,$ff0092,3</SPAN> -sets a checkerboard pattern of Dark Red and Shocking Pink. <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br>Refer to Appendix 16 and <a style="font-style: italic;" href="KeywordsI.html#INK">INK</a> for more details on colours. --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P>Refer to Appendix 16 and <A style="font-style: italic;" href="KeywordsI.html#INK">INK</A> for more details on colours.</P>
+    
+<P><A style="font-style: italic;" href="KeywordsB.html#BGCOLOUR_QL">BGCOLOUR_QL</A> gives more detail.</P>
+    
+<P><A style="font-style: italic;" href="KeywordsB.html#BGIMAGE">BGIMAGE</A> may be used to set a screen image as the wallpaper. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="BGET"></a>BGET</h1><br>Syntax:<span style="font-style: italic;"> BGET</span> [<span style="font-style: italic;">#ch\position,</span>] [<span style="font-style: italic;">item </span><sup>*</sup>[<span style="font-style: italic;">,item</span><sup>i</sup>]<sup>*</sup> ..] --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="BGET"></A>BGET</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">BGET</SPAN> [<SPAN style="font-style: italic;">#ch\position,</SPAN>] [<SPAN style="font-style: italic;">item</SPAN> <SUP>*</SUP>[<SPAN style="font-style: italic;">,item</SPAN><SUP>i</SUP>]<SUP>*</SUP> ..]
+    
+    or <SPAN style="font-style: italic;">BGET</SPAN> [<SPAN style="font-style: italic;">#ch,</SPAN>] [<SPAN style="font-style: italic;">item</SPAN> <SUP>*</SUP>[<SPAN style="font-style: italic;">,item</SPAN><SUP>i</SUP>]<SUP>*</SUP> ..]
+    Location: <SPAN style="font-style: italic;">Toolkit II, THOR XVI</SPAN></P>
+    
+<P>This command is very similar to <SPAN style="font-style: italic;">GET</SPAN>, although this only fetches one byte at a time (in the range 0..255) from the given channel (default #3).</P>
+    
+<P>Each item to be fetched must therefore be either an integer or a floating point variable, for example: <SPAN style="font-style: italic;">BGET #3\100,byte1%,keying</SPAN></P>
+    
+<P>If the channel specified is not a file, then the command will wait for a key to be pressed for each item, and then set the value of each item to the character code of the key pressed.</P>
+    
+<P>As with <SPAN style="font-style: italic;">GET</SPAN>, the items will be fetched from the current (or specified) file position, which is taken to be an absolute distance from the start of the file. If no item is specified, then the first variant can be used to set the current file position. <SPAN style="font-style: italic;">position</SPAN> will be updated (unless it is an expression!) with the current file position at the end of the command.</P>
+    
+<H3>Examples:</H3>
+
+<P>
+    
+<P><SPAN style="font-style: italic;">BGET #3\100</SPAN>
+    Set file pointer on #3 to position 100.</P>
+    
+<P><SPAN style="font-style: italic;">BGET a%</SPAN>
+    Read the byte at the current file pointer in channel #3.</P>
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    
+<P>Current versions of the Turbo and Supercharge compilers are not able to compile programs which use <SPAN style="font-style: italic;">BGET</SPAN>.</P>
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    
+<P>Characters which are read from a channel using <SPAN style="font-style: italic;">BGET</SPAN> are affected by <SPAN style="font-style: italic;">TRA</SPAN>.</P>
+    
+<H3>SMS NOTE:</H3>
+
+<P>
+    
+<P><SPAN style="font-style: italic;">BGET</SPAN> will accept a parameter which is a sub-string of a string array to read in several bytes at once. For example:</P>
+    
+<P><SPAN style="font-style: italic;">DIM a$(10):a$=FILL$(' ',10):BGET #3,a$(4 to 7)</SPAN></P>
+    
+<P>This will read 4 bytes from channel #3 into the middle of <SPAN style="font-style: italic;">a$</SPAN>.</P>
+    
+<P>Please note that a$ cannot be an empty string if this is to work since the sub-string would not be valid!! <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsB.html#BPUT">BPUT</a>, <a style="font-style: italic;" href="KeywordsP.html#PUT">PUT</a>, <a style="font-style: italic;" href="KeywordsG.html#GET">GET</a>. --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P>See <A style="font-style: italic;" href="KeywordsB.html#BPUT">BPUT</A>, <A style="font-style: italic;" href="KeywordsP.html#PUT">PUT</A>, <A style="font-style: italic;" href="KeywordsG.html#GET">GET</A>. <A style="font-style: italic;" href="KeywordsF.html#FPOS">FPOS</A> allows you to find out the current file position. <A style="font-style: italic;" href="KeywordsT.html#TRUNCATE">TRUNCATE</A> allows you to truncate a file to the current file position. <A style="font-style: italic;" href="KeywordsP.html#PEEK">PEEK</A> fetches one byte from memory.</P>
+    
+<P><A style="font-style: italic;" href="KeywordsO.html#OPEN_DIR">OPEN_DIR</A> contains an example of the use of <A style="font-style: italic;" href="KeywordsB.html#BGET">BGET</A>. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="BGIMAGE"></a>BGIMAGE</h1><br>Syntax: <span style="font-style: italic;">BGIMAGE </span>[<span style="font-style: italic;">#ch,</span>]<span style="font-style: italic;"> filename --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="BGIMAGE"></A>BGIMAGE</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">BGIMAGE</SPAN> [<SPAN style="font-style: italic;">#ch,</SPAN>] <SPAN style="font-style: italic;">filename<BR></SPAN> Location: <SPAN style="font-style: italic;">SMSQ/E v2.98+</SPAN></P>
+    
+<P>This command allows you to load a screen image as a wallpaper to cover the whole of the available screen (in any resolution).</P>
+    
+<P>A valid window channel must be open, default #1 (or #0 on a SBASIC with only #0 open), although one may also be supplied as <SPAN style="font-style: italic;">#ch</SPAN>.</P>
+    
+<P>The file will need to be a screen snapshot - the Photon JPEG viewer can be used to convert JPEG files to screen snapshots.</P>
+    
+<H3>Example:</H3>
+
+<P>
+    
+<P><SPAN style="font-style: italic;">BGIMAGE win1_wallpapers_cats</SPAN> - load a wallpaper.</P>
+    
+<H3>NOTE:</H3>
+
+<P>
+    
+<P>The command expects the screen to have been saved in the current resolution and colour depth, therefore any attempt to load a screen image in a different resolution or colour depth to the one in existence when the screen was saved will result in a corrupt image. <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsS.html#SBYTES">SBYTES</a> gives details on how to store a screen on disk. --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P><A style="font-style: italic;" href="KeywordsS.html#SBYTES">SBYTES</A> gives details on how to store a screen on disk.</P>
+    
+<P>In many ways, this command is similar to <A style="font-style: italic;" href="KeywordsL.html#LOADPIC">LOADPIC</A>, except that it caters for non-standard QL resolutions and colour depths.</P>
+    
+<P><A style="font-style: italic;" href="KeywordsB.html#BGCOLOUR_QL">BGCOLOUR_QL</A> and <A style="font-style: italic;" href="KeywordsB.html#BGCOLOUR_24">BGCOLOUR_24</A> can be used to set a single colour wallpaper. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="BICOP"></a>BICOP</h1><br>Syntax: <span style="font-style: italic;">BICOP --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="BICOP"></A>BICOP</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">BICOP<BR></SPAN> Location: <SPAN style="font-style: italic;">HCO</SPAN></P>
+    
+<P>This procedure will send a screen dump to the port ser1hr - it is aimed at Epson compatible dot-matrix printers and uses grey scales to represent the different colours. It is up to you to set the <SPAN style="font-style: italic;">BAUD</SPAN> rate.</P>
+    
+<H3>NOTE:</H3>
+
+<P>
+    
+<P>It will only work on a standard 512x256 screen stored at $20000. <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsS.html#SDUMP">SDUMP</a> is more flexible. --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P><A style="font-style: italic;" href="KeywordsS.html#SDUMP">SDUMP</A> is more flexible.</P>
+    
+<P>See also <A style="font-style: italic;" href="KeywordsH.html#HCO">HCO</A> and <A style="font-style: italic;" href="KeywordsF.html#FCO">FCO</A>. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="BIN"></a>BIN</h1><br>Syntax: <span style="font-style: italic;">BIN (binary$) --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="BIN"></A>BIN</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">BIN (binary$)<BR></SPAN>
+    or <SPAN style="font-style: italic;">BIN (binary)</SPAN> <SPAN style="font-style: italic;">where binary=0..111111<BR></SPAN> Location: <SPAN style="font-style: italic;">Toolkit II, THOR XVI</SPAN></P>
+    
+<P>This function returns the decimal value of a binary number (given as a string). For small numbers, a floating point number can be used but will cause problems if this is not a valid binary number.</P>
+    
+<H3>Examples:</H3>
+
+<P>
+    
+<P>(1) <SPAN style="font-style: italic;">PRINT BIN ( '1001' )</SPAN></P>
+    
+<P>will print the value 9</P>
+    
+<P>(2) As it stands, the function <SPAN style="font-style: italic;">BIN</SPAN> cannot handle binary dots</P>
+    
+<P>(eg. 1001.101=9.625), therefore a BASIC function to provide this facility is:</P>
+    <PRE>100 DEFine FuNction BINN(a$)
+110   LOCal i,dot,dota,value_a,loop
+120   IF a$='' THEN RETurn 0
+130   FOR i=1 TO LEN(a$): IF a$(i) INSTR '10.'=0: REPORT -17: STOP
+140   dot='.' INSTR a$: IF dot=0 THEN RETurn BIN(a$)
+150   value_a=0:dota=0
+160   IF dot&gt;1 THEN value_a=value_a+BIN(a$(1 TO dot-1))
+170   IF '.' INSTR a$(dot+1 TO ): REPORT -17: STOP
+180   REPeat loop
+190     IF dot&gt;=LEN(a$):EXIT loop
+200     a$=a$(dot+1 TO )
+210     dot='1' INSTR a$: IF NOT dot THEN EXIT loop
+220     value_a=value_a+1/(2^(dot+dota)):dota=dota+dot
+230   END REPeat loop
+240   RETurn value_a
+250 END DEFine BINN
+</PRE>
+    
+<H3>NOTE:</H3>
+
+<P>
+    
+<P>Any digit other than 0 or 1 will produce odd results. <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br href="KeywordsB.html#BIN$">BIN$</a> works the other way around, converting decimal numbers --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P><A style="font-style: italic;" href="KeywordsB.html#BIN$">BIN$</A> works the other way around, converting decimal numbers into their binary equivalent. See <A style="font-style: italic;" href="KeywordsH.html#HEX">HEX</A> and <A style="font-style: italic;" href="KeywordsH.html#HEX$">HEX$</A> for the hexadecimal versions. <A style="font-style: italic;" href="KeywordsB.html#BIT%">BIT%</A> is also useful.
+    
+<P>SMS users can achieve the same thing by using, for example <A style="font-style: italic;" href="KeywordsP.html#PRINT%20%1001">PRINT %1001</A> instead of <A style="font-style: italic;" href="KeywordsP.html#PRINT%20BIN%20('1001')">PRINT BIN ('1001')</A>. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="BIN$"></a>BIN$</h1><br>Syntax: <span style="font-style: italic;">BIN$ (decimal,digits) --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="BIN$"></A>BIN$</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">BIN$ (decimal,digits)<BR></SPAN>
+    or <SPAN style="font-style: italic;">BIN$ (decimal</SPAN> [<SPAN style="font-style: italic;">,digits</SPAN>]) <SPAN style="font-style: italic;">(THOR only)<BR></SPAN> Location: <SPAN style="font-style: italic;">Toolkit II, THOR XVI</SPAN></P>
+    
+<P>This function converts a signed integer decimal number to the equivalent binary number (to a specified number of binary digits ranging from 1 to 32). Negative values are also handled correctly.</P>
+    
+<H3>Examples:</H3>
+
+<P>
+    
+<P>(1) <SPAN style="font-style: italic;">BIN (BIN$ (x,4)) = x</SPAN></P>
+    
+<P>if <SPAN style="font-style: italic;">x</SPAN> is any number between 0 and 15.</P>
+    
+<P>(2) A short function to compare two numbers using the mathematical 'OR' function. Do note however that the same function already exists on the QL, and the commands</P>
+    
+<P><SPAN style="font-style: italic;">PRINT 100||10</SPAN> and <SPAN style="font-style: italic;">PRINT _or(100,10)</SPAN> have exactly the same effect, although the BASIC version below does enable you to see what the function actually does:</P>
+    <PRE>100 DEFine FuNction _or(x,y)
+110  a$=BIN$(x,32): b$=BIN$(y,32)
+115  PRINT a$,b$
+120  c$=FILL$('0',32)
+130  FOR i=1 TO 32
+140    IF a$(i)=1 OR b$(i)=1: c$(i)=1
+150  END FOR i
+155  PRINT c$
+160  RETurn BIN(c$)
+170 END DEFine _or
+</PRE>
+    
+<H3>THOR XVI NOTE:</H3>
+
+<P>
+    
+<P>The THOR XVI version of <SPAN style="font-style: italic;">BIN$</SPAN> will accept a value of zero for digits {or even the command in the form <SPAN style="font-style: italic;">BIN$(decimal)</SPAN>}. In both of these cases the result is returned in the least number of Binary digits necessary to store the number, for example: <SPAN style="font-style: italic;">PRINT BIN$(10)</SPAN>gives the result 1010.</P>
+    
+<H3>THOR XVI WARNING:</H3>
+
+<P>
+    
+<P>A second parameter of zero may crash some versions of this command other than on v6.41 of the THOR XVI. <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsB.html#BIN">BIN</a> and <a style="font-style: italic;" href="KeywordsH.html#HEX">HEX</a>, <a style="font-style: italic;" href="KeywordsH.html#HEX$">HEX$</a>.  Also refer to <a style="font-style: italic;" href="KeywordsB.html#BIT%">BIT%</a>. --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P>See <A style="font-style: italic;" href="KeywordsB.html#BIN">BIN</A> and <A style="font-style: italic;" href="KeywordsH.html#HEX">HEX</A>, <A style="font-style: italic;" href="KeywordsH.html#HEX$">HEX$</A>. Also refer to <A style="font-style: italic;" href="KeywordsB.html#BIT%">BIT%</A>. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="BINOM"></a>BINOM</h1><br>Syntax: <span style="font-style: italic;">BINOM (n,k) --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="BINOM"></A>BINOM</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">BINOM (n,k)<BR></SPAN> Location: Math Package</P>
+    
+<P>The function <SPAN style="font-style: italic;">BINOM</SPAN> returns the value of the binomial coefficient which is defined as the following (where <SPAN style="font-style: italic;">n &gt;= k</SPAN>):</P>
+    
+<P><SPAN style="font-style: italic;">n * (n - 1) * (n - 2) * ... * (n - k + 1) ) / ( 1 * 2 * ... * k )</SPAN> or, <SPAN style="font-style: italic;">FACT(n) / ( FACT(k) * FACT(n-k) )</SPAN></P>
+    
+<P>The binomial coefficient gives the kth coefficient of the variables in an expanded binomial series, this is called the binomial theorem:</P>
+    
+<P><SPAN style="font-style: italic;">(a+b)^n = BINOM(n,0) * a^n + BINOM(n,1) * a^(n-1) * b + BINOM(n,2) * a^(n-2) * b^2 + ... + BINOM(n,n-1) * a * b^(n-1) + BINOM(n,n) * b^n</SPAN></P>
+    
+<P>The binomial coefficient can also be used to calculate combinations and probabilities. As the example shows, it is important to know the mathematical theory behind this function to make full use of it.</P>
+    
+<H3>Example:</H3>
+
+<P>
+    
+<P>The following program calculates 2<SUP>n</SUP>:</P>
+    <PRE>100 n=10: s=0
+110 FOR k=0 TO n: s=s+BINOM(n,k)
+120 PRINT s,2^n
+</PRE>
+    
+<P>It can be optimised by exploiting the fact that:</P>
+    
+<P><SPAN style="font-style: italic;">BINOM (n,k) = BINOM (n,n-k)</SPAN> which saves half of the loops:</P>
+    <PRE>100 n=10
+110 IF NOT n MOD 2 THEN s=BINOM(n,n DIV 2): ELSE s=0
+120 FOR k=0 TO n DIV 2 - NOT n MOD 2
+130   s=s+2*BINOM(n,k)
+140 END FOR k
+150 PRINT s,2^n
+</PRE><!-- PREVIOUSLY <br></span><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsF.html#FACT -->
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P><A style="font-style: italic;" href="KeywordsF.html#FACT">FACT</A></P><A style="font-style: italic;" href="KeywordsF.html#FACT"></A>
+    
+<H3><A style="font-style: italic;" href="KeywordsF.html#FACT"><BR></A></H3>
+    
+<P><A style="font-style: italic;" href="KeywordsF.html#FACT"></A></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="BIT%"></A>BIT%</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">BIT% (number%,bitnr)</SPAN> with <SPAN style="font-style: italic;">bitnr</SPAN>=0..15
+    Location: <SPAN style="font-style: italic;">BIT</SPAN>
+    
+<P>All numbers are internally stored as a series of values, each of which can either be 1 or 0 (or, if you prefer, true or false). This is known as the binary system. The set of digits which make up a binary number are known as a stream of bits.</P>
+    
+<P>The function <SPAN style="font-style: italic;">BIT%</SPAN> returns the status of a specified bit of an integer <SPAN style="font-style: italic;">number%</SPAN>, a value of either 0 or 1. Bit 0 means the rightmost bit, whereas bit 15 would be the leftmost.</P>
+    
+<H3>Example 1:</H3>
+
+<P>
+    
+<P>Here is a function which converts a number to the binary</P>
+    
+<P>system. It allows a greater range than <SPAN style="font-style: italic;">BIN$</SPAN> and needs just one parameter. The first version needs the <SPAN style="font-style: italic;">REV$</SPAN> and <SPAN style="font-style: italic;">LOG2</SPAN> extensions, the second does not.</P>
+    
+<P>Version 1:</P>
+    <PRE>100 DEFine FuNction BIT$ (x%)
+110  LOCal b$,i: b$=""
+120  FOR i=0 TO LOG2(ABS(x%)):b$=b$ &amp; BIT%(x%,i)
+130  RETurn REV$(b$)
+140 END DEFine BIT$
+</PRE>
+    
+<P>Version 2:</P>
+    <PRE>100 DEFine FuNction BIT$ (x%)
+110  LOCal b$,i: b$=""
+120  FOR i=0 TO LN(ABS(x%))/LN(2): b$=BIT%(x%,i) &amp; b$
+130  RETurn b$
+140 END DEFine BIT$
+</PRE>
+    
+<H3>Example 2:</H3>
+
+<P>
+    
+<P>The following logical function returns 1 (true) if the given parameter was an upper case character, or 0 (false) if it was lower case. This function will work with all international character sets supported on the original QL.</P>
+    <PRE>100 DEFine FuNction UPPER% (c$)
+110  RETurn NOT BIT%(CODE(c$),5) ^^ BIT%(CODE(c$),7)
+120 END DEFine UPPER%
+</PRE>
+    
+<P>In any given character, bit 5 indicates the case and bit 7 the character set.</P><!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br href="KeywordsB.html#BIN$">BIN$</a> also converts a decimal number to a binary and <a style="font-style: italic;" href="KeywordsB.html#BIN">BIN</a> back -->
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P><A style="font-style: italic;" href="KeywordsB.html#BIN$">BIN$</A> also converts a decimal number to a binary and <A style="font-style: italic;" href="KeywordsB.html#BIN">BIN</A> back again. <A style="font-style: italic;" href="KeywordsU.html#UPPER$">UPPER$</A> returns a string in upper characters.
+    
+<P>The length of a number x in binary form is <A style="font-style: italic;" href="KeywordsI.html#INT%20(LOG2%20(ABS%20(x))+1)">INT (LOG2 (ABS (x))+1)</A>. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="BLD"></a>BLD</h1><br>Syntax: <span style="font-style: italic;">BLD --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="BLD"></A>BLD</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">BLD<BR></SPAN> Location: Beuletools</P>
+    
+<P>This function returns the control codes needed to switch on double strike ('bold') on an EPSON compatible printer:</P>
+    
+<P><SPAN style="font-style: italic;">PRINT BLD</SPAN> is the same as <SPAN style="font-style: italic;">PRINT CHR$(27)&amp;"G"</SPAN></P>
+    
+<H3><SPAN style="font-style: italic;">Example:<BR></SPAN></H3>
+    
+<P><SPAN style="font-style: italic;"><SPAN style="font-style: italic;">LPRINT "I " &amp; BLD&amp;"hate"&amp;NRM &amp; " these functions</SPAN>." 
+    <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsN.html#NORM">NORM</a>, <a style="font-style: italic;" href="KeywordsE.html#EL">EL</a>, <a style="font-style: italic;" href="KeywordsD.html#DBL">DBL</a>, <a style="font-style: italic;" href="KeywordsE.html#ENL">ENL</a>, <a style="font-style: italic;" href="KeywordsP.html#PRO">PRO</a>, <a style="font-style: italic;" href="KeywordsS.html#SI">SI</a>, <a style="font-style: italic;" href="KeywordsN.html#NRM">NRM</a>, <a style="font-style: italic;" href="KeywordsU.html#UNL">UNL</a>, <a style="font-style: italic;" href="KeywordsA.html#ALT">ALT</a>, <a style="font-style: italic;" href="KeywordsE.html#ESC">ESC</a>, <a style="font-style: italic;" href="KeywordsF.html#FF">FF</a>, <a style="font-style: italic;" href="KeywordsL.html#LMAR">LMAR</a>, <a style="font-style: italic;" href="KeywordsR.html#RMAR">RMAR</a>, <a style="font-style: italic;" href="KeywordsP.html#PAGDIS">PAGDIS</a>, --></SPAN></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P><A style="font-style: italic;" href="KeywordsN.html#NORM">NORM</A>, <A style="font-style: italic;" href="KeywordsE.html#EL">EL</A>, <A style="font-style: italic;" href="KeywordsD.html#DBL">DBL</A>, <A style="font-style: italic;" href="KeywordsE.html#ENL">ENL</A>, <A style="font-style: italic;" href="KeywordsP.html#PRO">PRO</A>, <A style="font-style: italic;" href="KeywordsS.html#SI">SI</A>, <A style="font-style: italic;" href="KeywordsN.html#NRM">NRM</A>, <A style="font-style: italic;" href="KeywordsU.html#UNL">UNL</A>, <A style="font-style: italic;" href="KeywordsA.html#ALT">ALT</A>, <A style="font-style: italic;" href="KeywordsE.html#ESC">ESC</A>, <A style="font-style: italic;" href="KeywordsF.html#FF">FF</A>, <A style="font-style: italic;" href="KeywordsL.html#LMAR">LMAR</A>, <A style="font-style: italic;" href="KeywordsR.html#RMAR">RMAR</A>, <A style="font-style: italic;" href="KeywordsP.html#PAGDIS">PAGDIS</A>, <A style="font-style: italic;" href=
+    "KeywordsP.html#PAGLEN">PAGLEN</A>. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="BLOCK"></a>BLOCK</h1><br>Syntax: <span style="font-style: italic;">BLOCK</span> [<span style="font-style: italic;">#channel,</span>] <span style="font-style: italic;">width, height, x, y, colour --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="BLOCK"></A>BLOCK</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">BLOCK</SPAN> [<SPAN style="font-style: italic;">#channel,</SPAN>] <SPAN style="font-style: italic;">width, height, x, y, colour<BR></SPAN> Location: <SPAN style="font-style: italic;">QL ROM</SPAN></P>
+    
+<P>This command draws a block of size <SPAN style="font-style: italic;">width</SPAN> x <SPAN style="font-style: italic;">height</SPAN> at position <SPAN style="font-style: italic;">x,y</SPAN> of the given <SPAN style="font-style: italic;">colour</SPAN> in the specified window (default #1). Both the position and the block size are given in absolute pixel co-ordinates, with the maximum ranges specified by the physical size of the window.</P>
+    
+<P>This means that for example, in a window which is defined as 448x200a32x16, the maximum block which can be drawn is a block of size 448 x 200 in position (0,0). You can also use <SPAN style="font-style: italic;">OVER</SPAN> to produce other effects with <SPAN style="font-style: italic;">BLOCK</SPAN>.</P>
+    
+<P>As with other graphics commands, the <SPAN style="font-style: italic;">colour</SPAN> can be made up of up to three parameters, giving the background, contrast and stipple pattern (composite colours).</P>
+    
+<H3>Example:</H3>
+
+<P>
+    
+<P>A program printing out the set of numbers 1 to 100 and then quickly recolouring the two halves of the window:</P>
+    <PRE>100 WINDOW 300,60,102,56
+110 PAPER 0: CLS
+120 FOR i=1 TO 100: PRINT !i!
+130 OVER -1
+140 BLOCK 150,60,0,0,7
+150 BLOCK 150,60,150,0,2
+160 OVER 0
+</PRE>
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    
+<P>Some ROMs (not SMS) will allow you to specify blocks which lie partly outside of a window without reporting the error 'Out of Range'. However, this can also crash some ROMs!</P>
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    
+<P>Odd values for <SPAN style="font-style: italic;">width</SPAN> and <SPAN style="font-style: italic;">x</SPAN> are always rounded down to an even number (eg. 23 pixels wide becomes 22 pixels). This is to ensure compatibility between <SPAN style="font-style: italic;">MODE 4</SPAN> and <SPAN style="font-style: italic;">MODE 8</SPAN>. The only problem is that you cannot specify a block one pixel wide, or even have a gap of one pixel between two blocks.</P>
+    
+<H3>NOTE 3:</H3>
+
+<P>
+    
+<P>Unless you have a Minerva ROM or SMS, you cannot draw a block 512 pixels wide - you need to use two adjacent blocks instead!</P>
+    
+<H3>NOTE 4:</H3>
+
+<P>
+    
+<P><SPAN style="font-style: italic;">BLOCK</SPAN> provides an extremely quick way of drawing horizontal or vertical lines on screen.</P>
+    
+<H3>MINERVA NOTE:</H3>
+
+<P>
+    
+<P>Early versions of Minerva (pre v1.83) contained code to ensure that the given block would appear wholly within the specified window. However, later versions had to be altered to ensure compatibility with certain programs. These later versions allow <SPAN style="font-style: italic;">width</SPAN>, <SPAN style="font-style: italic;">height</SPAN>, <SPAN style="font-style: italic;">x</SPAN> and <SPAN style="font-style: italic;">y</SPAN> to be within the range -32768...32767 - only that part of the block (if any) which appears in the given window will be drawn!</P>
+    
+<P>For example:</P>
+    
+<P><SPAN style="font-style: italic;">BLOCK 200,10,-20,255,7</SPAN> has the same effect as:</P>
+    
+<P><SPAN style="font-style: italic;">BLOCK 180,1,0,255,7 <!-- PREVIOUSLY <br></span><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsI.html#INK">INK</a> contains information concerning composite colours. --></SPAN></P>
+    
+<H3><SPAN style="font-style: italic;">CROSS-REFERENCE:<BR></SPAN></H3>
+    
+<P><SPAN style="font-style: italic;"><A style="font-style: italic;" href="KeywordsI.html#INK">INK</A> contains information concerning composite colours. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="BLOOK"></a>BLOOK</h1><br>Syntax: <span style="font-style: italic;">BLOOK (tofind$, adr1 TO adr2) --></SPAN></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><SPAN style="font-style: italic;"><A name="BLOOK"></A>BLOOK</SPAN></H1>
+    
+<P><SPAN style="font-style: italic;">Syntax: <SPAN style="font-style: italic;">BLOOK (tofind$, adr1 TO adr2)<BR></SPAN> Location: <SPAN style="font-style: italic;">HCO</SPAN></SPAN></P>
+    
+<P>See <SPAN style="font-style: italic;">SEARCH</SPAN> but note the different syntax. The string being looked for by <SPAN style="font-style: italic;">BLOOK</SPAN> is not case-sensitive.</P><!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="BLS"></a>BLS</h1><br>Syntax: <span style="font-style: italic;">BLS time% -->
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="BLS"></A>BLS</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">BLS time%<BR></SPAN> Location: <SPAN style="font-style: italic;">SERMouse</SPAN></P>
+    
+<P>This command sets up a job which will blank the screen after a certain amount of time if a key is not pressed or the mouse not moved. The delay depends on the value of <SPAN style="font-style: italic;">time%</SPAN> (1-20 = seconds), (21-59 = minutes).</P>
+    
+<P>To turn off this function, use <SPAN style="font-style: italic;">time%=0</SPAN>.</P>
+    
+<P>Pressing a key or moving the mouse will reactivate the screen.</P><!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsA.html#A_BLANK">A_BLANK</a>. -->
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P>See <A style="font-style: italic;" href="KeywordsA.html#A_BLANK">A_BLANK</A>. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="BMOVE"></a>BMOVE</h1><br>Syntax: <span style="font-style: italic;">BMOVE adr1a, adr1b, adr2 --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="BMOVE"></A>BMOVE</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">BMOVE adr1a, adr1b, adr2<BR></SPAN> Location: <SPAN style="font-style: italic;">HCO</SPAN></P>
+    
+<P><SPAN style="font-style: italic;">BMOVE</SPAN> is a procedure which copies the whole of the memory stored between the two addresses <SPAN style="font-style: italic;">adr1a</SPAN> and <SPAN style="font-style: italic;">adr1b</SPAN> to the new address pointed to by <SPAN style="font-style: italic;">adr2</SPAN>, so the number of bytes moved is <SPAN style="font-style: italic;">adr1b-adr1a</SPAN>.</P>
+    
+<H3>Example:</H3>
+
+<P>
+    
+<P>Dump some memory to screen (note that this only works with the screen at 131072 and at 512 x 256 resolution):</P>
+    <PRE>100 FOR a = 0 TO 10240 STEP 128
+110   BMOVE a, a+HEX("8000") TO HEX("20000")
+120 END FOR a
+</PRE>
+    
+<H3>WARNING:</H3>
+
+<P>
+    
+<P>Always ensure that there is sufficient available free memory at <SPAN style="font-style: italic;">adr2</SPAN> to hold the data from <SPAN style="font-style: italic;">adr1a</SPAN> to <SPAN style="font-style: italic;">adr1b</SPAN>, otherwise your machine is most likely to crash.</P><!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br>It is a good idea to check with <a style="font-style: italic;" href="KeywordsV.html#VER$">VER$</a> if Minerva is present -->
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P>It is a good idea to check with <A style="font-style: italic;" href="KeywordsV.html#VER$">VER$</A> if Minerva is present and use its extremely fast MM.MOVE machine code trap via <A style="font-style: italic;" href="KeywordsC.html#CALL">CALL</A> as an alternative to <A style="font-style: italic;" href="KeywordsB.html#BMOVE">BMOVE</A>; this is demonstrated by the example at <A style="font-style: italic;" href="KeywordsL.html#LDRAW">LDRAW</A>.</P>
+    
+<P><A style="font-style: italic;" href="KeywordsC.html#COPY_B">COPY_B</A>, <A style="font-style: italic;" href="KeywordsT.html#TTPOKEM">TTPOKEM</A>, <A style="font-style: italic;" href="KeywordsC.html#COPY_W">COPY_W</A> and <A style="font-style: italic;" href="KeywordsC.html#COPY_L">COPY_L</A> also allow you to move memory.</P><!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="BORDER"></a>BORDER</h1><br>Syntax: <span style="font-style: italic;">BORDER</span> [<span style="font-style: italic;">#channel,</span>] <span style="font-style: italic;">size</span> [<span style="font-style: italic;">,colour</span>] -->
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="BORDER"></A>BORDER</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">BORDER</SPAN> [<SPAN style="font-style: italic;">#channel,</SPAN>] <SPAN style="font-style: italic;">size</SPAN> [<SPAN style="font-style: italic;">,colour</SPAN>]
+    
+    or <SPAN style="font-style: italic;">BORDER</SPAN> [<SPAN style="font-style: italic;">#channel</SPAN>]
+    Location: <SPAN style="font-style: italic;">QL ROM</SPAN></P>
+    
+<P>This command allows you to add a coloured border around the inside of the edge of the specified window (default #1). If the second syntax is used, this will turn off the border on the specified window - this is the same as:</P>
+    
+<P><SPAN style="font-style: italic;">BORDER</SPAN> [<SPAN style="font-style: italic;">#channel,</SPAN>] <SPAN style="font-style: italic;">0</SPAN></P>
+    
+<P>If a border is present around the window, the physical size of the window is altered, so that <SPAN style="font-style: italic;">PRINT</SPAN> and <SPAN style="font-style: italic;">LINE</SPAN> commands (for instance) will not overwrite the border. Please note however, that the window is reset to its original size prior to a <SPAN style="font-style: italic;">BORDER</SPAN> command and therefore two successive border commands only have the same effect as the second <SPAN style="font-style: italic;">BORDER</SPAN> command on its own.</P>
+    
+<P>If the specified size is too large to fit in the given window, the error 'Out of Range' will be reported.</P>
+    
+<P>As with other graphics commands, <SPAN style="font-style: italic;">colour</SPAN> can actually be up to three parameters forming a composite colour.</P>
+    
+<P>For example: <SPAN style="font-style: italic;">BORDER #2,2,4</SPAN></P>
+    
+<P>has the same effect as <SPAN style="font-style: italic;">BORDER #2,2,4,4,3</SPAN></P>
+    
+<P>or even <SPAN style="font-style: italic;">BORDER #2,2,4,4</SPAN></P>
+    
+<P>If no value is given for <SPAN style="font-style: italic;">colour</SPAN> a transparent border will be added to the given window. This means that a border will be created, but anything which already appears in that border will not be affected.</P>
+    
+<P>Once the border has been re-drawn the cursor is automatically placed at the top left hand position (0,0) just inside the border.</P>
+    
+<H3>Examples:</H3>
+
+<P>
+    
+<P>To produce a screen with a title, allowing you to scroll</P>
+    
+<P>text and do all sorts on the screen without affecting the title:</P>
+    <PRE>100 MODE 4
+110 WINDOW 448,200,32,16
+120 PAPER 0: BORDER 0 : CLS
+130 AT 0,30: PRINT "THE TITLE PAGE"
+140 BORDER 9
+150 PAPER 2:CLS
+</PRE>
+    
+<P>To produce a 'take-off' effect:</P>
+    <PRE>100 MODE 8
+110 WINDOW 448,200,32,16
+120 FOR i=1 TO 99
+130   BORDER i,2
+140 END FOR i
+</PRE>
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    
+<P>If a border appears in a window, there is always a width of at least two pixels down the sides to ensure that the border will appear in <SPAN style="font-style: italic;">MODE 8</SPAN>. Take the <SPAN style="font-style: italic;">width</SPAN> value and if it is odd, add one for the width down the sides of the window.</P>
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    
+<P>The second syntax will not work on Minerva (pre v1.79) and the THOR XVI - you will need to specify a width of zero instead.</P><!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsI.html#INK">INK</a> describes composite colours. -->
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P><A style="font-style: italic;" href="KeywordsI.html#INK">INK</A> describes composite colours.</P>
+    
+<P>Also see <A style="font-style: italic;" href="KeywordsW.html#WINDOW">WINDOW</A>.</P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="BPEEK%"></A><A name="BPEEK_W%"></A><A name="BPEEK_L%"></A>BPEEK%</H1>
+
+<P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1>BPEEK_W%</H1>
+
+<P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1>BPEEK_L%</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">BPEEK% (offset)</SPAN></P>
+    
+<P>and <SPAN style="font-style: italic;">BPEEK_W% (offset)</SPAN></P>
+    
+<P>and <SPAN style="font-style: italic;">BPEEK_L (offset)</SPAN>
+    Location: <SPAN style="font-style: italic;">BPEEKS, BPOKE (DIY Toolkit - Vol B)</SPAN></P>
+    
+<P>These three functions are exactly the same as <SPAN style="font-style: italic;">BASIC_B</SPAN>, <SPAN style="font-style: italic;">BASIC_W</SPAN> and <SPAN style="font-style: italic;">BASIC_W</SPAN>, and suffer with the same problem that they always access the SuperBASIC variables of Job 0 (SuperBASIC) and cannot therefore be used on a Multiple BASIC interpreter. <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsB.html#BASIC_W">BASIC_W</a> and <a style="font-style: italic;" href="KeywordsB.html#BASIC">BASIC</a>. --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P>See <A style="font-style: italic;" href="KeywordsB.html#BASIC_W">BASIC_W</A> and <A style="font-style: italic;" href="KeywordsB.html#BASIC">BASIC</A>.</P>
+    
+<P><A style="font-style: italic;" href="KeywordsB.html#BPOKE">BPOKE</A> and related commands allow you to alter the values of the SuperBASIC variables.</P>
+    
+<H1>BPOKE</H1>
+
+<P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1>BPOKE_W</H1>
+
+<P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1>BPOKE_L</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">BPOKE offset, value</SPAN></P>
+    
+<P>and <SPAN style="font-style: italic;">BPOKE_W offset, value</SPAN></P>
+    
+<P>and <SPAN style="font-style: italic;">BPOKE_L offset, value</SPAN>
+    Location: <SPAN style="font-style: italic;">BPOKE (DIY Toolkit - Vol B)</SPAN></P>
+    
+<P>These three commands allow you to alter the value of SuperBASIC variables in much the same was as the extended <SPAN style="font-style: italic;">POKE</SPAN> commands do on Minerva and SMS.</P>
+    
+<P><SPAN style="font-style: italic;">BPOKE_W</SPAN> and <SPAN style="font-style: italic;">BPOKE_L</SPAN> were added in v0.7 of the toolkit.</P>
+    
+<P>They unfortunately always access the SuperBASIC variables of Job 0 (SuperBASIC) and cannot therefore be used on a Multiple BASIC interpreter. <!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsP.html#POKE">POKE</a>. --></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P>See <A style="font-style: italic;" href="KeywordsP.html#POKE">POKE</A>.</P>
+    
+<P><A style="font-style: italic;" href="KeywordsB.html#BPEEK%">BPEEK%</A> and related commands allow you to read the values of the SuperBASIC variables. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="BPUT"></a>BPUT</h1><br>Syntax:<span style="font-style: italic;"> BPUT</span> [<span style="font-style: italic;">#ch\position,</span>] [<span style="font-style: italic;">item </span><sup>*</sup>[<span style="font-style: italic;">,item</span><sup>i</sup>]<sup>*</sup> ..] --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="BPUT"></A>BPUT</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">BPUT</SPAN> [<SPAN style="font-style: italic;">#ch\position,</SPAN>] [<SPAN style="font-style: italic;">item</SPAN> <SUP>*</SUP>[<SPAN style="font-style: italic;">,item</SPAN><SUP>i</SUP>]<SUP>*</SUP> ..]
+    
+    or <SPAN style="font-style: italic;">BPUT</SPAN> [<SPAN style="font-style: italic;">#ch,</SPAN>] [<SPAN style="font-style: italic;">item</SPAN> <SUP>*</SUP>[<SPAN style="font-style: italic;">,item</SPAN><SUP>i</SUP>]<SUP>*</SUP> ..]
+    Location: <SPAN style="font-style: italic;">Toolkit II, THOR XVI</SPAN></P>
+    
+<P>This command is the complement to <SPAN style="font-style: italic;">BGET</SPAN>, in that it places the byte value for each <SPAN style="font-style: italic;">item</SPAN> into the specified channel (default #3) at the current file position (or the specified position if the first variant is used).</P>
+    
+<P>If the value of <SPAN style="font-style: italic;">item</SPAN> is outside the range 0...255, an overflow error will result, whereas if <SPAN style="font-style: italic;">item</SPAN> is not an integer or floating point number, then an error in expression will result. On the other hand, if a non-integer floating point is given as an <SPAN style="font-style: italic;">item</SPAN>, then the value will be rounded to the nearest integer and this placed into the given channel.</P>
+    
+<P>Provided that the second variant of this command is used, the specified channel need not be open to a file, in which case each item is taken as being a character, for example: <SPAN style="font-style: italic;">BPUT #2,72,101,108,108,111</SPAN></P>
+    
+<P>will print the word Hello in channel #2. This can of course be used to send control codes to a printer much more easily than the <SPAN style="font-style: italic;">PRINT</SPAN> command.</P>
+    
+<P>For example:</P>
+    
+<P><SPAN style="font-style: italic;">BPUT #3,27,70</SPAN></P>
+    
+<P>is a lot easier to understand than:</P>
+    
+<P><SPAN style="font-style: italic;">PRINT #3,CHR$(27)&amp;'F'</SPAN></P>
+    
+<P>to switch off emphasised mode.</P>
+    
+<P>As with <SPAN style="font-style: italic;">BGET</SPAN>, if no <SPAN style="font-style: italic;">item</SPAN> is specified, then the first variant can be used to set the current file position. <SPAN style="font-style: italic;">position</SPAN> will also be updated at the end of the command to contain the current file pointer.</P>
+    
+<H3>Example:</H3>
+
+<P>
+    
+<P><SPAN style="font-style: italic;">BPUT #ch,4.5,'100',52,a+1</SPAN></P>
+    
+<P>places the values 5,100,52 and (a+1) at the current file position.</P>
+    
+<H3>NOTE:</H3>
+
+<P>
+    
+<P>The codes sent by <SPAN style="font-style: italic;">BPUT</SPAN> are affected by any translate that is active (see <SPAN style="font-style: italic;">TRA</SPAN>).</P>
+    
+<H3>SMS NOTE:</H3>
+
+<P>
+    
+<P><SPAN style="font-style: italic;">BPUT</SPAN> will now accept string parameters to allow you to pass several bytes at a time, for example: <SPAN style="font-style: italic;">a$='Hello':BPUT #3,a$</SPAN></P>
+    
+<P>is equivalent to: <SPAN style="font-style: italic;">BPUT #2,72,101,108,108,111</SPAN></P><!-- PREVIOUSLY <br></span><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsF.html#FGETB">FGETB</a>, <a style="font-style: italic;" href="KeywordsB.html#BPUT">BPUT</a>, <a style="font-style: italic;" href="KeywordsP.html#PUT">PUT</a>, <a style="font-style: italic;" href="KeywordsG.html#GET">GET</a>, <a style="font-style: italic;" href="KeywordsL.html#LPUT">LPUT</a>, <a style="font-style: italic;" href="KeywordsU.html#UPUT">UPUT</a> and <a style="font-style: italic;" href="KeywordsW.html#WPUT">WPUT</a>. -->
+    
+<H3><SPAN style="font-style: italic;">CROSS-REFERENCE:<BR></SPAN></H3>
+    
+<P><SPAN style="font-style: italic;">See <A style="font-style: italic;" href="KeywordsF.html#FGETB">FGETB</A>, <A style="font-style: italic;" href="KeywordsB.html#BPUT">BPUT</A>, <A style="font-style: italic;" href="KeywordsP.html#PUT">PUT</A>, <A style="font-style: italic;" href="KeywordsG.html#GET">GET</A>, <A style="font-style: italic;" href="KeywordsL.html#LPUT">LPUT</A>, <A style="font-style: italic;" href="KeywordsU.html#UPUT">UPUT</A> and <A style="font-style: italic;" href="KeywordsW.html#WPUT">WPUT</A>.</SPAN></P>
+    
+<P><SPAN style="font-style: italic;"><A style="font-style: italic;" href="KeywordsF.html#FPOS">FPOS</A> allows you to find the current file position.</SPAN></P>
+    
+<P><SPAN style="font-style: italic;"><A style="font-style: italic;" href="KeywordsT.html#TRUNCATE">TRUNCATE</A> allows you to truncate a file to the current file position.</SPAN></P>
+    
+<P><SPAN style="font-style: italic;"><A style="font-style: italic;" href="KeywordsP.html#PEEK">PEEK</A> fetches one byte from memory.</SPAN></P>
+    
+<P><SPAN style="font-style: italic;"><A style="font-style: italic;" href="KeywordsU.html#UPUT">UPUT</A> allows you to send bytes without them being translated.</SPAN></P>
+    
+<H3><SPAN style="font-style: italic;">BREAK_ON<BR></SPAN></H3>
+    <HR style="width: 100%; height: 2px;">
+    
+<H3>BREAK_OFF</H3>
+
+<P>
+    
+<P><SPAN style="font-style: italic;">Syntax: <SPAN style="font-style: italic;">BREAK_ON</SPAN></SPAN></P>
+    
+<P>and <SPAN style="font-style: italic;">BREAK_OFF</SPAN></P>
+    
+<P>and <SPAN style="font-style: italic;">BREAK</SPAN>
+    Location: <SPAN style="font-style: italic;">TinyToolkit</SPAN></P>
+    
+<P>The command <SPAN style="font-style: italic;">BREAK_OFF</SPAN> de-activates the functioning of both &lt;CTRL&gt;&lt;SPACE&gt; (the Break Key) and &lt;CTRL&gt;&lt;F5&gt; (the Pause Screen key) during the running of interpreted SuperBASIC programs so that they cannot be stopped by the user unless they stop either due to an error or a <SPAN style="font-style: italic;">STOP</SPAN> command.</P>
+    
+<P>The command <SPAN style="font-style: italic;">BREAK_ON</SPAN> reactivates both keys.</P>
+    
+<P>The function <SPAN style="font-style: italic;">BREAK</SPAN> returns the current status:</P>
+    
+<P><SPAN style="font-style: italic;">IF BREAK=1</SPAN> means the Break Key is active, while</P>
+    
+<P><SPAN style="font-style: italic;">IF BREAK=0</SPAN> means that it is inactive.</P>
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    
+<P><SPAN style="font-style: italic;">BREAK_OFF</SPAN> may not work on Minerva ROMs unless you have v1.10 or later of the Toolkit, which uses the new Minerva System Xtensions to overcome any problem.</P>
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    
+<P><SPAN style="font-style: italic;">BREAK_OFF</SPAN> does not currently work with SMS.</P><!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsS.html#STOP">STOP</a> terminates interpreted programs even if the Break Key -->
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P><A style="font-style: italic;" href="KeywordsS.html#STOP">STOP</A> terminates interpreted programs even if the Break Key is disabled. Do not confuse with the command <A style="font-style: italic;" href="KeywordsB.html#BREAK">BREAK</A>.</P><!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="BREAK"></a>BREAK</h1><br>Syntax: <span style="font-style: italic;">BREAK switch -->
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="BREAK"></A>BREAK</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">BREAK switch<BR></SPAN> Location: <SPAN style="font-style: italic;">BTool</SPAN></P>
+    
+<P>The command <SPAN style="font-style: italic;">BREAK</SPAN> takes the parameter of either <SPAN style="font-style: italic;">ON</SPAN> (=1) or <SPAN style="font-style: italic;">OFF</SPAN> (=0) and enables or disables the ability to stop a program with the Break key &lt;CTRL&gt;&lt;SPACE&gt; (and &lt;ESC&gt; on Minerva) accordingly.</P>
+    
+<H3>Example:</H3>
+
+<P>
+    <PRE>100 WINDOW 136,100,100,40: INK 7
+110 BORDER 1,4,3: PAPER 3,0: CLS
+120 SCALE 100,-50,-50: POINT 0,0
+130 fast=ASK( "Fast (y/n)" ): CLS
+140 BREAK fast
+150 FOR n=0 TO 4000
+160   IF BREAK% THEN AT 0,0: PRINT n
+170   x=RND(-50 TO 50): y=RND(-50 TO 50)
+180   z=SIN(PI*SQRT(x*x+y*y)/10)+1
+190   IF z &gt; 2*RND THEN POINT x,y
+200 END FOR n
+210 BREAK ON
+</PRE>
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    
+<P>After the Break key has been disabled and re-enabled, if you try to Break from the interpreter's command window #0 it might be disturbed. Instead of printing 'not complete' (error -1) in #0 when &lt;CTRL&gt;&lt;SPACE&gt; is pressed, that message may appear in #2 and Break will work only once, the interpreter will not accept any further Breaks... A single &lt;ENTER&gt; after you initially press the Break key cures this.</P>
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    
+<P>This command does not work under SMS.</P><!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br>See also <a style="font-style: italic;" href="KeywordsB.html#BREAK%">BREAK%</a>, <a style="font-style: italic;" href="KeywordsF.html#FREEZE">FREEZE</a> and <a style="font-style: italic;" href="KeywordsF.html#FREEZE%">FREEZE%</a>. -->
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P>See also <A style="font-style: italic;" href="KeywordsB.html#BREAK%">BREAK%</A>, <A style="font-style: italic;" href="KeywordsF.html#FREEZE">FREEZE</A> and <A style="font-style: italic;" href="KeywordsF.html#FREEZE%">FREEZE%</A>.</P>
+    
+<P>Do not confuse BTool's command <A style="font-style: italic;" href="KeywordsB.html#BREAK">BREAK</A> with TinyToolkit's function <A style="font-style: italic;" href="KeywordsB.html#BREAK">BREAK</A> (although you can use both in the same program!)</P><!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="BREAK%"></a>BREAK%</h1><br>Syntax: <span style="font-style: italic;">BREAK% -->
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="BREAK%"></A>BREAK%</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">BREAK%<BR></SPAN> Location: <SPAN style="font-style: italic;">BTool</SPAN></P>
+    
+<P>The function <SPAN style="font-style: italic;">BREAK%</SPAN> returns the current state as to whether the Break key is enabled, either <SPAN style="font-style: italic;">ON</SPAN> or <SPAN style="font-style: italic;">OFF</SPAN>.</P><!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsB.html#BREAK">BREAK</a>!! -->
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P>See <A style="font-style: italic;" href="KeywordsB.html#BREAK">BREAK</A>!!</P><!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="BTool_EXT"></a>BTool_EXT</h1><br>Syntax: <span style="font-style: italic;">BTool_EXT -->
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="BTool_EXT"></A>BTool_EXT</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">BTool_EXT<BR></SPAN> Location: <SPAN style="font-style: italic;">BTool</SPAN></P>
+    
+<P>This command is similar to <SPAN style="font-style: italic;">TK2_EXT</SPAN> and <SPAN style="font-style: italic;">TINY_EXT</SPAN>, in that it installs BTool so that keyword definitions with the same name as those provided in other Toolkits are overwritten with the Btool definition.</P>
+    
+<H3>WARNING:</H3>
+
+<P>
+    
+<P><SPAN style="font-style: italic;">
+    BTool_EXT</SPAN> will hang SuperBASIC if the BTool Toolkit has been loaded into the common heap - this is most likely to happen on later versions of Toolkit II where <SPAN style="font-style: italic;">LRESPR</SPAN> uses the common heap if jobs are running. Try <SPAN style="font-style: italic;">LINKUP</SPAN> instead. <!-- FIXME <br><h3><br>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsT.html#TK2_EXT">TK2_EXT</a>, <a style="font-style: italic;" href="KeywordsT.html#TINY_EXT">TINY_EXT</a>, <a style="font-style: italic;" href="KeywordsB.html#BTool_RMV">BTool_RMV</a>. --></P>
+    
+<P>See also <A style="font-style: italic;" href="KeywordsK.html#KILL">KILL</A> which removes all current jobs. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="BTool_RMV"></a>BTool_RMV</h1><br>Syntax: <span style="font-style: italic;">BTool_RMV --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="BTool_RMV"></A>BTool_RMV</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">BTool_RMV<BR></SPAN> Location: <SPAN style="font-style: italic;">BTool</SPAN></P>
+    
+<P>All keywords implemented by BTool (except <SPAN style="font-style: italic;">BTool_EXT</SPAN>) are removed from the SuperBASIC name list. The Toolkit itself remains in memory and can be re-activated with <SPAN style="font-style: italic;">BTool_EXT</SPAN>.</P><!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="BTRAP"></a>BTRAP</h1><br>Syntax: <span style="font-style: italic;">BTRAP #ch,key </span>[<span style="font-style: italic;">,d1 </span>[<span style="font-style: italic;">,d2 </span>[<span style="font-style: italic;">,d3 </span>[<span style="font-style: italic;">,a1 </span>[<span style="font-style: italic;">,a2 </span>]]]]] -->
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="BTRAP"></A>BTRAP</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">BTRAP #ch,key</SPAN> [<SPAN style="font-style: italic;">,d1</SPAN> [<SPAN style="font-style: italic;">,d2</SPAN> [<SPAN style="font-style: italic;">,d3</SPAN> [<SPAN style="font-style: italic;">,a1</SPAN> [<SPAN style="font-style: italic;">,a2</SPAN> ]]]]]
+    Location: <SPAN style="font-style: italic;">TRAPS (DIY Toolkit Vol T)</SPAN></P>
+    
+<P>This command is identical to <SPAN style="font-style: italic;">QTRAP</SPAN>, except that the address parameters (a1 and a2) are taken to be relative to A6, therefore allowing you to access system calls which need to access the SuperBASIC variables, so that you can for example save and load arrays direct!!</P>
+    
+<H3>WARNING:</H3>
+
+<P>
+    
+<P>Several TRAP #3 calls can crash the computer - make certain that you know what you are doing!</P><!-- PREVIOUSLY <br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsI.html#IO_TRAP">IO_TRAP</a>, <a style="font-style: italic;" href="KeywordsM.html#MTRAP">MTRAP</a> and <a style="font-style: italic;" href="KeywordsQ.html#QTRAP">QTRAP</a>. -->
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P>See <A style="font-style: italic;" href="KeywordsI.html#IO_TRAP">IO_TRAP</A>, <A style="font-style: italic;" href="KeywordsM.html#MTRAP">MTRAP</A> and <A style="font-style: italic;" href="KeywordsQ.html#QTRAP">QTRAP</A>.</P>
+    
+<P>Any return parameters can be read with <A style="font-style: italic;" href="KeywordsD.html#DATAREG">DATAREG</A> and <A style="font-style: italic;" href="KeywordsA.html#ADDREG">ADDREG</A>.</P>
+    
+<P><A style="font-style: italic;" href="KeywordsC.html#CLS">CLS</A>, <A style="font-style: italic;" href="KeywordsP.html#PAN">PAN</A> and <A style="font-style: italic;" href="KeywordsS.html#SCROLL">SCROLL</A> can also be used to call TRAP #3.</P>
+    
+<P>Refer to the QDOS/SMS Reference Manual (Section 15) for details of the various system TRAP #3 calls.</P>
+    
+<P>Also refer to the DIY Toolkit documentation for this command.</P><!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="BUTTON%"></a>BUTTON%</h1><br>Syntax: <span style="font-style: italic;">BUTTON% (flag) -->
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="BUTTON%"></A>BUTTON%</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">BUTTON% (flag)<BR></SPAN> Location: <SPAN style="font-style: italic;">KMOUSE, MOUSE (DIY Toolkit - Vol I), Amiga QDOS v3.20+</SPAN></P>
+    
+<P>This function can be used to find out if any mouse buttons have been pressed and if so which ones. Unfortunately, you cannot use this to find out if a button has been pressed twice quickly in succession (known as double-clicking).</P>
+    
+<P>The value of <SPAN style="font-style: italic;">flag</SPAN> is used to tell the function which buttons you wish to interrogate:</P>
+    <UL>
+      <LI>0 - Has any key been pressed ? If so, the value returned will be 0 plus the following numbers if the relevant key(s) has been pressed:
+        <UL>
+          <LI>+1 - Button One Pressed</LI>
+          <LI>+2 - Button Two Pressed</LI>
+          <LI>+4 - Button Three Pressed</LI>
+        </UL>
+      </LI>
+      <LI>1 - Has Button One been pressed (this is the left hand mouse button)? If so 1 is returned, otherwise 0.</LI>
+      <LI>2 - Has Button Two been pressed (this is the right hand mouse button)? If so, 1 is returned, otherwise 0.</LI>
+      <LI>3 - Has Button Three been pressed (this is the middle mouse button)? If so, 1 is returned, otherwise 0.</LI>
+    </UL>
+    
+<H3>Example:</H3>
+
+<P>
+    
+<P>A routine to wait for the user to press the right and left mouse button at the same time:</P>
+    <PRE>100 DEFine PROCedure WAIT_MOUSE
+110 REPeat mloop
+120   IF BUTTON%(0)=1+2:RETurn
+130 END REPeat mloop
+140 END DEFine
+</PRE><!-- PREVIOUSLY <br></span><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsX.html#X_PTR%">X_PTR%</a>, <a style="font-style: italic;" href="KeywordsY.html#Y_PTR%">Y_PTR%</a> and <a style="font-style: italic;" href="KeywordsP.html#PTR_FN%">PTR_FN%</a> can also be used to interrogate the -->
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    
+<P><A style="font-style: italic;" href="KeywordsX.html#X_PTR%">X_PTR%</A>, <A style="font-style: italic;" href="KeywordsY.html#Y_PTR%">Y_PTR%</A> and <A style="font-style: italic;" href="KeywordsP.html#PTR_FN%">PTR_FN%</A> can also be used to interrogate the mouse. <!-- <br><hr style="width: 100%; height: 2px;"><h1><a name="BVER$"></a>BVER$</h1><br>Syntax: <span style="font-style: italic;">BVER$ --></P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="BVER$"></A>BVER$</H1>
+    
+<P>Syntax: <SPAN style="font-style: italic;">BVER$<BR></SPAN> Location: <SPAN style="font-style: italic;">BeuleTools</SPAN></P>
+    
+<P>This function returns the version number of the Beule Toolkit. This may be useful if a program makes use of commands or functions which were not supported by older versions.</P>
+</BODY>
+</HTML>

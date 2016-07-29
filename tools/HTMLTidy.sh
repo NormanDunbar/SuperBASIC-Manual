@@ -2,6 +2,7 @@
 # Norman Dunbar.
 # 22 July 2016
 
+DIR=`dirname "${0}"`
 HTML="${1}"
 CLEAN="${HTML%%html}clean.html"
 ERRS="${HTML%%html}errors.txt"
@@ -32,7 +33,7 @@ fi
 
 
 # Post cleaning cleaning next...
-sed --file sed.file --in-place "${CLEAN}" 
+sed --file "${DIR}"/sed.file --in-place "${CLEAN}" 
 CHECK=${?}
 
 if [ "${CHECK}" != "0" ]

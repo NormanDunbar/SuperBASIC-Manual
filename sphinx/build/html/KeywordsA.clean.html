@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>5 KEYWORDS &mdash; SBASIC/SuperBASIC Reference Manual Online 4.0.1 documentation</title>
+  <title>Keywords A &mdash; SBASIC/SuperBASIC Reference Manual Online 4.0.1 documentation</title>
   
 
   
@@ -31,8 +31,8 @@
 
   
     <link rel="top" title="SBASIC/SuperBASIC Reference Manual Online 4.0.1 documentation" href="index.html"/>
-        <link rel="next" title="Appendices Introduction" href="AppendicesIntro.clean.html"/>
-        <link rel="prev" title="Writing Programs" href="WritingPrograms.clean.html"/> 
+        <link rel="next" title="Keywords B" href="KeywordsB.clean.html"/>
+        <link rel="prev" title="Keywords Introduction" href="KeywordsIntro.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -87,6 +87,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Credits.clean.html">Credits</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Structure.clean.html">Structure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="WritingPrograms.clean.html">Writing Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KeywordsIntro.html">Keywords Introduction</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Keywords A</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#abs">ABS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#accel-off">ACCEL_OFF</a></li>
@@ -143,6 +144,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#a-speed">A_SPEED</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="KeywordsB.clean.html">Keywords B</a></li>
 <li class="toctree-l1"><a class="reference internal" href="AppendicesIntro.clean.html">Appendices Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Appendix01.clean.html">A1. Minerva</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Appendix02.clean.html">A2. SMSQ/E</a></li>
@@ -192,7 +194,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li>5 KEYWORDS</li>
+    <li>Keywords A</li>
       <li class="wy-breadcrumbs-aside">
         
           
@@ -206,45 +208,22 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="keywords">
-<h1>5 KEYWORDS<a class="headerlink" href="#keywords" title="Permalink to this headline">¶</a></h1>
-<p>The following is a general description of the various commands available
-to the SuperBASIC programmer, as provided by Public Domain toolkits, QL
-Emulators and SuperBASIC itself.</p>
-<p>We have indicated which of the commands are functions (and therefore
-must appear in a program in the form):</p>
-<p>x=FUNCTION ( parameter )</p>
-<p>or: IF FUNCTION ( parameter ) = value</p>
-<p>and those which are procedures (also known as commands) which must
-therefore appear in a program in the form: PROCEDURE parameter</p>
-<p><strong>NOTE</strong></p>
-<p>Many toolkits insist that you initialise the toolkit before you can use
-the various keywords contained in those toolkits. Refer to Section 1.1
-for details.</p>
-<hr class="docutils" />
+  <div class="section" id="keywords-a">
+<h1>Keywords A<a class="headerlink" href="#keywords-a" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="abs">
 <h2>ABS<a class="headerlink" href="#abs" title="Permalink to this headline">¶</a></h2>
 <table border="1" class="docutils">
 <colgroup>
-<col width="100%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Syntax:</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>ABS (number) or</td>
-</tr>
-<tr class="row-odd"><td>ABS (number1 <sup>*</sup>[,number<sup>x</sup>]<sup>*</sup>) (Minerva only)</td>
-</tr>
-</tbody>
-</table>
-<table border="1" class="docutils">
-<colgroup>
-<col width="100%" />
+<col width="12%" />
+<col width="88%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td>Location: QL ROM</td>
+<tr class="row-odd"><td>Syntax</td>
+<td>ABS (number) or
+ABS (number1 <sup>*</sup>[,number<sup>x</sup>]<sup>*</sup>) (Minerva only)</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>QL ROM</td>
 </tr>
 </tbody>
 </table>
@@ -329,8 +308,20 @@ similar machine code versions of our example function
 <hr class="docutils" />
 <div class="section" id="accel-on">
 <h2>ACCEL_ON<a class="headerlink" href="#accel-on" title="Permalink to this headline">¶</a></h2>
-<p>Syntax: ACCEL_ON
-Location: ST/QL</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>ACCEL_ON</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>ST/QL</td>
+</tr>
+</tbody>
+</table>
 <p>The ST/QL Emulator supports several of the accelerator boards which can
 be plugged into the Atari ST computer, thus allowing much greater
 operational speed. This command both enables the 16MHz mode on the Atari
@@ -349,8 +340,20 @@ use its memory cache. Also see
 <hr class="docutils" />
 <div class="section" id="accel-set">
 <h2>ACCEL_SET<a class="headerlink" href="#accel-set" title="Permalink to this headline">¶</a></h2>
-<p>Syntax: ACCEL_SET type,option
-Location: ST/QL</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>ACCEL_SET type,option</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>ST/QL</td>
+</tr>
+</tbody>
+</table>
 <p>Before the ST/QL Emulator can use an accelerator board plugged into the
 Atari ST, it is necessary to use the command ACCEL_SET to tell the
 Emulator about the board and to activate the board.</p>
@@ -384,8 +387,20 @@ printer board - use the command PAR_PULSE.</p>
 <hr class="docutils" />
 <div class="section" id="accel-state">
 <h2>ACCEL_STATE<a class="headerlink" href="#accel-state" title="Permalink to this headline">¶</a></h2>
-<p>Syntax: ACCEL_STATE
-Location: ST/QL</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>ACCEL_STATE</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>ST/QL</td>
+</tr>
+</tbody>
+</table>
 <p>This function returns the value 1 if the ST/QL Emulator has been told
 that an accelerator board is enabled. Otherwise, it returns the value 0.</p>
 <p><strong>CROSS-REFERENCE</strong></p>
@@ -395,8 +410,20 @@ accelerator board is enabled.</p>
 <hr class="docutils" />
 <div class="section" id="acopy">
 <h2>ACOPY<a class="headerlink" href="#acopy" title="Permalink to this headline">¶</a></h2>
-<p>Syntax: ACOPY filename1,filename2
-Location: ATARIDOS</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>ACOPY filename1,filename2</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>ATARIDOS</td>
+</tr>
+</tbody>
+</table>
 <p>This command is similar to COPY except that it copies a file from a QL
 Format disk to an Atari Format disk. No conversion takes place.</p>
 <p><strong>NOTE</strong></p>
@@ -412,8 +439,20 @@ QL disk.</p>
 <hr class="docutils" />
 <div class="section" id="acos">
 <h2>ACOS<a class="headerlink" href="#acos" title="Permalink to this headline">¶</a></h2>
-<p>Syntax: ACOS (x)
-Location: QL ROM</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>ACOS (x)</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>QL ROM</td>
+</tr>
+</tbody>
+</table>
 <p>The function ACOS, is the arc-cosine function, that is to say the
 opposite to the cosine function (COS in SuperBASIC). However, x must
 always be in the range -1...1 as the cosine of an angle can only ever be
@@ -449,8 +488,20 @@ angle to degrees, use DEG ( ACOS (x) ).</p>
 <hr class="docutils" />
 <div class="section" id="acot">
 <h2>ACOT<a class="headerlink" href="#acot" title="Permalink to this headline">¶</a></h2>
-<p>Syntax: ACOT (x) or ACOT (y,x) (Minerva v1.90+ only)
-Location: QL ROM</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>ACOT (x) or ACOT (y,x) (Minerva v1.90+ only)</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>QL ROM</td>
+</tr>
+</tbody>
+</table>
 <p>The function ACOT, is the arc-cotangent function, that is to say the
 inverse of the cotangent function (COT in SuperBASIC): COT(ACOT(x))=x
 for all values of x, but due to the periodic nature of COT,
@@ -471,8 +522,20 @@ y=0 which would otherwise give an overflow error.</p>
 <hr class="docutils" />
 <div class="section" id="adate">
 <h2>ADATE<a class="headerlink" href="#adate" title="Permalink to this headline">¶</a></h2>
-<p>Syntax: ADATE seconds
-Location: QL ROM</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>ADATE seconds</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>QL ROM</td>
+</tr>
+</tbody>
+</table>
 <p>ADATE adjusts the current system clock by the given number of seconds,
 so ADATE 60 would advance the internal clock by a minute and ADATE
 -86400 sets it back by one day.</p>
@@ -518,8 +581,20 @@ date and time.</p>
 <hr class="docutils" />
 <div class="section" id="addreg">
 <h2>ADDREG<a class="headerlink" href="#addreg" title="Permalink to this headline">¶</a></h2>
-<p>Syntax: ADDREG
-Location: TRAPS (DIY Toolkit Vol T)</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>ADDREG</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>TRAPS (DIY Toolkit Vol T)</td>
+</tr>
+</tbody>
+</table>
 <p>This function returns the value of the following Machine code address
 register following the completion of a MTRAP, QTRAP or BTRAP command.</p>
 <table border="1" class="docutils">
@@ -562,8 +637,20 @@ and <a class="reference external" href="KeywordsB.html#BTRAP">BTRAP</a>.</p>
 <hr class="docutils" />
 <div class="section" id="adelete">
 <h2>ADELETE<a class="headerlink" href="#adelete" title="Permalink to this headline">¶</a></h2>
-<p>Syntax: ADELETE filename
-Location: ATARIDOS</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>ADELETE filename</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>ATARIDOS</td>
+</tr>
+</tbody>
+</table>
 <p>This command is the same as the standard DELETE command, except that it
 works on Atari and IBM PS/2 format disks.</p>
 <p><strong>NOTE</strong></p>
@@ -579,8 +666,20 @@ letter extension preceded by a dot eg:</p>
 <hr class="docutils" />
 <div class="section" id="adir">
 <h2>ADIR<a class="headerlink" href="#adir" title="Permalink to this headline">¶</a></h2>
-<p>Syntax: ADIR [#channel,] device
-Location: ATARIDOS</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>ADIR [#channel,] device</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>ATARIDOS</td>
+</tr>
+</tbody>
+</table>
 <p>This command is the same as DIR except that it works on ATARI disks or
 IBM PS/2 Disks.</p>
 <p><strong>CROSS-REFERENCE</strong></p>
@@ -592,8 +691,20 @@ and <a class="reference external" href="KeywordsA.html#AFORMAT">AFORMAT</a>.</p>
 <hr class="docutils" />
 <div class="section" id="aformat">
 <h2>AFORMAT<a class="headerlink" href="#aformat" title="Permalink to this headline">¶</a></h2>
-<p>Syntax: AFORMAT device_[name]
-Location: ATARIDOS</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>AFORMAT device_[name]</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>ATARIDOS</td>
+</tr>
+</tbody>
+</table>
 <p>This command formats the specified device in Atari disk format, giving
 it the specified name (if any).</p>
 <p>As with FORMAT, this will normally format a disk to the highest possible
@@ -609,8 +720,19 @@ making the last character of the filename an asterisk (*).</p>
 <hr class="docutils" />
 <div class="section" id="ajob">
 <h2>AJOB<a class="headerlink" href="#ajob" title="Permalink to this headline">¶</a></h2>
-<p>Syntax: AJOB jobname,priority or AJOB jobnr,tag,priority or AJOB job_id,priority
-Location: Toolkit II</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>AJOB jobname,priority or
+AJOB jobnr,tag,priority or
+AJOB job_id,priority</td>
+</tr>
+</tbody>
+</table>
 <p>This command forces the specified job (described by either its jobname,
 its job number and tag, or its job identification number) to be
 re-started at the given priority (which should be in the range 0...127
@@ -629,10 +751,20 @@ restarting it.</p>
 <hr class="docutils" />
 <div class="section" id="alarm">
 <h2>ALARM<a class="headerlink" href="#alarm" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt>Syntax: ALARM hour,minutes</dt>
-<dd>Location: Toolkit II</dd>
-</dl>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>ALARM hour,minutes</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>Toolkit II</td>
+</tr>
+</tbody>
+</table>
 <p>This command creates a Job at low priority which makes the QL sound
 several beeps when the alarm time is reached and then removes itself.
 Naturally, this facility only works if the system clock is correct.</p>
@@ -655,8 +787,20 @@ example.</p>
 <hr class="docutils" />
 <div class="section" id="alchp">
 <h2>ALCHP<a class="headerlink" href="#alchp" title="Permalink to this headline">¶</a></h2>
-<p>Syntax: ALCHP (space) or ALCHP (space [,[jobID]]) (BTool only)
-Location: Toolkit II, THOR XVI, BTool</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>ALCHP (space) or ALCHP (space [,[jobID]]) (BTool only)</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>Toolkit II, THOR XVI, BTool</td>
+</tr>
+</tbody>
+</table>
 <p>The function ALCHP allocates space bytes in the common heap and returns
 the start address of the memory set aside to be altered freely. This,
 unlike RESPR, works even if there is a task running in memory.</p>
@@ -727,11 +871,18 @@ fragmentation.</p>
 <hr class="docutils" />
 <div class="section" id="alias">
 <h2>ALIAS<a class="headerlink" href="#alias" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt>Syntax: ALIAS old_keyword$ TO new_keyword(ALIAS_CODE) or</dt>
-<dd>ALIAS new_keyword TO old_keyword$(SAILA_CODE)</dd>
-</dl>
-<p>Location: ALIAS (DIY Toolkit - Vol A)</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>ALIAS old_keyword$ TO new_keyword(ALIAS_CODE) or
+ALIAS new_keyword TO old_keyword$(SAILA_CODE)</td>
+</tr>
+</tbody>
+</table>
 <p>This command is similar to NEW_NAME and REPLACE.</p>
 <p>It allows you to assign another name to machine code Procedures and
 Functions which are currently resident in memory. Both versions of the
@@ -808,10 +959,20 @@ table.</p>
 <hr class="docutils" />
 <div class="section" id="aline">
 <h2>ALINE<a class="headerlink" href="#aline" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt>Syntax: ALINE x1,y1 TO x2,y2, Colour</dt>
-<dd>Location: Shape Toolkit</dd>
-</dl>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>ALINE x1,y1 TO x2,y2, Colour</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>Shape Toolkit</td>
+</tr>
+</tbody>
+</table>
 <p>This command quickly draws a line between the specified absolute, window
 independent co-ordinates, (x1,y1) and (x2,y2), on the screen. ALINE uses
 XOR mode, which means that the line can be removed without destroying
@@ -875,10 +1036,20 @@ are much more flexible.</p>
 <hr class="docutils" />
 <div class="section" id="allocation">
 <h2>ALLOCATION<a class="headerlink" href="#allocation" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt>Syntax: ALLOCATION (bytes [,taskno%,tasktag%])</dt>
-<dd>Location: Turbo Toolkit</dd>
-</dl>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>ALLOCATION (bytes [,taskno%,tasktag%])</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>Turbo Toolkit</td>
+</tr>
+</tbody>
+</table>
 <p>This function is very similar to RESERVE. It allocates an area in the
 common heap which may be associated with a specified job. If taskno% and
 taskid% are not specified, then the area is linked with the current job
@@ -894,10 +1065,20 @@ allocated area.</p>
 <hr class="docutils" />
 <div class="section" id="alt">
 <h2>ALT<a class="headerlink" href="#alt" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt>Syntax: ALT</dt>
-<dd>Location: Beuletools</dd>
-</dl>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>ALT</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>Beuletools</td>
+</tr>
+</tbody>
+</table>
 <p>This function returns the control codes needed to switch to the
 alternative font (normally italics) on an EPSON compatible printer:
 PRINT #ch,ALT</p>
@@ -915,10 +1096,20 @@ PRINT #ch,ALT</p>
 <hr class="docutils" />
 <div class="section" id="alter">
 <h2>ALTER<a class="headerlink" href="#alter" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt>Syntax: ALTER &#8216;variable&#8217; TO value</dt>
-<dd>Location: ALTER (DIY Toolkit - Vol U)</dd>
-</dl>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>ALTER &#8216;variable&#8217; TO value</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>ALTER (DIY Toolkit - Vol U)</td>
+</tr>
+</tbody>
+</table>
 <p>This command works alongside SET from the same toolkit and allows you to
 re-define the universal constants created with SET.</p>
 <p>Unlike SET, the constant to be re-defined must appear in quotes as the
@@ -947,10 +1138,22 @@ which read this constant.</p>
 <hr class="docutils" />
 <div class="section" id="altkey">
 <h2>ALTKEY<a class="headerlink" href="#altkey" title="Permalink to this headline">¶</a></h2>
-<p>Syntax: ALTKEY character$,string$ [,string2$ [,string2$... ]]
-or ALTKEY character$
-or ALTKEY</p>
-<p>Location: Toolkit II</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>ALTKEY character$,string$ [,string2$ [,string2$... ]]  or
+ALTKEY character$  or
+ALTKEY</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>Toolkit II</td>
+</tr>
+</tbody>
+</table>
 <p>This command defines a key macro which will be typed into the computer
 when you press the &lt;ALT&gt; key at the same time as the &lt;character$&gt; key.
 If more than one string follows the definition, then an &lt;ENTER&gt; (line
@@ -1004,10 +1207,20 @@ effect until you use the HOT_GO command.</p>
 <hr class="docutils" />
 <div class="section" id="and">
 <h2>AND<a class="headerlink" href="#and" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt>Syntax: condition1 AND condition2</dt>
-<dd>Location: QL ROM</dd>
-</dl>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>condition1 AND condition2</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>QL ROM</td>
+</tr>
+</tbody>
+</table>
 <p>This combination operator combines two condition tests together and will
 have the value 1 if both condition1 and condition2 are true or 0 if
 either condition1 or condition2 are false.</p>
@@ -1035,10 +1248,20 @@ x&amp;&amp;y, which compares x and y bit by bit.</p>
 <hr class="docutils" />
 <div class="section" id="apoint">
 <h2>APOINT<a class="headerlink" href="#apoint" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt>Syntax: APPOINT x,y,colour</dt>
-<dd>Location: Shape Toolkit</dd>
-</dl>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>APPOINT x,y,colour</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>Shape Toolkit</td>
+</tr>
+</tbody>
+</table>
 <p>This command is similar to POINT, except that it uses absolute
 co-ordinates and plots the point in XOR mode (as with ALINE).</p>
 <p><strong>NOTE</strong></p>
@@ -1049,10 +1272,20 @@ co-ordinates and plots the point in XOR mode (as with ALINE).</p>
 <hr class="docutils" />
 <div class="section" id="append">
 <h2>APPEND<a class="headerlink" href="#append" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt>Syntax: APPEND file1,file2</dt>
-<dd>Location: ST/QL</dd>
-</dl>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>APPEND file1,file2</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>ST/QL</td>
+</tr>
+</tbody>
+</table>
 <p>This command allows you to merge two files together by appending file2
 to the end of file1.</p>
 <p><strong>NOTE</strong></p>
@@ -1064,10 +1297,20 @@ is similar to this.</p>
 <hr class="docutils" />
 <div class="section" id="aqconvert">
 <h2>AQCONVERT<a class="headerlink" href="#aqconvert" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt>Syntax: AQCONVERT filename</dt>
-<dd>Location: ATARIDOS</dd>
-</dl>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>AQCONVERT filename</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>ATARIDOS</td>
+</tr>
+</tbody>
+</table>
 <p>This command takes a file which is stored on a QL Format disk and
 presumes that it was originally an Atari format file. It will then
 convert special characters in that file to QL compatible characters as
@@ -1083,11 +1326,21 @@ LF.</p>
 <hr class="docutils" />
 <div class="section" id="arc">
 <h2>ARC<a class="headerlink" href="#arc" title="Permalink to this headline">¶</a></h2>
-<p>Syntax: ARC [#ch][,x<sup>1</sup>,y<sup>1</sup>] TO
-x<sup>2</sup>,y<sup>2</sup>,angle
-<sup>*</sup>[[;x<sup>i</sup>,y<sup>i</sup>] TO
-x<sup>j</sup>,y<sup>j</sup>,angle<sup>j</sup>]<sup>*</sup></p>
-<p>Location: QL ROM</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="8%" />
+<col width="92%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>ARC [#ch][,x<sup>1</sup>,y<sup>1</sup>] TO x<sup>2</sup>,y<sup>2</sup>,angle <sup>*</sup>[[;x<sup>i</sup>,y<sup>i</sup>]
+TO x<sup>j</sup>,y<sup>j</sup>,angle<sup>j</sup>]<sup>*</sup></td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>QL ROM</td>
+</tr>
+</tbody>
+</table>
 <p>ARC causes the two points at the co-ordinates
 (x<sup>1</sup>,y<sup>1</sup>) and (x<sup>2</sup>,y<sup>2</sup>) to be
 connected with an arc. The arc is defined as the sector of the circle
@@ -1164,11 +1417,21 @@ size of the window.</p>
 <hr class="docutils" />
 <div class="section" id="arc-r">
 <h2>ARC_R<a class="headerlink" href="#arc-r" title="Permalink to this headline">¶</a></h2>
-<p>Syntax: ARC_R [#ch][,x<sup>1</sup>,y<sup>1</sup>] TO
-x<sup>2</sup>,y<sup>2</sup>,angle
-<sup>*</sup>[[;x<sup>i</sup>,y<sup>i</sup>] TO
-x<sup>j</sup>,y<sup>j</sup>,angle<sup>j</sup>]<sup>*</sup></p>
-<p>Location: QL ROM</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="8%" />
+<col width="92%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>ARC_R [#ch][,x<sup>1</sup>,y<sup>1</sup>] TO x<sup>2</sup>,y<sup>2</sup>,angle <sup>*</sup>[[;x<sup>i</sup>,y<sup>i</sup>]
+TO x<sup>j</sup>,y<sup>j</sup>,angle<sup>j</sup>]<sup>*</sup></td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>QL ROM</td>
+</tr>
+</tbody>
+</table>
 <p>This command draws an arc relative to the current graphic cursor. This
 means that rather than the co-ordinates (x,y) being relative to the
 graphic origin, they are relative to the current graphic cursor. Arcs
@@ -1208,10 +1471,20 @@ relative to the graphic cursor when ARC_R is first called, whereas
 <hr class="docutils" />
 <div class="section" id="arcosh">
 <h2>ARCOSH<a class="headerlink" href="#arcosh" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt>Syntax: ARCOSH (x)</dt>
-<dd>Location: Hyper</dd>
-</dl>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>ARCOSH (x)</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>Hyper</td>
+</tr>
+</tbody>
+</table>
 <p>This function returns the arc hyperbolic cosine of the specified value,
 that is to say it will return the value which must be passed to the
 hyperbolic cosine to return the given result, so:</p>
@@ -1228,10 +1501,20 @@ keywords: it&#8217;s the same as LN(x + SQRT(x*x-1)).</p>
 <hr class="docutils" />
 <div class="section" id="arcoth">
 <h2>ARCOTH<a class="headerlink" href="#arcoth" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt>Syntax: ARCOTH (x)</dt>
-<dd>Location: Hyper</dd>
-</dl>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>ARCOTH (x)</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>Hyper</td>
+</tr>
+</tbody>
+</table>
 <p>This function returns the arc hyperbolic cotangent of the specified
 value ie.</p>
 <p>ARCOTH ( COTH ( x )) = x</p>
@@ -1244,10 +1527,20 @@ and <a class="reference external" href="KeywordsA.html#ARTANH">ARTANH</a>.</p>
 <hr class="docutils" />
 <div class="section" id="arsinh">
 <h2>ARSINH<a class="headerlink" href="#arsinh" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt>Syntax: ARSINH (x)</dt>
-<dd>Location: Hyper</dd>
-</dl>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>ARSINH (x)</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>Hyper</td>
+</tr>
+</tbody>
+</table>
 <p>This function is the arc hyperbolic sine (ie. the complementary function
 to SINH).</p>
 <p>The SuperBASIC expression:</p>
@@ -1260,10 +1553,20 @@ and <a class="reference external" href="KeywordsA.html#ARCOTH">ARCOTH</a>.</p>
 <hr class="docutils" />
 <div class="section" id="artanh">
 <h2>ARTANH<a class="headerlink" href="#artanh" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt>Syntax: ARTANH (x)</dt>
-<dd>Location: Hyper</dd>
-</dl>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>ARTANH (x)</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>Hyper</td>
+</tr>
+</tbody>
+</table>
 <p>The function ARTANH returns the value which must be passed to TANH to
 give the specified result, so:</p>
 <p>TANH ( ARTANH ( x )) = ARTANH ( TANH ( x )) = x</p>
@@ -1275,10 +1578,20 @@ and <a class="reference external" href="KeywordsA.html#ARSINH">ARSINH</a>.</p>
 <hr class="docutils" />
 <div class="section" id="asin">
 <h2>ASIN<a class="headerlink" href="#asin" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt>Syntax: ASIN (x)</dt>
-<dd>Location: QL ROM</dd>
-</dl>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>ASIN (x)</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>QL ROM</td>
+</tr>
+</tbody>
+</table>
 <p>This function calculates the arc-sine (in radians) which is the opposite
 of the sine function, ie:</p>
 <p>x = SIN ( ASIN ( x )) = ASIN ( SIN ( x ))</p>
@@ -1317,10 +1630,20 @@ relatives.</p>
 <hr class="docutils" />
 <div class="section" id="ask">
 <h2>ASK<a class="headerlink" href="#ask" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt>Syntax: ASK ([#wind,] question$)</dt>
-<dd>Location: BTool</dd>
-</dl>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>ASK ([#wind,] question$)</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>BTool</td>
+</tr>
+</tbody>
+</table>
 <p>ASK is a function which prints the question$ (plus a question mark (?)
 if this was not found at the end of the string), enables the text cursor
 and reads the keyboard. If the next key pressed is &lt;Y&gt; (for Yes), &lt;J&gt;
@@ -1357,7 +1680,20 @@ own routine.</p>
 <hr class="docutils" />
 <div class="section" id="astat">
 <h2>ASTAT<a class="headerlink" href="#astat" title="Permalink to this headline">¶</a></h2>
-<p>Syntax: ASTAT [#channel,] device Location: ATARIDOS</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="67%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>ASTAT [#channel,]</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>ATARIDOS</td>
+</tr>
+</tbody>
+</table>
 <p>This command is similar to ADIR except that it also provides extra
 information, such as the length of each file, the update time and any
 marks folder.</p>
@@ -1371,11 +1707,21 @@ similar on QL Format disks.</p>
 <hr class="docutils" />
 <div class="section" id="at">
 <h2>AT<a class="headerlink" href="#at" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt>Syntax: AT [#ch,] row, column</dt>
-<dd>or AT [#ch,] column,row (pre AH ROMs only)
-Location: QL ROM</dd>
-</dl>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>AT [#ch,] row, column  or
+AT [#ch,] column,row (pre AH ROMs only)</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>QL ROM</td>
+</tr>
+</tbody>
+</table>
 <p>This command sets the current print position in the given window
 (default #1) to the given row and column number. The top left hand
 corner of any window is always the position (0,0), however, the maximum
@@ -1431,11 +1777,20 @@ current print position.</p>
 <hr class="docutils" />
 <div class="section" id="atan">
 <h2>ATAN<a class="headerlink" href="#atan" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt>Syntax: ATAN (x)</dt>
-<dd>or ATAN (x,y) (Minerva and SMS only)
-Location: QL ROM</dd>
-</dl>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>ATAN (x)  or ATAN (x,y) (Minerva and SMS only)</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>QL ROM</td>
+</tr>
+</tbody>
+</table>
 <p>The function ATAN, is the arc-tangent function, that is to say the
 inverse of the tangent function (TAN in SuperBASIC).</p>
 <p>TAN ( ATAN ( x )) = x</p>
@@ -1491,10 +1846,20 @@ Also please refer to the Mathematics section in the Appendix.</p>
 <hr class="docutils" />
 <div class="section" id="atari">
 <h2>ATARI<a class="headerlink" href="#atari" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt>Syntax: ATARI</dt>
-<dd>Location: Beuletools</dd>
-</dl>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>ATARI</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>Beuletools</td>
+</tr>
+</tbody>
+</table>
 <p>On the Atari QL-Emulator, this command switches to Atari mode.
 Naturally, on other machines, it has no effect. It will also fail if a
 QL ROM was found at the start address of the ROM-TOS ($FC0000) - it is
@@ -1510,10 +1875,20 @@ had a different effect - this has now been renamed QuATARI (see below).</p>
 <hr class="docutils" />
 <div class="section" id="atari-ext">
 <h2>ATARI_EXT<a class="headerlink" href="#atari-ext" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt>Syntax: ATARI_EXT</dt>
-<dd>Location: ATARI_REXT (v2.15+)</dd>
-</dl>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>ATARI_EXT</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>ATARI_REXT (v2.15+)</td>
+</tr>
+</tbody>
+</table>
 <p>The Atari QL-Emulators come with the additional toolkits, ATARI_REXT
 and ATARIDOS.</p>
 <p>This command is used to enable various commands in the ATARI_REXT
@@ -1529,10 +1904,20 @@ toolkit as well as the sound extensions (such as BELL).</p>
 <hr class="docutils" />
 <div class="section" id="atn">
 <h2>ATN<a class="headerlink" href="#atn" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt>Syntax: ATN (x)</dt>
-<dd>Location: Math Package</dd>
-</dl>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>ATN (x)</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>Math Package</td>
+</tr>
+</tbody>
+</table>
 <p>This function is the same as the original QL ROM variant of ATAN.</p>
 <p><strong>NOTE</strong></p>
 <p>ATN has been implemented to make porting programs written in other BASIC
@@ -1543,10 +1928,20 @@ dialects easier.</p>
 <hr class="docutils" />
 <div class="section" id="atn2">
 <h2>ATN2<a class="headerlink" href="#atn2" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt>Syntax: ATN2 (x,y)</dt>
-<dd>Location: Math Package</dd>
-</dl>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>ATN2 (x,y)</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>Math Package</td>
+</tr>
+</tbody>
+</table>
 <p>ATN2 calculates ATAN(x/y) but expands the result from 0...PI to -PI...PI
 which allows you to convert cartesian and polar co-ordinates in both
 directions without loss of information.</p>
@@ -1588,7 +1983,20 @@ ATN2 and the difference from ATAN:</p>
 <hr class="docutils" />
 <div class="section" id="auto">
 <h2>AUTO<a class="headerlink" href="#auto" title="Permalink to this headline">¶</a></h2>
-<p>Syntax: AUTO [start_number][,step] Location: QL ROM</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="24%" />
+<col width="76%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>AUTO [start_number][,step]</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>QL ROM</td>
+</tr>
+</tbody>
+</table>
 <p>This command automatically creates line numbers in the command line (#0)
 to assist in entering SuperBASIC programs. It would normally only be
 entered as a direct command (although you can include it in a program
@@ -1640,10 +2048,20 @@ ED mode with the cursor at the specified start line number.</p>
 <hr class="docutils" />
 <div class="section" id="auto-dis">
 <h2>AUTO_DIS<a class="headerlink" href="#auto-dis" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt>Syntax: AUTO_DIS</dt>
-<dd>Location: Super Gold Card, Gold Card v2.67+</dd>
-</dl>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>AUTO_DIS</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>Super Gold Card, Gold Card v2.67+</td>
+</tr>
+</tbody>
+</table>
 <p>The Super Gold Card allows you to automatically start-up the QL
 (overcoming the need to press F1 or F2 on the title screen), and also
 automatically start up Toolkit II.</p>
@@ -1661,10 +2079,20 @@ Toolkit II and does not show a start-up screen.</p>
 <hr class="docutils" />
 <div class="section" id="auto-tk2f1">
 <h2>AUTO_TK2F1<a class="headerlink" href="#auto-tk2f1" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt>Syntax: AUTO_TK2F1</dt>
-<dd>Location: Super Gold Card, Gold Card v2.67+</dd>
-</dl>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>AUTO_TK2F1</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>Super Gold Card, Gold Card v2.67+</td>
+</tr>
+</tbody>
+</table>
 <p>The Super Gold Card allows you to automatically boot up the machine
 whenever it is switched on or reset.</p>
 <p>This command enables this auto-booting (starting the machine up in
@@ -1680,10 +2108,20 @@ if this command has not been used.</p>
 <hr class="docutils" />
 <div class="section" id="auto-tk2f2">
 <h2>AUTO_TK2F2<a class="headerlink" href="#auto-tk2f2" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt>Syntax: AUTO_TK2F2</dt>
-<dd>Location: Super Gold Card, Gold Card v2.67+</dd>
-</dl>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>AUTO_TK2F2</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>Super Gold Card, Gold Card v2.67+</td>
+</tr>
+</tbody>
+</table>
 <p>This command is the same as AUTO_TK2F1 except that the machine is
 started up in F2 TV mode.</p>
 <p><strong>CROSS-REFERENCE</strong></p>
@@ -1692,7 +2130,20 @@ started up in F2 TV mode.</p>
 <hr class="docutils" />
 <div class="section" id="a-blank">
 <h2>A_BLANK<a class="headerlink" href="#a-blank" title="Permalink to this headline">¶</a></h2>
-<p>Syntax: A_BLANK [minutes] Location: ST/QL (Pre v2.24)</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>A_BLANK [minutes]</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>ST/QL (Pre v2.24)</td>
+</tr>
+</tbody>
+</table>
 <p>This command creates a small job which blanks out the screen if a key
 has not been pressed for a specified number of minutes (default 5).</p>
 <p>This command is useful, because if a very bright picture is drawn on
@@ -1710,10 +2161,20 @@ these &#8216;ghosts&#8217;.</p>
 <hr class="docutils" />
 <div class="section" id="a-emulator">
 <h2>A_EMULATOR<a class="headerlink" href="#a-emulator" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt>Syntax: A_EMULATOR</dt>
-<dd>Location: ATARI_REXT v2.22+</dd>
-</dl>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>A_EMULATOR</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>ATARI_REXT v2.22+</td>
+</tr>
+</tbody>
+</table>
 <p>This function returns a number to signify the type of ST/QL EMulator
 which is being used with the Atari computer. The value returned may be
 one of the following:</p>
@@ -1736,10 +2197,20 @@ one of the following:</p>
 <hr class="docutils" />
 <div class="section" id="a-machine">
 <h2>A_MACHINE<a class="headerlink" href="#a-machine" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt>Syntax: A_MACHINE</dt>
-<dd>Location: ATARI_REXT v2.22+</dd>
-</dl>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>A_MACHINE</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>ATARI_REXT v2.22+</td>
+</tr>
+</tbody>
+</table>
 <p>This function is the same as MACHINE.</p>
 <p><strong>CROSS-REFERENCE</strong></p>
 <p>See<a class="reference external" href="KeywordsM.html#MACHINE">MACHINE</a> and also
@@ -1748,10 +2219,20 @@ one of the following:</p>
 <hr class="docutils" />
 <div class="section" id="a-oldscr">
 <h2>A_OLDSCR<a class="headerlink" href="#a-oldscr" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt>Syntax: A_OLDSCR</dt>
-<dd>Location: ATARI_REXT (v2.27+)</dd>
-</dl>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>A_OLDSCR</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>ATARI_REXT (v2.27+)</td>
+</tr>
+</tbody>
+</table>
 <p>A lot of software (mainly non-pointer driver programs), and some of the
 toolkits covered by this book, written for the Sinclair QL in the past
 always assumed that the QL screen would appear at the memory location
@@ -1786,10 +2267,20 @@ to 512x256 pixels also.</p>
 <hr class="docutils" />
 <div class="section" id="a-processor">
 <h2>A_PROCESSOR<a class="headerlink" href="#a-processor" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt>Syntax: A_PROCESSOR</dt>
-<dd>Location: ATARI_REXT v2.22+</dd>
-</dl>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>A_PROCESSOR</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>ATARI_REXT v2.22+</td>
+</tr>
+</tbody>
+</table>
 <p>This function is the same as PROCESSOR.</p>
 <p><strong>CROSS-REFERENCE</strong></p>
 <p>See <a class="reference external" href="KeywordsP.html#PROCESSOR">PROCESSOR</a>!</p>
@@ -1797,10 +2288,20 @@ to 512x256 pixels also.</p>
 <hr class="docutils" />
 <div class="section" id="a-rdate">
 <h2>A_RDATE<a class="headerlink" href="#a-rdate" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt>Syntax: A_RDATE</dt>
-<dd>Location: ATARI_REXT (v2.10+)</dd>
-</dl>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>A_RDATE</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>ATARI_REXT (v2.10+)</td>
+</tr>
+</tbody>
+</table>
 <p>This command sets the QL&#8217;s internal clock to the date and time contained
 in the battery-backed clock on the ST (if available).</p>
 <p><strong>NOTE</strong></p>
@@ -1812,10 +2313,20 @@ clock.</p>
 <hr class="docutils" />
 <div class="section" id="a-sdate">
 <h2>A_SDATE<a class="headerlink" href="#a-sdate" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt>Syntax: A_SDATE year, month, day, hour, minute, second</dt>
-<dd>Location: ATARI_REXT</dd>
-</dl>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>A_SDATE year, month, day, hour, minute, second</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>ATARI_REXT</td>
+</tr>
+</tbody>
+</table>
 <p>The Atari ST has a built in battery-backed clock which maintains the
 time whilst the machine is switched off. This time is automatically
 copied across to the Emulator&#8217;s own internal clock when the Atari ST is
@@ -1837,10 +2348,20 @@ same date and time as the battery backed clock.</p>
 <hr class="docutils" />
 <div class="section" id="a-speed">
 <h2>A_SPEED<a class="headerlink" href="#a-speed" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt>Syntax: A_SPEED value</dt>
-<dd>Location: ATARI_REXT</dd>
-</dl>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Syntax</td>
+<td>A_SPEED value</td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td>ATARI_REXT</td>
+</tr>
+</tbody>
+</table>
 <p>Due to the enhanced hardware on which the ST/QL Emulator is running, you
 may find that as with the QXL, Super Gold Card and Gold Card, some
 programs run too quickly. The command A_SPEED allows you to slow the
@@ -1860,10 +2381,10 @@ slowly.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="AppendicesIntro.clean.html" class="btn btn-neutral float-right" title="Appendices Introduction" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="KeywordsB.clean.html" class="btn btn-neutral float-right" title="Keywords B" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="WritingPrograms.clean.html" class="btn btn-neutral" title="Writing Programs" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="KeywordsIntro.html" class="btn btn-neutral" title="Keywords Introduction" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

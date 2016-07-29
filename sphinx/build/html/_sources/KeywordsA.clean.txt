@@ -1,43 +1,18 @@
 ==========
-5 KEYWORDS
+Keywords A
 ==========
 
-The following is a general description of the various commands available
-to the SuperBASIC programmer, as provided by Public Domain toolkits, QL
-Emulators and SuperBASIC itself.
-
-We have indicated which of the commands are functions (and therefore
-must appear in a program in the form):
-
-x=FUNCTION ( parameter )
-
-or: IF FUNCTION ( parameter ) = value
-
-and those which are procedures (also known as commands) which must
-therefore appear in a program in the form: PROCEDURE parameter
-
-**NOTE**
-
-Many toolkits insist that you initialise the toolkit before you can use
-the various keywords contained in those toolkits. Refer to Section 1.1
-for details.
-
---------------
 
 ABS
 ===
 
-+------------------------------------------------------------------------+
-| Syntax:                                                                |
-+========================================================================+
-| ABS (number) or                                                        |
-+------------------------------------------------------------------------+
-| ABS (number1 :sup:`\*`\ [,number\ :sup:`x`]\ :sup:`\*`) (Minerva only) |
-+------------------------------------------------------------------------+
-
-+------------------------------------------------------------------------+
-| Location: QL ROM                                                       |
-+------------------------------------------------------------------------+
++----------+------------------------------------------------------------------------+
+| Syntax   |                                                                        | 
+|          | ABS (number) or                                                        |
+|          | ABS (number1 :sup:`\*`\ [,number\ :sup:`x`]\ :sup:`\*`) (Minerva only) | 
++----------+------------------------------------------------------------------------+
+| Location |  QL ROM                                                                | 
++----------+------------------------------------------------------------------------+
 
 This function returns the absolute value of a number - ie. the positive
 difference (or distance) between zero and the number. The absolute value
@@ -132,8 +107,11 @@ See ACCEL\_ON below!
 ACCEL\_ON
 =========
 
-Syntax: ACCEL\_ON
-Location: ST/QL
++----------+-------------------------------------------------------------------+
+| Syntax   |  ACCEL\_ON                                                        |
++----------+-------------------------------------------------------------------+
+| Location |  ST/QL                                                            |
++----------+-------------------------------------------------------------------+
 
 The ST/QL Emulator supports several of the accelerator boards which can
 be plugged into the Atari ST computer, thus allowing much greater
@@ -159,8 +137,11 @@ use its memory cache. Also see
 ACCEL\_SET
 ==========
 
-Syntax: ACCEL\_SET type,option
-Location: ST/QL
++----------+-------------------------------------------------------------------+
+| Syntax   |  ACCEL\_SET type,option                                           |
++----------+-------------------------------------------------------------------+
+| Location |  ST/QL                                                            |
++----------+-------------------------------------------------------------------+
 
 Before the ST/QL Emulator can use an accelerator board plugged into the
 Atari ST, it is necessary to use the command ACCEL\_SET to tell the
@@ -203,8 +184,11 @@ See also `ACCEL\_ON <KeywordsA.html#ACCEL_ON>`__,
 ACCEL\_STATE
 ============
 
-Syntax: ACCEL\_STATE
-Location: ST/QL
++----------+-------------------------------------------------------------------+
+| Syntax   |  ACCEL\_STATE                                                     |
++----------+-------------------------------------------------------------------+
+| Location |  ST/QL                                                            |
++----------+-------------------------------------------------------------------+
 
 This function returns the value 1 if the ST/QL Emulator has been told
 that an accelerator board is enabled. Otherwise, it returns the value 0.
@@ -219,8 +203,11 @@ accelerator board is enabled.
 ACOPY
 =====
 
-Syntax: ACOPY filename1,filename2
-Location: ATARIDOS
++----------+-------------------------------------------------------------------+
+| Syntax   |  ACOPY filename1,filename2                                        |
++----------+-------------------------------------------------------------------+
+| Location |  ATARIDOS                                                         |
++----------+-------------------------------------------------------------------+
 
 This command is similar to COPY except that it copies a file from a QL
 Format disk to an Atari Format disk. No conversion takes place.
@@ -245,8 +232,11 @@ See `AFORMAT <KeywordsA.html#AFORMAT>`__ and
 ACOS
 ====
 
-Syntax: ACOS (x)
-Location: QL ROM
++----------+-------------------------------------------------------------------+
+| Syntax   |  ACOS (x)                                                         |
++----------+-------------------------------------------------------------------+
+| Location |  QL ROM                                                           |
++----------+-------------------------------------------------------------------+
 
 The function ACOS, is the arc-cosine function, that is to say the
 opposite to the cosine function (COS in SuperBASIC). However, x must
@@ -296,8 +286,11 @@ Also please see the Mathematics section in the Appendix.
 ACOT
 ====
 
-Syntax: ACOT (x) or ACOT (y,x) (Minerva v1.90+ only)
-Location: QL ROM
++----------+-------------------------------------------------------------------+
+| Syntax   |  ACOT (x) or ACOT (y,x) (Minerva v1.90+ only)                     |
++----------+-------------------------------------------------------------------+
+| Location |  QL ROM                                                           |
++----------+-------------------------------------------------------------------+
 
 The function ACOT, is the arc-cotangent function, that is to say the
 inverse of the cotangent function (COT in SuperBASIC): COT(ACOT(x))=x
@@ -328,8 +321,11 @@ See also `ARCOTH <KeywordsA.html#ARCOTH>`__.
 ADATE
 =====
 
-Syntax: ADATE seconds
-Location: QL ROM
++----------+-------------------------------------------------------------------+
+| Syntax   |  ADATE seconds                                                    |
++----------+-------------------------------------------------------------------+
+| Location |  QL ROM                                                           |
++----------+-------------------------------------------------------------------+
 
 ADATE adjusts the current system clock by the given number of seconds,
 so ADATE 60 would advance the internal clock by a minute and ADATE
@@ -397,8 +393,11 @@ date and time.
 ADDREG
 ======
 
-Syntax: ADDREG
-Location: TRAPS (DIY Toolkit Vol T)
++----------+-------------------------------------------------------------------+
+| Syntax   |  ADDREG                                                           |
++----------+-------------------------------------------------------------------+
+| Location |  TRAPS (DIY Toolkit Vol T)                                        |
++----------+-------------------------------------------------------------------+
 
 This function returns the value of the following Machine code address
 register following the completion of a MTRAP, QTRAP or BTRAP command.
@@ -438,8 +437,11 @@ and `BTRAP <KeywordsB.html#BTRAP>`__.
 ADELETE
 =======
 
-Syntax: ADELETE filename
-Location: ATARIDOS
++----------+-------------------------------------------------------------------+
+| Syntax   |  ADELETE filename                                                 |
++----------+-------------------------------------------------------------------+
+| Location |  ATARIDOS                                                         |
++----------+-------------------------------------------------------------------+
 
 This command is the same as the standard DELETE command, except that it
 works on Atari and IBM PS/2 format disks.
@@ -464,8 +466,11 @@ See `ADIR <KeywordsA.html#ADIR>`__,
 ADIR
 ====
 
-Syntax: ADIR [#channel,] device
-Location: ATARIDOS
++----------+-------------------------------------------------------------------+
+| Syntax   |  ADIR [#channel,] device                                          |
++----------+-------------------------------------------------------------------+
+| Location |  ATARIDOS                                                         |
++----------+-------------------------------------------------------------------+
 
 This command is the same as DIR except that it works on ATARI disks or
 IBM PS/2 Disks.
@@ -483,8 +488,11 @@ and `AFORMAT <KeywordsA.html#AFORMAT>`__.
 AFORMAT
 =======
 
-Syntax: AFORMAT device\_[name] 
-Location: ATARIDOS
++----------+-------------------------------------------------------------------+
+| Syntax   |  AFORMAT device\_[name]                                           |
++----------+-------------------------------------------------------------------+
+| Location |  ATARIDOS                                                         |
++----------+-------------------------------------------------------------------+
 
 This command formats the specified device in Atari disk format, giving
 it the specified name (if any).
@@ -507,8 +515,11 @@ Other commands added are `ASTAT <KeywordsA.html#ASTAT>`__,
 AJOB
 ====
 
-Syntax: AJOB jobname,priority or AJOB jobnr,tag,priority or AJOB job\_id,priority  
-Location: Toolkit II
++----------+-------------------------------------------------------------------+
+| Syntax   | AJOB jobname,priority or                                          |
+|          | AJOB jobnr,tag,priority or                                        |
+|          | AJOB job\_id,priority                                             |
++----------+-------------------------------------------------------------------+
 
 This command forces the specified job (described by either its jobname,
 its job number and tag, or its job identification number) to be
@@ -537,8 +548,11 @@ restarting it.
 ALARM
 =====
 
-Syntax: ALARM hour,minutes
- Location: Toolkit II
++----------+-------------------------------------------------------------------+
+| Syntax   |  ALARM hour,minutes                                               |
++----------+-------------------------------------------------------------------+
+| Location |  Toolkit II                                                       |
++----------+-------------------------------------------------------------------+
 
 This command creates a Job at low priority which makes the QL sound
 several beeps when the alarm time is reached and then removes itself.
@@ -571,8 +585,11 @@ example.
 ALCHP
 =====
 
-Syntax: ALCHP (space) or ALCHP (space [,[jobID]]) (BTool only)
-Location: Toolkit II, THOR XVI, BTool
++----------+-------------------------------------------------------------------+
+| Syntax   |  ALCHP (space) or ALCHP (space [,[jobID]]) (BTool only)           |
++----------+-------------------------------------------------------------------+
+| Location |  Toolkit II, THOR XVI, BTool                                      |
++----------+-------------------------------------------------------------------+
 
 The function ALCHP allocates space bytes in the common heap and returns
 the start address of the memory set aside to be altered freely. This,
@@ -669,10 +686,10 @@ fragmentation.
 ALIAS
 =====
 
-Syntax: ALIAS old\_keyword$ TO new\_keyword(ALIAS\_CODE) or 
-        ALIAS new\_keyword TO old\_keyword$(SAILA\_CODE)
-        
-Location: ALIAS (DIY Toolkit - Vol A)
++----------+-------------------------------------------------------------------+
+| Syntax   |  ALIAS old\_keyword$ TO new\_keyword(ALIAS\_CODE) or              |
+|          |  ALIAS new\_keyword TO old\_keyword$(SAILA\_CODE)                 |
++----------+-------------------------------------------------------------------+
 
 This command is similar to NEW\_NAME and REPLACE.
 
@@ -783,8 +800,11 @@ table.
 ALINE
 =====
 
-Syntax: ALINE x1,y1 TO x2,y2, Colour
- Location: Shape Toolkit
++----------+-------------------------------------------------------------------+
+| Syntax   |  ALINE x1,y1 TO x2,y2, Colour                                     |
++----------+-------------------------------------------------------------------+
+| Location |  Shape Toolkit                                                    |
++----------+-------------------------------------------------------------------+
 
 This command quickly draws a line between the specified absolute, window
 independent co-ordinates, (x1,y1) and (x2,y2), on the screen. ALINE uses
@@ -863,8 +883,11 @@ are much more flexible.
 ALLOCATION
 ==========
 
-Syntax: ALLOCATION (bytes [,taskno%,tasktag%])
- Location: Turbo Toolkit
++----------+-------------------------------------------------------------------+
+| Syntax   |  ALLOCATION (bytes [,taskno%,tasktag%])                           |
++----------+-------------------------------------------------------------------+
+| Location |  Turbo Toolkit                                                    |
++----------+-------------------------------------------------------------------+
 
 This function is very similar to RESERVE. It allocates an area in the
 common heap which may be associated with a specified job. If taskno% and
@@ -886,8 +909,11 @@ The `taskno% <Keywordst.html#taskno%>`__ and
 ALT
 ===
 
-Syntax: ALT
- Location: Beuletools
++----------+-------------------------------------------------------------------+
+| Syntax   |  ALT                                                              |
++----------+-------------------------------------------------------------------+
+| Location |  Beuletools                                                       |
++----------+-------------------------------------------------------------------+
 
 This function returns the control codes needed to switch to the
 alternative font (normally italics) on an EPSON compatible printer:
@@ -911,8 +937,11 @@ is therefore eqivalent to: PRINT #ch,CHR$(27)&"6"
 ALTER
 =====
 
-Syntax: ALTER 'variable' TO value
- Location: ALTER (DIY Toolkit - Vol U)
++----------+-------------------------------------------------------------------+
+| Syntax   |  ALTER 'variable' TO value                                        |
++----------+-------------------------------------------------------------------+
+| Location |  ALTER (DIY Toolkit - Vol U)                                      |
++----------+-------------------------------------------------------------------+
 
 This command works alongside SET from the same toolkit and allows you to
 re-define the universal constants created with SET.
@@ -955,11 +984,13 @@ See `SET <KeywordsS.html#SET>`__.
 ALTKEY
 ======
 
-Syntax: ALTKEY character$,string$ [,string2$ [,string2$... ]] 
-or ALTKEY character$ 
-or ALTKEY
-
-Location: Toolkit II
++----------+-------------------------------------------------------------------+
+| Syntax   | ALTKEY character$,string$ [,string2$ [,string2$... ]]  or         |
+|          | ALTKEY character$  or                                             |
+|          | ALTKEY                                                            |
++----------+-------------------------------------------------------------------+
+| Location |  Toolkit II                                                       |
++----------+-------------------------------------------------------------------+
 
 This command defines a key macro which will be typed into the computer
 when you press the <ALT> key at the same time as the <character$> key.
@@ -1040,8 +1071,11 @@ effect until you use the HOT\_GO command.
 AND
 ===
 
-Syntax: condition1 AND condition2
- Location: QL ROM
++----------+-------------------------------------------------------------------+
+| Syntax   |  condition1 AND condition2                                        |
++----------+-------------------------------------------------------------------+
+| Location |  QL ROM                                                           |
++----------+-------------------------------------------------------------------+
 
 This combination operator combines two condition tests together and will
 have the value 1 if both condition1 and condition2 are true or 0 if
@@ -1083,8 +1117,11 @@ produces the following output:
 APOINT
 ======
 
-Syntax: APPOINT x,y,colour
- Location: Shape Toolkit
++----------+-------------------------------------------------------------------+
+| Syntax   |  APPOINT x,y,colour                                               |
++----------+-------------------------------------------------------------------+
+| Location |  Shape Toolkit                                                    |
++----------+-------------------------------------------------------------------+
 
 This command is similar to POINT, except that it uses absolute
 co-ordinates and plots the point in XOR mode (as with ALINE).
@@ -1102,8 +1139,11 @@ Use `POINT <KeywordsP.html#POINT>`__ instead!!
 APPEND
 ======
 
-Syntax: APPEND file1,file2
- Location: ST/QL
++----------+-------------------------------------------------------------------+
+| Syntax   |  APPEND file1,file2                                               |
++----------+-------------------------------------------------------------------+
+| Location |  ST/QL                                                            |
++----------+-------------------------------------------------------------------+
 
 This command allows you to merge two files together by appending file2
 to the end of file1.
@@ -1122,8 +1162,11 @@ is similar to this.
 AQCONVERT
 =========
 
-Syntax: AQCONVERT filename
- Location: ATARIDOS
++----------+-------------------------------------------------------------------+
+| Syntax   |  AQCONVERT filename                                               |
++----------+-------------------------------------------------------------------+
+| Location |  ATARIDOS                                                         |
++----------+-------------------------------------------------------------------+
 
 This command takes a file which is stored on a QL Format disk and
 presumes that it was originally an Atari format file. It will then
@@ -1145,12 +1188,12 @@ See also `ACOPY <KeywordsA.html#ACOPY>`__ and
 ARC
 ===
 
-Syntax: ARC [#ch][,x\ :sup:`1`\ ,y\ :sup:`1`] TO
-x\ :sup:`2`\ ,y\ :sup:`2`\ ,angle
-:sup:`\*`\ [[;x\ :sup:`i`\ ,y\ :sup:`i`] TO
-x\ :sup:`j`\ ,y\ :sup:`j`\ ,angle\ :sup:`j`]\ :sup:`\*` 
-
-Location: QL ROM
++----------+---------------------------------------------------------------------------------------------------------------------+
+| Syntax   | ARC [#ch][,x\ :sup:`1`\ ,y\ :sup:`1`] TO x\ :sup:`2`\ ,y\ :sup:`2`\ ,angle :sup:`\*`\ [[;x\ :sup:`i`\ ,y\ :sup:`i`] |
+|          | TO x\ :sup:`j`\ ,y\ :sup:`j`\ ,angle\ :sup:`j`]\ :sup:`\*`                                                          |
++----------+---------------------------------------------------------------------------------------------------------------------+
+| Location |  QL ROM                                                                                                             |
++----------+---------------------------------------------------------------------------------------------------------------------+
 
 ARC causes the two points at the co-ordinates
 (x\ :sup:`1`\ ,y\ :sup:`1`\ ) and (x\ :sup:`2`\ ,y\ :sup:`2`\ ) to be
@@ -1255,12 +1298,12 @@ size of the window.
 ARC\_R
 ======
 
-Syntax: ARC\_R [#ch][,x\ :sup:`1`\ ,y\ :sup:`1`] TO
-x\ :sup:`2`\ ,y\ :sup:`2`\ ,angle
-:sup:`\*`\ [[;x\ :sup:`i`\ ,y\ :sup:`i`] TO
-x\ :sup:`j`\ ,y\ :sup:`j`\ ,angle\ :sup:`j`]\ :sup:`\*` 
-
-Location: QL ROM
++----------+------------------------------------------------------------------------------------------------------------------------+
+| Syntax   | ARC\_R [#ch][,x\ :sup:`1`\ ,y\ :sup:`1`] TO x\ :sup:`2`\ ,y\ :sup:`2`\ ,angle :sup:`\*`\ [[;x\ :sup:`i`\ ,y\ :sup:`i`] | 
+|          | TO x\ :sup:`j`\ ,y\ :sup:`j`\ ,angle\ :sup:`j`]\ :sup:`\*`                                                             | 
++----------+------------------------------------------------------------------------------------------------------------------------+
+| Location |  QL ROM                                                                                                                |
++----------+------------------------------------------------------------------------------------------------------------------------+
 
 This command draws an arc relative to the current graphic cursor. This
 means that rather than the co-ordinates (x,y) being relative to the
@@ -1313,8 +1356,11 @@ Please also see `ARC <KeywordsA.html#ARC>`__.
 ARCOSH
 ======
 
-Syntax: ARCOSH (x)
- Location: Hyper
++----------+-------------------------------------------------------------------+
+| Syntax   |  ARCOSH (x)                                                       |
++----------+-------------------------------------------------------------------+
+| Location |  Hyper                                                            |
++----------+-------------------------------------------------------------------+
 
 This function returns the arc hyperbolic cosine of the specified value,
 that is to say it will return the value which must be passed to the
@@ -1338,8 +1384,11 @@ See `ACOS <KeywordsA.html#ACOS>`__, `ASIN <KeywordsA.html#ASIN>`__,
 ARCOTH
 ======
 
-Syntax: ARCOTH (x)
- Location: Hyper
++----------+-------------------------------------------------------------------+
+| Syntax   |  ARCOTH (x)                                                       |
++----------+-------------------------------------------------------------------+
+| Location |  Hyper                                                            |
++----------+-------------------------------------------------------------------+
 
 This function returns the arc hyperbolic cotangent of the specified
 value ie.
@@ -1359,8 +1408,11 @@ and `ARTANH <KeywordsA.html#ARTANH>`__.
 ARSINH
 ======
 
-Syntax: ARSINH (x)
- Location: Hyper
++----------+-------------------------------------------------------------------+
+| Syntax   |  ARSINH (x)                                                       |
++----------+-------------------------------------------------------------------+
+| Location |  Hyper                                                            |
++----------+-------------------------------------------------------------------+
 
 This function is the arc hyperbolic sine (ie. the complementary function
 to SINH).
@@ -1381,8 +1433,11 @@ and `ARCOTH <KeywordsA.html#ARCOTH>`__.
 ARTANH
 ======
 
-Syntax: ARTANH (x)
- Location: Hyper
++----------+-------------------------------------------------------------------+
+| Syntax   |  ARTANH (x)                                                       |
++----------+-------------------------------------------------------------------+
+| Location |  Hyper                                                            |
++----------+-------------------------------------------------------------------+
 
 The function ARTANH returns the value which must be passed to TANH to
 give the specified result, so:
@@ -1401,8 +1456,11 @@ and `ARSINH <KeywordsA.html#ARSINH>`__.
 ASIN
 ====
 
-Syntax: ASIN (x)
- Location: QL ROM
++----------+-------------------------------------------------------------------+
+| Syntax   |  ASIN (x)                                                         |
++----------+-------------------------------------------------------------------+
+| Location |  QL ROM                                                           |
++----------+-------------------------------------------------------------------+
 
 This function calculates the arc-sine (in radians) which is the opposite
 of the sine function, ie:
@@ -1455,8 +1513,11 @@ Compare `ARSINH <KeywordsA.html#ARSINH>`__.
 ASK
 ===
 
-Syntax: ASK ([#wind,] question$)
- Location: BTool
++----------+-------------------------------------------------------------------+
+| Syntax   |  ASK ([#wind,] question$)                                         |
++----------+-------------------------------------------------------------------+
+| Location |  BTool                                                            |
++----------+-------------------------------------------------------------------+
 
 ASK is a function which prints the question$ (plus a question mark (?)
 if this was not found at the end of the string), enables the text cursor
@@ -1503,7 +1564,11 @@ own routine.
 ASTAT
 =====
 
-Syntax: ASTAT [#channel,] device Location: ATARIDOS
++----------+--------------------+
+| Syntax   |  ASTAT [#channel,] |
++----------+--------------------+
+| Location | ATARIDOS           |
++----------+--------------------+
 
 This command is similar to ADIR except that it also provides extra
 information, such as the length of each file, the update time and any
@@ -1523,9 +1588,12 @@ Other commands added are `ADELETE <KeywordsA.html#ADELETE>`__,
 AT
 ==
 
-Syntax: AT [#ch,] row, column
- or AT [#ch,] column,row (pre AH ROMs only)
- Location: QL ROM
++----------+-------------------------------------------------------------------+
+| Syntax   | AT [#ch,] row, column  or                                         |
+|          | AT [#ch,] column,row (pre AH ROMs only)                           |
++----------+-------------------------------------------------------------------+
+| Location | QL ROM                                                            |
++----------+-------------------------------------------------------------------+
 
 This command sets the current print position in the given window
 (default #1) to the given row and column number. The top left hand
@@ -1603,9 +1671,11 @@ Also see `LEFT <KeywordsL.html#LEFT>`__.
 ATAN
 ====
 
-Syntax: ATAN (x)
- or ATAN (x,y) (Minerva and SMS only)
- Location: QL ROM
++----------+-------------------------------------------------------------------+
+| Syntax   |  ATAN (x)  or ATAN (x,y) (Minerva and SMS only)                   |
++----------+-------------------------------------------------------------------+
+| Location |  QL ROM                                                           |
++----------+-------------------------------------------------------------------+
 
 The function ATAN, is the arc-tangent function, that is to say the
 inverse of the tangent function (TAN in SuperBASIC).
@@ -1685,8 +1755,11 @@ Also please refer to the Mathematics section in the Appendix.
 ATARI
 =====
 
-Syntax: ATARI
- Location: Beuletools
++----------+-------------------------------------------------------------------+
+| Syntax   |  ATARI                                                            |
++----------+-------------------------------------------------------------------+
+| Location |  Beuletools                                                       |
++----------+-------------------------------------------------------------------+
 
 On the Atari QL-Emulator, this command switches to Atari mode.
 Naturally, on other machines, it has no effect. It will also fail if a
@@ -1711,8 +1784,11 @@ See `QuATARI <KeywordsQ.html#QuATARI>`__.
 ATARI\_EXT
 ==========
 
-Syntax: ATARI\_EXT
- Location: ATARI\_REXT (v2.15+)
++----------+-------------------------------------------------------------------+
+| Syntax   |  ATARI\_EXT                                                       |
++----------+-------------------------------------------------------------------+
+| Location |  ATARI\_REXT (v2.15+)                                             |
++----------+-------------------------------------------------------------------+
 
 The Atari QL-Emulators come with the additional toolkits, ATARI\_REXT
 and ATARIDOS.
@@ -1738,8 +1814,11 @@ See also `SND\_EXT <KeywordsS.html#SND_EXT>`__.
 ATN
 ===
 
-Syntax: ATN (x)
- Location: Math Package
++----------+-------------------------------------------------------------------+
+| Syntax   |  ATN (x)                                                          |
++----------+-------------------------------------------------------------------+
+| Location |  Math Package                                                     |
++----------+-------------------------------------------------------------------+
 
 This function is the same as the original QL ROM variant of ATAN.
 
@@ -1757,8 +1836,11 @@ See `ATAN <KeywordsA.html#ATAN>`__.
 ATN2
 ====
 
-Syntax: ATN2 (x,y)
- Location: Math Package
++----------+-------------------------------------------------------------------+
+| Syntax   |  ATN2 (x,y)                                                       |
++----------+-------------------------------------------------------------------+
+| Location |  Math Package                                                     |
++----------+-------------------------------------------------------------------+
 
 ATN2 calculates ATAN(x/y) but expands the result from 0...PI to -PI...PI
 which allows you to convert cartesian and polar co-ordinates in both
@@ -1808,7 +1890,11 @@ ATN2 and the difference from ATAN:
 AUTO
 ====
 
-Syntax: AUTO [start\_number][,step] Location: QL ROM
++----------+-------------------------------+
+| Syntax   | AUTO [start\_number][,step]   |
++----------+-------------------------------+
+|Location  | QL ROM                        |
++----------+-------------------------------+
 
 This command automatically creates line numbers in the command line (#0)
 to assist in entering SuperBASIC programs. It would normally only be
@@ -1889,8 +1975,11 @@ Please refer to `EDIT <KeywordsE.html#EDIT>`__ which is very similar.
 AUTO\_DIS
 =========
 
-Syntax: AUTO\_DIS
- Location: Super Gold Card, Gold Card v2.67+
++----------+-------------------------------------------------------------------+
+| Syntax   |  AUTO\_DIS                                                        |
++----------+-------------------------------------------------------------------+
+| Location |  Super Gold Card, Gold Card v2.67+                                |
++----------+-------------------------------------------------------------------+
 
 The Super Gold Card allows you to automatically start-up the QL
 (overcoming the need to press F1 or F2 on the title screen), and also
@@ -1918,8 +2007,11 @@ See\ `AUTO\_TK2F1 <KeywordsA.html#AUTO_TK2F1>`__ and
 AUTO\_TK2F1
 ===========
 
-Syntax: AUTO\_TK2F1
- Location: Super Gold Card, Gold Card v2.67+
++----------+-------------------------------------------------------------------+
+| Syntax   |  AUTO\_TK2F1                                                      |
++----------+-------------------------------------------------------------------+
+| Location |  Super Gold Card, Gold Card v2.67+                                |
++----------+-------------------------------------------------------------------+
 
 The Super Gold Card allows you to automatically boot up the machine
 whenever it is switched on or reset.
@@ -1942,8 +2034,11 @@ if this command has not been used.
 AUTO\_TK2F2
 ===========
 
-Syntax: AUTO\_TK2F2
- Location: Super Gold Card, Gold Card v2.67+
++----------+-------------------------------------------------------------------+
+| Syntax   |  AUTO\_TK2F2                                                      |
++----------+-------------------------------------------------------------------+
+| Location |  Super Gold Card, Gold Card v2.67+                                |
++----------+-------------------------------------------------------------------+
 
 This command is the same as AUTO\_TK2F1 except that the machine is
 started up in F2 TV mode.
@@ -1957,7 +2052,11 @@ See\ `AUTO\_TK2F1 <KeywordsA.html#AUTO_TK2F1>`__.
 A\_BLANK
 ========
 
-Syntax: A\_BLANK [minutes] Location: ST/QL (Pre v2.24)
++----------+----------------------------------------+
+| Syntax   |  A\_BLANK [minutes]                    |
++----------+----------------------------------------+
+| Location | ST/QL (Pre v2.24)                      |
++----------+----------------------------------------+
 
 This command creates a small job which blanks out the screen if a key
 has not been pressed for a specified number of minutes (default 5).
@@ -1983,8 +2082,11 @@ This command will only work within the Pointer Environment.
 A\_EMULATOR
 ===========
 
-Syntax: A\_EMULATOR
- Location: ATARI\_REXT v2.22+
++----------+-------------------------------------------------------------------+
+| Syntax   |  A\_EMULATOR                                                      |
++----------+-------------------------------------------------------------------+
+| Location |  ATARI\_REXT v2.22+                                               |
++----------+-------------------------------------------------------------------+
 
 This function returns a number to signify the type of ST/QL EMulator
 which is being used with the Atari computer. The value returned may be
@@ -2017,8 +2119,11 @@ See also `PROCESSOR <KeywordsP.html#PROCESSOR>`__ and
 A\_MACHINE
 ==========
 
-Syntax: A\_MACHINE
- Location: ATARI\_REXT v2.22+
++----------+-------------------------------------------------------------------+
+| Syntax   |  A\_MACHINE                                                       |
++----------+-------------------------------------------------------------------+
+| Location |  ATARI\_REXT v2.22+                                               |
++----------+-------------------------------------------------------------------+
 
 This function is the same as MACHINE.
 
@@ -2032,8 +2137,11 @@ See\ `MACHINE <KeywordsM.html#MACHINE>`__ and also
 A\_OLDSCR
 =========
 
-Syntax: A\_OLDSCR
- Location: ATARI\_REXT (v2.27+)
++----------+-------------------------------------------------------------------+
+| Syntax   |  A\_OLDSCR                                                        |
++----------+-------------------------------------------------------------------+
+| Location |  ATARI\_REXT (v2.27+)                                             |
++----------+-------------------------------------------------------------------+
 
 A lot of software (mainly non-pointer driver programs), and some of the
 toolkits covered by this book, written for the Sinclair QL in the past
@@ -2084,8 +2192,11 @@ to 512x256 pixels also.
 A\_PROCESSOR
 ============
 
-Syntax: A\_PROCESSOR
- Location: ATARI\_REXT v2.22+
++----------+-------------------------------------------------------------------+
+| Syntax   |  A\_PROCESSOR                                                     |
++----------+-------------------------------------------------------------------+
+| Location |  ATARI\_REXT v2.22+                                               |
++----------+-------------------------------------------------------------------+
 
 This function is the same as PROCESSOR.
 
@@ -2098,8 +2209,11 @@ See `PROCESSOR <KeywordsP.html#PROCESSOR>`__!
 A\_RDATE
 ========
 
-Syntax: A\_RDATE
- Location: ATARI\_REXT (v2.10+)
++----------+-------------------------------------------------------------------+
+| Syntax   |  A\_RDATE                                                         |
++----------+-------------------------------------------------------------------+
+| Location |  ATARI\_REXT (v2.10+)                                             |
++----------+-------------------------------------------------------------------+
 
 This command sets the QL's internal clock to the date and time contained
 in the battery-backed clock on the ST (if available).
@@ -2118,8 +2232,11 @@ See `A\_SDATE <KeywordsA.html#A_SDATE>`__.
 A\_SDATE
 ========
 
-Syntax: A\_SDATE year, month, day, hour, minute, second
- Location: ATARI\_REXT
++----------+-------------------------------------------------------------------+
+| Syntax   |  A\_SDATE year, month, day, hour, minute, second                  |
++----------+-------------------------------------------------------------------+
+| Location |  ATARI\_REXT                                                      |
++----------+-------------------------------------------------------------------+
 
 The Atari ST has a built in battery-backed clock which maintains the
 time whilst the machine is switched off. This time is automatically
@@ -2152,8 +2269,11 @@ same date and time as the battery backed clock.
 A\_SPEED
 ========
 
-Syntax: A\_SPEED value
- Location: ATARI\_REXT
++----------+-------------------------------------------------------------------+
+| Syntax   |  A\_SPEED value                                                   |
++----------+-------------------------------------------------------------------+
+| Location |  ATARI\_REXT                                                      |
++----------+-------------------------------------------------------------------+
 
 Due to the enhanced hardware on which the ST/QL Emulator is running, you
 may find that as with the QXL, Super Gold Card and Gold Card, some
