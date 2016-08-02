@@ -3,3 +3,4 @@ tools/fixHeadings
 *.doctree
 *.pickle
 sphinx/build/*
+tools/fixLinks

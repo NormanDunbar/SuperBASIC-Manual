@@ -1,0 +1,3545 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html xmlns:v="urn:schemas-microsoft-com:vml">
+  <head>
+    <meta http-equiv="content-type" content="text/html;
+      charset=ISO-8859-1">
+    <link rel="stylesheet" type="text/css" href="css/QLManualStyle.css" media="all" />
+    <title>Sinclair QL SuperBASIC/SBASIC Reference Manual - Keywords C</title>
+</head>
+<body>
+<div id="header">
+  SBASIC/SuperBASIC Reference Manual Online (c) RWAP Software
+  <br />
+  The Online Guide to programming the Sinclair QL Home Computer in SuperBASIC
+</div>
+<div id="sideBar">
+    <ul>
+        <li><a href="Foreword.html">Foreword</a></li>
+        <li><a href="Introduction.html">Introduction</a></li>
+        <li><a href="Credits.html">Credits</a></li>        
+        <li><a href="Structure.html">Structure</a></li>
+        <li><a href="WritingPrograms.html">Writing Programs</a></li>
+        <hr></hr>
+        <li><a href="KeywordsA.html">Keywords - A</a></li>
+        <li><a href="KeywordsB.html">Keywords - B</a></li>
+        <li><a href="KeywordsC.html">Keywords - C</a></li>
+        <li><a href="KeywordsD.html">Keywords - D</a></li>
+        <li><a href="KeywordsE.html">Keywords - E</a></li>
+        <li><a href="KeywordsF.html">Keywords - F</a></li>
+        <li><a href="KeywordsG.html">Keywords - G</a></li>
+        <li><a href="KeywordsH.html">Keywords - H</a></li>
+        <li><a href="KeywordsI.html">Keywords - I</a></li>
+        <li><a href="KeywordsJ.html">Keywords - J</a></li>
+        <li><a href="KeywordsK.html">Keywords - K</a></li>
+        <li><a href="KeywordsL.html">Keywords - L</a></li>
+        <li><a href="KeywordsM.html">Keywords - M</a></li>
+        <li><a href="KeywordsN.html">Keywords - N</a></li>
+        <li><a href="KeywordsO.html">Keywords - O</a></li>
+        <li><a href="KeywordsP.html">Keywords - P</a></li>
+        <li><a href="KeywordsQ.html">Keywords - Q</a></li>
+        <li><a href="KeywordsR.html">Keywords - R</a></li>
+        <li><a href="KeywordsS.html">Keywords - S</a></li>
+        <li><a href="KeywordsT.html">Keywords - T</a></li>
+        <li><a href="KeywordsU.html">Keywords - U</a></li>
+        <li><a href="KeywordsV.html">Keywords - V</a></li>
+        <li><a href="KeywordsW.html">Keywords - W</a></li>
+        <li><a href="KeywordsX.html">Keywords - X</a></li>
+        <li><a href="KeywordsY.html">Keywords - Y</a></li>
+        <li><a href="KeywordsZ.html">Keywords - Z</a></li>
+        <li><a href="Keywords_.html">Keywords - Other</a></li>
+        <hr></hr>
+        <li><a href="AppendicesIntro.html">Appendices Introduction</a></li>
+        <li><a href="Appendix01.html">Appendix 1 - Minerva</a></li>
+        <li><a href="Appendix02.html">Appendix 2 - SMSQE</a></li>
+        <li><a href="Appendix03.html">Appendix 3 - Emulators</a></li>
+        <li><a href="Appendix04.html">Appendix 4 - THOR Computers</a></li>
+        <li><a href="Appendix05.html">Appendix 5 - Expansion Boards</a></li>
+        <li><a href="Appendix06.html">Appendix 6 - Compatability</a></li>
+        <li><a href="Appendix07.html">Appendix 7 - Multiple BASICs</a></li>
+        <li><a href="Appendix08.html">Appendix 8 - Error Messages</a></li>
+        <li><a href="Appendix09.html">Appendix 9 - Character Set / Keyboard</a></li>
+        <li><a href="Appendix10.html">Appendix 10 - Fonts</a></li>
+        <li><a href="Appendix11.html">Appendix 11 - Mathematics</a></li>
+        <li><a href="Appendix12.html">Appendix 12 - Device Drivers</a></li>
+        <li><a href="Appendix13.html">Appendix 13 - Extended Pointer Environment</a></li>
+        <li><a href="Appendix14.html">Appendix 14 - Coercion</a></li>
+        <li><a href="Appendix15.html">Appendix 15 - Mouse Drivers</a></li>
+        <li><a href="Appendix16.html">Appendix 16 - The QL Display</a></li>
+        <li><a href="Appendix17.html">Appendix 17 - Networks</a></li>
+        <li><a href="Appendix18.html">Appendix 18 - Configuring Programs</a></li>
+    </ul>
+</div>
+<div id="mainText">
+<h1><a name="CACHE_ON"></a>CACHE_ON</h1><p>Syntax: <span style="font-style: italic;">CACHE_ON
+</span><br>Location: <span style="font-style: italic;">SMS, Super Gold Card
+</span></p>
+<p>This command enables any internal caches which may be
+available on your operating system.  This is in fact the
+default.
+</p>
+<p>Caches are a means of storing computer instructions in fast
+memory and cutting down on the time taken by a computer to
+execute those instructions.
+</p>
+<p>Normally a computer chip works is fed a program in a series
+of numbers representing commands, a format which is known as
+machine code.  This machine code operates at a very low level
+- the SuperBASIC command <span style="font-style: italic;">PRINT a$</span> would need several hundred
+machine code commands to have any effect on screen).  The
+later Motorola chips (not 68000 or 68008) used by QLs and
+Amigas (and also the newer chips on PCs and ATARIs) all have
+on-board caches which can hold a certain number of these
+machine code instructions.  If, while the program is running,
+it accesses those instructions again within a short time (ie.
+before the cache becomes full), then the chip can execute that
+series of commands again very quickly.
+</p>
+<p>Although caches can therefore speed up many programs, some
+computer programs were written in the days before caches were
+available for the QL and compatibles, and therefore will not
+work if the cache is switched on.  This is particularly true
+of some of the commands used by the Turbo compiler which
+contain self-modifying code, thus meaning that storage of a
+chunk of instructions is self-defeating.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsC.html#CACHE_OFF">CACHE_OFF</a> allows you to disable the caches.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CACHE_OFF"></a>CACHE_OFF</h1><p>Syntax: <span style="font-style: italic;">CACHE_OFF
+<br></span>Location: <span style="font-style: italic;">SMS, Super Gold Card
+</span></p>
+<p>This command disables the internal caches used to speed up
+the operating system.  This can help some of the older
+software to work on newer systems.
+</p>
+<p>In particular, this command is needed if Flexynet is to
+work (see <span style="font-style: italic;">NETSEND</span>).
+
+<h3>CROSS-REFERENCE:<br></h3><p>See <a style="font-style: italic;" href="KeywordsC.html#CACHE_ON">CACHE_ON</a>.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CALL"></a>CALL</h1><p>Syntax: <span style="font-style: italic;">CALL address </span>[<span style="font-style: italic;">,d1</span>[<span style="font-style: italic;">,d2</span>[<span style="font-style: italic;">,d3</span>[<span style="font-style: italic;">,d4</span>[<span style="font-style: italic;">,d5</span>[<span style="font-style: italic;">,d6</span>[<span style="font-style: italic;">,d7
+</span>[<span style="font-style: italic;">,a0</span>[<span style="font-style: italic;">,a1</span>[<span style="font-style: italic;">,a2</span>[<span style="font-style: italic;">,a3</span>[<span style="font-style: italic;">,a4</span>[<span style="font-style: italic;">,a5</span> ]]]]]]]]]]]]]
+<br>Location: <span style="font-style: italic;">QL ROM
+</span></p>
+<p>This command allows you to call a machine code routine
+loaded at the memory location <span style="font-style: italic;">address</span> from SuperBASIC. At the
+same  time,  you  can  set  the  initial  68008  registers  by
+supplying more than one parameter. Each additional parameter
+should be an integer value and is placed into the appropriate
+machine code register.
+</p>
+<p>You cannot return values to SuperBASIC using this command,
+although you can return errors by setting D0 from the machine
+code on return.
+</p>
+<p>If the machine code register D0 contains a number other
+than an error code (or 0) on return, the program will stop
+with the error 'At line '.
+</p>
+<p>Various useful routines can be <span style="font-style: italic;">CALL</span>ed on a Minerva ROM -
+these are discussed on the next few pages.
+</p>
+
+<h3>NOTE 1:<br></h3>
+<p>
+This command could crash the computer if used from within a
+program longer than 32K on pre JS ROMs. This is fixed by
+Toolkit II, the THOR XVI and Minerva.
+</p>
+
+<h3>NOTE 2:<br></h3>
+<p>
+It can be dangerous to <span style="font-style: italic;">CALL</span> addresses in memory unless you
+know that you have loaded a specified machine code routine
+into that location.
+</p>
+
+<h3>MINERVA NOTES:<br></h3>
+<p>
+Minerva adds various routines which can be <span style="font-style: italic;">CALL</span>ed from
+within a SuperBASIC program to perform various tasks quickly
+and efficiently. The routines are as follows:
+</p>
+
+<h3>(1) Reset machine:</h3>
+<p>
+<span style="font-style: italic;">CALL 390,param
+</span></p>
+<p>This routine resets the QL and allows you to set various
+parameters according to the value of <span style="font-style: italic;">param</span>, which allows you,
+for example, to cut the amount of memory available to the
+machine. >/p>
+<p>To calculate the value of <span style="font-style: italic;">param</span>, look at the following
+table and decide what effects you want the reset to have.
+</p>
+<p>Next, look up the value of that effect and add it to <span style="font-style: italic;">param</span>.
+</p>
+
+<h3>EffectValue to add<br></h3>
+<ul>
+<li>Skip memory test = 1</li>
+<li>Skip ROM scanning (ignore extras) = 2</li>
+<li>Alter maximum memory = 4</li>
+<li>Default to TV mode = 8</li>
+<li>Ignore F1..F4 (no wait) = 16</li
+<li>Enable dual screen mode = 128</li>
+<li>Leave n*256 bytes between screen and System Variables = n*256</li>
+<li>Set ramtop to nKB = (n+128)*1024</li>
+</ul>
+
+<h3>Examples:<br></h3>
+<p>
+(a) reset machine and force dual screen TV mode (no memory
+test):
+</p>
+<p><span style="font-style: italic;">CALL 390,8+16+128+1
+</span></p>
+<p>(b) reset machine to 640K:
+</p>
+<p><span style="font-style: italic;">CALL 390,(640+128)*1024+4
+</p>
+
+<h3>MINERVA WARNINGS:<br></h3>
+<p>
+<span style="font-style: italic;">CALL 390</span> can crash the machine - always set the new ramtop to
+a multiple of 64K and do not try to allocate more memory than
+is in the system.
+</p>
+<p>If you leave space between the screen and System Variables,
+this will reduce the amount of memory available accordingly!!
+</p>
+<p>If your system uses a keyboard linked to SuperHermes, do
+not use <span style="font-style: italic;">CALL</span> to reset the system unless you include a line such
+as <span style="font-style: italic;">PAUSE 40</span> prior to the <span style="font-style: italic;">CALL</span> command to clear all pending input,
+otherwise SuperHermes becomes confused!
+</p>
+
+<h3>(2) Move memory quickly:<br></h3>
+<p>
+<span style="font-style: italic;">CALL PEEK_W(344)+16384,length,2,3,4,5,6,7,dest,source
+</span></p>
+<p>This command allows you to move <span style="font-style: italic;">length</span> bytes from the <span style="font-style: italic;">source
+</span>address to the destination address (<span style="font-style: italic;">dest</span>) extremely quickly.
+</p>
+<p>Either <span style="font-style: italic;">source</span> or <span style="font-style: italic;">dest</span> may be odd addresses, and the code will
+even cope with overlapping areas.
+</p>
+
+<h3>Minerva Example:<br></h3>
+<p>
+To copy the whole of the main screen to a screen storage
+area pointed to by the variable <span style="font-style: italic;">scr_store
+</span></p>
+<pre>10 scr_size=SCR_LLEN*SCR_YLIM
+20 scr_store=ALCHP(scr_size)
+30 CALL</span> <span style="font-style: italic;">PEEK_W(344)+16384,scr_size,2,3,4,5,6,7,scr_store,SCR_BASE
+</pre>
+
+<h3>(3) Clear memory quickly:<br></h3>
+<p>
+<span style="font-style: italic;">CALL PEEK_W(360)+16384,length,2,3,4,5,6,7,address
+</span></p>
+<p>This command allows you to clear <span style="font-style: italic;">length</span> bytes from the given
+start <span style="font-style: italic;">address</span> onwards extremely quickly. It could for example, be
+used to clear storage buffers.
+</p>
+<p>Please note that <span style="font-style: italic;">address</span> may be odd.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsL.html#LBYTES">LBYTES</a>, <a style="font-style: italic;" href="KeywordsS.html#SBYTES">SBYTES</a> can be used to load and save areas of memory
+(and machine code routines).
+</p>
+<p><a style="font-style: italic;" href="KeywordsA.html#ALCHP">ALCHP</a> and <a style="font-style: italic;" href="KeywordsR.html#RESPR">RESPR</a> can be used to set aside areas of memory for
+user routines.
+</p>
+<p><a style="font-style: italic;" href="KeywordsB.html#BMOVE">BMOVE</a> and similar commands allow you to move areas of memory
+on other ROM implementations.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CAPS"></a>CAPS</h1><p>Syntax: <span style="font-style: italic;">CAPS
+<br></span>Location: <span style="font-style: italic;">BeuleTools
+</span></p>
+<p>After the command <span style="font-style: italic;">CAPS</span> has been issued, any input from the
+keyboard  via  <span style="font-style: italic;">INPUT</span>,  <span style="font-style: italic;">INKEY$</span>  etc.  is  translated  into  capital
+letters.  <span style="font-style: italic;">CAPS</span> simulates the use of the capslock key.
+</p>
+
+<h3>Example:<br></h3>
+<p>
+To ask the user for any keyboard input, for example a
+</p>
+<p>password where this should be entered in capital letters:</p>
+
+<pre>100 CAPS
+110 INPUT "Please enter password:"!pass$
+120 NOCAPS
+</pre>
+
+<h3>NOTE:<br></h3>
+<p>
+Some old replacement keyboards use dirty tricks to engage
+capslock.  If you are fed up with the original QL keyboard
+then ensure you get the latest release of a modern keyboard
+interface and an IBM-style keyboard. If you do not do this,
+then you may have to change to capslock mode with <span style="font-style: italic;">CAPS</span>...
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsN.html#NOCAPS">NOCAPS</a> is self-explanatory.
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CATNAP"></a>CATNAP</h1><p>Syntax: <span style="font-style: italic;">CATNAP
+<br></span>Location: <span style="font-style: italic;">Turbo Toolkit
+</span></p>
+<p>The Turbo compiler allows <span style="font-style: italic;">PROCedure</span> and <span style="font-style: italic;">FuNction</span> definitions
+within a compiled program to be defined as <span style="font-style: italic;">GLOBAL</span> and then
+called by other tasks.  This is similar to making a modular
+machine code program which is then linked together when the
+assembly language modules are assembled.  Under Turbo, the
+various program modules can be compiled separately, but then
+loaded together with <span style="font-style: italic;">LINK_LOAD_A</span> and similar commands.
+</p>
+<p>The <span style="font-style: italic;">CATNAP</span> command will force a compiled program to wait at
+this statement indefinitely.  The compiled program is only
+allowed to carry on execution from the next statement if
+another module calls one of the <span style="font-style: italic;">GLOBAL</span> definitions contained in
+the  current  program  and  the  <span style="font-style: italic;">GLOBAL  PROCedure</span>  or  <span style="font-style: italic;">FuNction</span>  has
+completed.
+</p>
+<p>If <span style="font-style: italic;">CATNAP</span> is used within a SuperBASIC program, then the
+program is simply suspended until the Break key is pressed.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsS.html#SNOOZE">SNOOZE</a> is similar.  See also <a style="font-style: italic;" href="KeywordsG.html#GLOBAL">GLOBAL</a>, <a style="font-style: italic;" href="KeywordsE.html#EXTERNAL">EXTERNAL</a> and <a style="font-style: italic;" href="KeywordsL.html#LINK_LOAD_A">LINK_LOAD_A</a>.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CBASE"></a>CBASE</h1><p>Syntax: <span style="font-style: italic;">CBASE </span>[<span style="font-style: italic;">(#ch)</span>]<span style="font-style: italic;">(Btool)
+</span><br>and <span style="font-style: italic;">CBASE (#ch)</span><span style="font-style: italic;">(TinyToolkit)
+<br></span>Location: <span style="font-style: italic;">BTool, TinyToolkit
+</span></p>
+<p>The function <span style="font-style: italic;">CBASE</span> finds the start address of the channel
+definition block which belongs to <span style="font-style: italic;">#ch</span>.  This is an area in
+memory where QDOS stores a lot of information about the
+channel, for example, which kind of device is connected to the
+channel.
+</p>
+<p>The Btool variant returns the base of channel #1 if <span style="font-style: italic;">#ch</span> is
+not specified.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p>The Pointer Interface modifies the structure of channel
+definition blocks for windows.
+</p>
+<p>If you want to access these, preferably use <a style="font-style: italic;" href="KeywordsW.html#WinCTRL">WinCTRL</a> instead
+of <a style="font-style: italic;" href="KeywordsC.html#CBASE">CBASE</a>. See also <a style="font-style: italic;" href="KeywordsC.html#CHBASE">CHBASE</a>.
+</p>
+<p>You can also use the <a style="font-style: italic;" href="KeywordsC.html#CHAN_">CHAN_</a>xx functions to look at the
+channel definition block.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CCHR$"></a>CCHR$</h1><p>Syntax: <span style="font-style: italic;">CCHR$ (x)
+<br></span>Location: <span style="font-style: italic;">BTool
+</span></p>
+<p>The function <span style="font-style: italic;">CCHR$</span> takes a word value (max 32767) and
+returns two characters represented by that word.  This is
+therefore the same as:
+</p>
+<p><span style="font-style: italic;">X=PEEK_W(10000)
+</p>
+<p>PRINT CHR$(X DIV 256);CHR$(X MOD 256)</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsC.html#CHR$">CHR$</a> can be used to print each character separately.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CDEC$"></a>CDEC$</h1><p>Syntax: <span style="font-style: italic;">CDEC$ (value,length,ndp)
+<br></span>Location: <span style="font-style: italic;">Toolkit II, THOR XVI
+</span></p>
+<p>The function <span style="font-style: italic;">CDEC$</span> allows you to convert a given <span style="font-style: italic;">value</span> into a
+string in a specified format.  This function will always take
+the integer part of the given <span style="font-style: italic;">value</span> (which must be in the range
+-2^31...2^31, and will be rounded to the nearest integer if it
+is a floating point) and then assumes that the last <span style="font-style: italic;">ndp</span> digits
+are to the right of the decimal point.
+</p>
+<p>If there are enough characters to the left of the decimal
+point, a comma (',') will be placed between each set of three
+characters.  The <span style="font-style: italic;">length</span> is the length of the string which is to
+be returned, which must always be greater than or equal to the
+length of the value plus each comma and the decimal point. If
+<span style="font-style: italic;">length</span> is not large enough, then the string returned will be
+full of asterisks ('*').
+</p>
+<p>This function is particularly useful for formatting columns
+of figures, especially in view of the fact that it sidesteps
+the QL's habit of converting large numbers to exponential
+form. The commas ensure that it is ideal for use in formatting
+output of currencies.
+</p>
+
+<h3>Examples:<br></h3>
+<p>
+<span style="font-style: italic;">PRINT CDEC$(123,4,0)
+</span></p>
+<p>will print ' 123'</p>
+<p>
+<span style="font-style: italic;">PRINT CDEC$(123,4,1)
+</span></p>
+<p>will print '12.3'</p>
+<p>
+<span style="font-style: italic;">PRINT CDEC$(1234567,9,2)
+</span></p>
+<p>will print '12,345.67'</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p><a href="KeywordsP.html#PRINT_USING">PRINT_USING</a> is a general means of formatting output.
+</p>
+<p><a style="font-style: italic;" href="KeywordsI.html#IDEC$">IDEC$</a> and <a style="font-style: italic;" href="KeywordsF.html#FDEC$">FDEC$</a> are complementary functions.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CD_ALLTIME"></a>CD_ALLTIME</h1><p>Syntax: <span style="font-style: italic;">CD_ALLTIME
+<br></span>Location: <span style="font-style: italic;">SMSQ/E for QPC
+</span></p>
+<p>This function returns the actual elapsed time in REDBOOK
+format from the start of the CD which is being played at
+present.
+</p>
+
+<h3>Example:<br></h3>
+<p>
+A procedure to give the currently elapsed time:</p>
+<pre>100 DEFine PROCedure SHOW_TIME
+110 elapse%=CD_ALLTIME
+120 PRINT 'TOTAL ELAPSED TIME: ';CD_HOUR (elapse%);' HRS ';CD_MINUTE (elapse%);' MINS ';:
+130 PRINT CD_SECOND (elapse%);' SECS'
+130 END DEFine
+</pre>
+
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsC.html#CD_PLAY">CD_PLAY</a> plays specified tracks.
+</p>
+<p><a style="font-style: italic;" href="KeywordsC.html#CD_TRACK">CD_TRACK</a> allows you to find out which track is being played.
+</p>
+<p><a style="font-style: italic;" href="KeywordsC.html#CD_TRACKTIME">CD_TRACKTIME</a> allows you to find out the total elapsed time on
+the current track.
+</p>
+<p><a style="font-style: italic;" href="KeywordsC.html#CD_RED2HSG">CD_RED2HSG</a> allows you to convert REDBOOK format to HSG Format.
+</p>
+<p><a style="font-style: italic;" href="KeywordsC.html#CD_HOUR">CD_HOUR</a>, <a style="font-style: italic;" href="KeywordsC.html#CD_MINUTE">CD_MINUTE</a>, <a style="font-style: italic;" href="KeywordsC.html#CD_SECOND">CD_SECOND</a> allow you to convert REDBOOK format
+into a more understandable form.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CD_CLOSE"></a>CD_CLOSE</h1><p>Syntax: <span style="font-style: italic;">CD_CLOSE
+<br></span>Location: <span style="font-style: italic;">SMSQ/E for QPC
+</span></p>
+<p>This command closes the CD drive drawer, loading a CD if
+you have placed one in the drawer.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsC.html#CD_EJECT">CD_EJECT</a> opens the drawer.
+</p>
+<p><a style="font-style: italic;" href="KeywordsC.html#CD_PLAY">CD_PLAY</a> allows you to play a CD.
+</p>
+<p>See <a style="font-style: italic;" href="KeywordsC.html#CD_INIT">CD_INIT</a>.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CD_EJECT"></a>CD_EJECT</h1><p>Syntax: <span style="font-style: italic;">CD_EJECT
+<br></span>Location: <span style="font-style: italic;">SMSQ/E for QPC
+</span></p>
+<p>This command opens the CD drive drawer and allows you to
+either place a new CD in the drive or to remove one.
+</p>
+<p>You need to close the drawer before attempting to play the
+CD!</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsC.html#CD_CLOSE">CD_CLOSE</a> closes the CD drive drawer.
+</p>
+<p><a style="font-style: italic;" href="KeywordsC.html#CD_PLAY">CD_PLAY</a> allows you to play an Audio CD.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CD_FIRSTTRACK"></a>CD_FIRSTTRACK</h1><p>Syntax: <span style="font-style: italic;">CD_FIRSTTRACK
+<br></span>Location: <span style="font-style: italic;">SMSQ/E for QPC
+</span></p>
+<p>This function will return the track number of the first
+track on the CD currently in the player (this should always be
+1).
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsC.html#CD_LASTTRACK">CD_LASTTRACK</a> allows you to find out the last track number.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CD_HOUR"></a>CD_HOUR</h1><p>Syntax:<span style="font-style: italic;"> CD_HOUR (address)
+<br></span>Location: <span style="font-style: italic;">SMSQ/E for QPC
+</span></p>
+<p>This function takes an address in REDBOOK format and tells
+you the number of hours (0..23) contained in that address.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsC.html#CD_MINUTE">CD_MINUTE</a> and <a style="font-style: italic;" href="KeywordsC.html#CD_SECOND">CD_SECOND</a> allow you to find the number of minutes
+and seconds in a REDBOOK address respectively.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CD_HSG2RED"></a>CD_HSG2RED</h1><p>Syntax: <span style="font-style: italic;">CD_HSG2RED (address)
+<br></span>Location: <span style="font-style: italic;">SMSQ/E for QPC
+</span></p>
+<p>There are two common formats used to address sectors on a
+CD directly.  The standard format is REDBOOK format, which
+uses a time index to calculate the sector to address.
+</p>
+<p>This time index is in the form $00MMSSFF where MM is the
+minute, SS the second and FF the frame.
+</p>
+<p>There are 75 frames in one second.
+</p>
+<p>The  other  format  is  HSG  FORMAT  where  the  sector  is
+calculated by reference to the formula:
+</p>
+<p>HSG=(minute*60+second)*75+frame
+</p>
+<p>This function takes the address in HSG format and converts
+this to REDBOOK format.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsC.html#CD_RED2HSG">CD_RED2HSG</a> allows you to convert REDBOOK format addresses to
+HSG format.
+</p>
+<p><a style="font-style: italic;" href="KeywordsC.html#CD_HOUR">CD_HOUR</a>, <a style="font-style: italic;" href="KeywordsC.html#CD_MINUTE">CD_MINUTE</a> and <a style="font-style: italic;" href="KeywordsC.html#CD_SECOND">CD_SECOND</a> allow you to find out the hours,
+minutes and seconds referred to by a REDBOOK address.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CD_INIT"></a>CD_INIT</h1><p>Syntax: <span style="font-style: italic;">CD_INIT [name$]
+<br></span>Location: <span style="font-style: italic;">SMSQ/E for QPC
+</span></p>
+<p>QPC is able to use a CD player linked to a PC in order to
+play Audio CDs at present.
+</p>
+<p>You first of all need to initialise the CD drive by using
+this command.  <span style="font-style: italic;">CD_INIT</span> causes QPC to seach for a CD-ROM drive and
+initialise the driver.
+</p>
+<p>You can either pass the name of the drive as a parameter
+or, if you do not use name$, then QPC will use the PC program
+MSCDEX (if present) to locate the CD-ROM Drive.  MSCDEX can be
+loaded in the PC file AUTOEXEC.BAT if you wish, otherwise the
+CD drive name must appear in the PC file CONFIG.SYS.
+</p>
+
+<h3>Example:<br></h3>
+<p>
+<span style="font-style: italic;">CD_INIT 'mscd001'
+</p>
+
+<h3>NOTE 1:<br></h3>
+<p>
+This command will only be recognised once.
+</p>
+
+<h3>NOTE 2:<br></h3>
+<p>
+The CD player commands and functions will not work if you
+have not loaded the PC's CD-ROM driver in config.sys, for
+example with the line:</p>
+<p><span style="font-style: italic;">DEVICE=C:\CD\CDROMDRV.SYS /D:MSCD001</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsC.html#CD_PLAY">CD_PLAY</a> allows you to play CD Audio tracks.
+</p>
+<p><a style="font-style: italic;" href="KeywordsC.html#CD_EJECT">CD_EJECT</a> ejects a disk from the drive, or allows you to
+insert a new disk.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CD_ISCLOSED"></a>CD_ISCLOSED</h1><p>Syntax: <span style="font-style: italic;">CD_ISCLOSED
+<br></span>Location: <span style="font-style: italic;">SMSQ/E for QPC
+</span></p>
+<p>This function will return 1 (True) if the CD drawer is
+closed, otherwise it will return 0.
+</p>
+
+<h3>Example:<br></h3>
+<pre>100 IF NOT CD_ISPLAYING
+110   IF NOT CD_ISCLOSED : CD_CLOSE
+120   IF CD_ISINSERTED : CD_PLAY
+130 END IF
+</pre>
+
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsC.html#CD_CLOSE">CD_CLOSE</a> closes the CD drawer.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CD_ISINSERTED"></a>CD_ISINSERTED</h1><p>Syntax: <span style="font-style: italic;">CD_ISINSERTED
+<br></span>Location: <span style="font-style: italic;">SMSQ/E for QPC
+</span></p>
+<p>This function will return 1 (True) if there is a CD in the
+CD-ROM drive and the drawer is closed, otherwise it will
+return 0.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p>See <a style="font-style: italic;" href="KeywordsC.html#CD_ISCLOSED">CD_ISCLOSED</a>.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CD_ISPAUSED"></a>CD_ISPAUSED</h1><p>Syntax: <span style="font-style: italic;">CD_ISPAUSED
+<br></span>Location: <span style="font-style: italic;">SMSQ/E for QPC
+</span></p>
+<p>This function will return 1 (True) if the CD is paused (as
+opposed to stopped), otherwise it will return 0.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsC.html#CD_STOP">CD_STOP</a> can be used to pause the CD.
+</p>
+<p><a style="font-style: italic;" href="KeywordsC.html#CD_RESUME">CD_RESUME</a> resumes playing a CD.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CD_ISPLAYING"></a>CD_ISPLAYING</h1><p>Syntax: <span style="font-style: italic;">CD_ISPLAYING
+<br></span>Location: <span style="font-style: italic;">SMSQ/E for QPC
+</span></p>
+<p>This function will return 1 (True) if an Audio CD is
+currently playing, otherwise it will return 0.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsC.html#CD_PLAY">CD_PLAY</a> allows you to play an Audio CD.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CD_LASTTRACK"></a>CD_LASTTRACK</h1><p>Syntax: <span style="font-style: italic;">CD_LASTTRACK
+<br></span>Location: <span style="font-style: italic;">SMSQ/E for QPC
+</span></p>
+<p>This function will return the track number of the last
+track on the CD currently in the player.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsC.html#CD_FIRSTRACK">CD_FIRSTRACK</a> allows you to find out the first track number.</p>
+<p><a style="font-style: italic;" href="KeywordsC.html#CD_TRACK">CD_TRACK</a> tells you the track number currently playing.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CD_LENGTH"></a>CD_LENGTH</h1><p>Syntax: <span style="font-style: italic;">CD_LENGTH
+<br></span>Location: <span style="font-style: italic;">SMSQ/E for QPC
+</span></p>
+<p>This function will return the length of the Audio CD
+currently in the player in REDBOOK format.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsC.html#CD_LASTTRACK">CD_LASTTRACK</a> allows you to find out the last track number.</p>
+<p><a style="font-style: italic;" href="KeywordsC.html#CD_HOUR">CD_HOUR</a>, <a style="font-style: italic;" href="KeywordsC.html#CD_MINUTE">CD_MINUTE</a>, <a style="font-style: italic;" href="KeywordsC.html#CD_SECOND">CD_SECOND</a> convert REDBOOK format into a time.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CD_MINUTE"></a>CD_MINUTE</h1><p>Syntax: <span style="font-style: italic;">CD_MINUTE (address)
+<br></span>Location: <span style="font-style: italic;">SMSQ/E for QPC
+</span></p>
+<p>This function takes an address in REDBOOK format and tells
+you the number of minutes (0..59) contained in that address.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsC.html#CD_HOUR">CD_HOUR</a> and <a style="font-style: italic;" href="KeywordsC.html#CD_SECOND">CD_SECOND</a> allow you to find the number of hours and
+seconds in a REDBOOK address respectively.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CD_PLAY"></a>CD_PLAY</h1><p>Syntax: <span style="font-style: italic;">CD_PLAY [start [,end]]
+<br></span>Location: <span style="font-style: italic;">SMSQ/E for QPC
+</span></p>
+<p>This command allows you to play the tracks on an audio CD
+once it has been initialised.  If no parameters are specified,
+QPC will play the whole of the CD in the CD-ROM drive.
+</p>
+<p>This command will not slow the operation of SMSQ/E and
+returns immediately that the CD starts playing.
+</p>
+<p>The parameters allow you to specify the start and end
+tracks to be played.  These parameters are given either as
+track numbers or as sectors in REDBOOK format (if bit 31 of
+the parameter is set).  A sector on an Audio CD is 2352 bytes.
+</p>
+<p>To set bit 31, add the value $80000000 or 2^31
+</p>
+
+<h3>Examples:<br></h3>
+<p>
+<span style="font-style: italic;">CD_PLAY
+</span></p>
+<p>plays the whole disk</p>
+<p>
+<span style="font-style: italic;">CD_PLAY 10
+</span></p>
+<p>play track 10 to the end of the disk</p>
+<p>
+<span style="font-style: italic;">CD_PLAY 5,CD_TRACKSTART(5)+$80000000
+</span></p>
+<p>play track 5 only.</p>
+<p>A program which will play all of the tracks on an Audio CD
+in a random order:</p>
+<pre>100 INPUT 'Has the CD-ROM Drive already been initialised ? [y] ';an$
+110 IF an$=='n': CD_INIT
+120 IF NOT CD_ISINSERTED
+130   IF CD_ISCLOSED : CD_EJECT
+140   INPUT 'Place a CD in the drive and press &lt;ENTER&gt; ';an$
+150   CD_CLOSE
+160   IF NOT CD_ISINSERTED
+170     PRINT 'NO CD LOADED ':PAUSE :STOP
+180   END IF
+190 END IF
+200 tracks=CD_LASTTRACK-CD_FIRSTTRACK
+210 DIM played% (tracks)
+220 FOR i=1 to tracks
+230   REPeat Floop
+240     play=RND(1 TO tracks)
+250     IF played%(play)=0: played%(play)=1: EXIT Floop
+260   END REPeat Floop
+270   CD_PLAY play,play
+280   REPeat Ploop: IF NOT CD_ISPLAYING: EXIT Ploop
+290 END FOR i
+</pre>
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsC.html#CD_INIT">CD_INIT</a> allows SMSQ/E to recognise a CD drive.
+</p>
+<p><a style="font-style: italic;" href="KeywordsC.html#CD_STOP">CD_STOP</a> pauses playing
+</p>
+<p><a style="font-style: italic;" href="KeywordsC.html#CD_EJECT">CD_EJECT</a> opens the disk drawer to allow you to insert a new
+CD.
+</p>
+<p><a style="font-style: italic;" href="KeywordsC.html#CD_CLOSE">CD_CLOSE</a> closes the disk drawer.
+</p>
+<p><a style="font-style: italic;" href="KeywordsC.html#CD_ISINSERTED">CD_ISINSERTED</a> allows you to check if a CD is in the drive.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CD_RED2HSG"></a>CD_RED2HSG</h1><p>Syntax: <span style="font-style: italic;">CD_RED2HSG (address)
+<br></span>Location: <span style="font-style: italic;">SMSQ/E for QPC
+</span></p>
+<p>This function converts a specified address in HSG format
+into REDBOOK format.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p>See <a style="font-style: italic;" href="KeywordsC.html#CD_HSG2RED">CD_HSG2RED</a> !</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CD_RESUME"></a>CD_RESUME</h1><p>Syntax: <span style="font-style: italic;">CD_RESUME
+<br></span>Location: <span style="font-style: italic;">SMSQ/E for QPC
+</span></p>
+<p>This command restarts the CD-ROM drive playing from the
+last track on which it was paused.
+</p>
+
+<h3>NOTE:<br></h3>
+<p>
+If you had not previously paused the CD, then an error is
+reported.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsC.html#CD_STOP">CD_STOP</a> allows you to pause a CD which is currently playing.
+</p>
+<p><a style="font-style: italic;" href="KeywordsC.html#CD_ISPAUSED">CD_ISPAUSED</a> allows you to check if the CD has been paused.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CD_SECOND"></a>CD_SECOND</h1><p>Syntax: <span style="font-style: italic;">CD_SECOND (address)
+<br></span>Location: <span style="font-style: italic;">SMSQ/E for QPC
+</span></p>
+<p>This function takes an address in REDBOOK format and tells
+you the number of seconds (0..59) contained in that address.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsC.html#CD_HOUR">CD_HOUR</a> and <a style="font-style: italic;" href="KeywordsC.html#CD_MINUTE">CD_MINUTE</a> allow you to find the number of hours and
+minutes in a REDBOOK address respectively.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CD_STOP"></a>CD_STOP</h1><p>Syntax: <span style="font-style: italic;">CD_STOP
+<br></span>Location: <span style="font-style: italic;">SMSQ/E for QPC
+</span></p>
+<p>This command has one of two effects.
+</p>
+<p>If an Audio CD is already playing, then the disk is paused.
+</p>
+<p>If you have already paused the Audio CD, then a complete
+stop is performed.
+</p>
+
+<h3>Example:<br></h3>
+<p>
+The following procedure brings the CD to a complete stop -
+</p>
+<p>you cannot resume playing.</p>
+<pre>1000 DEFine PROCedure STOP_CD
+1010 CD_STOP
+1020 IF CD_ISPAUSED : CD_STOP
+1030 END DEFine
+</pre>
+
+<h3>WARNING:<br></h3>
+<p>
+On some laptop PCs, it has been noted that if you are
+playing an Audio CD and close the case without issuing <span style="font-style: italic;">CD_STOP</span>,
+when you re-open the case QPC will have crashed.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsC.html#CD_RESUME">CD_RESUME</a> allows you to resume playing an Audio CD that has
+been paused.
+</p>
+<p><a style="font-style: italic;" href="KeywordsC.html#CD_PLAY">CD_PLAY</a> allows you to play an Audio CD that is at a complete
+stop.
+</p>
+<p><a style="font-style: italic;" href="KeywordsC.html#CD_EJECT">CD_EJECT</a> opens the drive drawer.
+</p>
+<p><a style="font-style: italic;" href="KeywordsC.html#CD_CLOSE">CD_CLOSE</a> closes the drive drawer.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CD_TRACK"></a>CD_TRACK</h1><p>Syntax: <span style="font-style: italic;">CD_TRACK
+<br></span>Location: <span style="font-style: italic;">SMSQ/E for QPC
+</span></p>
+<p>This function returns the track number of which track on a
+CD is actually being played at present.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsC.html#CD_PLAY">CD_PLAY</a> plays specified tracks.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CD_TRACKLENGTH"></a>CD_TRACKLENGTH</h1><p>Syntax: <span style="font-style: italic;">CD_TRACKLENGTH (track)
+<br></span>Location: <span style="font-style: italic;">SMSQ/E for QPC
+</span></p>
+<p>This function returns the length of a specified track in
+HSG format.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsC.html#CD_TRACKTIME">CD_TRACKTIME</a> allows you to find out the elapsed time on a track
+being played.
+</p>
+<p><a style="font-style: italic;" href="KeywordsC.html#CD_HSG2RED">CD_HSG2RED</a> converts the HSG format to REDBOOK format.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CD_TRACKSTART"></a>CD_TRACKSTART</h1><p>Syntax: <span style="font-style: italic;">CD_TRACKSTART (track)
+<br></span>Location: <span style="font-style: italic;">SMSQ/E for QPC
+</span></p>
+<p>This function returns the start address for a specified
+track in REDBOOK format.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsC.html#CD_TRACKLENGTH">CD_TRACKLENGTH</a> allows you to find out the length of a track.
+</p>
+<p><a style="font-style: italic;" href="KeywordsC.html#CD_PLAY">CD_PLAY</a> allows you to play specified tracks
+</p>
+<p><a style="font-style: italic;" href="KeywordsC.html#CD_RED2HSG">CD_RED2HSG</a> converts the REDBOOK format to HSG format.
+</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CD_TRACKTIME"></a>CD_TRACKTIME</h1><p>Syntax: <span style="font-style: italic;">CD_TRACKTIME
+<br></span>Location: <span style="font-style: italic;">SMSQ/E for QPC
+</span></p>
+<p>This function returns the actual elapsed time in REDBOOK
+format within the current CD track that is being played at
+present.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsC.html#CD_PLAY">CD_PLAY</a> plays specified tracks.
+</p>
+<p><a style="font-style: italic;" href="KeywordsC.html#CD_TRACK">CD_TRACK</a> allows you to find out which track is being played.
+</p>
+<p><a style="font-style: italic;" href="KeywordsC.html#CD_ALLTIME">CD_ALLTIME</a> allows you to find out the total elapsed time on
+the CD disk as a whole.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CEIL"></a>CEIL</h1><p>Syntax: <span style="font-style: italic;">CEIL (x)
+<br></span>Location: <span style="font-style: italic;">Math Package
+</span></p>
+<p>The function <span style="font-style: italic;">CEIL</span> returns the closest integer to <span style="font-style: italic;">x</span> which is
+greater than or equal to <span style="font-style: italic;">x</span> (the 'ceiling' of <span style="font-style: italic;">x</span>).  Compare <span style="font-style: italic;">INT
+</span>which returns the next integer which is less than or equal:</p>
+<p><span style="font-style: italic;">CEIL(12.75)=13<br>
+INT(12.75)=12<br>
+CEIL(-2.3)=-2<br>
+INT(-2.3)=-3<br>
+</p>
+<p>CEIL</span> can handle numbers in the range -32768&lt;x&lt;=32768.
+</p>
+
+<h3>Example:<br></h3>
+<p>
+A mechanic needs one and a half hours to replace the rusty
+exhaust of a car. If his rate of pay is &pound;13 per hour, he
+will charge
+<span style="font-style: italic;">CEIL(13*1.5)=&pound;20
+</span>for the job (excluding parts).
+</p>
+
+<h3>NOTE:<br></h3>
+<p>
+The simplest way to get a true INTEGER function, where <span style="font-style: italic;">x</span> is
+rounded up or down to the  nearest integer is with <span style="font-style: italic;">INT(x+.5)
+</span>which ensures that <span style="font-style: italic;">INT(12.75)=13</span> and <span style="font-style: italic;">INT(-2.3)=-2.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsI.html#INT">INT</a></p>
+
+<hr style="width: 100%; height: 2px;"><h1><a name="CHANGE"></a>CHANGE</h1><p>Syntax: <span style="font-style: italic;">CHANGE old_drv1$ TO new_drv2$</span><br>Location: TinyToolkit</p>
+<p>
+This command allows you to rename directory devices.
+All directory device names are in the form xxxn_, where
+xxx identifies the drive type (eg. FLP) and n the drive number
+(1..8).
+</p>
+<p>The most common drive types are:</p>
+<ul>
+<li>RAM - temporary internal ramdisk</li>
+<li>FLP - floppy disk drive (sometimes called FDK)</li>
+<li>MDV - microdrive</li>
+<li>MOS - permanent external ramdisk</li>
+<li>WIN - hard disk drive (sometimes HDK)</li>
+<li>NUL - null device, a dummy device</li>
+<li>DEV - universal devices (also PTH)</li>
+</ul>
+<p>(Please see the Devices Appendix.)
+</p>
+<p><span style="font-style: italic;">CHANGE</span> replaces the xxx part of a device name by a user
+defined name.  This new name can already exist but both
+parameters  must  consist  of  three  letters;  the  use  of
+characters  other  than  letters  is  possible  but   not
+recommended, eg:
+</p>
+<p><span style="font-style: italic;">CHANGE "flp" TO "<*>"</span>.
+</p>
+
+<h3>Example:<br></h3>
+<p>
+<span style="font-style: italic;">CHANGE "ram" TO "mdv"
+</span> makes the system believe that a ramdisk is a microdrive.
+<p><span style="font-style: italic;">DIR mdv1_
+</span> will provide a directory of ramdisk 1, but the device ram1_
+(or ram2_, etc.) is no longer recognised.  The microdrives
+themselves cannot be accessed any more until you use:
+<span style="font-style: italic;"> CHANGE "mdv" TO "ram"</span>
+to restore the normal condition.</p>
+
+<h3>NOTE:<br></h3>
+<p>
+If a device name is in ROM (eg. possibly mdv on QLs without
+floppy disk  drives),  the  error -20  (read  only)  will  be
+reported.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsF.html#FLP_USE">FLP_USE</a> and <a style="font-style: italic;" href="KeywordsR.html#RAM_USE">RAM_USE</a> work similarly.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CHANID"></a>CHANID</h1><p>Syntax: <span style="font-style: italic;">CHANID</span> [<span style="font-style: italic;">(#ch)</span>]<span style="font-style: italic;">Btool only
+</span><br> or <span style="font-style: italic;">CHANID (#ch)</span><span style="font-style: italic;">TinyToolkit
+<br></span>Location: <span style="font-style: italic;">BTool, TinyToolkit
+</span></p>
+<p>QDOS uses a different sort of channel number internally to
+those used by SuperBASIC.  These so-called channel IDs have
+the advantage that two channels will never have the same
+channel ID, even if some channels have been closed for a long
+time.
+</p>
+<p>The function<span style="font-style: italic;"> CHANID</span> expects an open SuperBASIC channel <span style="font-style: italic;">#ch</span> (a
+default channel of #1 is allowed by Btool) and returns its
+current internal channel ID.
+</p>
+
+<h3>Example:<br></h3>
+<pre>100 OPEN#3,con_2x1
+110 PRINT CHANID(#3)
+120 CLOSE#3: OPEN#3,con_2x1
+130 PRINT CHANID(#3)
+140 CLOSE#3
+</pre>
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsC.html#CHANID">CHANID</a> is intended for use with <a style="font-style: italic;" href="KeywordsF.html#FILE_OPEN">FILE_OPEN</a>.
+</p>
+<p><a style="font-style: italic;" href="KeywordsC.html#CHANNEL_ID">CHANNEL_ID</a> is the same as the Btool variant.
+</p>
+<p>See <a style="font-style: italic;" href="KeywordsS.html#SET_CHANNEL">SET_CHANNEL</a> also.</p>
+
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CHANNELS"></a>CHANNELS</h1><p>Syntax: <span style="font-style: italic;">CHANNELS</span> [<span style="font-style: italic;">#ch</span>]
+<br>Location: <span style="font-style: italic;">BTool, Qsound, TinyToolkit
+</p>
+<p></span>The command<span style="font-style: italic;"> CHANNELS</span> list all channels which are currently
+open (including channels from any other job) to the given
+channel (default #1).
+</p>
+<p>Each channel is listed with a channel number which can be
+used with <span style="font-style: italic;">CLOSE%</span> and provides details of its size and position.
+Unfortunately, the name of the Job which owns the channel is
+not listed.
+</p>
+
+<h3>NOTE:<br></h3>
+<p>
+The Tiny Toolkit and Qsound version of this command do not
+currently work  with  the  Pointer Environment.    The  BTool
+version works to some extent.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsC.html#CLOSE%">CLOSE%</a>, <a style="font-style: italic;" href="KeywordsJ.html#JOBS">JOBS</a> and <a style="font-style: italic;" href="KeywordsC.html#CHANID">CHANID</a></p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CHANNEL_ID"></a>CHANNEL_ID</h1><p>Syntax: <span style="font-style: italic;">CHANNEL_ID</span> [<span style="font-style: italic;">(#ch)</span>]
+<br>Location: <span style="font-style: italic;">Turbo Toolkit
+</span></p>
+<p>This function is exactly the same as <span style="font-style: italic;">CHANID</span>.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p>See<a style="font-style: italic;" href="KeywordsC.html#CHANID">CHANID</a> and <a style="font-style: italic;" href="KeywordsS.html#SET_CHANNEL">SET_CHANNEL</a>.</p>
+
+<hr style="width: 100%; height: 2px;">
+
+<h1>CHAN_B%</h1>
+<h1>CHAN_W%</h1>
+<h1>CHAN_L%</h1>
+<p>Syntax: <span style="font-style: italic;">CHAN_B% (#ch, offset)
+</span><br>and<span style="font-style: italic;"> CHAN_W% (#ch, offset)
+</span><br>and<span style="font-style: italic;"> CHAN_L (#ch, offset)
+</span><br>Location: <span style="font-style: italic;">CHANS (DIY Toolkit - Vol C)
+</span></p>
+<p>These three functions can be used to look at values within
+the channel definition block relating to the specified channel
+(<span style="font-style: italic;">#ch</span>).  You will need a good book on the QL's operating system
+to  understand  the  various  <span style="font-style: italic;">offset</span>s,  such  as  the  QDOS/SMS
+Reference Manual (See section 18.7 to 18.9.3 in that book).
+</p>
+<p>They allow you to read single bytes, words and longwords
+from the channel definition block (what is required depends
+upon the <span style="font-style: italic;">offset</span>).
+</p>
+<p>Extra <span style="font-style: italic;">offset</span>s (negative numbers) are added by the Pointer
+Environment which  can  also  be looked  at  by  using  these
+functions.
+</p>
+
+<h3>Examples:<br></h3>
+<p>
+Instead of using <span style="font-style: italic;">SCR_BASE</span>, you can use:
+</p>
+<p><span style="font-style: italic;">PRINT CHAN_L (#1,50)
+</span></p>
+<p>to find the base address of the screen.</p>
+
+<pre>100 PRINT 'Window #1's size is';
+110 PRINT CHAN_W% (#1,28);'x'; CHAN_W% (#1,30);'a'; CHAN_W% (#1,24);'x'; CHAN_W% (#1,26)
+</pre>
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsC.html#CHBASE">CHBASE</a> can be used to find out similar information.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CHARGE"></a>CHARGE</h1><p>Syntax: <span style="font-style: italic;">CHARGE</span> [<span style="font-style: italic;">task_file$</span>]
+<br>Location: <span style="font-style: italic;">Turbo Toolkit
+</p>
+<p></span>This command starts up the Turbo Compiler and attempts to
+compile the program currently loaded in SuperBASIC Job 0.
+</p>
+<p>It is similar to issuing the commands:
+</p>
+<pre>EXEC_W flp1_PARSER_TASK
+EXEC flp1_CODEGEN_TASK
+</pre>
+<p>The  default  device  which  contains  the  Turbo  compiler
+(PARSER_TASK and  CODEGEN_TASK)  can  be  configured  with  a
+special toolkit configuration program.
+</p>
+<p>If you do not specify a <span style="font-style: italic;">task_file$</span>, then the one which is
+configured is assumed to be the name of the new compiled file
+to be generated.  This and several other defaults may be
+altered  from  the  front  panel  which  is  generated  by
+PARSER_TASK.  The default settings on the front panel may also
+be  configured  and  set  using  various  directives  such  as
+<span style="font-style: italic;">TURBO_obfil</span>.
+</p>
+<p>The maximum length of the <span style="font-style: italic;">task_file$</span> is 12 characters.  If a
+longer string is supplied, only the first 12 characters are
+used.
+</p>
+
+<h3>Example:<br></h3>
+<p>
+<span style="font-style: italic;">CHARGE 'GENEALOGY'
+</p>
+
+<h3>NOTE 1:<br></h3>
+<p>
+This command will not work on Minerva and SMS.
+</p>
+
+<h3>NOTE 2:<br></h3>
+<p>
+The filename for the new task has never really worked
+correctly when passed as a parameter, if you specify a device
+as part of the filename.  The filename becomes corrupted if
+this is the case.
+</p>
+
+<h3>NOTE 3:<br></h3>
+<p>
+When you compile a program using TURBO, it is imperative
+that all of the machine code procedures and functions which
+are used by that program are linked into the machine.  If you
+fail to do this, then an error will be reported when you try
+to run your compiled program using <span style="font-style: italic;">EXEC</span> or <span style="font-style: italic;">EXEC_W</span> for example.</p>
+<p>This is different to QLiberator, which only checks whether
+each machine code function or procedure is linked in when (and
+if) it tries to use them whilst the compiled program is being
+run.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsD.html#DATA_AREA ">DATA_AREA </a>and <a style="font-style: italic;" href="KeywordsT.html#TURBO_xx">TURBO_xx</a> directives exist to allow you to specify
+various compilation options from within your program's source
+code.
+</p>
+<p>Please also refer to <a style="font-style: italic;" href="KeywordsC.html#COMPILED">COMPILED</a>.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CHAR_DEF"></a>CHAR_DEF</h1><p>Syntax: <span style="font-style: italic;">CHAR_DEF font1,font2
+<br></span>Location: <span style="font-style: italic;">SMSQ/E v2.57+
+</span></p>
+<p>This command is very similar to the <span style="font-style: italic;">CHAR_USE</span> command, except
+that instead of altering the fonts attached to a specified
+window, it sets the default fonts which are used for every new
+window channel that is opened after this command (unless they
+in turn define their own fonts).
+</p>
+<p>The two parameters should point to an address in memory
+where a font in the QL font format is stored.  If either
+parameter is 0, then that fount is reset to the standard
+system fount.  If either parameter is -1, then <span style="font-style: italic;">CHAR_DEF</span> will not
+affect that font.
+</p>
+<p>Minerva  users  can  achieve  the  same  effect  with  the
+following:</p>
+<pre>110 Font0=PEEK_L (!124 !40)
+120 Font1=PEEK_L (!124 !44)
+130 POKE_L !124 !40, NewFont0, NewFont1
+</pre>
+<p>Note that you will need to store the addresses of the
+original QL ROM fonts (as in lines 110 and 120).
+</p>
+
+<h3>NOTE 1:<br></h3>
+<p>
+The screen windows which are already open will not be
+affected.
+</p>
+
+<h3>NOTE 2:<br></h3>
+<p>
+This command cannot affect a screen window which has been
+<span style="font-style: italic;">OPEN</span>ed over the Network, unless issued on the Slave computer (on
+whose screen the window appears), before the window was <span style="font-style: italic;">OPEN</span>ed
+over the Network.</p>
+
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsC.html#CHAR_USE">CHAR_USE</a>, <a style="font-style: italic;" href="KeywordsC.html#CHAR_INC">CHAR_INC</a>.
+</p>
+<p>Please also refer to the Fonts Appendix.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CHAR_INC"></a>CHAR_INC</h1><p>Syntax: <span style="font-style: italic;">CHAR_INC</span> [<span style="font-style: italic;">#channel,</span>] <span style="font-style: italic;">x_step,y_step
+<br></span>Location: <span style="font-style: italic;">Toolkit II, THOR XVI
+</span></p>
+<p>This command sets the horizontal (<span style="font-style: italic;">x_step</span>) and vertical (<span style="font-style: italic;">y_step</span>)
+distance between characters printed on a window (default #1).
+The standard values are the width and height of a character
+and are automatically set by <span style="font-style: italic;">CSIZE</span>.
+</p>
+<p><span style="font-style: italic;">CSIZE#2,0,0</span> performs an internal <span style="font-style: italic;">CHAR_INC#2,6,10</span>.
+</p>
+<p>Characters are generally based on a grid which measures
+8x10 pixels, although the leftmost column was not available
+for fonts on pre-JS ROMs.  Also, if you own a JSU ROM (an
+American QL), this grid size is reduced to 8x8, although
+programs would appear to run okay on the JSU ROM without
+modification (see <span style="font-style: italic;">MODE</span> for further details).
+</p>
+
+<h3>Example:<br></h3>
+<p>
+Would you like to print more characters to the screen than
+normal?  You can either do this by defining smaller fonts
+or by writing characters on the screen closer together:</p>
+
+<pre>100 WINDOW 512,40,0,0:CLS
+110 CSIZE 0,0: CHAR_INC 5,8:OVER 1
+120 PRINT FILL$('.',102)
+</pre>
+<p>Window #1 now offers 5 rows and 102 columns instead of 4
+rows and 85 columns, but text can only be read in overwrite
+mode (<span style="font-style: italic;">OVER 1</span>). <span style="font-style: italic;">CHAR_INC 6,8</span> is the highest possible value which
+will allow text to be read without the need for <span style="font-style: italic;">OVER 1</span>.
+</p>
+
+<h3>WARNING:<br></h3>
+<p>
+Unless  you  have  Minerva  or  Lightning  installed  (with
+<span style="font-style: italic;">_lngASLNG</span> enabled), if you specify a character height less than
+the standard 10 pixels (for <span style="font-style: italic;">CSIZE x,0</span>) for example, the strip
+printed will remain at ten pixels, and although the screen
+driver might detect that it is not necessary to scroll a
+window to fit the text on, it does not take account of the
+height of the strip, which could therefore fall out of the
+window (or into the system variables if your window is near
+the bottom of the screen).</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsC.html#CSIZE">CSIZE</a>, <a style="font-style: italic;" href="KeywordsO.html#OVER">OVER</a>.
+</p>
+<p>See also <a style="font-style: italic;" href="KeywordsT.html#TTINC">TTINC</a>.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CHAR_USE"></a>CHAR_USE</h1><p>Syntax: <span style="font-style: italic;">CHAR_USE [#ch,] font1,font2
+<br></span>Location: <span style="font-style: italic;">Toolkit II, THOR XVI
+</span></p>
+<p>This command allows you to attach substitute fonts in QDOS
+format to the specified window channel (default #1).
+</p>
+<p><span style="font-style: italic;">CHAR_USE</span> will attach the two fonts at addresses <span style="font-style: italic;">font1</span> and <span style="font-style: italic;">font2
+</span>to the window in place of the current system fonts.
+</p>
+<p>When a character is printed, if it cannot be found at
+either <span style="font-style: italic;">font1</span> or <span style="font-style: italic;">font2</span>, then the first character of the second font
+will be used.
+</p>
+<p>To return to the current system fonts on the specified
+window, use <span style="font-style: italic;">font1=0</span> or <span style="font-style: italic;">font2=0</span> as appropriate.
+</p>
+<p>If you use the value of -1 as one of the parameters, then
+that font attached to the specified channel will not be
+altered by this command.
+</p>
+
+<h3>Example:<br></h3>
+<p>
+<span style="font-style: italic;">CHAR_USE #3,font_address,0
+</span></p>
+<p>resets  the  first  font  in  #3  to  the  font  stored  at
+font_address in memory.
+</p>
+
+<h3>NOTE:<br></h3>
+<p>
+This command will have no effect on a window <span style="font-style: italic;">OPEN</span>ed over the
+Network.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p>Please refer to the  Fonts Appendix concerning QL fonts.
+</p>
+<p><a style="font-style: italic;" href="KeywordsC.html#CHAR_INC">CHAR_INC</a> allows you to alter the spacing between characters.
+</p>
+<p><a style="font-style: italic;" href="KeywordsC.html#CHAR_DEF">CHAR_DEF</a> allows you to alter the default system fonts.
+</p>
+<p><a style="font-style: italic;" href="KeywordsS.html#S_FONT">S_FONT</a> performs the same function as <a style="font-style: italic;" href="KeywordsC.html#CHAR_USE">CHAR_USE</a>.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CHBASE"></a>CHBASE</h1><p>Syntax: <span style="font-style: italic;">CHBASE</span> [<span style="font-style: italic;">(#ch)</span>]
+<br>or <span style="font-style: italic;">CHBASE (chidx%, chtag%)
+<br></span>Location: <span style="font-style: italic;">QBASE (DIY Toolkit Vol Q)
+</span></p>
+<p><span style="font-style: italic;">CHBASE</span> is a function which returns the start address of a
+window definition block. This block contains a wide range of
+information about a window, such as the size and colour
+settings.  Refer to the QDOS Reference manual Section 18.7 and
+18.9.1 (or similar) for further details.
+</p>
+<p>The window can be either specified by its SuperBASIC
+channel number, eg: <span style="font-style: italic;">CHBASE(#2)</span>, where the default is #1, or the
+internal channel ID; which must be split into index (<span style="font-style: italic;">chidx%</span>) and
+tag (<span style="font-style: italic;">chtag%</span>) before being passed to <span style="font-style: italic;">CHBASE</span>.
+</p>
+<p>The latter syntax allows you to access the windows of jobs
+other than the current job.
+</p>
+<p>Inside knowledge about the operating system is necessary to
+access   these   tables.   Please   refer   to   QDOS   system
+documentation. The structure of the window definition block is
+different  under  Thors,  original  QLs  and  the  Pointer
+Environment.
+</p>
+<p><span style="font-style: italic;">CHBASE</span> returns small negative integers if an error occurs,
+representing the QDOS error code:
+</p>
+<ul>
+<li>-1 = Window is currently in use, eg. awaiting input.
+</li>
+<li>-6 = No such channel exists.
+</li>
+<li>-15 = It's a channel but not a window.
+</li>
+</ul>
+
+<h3>Example 1:<br></h3>
+<p>
+The current INK colour is found at offset $46, so:
+<span style="font-style: italic;">INK 7: PRINT PEEK( CHBASE+ HEX('46') )
+</span>will print 7, because of the INK 7 command.
+</p>
+
+<h3>Example 2:<br></h3>
+<p>
+It  is  usually  not  recommended  to  close  and  re-open
+SuperBASIC channel #0. The following lines check if this
+has happened, although they will only work under the
+SuperBASIC interpreter(!). You will find the condition in
+line  100  is  always  true  for  Minerva's  MultiBASIC
+interpreters and SMS's SBASIC interpreters: this does no
+harm - the example is more or less just an example of the
+syntax of <span style="font-style: italic;">CHBASE</span>...</p>
+
+<pre>100 IF CHBASE(0,0) &lt;&gt; CHBASE(#0) THEN
+110   UNDER 1: PRINT "Warning": UNDER 0
+120   PRINT "Channel #0 is not in it's original state."
+130 END IF
+</pre>
+
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsC.html#CBASE">CBASE</a>.
+</p>
+<p>See also <a style="font-style: italic;" href="KeywordsC.html#CHAN_B%">CHAN_B%</a> and related functions.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CHECK%"></a>CHECK%</h1><p>Syntax: <span style="font-style: italic;">CHECK% (integer$)
+<br></span>Location: <span style="font-style: italic;">CONTROL (DIY Toolkit Vol E)
+</span></p>
+<p>Coercion is the process of converting a string which holds
+a number into the actual number. It is a powerful in-built
+feature  of  SuperBASIC.  This  allows  you  to  create  input
+routines such as:</p>
+
+<pre>100 dage% = RND(10 TO 110)
+110 INPUT "Your age [" &amp; dage% &amp; "]?" ! age$;
+120 IF age$ = "" THEN
+130   age% = dage%: PRINT age%
+140 ELSE
+150   age% = age$: PRINT
+160 END IF
+</pre>
+
+<p>Although SuperBASIC coercion is very powerful, it does have
+its limits when non-numeric strings are entered. If <span style="font-style: italic;">age$</span> was
+"44", <span style="font-style: italic;">age%=age$</span> will assign 44 to <span style="font-style: italic;">age%</span>. Even if the string was not
+really a number, eg. "44x5", SuperBASIC will simply ignore
+everything behind legal characters (ie. <span style="font-style: italic;">age%=age$</span> would assign 44
+to <span style="font-style: italic;">age%</span> still). However, if <span style="font-style: italic;">age$</span> contained something like "no
+thanks" it cannot be coerced and the program will fail with an
+'error in expression' (-17).
+</p>
+<p>The function <span style="font-style: italic;">CHECK%</span> exploits the fact that SuperBASIC is
+obviously able to see the difference between a valid number or
+what comes close to that and nonsense.  <span style="font-style: italic;">CHECK%</span> carries out an
+explicit coercion for integer numbers: it will try to make a
+number  from  the  supplied  parameter  in  the  same  way  as
+SuperBASIC would. However, <span style="font-style: italic;">CHECK%</span> will not stop with an error
+for unusable strings, instead it returns -32768.
+</p>
+<p>Although "-32768" is converted correctly to -32768, this
+value must be reserved because the program cannot know whether
+the input was illegal or -32768.
+</p>
+
+<h3>Example:<br></h3>
+<p>
+Let's rewrite the above example for coercion with <span style="font-style: italic;">CHECK%</span>. We
+have  to  replace  the  implicit  coercion  <span style="font-style: italic;">age%=age$</span>  with
+<span style="font-style: italic;">age%=CHECK%(age$)</span> and put <span style="font-style: italic;">INPUT</span> into a loop:
+<pre>100 dage% = RND(10 TO 110)
+110 REPeat asking
+120   INPUT "Your age [" &amp; dage% &amp; "]?" ! age$;
+130   IF age$ = "" THEN
+140     age% = dage%: PRINT age%
+150   ELSE
+160     age% = CHECK%(age$): PRINT
+170     IF age% > -32768 THEN EXIT asking
+180   END IF
+190 END REPeat asking
+</pre>
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsC.html#CHECKF">CHECKF</a> does the same as <a style="font-style: italic;" href="KeywordsC.html#CHECK%">CHECK%</a> but converts strings containing
+floating point numbers.</p>
+<p><a href="KeywordsW.html#WHEN%20ERRor">WHEN ERRor</a> can trap the coercion failure.
+</p>
+<p>See the Coercion Appendix also.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CHECKF"></a>CHECKF</h1><p>Syntax: <span style="font-style: italic;">CHECKF (float$)
+<br></span>Location: <span style="font-style: italic;">CONTROL (DIY Toolkit Vol E)
+</span></p>
+<p>Just like <span style="font-style: italic;">CHECK%</span>, the function <span style="font-style: italic;">CHECKF</span> takes the specified
+string and coerces it to a number. This time, however, the
+number returned will be a floating point rather than an
+integer as returned by <span style="font-style: italic;">CHECK%</span>.
+</p>
+<p><span style="font-style: italic;">CHECKF</span> works just like <span style="font-style: italic;">CHECK%</span> except that a return value of
+-1E600 signifies unacceptable strings.</p>
+
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsC.html#CHECK%">CHECK%</a> and <a style="font-style: italic;" href="KeywordsT.html#TTEFP">TTEFP</a> are worth a look.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CHK_HEAP"></a>CHK_HEAP</h1><p>Syntax: <span style="font-style: italic;">CHK_HEAP
+<br></span>Location: <span style="font-style: italic;">SMSQ/E
+</span></p>
+<p>This command is used to check whether the heap has become
+corrupted - we have no real details over its working as it is
+undocumented.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CHR$"></a>CHR$</h1><p>Syntax: <span style="font-style: italic;">CHR$ (code)
+<br></span>Location: <span style="font-style: italic;">QL ROM
+</span></p>
+<p>This function returns the character associated with the
+given code.
+</p>
+<p>The QL ROM character set is actually only in the range
+0...255,  although<span style="font-style: italic;">  code</span>  can  be  anything  in  the  range
+-32768...32767.  The least significant byte of the supplied
+parameter is used, ie. <span style="font-style: italic;">code &amp;&amp; 255</span>.
+</p>
+
+<h3>Examples:<br></h3>
+<p>
+<span style="font-style: italic;">PRINT CHR$(100)
+</span>and
+<span style="font-style: italic;">PRINT CHR$(1636)
+</span></p>
+<p>both return 'd'.
+</p>
+<p>A short function to convert any lower case letters in a
+given string to upper case:</p>
+<pre>100 DEFine FuNction UP$(a$)
+110 LOCal U$
+115 U$=a$
+117 IF a$='':RETurn ''
+120 FOR i=1 TO LEN(a$)
+130   IF CODE( a$(i) )>96:IF CODE( a$(i) )&lt;123:U$(i)=CHR$( CODE( a$(i) )-32 )
+140 END FOR i
+150 RETurn U$
+160 END DEFine UP$
+</pre>
+
+<h3>NOTE:<br></h3>
+<p>
+The THOR XVI limits <span style="font-style: italic;">code</span> to the range 0...255.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p>See <a style="font-style: italic;" href="KeywordsC.html#CODE">CODE</a> and also please refer to the Characters section of the Appendix.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CIRCLE"></a>CIRCLE</h1><p>Syntax: <span style="font-style: italic;">CIRCLE </span>[<span style="font-style: italic;">#ch,</span>] <span style="font-style: italic;">x,y,radius </span>[<span style="font-style: italic;">,ratio,ecc</span>]<span style="font-style: italic;"> </span><sup>*</sup>[<span style="font-style: italic;">;x</span><sup>i</sup><span style="font-style: italic;">,y</span><sup>i</sup><span style="font-style: italic;">,radius</span><sup>i</sup> [<span style="font-style: italic;">,ratio</span><sup>i</sup><span style="font-style: italic;">,ecc</span><sup>i</sup>]]<sup>*
+<br></sup>Location: <span style="font-style: italic;">QL ROM
+</span></p>
+<p>This command allows you to draw a circle of the given
+radius with its centre point at the point <span style="font-style: italic;">(x,y)</span>.
+</p>
+<p>The positioning and size of the circle will actually depend
+upon the scale and shape of the specified window (default #1).
+</p>
+<p>The  co-ordinates  are  calculated  by  reference  to  the
+graphics origin, and the graphics pointer will be set to the
+centre point of the last circle to be drawn on completion of
+the command.
+</p>
+<p>If any parts of the circle lie outside of the specified
+window, they will not be drawn (there will not be an Overflow
+Error).
+</p>
+<p>If the parameters <span style="font-style: italic;">ratio</span> and <span style="font-style: italic;">ecc</span> are specified, this command
+has exactly the same effect as <span style="font-style: italic;">ELLIPSE</span>.
+</p>
+<p>This command will actually allow you to draw multiple
+circles by including more sets of parameters. Each additional
+set must be preceded by a semicolon (unless the preceding
+circle uses five parameters).  This means that these commands
+are all the same:
+<pre>CIRCLE 100,100,20,1,0,50,50,20
+CIRCLE 100,100,20;50,50,20
+CIRCLE 100,100,20:CIRCLE 50,50,20
+</pre>
+<p>Although the <span style="font-style: italic;">FILL</span> command will allow you to draw filled
+circles on screen (in the current ink colour), you will need
+to include a <span style="font-style: italic;">FILL 1</span> statement prior to each circle if they are
+to appear independently on screen (this cannot be achieved
+when using this command to draw multiple circles!). If this
+rule is not followed, then any points which lie on the same
+horizontal line (even though they may be in different circles)
+will be joined.
+</p>
+
+<h3>Example:<br></h3>
+<p>
+Try the following for an interesting effect:</p>
+<pre>100 WINDOW 448,200,32,16: MODE 8
+110 PAPER 0: CLS
+120 SCALE 200,-100,-100
+130 INK 4:CIRCLE -50,-50,5
+140 FOR i=1 TO 350
+150   INK RND(7): FILL 1
+160   CIRCLE_R 5-(i MOD 10),15-(i MOD 30),20
+170 END FOR i
+</pre>
+
+
+<h3>CROSS-REFERENCE:<br></h3><p>Please refer to <a style="font-style: italic;" href="KeywordsE.html#ELLIPSE">ELLIPSE</a> for further information on the <a style="font-style: italic;" href="Keywordsr.html#ratio">ratio</a>and <a style="font-style: italic;" href="Keywordse.html#ecc">ecc</a>.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CIRCLE_R"></a>CIRCLE_R</h1><p>Syntax: <span style="font-style: italic;">CIRCLE_R </span>[<span style="font-style: italic;">#ch,</span>] <span style="font-style: italic;">x,y,radius </span>[<span style="font-style: italic;">,ratio,ecc</span>]<span style="font-style: italic;"> </span><sup>*</sup>[<span style="font-style: italic;">;x</span><sup>i</sup><span style="font-style: italic;">,y</span><sup>i</sup><span style="font-style: italic;">,radius</span><sup>i</sup> [<span style="font-style: italic;">,ratio</span><sup>i</sup><span style="font-style: italic;">,ecc</span><sup>i</sup>]]<sup>*
+<br></sup>Location: <span style="font-style: italic;">QL ROM
+</span></p>
+<p>This  command  draws  a  circle  relative  to  the  current
+graphics cursor. See <span style="font-style: italic;">CIRCLE</span>.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p>Please refer to <a style="font-style: italic;" href="KeywordsA.html#ARC_R">ARC_R</a>.  <a style="font-style: italic;" href="KeywordsE.html#ELLIPSE_R">ELLIPSE_R</a> is exactly the same as this command.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CKEYOFF"></a>CKEYOFF</h1><p>Syntax: <span style="font-style: italic;">CKEYOFF
+<br></span>Location: <span style="font-style: italic;">Pointer Interface (v1.23 or later)
+</span></p>
+<p>Normally, the Pointer Interface will recognise the cursor
+keys in the same way as it recognises the mouse, thus allowing
+you to move the pointer around the screen using the keyboard.
+</p>
+<p>You may however prefer that the cursor keys had no effect
+on the pointer - the solution is simple - just use the command
+<span style="font-style: italic;">CKEYOFF</span>.
+</p>
+
+<h3>NOTE:<br></h3>
+<p>
+There were problems with this command prior to v1.56.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsC.html#CKEYON">CKEYON</a> tells the Pointer Interface to recognise the cursorkeys again.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CKEYON"></a>CKEYON</h1><p>Syntax: <span style="font-style: italic;">CKEYON
+<br></span>Location: <span style="font-style: italic;">Pointer Interface (v1.23 or later)
+</span></p>
+<p>See <a style="font-style: italic;" href="KeywordsC.html#CKEYOFF">CKEYOFF</a>.</p>
+</p>
+
+<h3>NOTE:<br></h3>
+<p>
+There were problems with this command prior to v1.56.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CLCHP"></a>CLCHP</h1><p>Syntax: <span style="font-style: italic;">CLCHP
+<br></span>Location: <span style="font-style: italic;">Toolkit II, THOR XVI, Btool
+</span></p>
+<p>A BASIC program can reserve space in the common heap with
+<span style="font-style: italic;">ALCHP</span>.  The command <span style="font-style: italic;">CLCHP</span> removes all space which has been grabbed
+using <span style="font-style: italic;">ALCHP</span> and returns it to the common heap so that it can be
+used for other purposes.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsA.html#ALCHP">ALCHP</a> reserves areas of the common heap, and <a style="font-style: italic;" href="KeywordsR.html#RECHP">RECHP</a> releases a
+specified part of the common heap.
+</p>
+<p>Compare <a style="font-style: italic;" href="KeywordsR.html#RESERVE">RESERVE</a> and the Btool variant of <a style="font-style: italic;" href="KeywordsA.html#ALCHP">ALCHP</a>.
+</p>
+<p><a style="font-style: italic;" href="KeywordsN.html#NEW">NEW</a> and <a style="font-style: italic;" href="KeywordsL.html#LOAD">LOAD</a> also release areas of the common heap.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CLEAR"></a>CLEAR</h1><p>Syntax: <span style="font-style: italic;">CLEAR
+<br></span>Location: <span style="font-style: italic;">QL ROM
+</span></p>
+<p>This command forces all variables to be cleared meaning
+that the computer will no longer remember their values.
+</p>
+<p>This does not affect SuperBASIC functions or resident
+keywords, for example, <span style="font-style: italic;">PRINT PI</span> will always return 3.141593.
+</p>
+<p>On non-SMS machines, if a variable is <span style="font-style: italic;">PRINT</span>ed, which has not
+yet been assigned a value, an asterisk appears on screen.  If
+you try to <em>use</em> a variable which has not yet been assigned a
+value, then an error will occur (normally error in expression
+(-17)).
+</p>
+<p>If Toolkit II is present (or you are using Minerva or a
+THOR XVI), any valid <span style="font-style: italic;">WHEN</span> structures are also suspended by the
+<span style="font-style: italic;">CLEAR</span> command.
+</p>
+<p>Adding <span style="font-style: italic;">CLEAR</span> before a program is run ensures that all
+variables used in a program will be defined properly.  While
+developing a large program in BASIC it may sometimes be
+helpful to set an essential variable directly in the command
+line and not as a static statement in the listing.
+</p>
+
+<h3>Example:<br></h3>
+<p>
+The  following  lines  will  produce  a  different  output
+depending on whether they have been run before or not:</p>
+<pre>100 PRINT a
+110 a=5
+120 PRINT a
+</pre>
+
+<p>The first run shows...   *  5
+This is because the contents of <span style="font-style: italic;">a</span> were not defined until
+line 110 was reached. </p>
+<p>The second time, <span style="font-style: italic;">a</span> was still set and
+so the output is slightly different...   5  5
+</p>
+
+<h3>NOTE:<br></h3>
+<p>
+<span style="font-style: italic;">CLEAR</span> may cause some problems on pre Minerva ROMs if it is
+issued after having deleted a PROCedure or a FuNction in a
+SuperBASIC program which appeared as the last thing in a
+program.  This is fixed by Toolkit II.
+</p>
+
+<h3>SMS NOTE:<br></h3>
+<p>
+Variables which have not been assigned a value on SMS will
+return 0 (zero) if a numeric variable or otherwise an empty
+string - an error will therefore not occur if you try to use
+such a variable.
+</p>
+<p>On a machine fitted with SMS the example would therefore
+have printed 0 5 on the first run, and 5 5 on the second.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsC.html#CLOSE">CLOSE</a>, <a style="font-style: italic;" href="KeywordsC.html#CLEAR_HOT">CLEAR_HOT</a>, <a style="font-style: italic;" href="KeywordsC.html#CLCHP">CLCHP</a>, <a style="font-style: italic;" href="KeywordsC.html#CLRMDV">CLRMDV</a>, <a style="font-style: italic;" href="KeywordsR.html#RUN">RUN</a>.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CLEAR_HOT"></a>CLEAR_HOT</h1><p>Syntax: <span style="font-style: italic;">CLEAR_HOT key
+<br></span>Location: <span style="font-style: italic;">TinyToolkit
+</span></p>
+<p>This command deletes a hotkey defined with the <span style="font-style: italic;">HOT</span> command
+and releases the memory used to set up the hotkey back to
+QDOS' memory management.
+</p>
+
+<h3>NOTE:<br></h3>
+<p>
+<span style="font-style: italic;">CLEAR_HOT</span> works okay, but in most cases the memory released by
+this command is not recognised by the system as being free
+memory and therefore cannot be re-used without resetting the
+system.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p>See <a style="font-style: italic;" href="KeywordsH.html#HOT">HOT</a> on how to define a hotkey.</p>
+<p>Use <a style="font-style: italic;" href="KeywordsF.html#FREE">FREE</a>, <a style="font-style: italic;" href="KeywordsF.html#FREE_MEM">FREE_MEM</a> or <a style="font-style: italic;" href="KeywordsM.html#MT_FREE">MT_FREE</a> to check the actual available
+memory.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CLIP%"></a>CLIP%</h1><p>Syntax: <span style="font-style: italic;">CLIP% (#channel)
+<br></span>Location: <span style="font-style: italic;">CLIP (DIY Toolkit - Vol S)
+</span></p>
+<p>This function can be used to read characters from the QL's
+screen.
+</p>
+<p>In order for the function to work, you will need to <span style="font-style: italic;">OPEN</span> a
+window over that part of the QL's screen which you wish to
+read and ensure that it is in the correct <span style="font-style: italic;">MODE</span> and has <span style="font-style: italic;">UNDER</span>,
+<span style="font-style: italic;">CSIZE</span> and <span style="font-style: italic;">CHAR_INC</span> set to the same values as were used to create
+that part of the screen.  You will also need to ensure that
+the same font is being used by the window which you have <span style="font-style: italic;">OPEN</span>ed.
+The window should be defined so that any text written to that
+window would precisely match the text on screen (except for
+colour).
+</p>
+<p>Due to the way in which QL's work, this means that <span style="font-style: italic;">CLIP%</span> can
+be used to read user-defined characters from the screen, for
+example, where in games some of the font has been redefined to
+represent symbols in the game.
+</p>
+<p>The function will then try to read a character from the
+current cursor position and return its character <span style="font-style: italic;">CODE</span>.  It can
+be used to read any character in the range 0...255 (except
+<span style="font-style: italic;">CHR$(10)</span> which does not appear on screen).
+</p>
+<p>The DIY Toolkit includes an example of a program which uses
+this function to create a clip board for reading text from a
+program running on the QL.  It uses <span style="font-style: italic;">CHAN_W%</span> and similar functions
+to read the existing settings of the window of a target
+program.
+</p>
+<p>However, this function is really of most use when used
+within your own programs, possibly to detect collisions in a
+game between objects.
+</p>
+
+<h3>Example:<br></h3>
+<p>
+The following short routine could be used to read the name
+of a disk in flp1_ (provided that the directory was not
+longer than one page):</p>
+
+<pre>10 DIR flp1_
+20 FOR i=0 TO 20
+25 AT #1,1,i
+30 PRINT #2,CLIP$(#1);
+40 END FOR i
+</pre>
+
+<h3>NOTE 1:<br></h3>
+<p>
+Although this works on all QL implementations, the code
+will not currently work with resolutions bigger than 512x256
+pixels.
+</p>
+
+<h3>NOTE 2:<br></h3>
+<p>
+If you want to read characters from a window of a program
+whilst the THOR XVI's windowing environment, or the Pointer
+Environment is running, you will have to switch off the
+windowing  environment  before  the  program  in  question  is
+loaded, using <span style="font-style: italic;">POKE SYS_VARS+133,1</span> on the THOR or <span style="font-style: italic;">EXEP flp1_program,u</span> under
+the Pointer Environment.
+</p>
+
+<h3>NOTE 3:<br></h3>
+<p>
+The main problem with these functions is that some programs
+do not use standard fonts (or attach fonts to a window using
+non-standard techniques). Some additional fonts are supplied
+with DIY Toolkit which may help in this respect.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p>See the Fonts Appendix about changing QL fonts.
+</p>
+<p><a style="font-style: italic;" href="KeywordsC.html#CHAR_USE">CHAR_USE</a> and <a style="font-style: italic;" href="KeywordsS.html#S_FONT">S_FONT</a> allows you to set the font used by a
+window.
+</p>
+<p>See also <a style="font-style: italic;" href="KeywordsC.html#CLIP$">CLIP$</a>.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CLIP$"></a>CLIP$</h1><p>Syntax: <span style="font-style: italic;">CLIP$ (#channel)
+<br></span>Location: <span style="font-style: italic;">CLIP (DIY Toolkit - Vol S)
+</span></p>
+<p>This function is very similar to <span style="font-style: italic;">CLIP%</span> except that it
+returns the actual character which appears on screen rather
+than the character code.
+</p>
+
+<h3>NOTE:<br></h3>
+<p>
+The same notes apply to this function as to <span style="font-style: italic;">CLIP%</span>.</p>
+
+
+<h3>CROSS-REFERENCE:<br></h3><p>See <a style="font-style: italic;" href="KeywordsC.html#CLIP%">CLIP%</a>.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CLOCK"></a>CLOCK</h1><p>Syntax: <span style="font-style: italic;">CLOCK </span>[<span style="font-style: italic;">#channel</span>] [<span style="font-style: italic;">,format$</span>]
+<br>Location: <span style="font-style: italic;">Toolkit II, THOR XVI
+</span></p>
+<p>The command <span style="font-style: italic;">CLOCK</span> creates a multitasking digital clock job
+named Clock. If no channel parameter is stated, <span style="font-style: italic;">CLOCK</span> will open
+its own window (con_60x20a448x206), which is intended for
+F1-monitor mode (see <span style="font-style: italic;">WMON</span>), otherwise the given channel will be
+used.
+</p>
+<p>Format$ is optional and is used to define how the clock
+will appear on screen. It can contain any text you desire
+(except for the characters % or $), but there are certain
+special characters (see below) which allow you to alter the
+way in which the clock is presented; so <span style="font-style: italic;">CLOCK "TEA AT 4"</span> might
+remind you when tea time is, but will have no effect on the
+display of the clock.
+</p>
+<p>The format is defined by using certain set series of
+strings. The following special characters will affect the way
+in which the clock is displayed (the default format string is
+"$d %d $m %h:%m:%s" which is ideal) :</p>
+
+<ul>
+<li><span style="font-style: italic;">%d</span> Day of month - 2 digits</li>
+<li><span style="font-style: italic;">$d</span> Day of week - 3 characters</li>
+<li><span style="font-style: italic;">%h</span> Hour (24h) - 2 digits</li>
+<li><span style="font-style: italic;">$m</span> Month - 3 characters</li>
+<li><span style="font-style: italic;">%m</span> Minute - 2 digits</li>
+<li><span style="font-style: italic;">%s</span> Seconds - 2 digits</li>
+<li><span style="font-style: italic;">%y</span> Year - 2 digits (last two digits)</li>
+<li><span style="font-style: italic;">%c</span> Century - 2 digits (see note 4 below)</li>
+</ul>
+
+<p>A newline can be inserted by either padding out the string
+with spaces or by adding <span style="font-style: italic;">CHR$(10)</span> inside the string.
+</p>
+
+<h3>Example:<br></h3>
+<p>
+<span style="font-style: italic;">CLOCK #2,'Date: %d $m %y' &amp; chr$(10) &amp; 'Time: $d %h:%m'
+</p>
+
+<h3>NOTE 1:<br></h3>
+<p>
+There is no difference between upper case and lower case
+letters, so %d has the same effect as %D. However, do watch
+the difference between $m and %m!
+</p>
+
+<h3>NOTE 2:<br></h3>
+<p>
+Any attempt to open a clock in channel #0 will be ignored
+and the default window opened.
+</p>
+
+<h3>NOTE 3:<br></h3>
+<p>
+Unfortunately for Pointer Environment users, there is no
+way of 'unlocking' the clock so that it can operate alongside
+other Jobs. On the THOR XVI this is alleviated by ensuring
+that the Job is always owned by Job 0.
+</p>
+
+<h3>NOTE 4:<br></h3>
+<p>
+v2.25+ of Toolkit II introduced a further special character
+for use in the format string. This is %c, which returns the
+first two digits of the year, for example %c%y will print the
+current year as four digits.
+</p>
+
+<h3>NOTE 5:<br></h3>
+<p>
+On v6.41 of the THOR XVI, if <span style="font-style: italic;">CLOCK</span> has to open its own
+window, this window is in fact owned by SuperBASIC rather than
+the <span style="font-style: italic;">CLOCK</span> task. This means that if <span style="font-style: italic;">CLOCK</span> is removed other than by
+using <span style="font-style: italic;">NO_CLOCK</span>, (eg. with <span style="font-style: italic;">RJOB</span>) the channel can be left open.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p>Use <a style="font-style: italic;" href="KeywordsS.html#SDATE">SDATE</a> or <a style="font-style: italic;" href="KeywordsA.html#ADATE">ADATE</a> to set the system date and time.</p>
+<p><a href="KeywordsD.html#DATE$">DATE$</a> and <a style="font-style: italic;" href="KeywordsD.html#DATE">DATE</a> return the current time.</p>
+<p><a href="KeywordsN.html#NO_CLOCK">NO_CLOCK</a> removes the <a style="font-style: italic;" href="KeywordsC.html#CLOCK">CLOCK</a> on the THOR.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CLOSE"></a>CLOSE</h1><p>Syntax: <span style="font-style: italic;">CLOSE #channel
+<br></span>or <span style="font-style: italic;">CLOSE #channel1 </span>[<span style="font-style: italic;">, #channel2 </span>...]<span style="font-style: italic;"> (Toolkit II, Btool &amp; Minerva v1.81+)
+</span><br>or <span style="font-style: italic;">CLOSE (Toolkit   II,   THOR   &amp;
+Minerva v1.81+, BTool)
+<br></span>Location: <span style="font-style: italic;">QL ROM, Toolkit II, BTool
+</span></p>
+<p><span style="font-style: italic;">CLOSE</span> is a procedure which closes a specified channel, (or
+even several channels if the second or third variant is used).
+The contents of that channel will however remain unchanged.
+</p>
+<p>The second variant allows any number of specified channels
+to be closed at the same time and the third closes all
+channels with channel numbers of #3 or above.
+</p>
+<p>Every  <span style="font-style: italic;">CLOSE</span>  command  will  first  flush  the  contents  of
+internal buffers to ensure that all information has been
+passed to the channel before it is closed.
+</p>
+
+<h3>Examples:<br></h3>
+<pre>
+CLOSE#3
+CLOSE#n
+CLOSE #1
+CLOSE#8,#3,#6
+CLOSE
+</pre>
+
+<h3>NOTE 1:<br></h3>
+<p>
+On Minerva pre v1.81 and other ROMs, unless Toolkit II is
+installed, <span style="font-style: italic;">CLOSE</span> will report 'channel not open' if the channel
+is not open. Toolkit II and later versions of Minerva stop
+this from happening.
+</p>
+
+<h3>NOTE 2:<br></h3>
+<p>
+There is a harmless bug in Toolkit II's <span style="font-style: italic;">CLOSE</span>. This will
+report error -15 (bad parameter) if channel #32767 was opened
+and <span style="font-style: italic;">CLOSE</span> issued without parameters, or even if you use the
+explicit command <span style="font-style: italic;">CLOSE #32767</span> (unless you have SMS).  Although
+#32767 will still be closed successfully, any further attempt
+to use <span style="font-style: italic;">CLOSE</span> without parameters will continue to report error
+-15 until the program is cleared out with <span style="font-style: italic;">NEW</span>, <span style="font-style: italic;">LOAD</span> or <span style="font-style: italic;">LRUN</span>.
+</p>
+
+<h3>NOTE 3:<br></h3>
+<p>
+On Minerva, if you have Lightning installed, then unless
+you <span style="font-style: italic;">CLOSE</span> channels in the opposite order to that in which they
+were <span style="font-style: italic;">OPEN</span>ed, you may end up with several <span style="font-style: italic;">CLOSE</span>d windows which are
+still visible on screen. This will only disappear when another
+channel with the same channel number is opened. The Pointer
+Interface and SMS cure this.
+</p>
+
+<h3>NOTE 4:<br></h3>
+<p>
+Unless you have a THOR XVI or Minerva (without SMS), do not
+<span style="font-style: italic;">CLOSE</span> a network out (eg. NETO_1) channel unless you have written
+something to it. The machine will lock up if you do so be
+warned! On a THOR, the system will lock up for 30 seconds and
+then report an 'Xmit Error'. On Minerva, you will need to
+press &lt;CTRL&gt;&lt;SPACE&gt;.
+</p>
+
+<h3>NOTE 5:<br></h3>
+<p>
+QL ROMs (pre MG) had problems in closing ser2 - they tended
+to close one serial channel for output and the other for input
+instead!
+</p>
+
+<h3>NOTE 6:<br></h3>
+<p>
+If you are writing to a file (especially on a microdrive
+cartridge), ensure that the drive has finished turning after
+issuing the <span style="font-style: italic;">CLOSE</span> command, before trying to access the file
+(otherwise you may find that all of the changes are not
+present!). The other solution is to <span style="font-style: italic;">FLUSH</span> the file before <span style="font-style: italic;">CLOSE</span>ing
+it.
+</p>
+
+<h3>MINERVA NOTE:<br></h3>
+<p>
+<span style="font-style: italic;">CLOSE  #1</span>  will  also  remove  a  MultiBasic  job  in  certain
+instances - see appendix on Multiple Basics.
+</p>
+
+<h3>WARNING:<br></h3>
+<p>
+Although under the interpreter, channel #0 (the command
+window) and channels #1 and #2 can be closed, this will lock
+up the SuperBASIC interpreter. It does no harm at all in
+compiled programs.
+</p>
+<p>Minerva and SMS prevents this from being disastrous, but
+some programs may behave a little strangely on the newly
+opened #0. If you use <span style="font-style: italic;">CLOSE #0</span> from within a MultiBASIC or one of
+SMS's SBASICs, this will remove the MultiBASIC (or SBASIC)
+Job.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsO.html#OPEN">OPEN</a>, <a style="font-style: italic;" href="KeywordsC.html#CHANNELS">CHANNELS</a>, <a style="font-style: italic;" href="KeywordsC.html#CLOSE%">CLOSE%</a><br><a style="font-style: italic;" href="KeywordsS.html#SCR_STORE">SCR_STORE</a> and related commands can be used to provide the QL
+with a windowing environment whereby the contents of the
+screen are restored when a window is <a style="font-style: italic;" href="KeywordsC.html#CLOSE">CLOSE</a>d.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CLOSE%"></a>CLOSE%</h1><p>Syntax: <span style="font-style: italic;">CLOSE% n
+<br></span>Location: <span style="font-style: italic;">BTool, TinyToolkit
+</span></p>
+<p>The command <span style="font-style: italic;">CLOSE%</span> allows you to close a channel which is
+specified using the channel number listed when you use the
+<span style="font-style: italic;">CHANNELS</span> command.  This thus allows you to close channels owned
+by other Jobs.
+</p>
+
+<h3>WARNING:<br></h3>
+<p>
+If you close the channel of a job, this can lock up that
+job.  Ensure that you know the consequences of your actions!</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsC.html#CHANNELS">CHANNELS</a>, <a style="font-style: italic;" href="KeywordsC.html#CLOSE">CLOSE</a></p>
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CLRMDV"></a>CLRMDV</h1><p>Syntax: <span style="font-style: italic;">CLRMDV n
+</span><br>Location: <span style="font-style: italic;">TinyToolkit, Btool</span></p>
+<p>This command forces the QL to forget that it had already
+read a cartridge in the given microdrive mdv<span style="font-style: italic;">n</span>_. This could be
+necessary if cartridges are exchanged between QLs, otherwise
+one of the QLs may not find a file written by another QL on a
+cartridge. Such problems do not exist with floppies or any
+other media.
+</p>
+
+<h3>Example:<br></h3>
+<p>
+<span style="font-style: italic;">CLRMDV 2</span></p>
+
+<h3>CROSS-REFERENCE:<br></h3><p>For <a style="font-style: italic;" href="KeywordsR.html#RAND">RAND</a>, <a style="font-style: italic;" href="KeywordsC.html#CLRMDV">CLRMDV</a> is very useful.
+</p>
+<p>See also <a style="font-style: italic;" href="KeywordsD.html#DEL_DEFB">DEL_DEFB</a> which performs a similar task.</p>
+
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CLS"></a>CLS</h1><p>Syntax: <span style="font-style: italic;">CLS </span>[<span style="font-style: italic;">#chan,</span>] [<span style="font-style: italic;">cls_type</span>]
+<br>Location: <span style="font-style: italic;">QL ROM
+</span></p>
+<p>This command is normally used to clear all or part of the
+specified window (default #1) to the current paper colour for
+that channel (this is not affected by <span style="font-style: italic;">OVER</span>).  <span style="font-style: italic;">CLS</span> does not affect
+a border attached to a window.
+</p>
+<p>The <span style="font-style: italic;">cls_type</span> can be used to specify which area of the window
+is to be cleared (the default is 0). This can have the
+following  standard  values,  which  have  different  effects
+depending upon the current position of the text cursor:
+</p>
+<ul>
+<li>0 Clear the whole window</li>
+<li>1 Clear the window above the cursor line</li>
+<li>2 Clear the window below the cursor line</li>
+<li>3 Clear the whole cursor line</li>
+<li>4 Clear the window  from the cursor  position to  the right-hand end of the cursor line</li>
+</ul>
+
+<p>After using this command, the text cursor is placed at the
+top left-hand corner of the window (if <span style="font-style: italic;">cls_type</span>=0) or at the
+start of the next line below the cursor position for other
+values.
+</p>
+<p>Except under SMS and on the THOR XVI, most systems allow
+you to use other values for <span style="font-style: italic;">cls_type</span> to access various TRAP #3
+system utilities. The way in which the appropriate value of
+<span style="font-style: italic;">cls_type</span> is calculated is by taking the value of D0 which would
+be used in machine code and subtracting 32 from this. If this
+gives a negative result, then add this negative result to 128.
+</p>
+<p>For example, to move the cursor back one space, in machine
+code you would use the call IOW.PCOL (D0=19). 19-32=-13,
+therefore:</p>
+
+<p><span style="font-style: italic;">CLS #3,128-13</span><br>
+moves the cursor back one space in #3.</p>
+<p>You must however be
+aware of using <span style="font-style: italic;">CLS 98</span> (IO.FLINE) on pre JS ROMs, since this
+tended to leave the cursor switched on!</p>
+
+<h3>NOTE 1:<br></h3>
+<p>
+On pre MG ROMs <span style="font-style: italic;">CLS</span> is likely to fail if the window is
+smaller than the cursor.
+</p>
+
+<h3>NOTE 2:<br></h3>
+<p>
+The THOR XVI only allows <span style="font-style: italic;">cls_type</span> to be in the range 0..4.
+</p>
+<p>Under SMS, if <span style="font-style: italic;">cls_type</span> is more than 4, then <span style="font-style: italic;">CLS</span> uses <span style="font-style: italic;">cls_type MOD
+4</span>.
+</p>
+
+<h3>NOTE 3:<br></h3>
+<p>
+Some of the additional values of <span style="font-style: italic;">cls_type</span> can actually cause
+the computer to crash, whilst others will merely report an
+error.</p>
+
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsA.html#AT">AT</a> and <a style="font-style: italic;" href="KeywordsP.html#PRINT">PRINT</a> position the text cursor.
+</p>
+<p><a style="font-style: italic;" href="KeywordsP.html#PAPER">PAPER</a> alters the current paper colour.
+</p>
+<p><a style="font-style: italic;" href="KeywordsS.html#SCROLL">SCROLL</a> and <a style="font-style: italic;" href="KeywordsP.html#PAN">PAN</a> also allow you to access various system
+utilities.
+</p>
+<p>A much safer way to access system utilities is to use
+<a style="font-style: italic;" href="KeywordsI.html#IO_TRAP">IO_TRAP</a>, <a style="font-style: italic;" href="KeywordsM.html#MTRAP">MTRAP</a>, <a style="font-style: italic;" href="KeywordsQ.html#QTRAP">QTRAP</a> and <a style="font-style: italic;" href="KeywordsB.html#BTRAP">BTRAP</a>.
+</p>
+<p>For details of the various TRAP #3 system utilities refer
+to the QDOS/SMS Reference Manual (Section 15) or similar.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CLS_A"></a>CLS_A</h1><p>Syntax: <span style="font-style: italic;">CLS_A
+<br></span>Location: <span style="font-style: italic;">BeuleTools
+</span></p>
+<p>This  command  forces  all  windows  currently  <span style="font-style: italic;">OPEN</span>ed  by
+SuperBASIC or belonging to the current job to be cleared and
+given a border (width 1, colour 255). This works on channels
+opened on Minerva's dual screens.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsC.html#CLS">CLS</a>  clears  a  single  window  without  changing  window
+attributes, the border in this case.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CMD$"></a>CMD$</h1><p>Syntax: <span style="font-style: italic;">CMD$
+<br></span>Location: <span style="font-style: italic;">SMS, Minerva
+</span></p>
+<p>This function can be used from within SMS SBASICs, Minerva
+MultiBASICs and compiled programs (not SuperBASIC Job 0) to
+read a string passed to the program when it was initiated,
+with the command <span style="font-style: italic;">EX</span> (or similar).
+</p>
+<p>The string appears after the <span style="font-style: italic;">EX</span> command, preceded with a
+semicolon.
+</p>
+
+<h3>Example:<br></h3>
+<p>
+Create a program to load in Xchange and set its default
+drives and memory, something akin to:</p>
+
+<pre>10 xch_data$=DATAD$:xch$=PROGD$
+20 data_space=300
+30 x$=CMD$
+40 IF x$&lt;&gt;''
+45   datpos='\' INSTR x$
+50   IF datpos:data_space=x$(datpos+1 TO)
+55   IF datpos&gt;5:x$=x$(1 TO datpos-1)
+74   dr1=',' INSTR x$
+75   IF dr1&lt;6
+80     IF dr1=0:PROG_USE x$(1 TO):ELSE IF dr1&lt;LEN(x$-4):DATA_USE x$(dr1+1 TO)
+90   ELSE
+100     PROG_USE x$(1 TO dr1-1)
+110     IF dr1&lt;LEN(x$)-4:DATA_USE x$(dr1+1 TO)
+120   END IF
+140 END IF
+150 EX xchange;data_space
+160 DATA_USE xch_data$
+170 PROG_USE xch$
+</pre>
+<p>Save this as FLP1_XCHANGE_BAS (or similar).
+</p>
+<p>Now, to pass the relevant parameters all you need do under
+SMS is enter the line:</p>
+<p><span style="font-style: italic;">EXEC flp1_XCHANGE_BAS;'win1_XCHANGE_,flp2_\200'
+</span></p>
+<p>Minerva treats the string slightly differently - see <span style="font-style: italic;">EX</span> for
+an explanation of the following command which achieves the
+same:</p>
+<p><span style="font-style: italic;">EXEC pipep;'flp1_XCHANGE_BAS>win1_XCHANGE,flp2_\200'
+</p>
+<p>
+This will execute win1_XCHANGE_xchange with the help file
+to be loaded from win1_XCHANGE_ , the data files being
+loaded from flp2_ and a dataspace of 200K.
+</p>
+
+<h3>NOTE 1:<br></h3>
+<p>
+In SMS pre v2.60, you could not directly slice <span style="font-style: italic;">CMD$</span> - copy
+it to another string variable first, as in the example.
+</p>
+
+<h3>NOTE 2:<br></h3>
+<p>
+You cannot use this command in TURBO compiled jobs - use
+<span style="font-style: italic;">OPTION_CMD$</span> instead.</p>
+
+
+<h3>CROSS-REFERENCE:<br></h3><p>See <a style="font-style: italic;" href="KeywordsE.html#EXEC">EXEC</a> and <a style="font-style: italic;" href="KeywordsE.html#EXEC_W">EXEC_W</a>.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CODE"></a>CODE</h1><p>Syntax: <span style="font-style: italic;">CODE (character$)
+</span><br>Location: <span style="font-style: italic;">QL ROM
+</span></p>
+<p>This function returns the internal code used to represent
+the given <span style="font-style: italic;">character$</span> (this will be a value between 0 and 255).
+</p>
+<p>If the supplied parameter is more than one character in
+length, the code of the first character will be returned. The
+result 255 represents the ALT key, although this will only be
+produced with the statement <span style="font-style: italic;">PRINT CODE(INKEY$)</span> if the &lt;ALT&gt; key is
+being pressed together with a second key, in which case the
+code of the second key quickly follows. If <span style="font-style: italic;">character$</span> is a nul
+string, <span style="font-style: italic;">CODE</span> will return 0.
+</p>
+
+<h3>Example 1:<br></h3>
+<p>
+<span style="font-style: italic;">PRINT CHR$(CODE('Alpha'))
+</span></p>
+<p>will print 'A'.
+</p>
+
+<h3>Example 2:<br></h3>
+<p>
+A short program to reveal the code of the current key being
+pressed (with special code to trap the instance of the ALT
+key being pressed):</p>
+<pre>100 REPeat loop
+110   AT 0,0: a$ = INKEY$(#1, -1)
+120   IF CODE(a$) = 255
+130     PRINT 'ALT+' &amp; CODE(INKEY$) &amp; '  '
+140   ELSE PRINT CODE(a$);'      '
+150   END IF
+160 END REPeat loop
+</pre>
+<p>Try replacing lines 110 to 150 with:
+<span style="font-style: italic;">110 AT 0,0: PRINT CODE(INKEY$(-1))</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p>Please refer to the Characters section of the Appendix for
+a full list of the characters and their internal codes.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CODEVEC"></a>CODEVEC</h1><p>Syntax: <span style="font-style: italic;">CODEVEC (name$)
+<br></span>Location: <span style="font-style: italic;">ALIAS (DIY Toolkit - Vol A)
+</p>
+<p></span>This function is very similar to <span style="font-style: italic;">KEY_ADD</span> in that it returns
+the address in memory where the machine code for a machine
+code Procedure or Function is stored (useful for debugging
+programs with Qmon or similar machine code monitor).
+</p>
+<p>If the Machine Code Procedure or Function with the given
+<span style="font-style: italic;">name$</span> does not exist, then a 'Not Found' error is reported.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p>See <a style="font-style: italic;" href="KeywordsK.html#KEY_ADD">KEY_ADD</a> and <a style="font-style: italic;" href="KeywordsE.html#ELIS">ELIS</a>.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="COL"></a>COL</h1><p>Syntax: <span style="font-style: italic;">COL(x, y)
+<br></span>Location: <span style="font-style: italic;">HCO
+</p>
+<p>COL</span> is a function which returns the colour of a given screen
+pixel (specified in absolute co-ordinates). The colour is
+however not coded in the usual way - the return value of <span style="font-style: italic;">COL</span> is
+either 0, 1, 2 or 3 (representing the four true colours which
+can displayed in <span style="font-style: italic;">MODE 4</span>, ie. black, red, green and white).
+</p>
+
+<h3>Example:<br></h3>
+<pre>
+100 WMON: LIST#2
+110 xmin% = 0: xmax% = 100
+120 ymin% = 0: ymax% = 100
+130 FOR x% = xmin% TO xmax%
+140   FOR y% = ymin% TO ymax%
+150     c% = 2 * COL(x%,y%) + 1
+160     BLOCK 1, 1, x%-xmin%, y%-ymin%, c%
+170   END FOR y%
+180 END FOR x%
+</pre>
+<p>Unless you are using Minerva or SMS, replace x% and y% by x
+and y.
+</p>
+
+<h3>NOTE:<br></h3>
+<p>
+<span style="font-style: italic;">COL</span> will return meaningless data unless the screen is
+located at address 131072, is in <span style="font-style: italic;">MODE 4</span>, and uses a 512 x 256
+resolution.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsS.html#SET">SET</a> draws a screen pixel.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="COLOUR_NATIVE"></a>COLOUR_NATIVE</h1><p>Syntax: <span style="font-style: italic;">COLOUR_NATIVE </span>[<span style="font-style: italic;">#ch</span>]
+<br>Location: <span style="font-style: italic;">SMSQ/E v2.98+
+</p>
+<p>COLOUR_NATIVE </span>is a command used to select the colour palette to
+be used from within the Extended Colour Drivers provided with
+SMSQ/E v2.98+ on the Q40/Q60, QXL, QPC and Aurora.
+</p>
+<p>A valid window channel must be open, default #1 (or #0 on a
+SBASIC with only #0 open), although one may also be supplied
+as <span style="font-style: italic;">#ch</span>.
+</p>
+<p>This command is similar to <span style="font-style: italic;">COLOUR_PAL</span>, but allows you to use
+256 colours on Aurora, or 65536 colours on QXL, QPC and the
+Q40/Q60, by selecting the native colour mode of the hardware.
+</p>
+<p>Colour parameters supplied to commands such as <span style="font-style: italic;">INK</span> are
+defined in native colours and therefore their effect will
+depend upon the hardware itself (Appendix 16 contains details
+of the first 256 colours and their Native Colour Values in
+decimal, hexadecimal and binary for use with the <span style="font-style: italic;">INK</span> command or
+similar).
+</p>
+
+<h3>NOTE:<br></h3>
+<p>
+<span style="font-style: italic;">MODE</span> commands have no effect under the Extended Colour
+Drivers.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p>Refer to <a style="font-style: italic;" href="KeywordsC.html#COLOUR_PAL">COLOUR_PAL</a> for more details.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="COLOUR_PAL"></a>COLOUR_PAL</h1><p>Syntax: <span style="font-style: italic;">COLOUR_PAL </span>[<span style="font-style: italic;">#ch</span>]
+<br>Location: <span style="font-style: italic;">SMSQ/E v2.98+
+</p>
+<p>COLOUR_PAL </span>is a command used to select the colour palette to
+be used from within the Extended Colour Drivers provided with
+SMSQ/E v2.98+ on the Q40/Q60, QXL, QPC and Aurora.
+</p>
+<p>This command requires the Extended Colour Drivers to have
+been loaded when SMSQ/E started (set by configuration or
+chosen from the start-up menu on QPC).  It will not have any
+effect upon programs already loaded into the system.
+</p>
+<p>A valid window channel must be open, default #1 (or #0 on a
+SBASIC with only #0 open), although one may also be supplied
+as <span style="font-style: italic;">#ch</span>.</p>
+<p><span style="font-style: italic;">COLOUR_PAL</span> selects the PAL colour mode, allowing 256 colours
+to be used. After using this command, the effect of the colour
+parameters supplied to commands such as <span style="font-style: italic;">INK</span> will depend upon
+the table which appears in Appendix 16 - use the PAL colour
+value given for each colour (this is hardware independent).
+</p>
+<p>As a result, code such as that given in the example below
+is required to check on the colour scheme currently in use and
+adapt the program accordingly.
+</p>
+
+<h3>Example:<br></h3>
+<pre>
+100 REMark Make sure the program is in the right mode for Standard QL/Extended Colours
+110 col_sys%=0:h$=VER$
+120 IF RMODE=8:MODE 4
+130 IF RMODE=16:col_sys%=1:REMark Aurora - Extended Colour Drivers
+140 IF RMODE=32:col_sys%=3:REMark QXL/QPC - Extended Colour Drivers
+150 IF RMODE=33:col_sys%=2:REMark Q40 - Extended Colour Drivers
+160 :
+170 REMark Select Appropriate colour scheme
+180 IF h$='HBA':IF col_sys%&lt;&gt;0:COLOUR_PAL
+190 SELect ON col_sys%
+200   =0:BLACK=0:WHITE=7:RED=2:GREEN=4:       REMark Four colours available
+210   =REMAINDER :BLACK=0:WHITE=1:RED=2:GREEN=3:REMark 256 colours available
+220 END SELect
+230 PAPER BLACK:INK GREEN
+</pre>
+
+<h3>NOTE 1:<br></h3>
+<p>
+The  256  colours  produced  under  <span style="font-style: italic;">COLOUR_PAL</span>  on  non-Aurora
+machines may be changed to allow any 24-bit colour using the
+command <span style="font-style: italic;">PALETTE_8.</span>  This will not work on Aurora, which has
+display hardware limited to 256 colours.
+</p>
+
+<h3>NOTE 2:<br></h3>
+<p>
+<span style="font-style: italic;">MODE</span> commands have no effect under the Extended Colour
+Drivers.  <span style="font-style: italic;">RMODE</span> will always report 16 on Aurora, 32 on QXL/QPC
+and 33 on the Q40/Q60 if the Extended Colour Drivers are in
+use.</p>
+
+
+<h3>CROSS-REFERENCE:<br></h3><p>Refer to Appendix 16 and <a style="font-style: italic;" href="KeywordsI.html#INK">INK</a> for more details.
+</p>
+<p><a style="font-style: italic;" href="KeywordsC.html#COLOUR_QL">COLOUR_QL</a>, <a style="font-style: italic;" href="KeywordsC.html#COLOUR_NATIVE">COLOUR_NATIVE</a> and <a style="font-style: italic;" href="KeywordsC.html#COLOUR_24">COLOUR_24</a> are all similar.
+</p>
+<p><a style="font-style: italic;" href="KeywordsP.html#PALETTE_QL">PALETTE_QL</a> and <a style="font-style: italic;" href="KeywordsP.html#PALETTE_8">PALETTE_8</a> affect colour palettes.
+</p>
+<p><a style="font-style: italic;" href="KeywordsB.html#BGCOLOUR_QL">BGCOLOUR_QL</a> and <a style="font-style: italic;" href="KeywordsB.html#BGCOLOUR_24">BGCOLOUR_24</a> can be used to alter the desktop
+colour of the main screen.
+</p>
+<p><a style="font-style: italic;" href="KeywordsD.html#DISP_COLOUR">DISP_COLOUR</a> can be used to switch between Extended Colour
+Drivers and the Standard Colour Drivers.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="COLOUR_QL"></a>COLOUR_QL</h1><p>Syntax: <span style="font-style: italic;">COLOUR_QL </span>[<span style="font-style: italic;">#ch</span>]
+<br>Location: <span style="font-style: italic;">SMSQ/E v2.98+
+</p>
+<p>COLOUR_QL </span>is a command used to select the colour palette to be
+used from within the Extended Colour Drivers provided with
+SMSQ/E v2.98+ on the Q40/Q60, QXL, QPC and Aurora.
+</p>
+<p>A valid window channel must be open, default #1 (or #0 on a
+SBASIC with only #0 open), although one may also be supplied
+as <span style="font-style: italic;">#ch</span>.
+</p>
+<p>This command is similar to <span style="font-style: italic;">COLOUR_PAL</span>, but selects an 8 colour
+mode, with colours from 0...7 as per the original QL <span style="font-style: italic;">MODE 8
+</span>(although all 8 colours remain available for programs which
+presume <span style="font-style: italic;">MODE 4</span>).
+</p>
+<p>This can cause some slight incompatability problems, due to
+programs which presume that under <span style="font-style: italic;">MODE 4</span>, <span style="font-style: italic;">INK 3</span> would produce Red
+(for example) - under <span style="font-style: italic;">COLOUR_QL</span> it will now produce Magenta.
+</p>
+
+<h3>NOTE 1:<br></h3>
+<p>
+The eight colours produced under <span style="font-style: italic;">COLOUR_QL</span> may be changed to
+allow any colour supported by the hardware using the command
+<span style="font-style: italic;">PALETTE_QL.
+</p>
+
+<h3>NOTE 2:<br></h3>
+<p>
+<span style="font-style: italic;">MODE</span> commands have no effect under the Extended Colour
+Drivers.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p>Refer to <a style="font-style: italic;" href="KeywordsC.html#COLOUR_PAL">COLOUR_PAL</a> for more details.
+</p>
+<p><a style="font-style: italic;" href="KeywordsP.html#PALETTE_QL">PALETTE_QL</a> includes a way of overcoming the incompatability
+problems with old <a style="font-style: italic;" href="KeywordsM.html#MODE%204">MODE 4</a> programs.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="COLOUR_24"></a>COLOUR_24</h1><p>Syntax: <span style="font-style: italic;">COLOUR_24 </span>[<span style="font-style: italic;">#ch</span>]
+<br>Location: <span style="font-style: italic;">SMSQ/E v2.98+
+</p>
+<p>COLOUR_24 </span>is a command used to select the colour palette to be
+used from within the Extended Colour Drivers provided with
+SMSQ/E v2.98+ on the QXL and QPC, providing a good graphics
+card is installed.
+</p>
+<p>A valid window channel must be open, default #1 (or #0 on a
+SBASIC with only #0 open), although one may also be supplied
+as <span style="font-style: italic;">#ch</span>.
+</p>
+<p>This command is similar to <span style="font-style: italic;">COLOUR_PAL</span>, but allows you to
+specify colours directly using the 24 bit colour mode, thus
+allowing 16777216 (2^24) colours on screen at the same time.
+</p>
+<p>Although the command does work on hardware which does not
+support a 24 bit graphics mode, the specified colours have to
+be adapted to fit into the memory available for each pixel (eg
+8 or 16 bits).  This can cause inaccuracies and unpredictable
+results - <span style="font-style: italic;">COLOUR_NATIVE</span> is preferable in such circumstances.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p>Refer to <a style="font-style: italic;" href="KeywordsC.html#COLOUR_PAL">COLOUR_PAL</a> and <a style="font-style: italic;" href="KeywordsC.html#COLOUR_NATIVE">COLOUR_NATIVE</a> for more details.
+</p>
+<p><a style="font-style: italic;" href="KeywordsP.html#PALETTE_QL">PALETTE_QL</a>, <a style="font-style: italic;" href="KeywordsP.html#PALETTE_8">PALETTE_8</a> and <a style="font-style: italic;" href="KeywordsB.html#BGCOLOUR_24">BGCOLOUR_24</a> all use the 24 bit table to describe colours.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="COMMAND_LINE"></a>COMMAND_LINE</h1><p>Syntax: <span style="font-style: italic;">COMMAND_LINE
+<br></span>Location: <span style="font-style: italic;">Turbo Toolkit
+</p>
+<p></span>This command is really only of any use with the <span style="font-style: italic;">TYPE_IN
+</span>command.  It selects the SuperBASIC command line (#0) so that
+anything passed with <span style="font-style: italic;">TYPE_IN</span> is automatically entered into that
+channel (as if it were typed).
+</p>
+<p>Note that <span style="font-style: italic;">COMMAND_LINE</span> cannot have any effect if SuperBASIC is
+doing something or if the job which uses the command was
+started with <span style="font-style: italic;">EXEC_W</span> or similar.
+</p>
+
+<h3>NOTE 1:<br></h3>
+<p>
+<span style="font-style: italic;">COMMAND_LINE</span> pre v3c27 does not seem to work correctly on all
+versions of the QL ROM.
+</p>
+
+<h3>NOTE 2:<br></h3>
+<p>
+Two files called TurboFix_bin and MiniCommdLin_bin can be
+used to allow <span style="font-style: italic;">COMMAND_LINE</span> to select the command line of a Minerva
+MultiBASIC - this relies on the MultiBASIC being the job which
+uses  the  <span style="font-style: italic;">COMMAND_LINE</span>  command.    Some  early  versions  of
+TurboFix_bin have bugs in it.
+</p>
+<p>A similar version is available called SMSQCommdLin_BIN
+which  works  in  the  same  way,  except  for  SMS  SBASIC
+interpreters.  Some versions of TurboFix_BIN also support
+SBASIC but it is currently recommended that this file is used
+instead.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p>See <a style="font-style: italic;" href="KeywordsT.html#TYPE_IN">TYPE_IN</a> for an example.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="COMPILED"></a>COMPILED</h1><p>Syntax: <span style="font-style: italic;">COMPILED
+<br></span>Location: <span style="font-style: italic;">Turbo Toolkit
+</p>
+<p></span>This function simply returns a value of 0 if the current
+program is interpreted or 1 if it has been compiled.
+</p>
+
+<h3>NOTE 1:<br></h3>
+<p>
+Although primarily for use with programs compiled with
+Turbo, versions of this function after v3c27 will work even
+from within a program compiled under QLiberator.
+</p>
+
+<h3>NOTE 2:<br></h3>
+<p>
+Prior to v3c27, this function did not always return the
+correct value on Minerva and SMS (particularly from within a
+MultiBASIC or SBASIC daughter job).</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p>See <a style="font-style: italic;" href="KeywordsJ.html#JOB_NAME">JOB_NAME</a> for an example.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="COMPRESS"></a>COMPRESS</h1><p>Syntax: <span style="font-style: italic;">COMPRESS filename
+<br></span>Location: <span style="font-style: italic;">COMPICT
+</span></p>
+<p>This  command  takes  the  current  screen  contents  and
+compresses them, saving the picture in its compressed form in
+the stated file - the full filename (eg. <span style="font-style: italic;">ram1_test_scr</span>) has to be
+used.
+</p>
+<p>This compressed form does not represent that great a saving
+over the original 32768 bytes required to hold the details of
+the screen before compression - the amount of space required
+for a compressed screen depends upon the amount of adjacent
+pixels on the screen which have the same colour.
+</p>
+<p>Whilst the screen is compressed, a pattern is drawn over
+the screen, which although annoying, is harmless.
+</p>
+
+<h3>Example:<br></h3>
+<p>
+<span style="font-style: italic;">COMPRESS flp2_TITLE_scr
+</p>
+
+<h3>NOTE 1:<br></h3>
+<p>
+<span style="font-style: italic;">COMPRESS</span> temporarily needs 64K of working space and will
+report an error if this is not available.  Unfortunately the
+file stays open if this happens and cannot be accessed until
+is is closed with <span style="font-style: italic;">CLOSE%</span> or a desktop program such as QPAC 2
+(channels menu).
+</p>
+
+<h3>NOTE 2:<br></h3>
+<p>
+<span style="font-style: italic;">COMPRESS</span> does not work in supervisor mode, ie. it multitasks,
+thus if you were doing something else whilst the screen was
+being compressed, the saved picture may look pretty strange
+when expanded.
+</p>
+
+<h3>NOTE 3:<br></h3>
+<p>
+<span style="font-style: italic;">COMPRESS</span> assumes that the screen starts at $20000 and cannot
+therefore  be  used  with  Minerva's  second  screen  or  some
+emulator display modes.
+</p>
+
+<h3>NOTE 4:<br></h3>
+<p>
+<span style="font-style: italic;">COMPRESS</span> assumes a screen resolution of 512x256 and cannot
+work on higher resolution screens.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p>Screens which have been saved with <a style="font-style: italic;" href="KeywordsC.html#COMPRESS">COMPRESS</a> can be loaded
+with <a style="font-style: italic;" href="KeywordsE.html#EXPAND">EXPAND</a> or re-loaded from memory with <a style="font-style: italic;" href="KeywordsF.html#FASTEXPAND">FASTEXPAND</a>.
+</p>
+<p>See also <a style="font-style: italic;" href="KeywordsS.html#SCR_STORE">SCR_STORE</a>.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CONCAT"></a>CONCAT</h1><p>Syntax: <span style="font-style: italic;">CONCAT file1,file2 TO file3
+<br></span>Location: <span style="font-style: italic;">CONCAT
+</span></p>
+<p>This command merges the first two files together to form a
+new file with the third specified filename, so that <span style="font-style: italic;">file2</span> is
+appended to <span style="font-style: italic;">file1</span>. The length of <span style="font-style: italic;">file3</span> is exactly the sum of the
+lengths of the merged files.
+</p>
+
+<h3>Example:<br></h3>
+<p>
+Most SuperBASIC programmers use their own standard set of
+</p>
+<p>procedures and functions. If two of them need to be added
+</p>
+<p>to a program, <span style="font-style: italic;">CONCAT</span> helps a lot:
+<span style="font-style: italic;">CONCAT flp1_PROG_bas,flp1_SUB_1 TO ram1_PROG_tmp
+DELETE flp1_PROG_bas
+CONCAT ram1_PROG_tmp,flp1_SUB_2 TO flp1_PROG_bas
+DELETE ram1_PROG_tmp
+</span></p>
+<p>You must ensure that line numbers do not conflict.
+</p>
+
+<h3>NOTE:<br></h3>
+<p>
+Each filename must include the device.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsC.html#COPY">COPY</a>, <a style="font-style: italic;" href="KeywordsR.html#RENAME">RENAME</a>, <a style="font-style: italic;" href="KeywordsD.html#DELETE">DELETE</a>.
+</p>
+<p>See <a style="font-style: italic;" href="KeywordsF.html#FWRITE">FWRITE</a> for the more flexible APPEND procedure.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CONNECT"></a>CONNECT</h1><p>Syntax: <span style="font-style: italic;">CONNECT [#]pipe_in% TO [#]pipe_out%
+<br></span>Location: <span style="font-style: italic;">Turbo Toolkit
+</span></p>
+<p>This command is exactly the same as TCONNECT, except that
+the two channels do not have to have a hash sign in front of
+them.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsT.html#TCONNECT ">TCONNECT </a>and<a style="font-style: italic;" href="KeywordsQ.html#QLINK">QLINK</a></p>
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CONTINUE"></a>CONTINUE</h1><p>Syntax: <span style="font-style: italic;">CONTINUE
+</span><br>or <span style="font-style: italic;">CONTINUE </span>[<span style="font-style: italic;">line_no</span>]<span style="font-style: italic;">(Toolkit II &amp; Minerva only)
+</span><br>Location: <span style="font-style: italic;">QL ROM, Toolkit II
+</span></p>
+<p>This command allows the user to try and recover from an
+error (normally after <span style="font-style: italic;">STOP</span> or pressing the Break key), by
+telling the interpreter to carry on running the program from
+the next statement. This will however not work if the message
+<span style="font-style: italic;">'PROC/FN Cleared'</span>.
+</p>
+<p>If you have Toolkit II, Minerva installed, you will be able
+to use the second variant of this command which allows you to
+re-start processing at a specified line number to help with
+error trapping.
+</p>
+
+<h3>NOTE 1:<br></h3>
+<p>
+<span style="font-style: italic;">CONTINUE</span> cannot carry on processing where the line which was
+stopped was a direct command (ie. typed in at #0).
+</p>
+
+<h3>NOTE 2:<br></h3>
+<p>
+Unless you are using the Toolkit II or Minerva variants of
+this command, do not try to use <span style="font-style: italic;">CONTINUE</span> after <span style="font-style: italic;">RENUM</span>bering the program, as the continuation table is not updated by the <span style="font-style: italic;">RENUM
+</span>routine and may therefore try to jump to the old line number.
+</p>
+
+<h3>NOTE 3:<br></h3>
+<p>
+Beware that <span style="font-style: italic;">RENUM</span> does not renumber <span style="font-style: italic;">line_no</span> if you have used
+this command as part of a program.
+</p>
+
+<h3>NOTE 4:<br></h3>
+<p>
+<span style="font-style: italic;">CONTINUE</span> can only re-start processing if no new lines have
+been added; no new variables have been added to the program;
+no lines have been altered; and the PROC/FN Cleared message
+has not appeared.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p>See <a style="font-style: italic;" href="KeywordsR.html#RETRY">RETRY</a> and also <a style="font-style: italic;" href="KeywordsW.html#WHEN%20ERRor">WHEN%20ERRor</a>.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="ConvCASE$"></a>ConvCASE$</h1><p>Syntax: <span style="font-style: italic;">ConvCASE$ (string$ </span>[<span style="font-style: italic;">,lower</span>])
+<br>Location: <span style="font-style: italic;">BTool
+</span></p>
+<p><span style="font-style: italic;">ConvCASE$</span> returns the given string with all upper case letters
+converted to lower case if <span style="font-style: italic;">lower=1</span>, or all lower case letters to
+upper case if <span style="font-style: italic;">lower=0</span>. Default of <span style="font-style: italic;">lower</span> is 1
+</p>
+
+<h3>NOTE:<br></h3>
+<p>
+Unlike similar functions <span style="font-style: italic;">ConvCASE$</span> will recognise all non-
+ASCII letters, namely umlauts and accents.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsU.html#UPPER$">UPPER$</a>, <a style="font-style: italic;" href="KeywordsL.html#LOWER$">LOWER$</a>, <a style="font-style: italic;" href="KeywordsB.html#BIT%">BIT%</a>, <a style="font-style: italic;" href="KeywordsC.html#CHR$">CHR$</a>, <a style="font-style: italic;" href="KeywordsU.html#UPC$">UPC$</a>, <a style="font-style: italic;"href="KeywordsL.html#LWC$">LWC$</a></p>
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CONVERT"></a>CONVERT</h1><p>Syntax: <span style="font-style: italic;">CONVERT src_file,dst_file,original$,replacement$
+</span><br>Location: <span style="font-style: italic;">CONVERT</span></p>
+<p>This command is used to copy <span style="font-style: italic;">src_file</span> to <span style="font-style: italic;">dest_file</span> and replace
+all occurrences of <span style="font-style: italic;">original$</span> by <span style="font-style: italic;">replacement$</span>.
+</p>
+<p>Both  strings  must  have the  same  length.
+</p>
+<p>The search is case-independent.
+</p>
+<p>No default devices are supported.
+</p>
+
+<h3>Example 1:<br></h3>
+<p>
+Take a QUILL-document and export it using the 'Print to
+file' option without a printer driver in the main drive.
+</p>
+<p>Next  <span style="font-style: italic;">VIEW</span> it or look at it with an editor or by:
+<br><span style="font-style: italic;">COPY flp1_example_lis TO scr</span>.
+</p>
+<p>You will see the character <span style="font-style: italic;">CHR$(13)</span> (the carriage return &lt;CR&gt;
+character) at the end of each line. This is not needed by
+QDOS to perform a carriage return on screen. Remove these
+excess characters with:<br>
+<span style="font-style: italic;">CONVERT flp1_example_lis, flp1_example_txt, CHR$(13), " ".
+</p>
+<p></span>&lt;CR&gt; at the end of lines may also appear when downloading
+messages from a bulletin board or converting MS/DOS text
+files to QDOS.
+</p>
+
+<h3>Example 2:<br></h3>
+<p>
+Badly written or simple programs generally lack the feature
+to change device names for file operations. Using commands
+like <span style="font-style: italic;">FLP_USE</span> may have a negative effect on any jobs which are
+running simultaneously, so it is better to make the program
+use flp1_ instead of mdv2_.
+</p>
+<p>This can be achieved quite simply with the command:<br><span style="font-style: italic;">CONVERT
+prog1_exe, prog2_exe, "mdv2_", "flp1_"</span>.</p>
+
+<h3>NOTE:<br></h3>
+<p>
+The character <span style="font-style: italic;">CHR$(0)</span> cannot be replaced.</p>
+
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsE.html#EXCHG">EXCHG</a> is similar to <a style="font-style: italic;" href="KeywordsC.html#CONVERT">CONVERT</a>.</p>
+
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="COPY"></a>COPY</h1><p>Syntax: <span style="font-style: italic;">COPY file1 TO file2
+<br></span>or <span style="font-style: italic;">COPY </span>[<span style="font-style: italic;">file</span>] [<span style="font-style: italic;">TO file2</span>]  <span style="font-style: italic;">(Toolkit II)
+<br></span>or <span style="font-style: italic;">COPY file1 </span>[<span style="font-style: italic;">,file2 </span>[<span style="font-style: italic;">,file3</span>...]] {<span style="font-style: italic;">TO</span> | <span style="font-style: italic;">!</span>} <span style="font-style: italic;">fileb</span>  <span style="font-style: italic;">(THOR XVI)
+<br></span>Location: <span style="font-style: italic;">QL ROM, Toolkit II, THOR XVI
+</span></p>
+<p>The command <span style="font-style: italic;">COPY</span> duplicates <span style="font-style: italic;">file1</span>, so that <span style="font-style: italic;">file2</span> is an exact
+copy. The parameters can also be a device (eg. ser1, con, scr,
+scr_400x20) or, if you have Toolkit II installed, a channel
+(eg. #3) can be used for the second parameter.
+</p>
+<p>If Toolkit II is present, <span style="font-style: italic;">COPY</span> supports the default devices
+and sub-directories. <span style="font-style: italic;">COPY</span> will look for the file to be copied on
+the default data device if necessary (see <span style="font-style: italic;">DATAD$</span>).
+</p>
+<p>The rules for determining the destination parameter can be
+somewhat complex under Toolkit II:
+</p>
+<p>(1) If no device is given, but a filename is specified,
+then Toolkit II looks at the first parameter. The
+destination device is then assumed to be the same as
+the source device (ie. the device name specified as
+part of the first parameter, or the default data device
+- see DATAD$).
+</p>
+<p>Under  SMS,  it  will  use  the  default  data  device
+whether or not the first parameter contains a device.
+</p>
+<p>(2) If the second parameter is omitted, then again Toolkit
+II looks at the first parameter. The same filename as
+for the first parameter will be used. If a device is
+given in the first parameter, then this is used as the
+destination device (unfortunately meaning that Toolkit
+II tries to copy the file onto itself!). On the other
+hand, if no device was specified, then the default
+destination device will be used (see DESTD$).
+</p>
+<p>Under  SMS,  if  a  device  is  specified  in  the
+first  parameter,  SMSQ/E  (v2.85  at  least)  tries
+to copy the file to the default destination device
+without  a  filename!    Normally  unless  the  default
+destination device is either PAR or SER, this will
+report an error 'is in use'.
+</p>
+<p>(3) If a second parameter is given which includes a device
+name, then this is used!
+</p>
+<p>If the destination is an existing file, unlike the normal
+ROM <span style="font-style: italic;">COPY</span> command, Toolkit II will not break <span style="font-style: italic;">COPY</span> with the error
+-8 (already exists), but instead it will print:
+<span style="font-style: italic;">&gt;file&lt;exists, OK to overwrite..Y or N?
+</span>in channel #0 and wait for the user to press either &lt;Y&gt; or
+&lt;N&gt; - &lt;ESC&gt; and &lt;CTRL&gt;&lt;SPACE&gt; mean &lt;N&gt; here.
+</p>
+
+<h3>Examples:<br></h3>
+<p>
+Assuming that the default data device is flp1_ and the
+default destination device is ram2_ (using Toolkit II or
+SMS implementation):
+</p>
+
+<h3>CommandEffect<br></h3>
+<p>
+<span style="font-style: italic;">COPY mdv1_quill TO flp1_quill</span> Copy mdv1_quill to flp1_quill<br>
+<span style="font-style: italic;">COPY ram1_prog_bas, ram2_tmp</span> Copy ram1_prog_bas to ram2_tmp<br>
+<span style="font-style: italic;">COPY ram1_prog_bas, scr_200x100</span> Copy ram1_prog_bas to a window<br>
+<span style="font-style: italic;">COPY prog_bas, ser1</span> Copy flp1_prog_bas to ser1<br>
+<span style="font-style: italic;">COPY ser2 TO ram1_prog_bas</span> Copy data from ser2 to a file<br>
+<span style="font-style: italic;">COPY con TO ser</span> Copies everything typed to ser1<br>
+<span style="font-style: italic;">COPY ram1_prog_bas</span> Tries to copy ram1_prog_bas to
+itself<span style="font-style: italic;"> unless on SMS<br>
+COPY ram1_prog_bas</span> Tries to copy ram1_prog_bas to
+</span>ram2_ and will report an error<br>
+<span style="font-style: italic;">COPY prog_bas</span> Copy flp1_prog_bas to
+ram2_prog_bas<br>
+<span style="font-style: italic;">COPY ram1_prog_bas TO #2</span> Copy ram1_prog_bas to a channel
+</p>
+
+<h3>NOTE 1:<br></h3>
+<p>
+The <span style="font-style: italic;">TO</span> separator can be replaced by a comma ',' (although
+note the THOR XVI variant!).
+</p>
+
+<h3>NOTE 2:<br></h3>
+<p>
+Each file includes a file header of 64 bytes to store
+supple-mentary information  such  as  the time  of  the  last
+update, file type, length and much more. Without Toolkit II,
+<span style="font-style: italic;">COPY</span> will always copy the header if a file is copied. The
+Toolkit II <span style="font-style: italic;">COPY</span> command does not copy the header to serial
+devices (eg. ser) if this is specified as the destination.
+</p>
+
+<h3>NOTE 3:<br></h3>
+<p>
+<span style="font-style: italic;">COPY</span> without any parameters is allowed with Toolkit II, but
+it can cause problems (at least in versions up to v2.28
+Toolkit II and v2.85 SMS)
+</p>
+<p>As an exception to rule 2, when first used it would appear
+to try to copy the file "" on <span style="font-style: italic;">DATAD$</span> onto itself.  On systems
+without level-2 drivers, such files can exist, but have no
+special function, whereas on level-2 drivers, these files
+contain  the  sub-directories.  Thus,  with  the  standard
+combination of Toolkit II and level-2 drivers installed, a
+pure <span style="font-style: italic;">COPY</span> normally breaks with error -9 (in use) (see <span style="font-style: italic;">FMAKE_DIR</span> for
+the reason).
+</p>
+<p>However, due to a bug in current versions of Toolkit II,
+when first used it may report error -15 (bad parameter), in
+which case it will have left the file flp1_ open and prevent
+most of any further access to that device (unless you can
+close the channel with <span style="font-style: italic;">CLOSE%</span> or a desktop).
+</p>
+
+<h3>NOTE 4:<br></h3>
+<p>
+On SMS pre v2.58, if you used <span style="font-style: italic;">COPY</span> and were asked if you
+wanted to overwrite the file, and answered N, an error code
+was returned.
+</p>
+
+<h3>THOR XVI NOTES:<br></h3>
+<p>
+The THOR XVI (v6.41 and later) supports the third variant
+of <span style="font-style: italic;">COPY</span>. This allows you to merge several files:</p>
+<p><span style="font-style: italic;">COPY flp1_texta,flp1_textb TO flp2_Book</span><br>
+will create a new file flp2_Book made up of the merged
+files flp1_texta and flp1_textb. The headers will (of course)
+not be copied.
+</p>
+<p>If you alter the <span style="font-style: italic;">TO</span> delimiter to <span style="font-style: italic;">!</span>, ie:<br>
+<span style="font-style: italic;">COPY flp1_texta,flp1_textb ! flp2_Book
+</span></p>
+<p>then it is assumed that fileb already exists and file1,
+file2 and file3 are all appended to it.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsS.html#SPL_USE">SPL_USE</a> and <a style="font-style: italic;" href="KeywordsD.html#DEST_USE">DEST_USE</a> set the destination device.
+</p>
+<p>See <a style="font-style: italic;" href="KeywordsC.html#COPY_N">COPY_N</a> and <a style="font-style: italic;" href="KeywordsC.html#COPY_H">COPY_H</a> for copying file headers and <a style="font-style: italic;" href="KeywordsC.html#COPY_O">COPY_O</a> on how
+to force overwriting.
+</p>
+<p><a style="font-style: italic;" href="KeywordsS.html#SPL">SPL</a> performs a background copy (ie. it multitasks).
+</p>
+<p>See <a style="font-style: italic;" href="KeywordsA.html#APPEND">APPEND</a> which is similar to the THOR variant.</p>
+
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="COPY_B"></a>COPY_B</h1><p>Syntax: <span style="font-style: italic;">COPY_B adr1, adr2, n
+</span><br>or <span style="font-style: italic;">COPY_B adr1, n TO adr2
+</span><br>Location: <span style="font-style: italic;">BTool
+</span></p>
+<p>The command <span style="font-style: italic;">COPY_B</span> copies <span style="font-style: italic;">n</span> bytes from the memory address <span style="font-style: italic;">adr1
+</span>to <span style="font-style: italic;">adr2</span> without any restrictions. The programmer has to ensure
+that there is sufficient room at the specified destination
+memory location (which must be free useable memory).
+</p>
+
+<h3>Example:<br></h3>
+<pre>100 RANDOMISE: n=10
+110 a1=ALCHP(6*n): a2=ALCHP(6*n)
+120 FOR i=0 TO 6*(n-1) STEP 6: POKE_F a1+i,RND
+130 COPY_B a1,6*n TO a2
+140 FOR i=0 TO 6*(n-1) STEP 6: PRINT PEEK_F(a2+i)
+150 RECHP a1: RECHP a2
+</pre>
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsC.html#COPY_W">COPY_W</a>, <a style="font-style: italic;" href="KeywordsC.html#COPY_L">COPY_L</a>, <a style="font-style: italic;" href="KeywordsT.html#TTPOKEM">TTPOKEM</a> and <a style="font-style: italic;" href="KeywordsX.html#XCHANGE">XCHANGE</a></p>
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="COPY_H"></a>COPY_H</h1>
+<p>Syntax: <span style="font-style: italic;">COPY_H</span> [<span style="font-style: italic;">file1</span>] [<span style="font-style: italic;">TO file2</span>]
+<br>Location: <span style="font-style: italic;">Toolkit II
+</span></p>
+<p>See <a style="font-style: italic;" href="KeywordsC.html#COPY_N">COPY_N</a>.</p>
+<h3>CROSS-REFERENCE:<br></h3><a style="font-style: italic;" href="KeywordsF.html#FGETH$">FGETH$
+</a>
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="COPY_L"></a>COPY_L</h1><p>Syntax: <span style="font-style: italic;">COPY_L adr1, adr2, n
+</span><br>or <span style="font-style: italic;">COPY_L adr1, n TO adr2
+</span><br>Location: <span style="font-style: italic;">BTool
+</span></p>
+<p>The command <span style="font-style: italic;">COPY_L</span> copies <span style="font-style: italic;">n</span> longwords (each being 4 bytes)
+from address <span style="font-style: italic;">adr1</span> to <span style="font-style: italic;">adr2</span>. The two memory locations can overlap
+(this is also true for <span style="font-style: italic;">COPY_B</span> and <span style="font-style: italic;">COPY_W</span>).
+</p>
+<p>If you are using Minerva, you will probably find it quicker
+to use it's specialised <span style="font-style: italic;">CALL</span> routines.
+</p>
+
+<h3>Example:<br></h3>
+<pre>100 a=ALCHP(48*1024)
+110 COPY_L 0,12*1024 TO a
+</pre>
+
+<h3>NOTE:<br></h3>
+<p>
+Both <span style="font-style: italic;">adr1</span> and <span style="font-style: italic;">adr2</span> must be even addresses.</p>
+
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsC.html#COPY_W">COPY_W</a>, <a style="font-style: italic;" href="KeywordsC.html#COPY_B">COPY_B</a>, <a style="font-style: italic;" href="KeywordsO.html#ODD">ODD</a>.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="COPY_N"></a>COPY_N</h1><p>Syntax: <span style="font-style: italic;">COPY_N file1 TO file2
+<br></span>or <span style="font-style: italic;">COPY_N </span>[<span style="font-style: italic;">file1</span>] [<span style="font-style: italic;">TO file2</span>] <span style="font-style: italic;">(Tooolkit II)
+<br></span>or <span style="font-style: italic;">COPY_N file1 </span>[<span style="font-style: italic;">,file2 </span>[<span style="font-style: italic;">,file3</span>...]] {<span style="font-style: italic;">TO</span> | <span style="font-style: italic;">!</span>} fileb <span style="font-style: italic;"> (THOR XVI)
+<br></span>Location: <span style="font-style: italic;">QL ROM, Toolkit II, THOR XVI
+</span></p>
+<p>This command is basically the same as <span style="font-style: italic;">COPY</span>, but the file
+header is explicitly removed. This is important for example if
+you wish to copy a file direct to a printer attached to ser2.
+</p>
+<p>If the file header was also printed, this would include
+some non-printable characters {eg. <span style="font-style: italic;">CHR$(0)</span>}, which might be
+interpreted by the printer as control characters and therefore
+produce rubbish as output.
+</p>
+<p>Toolkit II's <span style="font-style: italic;">COPY</span> examines the type of the destination
+device before it proceeds.  It will not then copy the file
+header if this is a serial device or a parallel port. The
+standard <span style="font-style: italic;">COPY</span> command contained in the QL ROM does not make this
+differentiation and so <span style="font-style: italic;">COPY_N</span> must be used instead if the file
+header is not to be copied.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsC.html#COPY_H">COPY_H</a> forces the file header to be copied to the given
+destination (whether it is a serial port, a parallel port or
+not), and the syntax is identical to <a style="font-style: italic;" href="KeywordsC.html#COPY">COPY</a>, <a style="font-style: italic;" href="KeywordsC.html#COPY_N">COPY_N</a> and <a style="font-style: italic;" href="KeywordsC.html#COPY_O">COPY_O</a>.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="COPY_O"></a>COPY_O</h1><p>Syntax: <span style="font-style: italic;">COPY_O </span>[<span style="font-style: italic;">file1</span>] [<span style="font-style: italic;">TO file2</span>]
+<br>or <span style="font-style: italic;">COPY_O file1 </span>[<span style="font-style: italic;">,file2 </span>[<span style="font-style: italic;">,file3</span>...]] {<span style="font-style: italic;">TO</span> | <span style="font-style: italic;">!</span>} <span style="font-style: italic;">fileb</span>  <span style="font-style: italic;">(THOR XVI)
+<br></span>Location: <span style="font-style: italic;">Toolkit II, THOR XVI
+</span></p>
+<p>The command <span style="font-style: italic;">COPY_O</span> is identical to Toolkit II's <span style="font-style: italic;">COPY</span> command,
+but if the file already exists, it will automatically be
+over-written without asking the user for confirmation.
+</p>
+<p>This command is also supported on the THOR XVI, although
+both the input and destination channels must be specified in
+full.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsF.html#FTEST">FTEST</a> and <a style="font-style: italic;" href="KeywordsE.html#ETAT">ETAT</a> check the status of a file, thus enabling you
+to check if a file already exists.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="COPY_W"></a>COPY_W</h1><p>Syntax: <span style="font-style: italic;">COPY_W adr1, adr2, n
+<br></span>or <span style="font-style: italic;">COPY_W adr1, n TO adr2
+<br></span>Location: <span style="font-style: italic;">BTool
+</span></p>
+<p>The command <span style="font-style: italic;">COPY_W</span> copies <span style="font-style: italic;">n</span> words (two bytes each) from
+address <span style="font-style: italic;">adr1</span> to <span style="font-style: italic;">adr2</span>.
+</p>
+
+<h3>NOTE:<br></h3>
+<p>
+Both addresses must be even.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsC.html#COPY_W">COPY_W</a> is always faster than <a style="font-style: italic;" href="KeywordsC.html#COPY_B">COPY_B</a>, but <a style="font-style: italic;" href="KeywordsC.html#COPY_L">COPY_L</a> is even faster
+than <a style="font-style: italic;" href="KeywordsC.html#COPY_W">COPY_W</a>.</p>
+</p>
+<p>See also <a style="font-style: italic;" href="KeywordsX.html#XCHANGE">XCHANGE</a>.
+</p>
+<p>Minerva has its own fast copy routines (see <a style="font-style: italic;" href="KeywordsC.html#CALL">CALL</a>).
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="COS"></a>COS</h1><p>Syntax: <span style="font-style: italic;">COS (radians)
+<br></span>Location: <span style="font-style: italic;">QL ROM
+</span></p>
+<p>This  function  allows  you  to  find  the  cosine  of  the
+specified angle (given in <span style="font-style: italic;">radians</span>).
+</p>
+<p>In a right angled triangle the cosine is the ratio of the
+length of the side adjoining the given angle, to the length of
+the hypotenuse (or the sine of the complement of that angle).
+Thus, sine and cosine can actually substitute each other:
+</p>
+
+<table>
+<tr align="left"><th>Mathematical formula</th><th>In SuperBASIC</th></tr>
+<tr><td>cos x = sin (&pi;/2-x) </td><td>COS(x)=SIN(PI/2-x) </td></tr>
+<tr><td>sin x = cos (&pi;/2-x) </td><td>SIN(x)=COS(PI/2-x) </td></tr>
+</table>
+
+<h3>Example:<br></h3>
+<p>
+An analogue clock:</p>
+<pre>100 wx = 50: wy = INT(wx / 1.25): px = 50: py = 40
+110 OPEN#3,"scr_" &amp; wx &amp; "x" &amp; wy &amp; "a" &amp; px &amp; "x" &amp; py
+120 PAPER#3,3: CLS#3: BORDER#3,1,0: SCALE#3,100,-45,-50
+130 INK#3,0: FILL#3,1: CIRCLE#3,0,0,40:FILL#3,0: INK#3,4
+135 Hs = PI/6
+140 FOR t = 1 TO 12
+150  LINE#3,40 * SIN(Hs * t), 40 * COS(Hs * t) TO 45 * SIN(Hs * t), 45 * COS(Hs * t)
+160 END FOR t
+170 INK #3, 7
+180 d$ = DATE$: min = d$(16 TO 17)
+190 hour = d$(13 TO 14) MOD 12 + min / 60
+200 LINE#3,0,0 TO 30 * SIN(Hs * hour), 30 * COS(Hs * hour)
+210 LINE#3,0,0 TO 40 * SIN(PI / 30 * min), 40 * COS(PI / 30 * min)
+220 PAUSE 100: CLOSE #3
+</pre>
+
+<h3>NOTE 1:<br></h3>
+<p>
+<span style="font-style: italic;">COS</span> with very large values for the angle produces either
+very odd results or an overflow error (except on Minerva
+v1.96+ where it returns 0). The correct range for radians is
+-PI...PI, because anything outside this range is actually
+merely a repeat of the series. This is because an angle of
+PI*2 radians forms a complete circle, therefore an angle of
+PI*3 is actually the same as an angle of PI (ie. PI*3-PI*2).
+If you insist on using these silly angles, try <span style="font-style: italic;">SIN (X+PI/2)
+</span>instead of <span style="font-style: italic;">COS(X)</span>.
+</p>
+
+<h3>NOTE 2:<br></h3>
+<p>
+The THOR XVI (v6.41) fixes a slight inaccuracy in this
+command to ensure that <span style="font-style: italic;">COS(PI/2)=0</span>. On other ROMs <span style="font-style: italic;">COS(PI/2)==0</span>.
+</p>
+<p>The Lightning package and SMS also fix this bug.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p>See <a style="font-style: italic;" href="KeywordsS.html#SIN">SIN</a>, <a style="font-style: italic;" href="KeywordsA.html#ACOS">ACOS</a>.
+</p>
+<p>Compare <a style="font-style: italic;" href="KeywordsC.html#COSH">COSH</a>.
+</p>
+<p>Please also see the Mathematics section of the Appendix.</p>
+
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="COSH"></a>COSH</h1><p>Syntax: <span style="font-style: italic;">COSH (x)
+<br></span>Location: <span style="font-style: italic;">Hyper, Hyperbola
+</span></p>
+<p>This function is defined very similarly to <span style="font-style: italic;">SINH</span>. It can be
+expressed as:
+</p>
+<p><span style="font-style: italic;">( EXP(x) + EXP(-x) ) / 2
+</p>
+
+<h3>Example:<br></h3>
+<p>
+The <span style="font-style: italic;">COSH</span> function can be used to describe a rope, chain or
+similar object which has two ends tied at the same height
+to a ceiling (for instance). Line 110 draws the ceiling,
+lines 120 to 160 the chain.</p>
+
+<pre>
+100 a = .8: SCALE 10, -5, 0: CLS
+110 LINE -2,CHAIN(-2) TO 2,CHAIN(2)
+120 FOR x = -2 TO 2 STEP .1
+130   y = CHAIN(x)
+140   IF x > -2 THEN LINE _x, _y TO x, y
+150   _x = x: _y = y
+160 END FOR x
+170 :
+180 DEFine FuNction CHAIN(x)
+190  RETurn a * COSH(x/a)
+200 END DEFine CHAIN
+</pre>
+
+<h3>CROSS-REFERENCE:<br></h3><p>See <a style="font-style: italic;" href="KeywordsS.html#SINH">SINH</a> for an example.
+</p>
+<p><a style="font-style: italic;" href="KeywordsA.html#ARCOSH">ARCOSH</a> is the inverse function of <a style="font-style: italic;" href="KeywordsC.html#COSH">COSH</a>.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="COT"></a>COT</h1><p>Syntax: <span style="font-style: italic;">COT (angle)
+<br></span>Location: QL ROM
+</p>
+<p>This  function  returns  the  cotangent  of  a  given  <span style="font-style: italic;">angle
+</span> (specified in radians).
+</p>
+<p>In a right angled triangle the cotangent of an angle is
+defined as the ratio of the side adjoining the given angle to
+the side opposite to the given angle (forming a right angle
+with the other line). Due to the periodic nature of the
+function, it is best to work with <span style="font-style: italic;">angle</span> in the range: 0 &lt; angle
+&lt; PI.
+</p>
+<p><span style="font-style: italic;">COT(angle)</span> can also be calculated as <span style="font-style: italic;">COS(angle)/SIN(angle)</span>.</p>
+
+<h3><br>Example:<br></h3>
+<p>
+A program to create a graph showing the range of the
+function <span style="font-style: italic;">COT</span>:</p>
+
+<pre>
+100 MODE 4: OPEN#1,con_448x200a32x16
+110 SCALE 100,-75,-50
+120 INK 4: LINE -75,0 TO 125,0: LINE 0,-50 TO 0,50
+130 CURSOR 0,0,0,0: PRINT '0'
+140 CURSOR 0,0,-100,0: PRINT '-&atilde;'
+150 CURSOR 0,0,100,0: PRINT '&atilde;'
+160 CURSOR 0,0,-200,0: PRINT '-&atilde; * 2'
+170 CURSOR 0,0,200,0: PRINT '2&atilde;'
+180 CURSOR 0,0,0,-100: PRINT '1'
+190 CURSOR 0,0,0,90: PRINT '-1'
+200 INK 7
+210 FOR ang=-(PI*2)+1E-2 TO PI*2 STEP 1E-2
+220   POINT ang*75/(PI*2),50*COT(ang)
+230 END FOR ang
+</pre>
+
+<h3>NOTE 1:<br></h3>
+<p>
+Although <span style="font-style: italic;">COT(PI)</span> and <span style="font-style: italic;">COT(PI*x)</span> should be undefined (values of
+<span style="font-style: italic;">angle</span> very  close  to  PI  tend  to  infinity),  on  most  QDOS
+implementations, it gives a very large positive or negative
+number.
+</p>
+<p>Currently, only the Lightning maths package and SMS produce
+an overflow error (the correct result).
+</p>
+
+<h3>NOTE 2:<br></h3>
+<p>
+On Minerva v1.96+ very large values of <span style="font-style: italic;">angle</span> will return the
+value 0.  On other implementations produce an overflow error.
+</p>
+
+<h3>NOTE 3:<br></h3>
+<p>
+<span style="font-style: italic;">COT(0)</span> on most ROMs gives 1 - this  is fixed on Minerva, SMS,
+Lightning, QXL, and ST/QL which give an overflow error.
+</p>
+
+<h3>NOTE 4:<br></h3>
+<p>
+<span style="font-style: italic;">COT(PI/2)</span> should equal zero - on all implementations of this
+command, this returns a number near to zero (except under
+SMS).</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p>Please refer to<a style="font-style: italic;" href="KeywordsA.html#ACOT">ACOT</a>, <a style="font-style: italic;" href="KeywordsA.html#ATAN">ATAN</a>, <a style="font-style: italic;" href="KeywordsT.html#TAN">TAN</a>.
+</p>
+<p>Compare <a style="font-style: italic;" href="KeywordsC.html#COTH">COTH</a>.
+</p>
+<p>Also refer to the Mathematics section of the Appendix.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="COTH"></a>COTH</h1><p>Syntax: <span style="font-style: italic;">COTH (x)
+<br></span>Location: <span style="font-style: italic;">Hyper
+</span></p>
+<p>This function returns the hyperbolic co-tangent.
+</p>
+<p>This is defined as one divided by the hyperbolic tangent,
+so <span style="font-style: italic;">COTH(x) = 1/TANH(x)</span>.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsA.html#ARCOTH">ARCOTH</a> is the inverse function of <a style="font-style: italic;" href="KeywordsC.html#COTH">COTH</a>.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CSIZE"></a>CSIZE</h1><p>Syntax: <span style="font-style: italic;">CSIZE</span> [<span style="font-style: italic;">#channel,</span>] <span style="font-style: italic;">width,height
+<br></span>Location: <span style="font-style: italic;">QL ROM
+</span></p>
+<p>This command sets the size and spacing of characters in the
+given channel (default #1).
+</p>
+<p><span style="font-style: italic;">width</span> ranges from 0 to 3 and there are two possible <span style="font-style: italic;">height</span>s, 0
+and 1.  Each <span style="font-style: italic;">width</span> and <span style="font-style: italic;">height</span> corresponds to a certain pixel size:
+</p>
+
+<h3><span style="font-style: italic;">width</span>spacingsize<span style="font-style: italic;">height</span>spacingsize<br></h3>
+<p>
+0650109
+18512018
+21210
+31610
+</p>
+<p>In low resolution mode <span style="font-style: italic;">width</span> 0 and 1 have no effect: in that
+mode, the smallest character size allowable is 12 pixels wide;
+<span style="font-style: italic;">CSIZE 2,0</span>.
+</p>
+
+<h3>NOTE 1:<br></h3>
+<p>
+On pre-JS ROMs, characters which use all eight pixels
+available for the definition of characters will not be printed
+correctly on screen. Even on JS and MG ROMs, problems exist in
+some character sizes.  Minerva, SMS and the ST/QL drivers
+(Level E-23 onwards) prevent any such problems.
+</p>
+
+<h3>NOTE 2:<br></h3>
+<p>
+The THOR XVI allows you to use any value for the vertical
+size - odd values give double height characters and even
+values give normal height.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsC.html#CHAR_INC">CHAR_INC</a>  allows  you  to  change  spacing  independently  of
+character size. </p>
+<p><a href="KeywordsM.html#MODE">MODE</a> will reset the character size to the default (ie. 2,0
+in <a style="font-style: italic;" href="KeywordsM.html#MODE%208">MODE</a> 8 and 0,0 in <a style="font-style: italic;" href="KeywordsM.html#MODE">MODE</a> 4).</p>
+<p>The command <a style="font-style: italic;" href="KeywordsA.html#AT">AT</a> is also affected by the current character
+spacing.</p>
+
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CTAB$"></a>CTAB$</h1><p>Syntax: <span style="font-style: italic;">CTAB$ (string$ </span>[<span style="font-style: italic;">,tabdist</span>]<span style="font-style: italic;">)</span>  <span style="font-style: italic;">tabdist</span>=1..255
+<br>Location: <span style="font-style: italic;">BTool
+</span></p>
+<p><span style="font-style: italic;">CTAB$</span> is a function which will look for spaces in the
+supplied <span style="font-style: italic;">string$</span> and if there is at least a <span style="font-style: italic;">tabdist</span> number of
+spaces, they will be replaced by the TAB character, <span style="font-style: italic;">CHR$(9)</span>, so
+that <span style="font-style: italic;">ETAB$</span> or editors / word-processors can re-expand them to
+the original string.
+</p>
+<p><span style="font-style: italic;">CTAB$</span> does not alter the actual <span style="font-style: italic;">string$</span> but will return it in
+its compressed form.
+</p>
+<p>The default value of <span style="font-style: italic;">tabdist</span> is 8, and the length of <span style="font-style: italic;">string$</span> is
+limited to 255 characters (so <span style="font-style: italic;">tabdist</span>>255 does not make much
+sense).
+</p>
+
+<h3>WARNING:<br></h3>
+<p>
+<span style="font-style: italic;">tabdist</span>=0 will produce rubbish output and it is also possible
+that <span style="font-style: italic;">CTAB$</span> will crash the system. Negative values lead to
+nonsense results but do not harm the system.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsE.html#ETAB$">ETAB$</a> expands the TAB marks.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CUR"></a>CUR</h1><p>Syntax: <span style="font-style: italic;">CUR </span>[<span style="font-style: italic;">#channel,</span>]<span style="font-style: italic;"> boolean
+<br></span>Location: <span style="font-style: italic;">TinyToolkit
+</span></p>
+<p>Every Window channel has a cursor which flashes when it is
+switched on and appears solid when it is inactive.
+</p>
+<p>The command <span style="font-style: italic;">CUR</span> with <span style="font-style: italic;">boolean=1</span> activates the cursor of a
+window, and  it  is  de-activated with  <span style="font-style: italic;">boolean=0</span>.  The  default
+channel is #1.
+</p>
+
+<h3>Example:<br></h3>
+<p>
+Multitasking programs should use <span style="font-style: italic;">INKEY$</span> to read keystrokes
+from the keyboard if no other job is to be similarly
+affected by the keys pressed.  <span style="font-style: italic;">KEYROW</span> could be used, but this
+does not care which job/channel/window was active when a
+key was pressed (this could be used to give a background
+job a command without leaving the current job).
+</p>
+<p>The following function imitates the getchar() function of
+the C language, and is used for non-interactive keyboard
+input. Arcade games should not engage the cursor!</p>
+
+<pre>
+100 DEFine FuNction GETCHAR% (channel,timeout)
+110  LOCal char$
+120  CUR#channel,1
+130  char$=INKEY$(#channel,timeout)
+140  CUR#channel,0
+150  RETurn CODE(char$)
+160 END DEFine GETCHAR%
+</pre>
+
+<h3>NOTE:<br></h3>
+<p>
+Although the cursor was activated, it will not flash until
+the channel is made into the current keyboard input queue (ie.
+when it can use <span style="font-style: italic;">PEND</span>, <span style="font-style: italic;">EOF</span>, <span style="font-style: italic;">INKEY$</span>). This may therefore mean that
+the keys &lt;CTRL&gt;&lt;C&gt; will need to be pressed to make this
+program the active (current) task.
+</p>
+<p>Non-console  windows  (scr_)  cannot  be  used  for  input
+operations (ie. <span style="font-style: italic;">INPUT</span> and <span style="font-style: italic;">INKEY$</span> cannot be used), nevertheless,
+the cursor may still be enabled.
+</p>
+<p><span style="font-style: italic;">INPUT</span> will activate and de-activate the cursor itself.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p>See <a style="font-style: italic;" href="KeywordsF.html#FORCE_TYPE">FORCE_TYPE</a> concerning current input queue activation,
+<a style="font-style: italic;" href="KeywordsI.html#INKEY$">INKEY$</a>, <a style="font-style: italic;" href="KeywordsI.html#INPUT">INPUT</a> and <a style="font-style: italic;" href="KeywordsK.html#KEYROW">KEYROW</a> for general information.
+</p>
+<p><a style="font-style: italic;" href="KeywordsC.html#CURSEN">CURSEN</a> and <a style="font-style: italic;" href="KeywordsC.html#CURDIS">CURDIS</a> are both combined by the <a style="font-style: italic;" href="KeywordsC.html#CUR">CUR</a> command.
+<a href="KeywordsC.html#CURSOR%">CURSOR%</a>.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CURDIS"></a>CURDIS</h1><p>Syntax: <span style="font-style: italic;">CURDIS</span> [<span style="font-style: italic;">#ch</span>]
+<br>Location: <span style="font-style: italic;">Toolkit II, THOR XVI, QSOUND
+</span></p>
+<p>This command disables the cursor in the given channel. See
+<span style="font-style: italic;">CURSEN</span>!
+</p>
+<p>The default window for this command is #1.
+</p>
+<p>If a cursor is disabled in a given window (or does not
+exist), task switching with &lt;CTRL&gt;&lt;C&gt; to the job which owns
+that window will not work unless the Pointer Environment is
+present.
+</p>
+
+<h3>WARNING:<br></h3>
+<p>
+Do not use <span style="font-style: italic;">CURDIS #0</span> as this may prevent further input.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p>See <a style="font-style: italic;" href="KeywordsC.html#CURSEN">CURSEN</a> for more details.
+</p>
+<p><a style="font-style: italic;" href="KeywordsC.html#CURSOR_OFF">CURSOR_OFF</a> is similar.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CURSEN"></a>CURSEN</h1><p>Syntax: <span style="font-style: italic;">CURSEN [#ch]
+<br></span>Location: <span style="font-style: italic;">Toolkit II, THOR XVI, QSOUND
+</span></p>
+<p>If a program is to multitask without the assistance of the
+Pointer Interface, it is necessary to give that program an
+active cursor so that the user can switch to the program using
+the key &lt;CTRL&gt;&lt;C&gt;, which alters the active keyboard queue.
+</p>
+<p>Unless a program has an active cursor, it cannot accept
+input from the keyboard by the use of commands such as <span style="font-style: italic;">PAUSE</span>,
+<span style="font-style: italic;">INKEY$</span> and <span style="font-style: italic;">INPUT</span>.
+</p>
+<p>The command <span style="font-style: italic;">CURSEN</span> enables the cursor in the given channel,
+which must be either a scr or con channel. If no channel is
+specified, the default is #1.
+</p>
+<p>Once the cursor is enabled, a red block will appear at the
+current text cursor position in the given channel. This block
+will begin to flash when the cursor is 'active' (ie. expecting
+input).
+</p>
+
+<h3>MINERVA NOTE:<br></h3>
+<p>
+Minerva's  System  Xtensions  allow  you  to  alter  the
+attributes of the text cursor, by using the command <span style="font-style: italic;">POKE !124!51,x
+</span>where x is in the format of: RRRRSCCC, where the top 4 bits of
+x (RRRR) determine the cursor flash rate, the bottom three
+bits (CCC) determine the colour of the cursor and the fourth
+bit (S) determines whether the cursor appears as a solid block
+or an underline.
+</p>
+<p>You can actually get an invisible cursor by using the
+command <span style="font-style: italic;">POKE !124!51,0</span>. Unfortunately though, this sets the cursor
+attributes for  all cursors which are enabled, rather than
+just for the current Job.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsK.html#KEYROW">KEYROW</a> reads keys without an active cursor. See <a style="font-style: italic;" href="KeywordsC.html#CURDIS">CURDIS</a> also.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CURSOR"></a>CURSOR</h1><p>Syntax: <span style="font-style: italic;">CURSOR </span>[<span style="font-style: italic;">#channel,</span>] [<span style="font-style: italic;">grx, gry,</span>] <span style="font-style: italic;">x,y
+</span><br>or <span style="font-style: italic;">CURSOR </span>[<span style="font-style: italic;">#channel,</span>] <span style="font-style: italic;">flag</span>                  <span style="font-style: italic;">(Btool only)
+<br></span>Location: <span style="font-style: italic;">QL ROM, Btool
+</span></p>
+<p>The <span style="font-style: italic;">CURSOR</span> command allows you to set the text cursor to a
+specific position in the given window (default #1).  Any text
+which is then printed will appear with the given position at
+its top left corner.
+</p>
+<p>The  values  <span style="font-style: italic;">x</span>  and  <span style="font-style: italic;">y</span>  specify  the  position  in  pixel
+co-ordinates relative to the origin of the specified window
+(eg. if the window #1 was defined as scr_448x200a32x16, the
+command <span style="font-style: italic;">CURSOR 224,100</span> will set the text position to the exact
+centre of the window).
+</p>
+<p>However,  for  the  more  adventurous,  <span style="font-style: italic;">CURSOR</span>  can  take  an
+additional two parameters which allow you to mix text and
+graphics on a given window more easily. This sets the text
+cursor to the graphics co-ordinate (<span style="font-style: italic;">grx,gry</span>) and then uses the <span style="font-style: italic;">x
+</span> and<span style="font-style: italic;"> y</span> parameters to specify a relative pixel offset from this
+graphics co-ordinate (a positive value of <span style="font-style: italic;">x</span> moves the text
+cursor to the right, a negative value to the left; whereas a
+positive value of <span style="font-style: italic;">y</span> moves the text cursor down, a negative
+value up).
+</p>
+<p>The second variant only works with the Btool Toolkit. This
+allows you to enable or disable the cursor in the specified
+window (default #1), by specifying a <span style="font-style: italic;">flag</span> of 1 to enable the
+cursor or 0 to disable the cursor.
+</p>
+
+<h3>Example:<br></h3>
+<p>
+This program shows all the 45 degree angles in a circle:</p>
+<pre>100 MODE 4:WINDOW 448,200,32,16
+110 PAPER 0:INK 7:CLS
+120 SCALE 200,-150,-100
+130 FOR i=0 TO 315 STEP 45
+140   INK 7:LINE 0,0 TO SIN(RAD(i))*50,COS(RAD(i))*50
+150   xoff=0:yoff=0
+160   SELect ON i
+170     =0:xoff=-4:yoff=-9
+180     =45:yoff=-9
+190     =90:yoff=-4
+200     =180:xoff=-10
+210     =225:xoff=-20
+220     =270:xoff=-20:yoff=-4
+230     =315:xoff=-20:yoff=-9
+240   END SELect
+250   INK 4:CURSOR SIN(RAD(i))*50,COS(RAD(i))*50,xoff,yoff
+260   PRINT i
+270 END FOR i
+</pre>
+
+<h3>NOTE 1:<br></h3>
+<p>
+On pre MG ROMs, the <span style="font-style: italic;">CURSOR</span> command only allows a maximum of
+four parameters, which means that you can only use <span style="font-style: italic;">grx</span>, <span style="font-style: italic;">gry</span>, <span style="font-style: italic;">x
+</span>and<span style="font-style: italic;"> y</span> on the default channel. You can however use commands such
+as <span style="font-style: italic;">CURSOR #3,200,40,3</span> - although this is not supported on Minerva
+(pre v1.98) and SMSQ/E and should be avoided!  If you specify
+a fifth parameter, a 'Bad Parameter' error will be reported.
+The Btool variant fixes this as does SMS, MG ROMs and Minerva.
+Compiling with Q-Liberator does not prevent this error.
+</p>
+
+<h3>NOTE 2:<br></h3>
+<p>
+The graphics positioning did not work on ST/QL Emulators
+with Drivers prior to Level D-15 (or E-15).
+</p>
+
+<h3>NOTE 3:<br></h3>
+<p>
+Compilers will not accept the second syntax.
+</p>
+
+<h3>NOTE 4:<br></h3>
+<p>
+As from SMS v2.74 <span style="font-style: italic;">CURSOR</span> limits <span style="font-style: italic;">grx</span> to even positions to make
+in compatible with <span style="font-style: italic;">MODE 8</span> and <span style="font-style: italic;">MODE 4</span> automatically.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p>Please refer to <a style="font-style: italic;" href="KeywordsP.html#PRINT">PRINT</a>, <a style="font-style: italic;" href="KeywordsL.html#LEFT">LEFT</a> and <a style="font-style: italic;" href="KeywordsA.html#AT">AT</a>.
+</p>
+<p><a style="font-style: italic;" href="KeywordsC.html#CURSEN">CURSEN</a> is a more compatible means of enabling a cursor.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CURSOR%"></a>CURSOR%</h1><p>Syntax: <span style="font-style: italic;">CURSOR% </span>[<span style="font-style: italic;">#window</span>]
+<br>Location: <span style="font-style: italic;">BTool
+</span></p>
+<p>This function returns the current status of the text cursor
+in the specified <span style="font-style: italic;">window</span> (default #1). Results are:
+</p>
+<ul>
+<li>0 for disabled,
+</li>
+<li>1 for enabled and visible,
+</li>
+<li>-1 for enabled but invisible.
+</li>
+</ul>
+
+<p>An active cursor flashes, and therefore alternates between
+visible and invisible status when enabled. Otherwise, it will
+appear as a solid block on screen (unless there is no cursor
+attached to the specified channel).
+</p>
+<p>On Minerva it is possible to alter the shape and colour of
+the cursor.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsC.html#CURSEN">CURSEN</a>, <a style="font-style: italic;" href="KeywordsC.html#CURDIS">CURDIS</a>, <a style="font-style: italic;" href="KeywordsC.html#CURSOR">CURSOR</a> and <a style="font-style: italic;" href="KeywordsC.html#CUR">CUR</a> enable or disable the cursor.
+</p>
+<p>Also refer to <a style="font-style: italic;" href="KeywordsC.html#CURSOR_OFF">CURSOR_OFF</a> and <a style="font-style: italic;" href="KeywordsC.html#CURSOR_ON">CURSOR_ON</a>.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CURSOR_OFF"></a>CURSOR_OFF</h1><p>Syntax: <span style="font-style: italic;">CURSOR_OFF</span> [<span style="font-style: italic;">#ch</span>]
+<br>Location: <span style="font-style: italic;">Turbo Toolkit
+</span></p>
+<p>This command is exactly the same as <span style="font-style: italic;">CURDIS</span>.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CURSOR_ON"></a>CURSOR_ON</h1><p>Syntax: <span style="font-style: italic;">CURSOR_ON </span>[<span style="font-style: italic;">#ch</span> [<span style="font-style: italic;">!</span>] ]
+<br>Location: <span style="font-style: italic;">Turbo Toolkit
+</span></p>
+<p>This command is very similar to <span style="font-style: italic;">CURSEN</span>, with the default
+window being #1.
+</p>
+<p>However, you can add an exclamation mark after the channel
+number.  If this is omitted, then upon execution of this
+command the chosen window is automatically selected as the
+active  window  (where  key  input  is  directed).    Add  the
+exclamation mark to prevent this.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p>See <a style="font-style: italic;" href="KeywordsC.html#CURSOR_OFF">CURSOR_OFF</a>, <a style="font-style: italic;" href="KeywordsC.html#CURSEN">CURSEN</a> and <a style="font-style: italic;" href="KeywordsC.html#CURSOR%">CURSOR%</a> for more details.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CVF"></a>CVF</h1><p>Syntax: <span style="font-style: italic;">CVF (mkf_$)
+<br></span>Location: <span style="font-style: italic;">BTool
+</span></p>
+<p>This function takes any six character long string, (the
+internal format of a floating point number), and returns the
+value as a floating point number.
+</p>
+
+<h3>WARNING:<br></h3>
+<p>
+<span style="font-style: italic;">CVF</span> locks SuperBASIC if the supplied parameter is six bytes
+long but not a valid representation of a floating point
+number, eg. <span style="font-style: italic;">CVF("BlaBla")</span>.
+</p>
+<p><span style="font-style: italic;">MKF$</span> always returns a valid parameter for <span style="font-style: italic;">CVF</span> which will not crash it.</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsP.html#PEEK_F">PEEK_F</a>, <a style="font-style: italic;" href="KeywordsM.html#MKF$">MKF$</a>, <a style="font-style: italic;" href="KeywordsC.html#CVI$">CVI$</a>, <a style="font-style: italic;" href="KeywordsC.html#CVL">CVL</a>, <a style="font-style: italic;" href="KeywordsC.html#CVS$">CVS$</a>.
+</p>
+<p><a style="font-style: italic;" href="KeywordsF.html#FPUTF">FPUTF</a> and <a style="font-style: italic;" href="KeywordsF.html#FGETF">FGETF</a> enable you to read and write floating point
+numbers in internal format to or from files.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CVI%"></a>CVI%</h1><p>Syntax: <span style="font-style: italic;">CVI% (mki_$)
+<br></span>Location: <span style="font-style: italic;">BTool
+</span></p>
+<p><span style="font-style: italic;">CVI%</span> is the inverse function of <span style="font-style: italic;">MKI$</span> and expects a two
+character long string, being the internal representation of an
+integer, and  then  converts  this into  the  actual  integer
+number.
+</p>
+
+<h3>Example:<br></h3>
+<p>
+<span style="font-style: italic;">MKI$( 20812 )="QL"
+</p>
+<p>CVI%("QL")=20812
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsM.html#MKI$">MKI$</a>, <a style="font-style: italic;" href="KeywordsC.html#CVL">CVL</a>, <a style="font-style: italic;" href="KeywordsC.html#CVF">CVF</a>, <a style="font-style: italic;" href="KeywordsC.html#CVS$">CVS$</a>.
+</p>
+<p><a style="font-style: italic;" href="KeywordsF.html#FGET%">FGET%</a> and <a style="font-style: italic;" href="KeywordsF.html#FPUT%">FPUT%</a> provide similar facilities for writing and reading integers in their internal format from files.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CVS$"></a>CVS$</h1><p>Syntax: <span style="font-style: italic;">CVS$ (mks_$)
+<br></span>Location: <span style="font-style: italic;">BTool
+</span></p>
+<p>This function takes the internal representation of a string
+and returns the string concerned.
+</p>
+<p>A string is represented internally as a word containing the
+length of the string followed by the string itself.
+</p>
+
+<h3>Example:<br></h3>
+<p>
+<span style="font-style: italic;">CVS$( CHR$(0) &amp; CHR$(2) &amp; "Test" ) = "Test"(1 TO 2) = "Te"
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsM.html#MKS$">MKS$</a>, <a style="font-style: italic;" href="KeywordsC.html#CVI%">CVI%</a>, <a style="font-style: italic;" href="KeywordsC.html#CVL">CVL</a>, <a style="font-style: italic;" href="KeywordsC.html#CVF">CVF</a>. <a style="font-style: italic;" href="KeywordsF.html#FPUT$">FPUT$</a> and <a style="font-style: italic;" href="KeywordsF.html#FGET$">FGET$</a> enable you to write strings
+to and read strings from files in their internal formats.</p>
+
+
+<hr style="width: 100%; height: 2px;">
+<h1><a name="CVL"></a>CVL</h1><p>Syntax: <span style="font-style: italic;">CVL (mkl_$)
+<br></span>Location: <span style="font-style: italic;">BTool
+</span></p>
+<p>This function converts the internal representation of a
+long integer number (a four character long string) to the
+actual value and returns that.  <span style="font-style: italic;">CVL</span> is the inverse of <span style="font-style: italic;">MKL$</span>.
+</p>
+
+<h3>Example:<br></h3>
+<p>
+<span style="font-style: italic;">CVL( MKL$( 10010 ) = "10010"</p>
+
+<h3>CROSS-REFERENCE:<br></h3><p><a style="font-style: italic;" href="KeywordsM.html#MKL$">MKL$</a>, <a style="font-style: italic;" href="KeywordsC.html#CVI%">CVI%</a>, <a style="font-style: italic;" href="KeywordsC.html#CVF">CVF</a>, <a style="font-style: italic;" href="KeywordsC.html#CVS$">CVS$</a>.
+</p>
+<p><a style="font-style: italic;" href="KeywordsF.html#FPUTL">FPUTL</a> and <a style="font-style: italic;" href="KeywordsF.html#FGETL">FGETL</a> provide similar facilities to enable you to
+write and read long integers from files in their internal
+format.</p>
+</div>
+</body>
+</html>

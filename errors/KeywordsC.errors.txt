@@ -1,0 +1,245 @@
+line 22 column 13 - Warning: discarding unexpected </hr>
+line 50 column 13 - Warning: discarding unexpected </hr>
+line 188 column 34 - Warning: discarding unexpected </li>
+line 202 column 4 - Warning: missing </span> before </p>
+line 205 column 1 - Warning: inserting implicit <span>
+line 205 column 1 - Warning: missing </span> before <h3>
+line 205 column 5 - Warning: inserting implicit <span>
+line 207 column 1 - Warning: inserting implicit <span>
+line 238 column 8 - Warning: discarding unexpected </span>
+line 238 column 16 - Warning: missing </span> before </pre>
+line 241 column 5 - Warning: inserting implicit <span>
+line 243 column 1 - Warning: inserting implicit <span>
+line 349 column 4 - Warning: missing </span> before </p>
+line 351 column 1 - Warning: inserting implicit <span>
+line 351 column 1 - Warning: missing </span> before <p>
+line 351 column 4 - Warning: inserting implicit <span>
+line 353 column 5 - Warning: inserting implicit <span>
+line 353 column 33 - Warning: inserting implicit <span>
+line 357 column 5 - Warning: inserting implicit <span>
+line 357 column 38 - Warning: inserting implicit <span>
+line 533 column 1 - Warning: missing </span> before </p>
+line 536 column 1 - Warning: inserting implicit <span>
+line 536 column 1 - Warning: missing </span> before <h3>
+line 536 column 5 - Warning: inserting implicit <span>
+line 538 column 1 - Warning: inserting implicit <span>
+line 541 column 1 - Warning: inserting implicit <span>
+line 541 column 1 - Warning: missing </span> before <h3>
+line 541 column 5 - Warning: inserting implicit <span>
+line 543 column 1 - Warning: inserting implicit <span>
+line 546 column 4 - Warning: inserting implicit <span>
+line 546 column 4 - Warning: missing </span> before </p>
+line 548 column 5 - Warning: inserting implicit <span>
+line 548 column 33 - Warning: inserting implicit <span>
+line 550 column 1 - Warning: inserting implicit <span>
+line 550 column 1 - Warning: missing </span> before <p>
+line 550 column 4 - Warning: inserting implicit <span>
+line 555 column 5 - Warning: inserting implicit <span>
+line 555 column 50 - Warning: inserting implicit <span>
+line 847 column 4 - Warning: missing </span> before </p>
+line 852 column 4 - Warning: inserting implicit <span>
+line 868 column 86 - Warning: missing </span> before </p>
+line 870 column 5 - Warning: inserting implicit <span>
+line 870 column 33 - Warning: inserting implicit <span>
+line 872 column 43 - Warning: inserting implicit <span>
+line 872 column 78 - Warning: inserting implicit <span>
+line 954 column 15 - Warning: missing </span> before </p>
+line 956 column 1 - Warning: inserting implicit <span>
+line 956 column 1 - Warning: missing </span> before <p>
+line 956 column 4 - Warning: inserting implicit <span>
+line 1025 column 15 - Warning: missing </span> before </p>
+line 1027 column 1 - Warning: inserting implicit <span>
+line 1027 column 1 - Warning: missing </span> before <p>
+line 1027 column 4 - Warning: inserting implicit <span>
+line 1054 column 1 - Warning: missing </span> before </p>
+line 1057 column 1 - Warning: inserting implicit <span>
+line 1057 column 1 - Warning: missing </span> before <h3>
+line 1057 column 5 - Warning: inserting implicit <span>
+line 1059 column 1 - Warning: inserting implicit <span>
+line 1062 column 1 - Warning: inserting implicit <span>
+line 1062 column 1 - Warning: missing </span> before <h3>
+line 1062 column 5 - Warning: inserting implicit <span>
+line 1064 column 1 - Warning: inserting implicit <span>
+line 1070 column 1 - Warning: inserting implicit <span>
+line 1070 column 1 - Warning: missing </span> before <h3>
+line 1070 column 5 - Warning: inserting implicit <span>
+line 1072 column 1 - Warning: inserting implicit <span>
+line 1520 column 1 - Warning: inserting implicit <p>
+line 1769 column 1 - Warning: missing </span> before </p>
+line 1772 column 1 - Warning: inserting implicit <span>
+line 1772 column 1 - Warning: missing </span> before <h3>
+line 1772 column 5 - Warning: inserting implicit <span>
+line 1774 column 1 - Warning: inserting implicit <span>
+line 1779 column 1 - Warning: inserting implicit <span>
+line 1779 column 1 - Warning: missing </span> before <h3>
+line 1779 column 5 - Warning: inserting implicit <span>
+line 1781 column 1 - Warning: inserting implicit <span>
+line 1785 column 1 - Warning: inserting implicit <span>
+line 1785 column 1 - Warning: missing </span> before <h3>
+line 1785 column 5 - Warning: inserting implicit <span>
+line 1787 column 1 - Warning: inserting implicit <span>
+line 1793 column 1 - Warning: inserting implicit <span>
+line 1793 column 1 - Warning: missing </span> before <h3>
+line 1793 column 5 - Warning: inserting implicit <span>
+line 1795 column 1 - Warning: inserting implicit <span>
+line 1801 column 1 - Warning: inserting implicit <span>
+line 1801 column 1 - Warning: missing </span> before <h3>
+line 1801 column 5 - Warning: inserting implicit <span>
+line 1803 column 1 - Warning: inserting implicit <span>
+line 2098 column 4 - Warning: missing </span> before </p>
+line 2100 column 1 - Warning: inserting implicit <span>
+line 2100 column 1 - Warning: missing </span> before <p>
+line 2101 column 1 - Warning: inserting implicit <span>
+line 2106 column 1 - Warning: inserting implicit <span>
+line 2106 column 1 - Warning: missing </span> before <h3>
+line 2106 column 5 - Warning: inserting implicit <span>
+line 2108 column 1 - Warning: inserting implicit <span>
+line 2158 column 1 - Warning: missing </span> before </p>
+line 2160 column 5 - Warning: inserting implicit <span>
+line 2160 column 33 - Warning: inserting implicit <span>
+line 2165 column 5 - Warning: inserting implicit <span>
+line 2165 column 42 - Warning: inserting implicit <span>
+line 2166 column 22 - Warning: missing </span> before </p>
+line 2168 column 1 - Warning: inserting implicit <span>
+line 2168 column 1 - Warning: missing </span> before <p>
+line 2168 column 4 - Warning: inserting implicit <span>
+line 2181 column 22 - Warning: missing </span> before </p>
+line 2183 column 1 - Warning: inserting implicit <span>
+line 2183 column 1 - Warning: missing </span> before <p>
+line 2183 column 4 - Warning: inserting implicit <span>
+line 2217 column 15 - Warning: missing </span> before </p>
+line 2219 column 1 - Warning: inserting implicit <span>
+line 2219 column 1 - Warning: missing </span> before <p>
+line 2219 column 4 - Warning: inserting implicit <span>
+line 2249 column 15 - Warning: missing </span> before </p>
+line 2251 column 1 - Warning: inserting implicit <span>
+line 2251 column 1 - Warning: missing </span> before <p>
+line 2251 column 4 - Warning: inserting implicit <span>
+line 2323 column 15 - Warning: missing </span> before </p>
+line 2325 column 1 - Warning: inserting implicit <span>
+line 2325 column 1 - Warning: missing </span> before <p>
+line 2325 column 4 - Warning: inserting implicit <span>
+line 2347 column 1 - Warning: missing </span> before </p>
+line 2350 column 1 - Warning: inserting implicit <span>
+line 2350 column 1 - Warning: missing </span> before <h3>
+line 2350 column 5 - Warning: inserting implicit <span>
+line 2352 column 1 - Warning: inserting implicit <span>
+line 2363 column 15 - Warning: missing </span> before </p>
+line 2365 column 1 - Warning: inserting implicit <span>
+line 2365 column 1 - Warning: missing </span> before <p>
+line 2365 column 4 - Warning: inserting implicit <span>
+line 2391 column 22 - Warning: missing </span> before </p>
+line 2393 column 1 - Warning: inserting implicit <span>
+line 2393 column 1 - Warning: missing </span> before <p>
+line 2393 column 4 - Warning: inserting implicit <span>
+line 2428 column 22 - Warning: missing </span> before </p>
+line 2430 column 1 - Warning: inserting implicit <span>
+line 2430 column 1 - Warning: missing </span> before <p>
+line 2430 column 4 - Warning: inserting implicit <span>
+line 2471 column 1 - Warning: missing </span> before </p>
+line 2474 column 1 - Warning: inserting implicit <span>
+line 2474 column 1 - Warning: missing </span> before <h3>
+line 2474 column 5 - Warning: inserting implicit <span>
+line 2476 column 1 - Warning: inserting implicit <span>
+line 2640 column 1 - Warning: missing </span> before </p>
+line 2642 column 1 - Warning: inserting implicit <span>
+line 2642 column 1 - Warning: missing </span> before <p>
+line 2642 column 4 - Warning: inserting implicit <span>
+line 2740 column 1 - Warning: discarding unexpected </span>
+line 2933 column 1 - Warning: inserting implicit <p>
+line 3012 column 4 - Warning: missing </span> before </p>
+line 3015 column 1 - Warning: inserting implicit <span>
+line 3015 column 1 - Warning: missing </span> before <h3>
+line 3015 column 5 - Warning: inserting implicit <span>
+line 3017 column 1 - Warning: inserting implicit <span>
+line 3497 column 1 - Warning: missing </span> before </p>
+line 3499 column 1 - Warning: inserting implicit <span>
+line 3499 column 1 - Warning: missing </span> before <p>
+line 3499 column 4 - Warning: inserting implicit <span>
+line 3499 column 4 - Warning: missing </span> before <h3>
+line 3501 column 5 - Warning: inserting implicit <span>
+line 3501 column 33 - Warning: inserting implicit <span>
+line 3503 column 1 - Warning: inserting implicit <span>
+line 3503 column 1 - Warning: missing </span> before <p>
+line 3503 column 4 - Warning: inserting implicit <span>
+line 3507 column 5 - Warning: inserting implicit <span>
+line 3507 column 36 - Warning: inserting implicit <span>
+line 3519 column 1 - Warning: missing </span> before <h3>
+line 3521 column 5 - Warning: inserting implicit <span>
+line 3521 column 33 - Warning: inserting implicit <span>
+line 3526 column 5 - Warning: inserting implicit <span>
+line 3526 column 34 - Warning: inserting implicit <span>
+line 3536 column 1 - Warning: missing </span> before </p>
+line 3538 column 5 - Warning: inserting implicit <span>
+line 3538 column 33 - Warning: inserting implicit <span>
+line 3540 column 1 - Warning: inserting implicit <span>
+line 3540 column 1 - Warning: missing </span> before <p>
+line 3540 column 4 - Warning: inserting implicit <span>
+line 2952 column 1 - Warning: <table> lacks "summary" attribute
+line 205 column 1 - Warning: trimming empty <span>
+line 351 column 1 - Warning: trimming empty <span>
+line 536 column 1 - Warning: trimming empty <span>
+line 541 column 1 - Warning: trimming empty <span>
+line 550 column 1 - Warning: trimming empty <span>
+line 956 column 1 - Warning: trimming empty <span>
+line 956 column 4 - Warning: trimming empty <span>
+line 1027 column 1 - Warning: trimming empty <span>
+line 1027 column 4 - Warning: trimming empty <span>
+line 1057 column 1 - Warning: trimming empty <span>
+line 1062 column 1 - Warning: trimming empty <span>
+line 1070 column 1 - Warning: trimming empty <span>
+line 1428 column 249 - Warning: trimming empty <span>
+line 1486 column 255 - Warning: trimming empty <span>
+line 1520 column 1 - Warning: trimming empty <p>
+line 1772 column 1 - Warning: trimming empty <span>
+line 1779 column 1 - Warning: trimming empty <span>
+line 1785 column 1 - Warning: trimming empty <span>
+line 1793 column 1 - Warning: trimming empty <span>
+line 1801 column 1 - Warning: trimming empty <span>
+line 2100 column 1 - Warning: trimming empty <span>
+line 2106 column 1 - Warning: trimming empty <span>
+line 2168 column 1 - Warning: trimming empty <span>
+line 2168 column 4 - Warning: trimming empty <span>
+line 2183 column 1 - Warning: trimming empty <span>
+line 2219 column 1 - Warning: trimming empty <span>
+line 2251 column 1 - Warning: trimming empty <span>
+line 2325 column 1 - Warning: trimming empty <span>
+line 2350 column 1 - Warning: trimming empty <span>
+line 2365 column 1 - Warning: trimming empty <span>
+line 2393 column 1 - Warning: trimming empty <span>
+line 2393 column 4 - Warning: trimming empty <span>
+line 2430 column 1 - Warning: trimming empty <span>
+line 2430 column 4 - Warning: trimming empty <span>
+line 2474 column 1 - Warning: trimming empty <span>
+line 2642 column 1 - Warning: trimming empty <span>
+line 2642 column 4 - Warning: trimming empty <span>
+line 2933 column 1 - Warning: trimming empty <p>
+line 3015 column 1 - Warning: trimming empty <span>
+line 3499 column 1 - Warning: trimming empty <span>
+line 3503 column 1 - Warning: trimming empty <span>
+line 3540 column 1 - Warning: trimming empty <span>
+line 2 column 1 - Warning: <html> proprietary attribute "xmlns:v"
+Info: Doctype given is "-//W3C//DTD HTML 4.0 Transitional//EN"
+Info: Document content looks like HTML 4.01 Strict
+Info: No system identifier in emitted doctype
+Tidy found 221 warnings and 0 errors!
+
+The table summary attribute should be used to describe
+the table structure. It is very helpful for people using
+non-visual browsers. The scope and headers attributes for
+table cells are useful for specifying which headers apply
+to each table cell, enabling non-visual browsers to provide
+a meaningful context for each cell.
+
+For further advice on how to make your pages accessible
+see http://www.w3.org/WAI/GL.
+About HTML Tidy: https://github.com/htacg/tidy-html5
+Bug reports and comments: https://github.com/htacg/tidy-html5/issues
+Official mailing list: https://lists.w3.org/Archives/Public/public-htacg/
+Latest HTML specification: http://dev.w3.org/html5/spec-author-view/
+Validate your HTML documents: http://validator.w3.org/nu/
+Lobby your company to join the W3C: http://www.w3.org/Consortium
+
+Do you speak a language other than English, or a different variant of 
+English? Consider helping us to localize HTML Tidy. For details please see 
+https://github.com/htacg/tidy-html5/blob/master/README/LOCALIZE.md
