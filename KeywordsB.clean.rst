@@ -2,6 +2,12 @@
 Keywords B
 ==========
 
+TODO
+====
+
+- BASIC\_B% has URL #id1. Fix links properly for this one.
+- BASIC\_W% has URL #id2. Fix this also.
+
 BASIC
 =====
 

@@ -2,6 +2,15 @@
 Keywords B
 ==========
 
+TODO
+====
+
+- BASIC\_B% has URL #id1. Fix links properly for this one.
+- BASIC\_W% has URL #id2. Fix this also.
+- BAT$ has URL #id3. Fix it!
+- BEEP - Location is wrong. Table not properly formatted.
+- BIN$ is #id4.
+
 BASIC
 =====
 
@@ -35,12 +44,8 @@ are started up or removed from memory.
 
 **CROSS-REFERENCE**
 
-.. See `BASICP <KeywordsB.html#BASICP>`__ and
-
 See `BASICP <KeywordsB.clean.html#basicp>`__ and
-.. `BASIC\_W <KeywordsB.html#BASIC_W>`__.
-
-`BASIC\_W <KeywordsB.clean.html#basic_w>`__.
+`BASIC\_W <KeywordsB.clean.html#basic-w>`__.
 
 --------------
 
@@ -78,30 +83,16 @@ This suffers from the same problem as BASIC.
 
 **CROSS-REFERENCE**
 
-.. `BASIC\_B <KeywordsB.html#BASIC_B>`__,
+`BASIC\_B <KeywordsB.clean.html#basic-b>`__,
+`BASIC\_L <KeywordsB.clean.html#basic-l>`__,
+`BASIC\_W <KeywordsB.clean.html#basic-w>`__. See
+`NEW\_NAME <KeywordsN.clean.html#new-name>`__ for a useful example!
 
-`BASIC\_B <KeywordsB.clean.html#basic_b>`__,
-.. `BASIC\_L <KeywordsB.html#BASIC_L>`__,
-
-`BASIC\_L <KeywordsB.clean.html#basic_l>`__,
-.. `BASIC\_W <KeywordsB.html#BASIC_W>`__. See
-
-`BASIC\_W <KeywordsB.clean.html#basic_w>`__. See
-.. `NEW\_NAME <KeywordsN.html#NEW_NAME>`__ for a useful example!
-
-`NEW\_NAME <KeywordsN.clean.html#new_name>`__ for a useful example!
-
-.. `BASIC\_POINTER <KeywordsB.html#BASIC_POINTER>`__ is the same as this
-
-`BASIC\_POINTER <KeywordsB.clean.html#basic_pointer>`__ is the same as this
+`BASIC\_POINTER <KeywordsB.clean.html#basic-pointer>`__ is the same as this
 function.
 
-.. `\_NAME$ <Keywords_.html#_NAME$>`__ and
-
-`\_NAME$ <Keywords_.clean.html#_name$>`__ and
-.. `BASIC\_NAME$ <KeywordsB.html#BASIC_NAME$>`__ allow you to access the
-
-`BASIC\_NAME$ <KeywordsB.clean.html#basic_name$>`__ allow you to access the
+`\_NAME$ <Keywords_.clean.html#-name>`__ and
+`BASIC\_NAME$ <KeywordsB.clean.html#basic-name>`__ allow you to access the
 SuperBASIC name list safely.
 
 --------------
@@ -164,34 +155,16 @@ supports SMS SBASICs.
 
 **CROSS-REFERENCE**
 
-.. `PEEK <KeywordsP.html#PEEK>`__, `PEEK\_W <KeywordsP.html#PEEK_W>`__,
+`PEEK <KeywordsP.clean.html#peek>`__, `PEEK\_W <KeywordsP.clean.html#peek-w>`__,
+`PEEK\_L <KeywordsP.clean.html#peek-l>`__, `BASICP <KeywordsB.clean.html#basicp>`__.
 
-.. >`__, `PEEK\_W <KeywordsP.html#PEEK_W>`__,
+`BASIC\_B% <KeywordsB.clean.html#basic-b>`__, `BASIC\_W% <KeywordsB.clean.html#basic-w>`__,
+`BPEEK% <KeywordsB.clean.html#bpeek>`__,
+`BPEEK\_W <KeywordsB.clean.html#bpeek-w>`__\ % and
+`BPEEK\_L <KeywordsB.clean.html#bpeek-l>`__ are similar.
 
-`PEEK <KeywordsP.clean.html#peek>`__, `PEEK\_W <KeywordsP.clean.html#peek_w>`__,
-.. `PEEK\_L <KeywordsP.html#PEEK_L>`__, `BASICP <KeywordsB.html#BASICP>`__.
-
-.. >`__, `BASICP <KeywordsB.html#BASICP>`__.
-
-`PEEK\_L <KeywordsP.clean.html#peek_l>`__, `BASICP <KeywordsB.clean.html#basicp>`__.
-
-`BASIC\_B%, BASIC\_W%,
-.. BPEEK% <KeywordsB.html#BASIC_B%,%20BASIC_W%,%20BPEEK%>`__,
-
-BPEEK% <KeywordsB.clean.html#basic_b%,%20basic_w%,%20bpeek%>`__,
-.. `BPEEK\_W <KeywordsB.html#BPEEK_W>`__\ % and
-
-`BPEEK\_W <KeywordsB.clean.html#bpeek_w>`__\ % and
-.. `BPEEK\_L <KeywordsB.html#BPEEK_L>`__ are similar.
-
-`BPEEK\_L <KeywordsB.clean.html#bpeek_l>`__ are similar.
-
-.. See also `BASIC\_F <KeywordsB.html#BASIC_F>`__ and
-
-See also `BASIC\_F <KeywordsB.clean.html#basic_f>`__ and
-.. `PEEK\_F <KeywordsP.html#PEEK_F>`__.
-
-`PEEK\_F <KeywordsP.clean.html#peek_f>`__.
+See also `BASIC\_F <KeywordsB.clean.html#basic-f>`__ and
+`PEEK\_F <KeywordsP.clean.html#peek-f>`__.
 
 The SuperBASIC variables appear in the QDOS/SMS Reference Manual
 (Section 18.3)
@@ -233,17 +206,9 @@ supports SMS SBASICs.
 
 **CROSS-REFERENCE**
 
-.. Refer to `BASIC\_B <KeywordsB.html#BASIC_B>`__ and
-
-Refer to `BASIC\_B <KeywordsB.clean.html#basic_b>`__ and
-.. `BASIC\_W <KeywordsB.html#BASIC_W>`__.\ `PEEK\_F <KeywordsP.html#PEEK_F>`__
-
-.. >`__.\ `PEEK\_F <KeywordsP.html#PEEK_F>`__
-
-`BASIC\_W <KeywordsB.clean.html#basic_w>`__.\ `PEEK\_F <KeywordsP.clean.html#peek_f>`__
-.. is similar to `BASIC\_F <KeywordsB.html#BASIC_F>`__.
-
-is similar to `BASIC\_F <KeywordsB.clean.html#basic_f>`__.
+Refer to `BASIC\_B <KeywordsB.clean.html#basic-b>`__ and
+`BASIC\_W <KeywordsB.clean.html#basic-w>`__. `PEEK\_F <KeywordsP.clean.html#peek-f>`__
+is similar to `BASIC\_F <KeywordsB.clean.html#basic-f>`__.
 
 --------------
 
@@ -273,12 +238,8 @@ file supports SMS SBASICs.
 
 **CROSS-REFERENCE**
 
-.. Refer to `LOOKUP% <KeywordsL.html#LOOKUP%>`__ and
-
-Refer to `LOOKUP% <KeywordsL.clean.html#lookup%>`__ and
-.. `BASIC\_NAME$ <KeywordsB.html#BASIC_NAME$>`__.
-
-`BASIC\_NAME$ <KeywordsB.clean.html#basic_name$>`__.
+Refer to `LOOKUP% <KeywordsL.clean.html#lookup>`__ and
+`BASIC\_NAME$ <KeywordsB.clean.html#basic-name>`__.
 
 --------------
 
@@ -308,12 +269,8 @@ file supports SMS SBASICs.
 
 **CROSS-REFERENCE**
 
-.. Refer to `\_NAME$ <Keywords_.html#_NAME$>`__ and
-
-Refer to `\_NAME$ <Keywords_.clean.html#_name$>`__ and
-.. `BASIC\_INDEX% <KeywordsB.html#BASIC_INDEX%>`__.
-
-`BASIC\_INDEX% <KeywordsB.clean.html#basic_index%>`__.
+Refer to `\_NAME$ <Keywords_.clean.html#-name>`__ and
+`BASIC\_INDEX% <KeywordsB.clean.html#basic-index>`__.
 
 --------------
 
@@ -338,8 +295,6 @@ of this file supports SMS SBASICs.
 
 
 **CROSS-REFERENCE**
-
-.. Refer to `BASICP <KeywordsB.html#BASICP>`__.
 
 Refer to `BASICP <KeywordsB.clean.html#basicp>`__.
 
@@ -378,13 +333,9 @@ file supports SMS SBASICs.
 
 **CROSS-REFERENCE**
 
-.. `TYPE <KeywordsT.html#TYPE>`__ is similar.
-
 `TYPE <KeywordsT.clean.html#type>`__ is similar.
 
-.. See also `BASIC\_NAME$ <KeywordsB.html#BASIC_NAME$>`__.
-
-See also `BASIC\_NAME$ <KeywordsB.clean.html#basic_name$>`__.
+See also `BASIC\_NAME$ <KeywordsB.clean.html#basic-name>`__.
 
 --------------
 
@@ -405,13 +356,9 @@ redefined.
 
 **CROSS-REFERENCE**
 
-.. See `BAT\_USE <KeywordsB.html#BAT_USE>`__ for an example.
+See `BAT\_USE <KeywordsB.clean.html#bat-use>`__ for an example.
 
-See `BAT\_USE <KeywordsB.clean.html#bat_use>`__ for an example.
-
-.. Refer to `TYPE\_IN <KeywordsT.html#TYPE_IN>`__ also.
-
-Refer to `TYPE\_IN <KeywordsT.clean.html#type_in>`__ also.
+Refer to `TYPE\_IN <KeywordsT.clean.html#type-in>`__ also.
 
 --------------
 
@@ -430,11 +377,7 @@ with the BAT\_USE command.
 
 **CROSS-REFERENCE**
 
-.. See `BAT\_USE <KeywordsB.html#BAT_USE>`__ and
-
-See `BAT\_USE <KeywordsB.clean.html#bat_use>`__ and
-.. `BAT <KeywordsB.html#BAT>`__ for more details.
-
+See `BAT\_USE <KeywordsB.clean.html#bat-use>`__ and
 `BAT <KeywordsB.clean.html#bat>`__ for more details.
 
 --------------
@@ -465,24 +408,12 @@ The command BAT will now reset the standard start-up windows.
 
 **CROSS-REFERENCE**
 
-.. `BAT <KeywordsB.html#BAT>`__ executes the batch string set with
-
 `BAT <KeywordsB.clean.html#bat>`__ executes the batch string set with
-.. `BAT\_USE <KeywordsB.html#BAT_USE>`__.
-
-`BAT\_USE <KeywordsB.clean.html#bat_use>`__.
+`BAT\_USE <KeywordsB.clean.html#bat-use>`__.
 
 See
-.. `FORCE\_TYPE <KeywordsF.html#FORCE_TYPE>`__,\ `STAMP <KeywordsS.html#STAMP>`__
-
-.. >`__,\ `STAMP <KeywordsS.html#STAMP>`__
-
-`FORCE\_TYPE <KeywordsF.clean.html#force_type>`__,\ `STAMP <KeywordsS.clean.html#stamp>`__
-.. and `TYPE\_IN <KeywordsT.html#TYPE_IN>`__ also.
-
-and `TYPE\_IN <KeywordsT.clean.html#type_in>`__ also.
-
-.. `DO <KeywordsD.html#DO>`__ allows batch files of any size to be
+`FORCE\_TYPE <KeywordsF.clean.html#force-type>`__,\ `STAMP <KeywordsS.clean.html#stamp>`__
+and `TYPE\_IN <KeywordsT.clean.html#type-in>`__ also.
 
 `DO <KeywordsD.clean.html#do>`__ allows batch files of any size to be
 executed.
@@ -746,17 +677,11 @@ then the BAUD command will not affect that port.
 **CROSS-REFERENCE**
 
 The Devices Appendix supplies details about the serial device ser and
-.. parallel device par. `SER\_ <KeywordsS.html#SER>`__ ... and
-
 parallel device par. `SER\_ <KeywordsS.clean.html#ser>`__ ... and
-.. `PAR\_ <KeywordsP.html#PAR>`__ ... commands allow you to set various
-
 `PAR\_ <KeywordsP.clean.html#par>`__ ... commands allow you to set various
 other parameters for serial and parallel ports.
 
 You can check the current baud rate setting with
-.. `BAUDRATE <KeywordsB.html#BAUDRATE>`__.
-
 `BAUDRATE <KeywordsB.clean.html#baudrate>`__.
 
 --------------
@@ -775,8 +700,6 @@ used on any newly opened serial port channel.
 
 
 **CROSS-REFERENCE**
-
-.. The system's baud rate is set with `BAUD <KeywordsB.html#BAUD>`__.
 
 The system's baud rate is set with `BAUD <KeywordsB.clean.html#baud>`__.
 
@@ -837,11 +760,7 @@ that disk (y/n) ?"
 **CROSS-REFERENCE**
 
 The current keyboard queue can be selected by a dummy
-.. `INKEY$ <KeywordsI.html#INKEY$>`__ or `PEND <KeywordsP.html#PEND>`__.
-
-.. >`__ or `PEND <KeywordsP.html#PEND>`__.
-
-`INKEY$ <KeywordsI.clean.html#inkey$>`__ or `PEND <KeywordsP.clean.html#pend>`__.
+`INKEY$ <KeywordsI.clean.html#inkey>`__ or `PEND <KeywordsP.clean.html#pend>`__.
 
 --------------
 
@@ -976,12 +895,8 @@ replacement co-processor Hermes.
 
 **CROSS-REFERENCE**
 
-.. `BEEPING <KeywordsB.html#BEEPING>`__ allows you to check if a sound is
-
 `BEEPING <KeywordsB.clean.html#beeping>`__ allows you to check if a sound is
 currently being emitted.
-
-.. `PAUSE <KeywordsP.html#PAUSE>`__ allows you to specify a time interval
 
 `PAUSE <KeywordsP.clean.html#pause>`__ allows you to specify a time interval
 during which the computer will wait (allowing you to play much longer
@@ -1027,8 +942,6 @@ This function did not work correctly on Minerva before v1.98.
 
 **CROSS-REFERENCE**
 
-.. `BEEP <KeywordsB.html#BEEP>`__ activates the speaker.
-
 `BEEP <KeywordsB.clean.html#beep>`__ activates the speaker.
 
 --------------
@@ -1047,13 +960,7 @@ This command produces the sound of a ringing phone.
 
 **CROSS-REFERENCE**
 
-.. `SND\_EXT <KeywordsS.html#SND_EXT>`__, `SHOOT <KeywordsS.html#SHOOT>`__,
-
-.. >`__, `SHOOT <KeywordsS.html#SHOOT>`__,
-
-`SND\_EXT <KeywordsS.clean.html#snd_ext>`__, `SHOOT <KeywordsS.clean.html#shoot>`__,
-.. `EXPLODE <KeywordsE.html#EXPLODE>`__.
-
+`SND\_EXT <KeywordsS.clean.html#snd-ext>`__, `SHOOT <KeywordsS.clean.html#shoot>`__,
 `EXPLODE <KeywordsE.clean.html#explode>`__.
 
 --------------
@@ -1084,17 +991,11 @@ the toolkit is loaded). This may crash the system.
 
 **CROSS-REFERENCE**
 
-.. `TK2\_EXT <KeywordsT.html#TK2_EXT>`__ and
-
-`TK2\_EXT <KeywordsT.clean.html#tk2_ext>`__ and
-.. `TINY\_EXT <KeywordsT.html#TINY_EXT>`__ do the same for Toolkit II and
-
-`TINY\_EXT <KeywordsT.clean.html#tiny_ext>`__ do the same for Toolkit II and
+`TK2\_EXT <KeywordsT.clean.html#tk2-ext>`__ and
+`TINY\_EXT <KeywordsT.clean.html#tiny-ext>`__ do the same for Toolkit II and
 TinyToolkit keywords.
 
-.. See also `ATARI\_EXT <KeywordsA.html#ATARI_EXT>`__.
-
-See also `ATARI\_EXT <KeywordsA.clean.html#atari_ext>`__.
+See also `ATARI\_EXT <KeywordsA.clean.html#atari-ext>`__.
 
 --------------
 
@@ -1127,16 +1028,10 @@ BGCOLOUR\_QL 2,7 - sets a red and white checkerboard pattern.
 
 **CROSS-REFERENCE**
 
-.. Refer to Appendix 16 and `INK <KeywordsI.html#INK>`__ for more details
-
 Refer to Appendix 16 and `INK <KeywordsI.clean.html#ink>`__ for more details
 on colours.
 
-.. `BGCOLOUR\_24 <KeywordsB.html#BGCOLOUR_24>`__ is similar.
-
-`BGCOLOUR\_24 <KeywordsB.clean.html#bgcolour_24>`__ is similar.
-
-.. `BGIMAGE <KeywordsB.html#BGIMAGE>`__ may be used to set a screen image
+`BGCOLOUR\_24 <KeywordsB.clean.html#bgcolour-24>`__ is similar.
 
 `BGIMAGE <KeywordsB.clean.html#bgimage>`__ may be used to set a screen image
 as the wallpaper.
@@ -1171,16 +1066,10 @@ and Shocking Pink.
 
 **CROSS-REFERENCE**
 
-.. Refer to Appendix 16 and `INK <KeywordsI.html#INK>`__ for more details
-
 Refer to Appendix 16 and `INK <KeywordsI.clean.html#ink>`__ for more details
 on colours.
 
-.. `BGCOLOUR\_QL <KeywordsB.html#BGCOLOUR_QL>`__ gives more detail.
-
-`BGCOLOUR\_QL <KeywordsB.clean.html#bgcolour_ql>`__ gives more detail.
-
-.. `BGIMAGE <KeywordsB.html#BGIMAGE>`__ may be used to set a screen image
+`BGCOLOUR\_QL <KeywordsB.clean.html#bgcolour-ql>`__ gives more detail.
 
 `BGIMAGE <KeywordsB.clean.html#bgimage>`__ may be used to set a screen image
 as the wallpaper.
@@ -1248,30 +1137,14 @@ the sub-string would not be valid!!
 
 **CROSS-REFERENCE**
 
-.. See `BPUT <KeywordsB.html#BPUT>`__, `PUT <KeywordsP.html#PUT>`__,
-
-.. >`__, `PUT <KeywordsP.html#PUT>`__,
-
 See `BPUT <KeywordsB.clean.html#bput>`__, `PUT <KeywordsP.clean.html#put>`__,
-.. `GET <KeywordsG.html#GET>`__. `FPOS <KeywordsF.html#FPOS>`__ allows you
-
-.. >`__. `FPOS <KeywordsF.html#FPOS>`__ allows you
-
 `GET <KeywordsG.clean.html#get>`__. `FPOS <KeywordsF.clean.html#fpos>`__ allows you
 to find out the current file position.
-.. `TRUNCATE <KeywordsT.html#TRUNCATE>`__ allows you to truncate a file to
-
 `TRUNCATE <KeywordsT.clean.html#truncate>`__ allows you to truncate a file to
-.. the current file position. `PEEK <KeywordsP.html#PEEK>`__ fetches one
-
 the current file position. `PEEK <KeywordsP.clean.html#peek>`__ fetches one
 byte from memory.
 
-.. `OPEN\_DIR <KeywordsO.html#OPEN_DIR>`__ contains an example of the use
-
-`OPEN\_DIR <KeywordsO.clean.html#open_dir>`__ contains an example of the use
-.. of `BGET <KeywordsB.html#BGET>`__.
-
+`OPEN\_DIR <KeywordsO.clean.html#open-dir>`__ contains an example of the use
 of `BGET <KeywordsB.clean.html#bget>`__.
 
 --------------
@@ -1310,23 +1183,15 @@ when the screen was saved will result in a corrupt image.
 
 **CROSS-REFERENCE**
 
-.. `SBYTES <KeywordsS.html#SBYTES>`__ gives details on how to store a
-
 `SBYTES <KeywordsS.clean.html#sbytes>`__ gives details on how to store a
 screen on disk.
 
 In many ways, this command is similar to
-.. `LOADPIC <KeywordsL.html#LOADPIC>`__, except that it caters for
-
 `LOADPIC <KeywordsL.clean.html#loadpic>`__, except that it caters for
 non-standard QL resolutions and colour depths.
 
-.. `BGCOLOUR\_QL <KeywordsB.html#BGCOLOUR_QL>`__ and
-
-`BGCOLOUR\_QL <KeywordsB.clean.html#bgcolour_ql>`__ and
-.. `BGCOLOUR\_24 <KeywordsB.html#BGCOLOUR_24>`__ can be used to set a
-
-`BGCOLOUR\_24 <KeywordsB.clean.html#bgcolour_24>`__ can be used to set a
+`BGCOLOUR\_QL <KeywordsB.clean.html#bgcolour-ql>`__ and
+`BGCOLOUR\_24 <KeywordsB.clean.html#bgcolour-24>`__ can be used to set a
 single colour wallpaper.
 
 --------------
@@ -1352,13 +1217,7 @@ It will only work on a standard 512x256 screen stored at $20000.
 
 **CROSS-REFERENCE**
 
-.. `SDUMP <KeywordsS.html#SDUMP>`__ is more flexible.
-
 `SDUMP <KeywordsS.clean.html#sdump>`__ is more flexible.
-
-.. See also `HCO <KeywordsH.html#HCO>`__ and `FCO <KeywordsF.html#FCO>`__.
-
-.. >`__ and `FCO <KeywordsF.html#FCO>`__.
 
 See also `HCO <KeywordsH.clean.html#hco>`__ and `FCO <KeywordsF.clean.html#fco>`__.
 
@@ -1416,26 +1275,14 @@ Any digit other than 0 or 1 will produce odd results.
 
 **CROSS-REFERENCE**
 
-.. `BIN$ <KeywordsB.html#BIN$>`__ works the other way around, converting
-
-`BIN$ <KeywordsB.clean.html#bin$>`__ works the other way around, converting
+`BIN$ <KeywordsB.clean.html#bin>`__ works the other way around, converting
 decimal numbers into their binary equivalent. See
-.. `HEX <KeywordsH.html#HEX>`__ and `HEX$ <KeywordsH.html#HEX$>`__ for the
-
-.. >`__ and `HEX$ <KeywordsH.html#HEX$>`__ for the
-
-`HEX <KeywordsH.clean.html#hex>`__ and `HEX$ <KeywordsH.clean.html#hex$>`__ for the
-.. hexadecimal versions. `BIT% <KeywordsB.html#BIT%>`__ is also useful.
-
-hexadecimal versions. `BIT% <KeywordsB.clean.html#bit%>`__ is also useful.
+`HEX <KeywordsH.clean.html#hex>`__ and `HEX$ <KeywordsH.clean.html#hex>`__ for the
+hexadecimal versions. `BIT% <KeywordsB.clean.html#bit>`__ is also useful.
 
 SMS users can achieve the same thing by using, for example `PRINT
-.. %1001 <KeywordsP.html#PRINT%20%1001>`__ instead of `PRINT BIN
-
-%1001 <KeywordsP.clean.html#print%20%1001>`__ instead of `PRINT BIN
-.. ('1001') <KeywordsP.html#PRINT%20BIN%20('1001')>`__.
-
-('1001') <KeywordsP.clean.html#print%20bin%20('1001')>`__.
+%1001 <KeywordsP.clean.html#print201001>`__ instead of `PRINT BIN
+('1001') <KeywordsP.clean.html#print20bin20('1001')>`__.
 
 --------------
 
@@ -1497,17 +1344,9 @@ than on v6.41 of the THOR XVI.
 
 **CROSS-REFERENCE**
 
-.. See `BIN <KeywordsB.html#BIN>`__ and `HEX <KeywordsH.html#HEX>`__,
-
-.. >`__ and `HEX <KeywordsH.html#HEX>`__,
-
 See `BIN <KeywordsB.clean.html#bin>`__ and `HEX <KeywordsH.clean.html#hex>`__,
-.. `HEX$ <KeywordsH.html#HEX$>`__. Also refer to
-
-`HEX$ <KeywordsH.clean.html#hex$>`__. Also refer to
-.. `BIT% <KeywordsB.html#BIT%>`__.
-
-`BIT% <KeywordsB.clean.html#bit%>`__.
+`HEX$ <KeywordsH.clean.html#hex>`__. Also refer to
+`BIT% <KeywordsB.clean.html#bit>`__.
 
 --------------
 
@@ -1563,19 +1402,11 @@ BINOM (n,k) = BINOM (n,n-k) which saves half of the loops:
 
 **CROSS-REFERENCE**
 
-.. `FACT <KeywordsF.html#FACT>`__
-
 `FACT <KeywordsF.clean.html#fact>`__
 
-.. ` <KeywordsF.html#FACT>`__
-
 ` <KeywordsF.clean.html#fact>`__
 
-.. ` <KeywordsF.html#FACT>`__
-
 ` <KeywordsF.clean.html#fact>`__
-
-.. ` <KeywordsF.html#FACT>`__
 
 ` <KeywordsF.clean.html#fact>`__
 
@@ -1645,20 +1476,12 @@ set.
 
 **CROSS-REFERENCE**
 
-.. `BIN$ <KeywordsB.html#BIN$>`__ also converts a decimal number to a
-
-`BIN$ <KeywordsB.clean.html#bin$>`__ also converts a decimal number to a
-.. binary and `BIN <KeywordsB.html#BIN>`__ back again.
-
+`BIN$ <KeywordsB.clean.html#bin>`__ also converts a decimal number to a
 binary and `BIN <KeywordsB.clean.html#bin>`__ back again.
-.. `UPPER$ <KeywordsU.html#UPPER$>`__ returns a string in upper characters.
-
-`UPPER$ <KeywordsU.clean.html#upper$>`__ returns a string in upper characters.
+`UPPER$ <KeywordsU.clean.html#upper>`__ returns a string in upper characters.
 
 The length of a number x in binary form is `INT (LOG2 (ABS
-.. (x))+1) <KeywordsI.html#INT%20(LOG2%20(ABS%20(x))+1)>`__.
-
-(x))+1) <KeywordsI.clean.html#int%20(log2%20(abs%20(x))+1)>`__.
+(x))+1) <KeywordsI.clean.html#int20(log220(abs20(x))+1)>`__.
 
 --------------
 
@@ -1684,43 +1507,13 @@ LPRINT "I " & BLD&"hate"&NRM & " these functions."
 
 **CROSS-REFERENCE**
 
-.. `NORM <KeywordsN.html#NORM>`__, `EL <KeywordsE.html#EL>`__,
-
-.. >`__, `EL <KeywordsE.html#EL>`__,
-
 `NORM <KeywordsN.clean.html#norm>`__, `EL <KeywordsE.clean.html#el>`__,
-.. `DBL <KeywordsD.html#DBL>`__, `ENL <KeywordsE.html#ENL>`__,
-
-.. >`__, `ENL <KeywordsE.html#ENL>`__,
-
 `DBL <KeywordsD.clean.html#dbl>`__, `ENL <KeywordsE.clean.html#enl>`__,
-.. `PRO <KeywordsP.html#PRO>`__, `SI <KeywordsS.html#SI>`__,
-
-.. >`__, `SI <KeywordsS.html#SI>`__,
-
 `PRO <KeywordsP.clean.html#pro>`__, `SI <KeywordsS.clean.html#si>`__,
-.. `NRM <KeywordsN.html#NRM>`__, `UNL <KeywordsU.html#UNL>`__,
-
-.. >`__, `UNL <KeywordsU.html#UNL>`__,
-
 `NRM <KeywordsN.clean.html#nrm>`__, `UNL <KeywordsU.clean.html#unl>`__,
-.. `ALT <KeywordsA.html#ALT>`__, `ESC <KeywordsE.html#ESC>`__,
-
-.. >`__, `ESC <KeywordsE.html#ESC>`__,
-
 `ALT <KeywordsA.clean.html#alt>`__, `ESC <KeywordsE.clean.html#esc>`__,
-.. `FF <KeywordsF.html#FF>`__, `LMAR <KeywordsL.html#LMAR>`__,
-
-.. >`__, `LMAR <KeywordsL.html#LMAR>`__,
-
 `FF <KeywordsF.clean.html#ff>`__, `LMAR <KeywordsL.clean.html#lmar>`__,
-.. `RMAR <KeywordsR.html#RMAR>`__, `PAGDIS <KeywordsP.html#PAGDIS>`__,
-
-.. >`__, `PAGDIS <KeywordsP.html#PAGDIS>`__,
-
 `RMAR <KeywordsR.clean.html#rmar>`__, `PAGDIS <KeywordsP.clean.html#pagdis>`__,
-.. `PAGLEN <KeywordsP.html#PAGLEN>`__.
-
 `PAGLEN <KeywordsP.clean.html#paglen>`__.
 
 --------------
@@ -1811,8 +1604,6 @@ BLOCK 180,1,0,255,7
 
 **CROSS-REFERENCE**
 
-.. `INK <KeywordsI.html#INK>`__ contains information concerning composite
-
 `INK <KeywordsI.clean.html#ink>`__ contains information concerning composite
 colours.
 
@@ -1852,9 +1643,7 @@ Pressing a key or moving the mouse will reactivate the screen.
 
 **CROSS-REFERENCE**
 
-.. See `A\_BLANK <KeywordsA.html#A_BLANK>`__.
-
-See `A\_BLANK <KeywordsA.clean.html#a_blank>`__.
+See `A\_BLANK <KeywordsA.clean.html#a-blank>`__.
 
 --------------
 
@@ -1893,32 +1682,16 @@ to crash.
 
 **CROSS-REFERENCE**
 
-.. It is a good idea to check with `VER$ <KeywordsV.html#VER$>`__ if
-
-It is a good idea to check with `VER$ <KeywordsV.clean.html#ver$>`__ if
+It is a good idea to check with `VER$ <KeywordsV.clean.html#ver>`__ if
 Minerva is present and use its extremely fast MM.MOVE machine code trap
-.. via `CALL <KeywordsC.html#CALL>`__ as an alternative to
-
 via `CALL <KeywordsC.clean.html#call>`__ as an alternative to
-.. `BMOVE <KeywordsB.html#BMOVE>`__; this is demonstrated by the example at
-
 `BMOVE <KeywordsB.clean.html#bmove>`__; this is demonstrated by the example at
-.. `LDRAW <KeywordsL.html#LDRAW>`__.
-
 `LDRAW <KeywordsL.clean.html#ldraw>`__.
 
-.. `COPY\_B <KeywordsC.html#COPY_B>`__,
-
-`COPY\_B <KeywordsC.clean.html#copy_b>`__,
-.. `TTPOKEM <KeywordsT.html#TTPOKEM>`__,
-
+`COPY\_B <KeywordsC.clean.html#copy-b>`__,
 `TTPOKEM <KeywordsT.clean.html#ttpokem>`__,
-.. `COPY\_W <KeywordsC.html#COPY_W>`__ and
-
-`COPY\_W <KeywordsC.clean.html#copy_w>`__ and
-.. `COPY\_L <KeywordsC.html#COPY_L>`__ also allow you to move memory.
-
-`COPY\_L <KeywordsC.clean.html#copy_l>`__ also allow you to move memory.
+`COPY\_W <KeywordsC.clean.html#copy-w>`__ and
+`COPY\_L <KeywordsC.clean.html#copy-l>`__ also allow you to move memory.
 
 --------------
 
@@ -2008,11 +1781,7 @@ The second syntax will not work on Minerva (pre v1.79) and the THOR XVI
 
 **CROSS-REFERENCE**
 
-.. `INK <KeywordsI.html#INK>`__ describes composite colours.
-
 `INK <KeywordsI.clean.html#ink>`__ describes composite colours.
-
-.. Also see `WINDOW <KeywordsW.html#WINDOW>`__.
 
 Also see `WINDOW <KeywordsW.clean.html#window>`__.
 
@@ -2045,14 +1814,8 @@ on a Multiple BASIC interpreter.
 
 **CROSS-REFERENCE**
 
-.. See `BASIC\_W <KeywordsB.html#BASIC_W>`__ and
-
-See `BASIC\_W <KeywordsB.clean.html#basic_w>`__ and
-.. `BASIC <KeywordsB.html#BASIC>`__.
-
+See `BASIC\_W <KeywordsB.clean.html#basic-w>`__ and
 `BASIC <KeywordsB.clean.html#basic>`__.
-
-.. `BPOKE <KeywordsB.html#BPOKE>`__ and related commands allow you to alter
 
 `BPOKE <KeywordsB.clean.html#bpoke>`__ and related commands allow you to alter
 the values of the SuperBASIC variables.
@@ -2087,13 +1850,9 @@ interpreter.
 
 **CROSS-REFERENCE**
 
-.. See `POKE <KeywordsP.html#POKE>`__.
-
 See `POKE <KeywordsP.clean.html#poke>`__.
 
-.. `BPEEK% <KeywordsB.html#BPEEK%>`__ and related commands allow you to
-
-`BPEEK% <KeywordsB.clean.html#bpeek%>`__ and related commands allow you to
+`BPEEK% <KeywordsB.clean.html#bpeek>`__ and related commands allow you to
 read the values of the SuperBASIC variables.
 
 --------------
@@ -2163,40 +1922,18 @@ is equivalent to: BPUT #2,72,101,108,108,111
 
 **CROSS-REFERENCE**
 
-.. See `FGETB <KeywordsF.html#FGETB>`__, `BPUT <KeywordsB.html#BPUT>`__,
-
-.. >`__, `BPUT <KeywordsB.html#BPUT>`__,
-
 See `FGETB <KeywordsF.clean.html#fgetb>`__, `BPUT <KeywordsB.clean.html#bput>`__,
-.. `PUT <KeywordsP.html#PUT>`__, `GET <KeywordsG.html#GET>`__,
-
-.. >`__, `GET <KeywordsG.html#GET>`__,
-
 `PUT <KeywordsP.clean.html#put>`__, `GET <KeywordsG.clean.html#get>`__,
-.. `LPUT <KeywordsL.html#LPUT>`__, `UPUT <KeywordsU.html#UPUT>`__ and
-
-.. >`__, `UPUT <KeywordsU.html#UPUT>`__ and
-
 `LPUT <KeywordsL.clean.html#lput>`__, `UPUT <KeywordsU.clean.html#uput>`__ and
-.. `WPUT <KeywordsW.html#WPUT>`__.
-
 `WPUT <KeywordsW.clean.html#wput>`__.
-
-.. `FPOS <KeywordsF.html#FPOS>`__ allows you to find the current file
 
 `FPOS <KeywordsF.clean.html#fpos>`__ allows you to find the current file
 position.
 
-.. `TRUNCATE <KeywordsT.html#TRUNCATE>`__ allows you to truncate a file to
-
 `TRUNCATE <KeywordsT.clean.html#truncate>`__ allows you to truncate a file to
 the current file position.
 
-.. `PEEK <KeywordsP.html#PEEK>`__ fetches one byte from memory.
-
 `PEEK <KeywordsP.clean.html#peek>`__ fetches one byte from memory.
-
-.. `UPUT <KeywordsU.html#UPUT>`__ allows you to send bytes without them
 
 `UPUT <KeywordsU.clean.html#uput>`__ allows you to send bytes without them
 being translated.
@@ -2247,12 +1984,8 @@ BREAK\_OFF does not currently work with SMS.
 
 **CROSS-REFERENCE**
 
-.. `STOP <KeywordsS.html#STOP>`__ terminates interpreted programs even if
-
 `STOP <KeywordsS.clean.html#stop>`__ terminates interpreted programs even if
 the Break Key is disabled. Do not confuse with the command
-.. `BREAK <KeywordsB.html#BREAK>`__.
-
 `BREAK <KeywordsB.clean.html#break>`__.
 
 --------------
@@ -2306,21 +2039,11 @@ This command does not work under SMS.
 
 **CROSS-REFERENCE**
 
-.. See also `BREAK% <KeywordsB.html#BREAK%>`__,
-
-See also `BREAK% <KeywordsB.clean.html#break%>`__,
-.. `FREEZE <KeywordsF.html#FREEZE>`__ and
-
+See also `BREAK% <KeywordsB.clean.html#break>`__,
 `FREEZE <KeywordsF.clean.html#freeze>`__ and
-.. `FREEZE% <KeywordsF.html#FREEZE%>`__.
-
-`FREEZE% <KeywordsF.clean.html#freeze%>`__.
-
-.. Do not confuse BTool's command `BREAK <KeywordsB.html#BREAK>`__ with
+`FREEZE% <KeywordsF.clean.html#freeze>`__.
 
 Do not confuse BTool's command `BREAK <KeywordsB.clean.html#break>`__ with
-.. TinyToolkit's function `BREAK <KeywordsB.html#BREAK>`__ (although you
-
 TinyToolkit's function `BREAK <KeywordsB.clean.html#break>`__ (although you
 can use both in the same program!)
 
@@ -2340,8 +2063,6 @@ key is enabled, either ON or OFF.
 
 
 **CROSS-REFERENCE**
-
-.. See `BREAK <KeywordsB.html#BREAK>`__!!
 
 See `BREAK <KeywordsB.clean.html#break>`__!!
 
@@ -2367,8 +2088,6 @@ BTool\_EXT will hang SuperBASIC if the BTool Toolkit has been loaded
 into the common heap - this is most likely to happen on later versions
 of Toolkit II where LRESPR uses the common heap if jobs are running. Try
 LINKUP instead.
-
-.. See also `KILL <KeywordsK.html#KILL>`__ which removes all current jobs.
 
 See also `KILL <KeywordsK.clean.html#kill>`__ which removes all current jobs.
 
@@ -2412,30 +2131,14 @@ know what you are doing!
 
 **CROSS-REFERENCE**
 
-.. See `IO\_TRAP <KeywordsI.html#IO_TRAP>`__,
-
-See `IO\_TRAP <KeywordsI.clean.html#io_trap>`__,
-.. `MTRAP <KeywordsM.html#MTRAP>`__ and `QTRAP <KeywordsQ.html#QTRAP>`__.
-
-.. >`__ and `QTRAP <KeywordsQ.html#QTRAP>`__.
-
+See `IO\_TRAP <KeywordsI.clean.html#io-trap>`__,
 `MTRAP <KeywordsM.clean.html#mtrap>`__ and `QTRAP <KeywordsQ.clean.html#qtrap>`__.
 
 Any return parameters can be read with
-.. `DATAREG <KeywordsD.html#DATAREG>`__ and
-
 `DATAREG <KeywordsD.clean.html#datareg>`__ and
-.. `ADDREG <KeywordsA.html#ADDREG>`__.
-
 `ADDREG <KeywordsA.clean.html#addreg>`__.
 
-.. `CLS <KeywordsC.html#CLS>`__, `PAN <KeywordsP.html#PAN>`__ and
-
-.. >`__, `PAN <KeywordsP.html#PAN>`__ and
-
 `CLS <KeywordsC.clean.html#cls>`__, `PAN <KeywordsP.clean.html#pan>`__ and
-.. `SCROLL <KeywordsS.html#SCROLL>`__ can also be used to call TRAP #3.
-
 `SCROLL <KeywordsS.clean.html#scroll>`__ can also be used to call TRAP #3.
 
 Refer to the QDOS/SMS Reference Manual (Section 15) for details of the
@@ -2493,14 +2196,8 @@ at the same time:
     
 **CROSS-REFERENCE**
 
-.. `X\_PTR% <KeywordsX.html#X_PTR%>`__, `Y\_PTR% <KeywordsY.html#Y_PTR%>`__
-
-.. >`__, `Y\_PTR% <KeywordsY.html#Y_PTR%>`__
-
-`X\_PTR% <KeywordsX.clean.html#x_ptr%>`__, `Y\_PTR% <KeywordsY.clean.html#y_ptr%>`__
-.. and `PTR\_FN% <KeywordsP.html#PTR_FN%>`__ can also be used to
-
-and `PTR\_FN% <KeywordsP.clean.html#ptr_fn%>`__ can also be used to
+`X\_PTR% <KeywordsX.clean.html#x-ptr>`__, `Y\_PTR% <KeywordsY.clean.html#y-ptr>`__
+and `PTR\_FN% <KeywordsP.clean.html#ptr-fn>`__ can also be used to
 interrogate the mouse.
 
 --------------

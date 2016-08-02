@@ -54,7 +54,8 @@ try_again:
 
         if ((posBackTick != string::npos) && (posKeywords != string::npos) && (posHtmlHash != string::npos)) {
             // We have a link. Output current line as a comment.
-            cout << ".. " << a_line << endl << endl;
+            // Only for debugging. It interferes if we do it for live.
+            // cout << ".. " << a_line << endl << endl;
 
             // Copy everything up to the backtick to the output buffer. Then
             // add "clean." and then the "html#".
@@ -72,8 +73,22 @@ try_again:
 
             // Lowercase the anchor name. If we don't then links don't work
             // as they only link to the html file, not to the actual anchor.
+            // Underscores too get replaced by hyphens.
             for (size_t x = posHtmlHash + 5; x < posTerminator; x++) {
                 char c = tolower(a_line.at(x));
+                
+                // Amend any special chracters we need to fixup.
+                if (c == '_') 
+					c = '-';
+				
+				// Delete any specials that are ignored. This might
+				// be fun - BASIC_W and BASIC_W% for example. Problem,
+				// If BASIC_W gets URL #basic-w, BASIC_W% gets #id2. 
+				// Hmmm!	
+				if (c == '$' || c == '%')
+						continue;
+				
+				// And add the modified character to the buffer.	
                 buffer += c;
             }
 
