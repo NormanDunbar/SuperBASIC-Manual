@@ -39,9 +39,13 @@ fi
 # Pipe through fixHeadings too to do the headings. And other
 # stuff as well.
 #
+# Then pipe into fixLinks to convert all URLs from something
+# like <KeywordsX.html#XXXX> to <KeywoprdsX.clean.html#xxxx>
+# where we add ".clean'" and lowercase the anchor.
+#
 # Which while they are not perfect, it does save a huge amount
 # of typing. These assume that the tools folder is on $PATH.
-fixSyntax < "${TMP}" | fixHeadings > "${RST}" && rm "${TMP}"
+fixSyntax < "${TMP}" | fixHeadings | fixLinks > "${RST}" && rm "${TMP}"
 
 
 # All done. Sort of. Need to go manual now.

@@ -85,15 +85,9 @@ For example, to calculate the length of a diagonal in a standard cube
 
 **CROSS-REFERENCE**
 
-.. See `SGN <KeywordsS.html#SGN>`__ and `SGN% <KeywordsS.html#SGN%>`__ for
-
-.. >`__ and `SGN% <KeywordsS.html#SGN%>`__ for
-
-See `SGN <KeywordsS.clean.html#sgn>`__ and `SGN% <KeywordsS.clean.html#sgn%>`__ for
+See `SGN <KeywordsS.html#SGN>`__ and `SGN% <KeywordsS.html#SGN%>`__ for
 similar machine code versions of our example function
-.. `SIGN% <KeywordsS.html#SIGN%>`__.
-
-`SIGN% <KeywordsS.clean.html#sign%>`__.
+`SIGN% <KeywordsS.html#SIGN%>`__.
 
 --------------
 
@@ -133,14 +127,10 @@ attached to the Atari ST.
 
 **CROSS-REFERENCE**
 
-.. `ACCEL\_OFF <KeywordsA.html#ACCEL_OFF>`__ turns off the 16MHz mode (if
-
-`ACCEL\_OFF <KeywordsA.clean.html#accel_off>`__ turns off the 16MHz mode (if
+`ACCEL\_OFF <KeywordsA.html#ACCEL_OFF>`__ turns off the 16MHz mode (if
 possible) and also tells the accelerator board that it should no longer
 use its memory cache. Also see
-.. `ACCEL\_SET <KeywordsA.html#ACCEL_SET>`__.
-
-`ACCEL\_SET <KeywordsA.clean.html#accel_set>`__.
+`ACCEL\_SET <KeywordsA.html#ACCEL_SET>`__.
 
 --------------
 
@@ -185,15 +175,9 @@ printer board - use the command PAR\_PULSE.
 
 **CROSS-REFERENCE**
 
-.. See also `ACCEL\_ON <KeywordsA.html#ACCEL_ON>`__,
-
-See also `ACCEL\_ON <KeywordsA.clean.html#accel_on>`__,
-.. `ACCEL\_OFF <KeywordsA.html#ACCEL_OFF>`__ and
-
-`ACCEL\_OFF <KeywordsA.clean.html#accel_off>`__ and
-.. `ACCEL\_STATE <KeywordsA.html#ACCEL_STATE>`__.
-
-`ACCEL\_STATE <KeywordsA.clean.html#accel_state>`__.
+See also `ACCEL\_ON <KeywordsA.html#ACCEL_ON>`__,
+`ACCEL\_OFF <KeywordsA.html#ACCEL_OFF>`__ and
+`ACCEL\_STATE <KeywordsA.html#ACCEL_STATE>`__.
 
 --------------
 
@@ -211,9 +195,7 @@ that an accelerator board is enabled. Otherwise, it returns the value 0.
 
 **CROSS-REFERENCE**
 
-.. `ACCEL\_SET <KeywordsA.html#ACCEL_SET>`__ tells the Emulator that an
-
-`ACCEL\_SET <KeywordsA.clean.html#accel_set>`__ tells the Emulator that an
+`ACCEL\_SET <KeywordsA.html#ACCEL_SET>`__ tells the Emulator that an
 accelerator board is enabled.
 
 --------------
@@ -239,17 +221,11 @@ ACOPY flp1\_PROGRAM\_BAS, "flp2\_PROGRAM.BAS"
 
 **CROSS-REFERENCE**
 
-.. `QCOPY <KeywordsQ.html#QCOPY>`__ copies a file from an Atari disk to a
-
-`QCOPY <KeywordsQ.clean.html#qcopy>`__ copies a file from an Atari disk to a
+`QCOPY <KeywordsQ.html#QCOPY>`__ copies a file from an Atari disk to a
 QL disk.
 
-.. See `AFORMAT <KeywordsA.html#AFORMAT>`__ and
-
-See `AFORMAT <KeywordsA.clean.html#aformat>`__ and
-.. `QACONVERT <KeywordsA.html#QACONVERT>`__.
-
-`QACONVERT <KeywordsA.clean.html#qaconvert>`__.
+See `AFORMAT <KeywordsA.html#AFORMAT>`__ and
+`QACONVERT <KeywordsA.html#QACONVERT>`__.
 
 --------------
 
@@ -298,20 +274,10 @@ angle to degrees, use DEG ( ACOS (x) ).
 
 **CROSS-REFERENCE**
 
-.. `COS <KeywordsC.html#COS>`__, `ASIN <KeywordsA.html#ASIN>`__,
+`COS <KeywordsC.html#COS>`__, `ASIN <KeywordsA.html#ASIN>`__,
+`SIN <KeywordsS.html#SIN>`__, `RAD <KeywordsR.html#RAD>`__.
 
-.. >`__, `ASIN <KeywordsA.html#ASIN>`__,
-
-`COS <KeywordsC.clean.html#cos>`__, `ASIN <KeywordsA.clean.html#asin>`__,
-.. `SIN <KeywordsS.html#SIN>`__, `RAD <KeywordsR.html#RAD>`__.
-
-.. >`__, `RAD <KeywordsR.html#RAD>`__.
-
-`SIN <KeywordsS.clean.html#sin>`__, `RAD <KeywordsR.clean.html#rad>`__.
-
-.. Compare `ARCOSH <KeywordsA.html#ARCOSH>`__.
-
-Compare `ARCOSH <KeywordsA.clean.html#arcosh>`__.
+Compare `ARCOSH <KeywordsA.html#ARCOSH>`__.
 
 Also please see the Mathematics section in the Appendix.
 
@@ -343,20 +309,12 @@ y=0 which would otherwise give an overflow error.
 
 **CROSS-REFERENCE**
 
-.. `COT <KeywordsC.html#COT>`__, `ATAN <KeywordsA.html#ATAN>`__,
-
-.. >`__, `ATAN <KeywordsA.html#ATAN>`__,
-
-`COT <KeywordsC.clean.html#cot>`__, `ATAN <KeywordsA.clean.html#atan>`__,
-.. `TAN <KeywordsT.html#TAN>`__.
-
-`TAN <KeywordsT.clean.html#tan>`__.
+`COT <KeywordsC.html#COT>`__, `ATAN <KeywordsA.html#ATAN>`__,
+`TAN <KeywordsT.html#TAN>`__.
 
 Please see the Mathematics section in the Appendix.
 
-.. See also `ARCOTH <KeywordsA.html#ARCOTH>`__.
-
-See also `ARCOTH <KeywordsA.clean.html#arcoth>`__.
+See also `ARCOTH <KeywordsA.html#ARCOTH>`__.
 
 --------------
 
@@ -420,17 +378,11 @@ protected in some way (see PROT\_DATE).
 
 **CROSS-REFERENCE**
 
-.. `DATE$ <KeywordsD.html#DATE$>`__ returns the current system date and
-
-`DATE$ <KeywordsD.clean.html#date$>`__ returns the current system date and
-.. time as a string, `DATE <KeywordsD.html#DATE>`__ does the same but in a
-
-time as a string, `DATE <KeywordsD.clean.html#date>`__ does the same but in a
+`DATE$ <KeywordsD.html#DATE$>`__ returns the current system date and
+time as a string, `DATE <KeywordsD.html#DATE>`__ does the same but in a
 less readable form - in seconds after the initial date.
 
-.. `SDATE <KeywordsS.html#SDATE>`__ sets the clock to an absolute date and
-
-`SDATE <KeywordsS.clean.html#sdate>`__ sets the clock to an absolute date and
+`SDATE <KeywordsS.html#SDATE>`__ sets the clock to an absolute date and
 time.
 
 Battery backed clocks generally have their own methods of altering their
@@ -474,19 +426,11 @@ You could replace the ALCHP function with:
 
 **CROSS-REFERENCE**
 
-.. `DATAREG <KeywordsD.html#DATAREG>`__ allows you to read machine code
-
-`DATAREG <KeywordsD.clean.html#datareg>`__ allows you to read machine code
+`DATAREG <KeywordsD.html#DATAREG>`__ allows you to read machine code
 data registers.
 
-.. See `MTRAP <KeywordsM.html#MTRAP>`__, `QTRAP <KeywordsQ.html#QTRAP>`__
-
-.. >`__, `QTRAP <KeywordsQ.html#QTRAP>`__
-
-See `MTRAP <KeywordsM.clean.html#mtrap>`__, `QTRAP <KeywordsQ.clean.html#qtrap>`__
-.. and `BTRAP <KeywordsB.html#BTRAP>`__.
-
-and `BTRAP <KeywordsB.clean.html#btrap>`__.
+See `MTRAP <KeywordsM.html#MTRAP>`__, `QTRAP <KeywordsQ.html#QTRAP>`__
+and `BTRAP <KeywordsB.html#BTRAP>`__.
 
 --------------
 
@@ -511,19 +455,11 @@ ADELETE "flp1\_TEST.BAS"
 
 **CROSS-REFERENCE**
 
-.. See `DELETE <KeywordsD.html#DELETE>`__!
+See `DELETE <KeywordsD.html#DELETE>`__!
 
-See `DELETE <KeywordsD.clean.html#delete>`__!
-
-.. See `ADIR <KeywordsA.html#ADIR>`__,
-
-See `ADIR <KeywordsA.clean.html#adir>`__,
-.. `AFORMAT <KeywordsA.html#AFORMAT>`__,
-
-`AFORMAT <KeywordsA.clean.html#aformat>`__,
-.. `QACONVERT <KeywordsA.html#QACONVERT>`__.
-
-`QACONVERT <KeywordsA.clean.html#qaconvert>`__.
+See `ADIR <KeywordsA.html#ADIR>`__,
+`AFORMAT <KeywordsA.html#AFORMAT>`__,
+`QACONVERT <KeywordsA.html#QACONVERT>`__.
 
 --------------
 
@@ -541,21 +477,11 @@ IBM PS/2 Disks.
 
 **CROSS-REFERENCE**
 
-.. See `DIR <KeywordsD.html#DIR>`__.
+See `DIR <KeywordsD.html#DIR>`__.
 
-See `DIR <KeywordsD.clean.html#dir>`__.
-
-.. Other commands added are `ASTAT <KeywordsA.html#ASTAT>`__,
-
-Other commands added are `ASTAT <KeywordsA.clean.html#astat>`__,
-.. `ADELETE <KeywordsA.html#ADELETE>`__, `ACOPY <KeywordsA.html#ACOPY>`__
-
-.. >`__, `ACOPY <KeywordsA.html#ACOPY>`__
-
-`ADELETE <KeywordsA.clean.html#adelete>`__, `ACOPY <KeywordsA.clean.html#acopy>`__
-.. and `AFORMAT <KeywordsA.html#AFORMAT>`__.
-
-and `AFORMAT <KeywordsA.clean.html#aformat>`__.
+Other commands added are `ASTAT <KeywordsA.html#ASTAT>`__,
+`ADELETE <KeywordsA.html#ADELETE>`__, `ACOPY <KeywordsA.html#ACOPY>`__
+and `AFORMAT <KeywordsA.html#AFORMAT>`__.
 
 --------------
 
@@ -577,24 +503,12 @@ making the last character of the filename an asterisk (\*).
 
 **CROSS-REFERENCE**
 
-.. See `FORMAT <KeywordsF.html#FORMAT>`__ and
+See `FORMAT <KeywordsF.html#FORMAT>`__ and
+`IFORMAT <KeywordsI.html#IFORMAT>`__.
 
-See `FORMAT <KeywordsF.clean.html#format>`__ and
-.. `IFORMAT <KeywordsI.html#IFORMAT>`__.
-
-`IFORMAT <KeywordsI.clean.html#iformat>`__.
-
-.. Other commands added are `ASTAT <KeywordsA.html#ASTAT>`__,
-
-Other commands added are `ASTAT <KeywordsA.clean.html#astat>`__,
-.. `ADELETE <KeywordsA.html#ADELETE>`__, `ADIR <KeywordsA.html#ADIR>`__ and
-
-.. >`__, `ADIR <KeywordsA.html#ADIR>`__ and
-
-`ADELETE <KeywordsA.clean.html#adelete>`__, `ADIR <KeywordsA.clean.html#adir>`__ and
-.. `ACOPY <KeywordsA.html#ACOPY>`__.
-
-`ACOPY <KeywordsA.clean.html#acopy>`__.
+Other commands added are `ASTAT <KeywordsA.html#ASTAT>`__,
+`ADELETE <KeywordsA.html#ADELETE>`__, `ADIR <KeywordsA.html#ADIR>`__ and
+`ACOPY <KeywordsA.html#ACOPY>`__.
 
 --------------
 
@@ -622,17 +536,11 @@ syntax works.
 
 **CROSS-REFERENCE**
 
-.. `SJOB <KeywordsS.html#SJOB>`__ suspends a job.
+`SJOB <KeywordsS.html#SJOB>`__ suspends a job.
 
-`SJOB <KeywordsS.clean.html#sjob>`__ suspends a job.
+`REL\_JOB <KeywordsR.html#REL_JOB>`__ releases a job.
 
-.. `REL\_JOB <KeywordsR.html#REL_JOB>`__ releases a job.
-
-`REL\_JOB <KeywordsR.clean.html#rel_job>`__ releases a job.
-
-.. `SPJOB <KeywordsS.html#SPJOB>`__ sets the priority of a job without
-
-`SPJOB <KeywordsS.clean.html#spjob>`__ sets the priority of a job without
+`SPJOB <KeywordsS.html#SPJOB>`__ sets the priority of a job without
 restarting it.
 
 --------------
@@ -666,16 +574,10 @@ and listen to the news on the radio?
 
 **CROSS-REFERENCE**
 
-.. Set the system clock with `SDATE <KeywordsS.html#SDATE>`__, adjust it
+Set the system clock with `SDATE <KeywordsS.html#SDATE>`__, adjust it
+with `ADATE <KeywordsA.html#ADATE>`__.
 
-Set the system clock with `SDATE <KeywordsS.clean.html#sdate>`__, adjust it
-.. with `ADATE <KeywordsA.html#ADATE>`__.
-
-with `ADATE <KeywordsA.clean.html#adate>`__.
-
-.. Alarm jobs can be killed by using `RJOB <KeywordsR.html#RJOB>`__ for
-
-Alarm jobs can be killed by using `RJOB <KeywordsR.clean.html#rjob>`__ for
+Alarm jobs can be killed by using `RJOB <KeywordsR.html#RJOB>`__ for
 example.
 
 --------------
@@ -768,33 +670,15 @@ operating system... crash!
 **CROSS-REFERENCE**
 
 The reserved parts of memory can be given back to QDOS' memory
-.. management by `RECHP <KeywordsR.html#RECHP>`__ base\_address or
+management by `RECHP <KeywordsR.html#RECHP>`__ base\_address or
+`CLCHP <KeywordsC.html#CLCHP>`__.
 
-management by `RECHP <KeywordsR.clean.html#rechp>`__ base\_address or
-.. `CLCHP <KeywordsC.html#CLCHP>`__.
+`RESPR <KeywordsR.html#RESPR>`__, `TTALL <KeywordsT.html#TTALL>`__,
+`ALLOCATION <KeywordsA.html#ALLOCATION>`__ and especially
+`GRAB <KeywordsG.html#GRAB>`__ and `RESERVE <KeywordsR.html#RESERVE>`__
+work similar to `ALCHP <KeywordsA.html#ALCHP>`__.
 
-`CLCHP <KeywordsC.clean.html#clchp>`__.
-
-.. `RESPR <KeywordsR.html#RESPR>`__, `TTALL <KeywordsT.html#TTALL>`__,
-
-.. >`__, `TTALL <KeywordsT.html#TTALL>`__,
-
-`RESPR <KeywordsR.clean.html#respr>`__, `TTALL <KeywordsT.clean.html#ttall>`__,
-.. `ALLOCATION <KeywordsA.html#ALLOCATION>`__ and especially
-
-`ALLOCATION <KeywordsA.clean.html#allocation>`__ and especially
-.. `GRAB <KeywordsG.html#GRAB>`__ and `RESERVE <KeywordsR.html#RESERVE>`__
-
-.. >`__ and `RESERVE <KeywordsR.html#RESERVE>`__
-
-`GRAB <KeywordsG.clean.html#grab>`__ and `RESERVE <KeywordsR.clean.html#reserve>`__
-.. work similar to `ALCHP <KeywordsA.html#ALCHP>`__.
-
-work similar to `ALCHP <KeywordsA.clean.html#alchp>`__.
-
-.. See `DEL\_DEFB <KeywordsD.html#DEL_DEFB>`__ concerning heap
-
-See `DEL\_DEFB <KeywordsD.clean.html#del_defb>`__ concerning heap
+See `DEL\_DEFB <KeywordsD.html#DEL_DEFB>`__ concerning heap
 fragmentation.
 
 --------------
@@ -905,16 +789,10 @@ implemented in the file SAILA\_CODE.
 
 **CROSS-REFERENCE**
 
-.. See also `REPLACE <KeywordsR.html#REPLACE>`__ and
+See also `REPLACE <KeywordsR.html#REPLACE>`__ and
+`NEW\_NAME <KeywordsN.html#NEW_NAME>`__.
 
-See also `REPLACE <KeywordsR.clean.html#replace>`__ and
-.. `NEW\_NAME <KeywordsN.html#NEW_NAME>`__.
-
-`NEW\_NAME <KeywordsN.clean.html#new_name>`__.
-
-.. `\_NAME$ <Keywords_.html#_NAME$>`__ allows you to look at the name
-
-`\_NAME$ <Keywords_.clean.html#_name$>`__ allows you to look at the name
+`\_NAME$ <Keywords_.html#_NAME$>`__ allows you to look at the name
 table.
 
 --------------
@@ -992,22 +870,12 @@ ALINE only works in MODE 4.
 
 **CROSS-REFERENCE**
 
-.. `DRAW <KeywordsD.html#DRAW>`__ has the same syntax as
-
-`DRAW <KeywordsD.clean.html#draw>`__ has the same syntax as
-.. `ALINE <KeywordsA.html#ALINE>`__ but does not work in XOR
-
-`ALINE <KeywordsA.clean.html#aline>`__ but does not work in XOR
-.. mode.\ `DRAW <KeywordsD.html#DRAW>`__ is also able to draw lines on
-
-mode.\ `DRAW <KeywordsD.clean.html#draw>`__ is also able to draw lines on
+`DRAW <KeywordsD.html#DRAW>`__ has the same syntax as
+`ALINE <KeywordsA.html#ALINE>`__ but does not work in XOR
+mode.\ `DRAW <KeywordsD.html#DRAW>`__ is also able to draw lines on
 screens stored in memory.
 
-.. `LINE <KeywordsL.html#LINE>`__ and `LINE\_R <KeywordsL.html#LINE_R>`__
-
-.. >`__ and `LINE\_R <KeywordsL.html#LINE_R>`__
-
-`LINE <KeywordsL.clean.html#line>`__ and `LINE\_R <KeywordsL.clean.html#line_r>`__
+`LINE <KeywordsL.html#LINE>`__ and `LINE\_R <KeywordsL.html#LINE_R>`__
 are much more flexible.
 
 --------------
@@ -1028,23 +896,13 @@ and removed when the current job is removed.
 
 **CROSS-REFERENCE**
 
-.. `DEALLOCATE <KeywordsD.html#DEALLOCATE>`__ should be used to remove the
-
-`DEALLOCATE <KeywordsD.clean.html#deallocate>`__ should be used to remove the
+`DEALLOCATE <KeywordsD.html#DEALLOCATE>`__ should be used to remove the
 allocated area.
 
-.. The `taskno% <Keywordst.html#taskno%>`__ and
-
-The `taskno% <Keywordst.clean.html#taskno%>`__ and
-.. `taskid% <Keywordst.html#taskid%>`__ can be found using
-
-`taskid% <Keywordst.clean.html#taskid%>`__ can be found using
-.. `JOBS <KeywordsJ.html#JOBS>`__ or
-
-`JOBS <KeywordsJ.clean.html#jobs>`__ or
-.. `LIST\_TASKS <KeywordsL.html#LIST_TASKS>`__.
-
-`LIST\_TASKS <KeywordsL.clean.html#list_tasks>`__.
+The `taskno% <Keywordst.html#taskno%>`__ and
+`taskid% <Keywordst.html#taskid%>`__ can be found using
+`JOBS <KeywordsJ.html#JOBS>`__ or
+`LIST\_TASKS <KeywordsL.html#LIST_TASKS>`__.
 
 --------------
 
@@ -1065,44 +923,14 @@ is therefore eqivalent to: PRINT #ch,CHR$(27)&"6"
 
 **CROSS-REFERENCE**
 
-.. `NORM <KeywordsN.html#NORM>`__, `BLD <KeywordsB.html#BLD>`__,
-
-.. >`__, `BLD <KeywordsB.html#BLD>`__,
-
-`NORM <KeywordsN.clean.html#norm>`__, `BLD <KeywordsB.clean.html#bld>`__,
-.. `EL <KeywordsE.html#EL>`__, `DBL <KeywordsD.html#DBL>`__,
-
-.. >`__, `DBL <KeywordsD.html#DBL>`__,
-
-`EL <KeywordsE.clean.html#el>`__, `DBL <KeywordsD.clean.html#dbl>`__,
-.. `ENL <KeywordsE.html#ENL>`__, `PRO <KeywordsP.html#PRO>`__,
-
-.. >`__, `PRO <KeywordsP.html#PRO>`__,
-
-`ENL <KeywordsE.clean.html#enl>`__, `PRO <KeywordsP.clean.html#pro>`__,
-.. `SI <KeywordsS.html#SI>`__, `NRM <KeywordsN.html#NRM>`__,
-
-.. >`__, `NRM <KeywordsN.html#NRM>`__,
-
-`SI <KeywordsS.clean.html#si>`__, `NRM <KeywordsN.clean.html#nrm>`__,
-.. `UNL <KeywordsU.html#UNL>`__, `ESC <KeywordsE.html#ESC>`__,
-
-.. >`__, `ESC <KeywordsE.html#ESC>`__,
-
-`UNL <KeywordsU.clean.html#unl>`__, `ESC <KeywordsE.clean.html#esc>`__,
-.. `FF <KeywordsF.html#FF>`__, `LMAR <KeywordsL.html#LMAR>`__,
-
-.. >`__, `LMAR <KeywordsL.html#LMAR>`__,
-
-`FF <KeywordsF.clean.html#ff>`__, `LMAR <KeywordsL.clean.html#lmar>`__,
-.. `RMAR <KeywordsR.html#RMAR>`__, `PAGDIS <KeywordsP.html#PAGDIS>`__,
-
-.. >`__, `PAGDIS <KeywordsP.html#PAGDIS>`__,
-
-`RMAR <KeywordsR.clean.html#rmar>`__, `PAGDIS <KeywordsP.clean.html#pagdis>`__,
-.. `PAGLEN <KeywordsP.html#PAGLEN>`__.
-
-`PAGLEN <KeywordsP.clean.html#paglen>`__.
+`NORM <KeywordsN.html#NORM>`__, `BLD <KeywordsB.html#BLD>`__,
+`EL <KeywordsE.html#EL>`__, `DBL <KeywordsD.html#DBL>`__,
+`ENL <KeywordsE.html#ENL>`__, `PRO <KeywordsP.html#PRO>`__,
+`SI <KeywordsS.html#SI>`__, `NRM <KeywordsN.html#NRM>`__,
+`UNL <KeywordsU.html#UNL>`__, `ESC <KeywordsE.html#ESC>`__,
+`FF <KeywordsF.html#FF>`__, `LMAR <KeywordsL.html#LMAR>`__,
+`RMAR <KeywordsR.html#RMAR>`__, `PAGDIS <KeywordsP.html#PAGDIS>`__,
+`PAGLEN <KeywordsP.html#PAGLEN>`__.
 
 --------------
 
@@ -1149,9 +977,7 @@ ALTER does not work on SMS.
 
 **CROSS-REFERENCE**
 
-.. See `SET <KeywordsS.html#SET>`__.
-
-See `SET <KeywordsS.clean.html#set>`__.
+See `SET <KeywordsS.html#SET>`__.
 
 --------------
 
@@ -1236,15 +1062,9 @@ effect until you use the HOT\_GO command.
 
 **CROSS-REFERENCE**
 
-.. `FORCE\_TYPE <KeywordsF.html#FORCE_TYPE>`__ and
-
-`FORCE\_TYPE <KeywordsF.clean.html#force_type>`__ and
-.. `STAMP <KeywordsS.html#STAMP>`__ allow programs to access the keyboard,
-
-`STAMP <KeywordsS.clean.html#stamp>`__ allow programs to access the keyboard,
-.. `KEY <KeywordsK.html#KEY>`__ defines macros on function keys.
-
-`KEY <KeywordsK.clean.html#key>`__ defines macros on function keys.
+`FORCE\_TYPE <KeywordsF.html#FORCE_TYPE>`__ and
+`STAMP <KeywordsS.html#STAMP>`__ allow programs to access the keyboard,
+`KEY <KeywordsK.html#KEY>`__ defines macros on function keys.
 
 --------------
 
@@ -1289,14 +1109,8 @@ produces the following output:
 
 **CROSS-REFERENCE**
 
-.. `OR <KeywordsO.html#OR>`__, `NOT <KeywordsN.html#NOT>`__ and
-
-.. >`__, `NOT <KeywordsN.html#NOT>`__ and
-
-`OR <KeywordsO.clean.html#or>`__, `NOT <KeywordsN.clean.html#not>`__ and
-.. `XOR <KeywordsX.html#XOR>`__ are the other combination operators.
-
-`XOR <KeywordsX.clean.html#xor>`__ are the other combination operators.
+`OR <KeywordsO.html#OR>`__, `NOT <KeywordsN.html#NOT>`__ and
+`XOR <KeywordsX.html#XOR>`__ are the other combination operators.
 
 --------------
 
@@ -1318,9 +1132,7 @@ APOINT suffers from the same problems and limitations as ALINE.
 
 **CROSS-REFERENCE**
 
-.. Use `POINT <KeywordsP.html#POINT>`__ instead!!
-
-Use `POINT <KeywordsP.clean.html#point>`__ instead!!
+Use `POINT <KeywordsP.html#POINT>`__ instead!!
 
 --------------
 
@@ -1342,9 +1154,7 @@ Both file1 and file2 must include the device name.
 
 **CROSS-REFERENCE**
 
-.. The THOR XVI has a special form of `COPY <KeywordsC.html#COPY>`__ which
-
-The THOR XVI has a special form of `COPY <KeywordsC.clean.html#copy>`__ which
+The THOR XVI has a special form of `COPY <KeywordsC.html#COPY>`__ which
 is similar to this.
 
 --------------
@@ -1367,19 +1177,11 @@ LF.
 
 **CROSS-REFERENCE**
 
-.. Compare `IQCONVERT <KeywordsI.html#IQCONVERT>`__ and
+Compare `IQCONVERT <KeywordsI.html#IQCONVERT>`__ and
+`QACONVERT <KeywordsQ.html#QACONVERT>`__.
 
-Compare `IQCONVERT <KeywordsI.clean.html#iqconvert>`__ and
-.. `QACONVERT <KeywordsQ.html#QACONVERT>`__.
-
-`QACONVERT <KeywordsQ.clean.html#qaconvert>`__.
-
-.. See also `ACOPY <KeywordsA.html#ACOPY>`__ and
-
-See also `ACOPY <KeywordsA.clean.html#acopy>`__ and
-.. `QCOPY <KeywordsQ.html#QCOPY>`__.
-
-`QCOPY <KeywordsQ.clean.html#qcopy>`__.
+See also `ACOPY <KeywordsA.html#ACOPY>`__ and
+`QCOPY <KeywordsQ.html#QCOPY>`__.
 
 --------------
 
@@ -1484,17 +1286,11 @@ drive in some obscure circumstances. Get Minerva or SMSQ/E to be safe!!
 
 **CROSS-REFERENCE**
 
-.. `ARC\_R <KeywordsA.html#ARC_R>`__ works in exactly the same way as
-
-`ARC\_R <KeywordsA.clean.html#arc_r>`__ works in exactly the same way as
-.. `ARC <KeywordsA.html#ARC>`__ but uses a relative co-ordinate system,
-
-`ARC <KeywordsA.clean.html#arc>`__ but uses a relative co-ordinate system,
+`ARC\_R <KeywordsA.html#ARC_R>`__ works in exactly the same way as
+`ARC <KeywordsA.html#ARC>`__ but uses a relative co-ordinate system,
 where the origin is the current position of the graphic cursor.
 
-.. `SCALE <KeywordsS.html#SCALE>`__ sets the graphic origin and also the
-
-`SCALE <KeywordsS.clean.html#scale>`__ sets the graphic origin and also the
+`SCALE <KeywordsS.html#SCALE>`__ sets the graphic origin and also the
 size of the window.
 
 --------------
@@ -1550,20 +1346,10 @@ The same routine, but altered to use ARC:
 **CROSS-REFERENCE**
 
 The graphic cursor is moved with commands such as
-.. `POINT <KeywordsP.html#POINT>`__, `ARC <KeywordsA.html#ARC>`__,
+`POINT <KeywordsP.html#POINT>`__, `ARC <KeywordsA.html#ARC>`__,
+`CIRCLE <KeywordsC.html#CIRCLE>`__ and `LINE <KeywordsL.html#LINE>`__.
 
-.. >`__, `ARC <KeywordsA.html#ARC>`__,
-
-`POINT <KeywordsP.clean.html#point>`__, `ARC <KeywordsA.clean.html#arc>`__,
-.. `CIRCLE <KeywordsC.html#CIRCLE>`__ and `LINE <KeywordsL.html#LINE>`__.
-
-.. >`__ and `LINE <KeywordsL.html#LINE>`__.
-
-`CIRCLE <KeywordsC.clean.html#circle>`__ and `LINE <KeywordsL.clean.html#line>`__.
-
-.. Please also see `ARC <KeywordsA.html#ARC>`__.
-
-Please also see `ARC <KeywordsA.clean.html#arc>`__.
+Please also see `ARC <KeywordsA.html#ARC>`__.
 
 --------------
 
@@ -1587,27 +1373,11 @@ keywords: it's the same as LN(x + SQRT(x\*x-1)).
 
 **CROSS-REFERENCE**
 
-.. See `ACOS <KeywordsA.html#ACOS>`__, `ASIN <KeywordsA.html#ASIN>`__,
-
-.. >`__, `ASIN <KeywordsA.html#ASIN>`__,
-
-See `ACOS <KeywordsA.clean.html#acos>`__, `ASIN <KeywordsA.clean.html#asin>`__,
-.. `ACOT <KeywordsA.html#ACOT>`__, `ATAN <KeywordsA.html#ATAN>`__,
-
-.. >`__, `ATAN <KeywordsA.html#ATAN>`__,
-
-`ACOT <KeywordsA.clean.html#acot>`__, `ATAN <KeywordsA.clean.html#atan>`__,
-.. `COSH <KeywordsC.html#COSH>`__, `ARCOTH <KeywordsA.html#ARCOTH>`__,
-
-.. >`__, `ARCOTH <KeywordsA.html#ARCOTH>`__,
-
-`COSH <KeywordsC.clean.html#cosh>`__, `ARCOTH <KeywordsA.clean.html#arcoth>`__,
-.. `ARSINH <KeywordsA.html#ARSINH>`__ and
-
-`ARSINH <KeywordsA.clean.html#arsinh>`__ and
-.. `ARTANH <KeywordsA.html#ARTANH>`__.
-
-`ARTANH <KeywordsA.clean.html#artanh>`__.
+See `ACOS <KeywordsA.html#ACOS>`__, `ASIN <KeywordsA.html#ASIN>`__,
+`ACOT <KeywordsA.html#ACOT>`__, `ATAN <KeywordsA.html#ATAN>`__,
+`COSH <KeywordsC.html#COSH>`__, `ARCOTH <KeywordsA.html#ARCOTH>`__,
+`ARSINH <KeywordsA.html#ARSINH>`__ and
+`ARTANH <KeywordsA.html#ARTANH>`__.
 
 --------------
 
@@ -1630,14 +1400,8 @@ LN((x+1) / (x-1)) / 2
 
 **CROSS-REFERENCE**
 
-.. See `ACO <KeywordsA.html#ACO>`__\ T, `ARCOSH <KeywordsA.html#ARCOSH>`__,
-
-.. >`__\ T, `ARCOSH <KeywordsA.html#ARCOSH>`__,
-
-See `ACO <KeywordsA.clean.html#aco>`__\ T, `ARCOSH <KeywordsA.clean.html#arcosh>`__,
-.. and `ARTANH <KeywordsA.html#ARTANH>`__.
-
-and `ARTANH <KeywordsA.clean.html#artanh>`__.
+See `ACO <KeywordsA.html#ACO>`__\ T, `ARCOSH <KeywordsA.html#ARCOSH>`__,
+and `ARTANH <KeywordsA.html#ARTANH>`__.
 
 --------------
 
@@ -1661,14 +1425,8 @@ gives the same value.
 
 **CROSS-REFERENCE**
 
-.. See `ASIN <KeywordsA.html#ASIN>`__, `ARCOSH <KeywordsA.html#ARCOSH>`__,
-
-.. >`__, `ARCOSH <KeywordsA.html#ARCOSH>`__,
-
-See `ASIN <KeywordsA.clean.html#asin>`__, `ARCOSH <KeywordsA.clean.html#arcosh>`__,
-.. and `ARCOTH <KeywordsA.html#ARCOTH>`__.
-
-and `ARCOTH <KeywordsA.clean.html#arcoth>`__.
+See `ASIN <KeywordsA.html#ASIN>`__, `ARCOSH <KeywordsA.html#ARCOSH>`__,
+and `ARCOTH <KeywordsA.html#ARCOTH>`__.
 
 --------------
 
@@ -1690,14 +1448,8 @@ ARTANH(x) could be replaced by: LN((1+x) / (1-x)) / 2
 
 **CROSS-REFERENCE**
 
-.. See `ATAN <KeywordsA.html#ATAN>`__, `ARCOTH <KeywordsA.html#ARCOTH>`__,
-
-.. >`__, `ARCOTH <KeywordsA.html#ARCOTH>`__,
-
-See `ATAN <KeywordsA.clean.html#atan>`__, `ARCOTH <KeywordsA.clean.html#arcoth>`__,
-.. and `ARSINH <KeywordsA.html#ARSINH>`__.
-
-and `ARSINH <KeywordsA.clean.html#arsinh>`__.
+See `ATAN <KeywordsA.html#ATAN>`__, `ARCOTH <KeywordsA.html#ARCOTH>`__,
+and `ARSINH <KeywordsA.html#ARSINH>`__.
 
 --------------
 
@@ -1746,31 +1498,15 @@ ABS(x2-x1,y2-y1)
 
 **CROSS-REFERENCE**
 
-.. `ACOS <KeywordsA.html#ACOS>`__, `ATAN <KeywordsA.html#ATAN>`__,
-
-.. >`__, `ATAN <KeywordsA.html#ATAN>`__,
-
-`ACOS <KeywordsA.clean.html#acos>`__, `ATAN <KeywordsA.clean.html#atan>`__,
-.. `ACOT <KeywordsA.html#ACOT>`__ are other arc functions,
-
-`ACOT <KeywordsA.clean.html#acot>`__ are other arc functions,
-.. `SIN <KeywordsS.html#SIN>`__, `COS <KeywordsC.html#COS>`__,
-
-.. >`__, `COS <KeywordsC.html#COS>`__,
-
-`SIN <KeywordsS.clean.html#sin>`__, `COS <KeywordsC.clean.html#cos>`__,
-.. `TAN <KeywordsT.html#TAN>`__ and `COT <KeywordsC.html#COT>`__\ their
-
-.. >`__ and `COT <KeywordsC.html#COT>`__\ their
-
-`TAN <KeywordsT.clean.html#tan>`__ and `COT <KeywordsC.clean.html#cot>`__\ their
+`ACOS <KeywordsA.html#ACOS>`__, `ATAN <KeywordsA.html#ATAN>`__,
+`ACOT <KeywordsA.html#ACOT>`__ are other arc functions,
+`SIN <KeywordsS.html#SIN>`__, `COS <KeywordsC.html#COS>`__,
+`TAN <KeywordsT.html#TAN>`__ and `COT <KeywordsC.html#COT>`__\ their
 relatives.
 
 Please also see the Mathematics section of the Appendix.
 
-.. Compare `ARSINH <KeywordsA.html#ARSINH>`__.
-
-Compare `ARSINH <KeywordsA.clean.html#arsinh>`__.
+Compare `ARSINH <KeywordsA.html#ARSINH>`__.
 
 --------------
 
@@ -1821,11 +1557,7 @@ own routine.
 
 **CROSS-REFERENCE**
 
-.. `CUR <KeywordsC.html#CUR>`__, `REPLY <KeywordsR.html#REPLY>`__.
-
-.. >`__, `REPLY <KeywordsR.html#REPLY>`__.
-
-`CUR <KeywordsC.clean.html#cur>`__, `REPLY <KeywordsR.clean.html#reply>`__.
+`CUR <KeywordsC.html#CUR>`__, `REPLY <KeywordsR.html#REPLY>`__.
 
 --------------
 
@@ -1844,22 +1576,12 @@ marks folder.
 
 **CROSS-REFERENCE**
 
-.. See `ADIR <KeywordsA.html#ADIR>`__. `WSTAT <KeywordsW.html#WSTAT>`__ is
-
-.. >`__. `WSTAT <KeywordsW.html#WSTAT>`__ is
-
-See `ADIR <KeywordsA.clean.html#adir>`__. `WSTAT <KeywordsW.clean.html#wstat>`__ is
+See `ADIR <KeywordsA.html#ADIR>`__. `WSTAT <KeywordsW.html#WSTAT>`__ is
 similar on QL Format disks.
 
-.. Other commands added are `ADELETE <KeywordsA.html#ADELETE>`__,
-
-Other commands added are `ADELETE <KeywordsA.clean.html#adelete>`__,
-.. `ACOPY <KeywordsA.html#ACOPY>`__ and
-
-`ACOPY <KeywordsA.clean.html#acopy>`__ and
-.. `AFORMAT <KeywordsA.html#AFORMAT>`__.
-
-`AFORMAT <KeywordsA.clean.html#aformat>`__.
+Other commands added are `ADELETE <KeywordsA.html#ADELETE>`__,
+`ACOPY <KeywordsA.html#ACOPY>`__ and
+`AFORMAT <KeywordsA.html#AFORMAT>`__.
 
 --------------
 
@@ -1928,33 +1650,21 @@ do update the ROM.
 
 **CROSS-REFERENCE**
 
-.. `CSIZE <KeywordsC.html#CSIZE>`__ sets the current character size for the
-
-`CSIZE <KeywordsC.clean.html#csize>`__ sets the current character size for the
+`CSIZE <KeywordsC.html#CSIZE>`__ sets the current character size for the
 given window
 
-.. `WINDOW <KeywordsW.html#WINDOW>`__ alters the physical size of a given
-
-`WINDOW <KeywordsW.clean.html#window>`__ alters the physical size of a given
+`WINDOW <KeywordsW.html#WINDOW>`__ alters the physical size of a given
 window.
 
-.. `CURSOR <KeywordsC.html#CURSOR>`__ allows you to set the print position
-
-`CURSOR <KeywordsC.clean.html#cursor>`__ allows you to set the print position
+`CURSOR <KeywordsC.html#CURSOR>`__ allows you to set the print position
 more exactly.
 
-.. `PRINT <KeywordsP.html#PRINT>`__ actually prints things on screen at the
-
-`PRINT <KeywordsP.clean.html#print>`__ actually prints things on screen at the
+`PRINT <KeywordsP.html#PRINT>`__ actually prints things on screen at the
 current print position.
 
-.. `VER$ <KeywordsV.html#VER$>`__ allows you to check the ROM version.
+`VER$ <KeywordsV.html#VER$>`__ allows you to check the ROM version.
 
-`VER$ <KeywordsV.clean.html#ver$>`__ allows you to check the ROM version.
-
-.. Also see `LEFT <KeywordsL.html#LEFT>`__.
-
-Also see `LEFT <KeywordsL.clean.html#left>`__.
+Also see `LEFT <KeywordsL.html#LEFT>`__.
 
 --------------
 
@@ -2036,16 +1746,8 @@ result is now in the range -PI/2...PI/2 instead of the usual 0...PI.
 
 **CROSS-REFERENCE**
 
-.. `TAN <KeywordsT.html#TAN>`__, `ATN <KeywordsA.html#ATN>`__,
-
-.. >`__, `ATN <KeywordsA.html#ATN>`__,
-
-`TAN <KeywordsT.clean.html#tan>`__, `ATN <KeywordsA.clean.html#atn>`__,
-.. `ATN2 <KeywordsA.html#ATN2>`__ and `ARTANH <KeywordsA.html#ARTANH>`__.
-
-.. >`__ and `ARTANH <KeywordsA.html#ARTANH>`__.
-
-`ATN2 <KeywordsA.clean.html#atn2>`__ and `ARTANH <KeywordsA.clean.html#artanh>`__.
+`TAN <KeywordsT.html#TAN>`__, `ATN <KeywordsA.html#ATN>`__,
+`ATN2 <KeywordsA.html#ATN2>`__ and `ARTANH <KeywordsA.html#ARTANH>`__.
 Also please refer to the Mathematics section in the Appendix.
 
 --------------
@@ -2075,9 +1777,7 @@ This command will most probably fail on the latest ST/QL drivers.
 
 **CROSS-REFERENCE**
 
-.. See `QuATARI <KeywordsQ.html#QuATARI>`__.
-
-See `QuATARI <KeywordsQ.clean.html#quatari>`__.
+See `QuATARI <KeywordsQ.html#QuATARI>`__.
 
 --------------
 
@@ -2104,16 +1804,10 @@ ATARI\_REXT pre v2.37 may crash SMS.
 
 **CROSS-REFERENCE**
 
-.. See `TK2\_EXT <KeywordsT.html#TK2_EXT>`__ and
+See `TK2\_EXT <KeywordsT.html#TK2_EXT>`__ and
+`Beule\_EXT <KeywordsB.html#Beule_EXT>`__.
 
-See `TK2\_EXT <KeywordsT.clean.html#tk2_ext>`__ and
-.. `Beule\_EXT <KeywordsB.html#Beule_EXT>`__.
-
-`Beule\_EXT <KeywordsB.clean.html#beule_ext>`__.
-
-.. See also `SND\_EXT <KeywordsS.html#SND_EXT>`__.
-
-See also `SND\_EXT <KeywordsS.clean.html#snd_ext>`__.
+See also `SND\_EXT <KeywordsS.html#SND_EXT>`__.
 
 --------------
 
@@ -2135,9 +1829,7 @@ dialects easier.
 
 **CROSS-REFERENCE**
 
-.. See `ATAN <KeywordsA.html#ATAN>`__.
-
-See `ATAN <KeywordsA.clean.html#atan>`__.
+See `ATAN <KeywordsA.html#ATAN>`__.
 
 --------------
 
@@ -2191,9 +1883,7 @@ ATN2 and the difference from ATAN:
 
 **CROSS-REFERENCE**
 
-.. `ATAN <KeywordsA.html#ATAN>`__ which is the same on Minerva and SMS.
-
-`ATAN <KeywordsA.clean.html#atan>`__ which is the same on Minerva and SMS.
+`ATAN <KeywordsA.html#ATAN>`__ which is the same on Minerva and SMS.
 
 --------------
 
@@ -2276,13 +1966,9 @@ ED mode with the cursor at the specified start line number.
 
 **CROSS-REFERENCE**
 
-.. Please refer to `EDIT <KeywordsE.html#EDIT>`__ which is very similar.
+Please refer to `EDIT <KeywordsE.html#EDIT>`__ which is very similar.
 
-Please refer to `EDIT <KeywordsE.clean.html#edit>`__ which is very similar.
-
-.. `DLINE <KeywordsD.html#DLINE>`__ allows you to delete SuperBASIC lines.
-
-`DLINE <KeywordsD.clean.html#dline>`__ allows you to delete SuperBASIC lines.
+`DLINE <KeywordsD.html#DLINE>`__ allows you to delete SuperBASIC lines.
 
 --------------
 
@@ -2313,12 +1999,8 @@ Toolkit II and does not show a start-up screen.
 
 **CROSS-REFERENCE**
 
-.. See\ `AUTO\_TK2F1 <KeywordsA.html#AUTO_TK2F1>`__ and
-
-See\ `AUTO\_TK2F1 <KeywordsA.clean.html#auto_tk2f1>`__ and
-.. `AUTO\_TK2F2 <KeywordsA.html#AUTO_TK2F2>`__ also.
-
-`AUTO\_TK2F2 <KeywordsA.clean.html#auto_tk2f2>`__ also.
+See\ `AUTO\_TK2F1 <KeywordsA.html#AUTO_TK2F1>`__ and
+`AUTO\_TK2F2 <KeywordsA.html#AUTO_TK2F2>`__ also.
 
 --------------
 
@@ -2341,16 +2023,10 @@ by the Super Gold Card even when the power is disconnected.
 
 **CROSS-REFERENCE**
 
-.. See also `AUTO\_DIS <KeywordsA.html#AUTO_DIS>`__ and
+See also `AUTO\_DIS <KeywordsA.html#AUTO_DIS>`__ and
+`AUTO\_TK2F2 <KeywordsA.html#AUTO_TK2F2>`__.
 
-See also `AUTO\_DIS <KeywordsA.clean.html#auto_dis>`__ and
-.. `AUTO\_TK2F2 <KeywordsA.html#AUTO_TK2F2>`__.
-
-`AUTO\_TK2F2 <KeywordsA.clean.html#auto_tk2f2>`__.
-
-.. `TK2\_EXT <KeywordsT.html#TK2_EXT>`__ is needed to initialise Toolkit II
-
-`TK2\_EXT <KeywordsT.clean.html#tk2_ext>`__ is needed to initialise Toolkit II
+`TK2\_EXT <KeywordsT.html#TK2_EXT>`__ is needed to initialise Toolkit II
 if this command has not been used.
 
 --------------
@@ -2369,9 +2045,7 @@ started up in F2 TV mode.
 
 **CROSS-REFERENCE**
 
-.. See\ `AUTO\_TK2F1 <KeywordsA.html#AUTO_TK2F1>`__.
-
-See\ `AUTO\_TK2F1 <KeywordsA.clean.html#auto_tk2f1>`__.
+See\ `AUTO\_TK2F1 <KeywordsA.html#AUTO_TK2F1>`__.
 
 --------------
 
@@ -2401,9 +2075,7 @@ This command will only work within the Pointer Environment.
 
 **CROSS-REFERENCE**
 
-.. `BLS <KeywordsB.html#BLS>`__ is a similar function under SERMouse.
-
-`BLS <KeywordsB.clean.html#bls>`__ is a similar function under SERMouse.
+`BLS <KeywordsB.html#BLS>`__ is a similar function under SERMouse.
 
 --------------
 
@@ -2439,12 +2111,8 @@ You can also use DISP\_TYPE to find out the Emulator type.
 
 **CROSS-REFERENCE**
 
-.. See also `PROCESSOR <KeywordsP.html#PROCESSOR>`__ and
-
-See also `PROCESSOR <KeywordsP.clean.html#processor>`__ and
-.. `MACHINE <KeywordsM.html#MACHINE>`__.
-
-`MACHINE <KeywordsM.clean.html#machine>`__.
+See also `PROCESSOR <KeywordsP.html#PROCESSOR>`__ and
+`MACHINE <KeywordsM.html#MACHINE>`__.
 
 --------------
 
@@ -2461,12 +2129,8 @@ This function is the same as MACHINE.
 
 **CROSS-REFERENCE**
 
-.. See\ `MACHINE <KeywordsM.html#MACHINE>`__ and also
-
-See\ `MACHINE <KeywordsM.clean.html#machine>`__ and also
-.. `A\_EMULATOR <KeywordsA.html#A_EMULATOR>`__.
-
-`A\_EMULATOR <KeywordsA.clean.html#a_emulator>`__.
+See\ `MACHINE <KeywordsM.html#MACHINE>`__ and also
+`A\_EMULATOR <KeywordsA.html#A_EMULATOR>`__.
 
 --------------
 
@@ -2516,14 +2180,10 @@ errror 'Already Exists' is reported.
 
 **CROSS-REFERENCE**
 
-.. `SCREEN <KeywordsS.html#SCREEN>`__ can be used to find the screen
-
-`SCREEN <KeywordsS.clean.html#screen>`__ can be used to find the screen
+`SCREEN <KeywordsS.html#SCREEN>`__ can be used to find the screen
 address.
 
-.. `SCR\_SIZE <KeywordsS.html#SCR_SIZE>`__ can be used to set the
-
-`SCR\_SIZE <KeywordsS.clean.html#scr_size>`__ can be used to set the
+`SCR\_SIZE <KeywordsS.html#SCR_SIZE>`__ can be used to set the
 resolution of the display - much software will insist that this is set
 to 512x256 pixels also.
 
@@ -2542,9 +2202,7 @@ This function is the same as PROCESSOR.
 
 **CROSS-REFERENCE**
 
-.. See `PROCESSOR <KeywordsP.html#PROCESSOR>`__!
-
-See `PROCESSOR <KeywordsP.clean.html#processor>`__!
+See `PROCESSOR <KeywordsP.html#PROCESSOR>`__!
 
 --------------
 
@@ -2567,9 +2225,7 @@ clock.
 
 **CROSS-REFERENCE**
 
-.. See `A\_SDATE <KeywordsA.html#A_SDATE>`__.
-
-See `A\_SDATE <KeywordsA.clean.html#a_sdate>`__.
+See `A\_SDATE <KeywordsA.html#A_SDATE>`__.
 
 --------------
 
@@ -2603,13 +2259,9 @@ clock.
 
 **CROSS-REFERENCE**
 
-.. See `SDATE <KeywordsS.html#SDATE>`__.
+See `SDATE <KeywordsS.html#SDATE>`__.
 
-See `SDATE <KeywordsS.clean.html#sdate>`__.
-
-.. `A\_RDATE <KeywordsA.html#A_RDATE>`__ will set the internal clock to the
-
-`A\_RDATE <KeywordsA.clean.html#a_rdate>`__ will set the internal clock to the
+`A\_RDATE <KeywordsA.html#A_RDATE>`__ will set the internal clock to the
 same date and time as the battery backed clock.
 
 --------------
@@ -2634,6 +2286,4 @@ slowly.
 
 **CROSS-REFERENCE**
 
-.. `SLUG <KeywordsS.html#SLUG>`__ is very similar.
-
-`SLUG <KeywordsS.clean.html#slug>`__ is very similar.
+`SLUG <KeywordsS.html#SLUG>`__ is very similar.
