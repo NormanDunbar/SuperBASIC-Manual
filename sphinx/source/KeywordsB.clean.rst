@@ -8,7 +8,6 @@ TODO
 - BASIC\_B% has URL #id1. Fix links properly for this one.
 - BASIC\_W% has URL #id2. Fix this also.
 - BAT$ has URL #id3. Fix it!
-- BEEP - Location is wrong. Table not properly formatted.
 - BIN$ is #id4.
 
 BASIC
@@ -771,7 +770,7 @@ BEEP
 | Syntax   | BEEP length, pitch [,pitch\_2, grd\_x, grd\_y [,wrap [,fuzz [,rndom ]]]] or|
 |          | BEEP                                                                       |
 +----------+----------------------------------------------------------------------------+
-| Location : QL ROM                                                                     |
+| Location | QL ROM                                                                     |
 +----------+----------------------------------------------------------------------------+
 
 This command allows you to access the QL's rather poor sound generation

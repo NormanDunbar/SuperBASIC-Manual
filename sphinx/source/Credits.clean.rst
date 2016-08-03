@@ -88,7 +88,7 @@ Other Notices
 
 - QLs (and compatibles) were of course entirely used.
 
-For the online version, Linux played a big part. It was repsonsible for:
+For the online version, Linux played a big part. It was responsible for:
 
 - Downloading the original HTML files;
 
