@@ -2,6 +2,13 @@
 Keywords C
 ==========
 
+TODO
+====
+
+- CHR$ has URL #id1. Fix links properly for this one.
+- Fix broken links. Some don't get "clean" added for some reason. FixLinks has been run.
+
+
 CACHE\_ON
 =========
 
@@ -37,12 +44,11 @@ on. This is particularly true of some of the commands used by the Turbo
 compiler which contain self-modifying code, thus meaning that storage of
 a chunk of instructions is self-defeating.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`CACHE\_OFF <KeywordsC.html#CACHE_OFF>`__ allows you to disable the
+`CACHE\_OFF <KeywordsC.clean.html#cache_off>`__ allows you to disable the
 caches.
 
 --------------
@@ -63,12 +69,13 @@ systems.
 In particular, this command is needed if Flexynet is to work (see
 NETSEND).
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-See `CACHE\_ON <KeywordsC.html#CACHE_ON>`__.
+.. See `CACHE\_ON <KeywordsC.html#CACHE_ON>`__.
+
+See `CACHE\_ON <KeywordsC.clean.html#cache_on>`__.
 
 --------------
 
@@ -96,8 +103,7 @@ code (or 0) on return, the program will stop with the error 'At line '.
 Various useful routines can be CALLed on a Minerva ROM - these are
 discussed on the next few pages.
 
-..
-    NOTE 1:
+..    NOTE 1:
 
 **NOTE 1**
 
@@ -105,15 +111,13 @@ This command could crash the computer if used from within a program
 longer than 32K on pre JS ROMs. This is fixed by Toolkit II, the THOR
 XVI and Minerva.
 
-..
-    NOTE 2:
+..    NOTE 2:
 
 **NOTE 2**
 
 It can be dangerous to CALL addresses in memory unless you know that you
 have loaded a specified machine code routine into that location.
 
-..
     MINERVA NOTES:
 
 **MINERVA NOTES**
@@ -145,8 +149,7 @@ Next, look up the value of that effect and add it to param.
 -  Leave n\*256 bytes between screen and System Variables = n\*256
 -  Set ramtop to nKB = (n+128)\*1024
 
-..
-    Examples:
+..  Examples:
 
 **Examples**
 
@@ -182,7 +185,6 @@ the destination address (dest) extremely quickly.
 Either source or dest may be odd addresses, and the code will even cope
 with overlapping areas.
 
-..
     Minerva Example:
 
 **Minerva Example**
@@ -206,19 +208,18 @@ clear storage buffers.
 
 Please note that address may be odd.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`LBYTES <KeywordsL.html#LBYTES>`__, `SBYTES <KeywordsS.html#SBYTES>`__
+`LBYTES <KeywordsL.clean.html#lbytes>`__, `SBYTES <KeywordsS.clean.html#sbytes>`__
 can be used to load and save areas of memory (and machine code
 routines).
 
-`ALCHP <KeywordsA.html#ALCHP>`__ and `RESPR <KeywordsR.html#RESPR>`__
+`ALCHP <KeywordsA.clean.html#alchp>`__ and `RESPR <KeywordsR.clean.html#respr>`__
 can be used to set aside areas of memory for user routines.
 
-`BMOVE <KeywordsB.html#BMOVE>`__ and similar commands allow you to move
+`BMOVE <KeywordsB.clean.html#bmove>`__ and similar commands allow you to move
 areas of memory on other ROM implementations.
 
 --------------
@@ -236,8 +237,7 @@ After the command CAPS has been issued, any input from the keyboard via
 INPUT, INKEY$ etc. is translated into capital letters. CAPS simulates
 the use of the capslock key.
 
-..
-    Example:
+..  Example:
 
 **Example**
 
@@ -251,8 +251,7 @@ password where this should be entered in capital letters:
     110 INPUT "Please enter password:"!pass$
     120 NOCAPS
 
-..
-    NOTE:
+..    NOTE:
 
 **NOTE**
 
@@ -262,12 +261,11 @@ latest release of a modern keyboard interface and an IBM-style keyboard.
 If you do not do this, then you may have to change to capslock mode with
 CAPS...
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`NOCAPS <KeywordsN.html#NOCAPS>`__ is self-explanatory.
+`NOCAPS <KeywordsN.clean.html#nocaps>`__ is self-explanatory.
 
 --------------
 
@@ -296,15 +294,14 @@ PROCedure or FuNction has completed.
 If CATNAP is used within a SuperBASIC program, then the program is
 simply suspended until the Break key is pressed.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`SNOOZE <KeywordsS.html#SNOOZE>`__ is similar. See also
-`GLOBAL <KeywordsG.html#GLOBAL>`__,
-`EXTERNAL <KeywordsE.html#EXTERNAL>`__ and
-`LINK\_LOAD\_A <KeywordsL.html#LINK_LOAD_A>`__.
+`SNOOZE <KeywordsS.clean.html#snooze>`__ is similar. See also
+`GLOBAL <KeywordsG.clean.html#global>`__,
+`EXTERNAL <KeywordsE.clean.html#external>`__ and
+`LINK\_LOAD\_A <KeywordsL.clean.html#link_load_a>`__.
 
 --------------
 
@@ -325,8 +322,7 @@ device is connected to the channel.
 The Btool variant returns the base of channel #1 if #ch is not
 specified.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
@@ -334,11 +330,11 @@ The Pointer Interface modifies the structure of channel definition
 blocks for windows.
 
 If you want to access these, preferably use
-`WinCTRL <KeywordsW.html#WinCTRL>`__ instead of
-`CBASE <KeywordsC.html#CBASE>`__. See also
-`CHBASE <KeywordsC.html#CHBASE>`__.
+`WinCTRL <KeywordsW.clean.html#winctrl>`__ instead of
+`CBASE <KeywordsC.clean.html#cbase>`__. See also
+`CHBASE <KeywordsC.clean.html#chbase>`__.
 
-You can also use the `CHAN\_ <KeywordsC.html#CHAN_>`\ xx functions to
+You can also use the `CHAN\_ <KeywordsC.clean.html#chan_>`\ xx functions to
 look at the channel definition block.
 
 --------------
@@ -359,14 +355,12 @@ X=PEEK\_W(10000)
 
 PRINT CHR$(X DIV 256);CHR$(X MOD 256)
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-.. `CHR$ <KeywordsC.html#CHR$>`_ can be used to print each character separately.
 
-`CHR$ <KeywordsC.html#chr>`_ can be used to print each character separately.
+`CHR$ <KeywordsC.clean.html#chr>`_ can be used to print each character separately.
 
 --------------
 
@@ -397,8 +391,7 @@ especially in view of the fact that it sidesteps the QL's habit of
 converting large numbers to exponential form. The commas ensure that it
 is ideal for use in formatting output of currencies.
 
-..
-    Examples:
+..  Examples:
 
 **Examples**
 
@@ -414,15 +407,14 @@ PRINT CDEC$(1234567,9,2)
 
 will print '12,345.67'
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`PRINT\_USING <KeywordsP.html#PRINT_USING>`__ is a general means of
+`PRINT\_USING <KeywordsP.clean.html#print_using>`__ is a general means of
 formatting output.
 
-`IDEC$ <KeywordsI.html#IDEC$>`__ and `FDEC$ <KeywordsF.html#FDEC$>`__
+`IDEC$ <KeywordsI.clean.html#idec$>`__ and `FDEC$ <KeywordsF.clean.html#fdec$>`__
 are complementary functions.
 
 --------------
@@ -439,8 +431,7 @@ CD\_ALLTIME
 This function returns the actual elapsed time in REDBOOK format from the
 start of the CD which is being played at present.
 
-..
-    Example:
+..  Example:
 
 **Example**
 
@@ -454,25 +445,38 @@ A procedure to give the currently elapsed time:
     130 PRINT CD_SECOND (elapse%);' SECS'
     130 END DEFine
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`CD\_PLAY <KeywordsC.html#CD_PLAY>`__ plays specified tracks.
+.. `CD\_PLAY <KeywordsC.html#CD_PLAY>`__ plays specified tracks.
 
-`CD\_TRACK <KeywordsC.html#CD_TRACK>`__ allows you to find out which
+`CD\_PLAY <KeywordsC.clean.html#cd_play>`__ plays specified tracks.
+
+.. `CD\_TRACK <KeywordsC.html#CD_TRACK>`__ allows you to find out which
+
+`CD\_TRACK <KeywordsC.clean.html#cd_track>`__ allows you to find out which
 track is being played.
 
-`CD\_TRACKTIME <KeywordsC.html#CD_TRACKTIME>`__ allows you to find out
+.. `CD\_TRACKTIME <KeywordsC.html#CD_TRACKTIME>`__ allows you to find out
+
+`CD\_TRACKTIME <KeywordsC.clean.html#cd_tracktime>`__ allows you to find out
 the total elapsed time on the current track.
 
-`CD\_RED2HSG <KeywordsC.html#CD_RED2HSG>`__ allows you to convert
+.. `CD\_RED2HSG <KeywordsC.html#CD_RED2HSG>`__ allows you to convert
+
+`CD\_RED2HSG <KeywordsC.clean.html#cd_red2hsg>`__ allows you to convert
 REDBOOK format to HSG Format.
 
-`CD\_HOUR <KeywordsC.html#CD_HOUR>`__,
-`CD\_MINUTE <KeywordsC.html#CD_MINUTE>`__,
-`CD\_SECOND <KeywordsC.html#CD_SECOND>`__ allow you to convert REDBOOK
+.. `CD\_HOUR <KeywordsC.html#CD_HOUR>`__,
+
+`CD\_HOUR <KeywordsC.clean.html#cd_hour>`__,
+.. `CD\_MINUTE <KeywordsC.html#CD_MINUTE>`__,
+
+`CD\_MINUTE <KeywordsC.clean.html#cd_minute>`__,
+.. `CD\_SECOND <KeywordsC.html#CD_SECOND>`__ allow you to convert REDBOOK
+
+`CD\_SECOND <KeywordsC.clean.html#cd_second>`__ allow you to convert REDBOOK
 format into a more understandable form.
 
 --------------
@@ -489,16 +493,21 @@ CD\_CLOSE
 This command closes the CD drive drawer, loading a CD if you have placed
 one in the drawer.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`CD\_EJECT <KeywordsC.html#CD_EJECT>`__ opens the drawer.
+.. `CD\_EJECT <KeywordsC.html#CD_EJECT>`__ opens the drawer.
 
-`CD\_PLAY <KeywordsC.html#CD_PLAY>`__ allows you to play a CD.
+`CD\_EJECT <KeywordsC.clean.html#cd_eject>`__ opens the drawer.
 
-See `CD\_INIT <KeywordsC.html#CD_INIT>`__.
+.. `CD\_PLAY <KeywordsC.html#CD_PLAY>`__ allows you to play a CD.
+
+`CD\_PLAY <KeywordsC.clean.html#cd_play>`__ allows you to play a CD.
+
+.. See `CD\_INIT <KeywordsC.html#CD_INIT>`__.
+
+See `CD\_INIT <KeywordsC.clean.html#cd_init>`__.
 
 --------------
 
@@ -516,14 +525,17 @@ new CD in the drive or to remove one.
 
 You need to close the drawer before attempting to play the CD!
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`CD\_CLOSE <KeywordsC.html#CD_CLOSE>`__ closes the CD drive drawer.
+.. `CD\_CLOSE <KeywordsC.html#CD_CLOSE>`__ closes the CD drive drawer.
 
-`CD\_PLAY <KeywordsC.html#CD_PLAY>`__ allows you to play an Audio CD.
+`CD\_CLOSE <KeywordsC.clean.html#cd_close>`__ closes the CD drive drawer.
+
+.. `CD\_PLAY <KeywordsC.html#CD_PLAY>`__ allows you to play an Audio CD.
+
+`CD\_PLAY <KeywordsC.clean.html#cd_play>`__ allows you to play an Audio CD.
 
 --------------
 
@@ -539,12 +551,13 @@ CD\_FIRSTTRACK
 This function will return the track number of the first track on the CD
 currently in the player (this should always be 1).
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`CD\_LASTTRACK <KeywordsC.html#CD_LASTTRACK>`__ allows you to find out
+.. `CD\_LASTTRACK <KeywordsC.html#CD_LASTTRACK>`__ allows you to find out
+
+`CD\_LASTTRACK <KeywordsC.clean.html#cd_lasttrack>`__ allows you to find out
 the last track number.
 
 --------------
@@ -561,13 +574,16 @@ CD\_HOUR
 This function takes an address in REDBOOK format and tells you the
 number of hours (0..23) contained in that address.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`CD\_MINUTE <KeywordsC.html#CD_MINUTE>`__ and
-`CD\_SECOND <KeywordsC.html#CD_SECOND>`__ allow you to find the number
+.. `CD\_MINUTE <KeywordsC.html#CD_MINUTE>`__ and
+
+`CD\_MINUTE <KeywordsC.clean.html#cd_minute>`__ and
+.. `CD\_SECOND <KeywordsC.html#CD_SECOND>`__ allow you to find the number
+
+`CD\_SECOND <KeywordsC.clean.html#cd_second>`__ allow you to find the number
 of minutes and seconds in a REDBOOK address respectively.
 
 --------------
@@ -598,17 +614,24 @@ HSG=(minute\*60+second)\*75+frame
 This function takes the address in HSG format and converts this to
 REDBOOK format.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`CD\_RED2HSG <KeywordsC.html#CD_RED2HSG>`__ allows you to convert
+.. `CD\_RED2HSG <KeywordsC.html#CD_RED2HSG>`__ allows you to convert
+
+`CD\_RED2HSG <KeywordsC.clean.html#cd_red2hsg>`__ allows you to convert
 REDBOOK format addresses to HSG format.
 
-`CD\_HOUR <KeywordsC.html#CD_HOUR>`__,
-`CD\_MINUTE <KeywordsC.html#CD_MINUTE>`__ and
-`CD\_SECOND <KeywordsC.html#CD_SECOND>`__ allow you to find out the
+.. `CD\_HOUR <KeywordsC.html#CD_HOUR>`__,
+
+`CD\_HOUR <KeywordsC.clean.html#cd_hour>`__,
+.. `CD\_MINUTE <KeywordsC.html#CD_MINUTE>`__ and
+
+`CD\_MINUTE <KeywordsC.clean.html#cd_minute>`__ and
+.. `CD\_SECOND <KeywordsC.html#CD_SECOND>`__ allow you to find out the
+
+`CD\_SECOND <KeywordsC.clean.html#cd_second>`__ allow you to find out the
 hours, minutes and seconds referred to by a REDBOOK address.
 
 --------------
@@ -635,22 +658,19 @@ locate the CD-ROM Drive. MSCDEX can be loaded in the PC file
 AUTOEXEC.BAT if you wish, otherwise the CD drive name must appear in the
 PC file CONFIG.SYS.
 
-..
-    Example:
+..  Example:
 
 **Example**
 
 CD\_INIT 'mscd001'
 
-..
-    NOTE 1:
+..    NOTE 1:
 
 **NOTE 1**
 
 This command will only be recognised once.
 
-..
-    NOTE 2:
+..    NOTE 2:
 
 **NOTE 2**
 
@@ -659,15 +679,18 @@ loaded the PC's CD-ROM driver in config.sys, for example with the line:
 
 DEVICE=C:\\CD\\CDROMDRV.SYS /D:MSCD001
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`CD\_PLAY <KeywordsC.html#CD_PLAY>`__ allows you to play CD Audio
+.. `CD\_PLAY <KeywordsC.html#CD_PLAY>`__ allows you to play CD Audio
+
+`CD\_PLAY <KeywordsC.clean.html#cd_play>`__ allows you to play CD Audio
 tracks.
 
-`CD\_EJECT <KeywordsC.html#CD_EJECT>`__ ejects a disk from the drive, or
+.. `CD\_EJECT <KeywordsC.html#CD_EJECT>`__ ejects a disk from the drive, or
+
+`CD\_EJECT <KeywordsC.clean.html#cd_eject>`__ ejects a disk from the drive, or
 allows you to insert a new disk.
 
 --------------
@@ -684,8 +707,7 @@ CD\_ISCLOSED
 This function will return 1 (True) if the CD drawer is closed, otherwise
 it will return 0.
 
-..
-    Example:
+..  Example:
 
 **Example**
 
@@ -696,12 +718,13 @@ it will return 0.
     120   IF CD_ISINSERTED : CD_PLAY
     130 END IF
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`CD\_CLOSE <KeywordsC.html#CD_CLOSE>`__ closes the CD drawer.
+.. `CD\_CLOSE <KeywordsC.html#CD_CLOSE>`__ closes the CD drawer.
+
+`CD\_CLOSE <KeywordsC.clean.html#cd_close>`__ closes the CD drawer.
 
 --------------
 
@@ -717,12 +740,13 @@ CD\_ISINSERTED
 This function will return 1 (True) if there is a CD in the CD-ROM drive
 and the drawer is closed, otherwise it will return 0.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-See `CD\_ISCLOSED <KeywordsC.html#CD_ISCLOSED>`__.
+.. See `CD\_ISCLOSED <KeywordsC.html#CD_ISCLOSED>`__.
+
+See `CD\_ISCLOSED <KeywordsC.clean.html#cd_isclosed>`__.
 
 --------------
 
@@ -738,14 +762,17 @@ CD\_ISPAUSED
 This function will return 1 (True) if the CD is paused (as opposed to
 stopped), otherwise it will return 0.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`CD\_STOP <KeywordsC.html#CD_STOP>`__ can be used to pause the CD.
+.. `CD\_STOP <KeywordsC.html#CD_STOP>`__ can be used to pause the CD.
 
-`CD\_RESUME <KeywordsC.html#CD_RESUME>`__ resumes playing a CD.
+`CD\_STOP <KeywordsC.clean.html#cd_stop>`__ can be used to pause the CD.
+
+.. `CD\_RESUME <KeywordsC.html#CD_RESUME>`__ resumes playing a CD.
+
+`CD\_RESUME <KeywordsC.clean.html#cd_resume>`__ resumes playing a CD.
 
 --------------
 
@@ -761,12 +788,13 @@ CD\_ISPLAYING
 This function will return 1 (True) if an Audio CD is currently playing,
 otherwise it will return 0.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`CD\_PLAY <KeywordsC.html#CD_PLAY>`__ allows you to play an Audio CD.
+.. `CD\_PLAY <KeywordsC.html#CD_PLAY>`__ allows you to play an Audio CD.
+
+`CD\_PLAY <KeywordsC.clean.html#cd_play>`__ allows you to play an Audio CD.
 
 --------------
 
@@ -782,15 +810,18 @@ CD\_LASTTRACK
 This function will return the track number of the last track on the CD
 currently in the player.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`CD\_FIRSTRACK <KeywordsC.html#CD_FIRSTRACK>`__ allows you to find out
+.. `CD\_FIRSTRACK <KeywordsC.html#CD_FIRSTRACK>`__ allows you to find out
+
+`CD\_FIRSTRACK <KeywordsC.clean.html#cd_firstrack>`__ allows you to find out
 the first track number.
 
-`CD\_TRACK <KeywordsC.html#CD_TRACK>`__ tells you the track number
+.. `CD\_TRACK <KeywordsC.html#CD_TRACK>`__ tells you the track number
+
+`CD\_TRACK <KeywordsC.clean.html#cd_track>`__ tells you the track number
 currently playing.
 
 --------------
@@ -807,17 +838,24 @@ CD\_LENGTH
 This function will return the length of the Audio CD currently in the
 player in REDBOOK format.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`CD\_LASTTRACK <KeywordsC.html#CD_LASTTRACK>`__ allows you to find out
+.. `CD\_LASTTRACK <KeywordsC.html#CD_LASTTRACK>`__ allows you to find out
+
+`CD\_LASTTRACK <KeywordsC.clean.html#cd_lasttrack>`__ allows you to find out
 the last track number.
 
-`CD\_HOUR <KeywordsC.html#CD_HOUR>`__,
-`CD\_MINUTE <KeywordsC.html#CD_MINUTE>`__,
-`CD\_SECOND <KeywordsC.html#CD_SECOND>`__ convert REDBOOK format into a
+.. `CD\_HOUR <KeywordsC.html#CD_HOUR>`__,
+
+`CD\_HOUR <KeywordsC.clean.html#cd_hour>`__,
+.. `CD\_MINUTE <KeywordsC.html#CD_MINUTE>`__,
+
+`CD\_MINUTE <KeywordsC.clean.html#cd_minute>`__,
+.. `CD\_SECOND <KeywordsC.html#CD_SECOND>`__ convert REDBOOK format into a
+
+`CD\_SECOND <KeywordsC.clean.html#cd_second>`__ convert REDBOOK format into a
 time.
 
 --------------
@@ -834,13 +872,16 @@ CD\_MINUTE
 This function takes an address in REDBOOK format and tells you the
 number of minutes (0..59) contained in that address.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`CD\_HOUR <KeywordsC.html#CD_HOUR>`__ and
-`CD\_SECOND <KeywordsC.html#CD_SECOND>`__ allow you to find the number
+.. `CD\_HOUR <KeywordsC.html#CD_HOUR>`__ and
+
+`CD\_HOUR <KeywordsC.clean.html#cd_hour>`__ and
+.. `CD\_SECOND <KeywordsC.html#CD_SECOND>`__ allow you to find the number
+
+`CD\_SECOND <KeywordsC.clean.html#cd_second>`__ allow you to find the number
 of hours and seconds in a REDBOOK address respectively.
 
 --------------
@@ -868,8 +909,7 @@ Audio CD is 2352 bytes.
 
 To set bit 31, add the value $80000000 or 2^31
 
-..
-    Examples:
+..  Examples:
 
 **Examples**
 
@@ -911,22 +951,31 @@ order:
     280   REPeat Ploop: IF NOT CD_ISPLAYING: EXIT Ploop
     290 END FOR i
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`CD\_INIT <KeywordsC.html#CD_INIT>`__ allows SMSQ/E to recognise a CD
+.. `CD\_INIT <KeywordsC.html#CD_INIT>`__ allows SMSQ/E to recognise a CD
+
+`CD\_INIT <KeywordsC.clean.html#cd_init>`__ allows SMSQ/E to recognise a CD
 drive.
 
-`CD\_STOP <KeywordsC.html#CD_STOP>`__ pauses playing
+.. `CD\_STOP <KeywordsC.html#CD_STOP>`__ pauses playing
 
-`CD\_EJECT <KeywordsC.html#CD_EJECT>`__ opens the disk drawer to allow
+`CD\_STOP <KeywordsC.clean.html#cd_stop>`__ pauses playing
+
+.. `CD\_EJECT <KeywordsC.html#CD_EJECT>`__ opens the disk drawer to allow
+
+`CD\_EJECT <KeywordsC.clean.html#cd_eject>`__ opens the disk drawer to allow
 you to insert a new CD.
 
-`CD\_CLOSE <KeywordsC.html#CD_CLOSE>`__ closes the disk drawer.
+.. `CD\_CLOSE <KeywordsC.html#CD_CLOSE>`__ closes the disk drawer.
 
-`CD\_ISINSERTED <KeywordsC.html#CD_ISINSERTED>`__ allows you to check if
+`CD\_CLOSE <KeywordsC.clean.html#cd_close>`__ closes the disk drawer.
+
+.. `CD\_ISINSERTED <KeywordsC.html#CD_ISINSERTED>`__ allows you to check if
+
+`CD\_ISINSERTED <KeywordsC.clean.html#cd_isinserted>`__ allows you to check if
 a CD is in the drive.
 
 --------------
@@ -943,12 +992,13 @@ CD\_RED2HSG
 This function converts a specified address in HSG format into REDBOOK
 format.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-See `CD\_HSG2RED <KeywordsC.html#CD_HSG2RED>`__ !
+.. See `CD\_HSG2RED <KeywordsC.html#CD_HSG2RED>`__ !
+
+See `CD\_HSG2RED <KeywordsC.clean.html#cd_hsg2red>`__ !
 
 --------------
 
@@ -964,22 +1014,24 @@ CD\_RESUME
 This command restarts the CD-ROM drive playing from the last track on
 which it was paused.
 
-..
-    NOTE:
+..    NOTE:
 
 **NOTE**
 
 If you had not previously paused the CD, then an error is reported.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`CD\_STOP <KeywordsC.html#CD_STOP>`__ allows you to pause a CD which is
+.. `CD\_STOP <KeywordsC.html#CD_STOP>`__ allows you to pause a CD which is
+
+`CD\_STOP <KeywordsC.clean.html#cd_stop>`__ allows you to pause a CD which is
 currently playing.
 
-`CD\_ISPAUSED <KeywordsC.html#CD_ISPAUSED>`__ allows you to check if the
+.. `CD\_ISPAUSED <KeywordsC.html#CD_ISPAUSED>`__ allows you to check if the
+
+`CD\_ISPAUSED <KeywordsC.clean.html#cd_ispaused>`__ allows you to check if the
 CD has been paused.
 
 --------------
@@ -996,13 +1048,16 @@ CD\_SECOND
 This function takes an address in REDBOOK format and tells you the
 number of seconds (0..59) contained in that address.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`CD\_HOUR <KeywordsC.html#CD_HOUR>`__ and
-`CD\_MINUTE <KeywordsC.html#CD_MINUTE>`__ allow you to find the number
+.. `CD\_HOUR <KeywordsC.html#CD_HOUR>`__ and
+
+`CD\_HOUR <KeywordsC.clean.html#cd_hour>`__ and
+.. `CD\_MINUTE <KeywordsC.html#CD_MINUTE>`__ allow you to find the number
+
+`CD\_MINUTE <KeywordsC.clean.html#cd_minute>`__ allow you to find the number
 of hours and minutes in a REDBOOK address respectively.
 
 --------------
@@ -1023,8 +1078,7 @@ If an Audio CD is already playing, then the disk is paused.
 If you have already paused the Audio CD, then a complete stop is
 performed.
 
-..
-    Example:
+..  Example:
 
 **Example**
 
@@ -1039,8 +1093,7 @@ you cannot resume playing.
     1020 IF CD_ISPAUSED : CD_STOP
     1030 END DEFine
 
-..
-    WARNING:
+..  WARNING:
 
 **WARNING**
 
@@ -1048,20 +1101,27 @@ On some laptop PCs, it has been noted that if you are playing an Audio
 CD and close the case without issuing CD\_STOP, when you re-open the
 case QPC will have crashed.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`CD\_RESUME <KeywordsC.html#CD_RESUME>`__ allows you to resume playing
+.. `CD\_RESUME <KeywordsC.html#CD_RESUME>`__ allows you to resume playing
+
+`CD\_RESUME <KeywordsC.clean.html#cd_resume>`__ allows you to resume playing
 an Audio CD that has been paused.
 
-`CD\_PLAY <KeywordsC.html#CD_PLAY>`__ allows you to play an Audio CD
+.. `CD\_PLAY <KeywordsC.html#CD_PLAY>`__ allows you to play an Audio CD
+
+`CD\_PLAY <KeywordsC.clean.html#cd_play>`__ allows you to play an Audio CD
 that is at a complete stop.
 
-`CD\_EJECT <KeywordsC.html#CD_EJECT>`__ opens the drive drawer.
+.. `CD\_EJECT <KeywordsC.html#CD_EJECT>`__ opens the drive drawer.
 
-`CD\_CLOSE <KeywordsC.html#CD_CLOSE>`__ closes the drive drawer.
+`CD\_EJECT <KeywordsC.clean.html#cd_eject>`__ opens the drive drawer.
+
+.. `CD\_CLOSE <KeywordsC.html#CD_CLOSE>`__ closes the drive drawer.
+
+`CD\_CLOSE <KeywordsC.clean.html#cd_close>`__ closes the drive drawer.
 
 --------------
 
@@ -1077,12 +1137,13 @@ CD\_TRACK
 This function returns the track number of which track on a CD is
 actually being played at present.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`CD\_PLAY <KeywordsC.html#CD_PLAY>`__ plays specified tracks.
+.. `CD\_PLAY <KeywordsC.html#CD_PLAY>`__ plays specified tracks.
+
+`CD\_PLAY <KeywordsC.clean.html#cd_play>`__ plays specified tracks.
 
 --------------
 
@@ -1097,15 +1158,18 @@ CD\_TRACKLENGTH
 
 This function returns the length of a specified track in HSG format.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`CD\_TRACKTIME <KeywordsC.html#CD_TRACKTIME>`__ allows you to find out
+.. `CD\_TRACKTIME <KeywordsC.html#CD_TRACKTIME>`__ allows you to find out
+
+`CD\_TRACKTIME <KeywordsC.clean.html#cd_tracktime>`__ allows you to find out
 the elapsed time on a track being played.
 
-`CD\_HSG2RED <KeywordsC.html#CD_HSG2RED>`__ converts the HSG format to
+.. `CD\_HSG2RED <KeywordsC.html#CD_HSG2RED>`__ converts the HSG format to
+
+`CD\_HSG2RED <KeywordsC.clean.html#cd_hsg2red>`__ converts the HSG format to
 REDBOOK format.
 
 --------------
@@ -1122,18 +1186,23 @@ CD\_TRACKSTART
 This function returns the start address for a specified track in REDBOOK
 format.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`CD\_TRACKLENGTH <KeywordsC.html#CD_TRACKLENGTH>`__ allows you to find
+.. `CD\_TRACKLENGTH <KeywordsC.html#CD_TRACKLENGTH>`__ allows you to find
+
+`CD\_TRACKLENGTH <KeywordsC.clean.html#cd_tracklength>`__ allows you to find
 out the length of a track.
 
-`CD\_PLAY <KeywordsC.html#CD_PLAY>`__ allows you to play specified
+.. `CD\_PLAY <KeywordsC.html#CD_PLAY>`__ allows you to play specified
+
+`CD\_PLAY <KeywordsC.clean.html#cd_play>`__ allows you to play specified
 tracks
 
-`CD\_RED2HSG <KeywordsC.html#CD_RED2HSG>`__ converts the REDBOOK format
+.. `CD\_RED2HSG <KeywordsC.html#CD_RED2HSG>`__ converts the REDBOOK format
+
+`CD\_RED2HSG <KeywordsC.clean.html#cd_red2hsg>`__ converts the REDBOOK format
 to HSG format.
 
 --------------
@@ -1150,17 +1219,22 @@ CD\_TRACKTIME
 This function returns the actual elapsed time in REDBOOK format within
 the current CD track that is being played at present.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`CD\_PLAY <KeywordsC.html#CD_PLAY>`__ plays specified tracks.
+.. `CD\_PLAY <KeywordsC.html#CD_PLAY>`__ plays specified tracks.
 
-`CD\_TRACK <KeywordsC.html#CD_TRACK>`__ allows you to find out which
+`CD\_PLAY <KeywordsC.clean.html#cd_play>`__ plays specified tracks.
+
+.. `CD\_TRACK <KeywordsC.html#CD_TRACK>`__ allows you to find out which
+
+`CD\_TRACK <KeywordsC.clean.html#cd_track>`__ allows you to find out which
 track is being played.
 
-`CD\_ALLTIME <KeywordsC.html#CD_ALLTIME>`__ allows you to find out the
+.. `CD\_ALLTIME <KeywordsC.html#CD_ALLTIME>`__ allows you to find out the
+
+`CD\_ALLTIME <KeywordsC.clean.html#cd_alltime>`__ allows you to find out the
 total elapsed time on the CD disk as a whole.
 
 --------------
@@ -1182,8 +1256,7 @@ CEIL(12.75)=13 INT(12.75)=12 CEIL(-2.3)=-2 INT(-2.3)=-3
 
 CEIL can handle numbers in the range -32768<x<=32768.
 
-..
-    Example:
+..  Example:
 
 **Example**
 
@@ -1191,8 +1264,7 @@ A mechanic needs one and a half hours to replace the rusty exhaust of a
 car. If his rate of pay is £13 per hour, he will charge
 CEIL(13\*1.5)=£20 for the job (excluding parts).
 
-..
-    NOTE:
+..    NOTE:
 
 **NOTE**
 
@@ -1200,12 +1272,13 @@ The simplest way to get a true INTEGER function, where x is rounded up
 or down to the nearest integer is with INT(x+.5) which ensures that
 INT(12.75)=13 and INT(-2.3)=-2.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`INT <KeywordsI.html#INT>`__
+.. `INT <KeywordsI.html#INT>`__
+
+`INT <KeywordsI.clean.html#int>`__
 
 --------------
 
@@ -1241,8 +1314,7 @@ not recommended, eg:
 
 CHANGE "flp" TO "<\*>".
 
-..
-    Example:
+..  Example:
 
 **Example**
 
@@ -1254,21 +1326,23 @@ DIR mdv1\_ will provide a directory of ramdisk 1, but the device ram1\_
 cannot be accessed any more until you use: CHANGE "mdv" TO "ram" to
 restore the normal condition.
 
-..
-    NOTE:
+..    NOTE:
 
 **NOTE**
 
 If a device name is in ROM (eg. possibly mdv on QLs without floppy disk
 drives), the error -20 (read only) will be reported.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`FLP\_USE <KeywordsF.html#FLP_USE>`__ and
-`RAM\_USE <KeywordsR.html#RAM_USE>`__ work similarly.
+.. `FLP\_USE <KeywordsF.html#FLP_USE>`__ and
+
+`FLP\_USE <KeywordsF.clean.html#flp_use>`__ and
+.. `RAM\_USE <KeywordsR.html#RAM_USE>`__ work similarly.
+
+`RAM\_USE <KeywordsR.clean.html#ram_use>`__ work similarly.
 
 --------------
 
@@ -1290,8 +1364,7 @@ The function CHANID expects an open SuperBASIC channel #ch (a default
 channel of #1 is allowed by Btool) and returns its current internal
 channel ID.
 
-..
-    Example:
+..  Example:
 
 **Example**
 
@@ -1303,18 +1376,25 @@ channel ID.
     130 PRINT CHANID(#3)
     140 CLOSE#3
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`CHANID <KeywordsC.html#CHANID>`__ is intended for use with
-`FILE\_OPEN <KeywordsF.html#FILE_OPEN>`__.
+.. `CHANID <KeywordsC.html#CHANID>`__ is intended for use with
 
-`CHANNEL\_ID <KeywordsC.html#CHANNEL_ID>`__ is the same as the Btool
+`CHANID <KeywordsC.clean.html#chanid>`__ is intended for use with
+.. `FILE\_OPEN <KeywordsF.html#FILE_OPEN>`__.
+
+`FILE\_OPEN <KeywordsF.clean.html#file_open>`__.
+
+.. `CHANNEL\_ID <KeywordsC.html#CHANNEL_ID>`__ is the same as the Btool
+
+`CHANNEL\_ID <KeywordsC.clean.html#channel_id>`__ is the same as the Btool
 variant.
 
-See `SET\_CHANNEL <KeywordsS.html#SET_CHANNEL>`__ also.
+.. See `SET\_CHANNEL <KeywordsS.html#SET_CHANNEL>`__ also.
+
+See `SET\_CHANNEL <KeywordsS.clean.html#set_channel>`__ also.
 
 --------------
 
@@ -1335,8 +1415,7 @@ Each channel is listed with a channel number which can be used with
 CLOSE% and provides details of its size and position. Unfortunately, the
 name of the Job which owns the channel is not listed.
 
-..
-    NOTE:
+..    NOTE:
 
 **NOTE**
 
@@ -1344,13 +1423,18 @@ The Tiny Toolkit and Qsound version of this command do not currently
 work with the Pointer Environment. The BTool version works to some
 extent.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`CLOSE% <KeywordsC.html#CLOSE%>`__, `JOBS <KeywordsJ.html#JOBS>`__ and
-`CHANID <KeywordsC.html#CHANID>`__
+.. `CLOSE% <KeywordsC.html#CLOSE%>`__, `JOBS <KeywordsJ.html#JOBS>`__ and
+
+.. >`__, `JOBS <KeywordsJ.html#JOBS>`__ and
+
+`CLOSE% <KeywordsC.clean.html#close%>`__, `JOBS <KeywordsJ.clean.html#jobs>`__ and
+.. `CHANID <KeywordsC.html#CHANID>`__
+
+`CHANID <KeywordsC.clean.html#chanid>`__
 
 --------------
 
@@ -1365,13 +1449,16 @@ CHANNEL\_ID
 
 This function is exactly the same as CHANID.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-See\ `CHANID <KeywordsC.html#CHANID>`__ and
-`SET\_CHANNEL <KeywordsS.html#SET_CHANNEL>`__.
+.. See\ `CHANID <KeywordsC.html#CHANID>`__ and
+
+See\ `CHANID <KeywordsC.clean.html#chanid>`__ and
+.. `SET\_CHANNEL <KeywordsS.html#SET_CHANNEL>`__.
+
+`SET\_CHANNEL <KeywordsS.clean.html#set_channel>`__.
 
 --------------
 
@@ -1402,8 +1489,7 @@ channel definition block (what is required depends upon the offset).
 Extra offsets (negative numbers) are added by the Pointer Environment
 which can also be looked at by using these functions.
 
-..
-    Examples:
+..  Examples:
 
 **Examples**
 
@@ -1418,12 +1504,13 @@ to find the base address of the screen.
     100 PRINT 'Window #1's size is';
     110 PRINT CHAN_W% (#1,28);'x'; CHAN_W% (#1,30);'a'; CHAN_W% (#1,24);'x'; CHAN_W% (#1,26)
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`CHBASE <KeywordsC.html#CHBASE>`__ can be used to find out similar
+.. `CHBASE <KeywordsC.html#CHBASE>`__ can be used to find out similar
+
+`CHBASE <KeywordsC.clean.html#chbase>`__ can be used to find out similar
 information.
 
 --------------
@@ -1461,22 +1548,19 @@ TURBO\_obfil.
 The maximum length of the task\_file$ is 12 characters. If a longer
 string is supplied, only the first 12 characters are used.
 
-..
-    Example:
+..  Example:
 
 **Example**
 
 CHARGE 'GENEALOGY'
 
-..
-    NOTE 1:
+..    NOTE 1:
 
 **NOTE 1**
 
 This command will not work on Minerva and SMS.
 
-..
-    NOTE 2:
+..    NOTE 2:
 
 **NOTE 2**
 
@@ -1484,8 +1568,7 @@ The filename for the new task has never really worked correctly when
 passed as a parameter, if you specify a device as part of the filename.
 The filename becomes corrupted if this is the case.
 
-..
-    NOTE 3:
+..    NOTE 3:
 
 **NOTE 3**
 
@@ -1499,17 +1582,22 @@ This is different to QLiberator, which only checks whether each machine
 code function or procedure is linked in when (and if) it tries to use
 them whilst the compiled program is being run.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`DATA\_AREA <KeywordsD.html#DATA_AREA>`__ and
-`TURBO\_xx <KeywordsT.html#TURBO_xx>`__ directives exist to allow you to
+.. `DATA\_AREA <KeywordsD.html#DATA_AREA>`__ and
+
+`DATA\_AREA <KeywordsD.clean.html#data_area>`__ and
+.. `TURBO\_xx <KeywordsT.html#TURBO_xx>`__ directives exist to allow you to
+
+`TURBO\_xx <KeywordsT.clean.html#turbo_xx>`__ directives exist to allow you to
 specify various compilation options from within your program's source
 code.
 
-Please also refer to `COMPILED <KeywordsC.html#COMPILED>`__.
+.. Please also refer to `COMPILED <KeywordsC.html#COMPILED>`__.
+
+Please also refer to `COMPILED <KeywordsC.clean.html#compiled>`__.
 
 --------------
 
@@ -1543,15 +1631,13 @@ Minerva users can achieve the same effect with the following:
 Note that you will need to store the addresses of the original QL ROM
 fonts (as in lines 110 and 120).
 
-..
-    NOTE 1:
+..    NOTE 1:
 
 **NOTE 1**
 
 The screen windows which are already open will not be affected.
 
-..
-    NOTE 2:
+..    NOTE 2:
 
 **NOTE 2**
 
@@ -1559,13 +1645,16 @@ This command cannot affect a screen window which has been OPENed over
 the Network, unless issued on the Slave computer (on whose screen the
 window appears), before the window was OPENed over the Network.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`CHAR\_USE <KeywordsC.html#CHAR_USE>`__,
-`CHAR\_INC <KeywordsC.html#CHAR_INC>`__.
+.. `CHAR\_USE <KeywordsC.html#CHAR_USE>`__,
+
+`CHAR\_USE <KeywordsC.clean.html#char_use>`__,
+.. `CHAR\_INC <KeywordsC.html#CHAR_INC>`__.
+
+`CHAR\_INC <KeywordsC.clean.html#char_inc>`__.
 
 Please also refer to the Fonts Appendix.
 
@@ -1593,8 +1682,7 @@ Also, if you own a JSU ROM (an American QL), this grid size is reduced
 to 8x8, although programs would appear to run okay on the JSU ROM
 without modification (see MODE for further details).
 
-..
-    Example:
+..  Example:
 
 **Example**
 
@@ -1613,8 +1701,7 @@ columns, but text can only be read in overwrite mode (OVER 1). CHAR\_INC
 6,8 is the highest possible value which will allow text to be read
 without the need for OVER 1.
 
-..
-    WARNING:
+..  WARNING:
 
 **WARNING**
 
@@ -1627,14 +1714,19 @@ account of the height of the strip, which could therefore fall out of
 the window (or into the system variables if your window is near the
 bottom of the screen).
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`CSIZE <KeywordsC.html#CSIZE>`__, `OVER <KeywordsO.html#OVER>`__.
+.. `CSIZE <KeywordsC.html#CSIZE>`__, `OVER <KeywordsO.html#OVER>`__.
 
-See also `TTINC <KeywordsT.html#TTINC>`__.
+.. >`__, `OVER <KeywordsO.html#OVER>`__.
+
+`CSIZE <KeywordsC.clean.html#csize>`__, `OVER <KeywordsO.clean.html#over>`__.
+
+.. See also `TTINC <KeywordsT.html#TTINC>`__.
+
+See also `TTINC <KeywordsT.clean.html#ttinc>`__.
 
 --------------
 
@@ -1662,8 +1754,7 @@ font1=0 or font2=0 as appropriate.
 If you use the value of -1 as one of the parameters, then that font
 attached to the specified channel will not be altered by this command.
 
-..
-    Example:
+..  Example:
 
 **Example**
 
@@ -1672,28 +1763,34 @@ CHAR\_USE #3,font\_address,0
 resets the first font in #3 to the font stored at font\_address in
 memory.
 
-..
-    NOTE:
+..    NOTE:
 
 **NOTE**
 
 This command will have no effect on a window OPENed over the Network.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
 Please refer to the Fonts Appendix concerning QL fonts.
 
-`CHAR\_INC <KeywordsC.html#CHAR_INC>`__ allows you to alter the spacing
+.. `CHAR\_INC <KeywordsC.html#CHAR_INC>`__ allows you to alter the spacing
+
+`CHAR\_INC <KeywordsC.clean.html#char_inc>`__ allows you to alter the spacing
 between characters.
 
-`CHAR\_DEF <KeywordsC.html#CHAR_DEF>`__ allows you to alter the default
+.. `CHAR\_DEF <KeywordsC.html#CHAR_DEF>`__ allows you to alter the default
+
+`CHAR\_DEF <KeywordsC.clean.html#char_def>`__ allows you to alter the default
 system fonts.
 
-`S\_FONT <KeywordsS.html#S_FONT>`__ performs the same function as
-`CHAR\_USE <KeywordsC.html#CHAR_USE>`__.
+.. `S\_FONT <KeywordsS.html#S_FONT>`__ performs the same function as
+
+`S\_FONT <KeywordsS.clean.html#s_font>`__ performs the same function as
+.. `CHAR\_USE <KeywordsC.html#CHAR_USE>`__.
+
+`CHAR\_USE <KeywordsC.clean.html#char_use>`__.
 
 --------------
 
@@ -1732,16 +1829,14 @@ the QDOS error code:
 -  -6 = No such channel exists.
 -  -15 = It's a channel but not a window.
 
-..
-    Example 1:
+..  Example 1:
 
 **Example 1**
 
 The current INK colour is found at offset $46, so: INK 7: PRINT PEEK(
 CHBASE+ HEX('46') ) will print 7, because of the INK 7 command.
 
-..
-    Example 2:
+..  Example 2:
 
 **Example 2**
 
@@ -1759,14 +1854,17 @@ example is more or less just an example of the syntax of CHBASE...
     120   PRINT "Channel #0 is not in it's original state."
     130 END IF
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`CBASE <KeywordsC.html#CBASE>`__.
+.. `CBASE <KeywordsC.html#CBASE>`__.
 
-See also `CHAN\_B% <KeywordsC.html#CHAN_B%>`__ and related functions.
+`CBASE <KeywordsC.clean.html#cbase>`__.
+
+.. See also `CHAN\_B% <KeywordsC.html#CHAN_B%>`__ and related functions.
+
+See also `CHAN\_B% <KeywordsC.clean.html#chan_b%>`__ and related functions.
 
 --------------
 
@@ -1812,8 +1910,7 @@ Although "-32768" is converted correctly to -32768, this value must be
 reserved because the program cannot know whether the input was illegal
 or -32768.
 
-..
-    Example:
+..  Example:
 
 **Example**
 
@@ -1834,16 +1931,21 @@ INPUT into a loop:
     180   END IF
     190 END REPeat asking
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`CHECKF <KeywordsC.html#CHECKF>`__ does the same as
-`CHECK% <KeywordsC.html#CHECK%>`__ but converts strings containing
+.. `CHECKF <KeywordsC.html#CHECKF>`__ does the same as
+
+`CHECKF <KeywordsC.clean.html#checkf>`__ does the same as
+.. `CHECK% <KeywordsC.html#CHECK%>`__ but converts strings containing
+
+`CHECK% <KeywordsC.clean.html#check%>`__ but converts strings containing
 floating point numbers.
 
-`WHEN ERRor <KeywordsW.html#WHEN%20ERRor>`__ can trap the coercion
+.. `WHEN ERRor <KeywordsW.html#WHEN%20ERRor>`__ can trap the coercion
+
+`WHEN ERRor <KeywordsW.clean.html#when%20error>`__ can trap the coercion
 failure.
 
 See the Coercion Appendix also.
@@ -1866,12 +1968,15 @@ a floating point rather than an integer as returned by CHECK%.
 CHECKF works just like CHECK% except that a return value of -1E600
 signifies unacceptable strings.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`CHECK% <KeywordsC.html#CHECK%>`__ and `TTEFP <KeywordsT.html#TTEFP>`__
+.. `CHECK% <KeywordsC.html#CHECK%>`__ and `TTEFP <KeywordsT.html#TTEFP>`__
+
+.. >`__ and `TTEFP <KeywordsT.html#TTEFP>`__
+
+`CHECK% <KeywordsC.clean.html#check%>`__ and `TTEFP <KeywordsT.clean.html#ttefp>`__
 are worth a look.
 
 --------------
@@ -1905,8 +2010,7 @@ The QL ROM character set is actually only in the range 0...255, although
 code can be anything in the range -32768...32767. The least significant
 byte of the supplied parameter is used, ie. code && 255.
 
-..
-    Examples:
+..  Examples:
 
 **Examples**
 
@@ -1929,19 +2033,19 @@ upper case:
     150 RETurn U$
     160 END DEFine UP$
 
-..
-    NOTE:
+..    NOTE:
 
 **NOTE**
 
 The THOR XVI limits code to the range 0...255.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-See `CODE <KeywordsC.html#CODE>`__ and also please refer to the
+.. See `CODE <KeywordsC.html#CODE>`__ and also please refer to the
+
+See `CODE <KeywordsC.clean.html#code>`__ and also please refer to the
 Characters section of the Appendix.
 
 --------------
@@ -1990,8 +2094,7 @@ circles!). If this rule is not followed, then any points which lie on
 the same horizontal line (even though they may be in different circles)
 will be joined.
 
-..
-    Example:
+..  Example:
 
 **Example**
 
@@ -2008,14 +2111,19 @@ Try the following for an interesting effect:
     160   CIRCLE_R 5-(i MOD 10),15-(i MOD 30),20
     170 END FOR i
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-Please refer to `ELLIPSE <KeywordsE.html#ELLIPSE>`__ for further
-information on the `ratio <Keywordsr.html#ratio>`__\ and
-`ecc <Keywordse.html#ecc>`__.
+.. Please refer to `ELLIPSE <KeywordsE.html#ELLIPSE>`__ for further
+
+Please refer to `ELLIPSE <KeywordsE.clean.html#ellipse>`__ for further
+.. information on the `ratio <Keywordsr.html#ratio>`__\ and
+
+information on the `ratio <Keywordsr.clean.html#ratio>`__\ and
+.. `ecc <Keywordse.html#ecc>`__.
+
+`ecc <Keywordse.clean.html#ecc>`__.
 
 --------------
 
@@ -2031,13 +2139,16 @@ CIRCLE\_R
 This command draws a circle relative to the current graphics cursor. See
 CIRCLE.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-Please refer to `ARC\_R <KeywordsA.html#ARC_R>`__.
-`ELLIPSE\_R <KeywordsE.html#ELLIPSE_R>`__ is exactly the same as this
+.. Please refer to `ARC\_R <KeywordsA.html#ARC_R>`__.
+
+Please refer to `ARC\_R <KeywordsA.clean.html#arc_r>`__.
+.. `ELLIPSE\_R <KeywordsE.html#ELLIPSE_R>`__ is exactly the same as this
+
+`ELLIPSE\_R <KeywordsE.clean.html#ellipse_r>`__ is exactly the same as this
 command.
 
 --------------
@@ -2058,19 +2169,19 @@ pointer around the screen using the keyboard.
 You may however prefer that the cursor keys had no effect on the pointer
 - the solution is simple - just use the command CKEYOFF.
 
-..
-    NOTE:
+..    NOTE:
 
 **NOTE**
 
 There were problems with this command prior to v1.56.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`CKEYON <KeywordsC.html#CKEYON>`__ tells the Pointer Interface to
+.. `CKEYON <KeywordsC.html#CKEYON>`__ tells the Pointer Interface to
+
+`CKEYON <KeywordsC.clean.html#ckeyon>`__ tells the Pointer Interface to
 recognise the cursorkeys again.
 
 --------------
@@ -2084,10 +2195,11 @@ CKEYON
 | Location |  Pointer Interface (v1.23 or later)                               |
 +----------+-------------------------------------------------------------------+
 
-See `CKEYOFF <KeywordsC.html#CKEYOFF>`__.
+.. See `CKEYOFF <KeywordsC.html#CKEYOFF>`__.
 
-..
-    NOTE:
+See `CKEYOFF <KeywordsC.clean.html#ckeyoff>`__.
+
+..    NOTE:
 
 **NOTE**
 
@@ -2108,19 +2220,30 @@ A BASIC program can reserve space in the common heap with ALCHP. The
 command CLCHP removes all space which has been grabbed using ALCHP and
 returns it to the common heap so that it can be used for other purposes.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`ALCHP <KeywordsA.html#ALCHP>`__ reserves areas of the common heap, and
-`RECHP <KeywordsR.html#RECHP>`__ releases a specified part of the common
+.. `ALCHP <KeywordsA.html#ALCHP>`__ reserves areas of the common heap, and
+
+`ALCHP <KeywordsA.clean.html#alchp>`__ reserves areas of the common heap, and
+.. `RECHP <KeywordsR.html#RECHP>`__ releases a specified part of the common
+
+`RECHP <KeywordsR.clean.html#rechp>`__ releases a specified part of the common
 heap.
 
-Compare `RESERVE <KeywordsR.html#RESERVE>`__ and the Btool variant of
-`ALCHP <KeywordsA.html#ALCHP>`__.
+.. Compare `RESERVE <KeywordsR.html#RESERVE>`__ and the Btool variant of
 
-`NEW <KeywordsN.html#NEW>`__ and `LOAD <KeywordsL.html#LOAD>`__ also
+Compare `RESERVE <KeywordsR.clean.html#reserve>`__ and the Btool variant of
+.. `ALCHP <KeywordsA.html#ALCHP>`__.
+
+`ALCHP <KeywordsA.clean.html#alchp>`__.
+
+.. `NEW <KeywordsN.html#NEW>`__ and `LOAD <KeywordsL.html#LOAD>`__ also
+
+.. >`__ and `LOAD <KeywordsL.html#LOAD>`__ also
+
+`NEW <KeywordsN.clean.html#new>`__ and `LOAD <KeywordsL.clean.html#load>`__ also
 release areas of the common heap.
 
 --------------
@@ -2153,8 +2276,7 @@ a program will be defined properly. While developing a large program in
 BASIC it may sometimes be helpful to set an essential variable directly
 in the command line and not as a static statement in the listing.
 
-..
-    Example:
+..  Example:
 
 **Example**
 
@@ -2173,8 +2295,7 @@ defined until line 110 was reached.
 The second time, a was still set and so the output is slightly
 different... 5 5
 
-..
-    NOTE:
+..    NOTE:
 
 **NOTE**
 
@@ -2182,8 +2303,7 @@ CLEAR may cause some problems on pre Minerva ROMs if it is issued after
 having deleted a PROCedure or a FuNction in a SuperBASIC program which
 appeared as the last thing in a program. This is fixed by Toolkit II.
 
-..
-    SMS NOTE:
+..    SMS NOTE:
 
 **SMS NOTE**
 
@@ -2194,15 +2314,24 @@ will therefore not occur if you try to use such a variable.
 On a machine fitted with SMS the example would therefore have printed 0
 5 on the first run, and 5 5 on the second.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`CLOSE <KeywordsC.html#CLOSE>`__,
-`CLEAR\_HOT <KeywordsC.html#CLEAR_HOT>`__,
-`CLCHP <KeywordsC.html#CLCHP>`__, `CLRMDV <KeywordsC.html#CLRMDV>`__,
-`RUN <KeywordsR.html#RUN>`__.
+.. `CLOSE <KeywordsC.html#CLOSE>`__,
+
+`CLOSE <KeywordsC.clean.html#close>`__,
+.. `CLEAR\_HOT <KeywordsC.html#CLEAR_HOT>`__,
+
+`CLEAR\_HOT <KeywordsC.clean.html#clear_hot>`__,
+.. `CLCHP <KeywordsC.html#CLCHP>`__, `CLRMDV <KeywordsC.html#CLRMDV>`__,
+
+.. >`__, `CLRMDV <KeywordsC.html#CLRMDV>`__,
+
+`CLCHP <KeywordsC.clean.html#clchp>`__, `CLRMDV <KeywordsC.clean.html#clrmdv>`__,
+.. `RUN <KeywordsR.html#RUN>`__.
+
+`RUN <KeywordsR.clean.html#run>`__.
 
 --------------
 
@@ -2218,8 +2347,7 @@ CLEAR\_HOT
 This command deletes a hotkey defined with the HOT command and releases
 the memory used to set up the hotkey back to QDOS' memory management.
 
-..
-    NOTE:
+..    NOTE:
 
 **NOTE**
 
@@ -2227,16 +2355,23 @@ CLEAR\_HOT works okay, but in most cases the memory released by this
 command is not recognised by the system as being free memory and
 therefore cannot be re-used without resetting the system.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-See `HOT <KeywordsH.html#HOT>`__ on how to define a hotkey.
+.. See `HOT <KeywordsH.html#HOT>`__ on how to define a hotkey.
 
-Use `FREE <KeywordsF.html#FREE>`__,
-`FREE\_MEM <KeywordsF.html#FREE_MEM>`__ or
-`MT\_FREE <KeywordsM.html#MT_FREE>`__ to check the actual available
+See `HOT <KeywordsH.clean.html#hot>`__ on how to define a hotkey.
+
+.. Use `FREE <KeywordsF.html#FREE>`__,
+
+Use `FREE <KeywordsF.clean.html#free>`__,
+.. `FREE\_MEM <KeywordsF.html#FREE_MEM>`__ or
+
+`FREE\_MEM <KeywordsF.clean.html#free_mem>`__ or
+.. `MT\_FREE <KeywordsM.html#MT_FREE>`__ to check the actual available
+
+`MT\_FREE <KeywordsM.clean.html#mt_free>`__ to check the actual available
 memory.
 
 --------------
@@ -2279,8 +2414,7 @@ settings of the window of a target program.
 However, this function is really of most use when used within your own
 programs, possibly to detect collisions in a game between objects.
 
-..
-    Example:
+..  Example:
 
 **Example**
 
@@ -2295,16 +2429,14 @@ flp1\_ (provided that the directory was not longer than one page):
     30 PRINT #2,CLIP$(#1);
     40 END FOR i
 
-..
-    NOTE 1:
+..    NOTE 1:
 
 **NOTE 1**
 
 Although this works on all QL implementations, the code will not
 currently work with resolutions bigger than 512x256 pixels.
 
-..
-    NOTE 2:
+..    NOTE 2:
 
 **NOTE 2**
 
@@ -2314,8 +2446,7 @@ you will have to switch off the windowing environment before the program
 in question is loaded, using POKE SYS\_VARS+133,1 on the THOR or EXEP
 flp1\_program,u under the Pointer Environment.
 
-..
-    NOTE 3:
+..    NOTE 3:
 
 **NOTE 3**
 
@@ -2324,18 +2455,23 @@ standard fonts (or attach fonts to a window using non-standard
 techniques). Some additional fonts are supplied with DIY Toolkit which
 may help in this respect.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
 See the Fonts Appendix about changing QL fonts.
 
-`CHAR\_USE <KeywordsC.html#CHAR_USE>`__ and
-`S\_FONT <KeywordsS.html#S_FONT>`__ allows you to set the font used by a
+.. `CHAR\_USE <KeywordsC.html#CHAR_USE>`__ and
+
+`CHAR\_USE <KeywordsC.clean.html#char_use>`__ and
+.. `S\_FONT <KeywordsS.html#S_FONT>`__ allows you to set the font used by a
+
+`S\_FONT <KeywordsS.clean.html#s_font>`__ allows you to set the font used by a
 window.
 
-See also `CLIP$ <KeywordsC.html#CLIP$>`__.
+.. See also `CLIP$ <KeywordsC.html#CLIP$>`__.
+
+See also `CLIP$ <KeywordsC.clean.html#clip$>`__.
 
 --------------
 
@@ -2351,19 +2487,19 @@ CLIP$
 This function is very similar to CLIP% except that it returns the actual
 character which appears on screen rather than the character code.
 
-..
-    NOTE:
+..    NOTE:
 
 **NOTE**
 
 The same notes apply to this function as to CLIP%.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-See `CLIP% <KeywordsC.html#CLIP%>`__.
+.. See `CLIP% <KeywordsC.html#CLIP%>`__.
+
+See `CLIP% <KeywordsC.clean.html#clip%>`__.
 
 --------------
 
@@ -2405,15 +2541,13 @@ ideal) :
 A newline can be inserted by either padding out the string with spaces
 or by adding CHR$(10) inside the string.
 
-..
-    Example:
+..  Example:
 
 **Example**
 
 CLOCK #2,'Date: %d $m %y' & chr$(10) & 'Time: $d %h:%m'
 
-..
-    NOTE 1:
+..    NOTE 1:
 
 **NOTE 1**
 
@@ -2421,16 +2555,14 @@ There is no difference between upper case and lower case letters, so %d
 has the same effect as %D. However, do watch the difference between $m
 and %m!
 
-..
-    NOTE 2:
+..    NOTE 2:
 
 **NOTE 2**
 
 Any attempt to open a clock in channel #0 will be ignored and the
 default window opened.
 
-..
-    NOTE 3:
+..    NOTE 3:
 
 **NOTE 3**
 
@@ -2439,8 +2571,7 @@ Unfortunately for Pointer Environment users, there is no way of
 the THOR XVI this is alleviated by ensuring that the Job is always owned
 by Job 0.
 
-..
-    NOTE 4:
+..    NOTE 4:
 
 **NOTE 4**
 
@@ -2448,8 +2579,7 @@ v2.25+ of Toolkit II introduced a further special character for use in
 the format string. This is %c, which returns the first two digits of the
 year, for example %c%y will print the current year as four digits.
 
-..
-    NOTE 5:
+..    NOTE 5:
 
 **NOTE 5**
 
@@ -2458,19 +2588,30 @@ window is in fact owned by SuperBASIC rather than the CLOCK task. This
 means that if CLOCK is removed other than by using NO\_CLOCK, (eg. with
 RJOB) the channel can be left open.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-Use `SDATE <KeywordsS.html#SDATE>`__ or `ADATE <KeywordsA.html#ADATE>`__
+.. Use `SDATE <KeywordsS.html#SDATE>`__ or `ADATE <KeywordsA.html#ADATE>`__
+
+.. >`__ or `ADATE <KeywordsA.html#ADATE>`__
+
+Use `SDATE <KeywordsS.clean.html#sdate>`__ or `ADATE <KeywordsA.clean.html#adate>`__
 to set the system date and time.
 
-`DATE$ <KeywordsD.html#DATE$>`__ and `DATE <KeywordsD.html#DATE>`__
+.. `DATE$ <KeywordsD.html#DATE$>`__ and `DATE <KeywordsD.html#DATE>`__
+
+.. >`__ and `DATE <KeywordsD.html#DATE>`__
+
+`DATE$ <KeywordsD.clean.html#date$>`__ and `DATE <KeywordsD.clean.html#date>`__
 return the current time.
 
-`NO\_CLOCK <KeywordsN.html#NO_CLOCK>`__ removes the
-`CLOCK <KeywordsC.html#CLOCK>`__ on the THOR.
+.. `NO\_CLOCK <KeywordsN.html#NO_CLOCK>`__ removes the
+
+`NO\_CLOCK <KeywordsN.clean.html#no_clock>`__ removes the
+.. `CLOCK <KeywordsC.html#CLOCK>`__ on the THOR.
+
+`CLOCK <KeywordsC.clean.html#clock>`__ on the THOR.
 
 --------------
 
@@ -2497,8 +2638,7 @@ Every CLOSE command will first flush the contents of internal buffers to
 ensure that all information has been passed to the channel before it is
 closed.
 
-..
-    Examples:
+..  Examples:
 
 **Examples**
 
@@ -2510,8 +2650,7 @@ closed.
     CLOSE#8,#3,#6
     CLOSE
 
-..
-    NOTE 1:
+..    NOTE 1:
 
 **NOTE 1**
 
@@ -2519,8 +2658,7 @@ On Minerva pre v1.81 and other ROMs, unless Toolkit II is installed,
 CLOSE will report 'channel not open' if the channel is not open. Toolkit
 II and later versions of Minerva stop this from happening.
 
-..
-    NOTE 2:
+..    NOTE 2:
 
 **NOTE 2**
 
@@ -2532,8 +2670,7 @@ successfully, any further attempt to use CLOSE without parameters will
 continue to report error -15 until the program is cleared out with NEW,
 LOAD or LRUN.
 
-..
-    NOTE 3:
+..    NOTE 3:
 
 **NOTE 3**
 
@@ -2543,8 +2680,7 @@ may end up with several CLOSEd windows which are still visible on
 screen. This will only disappear when another channel with the same
 channel number is opened. The Pointer Interface and SMS cure this.
 
-..
-    NOTE 4:
+..    NOTE 4:
 
 **NOTE 4**
 
@@ -2554,15 +2690,13 @@ it. The machine will lock up if you do so be warned! On a THOR, the
 system will lock up for 30 seconds and then report an 'Xmit Error'. On
 Minerva, you will need to press <CTRL><SPACE>.
 
-..
-    NOTE 5:
+..    NOTE 5:
 
 **NOTE 5**
 
 QL ROMs (pre MG) had problems in closing ser2 - they tended to close one
 serial channel for output and the other for input instead!
 
-..
     NOTE 6:
 
 **NOTE 6**
@@ -2573,16 +2707,14 @@ command, before trying to access the file (otherwise you may find that
 all of the changes are not present!). The other solution is to FLUSH the
 file before CLOSEing it.
 
-..
-    MINERVA NOTE:
+..    MINERVA NOTE:
 
 **MINERVA NOTE**
 
 CLOSE #1 will also remove a MultiBasic job in certain instances - see
 appendix on Multiple Basics.
 
-..
-    WARNING:
+..  WARNING:
 
 **WARNING**
 
@@ -2595,17 +2727,26 @@ may behave a little strangely on the newly opened #0. If you use CLOSE
 #0 from within a MultiBASIC or one of SMS's SBASICs, this will remove
 the MultiBASIC (or SBASIC) Job.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`OPEN <KeywordsO.html#OPEN>`__, `CHANNELS <KeywordsC.html#CHANNELS>`__,
-`CLOSE% <KeywordsC.html#CLOSE%>`__
-`SCR\_STORE <KeywordsS.html#SCR_STORE>`__ and related commands can be
+.. `OPEN <KeywordsO.html#OPEN>`__, `CHANNELS <KeywordsC.html#CHANNELS>`__,
+
+.. >`__, `CHANNELS <KeywordsC.html#CHANNELS>`__,
+
+`OPEN <KeywordsO.clean.html#open>`__, `CHANNELS <KeywordsC.clean.html#channels>`__,
+.. `CLOSE% <KeywordsC.html#CLOSE%>`__
+
+`CLOSE% <KeywordsC.clean.html#close%>`__
+.. `SCR\_STORE <KeywordsS.html#SCR_STORE>`__ and related commands can be
+
+`SCR\_STORE <KeywordsS.clean.html#scr_store>`__ and related commands can be
 used to provide the QL with a windowing environment whereby the contents
 of the screen are restored when a window is
-`CLOSE <KeywordsC.html#CLOSE>`__\ d.
+.. `CLOSE <KeywordsC.html#CLOSE>`__\ d.
+
+`CLOSE <KeywordsC.clean.html#close>`__\ d.
 
 --------------
 
@@ -2622,20 +2763,22 @@ The command CLOSE% allows you to close a channel which is specified
 using the channel number listed when you use the CHANNELS command. This
 thus allows you to close channels owned by other Jobs.
 
-..
-    WARNING:
+..  WARNING:
 
 **WARNING**
 
 If you close the channel of a job, this can lock up that job. Ensure
 that you know the consequences of your actions!
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`CHANNELS <KeywordsC.html#CHANNELS>`__, `CLOSE <KeywordsC.html#CLOSE>`__
+.. `CHANNELS <KeywordsC.html#CHANNELS>`__, `CLOSE <KeywordsC.html#CLOSE>`__
+
+.. >`__, `CLOSE <KeywordsC.html#CLOSE>`__
+
+`CHANNELS <KeywordsC.clean.html#channels>`__, `CLOSE <KeywordsC.clean.html#close>`__
 
 --------------
 
@@ -2654,22 +2797,26 @@ cartridges are exchanged between QLs, otherwise one of the QLs may not
 find a file written by another QL on a cartridge. Such problems do not
 exist with floppies or any other media.
 
-..
-    Example:
+..  Example:
 
 **Example**
 
 CLRMDV 2
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-For `RAND <KeywordsR.html#RAND>`__, `CLRMDV <KeywordsC.html#CLRMDV>`__
+.. For `RAND <KeywordsR.html#RAND>`__, `CLRMDV <KeywordsC.html#CLRMDV>`__
+
+.. >`__, `CLRMDV <KeywordsC.html#CLRMDV>`__
+
+For `RAND <KeywordsR.clean.html#rand>`__, `CLRMDV <KeywordsC.clean.html#clrmdv>`__
 is very useful.
 
-See also `DEL\_DEFB <KeywordsD.html#DEL_DEFB>`__ which performs a
+.. See also `DEL\_DEFB <KeywordsD.html#DEL_DEFB>`__ which performs a
+
+See also `DEL\_DEFB <KeywordsD.clean.html#del_defb>`__ which performs a
 similar task.
 
 --------------
@@ -2719,16 +2866,14 @@ CLS #3,128-13 moves the cursor back one space in #3.
 You must however be aware of using CLS 98 (IO.FLINE) on pre JS ROMs,
 since this tended to leave the cursor switched on!
 
-..
-    NOTE 1:
+..    NOTE 1:
 
 **NOTE 1**
 
 On pre MG ROMs CLS is likely to fail if the window is smaller than the
 cursor.
 
-..
-    NOTE 2:
+..    NOTE 2:
 
 **NOTE 2**
 
@@ -2736,30 +2881,46 @@ The THOR XVI only allows cls\_type to be in the range 0..4.
 
 Under SMS, if cls\_type is more than 4, then CLS uses cls\_type MOD 4.
 
-..
-    NOTE 3:
+..    NOTE 3:
 
 **NOTE 3**
 
 Some of the additional values of cls\_type can actually cause the
 computer to crash, whilst others will merely report an error.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`AT <KeywordsA.html#AT>`__ and `PRINT <KeywordsP.html#PRINT>`__ position
+.. `AT <KeywordsA.html#AT>`__ and `PRINT <KeywordsP.html#PRINT>`__ position
+
+.. >`__ and `PRINT <KeywordsP.html#PRINT>`__ position
+
+`AT <KeywordsA.clean.html#at>`__ and `PRINT <KeywordsP.clean.html#print>`__ position
 the text cursor.
 
-`PAPER <KeywordsP.html#PAPER>`__ alters the current paper colour.
+.. `PAPER <KeywordsP.html#PAPER>`__ alters the current paper colour.
 
-`SCROLL <KeywordsS.html#SCROLL>`__ and `PAN <KeywordsP.html#PAN>`__ also
+`PAPER <KeywordsP.clean.html#paper>`__ alters the current paper colour.
+
+.. `SCROLL <KeywordsS.html#SCROLL>`__ and `PAN <KeywordsP.html#PAN>`__ also
+
+.. >`__ and `PAN <KeywordsP.html#PAN>`__ also
+
+`SCROLL <KeywordsS.clean.html#scroll>`__ and `PAN <KeywordsP.clean.html#pan>`__ also
 allow you to access various system utilities.
 
 A much safer way to access system utilities is to use
-`IO\_TRAP <KeywordsI.html#IO_TRAP>`__, `MTRAP <KeywordsM.html#MTRAP>`__,
-`QTRAP <KeywordsQ.html#QTRAP>`__ and `BTRAP <KeywordsB.html#BTRAP>`__.
+.. `IO\_TRAP <KeywordsI.html#IO_TRAP>`__, `MTRAP <KeywordsM.html#MTRAP>`__,
+
+.. >`__, `MTRAP <KeywordsM.html#MTRAP>`__,
+
+`IO\_TRAP <KeywordsI.clean.html#io_trap>`__, `MTRAP <KeywordsM.clean.html#mtrap>`__,
+.. `QTRAP <KeywordsQ.html#QTRAP>`__ and `BTRAP <KeywordsB.html#BTRAP>`__.
+
+.. >`__ and `BTRAP <KeywordsB.html#BTRAP>`__.
+
+`QTRAP <KeywordsQ.clean.html#qtrap>`__ and `BTRAP <KeywordsB.clean.html#btrap>`__.
 
 For details of the various TRAP #3 system utilities refer to the
 QDOS/SMS Reference Manual (Section 15) or similar.
@@ -2779,12 +2940,13 @@ This command forces all windows currently OPENed by SuperBASIC or
 belonging to the current job to be cleared and given a border (width 1,
 colour 255). This works on channels opened on Minerva's dual screens.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`CLS <KeywordsC.html#CLS>`__ clears a single window without changing
+.. `CLS <KeywordsC.html#CLS>`__ clears a single window without changing
+
+`CLS <KeywordsC.clean.html#cls>`__ clears a single window without changing
 window attributes, the border in this case.
 
 --------------
@@ -2804,8 +2966,7 @@ the program when it was initiated, with the command EX (or similar).
 
 The string appears after the EX command, preceded with a semicolon.
 
-..
-    Example:
+..  Example:
 
 **Example**
 
@@ -2849,29 +3010,30 @@ This will execute win1\_XCHANGE\_xchange with the help file to be loaded
 from win1\_XCHANGE\_ , the data files being loaded from flp2\_ and a
 dataspace of 200K.
 
-..
-    NOTE 1:
+..    NOTE 1:
 
 **NOTE 1**
 
 In SMS pre v2.60, you could not directly slice CMD$ - copy it to another
 string variable first, as in the example.
 
-..
-    NOTE 2:
+..    NOTE 2:
 
 **NOTE 2**
 
 You cannot use this command in TURBO compiled jobs - use OPTION\_CMD$
 instead.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-See `EXEC <KeywordsE.html#EXEC>`__ and
-`EXEC\_W <KeywordsE.html#EXEC_W>`__.
+.. See `EXEC <KeywordsE.html#EXEC>`__ and
+
+See `EXEC <KeywordsE.clean.html#exec>`__ and
+.. `EXEC\_W <KeywordsE.html#EXEC_W>`__.
+
+`EXEC\_W <KeywordsE.clean.html#exec_w>`__.
 
 --------------
 
@@ -2894,8 +3056,7 @@ CODE(INKEY$) if the <ALT> key is being pressed together with a second
 key, in which case the code of the second key quickly follows. If
 character$ is a nul string, CODE will return 0.
 
-..
-    Example 1:
+..  Example 1:
 
 **Example 1**
 
@@ -2903,8 +3064,7 @@ PRINT CHR$(CODE('Alpha'))
 
 will print 'A'.
 
-..
-    Example 2:
+..  Example 2:
 
 **Example 2**
 
@@ -2923,8 +3083,7 @@ A short program to reveal the code of the current key being pressed
 
 Try replacing lines 110 to 150 with: 110 AT 0,0: PRINT CODE(INKEY$(-1))
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
@@ -2950,13 +3109,16 @@ machine code monitor).
 If the Machine Code Procedure or Function with the given name$ does not
 exist, then a 'Not Found' error is reported.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-See `KEY\_ADD <KeywordsK.html#KEY_ADD>`__ and
-`ELIS <KeywordsE.html#ELIS>`__.
+.. See `KEY\_ADD <KeywordsK.html#KEY_ADD>`__ and
+
+See `KEY\_ADD <KeywordsK.clean.html#key_add>`__ and
+.. `ELIS <KeywordsE.html#ELIS>`__.
+
+`ELIS <KeywordsE.clean.html#elis>`__.
 
 --------------
 
@@ -2975,8 +3137,7 @@ the usual way - the return value of COL is either 0, 1, 2 or 3
 (representing the four true colours which can displayed in MODE 4, ie.
 black, red, green and white).
 
-..
-    Example:
+..  Example:
 
 **Example**
 
@@ -2994,20 +3155,20 @@ black, red, green and white).
 
 Unless you are using Minerva or SMS, replace x% and y% by x and y.
 
-..
-    NOTE:
+..    NOTE:
 
 **NOTE**
 
 COL will return meaningless data unless the screen is located at address
 131072, is in MODE 4, and uses a 512 x 256 resolution.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`SET <KeywordsS.html#SET>`__ draws a screen pixel.
+.. `SET <KeywordsS.html#SET>`__ draws a screen pixel.
+
+`SET <KeywordsS.clean.html#set>`__ draws a screen pixel.
 
 --------------
 
@@ -3037,19 +3198,19 @@ colours and therefore their effect will depend upon the hardware itself
 Colour Values in decimal, hexadecimal and binary for use with the INK
 command or similar).
 
-..
-    NOTE:
+..    NOTE:
 
 **NOTE**
 
 MODE commands have no effect under the Extended Colour Drivers.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-Refer to `COLOUR\_PAL <KeywordsC.html#COLOUR_PAL>`__ for more details.
+.. Refer to `COLOUR\_PAL <KeywordsC.html#COLOUR_PAL>`__ for more details.
+
+Refer to `COLOUR\_PAL <KeywordsC.clean.html#colour_pal>`__ for more details.
 
 --------------
 
@@ -3084,8 +3245,7 @@ As a result, code such as that given in the example below is required to
 check on the colour scheme currently in use and adapt the program
 accordingly.
 
-..
-    Example:
+..  Example:
 
 **Example**
 
@@ -3106,8 +3266,7 @@ accordingly.
     220 END SELect
     230 PAPER BLACK:INK GREEN
 
-..
-    NOTE 1:
+..    NOTE 1:
 
 **NOTE 1**
 
@@ -3116,8 +3275,7 @@ changed to allow any 24-bit colour using the command PALETTE\_8. This
 will not work on Aurora, which has display hardware limited to 256
 colours.
 
-..
-    NOTE 2:
+..    NOTE 2:
 
 **NOTE 2**
 
@@ -3125,25 +3283,42 @@ MODE commands have no effect under the Extended Colour Drivers. RMODE
 will always report 16 on Aurora, 32 on QXL/QPC and 33 on the Q40/Q60 if
 the Extended Colour Drivers are in use.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-Refer to Appendix 16 and `INK <KeywordsI.html#INK>`__ for more details.
+.. Refer to Appendix 16 and `INK <KeywordsI.html#INK>`__ for more details.
 
-`COLOUR\_QL <KeywordsC.html#COLOUR_QL>`__,
-`COLOUR\_NATIVE <KeywordsC.html#COLOUR_NATIVE>`__ and
-`COLOUR\_24 <KeywordsC.html#COLOUR_24>`__ are all similar.
+Refer to Appendix 16 and `INK <KeywordsI.clean.html#ink>`__ for more details.
 
-`PALETTE\_QL <KeywordsP.html#PALETTE_QL>`__ and
-`PALETTE\_8 <KeywordsP.html#PALETTE_8>`__ affect colour palettes.
+.. `COLOUR\_QL <KeywordsC.html#COLOUR_QL>`__,
 
-`BGCOLOUR\_QL <KeywordsB.html#BGCOLOUR_QL>`__ and
-`BGCOLOUR\_24 <KeywordsB.html#BGCOLOUR_24>`__ can be used to alter the
+`COLOUR\_QL <KeywordsC.clean.html#colour_ql>`__,
+.. `COLOUR\_NATIVE <KeywordsC.html#COLOUR_NATIVE>`__ and
+
+`COLOUR\_NATIVE <KeywordsC.clean.html#colour_native>`__ and
+.. `COLOUR\_24 <KeywordsC.html#COLOUR_24>`__ are all similar.
+
+`COLOUR\_24 <KeywordsC.clean.html#colour_24>`__ are all similar.
+
+.. `PALETTE\_QL <KeywordsP.html#PALETTE_QL>`__ and
+
+`PALETTE\_QL <KeywordsP.clean.html#palette_ql>`__ and
+.. `PALETTE\_8 <KeywordsP.html#PALETTE_8>`__ affect colour palettes.
+
+`PALETTE\_8 <KeywordsP.clean.html#palette_8>`__ affect colour palettes.
+
+.. `BGCOLOUR\_QL <KeywordsB.html#BGCOLOUR_QL>`__ and
+
+`BGCOLOUR\_QL <KeywordsB.clean.html#bgcolour_ql>`__ and
+.. `BGCOLOUR\_24 <KeywordsB.html#BGCOLOUR_24>`__ can be used to alter the
+
+`BGCOLOUR\_24 <KeywordsB.clean.html#bgcolour_24>`__ can be used to alter the
 desktop colour of the main screen.
 
-`DISP\_COLOUR <KeywordsD.html#DISP_COLOUR>`__ can be used to switch
+.. `DISP\_COLOUR <KeywordsD.html#DISP_COLOUR>`__ can be used to switch
+
+`DISP\_COLOUR <KeywordsD.clean.html#disp_colour>`__ can be used to switch
 between Extended Colour Drivers and the Standard Colour Drivers.
 
 --------------
@@ -3172,31 +3347,34 @@ This can cause some slight incompatability problems, due to programs
 which presume that under MODE 4, INK 3 would produce Red (for example) -
 under COLOUR\_QL it will now produce Magenta.
 
-..
-    NOTE 1:
+..    NOTE 1:
 
 **NOTE 1**
 
 The eight colours produced under COLOUR\_QL may be changed to allow any
 colour supported by the hardware using the command PALETTE\_QL.
 
-..
-    NOTE 2:
+..    NOTE 2:
 
 **NOTE 2**
 
 MODE commands have no effect under the Extended Colour Drivers.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-Refer to `COLOUR\_PAL <KeywordsC.html#COLOUR_PAL>`__ for more details.
+.. Refer to `COLOUR\_PAL <KeywordsC.html#COLOUR_PAL>`__ for more details.
 
-`PALETTE\_QL <KeywordsP.html#PALETTE_QL>`__ includes a way of overcoming
+Refer to `COLOUR\_PAL <KeywordsC.clean.html#colour_pal>`__ for more details.
+
+.. `PALETTE\_QL <KeywordsP.html#PALETTE_QL>`__ includes a way of overcoming
+
+`PALETTE\_QL <KeywordsP.clean.html#palette_ql>`__ includes a way of overcoming
 the incompatability problems with old `MODE
-4 <KeywordsM.html#MODE%204>`__ programs.
+.. 4 <KeywordsM.html#MODE%204>`__ programs.
+
+4 <KeywordsM.clean.html#mode%204>`__ programs.
 
 --------------
 
@@ -3226,17 +3404,26 @@ the memory available for each pixel (eg 8 or 16 bits). This can cause
 inaccuracies and unpredictable results - COLOUR\_NATIVE is preferable in
 such circumstances.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-Refer to `COLOUR\_PAL <KeywordsC.html#COLOUR_PAL>`__ and
-`COLOUR\_NATIVE <KeywordsC.html#COLOUR_NATIVE>`__ for more details.
+.. Refer to `COLOUR\_PAL <KeywordsC.html#COLOUR_PAL>`__ and
 
-`PALETTE\_QL <KeywordsP.html#PALETTE_QL>`__,
-`PALETTE\_8 <KeywordsP.html#PALETTE_8>`__ and
-`BGCOLOUR\_24 <KeywordsB.html#BGCOLOUR_24>`__ all use the 24 bit table
+Refer to `COLOUR\_PAL <KeywordsC.clean.html#colour_pal>`__ and
+.. `COLOUR\_NATIVE <KeywordsC.html#COLOUR_NATIVE>`__ for more details.
+
+`COLOUR\_NATIVE <KeywordsC.clean.html#colour_native>`__ for more details.
+
+.. `PALETTE\_QL <KeywordsP.html#PALETTE_QL>`__,
+
+`PALETTE\_QL <KeywordsP.clean.html#palette_ql>`__,
+.. `PALETTE\_8 <KeywordsP.html#PALETTE_8>`__ and
+
+`PALETTE\_8 <KeywordsP.clean.html#palette_8>`__ and
+.. `BGCOLOUR\_24 <KeywordsB.html#BGCOLOUR_24>`__ all use the 24 bit table
+
+`BGCOLOUR\_24 <KeywordsB.clean.html#bgcolour_24>`__ all use the 24 bit table
 to describe colours.
 
 --------------
@@ -3259,16 +3446,14 @@ Note that COMMAND\_LINE cannot have any effect if SuperBASIC is doing
 something or if the job which uses the command was started with EXEC\_W
 or similar.
 
-..
-    NOTE 1:
+..    NOTE 1:
 
 **NOTE 1**
 
 COMMAND\_LINE pre v3c27 does not seem to work correctly on all versions
 of the QL ROM.
 
-..
-    NOTE 2:
+..    NOTE 2:
 
 **NOTE 2**
 
@@ -3282,12 +3467,13 @@ the same way, except for SMS SBASIC interpreters. Some versions of
 TurboFix\_BIN also support SBASIC but it is currently recommended that
 this file is used instead.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-See `TYPE\_IN <KeywordsT.html#TYPE_IN>`__ for an example.
+.. See `TYPE\_IN <KeywordsT.html#TYPE_IN>`__ for an example.
+
+See `TYPE\_IN <KeywordsT.clean.html#type_in>`__ for an example.
 
 --------------
 
@@ -3303,8 +3489,7 @@ COMPILED
 This function simply returns a value of 0 if the current program is
 interpreted or 1 if it has been compiled.
 
-..
-    NOTE 1:
+..    NOTE 1:
 
 **NOTE 1**
 
@@ -3312,8 +3497,7 @@ Although primarily for use with programs compiled with Turbo, versions
 of this function after v3c27 will work even from within a program
 compiled under QLiberator.
 
-..
-    NOTE 2:
+..    NOTE 2:
 
 **NOTE 2**
 
@@ -3321,12 +3505,13 @@ Prior to v3c27, this function did not always return the correct value on
 Minerva and SMS (particularly from within a MultiBASIC or SBASIC
 daughter job).
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-See `JOB\_NAME <KeywordsJ.html#JOB_NAME>`__ for an example.
+.. See `JOB\_NAME <KeywordsJ.html#JOB_NAME>`__ for an example.
+
+See `JOB\_NAME <KeywordsJ.clean.html#job_name>`__ for an example.
 
 --------------
 
@@ -3352,15 +3537,13 @@ same colour.
 Whilst the screen is compressed, a pattern is drawn over the screen,
 which although annoying, is harmless.
 
-..
-    Example:
+..  Example:
 
 **Example**
 
 COMPRESS flp2\_TITLE\_scr
 
-..
-    NOTE 1:
+..    NOTE 1:
 
 **NOTE 1**
 
@@ -3369,8 +3552,7 @@ if this is not available. Unfortunately the file stays open if this
 happens and cannot be accessed until is is closed with CLOSE% or a
 desktop program such as QPAC 2 (channels menu).
 
-..
-    NOTE 2:
+..    NOTE 2:
 
 **NOTE 2**
 
@@ -3378,33 +3560,38 @@ COMPRESS does not work in supervisor mode, ie. it multitasks, thus if
 you were doing something else whilst the screen was being compressed,
 the saved picture may look pretty strange when expanded.
 
-..
-    NOTE 3:
+..    NOTE 3:
 
 **NOTE 3**
 
 COMPRESS assumes that the screen starts at $20000 and cannot therefore
 be used with Minerva's second screen or some emulator display modes.
 
-..
-    NOTE 4:
+..    NOTE 4:
 
 **NOTE 4**
 
 COMPRESS assumes a screen resolution of 512x256 and cannot work on
 higher resolution screens.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
 Screens which have been saved with
-`COMPRESS <KeywordsC.html#COMPRESS>`__ can be loaded with
-`EXPAND <KeywordsE.html#EXPAND>`__ or re-loaded from memory with
-`FASTEXPAND <KeywordsF.html#FASTEXPAND>`__.
+.. `COMPRESS <KeywordsC.html#COMPRESS>`__ can be loaded with
 
-See also `SCR\_STORE <KeywordsS.html#SCR_STORE>`__.
+`COMPRESS <KeywordsC.clean.html#compress>`__ can be loaded with
+.. `EXPAND <KeywordsE.html#EXPAND>`__ or re-loaded from memory with
+
+`EXPAND <KeywordsE.clean.html#expand>`__ or re-loaded from memory with
+.. `FASTEXPAND <KeywordsF.html#FASTEXPAND>`__.
+
+`FASTEXPAND <KeywordsF.clean.html#fastexpand>`__.
+
+.. See also `SCR\_STORE <KeywordsS.html#SCR_STORE>`__.
+
+See also `SCR\_STORE <KeywordsS.clean.html#scr_store>`__.
 
 --------------
 
@@ -3421,8 +3608,7 @@ This command merges the first two files together to form a new file with
 the third specified filename, so that file2 is appended to file1. The
 length of file3 is exactly the sum of the lengths of the merged files.
 
-..
-    Example:
+..  Example:
 
 **Example**
 
@@ -3436,22 +3622,28 @@ ram1\_PROG\_tmp,flp1\_SUB\_2 TO flp1\_PROG\_bas DELETE ram1\_PROG\_tmp
 
 You must ensure that line numbers do not conflict.
 
-..
-    NOTE:
+..    NOTE:
 
 **NOTE**
 
 Each filename must include the device.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`COPY <KeywordsC.html#COPY>`__, `RENAME <KeywordsR.html#RENAME>`__,
-`DELETE <KeywordsD.html#DELETE>`__.
+.. `COPY <KeywordsC.html#COPY>`__, `RENAME <KeywordsR.html#RENAME>`__,
 
-See `FWRITE <KeywordsF.html#FWRITE>`__ for the more flexible APPEND
+.. >`__, `RENAME <KeywordsR.html#RENAME>`__,
+
+`COPY <KeywordsC.clean.html#copy>`__, `RENAME <KeywordsR.clean.html#rename>`__,
+.. `DELETE <KeywordsD.html#DELETE>`__.
+
+`DELETE <KeywordsD.clean.html#delete>`__.
+
+.. See `FWRITE <KeywordsF.html#FWRITE>`__ for the more flexible APPEND
+
+See `FWRITE <KeywordsF.clean.html#fwrite>`__ for the more flexible APPEND
 procedure.
 
 --------------
@@ -3468,13 +3660,16 @@ CONNECT
 This command is exactly the same as TCONNECT, except that the two
 channels do not have to have a hash sign in front of them.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`TCONNECT <KeywordsT.html#TCONNECT>`__
-and\ `QLINK <KeywordsQ.html#QLINK>`__
+.. `TCONNECT <KeywordsT.html#TCONNECT>`__
+
+`TCONNECT <KeywordsT.clean.html#tconnect>`__
+.. and\ `QLINK <KeywordsQ.html#QLINK>`__
+
+and\ `QLINK <KeywordsQ.clean.html#qlink>`__
 
 --------------
 
@@ -3496,16 +3691,14 @@ If you have Toolkit II, Minerva installed, you will be able to use the
 second variant of this command which allows you to re-start processing
 at a specified line number to help with error trapping.
 
-..
-    NOTE 1:
+..    NOTE 1:
 
 **NOTE 1**
 
 CONTINUE cannot carry on processing where the line which was stopped was
 a direct command (ie. typed in at #0).
 
-..
-    NOTE 2:
+..    NOTE 2:
 
 **NOTE 2**
 
@@ -3514,16 +3707,14 @@ do not try to use CONTINUE after RENUMbering the program, as the
 continuation table is not updated by the RENUM routine and may therefore
 try to jump to the old line number.
 
-..
-    NOTE 3:
+..    NOTE 3:
 
 **NOTE 3**
 
 Beware that RENUM does not renumber line\_no if you have used this
 command as part of a program.
 
-..
-    NOTE 4:
+..    NOTE 4:
 
 **NOTE 4**
 
@@ -3531,13 +3722,16 @@ CONTINUE can only re-start processing if no new lines have been added;
 no new variables have been added to the program; no lines have been
 altered; and the PROC/FN Cleared message has not appeared.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-See `RETRY <KeywordsR.html#RETRY>`__ and also
-`WHEN%20ERRor <KeywordsW.html#WHEN%20ERRor>`__.
+.. See `RETRY <KeywordsR.html#RETRY>`__ and also
+
+See `RETRY <KeywordsR.clean.html#retry>`__ and also
+.. `WHEN%20ERRor <KeywordsW.html#WHEN%20ERRor>`__.
+
+`WHEN%20ERRor <KeywordsW.clean.html#when%20error>`__.
 
 --------------
 
@@ -3554,22 +3748,32 @@ ConvCASE$ returns the given string with all upper case letters converted
 to lower case if lower=1, or all lower case letters to upper case if
 lower=0. Default of lower is 1
 
-..
-    NOTE:
+..    NOTE:
 
 **NOTE**
 
 Unlike similar functions ConvCASE$ will recognise all non- ASCII
 letters, namely umlauts and accents.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`UPPER$ <KeywordsU.html#UPPER$>`__, `LOWER$ <KeywordsL.html#LOWER$>`__,
-`BIT% <KeywordsB.html#BIT%>`__, `CHR$ <KeywordsC.html#CHR$>`__,
-`UPC$ <KeywordsU.html#UPC$>`__, `LWC$ <KeywordsL.html#LWC$>`__
+.. `UPPER$ <KeywordsU.html#UPPER$>`__, `LOWER$ <KeywordsL.html#LOWER$>`__,
+
+.. >`__, `LOWER$ <KeywordsL.html#LOWER$>`__,
+
+`UPPER$ <KeywordsU.clean.html#upper$>`__, `LOWER$ <KeywordsL.clean.html#lower$>`__,
+.. `BIT% <KeywordsB.html#BIT%>`__, `CHR$ <KeywordsC.html#CHR$>`__,
+
+.. >`__, `CHR$ <KeywordsC.html#CHR$>`__,
+
+`BIT% <KeywordsB.clean.html#bit%>`__, `CHR$ <KeywordsC.clean.html#chr$>`__,
+.. `UPC$ <KeywordsU.html#UPC$>`__, `LWC$ <KeywordsL.html#LWC$>`__
+
+.. >`__, `LWC$ <KeywordsL.html#LWC$>`__
+
+`UPC$ <KeywordsU.clean.html#upc$>`__, `LWC$ <KeywordsL.clean.html#lwc$>`__
 
 --------------
 
@@ -3591,8 +3795,7 @@ The search is case-independent.
 
 No default devices are supported.
 
-..
-    Example 1:
+..  Example 1:
 
 **Example 1**
 
@@ -3610,8 +3813,7 @@ flp1\_example\_lis, flp1\_example\_txt, CHR$(13), " ".
 <CR> at the end of lines may also appear when downloading messages from
 a bulletin board or converting MS/DOS text files to QDOS.
 
-..
-    Example 2:
+..  Example 2:
 
 **Example 2**
 
@@ -3623,20 +3825,22 @@ better to make the program use flp1\_ instead of mdv2\_.
 This can be achieved quite simply with the command: CONVERT prog1\_exe,
 prog2\_exe, "mdv2\_", "flp1\_".
 
-..
-    NOTE:
+..    NOTE:
 
 **NOTE**
 
 The character CHR$(0) cannot be replaced.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`EXCHG <KeywordsE.html#EXCHG>`__ is similar to
-`CONVERT <KeywordsC.html#CONVERT>`__.
+.. `EXCHG <KeywordsE.html#EXCHG>`__ is similar to
+
+`EXCHG <KeywordsE.clean.html#exchg>`__ is similar to
+.. `CONVERT <KeywordsC.html#CONVERT>`__.
+
+`CONVERT <KeywordsC.clean.html#convert>`__.
 
 --------------
 
@@ -3693,8 +3897,7 @@ exists), but instead it will print: >file<exists, OK to overwrite..Y or
 N? in channel #0 and wait for the user to press either <Y> or <N> -
 <ESC> and <CTRL><SPACE> mean <N> here.
 
-..
-    Examples:
+..  Examples:
 
 **Examples**
 
@@ -3725,16 +3928,14 @@ destination device is ram2\_ (using Toolkit II or SMS implementation):
 | COPY ram1\_prog\_bas TO #2          | Copies ram1\_prog\_bas to a channel                                 |
 +-------------------------------------+---------------------------------------------------------------------+
 
-..
-    NOTE 1:
+..    NOTE 1:
 
 **NOTE 1**
 
 The TO separator can be replaced by a comma ',' (although note the THOR
 XVI variant!).
 
-..
-    NOTE 2:
+..    NOTE 2:
 
 **NOTE 2**
 
@@ -3744,8 +3945,7 @@ much more. Without Toolkit II, COPY will always copy the header if a
 file is copied. The Toolkit II COPY command does not copy the header to
 serial devices (eg. ser) if this is specified as the destination.
 
-..
-    NOTE 3:
+..    NOTE 3:
 
 **NOTE 3**
 
@@ -3765,16 +3965,14 @@ it may report error -15 (bad parameter), in which case it will have left
 the file flp1\_ open and prevent most of any further access to that
 device (unless you can close the channel with CLOSE% or a desktop).
 
-..
-    NOTE 4:
+..    NOTE 4:
 
 **NOTE 4**
 
 On SMS pre v2.58, if you used COPY and were asked if you wanted to
 overwrite the file, and answered N, an error code was returned.
 
-..
-    THOR XVI NOTES:
+..    THOR XVI NOTES:
 
 **THOR XVI NOTES**
 
@@ -3791,22 +3989,35 @@ flp2\_Book
 then it is assumed that fileb already exists and file1, file2 and file3
 are all appended to it.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`SPL\_USE <KeywordsS.html#SPL_USE>`__ and
-`DEST\_USE <KeywordsD.html#DEST_USE>`__ set the destination device.
+.. `SPL\_USE <KeywordsS.html#SPL_USE>`__ and
 
-See `COPY\_N <KeywordsC.html#COPY_N>`__ and
-`COPY\_H <KeywordsC.html#COPY_H>`__ for copying file headers and
-`COPY\_O <KeywordsC.html#COPY_O>`__ on how to force overwriting.
+`SPL\_USE <KeywordsS.clean.html#spl_use>`__ and
+.. `DEST\_USE <KeywordsD.html#DEST_USE>`__ set the destination device.
 
-`SPL <KeywordsS.html#SPL>`__ performs a background copy (ie. it
+`DEST\_USE <KeywordsD.clean.html#dest_use>`__ set the destination device.
+
+.. See `COPY\_N <KeywordsC.html#COPY_N>`__ and
+
+See `COPY\_N <KeywordsC.clean.html#copy_n>`__ and
+.. `COPY\_H <KeywordsC.html#COPY_H>`__ for copying file headers and
+
+`COPY\_H <KeywordsC.clean.html#copy_h>`__ for copying file headers and
+.. `COPY\_O <KeywordsC.html#COPY_O>`__ on how to force overwriting.
+
+`COPY\_O <KeywordsC.clean.html#copy_o>`__ on how to force overwriting.
+
+.. `SPL <KeywordsS.html#SPL>`__ performs a background copy (ie. it
+
+`SPL <KeywordsS.clean.html#spl>`__ performs a background copy (ie. it
 multitasks).
 
-See `APPEND <KeywordsA.html#APPEND>`__ which is similar to the THOR
+.. See `APPEND <KeywordsA.html#APPEND>`__ which is similar to the THOR
+
+See `APPEND <KeywordsA.clean.html#append>`__ which is similar to the THOR
 variant.
 
 --------------
@@ -3825,8 +4036,7 @@ without any restrictions. The programmer has to ensure that there is
 sufficient room at the specified destination memory location (which must
 be free useable memory).
 
-..
-    Example:
+..  Example:
 
 **Example**
 
@@ -3839,15 +4049,22 @@ be free useable memory).
     140 FOR i=0 TO 6*(n-1) STEP 6: PRINT PEEK_F(a2+i)
     150 RECHP a1: RECHP a2
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`COPY\_W <KeywordsC.html#COPY_W>`__,
-`COPY\_L <KeywordsC.html#COPY_L>`__,
-`TTPOKEM <KeywordsT.html#TTPOKEM>`__ and
-`XCHANGE <KeywordsX.html#XCHANGE>`__
+.. `COPY\_W <KeywordsC.html#COPY_W>`__,
+
+`COPY\_W <KeywordsC.clean.html#copy_w>`__,
+.. `COPY\_L <KeywordsC.html#COPY_L>`__,
+
+`COPY\_L <KeywordsC.clean.html#copy_l>`__,
+.. `TTPOKEM <KeywordsT.html#TTPOKEM>`__ and
+
+`TTPOKEM <KeywordsT.clean.html#ttpokem>`__ and
+.. `XCHANGE <KeywordsX.html#XCHANGE>`__
+
+`XCHANGE <KeywordsX.clean.html#xchange>`__
 
 --------------
 
@@ -3860,14 +4077,17 @@ COPY\_H
 | Location |  Toolkit II                                                       |
 +----------+-------------------------------------------------------------------+
 
-See `COPY\_N <KeywordsC.html#COPY_N>`__.
+.. See `COPY\_N <KeywordsC.html#COPY_N>`__.
 
-..
-    CROSS-REFERENCE:
+See `COPY\_N <KeywordsC.clean.html#copy_n>`__.
+
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`FGETH$ <KeywordsF.html#FGETH$>`__
+.. `FGETH$ <KeywordsF.html#FGETH$>`__
+
+`FGETH$ <KeywordsF.clean.html#fgeth$>`__
 
 --------------
 
@@ -3887,8 +4107,7 @@ for COPY\_B and COPY\_W).
 If you are using Minerva, you will probably find it quicker to use it's
 specialised CALL routines.
 
-..
-    Example:
+..  Example:
 
 **Example**
 
@@ -3897,20 +4116,24 @@ specialised CALL routines.
     100 a=ALCHP(48*1024)
     110 COPY_L 0,12*1024 TO a
 
-..
-    NOTE:
+..    NOTE:
 
 **NOTE**
 
 Both adr1 and adr2 must be even addresses.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`COPY\_W <KeywordsC.html#COPY_W>`__,
-`COPY\_B <KeywordsC.html#COPY_B>`__, `ODD <KeywordsO.html#ODD>`__.
+.. `COPY\_W <KeywordsC.html#COPY_W>`__,
+
+`COPY\_W <KeywordsC.clean.html#copy_w>`__,
+.. `COPY\_B <KeywordsC.html#COPY_B>`__, `ODD <KeywordsO.html#ODD>`__.
+
+.. >`__, `ODD <KeywordsO.html#ODD>`__.
+
+`COPY\_B <KeywordsC.clean.html#copy_b>`__, `ODD <KeywordsO.clean.html#odd>`__.
 
 --------------
 
@@ -3941,16 +4164,23 @@ device or a parallel port. The standard COPY command contained in the QL
 ROM does not make this differentiation and so COPY\_N must be used
 instead if the file header is not to be copied.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`COPY\_H <KeywordsC.html#COPY_H>`__ forces the file header to be copied
+.. `COPY\_H <KeywordsC.html#COPY_H>`__ forces the file header to be copied
+
+`COPY\_H <KeywordsC.clean.html#copy_h>`__ forces the file header to be copied
 to the given destination (whether it is a serial port, a parallel port
-or not), and the syntax is identical to `COPY <KeywordsC.html#COPY>`__,
-`COPY\_N <KeywordsC.html#COPY_N>`__ and
-`COPY\_O <KeywordsC.html#COPY_O>`__.
+.. or not), and the syntax is identical to `COPY <KeywordsC.html#COPY>`__,
+
+or not), and the syntax is identical to `COPY <KeywordsC.clean.html#copy>`__,
+.. `COPY\_N <KeywordsC.html#COPY_N>`__ and
+
+`COPY\_N <KeywordsC.clean.html#copy_n>`__ and
+.. `COPY\_O <KeywordsC.html#COPY_O>`__.
+
+`COPY\_O <KeywordsC.clean.html#copy_o>`__.
 
 --------------
 
@@ -3971,12 +4201,15 @@ asking the user for confirmation.
 This command is also supported on the THOR XVI, although both the input
 and destination channels must be specified in full.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`FTEST <KeywordsF.html#FTEST>`__ and `ETAT <KeywordsE.html#ETAT>`__
+.. `FTEST <KeywordsF.html#FTEST>`__ and `ETAT <KeywordsE.html#ETAT>`__
+
+.. >`__ and `ETAT <KeywordsE.html#ETAT>`__
+
+`FTEST <KeywordsF.clean.html#ftest>`__ and `ETAT <KeywordsE.clean.html#etat>`__
 check the status of a file, thus enabling you to check if a file already
 exists.
 
@@ -3994,27 +4227,37 @@ COPY\_W
 The command COPY\_W copies n words (two bytes each) from address adr1 to
 adr2.
 
-..
-    NOTE:
+..    NOTE:
 
 **NOTE**
 
 Both addresses must be even.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`COPY\_W <KeywordsC.html#COPY_W>`__ is always faster than
-`COPY\_B <KeywordsC.html#COPY_B>`__, but
-`COPY\_L <KeywordsC.html#COPY_L>`__ is even faster than
-`COPY\_W <KeywordsC.html#COPY_W>`__.
+.. `COPY\_W <KeywordsC.html#COPY_W>`__ is always faster than
 
-See also `XCHANGE <KeywordsX.html#XCHANGE>`__.
+`COPY\_W <KeywordsC.clean.html#copy_w>`__ is always faster than
+.. `COPY\_B <KeywordsC.html#COPY_B>`__, but
+
+`COPY\_B <KeywordsC.clean.html#copy_b>`__, but
+.. `COPY\_L <KeywordsC.html#COPY_L>`__ is even faster than
+
+`COPY\_L <KeywordsC.clean.html#copy_l>`__ is even faster than
+.. `COPY\_W <KeywordsC.html#COPY_W>`__.
+
+`COPY\_W <KeywordsC.clean.html#copy_w>`__.
+
+.. See also `XCHANGE <KeywordsX.html#XCHANGE>`__.
+
+See also `XCHANGE <KeywordsX.clean.html#xchange>`__.
 
 Minerva has its own fast copy routines (see
-`CALL <KeywordsC.html#CALL>`__).
+.. `CALL <KeywordsC.html#CALL>`__).
+
+`CALL <KeywordsC.clean.html#call>`__).
 
 --------------
 
@@ -4043,8 +4286,7 @@ actually substitute each other:
 | sin x = cos (π/2-x)    | SIN(x)=COS(PI/2-x)   |
 +------------------------+----------------------+
 
-..
-    Example:
+..  Example:
 
 **Example**
 
@@ -4067,8 +4309,7 @@ An analogue clock:
     210 LINE#3,0,0 TO 40 * SIN(PI / 30 * min), 40 * COS(PI / 30 * min)
     220 PAUSE 100: CLOSE #3
 
-..
-    NOTE 1:
+..    NOTE 1:
 
 **NOTE 1**
 
@@ -4080,8 +4321,7 @@ angle of PI\*2 radians forms a complete circle, therefore an angle of
 PI\*3 is actually the same as an angle of PI (ie. PI\*3-PI\*2). If you
 insist on using these silly angles, try SIN (X+PI/2) instead of COS(X).
 
-..
-    NOTE 2:
+..    NOTE 2:
 
 **NOTE 2**
 
@@ -4090,14 +4330,19 @@ that COS(PI/2)=0. On other ROMs COS(PI/2)==0.
 
 The Lightning package and SMS also fix this bug.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-See `SIN <KeywordsS.html#SIN>`__, `ACOS <KeywordsA.html#ACOS>`__.
+.. See `SIN <KeywordsS.html#SIN>`__, `ACOS <KeywordsA.html#ACOS>`__.
 
-Compare `COSH <KeywordsC.html#COSH>`__.
+.. >`__, `ACOS <KeywordsA.html#ACOS>`__.
+
+See `SIN <KeywordsS.clean.html#sin>`__, `ACOS <KeywordsA.clean.html#acos>`__.
+
+.. Compare `COSH <KeywordsC.html#COSH>`__.
+
+Compare `COSH <KeywordsC.clean.html#cosh>`__.
 
 Please also see the Mathematics section of the Appendix.
 
@@ -4116,8 +4361,7 @@ This function is defined very similarly to SINH. It can be expressed as:
 
 ( EXP(x) + EXP(-x) ) / 2
 
-..
-    Example:
+..  Example:
 
 **Example**
 
@@ -4139,15 +4383,20 @@ instance). Line 110 draws the ceiling, lines 120 to 160 the chain.
     190  RETurn a * COSH(x/a)
     200 END DEFine CHAIN
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-See `SINH <KeywordsS.html#SINH>`__ for an example.
+.. See `SINH <KeywordsS.html#SINH>`__ for an example.
 
-`ARCOSH <KeywordsA.html#ARCOSH>`__ is the inverse function of
-`COSH <KeywordsC.html#COSH>`__.
+See `SINH <KeywordsS.clean.html#sinh>`__ for an example.
+
+.. `ARCOSH <KeywordsA.html#ARCOSH>`__ is the inverse function of
+
+`ARCOSH <KeywordsA.clean.html#arcosh>`__ is the inverse function of
+.. `COSH <KeywordsC.html#COSH>`__.
+
+`COSH <KeywordsC.clean.html#cosh>`__.
 
 --------------
 
@@ -4171,8 +4420,7 @@ range: 0 < angle < PI.
 
 COT(angle) can also be calculated as COS(angle)/SIN(angle).
 
-..
-    Example:
+..  Example:
 
 **Example**
 
@@ -4195,8 +4443,7 @@ A program to create a graph showing the range of the function COT:
     220   POINT ang*75/(PI*2),50*COT(ang)
     230 END FOR ang
 
-..
-    NOTE 1:
+..    NOTE 1:
 
 **NOTE 1**
 
@@ -4207,39 +4454,43 @@ gives a very large positive or negative number.
 Currently, only the Lightning maths package and SMS produce an overflow
 error (the correct result).
 
-..
-    NOTE 2:
+..    NOTE 2:
 
 **NOTE 2**
 
 On Minerva v1.96+ very large values of angle will return the value 0. On
 other implementations produce an overflow error.
 
-..
-    NOTE 3:
+..    NOTE 3:
 
 **NOTE 3**
 
 COT(0) on most ROMs gives 1 - this is fixed on Minerva, SMS, Lightning,
 QXL, and ST/QL which give an overflow error.
 
-..
-    NOTE 4:
+..    NOTE 4:
 
 **NOTE 4**
 
 COT(PI/2) should equal zero - on all implementations of this command,
 this returns a number near to zero (except under SMS).
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-Please refer to\ `ACOT <KeywordsA.html#ACOT>`__,
-`ATAN <KeywordsA.html#ATAN>`__, `TAN <KeywordsT.html#TAN>`__.
+.. Please refer to\ `ACOT <KeywordsA.html#ACOT>`__,
 
-Compare `COTH <KeywordsC.html#COTH>`__.
+Please refer to\ `ACOT <KeywordsA.clean.html#acot>`__,
+.. `ATAN <KeywordsA.html#ATAN>`__, `TAN <KeywordsT.html#TAN>`__.
+
+.. >`__, `TAN <KeywordsT.html#TAN>`__.
+
+`ATAN <KeywordsA.clean.html#atan>`__, `TAN <KeywordsT.clean.html#tan>`__.
+
+.. Compare `COTH <KeywordsC.html#COTH>`__.
+
+Compare `COTH <KeywordsC.clean.html#coth>`__.
 
 Also refer to the Mathematics section of the Appendix.
 
@@ -4259,13 +4510,16 @@ This function returns the hyperbolic co-tangent.
 This is defined as one divided by the hyperbolic tangent, so COTH(x) =
 1/TANH(x).
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`ARCOTH <KeywordsA.html#ARCOTH>`__ is the inverse function of
-`COTH <KeywordsC.html#COTH>`__.
+.. `ARCOTH <KeywordsA.html#ARCOTH>`__ is the inverse function of
+
+`ARCOTH <KeywordsA.clean.html#arcoth>`__ is the inverse function of
+.. `COTH <KeywordsC.html#COTH>`__.
+
+`COTH <KeywordsC.clean.html#coth>`__.
 
 --------------
 
@@ -4273,27 +4527,33 @@ CSIZE
 =====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  CSIZE [#channel,] width,height                                   |
+| Syntax   | CSIZE [#channel,] width, height                                   |
 +----------+-------------------------------------------------------------------+
-| Location |  QL ROM                                                           |
+| Location | QL ROM                                                            |
 +----------+-------------------------------------------------------------------+
 
 This command sets the size and spacing of characters in the given
 channel (default #1).
 
-width ranges from 0 to 3 and there are two possible heights, 0 and 1.
+Width ranges from 0 to 3 and there are two possible heights, 0 and 1.
 Each width and height corresponds to a certain pixel size:
 
-widthspacingsizeheightspacingsize
----------------------------------
-
-0650109 18512018 21210 31610
++-------+---------+------+--------+---------+------+
+| Width | Spacing | Size | Height | Spacing | Size |
++=======+=========+======+========+=========+======+
+|   0   |    6    |   5  |   0    |   10    |   9  |
++-------+---------+------+--------+---------+------+
+|   1   |    8    |   5  |   1    |   20    |  18  |
++-------+---------+------+--------+---------+------+
+|   2   |   12    |  10  |                         |
++-------+---------+------+                         |
+|   3   |   16    |  10  |                         |
++-------+---------+------+--------+---------+------+
 
 In low resolution mode width 0 and 1 have no effect: in that mode, the
 smallest character size allowable is 12 pixels wide; CSIZE 2,0.
 
-..
-    NOTE 1:
+..    NOTE 1:
 
 **NOTE 1**
 
@@ -4302,27 +4562,35 @@ definition of characters will not be printed correctly on screen. Even
 on JS and MG ROMs, problems exist in some character sizes. Minerva, SMS
 and the ST/QL drivers (Level E-23 onwards) prevent any such problems.
 
-..
-    NOTE 2:
+..    NOTE 2:
 
 **NOTE 2**
 
 The THOR XVI allows you to use any value for the vertical size - odd
 values give double height characters and even values give normal height.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`CHAR\_INC <KeywordsC.html#CHAR_INC>`__ allows you to change spacing
+.. `CHAR\_INC <KeywordsC.html#CHAR_INC>`__ allows you to change spacing
+
+`CHAR\_INC <KeywordsC.clean.html#char_inc>`__ allows you to change spacing
 independently of character size.
 
-`MODE <KeywordsM.html#MODE>`__ will reset the character size to the
-default (ie. 2,0 in `MODE <KeywordsM.html#MODE%208>`__ 8 and 0,0 in
-`MODE <KeywordsM.html#MODE>`__ 4).
+.. `MODE <KeywordsM.html#MODE>`__ will reset the character size to the
 
-The command `AT <KeywordsA.html#AT>`__ is also affected by the current
+`MODE <KeywordsM.clean.html#mode>`__ will reset the character size to the
+.. default (ie. 2,0 in `MODE <KeywordsM.html#MODE%208>`__ 8 and 0,0 in
+
+default (ie. 2,0 in `MODE <KeywordsM.clean.html#mode%208>`__ 8 and 0,0 in
+.. `MODE <KeywordsM.html#MODE>`__ 4).
+
+`MODE <KeywordsM.clean.html#mode>`__ 4).
+
+.. The command `AT <KeywordsA.html#AT>`__ is also affected by the current
+
+The command `AT <KeywordsA.clean.html#at>`__ is also affected by the current
 character spacing.
 
 --------------
@@ -4347,8 +4615,7 @@ compressed form.
 The default value of tabdist is 8, and the length of string$ is limited
 to 255 characters (so tabdist>255 does not make much sense).
 
-..
-    WARNING:
+..  WARNING:
 
 **WARNING**
 
@@ -4356,12 +4623,13 @@ tabdist=0 will produce rubbish output and it is also possible that CTAB$
 will crash the system. Negative values lead to nonsense results but do
 not harm the system.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`ETAB$ <KeywordsE.html#ETAB$>`__ expands the TAB marks.
+.. `ETAB$ <KeywordsE.html#ETAB$>`__ expands the TAB marks.
+
+`ETAB$ <KeywordsE.clean.html#etab$>`__ expands the TAB marks.
 
 --------------
 
@@ -4380,8 +4648,7 @@ and appears solid when it is inactive.
 The command CUR with boolean=1 activates the cursor of a window, and it
 is de-activated with boolean=0. The default channel is #1.
 
-..
-    Example:
+..  Example:
 
 **Example**
 
@@ -4405,8 +4672,7 @@ should not engage the cursor!
     150  RETurn CODE(char$)
     160 END DEFine GETCHAR%
 
-..
-    NOTE:
+..    NOTE:
 
 **NOTE**
 
@@ -4421,20 +4687,35 @@ enabled.
 
 INPUT will activate and de-activate the cursor itself.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-See `FORCE\_TYPE <KeywordsF.html#FORCE_TYPE>`__ concerning current input
-queue activation, `INKEY$ <KeywordsI.html#INKEY$>`__,
-`INPUT <KeywordsI.html#INPUT>`__ and `KEYROW <KeywordsK.html#KEYROW>`__
+.. See `FORCE\_TYPE <KeywordsF.html#FORCE_TYPE>`__ concerning current input
+
+See `FORCE\_TYPE <KeywordsF.clean.html#force_type>`__ concerning current input
+.. queue activation, `INKEY$ <KeywordsI.html#INKEY$>`__,
+
+queue activation, `INKEY$ <KeywordsI.clean.html#inkey$>`__,
+.. `INPUT <KeywordsI.html#INPUT>`__ and `KEYROW <KeywordsK.html#KEYROW>`__
+
+.. >`__ and `KEYROW <KeywordsK.html#KEYROW>`__
+
+`INPUT <KeywordsI.clean.html#input>`__ and `KEYROW <KeywordsK.clean.html#keyrow>`__
 for general information.
 
-`CURSEN <KeywordsC.html#CURSEN>`__ and
-`CURDIS <KeywordsC.html#CURDIS>`__ are both combined by the
-`CUR <KeywordsC.html#CUR>`__ command.
-`CURSOR% <KeywordsC.html#CURSOR%>`__.
+.. `CURSEN <KeywordsC.html#CURSEN>`__ and
+
+`CURSEN <KeywordsC.clean.html#cursen>`__ and
+.. `CURDIS <KeywordsC.html#CURDIS>`__ are both combined by the
+
+`CURDIS <KeywordsC.clean.html#curdis>`__ are both combined by the
+.. `CUR <KeywordsC.html#CUR>`__ command.
+
+`CUR <KeywordsC.clean.html#cur>`__ command.
+.. `CURSOR% <KeywordsC.html#CURSOR%>`__.
+
+`CURSOR% <KeywordsC.clean.html#cursor%>`__.
 
 --------------
 
@@ -4455,21 +4736,23 @@ If a cursor is disabled in a given window (or does not exist), task
 switching with <CTRL><C> to the job which owns that window will not work
 unless the Pointer Environment is present.
 
-..
-    WARNING:
+..  WARNING:
 
 **WARNING**
 
 Do not use CURDIS #0 as this may prevent further input.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-See `CURSEN <KeywordsC.html#CURSEN>`__ for more details.
+.. See `CURSEN <KeywordsC.html#CURSEN>`__ for more details.
 
-`CURSOR\_OFF <KeywordsC.html#CURSOR_OFF>`__ is similar.
+See `CURSEN <KeywordsC.clean.html#cursen>`__ for more details.
+
+.. `CURSOR\_OFF <KeywordsC.html#CURSOR_OFF>`__ is similar.
+
+`CURSOR\_OFF <KeywordsC.clean.html#cursor_off>`__ is similar.
 
 --------------
 
@@ -4498,8 +4781,7 @@ Once the cursor is enabled, a red block will appear at the current text
 cursor position in the given channel. This block will begin to flash
 when the cursor is 'active' (ie. expecting input).
 
-..
-    MINERVA NOTE:
+..    MINERVA NOTE:
 
 **MINERVA NOTE**
 
@@ -4514,13 +4796,16 @@ You can actually get an invisible cursor by using the command POKE
 !124!51,0. Unfortunately though, this sets the cursor attributes for all
 cursors which are enabled, rather than just for the current Job.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`KEYROW <KeywordsK.html#KEYROW>`__ reads keys without an active cursor.
-See `CURDIS <KeywordsC.html#CURDIS>`__ also.
+.. `KEYROW <KeywordsK.html#KEYROW>`__ reads keys without an active cursor.
+
+`KEYROW <KeywordsK.clean.html#keyrow>`__ reads keys without an active cursor.
+.. See `CURDIS <KeywordsC.html#CURDIS>`__ also.
+
+See `CURDIS <KeywordsC.clean.html#curdis>`__ also.
 
 --------------
 
@@ -4556,8 +4841,7 @@ The second variant only works with the Btool Toolkit. This allows you to
 enable or disable the cursor in the specified window (default #1), by
 specifying a flag of 1 to enable the cursor or 0 to disable the cursor.
 
-..
-    Example:
+..  Example:
 
 **Example**
 
@@ -4584,8 +4868,7 @@ This program shows all the 45 degree angles in a circle:
     260   PRINT i
     270 END FOR i
 
-..
-    NOTE 1:
+..    NOTE 1:
 
 **NOTE 1**
 
@@ -4598,38 +4881,42 @@ error will be reported. The Btool variant fixes this as does SMS, MG
 ROMs and Minerva. Compiling with Q-Liberator does not prevent this
 error.
 
-..
-    NOTE 2:
+..    NOTE 2:
 
 **NOTE 2**
 
 The graphics positioning did not work on ST/QL Emulators with Drivers
 prior to Level D-15 (or E-15).
 
-..
-    NOTE 3:
+..    NOTE 3:
 
 **NOTE 3**
 
 Compilers will not accept the second syntax.
 
-..
-    NOTE 4:
+..    NOTE 4:
 
 **NOTE 4**
 
 As from SMS v2.74 CURSOR limits grx to even positions to make in
 compatible with MODE 8 and MODE 4 automatically.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-Please refer to `PRINT <KeywordsP.html#PRINT>`__,
-`LEFT <KeywordsL.html#LEFT>`__ and `AT <KeywordsA.html#AT>`__.
+.. Please refer to `PRINT <KeywordsP.html#PRINT>`__,
 
-`CURSEN <KeywordsC.html#CURSEN>`__ is a more compatible means of
+Please refer to `PRINT <KeywordsP.clean.html#print>`__,
+.. `LEFT <KeywordsL.html#LEFT>`__ and `AT <KeywordsA.html#AT>`__.
+
+.. >`__ and `AT <KeywordsA.html#AT>`__.
+
+`LEFT <KeywordsL.clean.html#left>`__ and `AT <KeywordsA.clean.html#at>`__.
+
+.. `CURSEN <KeywordsC.html#CURSEN>`__ is a more compatible means of
+
+`CURSEN <KeywordsC.clean.html#cursen>`__ is a more compatible means of
 enabling a cursor.
 
 --------------
@@ -4657,17 +4944,28 @@ channel).
 
 On Minerva it is possible to alter the shape and colour of the cursor.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`CURSEN <KeywordsC.html#CURSEN>`__, `CURDIS <KeywordsC.html#CURDIS>`__,
-`CURSOR <KeywordsC.html#CURSOR>`__ and `CUR <KeywordsC.html#CUR>`__
+.. `CURSEN <KeywordsC.html#CURSEN>`__, `CURDIS <KeywordsC.html#CURDIS>`__,
+
+.. >`__, `CURDIS <KeywordsC.html#CURDIS>`__,
+
+`CURSEN <KeywordsC.clean.html#cursen>`__, `CURDIS <KeywordsC.clean.html#curdis>`__,
+.. `CURSOR <KeywordsC.html#CURSOR>`__ and `CUR <KeywordsC.html#CUR>`__
+
+.. >`__ and `CUR <KeywordsC.html#CUR>`__
+
+`CURSOR <KeywordsC.clean.html#cursor>`__ and `CUR <KeywordsC.clean.html#cur>`__
 enable or disable the cursor.
 
-Also refer to `CURSOR\_OFF <KeywordsC.html#CURSOR_OFF>`__ and
-`CURSOR\_ON <KeywordsC.html#CURSOR_ON>`__.
+.. Also refer to `CURSOR\_OFF <KeywordsC.html#CURSOR_OFF>`__ and
+
+Also refer to `CURSOR\_OFF <KeywordsC.clean.html#cursor_off>`__ and
+.. `CURSOR\_ON <KeywordsC.html#CURSOR_ON>`__.
+
+`CURSOR\_ON <KeywordsC.clean.html#cursor_on>`__.
 
 --------------
 
@@ -4701,14 +4999,19 @@ this is omitted, then upon execution of this command the chosen window
 is automatically selected as the active window (where key input is
 directed). Add the exclamation mark to prevent this.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-See `CURSOR\_OFF <KeywordsC.html#CURSOR_OFF>`__,
-`CURSEN <KeywordsC.html#CURSEN>`__ and
-`CURSOR% <KeywordsC.html#CURSOR%>`__ for more details.
+.. See `CURSOR\_OFF <KeywordsC.html#CURSOR_OFF>`__,
+
+See `CURSOR\_OFF <KeywordsC.clean.html#cursor_off>`__,
+.. `CURSEN <KeywordsC.html#CURSEN>`__ and
+
+`CURSEN <KeywordsC.clean.html#cursen>`__ and
+.. `CURSOR% <KeywordsC.html#CURSOR%>`__ for more details.
+
+`CURSOR% <KeywordsC.clean.html#cursor%>`__ for more details.
 
 --------------
 
@@ -4725,8 +5028,7 @@ This function takes any six character long string, (the internal format
 of a floating point number), and returns the value as a floating point
 number.
 
-..
-    WARNING:
+..  WARNING:
 
 **WARNING**
 
@@ -4735,16 +5037,29 @@ a valid representation of a floating point number, eg. CVF("BlaBla").
 
 MKF$ always returns a valid parameter for CVF which will not crash it.
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`PEEK\_F <KeywordsP.html#PEEK_F>`__, `MKF$ <KeywordsM.html#MKF$>`__,
-`CVI$ <KeywordsC.html#CVI$>`__, `CVL <KeywordsC.html#CVL>`__,
-`CVS$ <KeywordsC.html#CVS$>`__.
+.. `PEEK\_F <KeywordsP.html#PEEK_F>`__, `MKF$ <KeywordsM.html#MKF$>`__,
 
-`FPUTF <KeywordsF.html#FPUTF>`__ and `FGETF <KeywordsF.html#FGETF>`__
+.. >`__, `MKF$ <KeywordsM.html#MKF$>`__,
+
+`PEEK\_F <KeywordsP.clean.html#peek_f>`__, `MKF$ <KeywordsM.clean.html#mkf$>`__,
+.. `CVI$ <KeywordsC.html#CVI$>`__, `CVL <KeywordsC.html#CVL>`__,
+
+.. >`__, `CVL <KeywordsC.html#CVL>`__,
+
+`CVI$ <KeywordsC.clean.html#cvi$>`__, `CVL <KeywordsC.clean.html#cvl>`__,
+.. `CVS$ <KeywordsC.html#CVS$>`__.
+
+`CVS$ <KeywordsC.clean.html#cvs$>`__.
+
+.. `FPUTF <KeywordsF.html#FPUTF>`__ and `FGETF <KeywordsF.html#FGETF>`__
+
+.. >`__ and `FGETF <KeywordsF.html#FGETF>`__
+
+`FPUTF <KeywordsF.clean.html#fputf>`__ and `FGETF <KeywordsF.clean.html#fgetf>`__
 enable you to read and write floating point numbers in internal format
 to or from files.
 
@@ -4763,8 +5078,7 @@ CVI% is the inverse function of MKI$ and expects a two character long
 string, being the internal representation of an integer, and then
 converts this into the actual integer number.
 
-..
-    Example:
+..  Example:
 
 **Example**
 
@@ -4772,15 +5086,26 @@ MKI$( 20812 )="QL"
 
 CVI%("QL")=20812
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`MKI$ <KeywordsM.html#MKI$>`__, `CVL <KeywordsC.html#CVL>`__,
-`CVF <KeywordsC.html#CVF>`__, `CVS$ <KeywordsC.html#CVS$>`__.
+.. `MKI$ <KeywordsM.html#MKI$>`__, `CVL <KeywordsC.html#CVL>`__,
 
-`FGET% <KeywordsF.html#FGET%>`__ and `FPUT% <KeywordsF.html#FPUT%>`__
+.. >`__, `CVL <KeywordsC.html#CVL>`__,
+
+`MKI$ <KeywordsM.clean.html#mki$>`__, `CVL <KeywordsC.clean.html#cvl>`__,
+.. `CVF <KeywordsC.html#CVF>`__, `CVS$ <KeywordsC.html#CVS$>`__.
+
+.. >`__, `CVS$ <KeywordsC.html#CVS$>`__.
+
+`CVF <KeywordsC.clean.html#cvf>`__, `CVS$ <KeywordsC.clean.html#cvs$>`__.
+
+.. `FGET% <KeywordsF.html#FGET%>`__ and `FPUT% <KeywordsF.html#FPUT%>`__
+
+.. >`__ and `FPUT% <KeywordsF.html#FPUT%>`__
+
+`FGET% <KeywordsF.clean.html#fget%>`__ and `FPUT% <KeywordsF.clean.html#fput%>`__
 provide similar facilities for writing and reading integers in their
 internal format from files.
 
@@ -4801,21 +5126,31 @@ the string concerned.
 A string is represented internally as a word containing the length of
 the string followed by the string itself.
 
-..
-    Example:
+..  Example:
 
 **Example**
 
 CVS$( CHR$(0) & CHR$(2) & "Test" ) = "Test"(1 TO 2) = "Te"
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`MKS$ <KeywordsM.html#MKS$>`__, `CVI% <KeywordsC.html#CVI%>`__,
-`CVL <KeywordsC.html#CVL>`__, `CVF <KeywordsC.html#CVF>`__.
-`FPUT$ <KeywordsF.html#FPUT$>`__ and `FGET$ <KeywordsF.html#FGET$>`__
+.. `MKS$ <KeywordsM.html#MKS$>`__, `CVI% <KeywordsC.html#CVI%>`__,
+
+.. >`__, `CVI% <KeywordsC.html#CVI%>`__,
+
+`MKS$ <KeywordsM.clean.html#mks$>`__, `CVI% <KeywordsC.clean.html#cvi%>`__,
+.. `CVL <KeywordsC.html#CVL>`__, `CVF <KeywordsC.html#CVF>`__.
+
+.. >`__, `CVF <KeywordsC.html#CVF>`__.
+
+`CVL <KeywordsC.clean.html#cvl>`__, `CVF <KeywordsC.clean.html#cvf>`__.
+.. `FPUT$ <KeywordsF.html#FPUT$>`__ and `FGET$ <KeywordsF.html#FGET$>`__
+
+.. >`__ and `FGET$ <KeywordsF.html#FGET$>`__
+
+`FPUT$ <KeywordsF.clean.html#fput$>`__ and `FGET$ <KeywordsF.clean.html#fget$>`__
 enable you to write strings to and read strings from files in their
 internal formats.
 
@@ -4834,21 +5169,31 @@ This function converts the internal representation of a long integer
 number (a four character long string) to the actual value and returns
 that. CVL is the inverse of MKL$.
 
-..
-    Example:
+..  Example:
 
 **Example**
 
 CVL( MKL$( 10010 ) = "10010"
 
-..
-    CROSS-REFERENCE:
+..  CROSS-REFERENCE:
 
 **CROSS-REFERENCE**
 
-`MKL$ <KeywordsM.html#MKL$>`__, `CVI% <KeywordsC.html#CVI%>`__,
-`CVF <KeywordsC.html#CVF>`__, `CVS$ <KeywordsC.html#CVS$>`__.
+.. `MKL$ <KeywordsM.html#MKL$>`__, `CVI% <KeywordsC.html#CVI%>`__,
 
-`FPUTL <KeywordsF.html#FPUTL>`__ and `FGETL <KeywordsF.html#FGETL>`__
+.. >`__, `CVI% <KeywordsC.html#CVI%>`__,
+
+`MKL$ <KeywordsM.clean.html#mkl$>`__, `CVI% <KeywordsC.clean.html#cvi%>`__,
+.. `CVF <KeywordsC.html#CVF>`__, `CVS$ <KeywordsC.html#CVS$>`__.
+
+.. >`__, `CVS$ <KeywordsC.html#CVS$>`__.
+
+`CVF <KeywordsC.clean.html#cvf>`__, `CVS$ <KeywordsC.clean.html#cvs$>`__.
+
+.. `FPUTL <KeywordsF.html#FPUTL>`__ and `FGETL <KeywordsF.html#FGETL>`__
+
+.. >`__ and `FGETL <KeywordsF.html#FGETL>`__
+
+`FPUTL <KeywordsF.clean.html#fputl>`__ and `FGETL <KeywordsF.clean.html#fgetl>`__
 provide similar facilities to enable you to write and read long integers
 from files in their internal format.

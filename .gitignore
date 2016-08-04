@@ -1,5 +1,7 @@
 tools/fixSyntax
 tools/fixHeadings
+tools/fixLinks
+tools/fixLinkComments
 *.doctree
 *.pickle
 sphinx/build/*
