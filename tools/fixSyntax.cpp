@@ -186,29 +186,6 @@ void doLocation(const size_t pos)
     
     // And write out the blank line we just read.
     cout << a_line << endl;
-<<<<<<< HEAD
-=======
-}
-
-
-void doBoth(const size_t posSyntax, const size_t posLocation)
-{
-    // We have Syntax: and Location: on the same line.
-    // Split off the Location: part, keeping "Location:".
-    string locBuffer = a_line.substr(posLocation, string::npos);
-
-    // Keep just the Syntax: part.
-    a_line = a_line.substr(posSyntax + 7, posLocation - 8);
-    
-    // Write out the syntax table cell and the syntax details.
-    cout << tableSeparator << endl;
-    cout << "| Syntax   | " << a_line;
-    cout << setw(80-13-a_line.size()) << "|" << endl;
-
-    // Then do the Location details.
-    a_line = locBuffer;
-    doLocation(0);   
->>>>>>> 7cd46473e310c9aaef3d85b890a6a06918ef189c
 }
 
 
