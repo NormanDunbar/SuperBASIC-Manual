@@ -18,7 +18,7 @@ can create a nicer looking documentation system in HTML, ePub, pdf etc.
   - Trim off the navigation stuff from each and every page. We only want the main div contents.
   - Carry out some additional `sed` processing on the cleaned file.
   - Convert the clean file to ReStructuredText using `Pandoc`.
-  - Manually doe some editing to tidy up the generated text.
+  - Manually do some editing to tidy up the generated text.
   - Add the new file to the index.rst file, as this defines the structure.
   - `make html` to create a nice HTML version of the completed file(s).
 - End Outer Loop.
