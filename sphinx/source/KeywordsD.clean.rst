@@ -1,3 +1,14 @@
+==========
+Keywords D
+==========
+
+TODO
+====
+
+- Can we do something about the SYNTAX table cell contents? We should have it split onto new lines for each "or".
+- DATE$ has the same URL as DATE.
+
+
 DATA
 ====
 
@@ -7,19 +18,23 @@ DATA
 | Location |  QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
 
- The QL allows a SuperBASIC program to store a set of data in the
+The QL allows a SuperBASIC program to store a set of data in the
 program itself, which can then be assigned to a given variable by the
 READ command. The DATA statement marks these areas for use by READ. The
 information which can be stored at a DATA statement is basically
 anything which can be stored in a variable, including strings,
-variables, constants and expressions. Expressions will be calculated at
+variables, constants and expressions. 
+
+Expressions will be calculated at
 the time that the item in question is READ. Whilst a program is running,
 unless a READ command is found, DATA statements are ignored.
 
 
 **Example**
 
-1000 DATA "QL User",100,x\*1000+10
+::
+
+    1000 DATA "QL User",100,x*1000+10
 
 
 **NOTE 1**
@@ -27,7 +42,7 @@ unless a READ command is found, DATA statements are ignored.
 On Pre MG ROMs, if any values in a DATA statement start with a bracket,
 then the other items on the line may be ignored. If you must specify
 items starting with brackets, use for example: DATA 0+(...
- This is fixed by MG ROMs, Minerva and SMS.
+This is fixed by MG ROMs, Minerva and SMS.
 
 
 **NOTE 2**
@@ -62,11 +77,16 @@ in DATA statements.
 
 There appears to be no real check on the parameters given for DATA, so
 the following line can be entered, but will in fact cause an error when
-you try to READ it: 10 DATA 1000,PRINT,10
- SMS's improved interpreter does do more checks than earlier
-implementations and will prevent you from entering the line: 10 DATA
-1,1,2a,3
- which other implementations allow (but give an error when they try to
+you try to READ it::
+
+    10 DATA 1000,PRINT,10
+
+SMS's improved interpreter does do more checks than earlier
+implementations and will prevent you from entering the line::
+
+    10 DATA 1,1,2a,3 
+
+which other implementations allow (but give an error when they try to
 READ the line).
 
 
@@ -96,15 +116,19 @@ DATAD$
 | Location |  Toolkit II                                                       |
 +----------+-------------------------------------------------------------------+
 
- This function always contains the current default data device, which is
+This function always contains the current default data device, which is
 an unofficial QDOS standard and supported by all Toolkit II extensions,
-original SuperBASIC commands and most good software. The default device
+original SuperBASIC commands and most good software. 
+
+The default device
 means that if no other device is stated, if appropriate, this device
 will be used. The default data device will also be consulted if a device
 name is supplied but the given file cannot be found on that device. For
 example, assuming that DATAD$='flp2\_', if you enter VIEW
 ram1\_example\_txt and the file example\_txt is not present on ram1\_,
-the command will then try flp2\_ram1\_example\_txt. This idea can be
+the command will then try flp2\_ram1\_example\_txt. 
+
+This idea can be
 extended to use prefixes as sub-directories. Sub-directories are
 separated by underscores, DATAD$ always ends with an underscore.
 
@@ -114,16 +138,31 @@ separated by underscores, DATAD$ always ends with an underscore.
 TK2DIR reads all files from the current default data device via a pipe,
 strips off any network sub-directory prefix and then writes the
 remainder of the filenames into the string array passed by parameter.
-100 DEFine PROCedure TK2DIR (Verz$) 110 LOCal e,n,sd$,sd,us 120
-sd$=DATAD$: us="\_" INSTR sd$ 130 IF us=3 AND LEN(sd$)>3 and sd$(1)="n"
-THEN 140 IF sd$(2) INSTR "12345678":sd$=sd$(4 TO):us="\_" INSTR sd$ 160
-END IF 170 OPEN#4,pipe\_10000: STAT#4: WDIR#4 180
-e=FILE\_OPEN(#3,pipe\_,CHANID(#4)): CLOSE#4 200 INPUT#3,Verz$(0) 210 FOR
-n=1 TO DIMN(Verz$) 220 IF EOF(#3) THEN EXIT n 230 INPUT#3,Verz$(n) 240
-Verz$(n)=Verz$(n)(us+1 TO) 250 END FOR n 260 CLOSE#3 270 END DEFine
-TK2DIR
- DIM file$(20,30) TK2DIR file$ CLS: PRINT file$
- Here only the first 20 files will be read into file$. NB. This would
+
+::
+
+    100 DEFine PROCedure TK2DIR (Verz$) 
+    110   LOCal e,n,sd$,sd,us 
+    120   sd$=DATAD$: us="_" INSTR sd$ 
+    130   IF us=3 AND LEN(sd$)>3 and sd$(1)="n" THEN 
+    140     IF sd$(2) INSTR "12345678":sd$=sd$(4 TO):us="_" INSTR sd$ 
+    160   END IF 
+    170   OPEN#4,pipe_10000: STAT#4: WDIR#4 
+    180   e=FILE_OPEN(#3,pipe_,CHANID(#4)): CLOSE#4 
+    200   INPUT#3,Verz$(0) 
+    210   FOR n=1 TO DIMN(Verz$) 
+    220     IF EOF(#3) THEN EXIT n 
+    230     INPUT#3,Verz$(n) 
+    240     Verz$(n)=Verz$(n)(us+1 TO) 
+    250   END FOR n 
+    260   CLOSE#3 
+    270 END DEFine TK2DIR
+
+    DIM file$(20,30) 
+    TK2DIR file$ 
+    CLS: PRINT file$
+
+Here only the first 20 files will be read into file$. NB. This would
 require substantial amendment to make it search sub-directories also.
 
 
@@ -147,12 +186,15 @@ DATAREG
 | Location |  TRAPS (DIY Toolkit Vol T)                                        |
 +----------+-------------------------------------------------------------------+
 
- This function returns the value of the Machine code data register
+This function returns the value of the Machine code data register
 number (default 0) following the completion of a MTRAP, QTRAP or BTRAP
-command. Because the default data register number is 0: PRINT DATAREG
- will be 0 if no error occured during the TRAP call or else the relevant
-error code. Number will let you read the value of the relevant data
-register D0, D1, D2 or D3.
+command. 
+
+Because the default data register number is 0: PRINT DATAREG 
+will be 0 if no error occured during the TRAP call or else the relevant
+error code. 
+
+Number will let you read the value of the relevant data register D0, D1, D2 or D3.
 
 
 **CROSS-REFERENCE**
@@ -174,18 +216,25 @@ DATASPACE
 | Location |  Turbo Toolkit                                                    |
 +----------+-------------------------------------------------------------------+
 
- This function returns the amount of dataspace which has been set aside
+This function returns the amount of dataspace which has been set aside
 for the given file$. It is therefore similar to FDAT and FILE\_DAT.
-Default devices are not supported, however errors are not reported. The
-following error values may also be returned by the function: -2The file
-is not executable -3 or -6 Insufficient memory to open file -7File does
-not exist -9Device or file is being written to by something else. -12The
-device is valid, but the filename is not -16Bad or changed medium error
+
+Default devices are not supported, however errors are not reported. 
+The following error values may also be returned by the function: 
+
+- -2: The file is not executable
+- -3 or -6: Insufficient memory to open file 
+- -7: File does not exist 
+- -9: Device or file is being written to by something else. 
+- -12: The device is valid, but the filename is not 
+- -16: Bad or changed medium error
 
 
 **Example**
 
-PRINT DATASPACE('win1\_start\_QD\_exe')
+::
+
+    PRINT DATASPACE('win1_start_QD_exe')
 
 
 **CROSS-REFERENCE**
@@ -205,16 +254,22 @@ DATA\_AREA
 | Location |  Turbo Toolkit                                                    |
 +----------+-------------------------------------------------------------------+
 
- This command is only used by the Turbo compiler and should be located
-at the start of your program before any active program lines. The
+This command is only used by the Turbo compiler and should be located
+at the start of your program before any active program lines. 
+
+The
 command specifies how much dataspace (size kilobytes) should be
-specified for the compiled program. This dataspace is used by a task for
+specified for the compiled program. 
+
+This dataspace is used by a task for
 stack space and a temporary store whilst it is running.
 
 
 **Example**
 
-10 DATA\_AREA 32
+::
+
+    10 DATA_AREA 32
 
 
 **NOTE**
@@ -244,28 +299,38 @@ DATA\_USE
 | Location |  Toolkit II, THOR XVI                                             |
 +----------+-------------------------------------------------------------------+
 
- If you have Toolkit II installed, all of the additional extensions
+If you have Toolkit II installed, all of the additional extensions
 connected with file or device handling and all original SuperBASIC
-commands use the default device if no other device name is specified. On
-a THOR XVI, some of the commands support default devices without Toolkit
-II. The effect of the default devices would make LOAD proggy\_bas
- work as LOAD flp1\_proggy\_bas (assuming that flp1\_ is the default
+commands use the default device if no other device name is specified. 
+
+On a THOR XVI, some of the commands support default devices without Toolkit
+II. 
+
+The effect of the default devices would make LOAD proggy\_bas
+work as LOAD flp1\_proggy\_bas (assuming that flp1\_ is the default
 data device). The actual effect depends on the command being executed,
-but generally the file will be looked for in three steps: (1) Does the
-given file include a valid device?: proggy\_bas does not,
-ram1\_proggy\_bas does (ram1\_). If not, the parameter is assumed to be
-a filename and Toolkit II looks for a device on which it can find it; so
-(2) Add the default data device to the filename. If that does not work,
-then: (3) Add the default program device (PROGD$) and try again. The
-default program device is defined by PROG\_USE, DATA\_USE
- defines the default data device. See PROG\_USE as to the difference
+but generally the file will be looked for in three steps:
+
+- Does the given file include a valid device? proggy\_bas does not, 
+  ram1\_proggy\_bas does (ram1\_). If not, the parameter is assumed to be
+  a filename and Toolkit II looks for a device on which it can find it; so:
+- Add the default data device to the filename. If that does not work,
+  then: 
+- Add the default program device (PROGD$) and try again.
+
+The
+default program device is defined by PROG\_USE, DATA\_USE 
+defines the default data device. See PROG\_USE as to the difference
 between the two defaults. The last two steps add the default devices to
 the filename. These defaults can be interpreted as sub-directories.
+
 Here, a sub-directory means that where a prefix is separated by
 underscores, this means that the file concerned is held in the
 sub-directory specified by that prefix. Thus, win1\_QUILL\_readme\_doc
 could be readme\_doc on a hard disk in the sub-directory QUILL or doc in
-the sub-subdirectory readme of QUILL. Sub-directories can be nested but
+the sub-subdirectory readme of QUILL. 
+
+Sub-directories can be nested but
 the complete filename, including prefix must not be longer than 41
 characters (note that if you are using a network device, for example
 n1\_win1\_proggy\_bas, the maximum permitted filename length is reduced
@@ -274,9 +339,13 @@ to 39 in current versions of the QL device drivers).
 
 **Examples**
 
-DATA\_USE flp1\_QUILL (or flp1\_QUILL\_) DATA\_USE MDV2\_ DATA\_USE
-win1\_Psion\_ARCHIVE DATA\_USE n2\_ram1\_ DATA\_USE
-mdv3\_games\_arcade\_invaders\_
+::
+
+    DATA_USE flp1_QUILL (or flp1_QUILL_) 
+    DATA_USE MDV2_ 
+    DATA_USE win1_Psion_ARCHIVE 
+    DATA_USE n2_ram1_ 
+    DATA_USE mdv3_games_arcade_invaders_
 
 
 **NOTE 1**
@@ -339,12 +408,15 @@ DATE
 ====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  DATE  or                                                         |
+| Syntax   | DATE or                                                           |
 |          | DATE (year,month,day,hour,minute,second)(Minerva & NewDate)  or   |
 |          | DATE (year,month,day,hour,minute [,second])(SMS v2.57+)           |
 +----------+-------------------------------------------------------------------+
+| Location | QL ROM                                                            |
++----------+-------------------------------------------------------------------+
 
- The function DATE returns the current date and time as the number of
+
+The function DATE returns the current date and time as the number of
 seconds since midnight on 1st January 1961. For example, PRINT
 DATE$(DATE) is exactly the same as PRINT DATE$. The NewDate version of
 this command is exactly the same as Minerva's implementation.
@@ -356,10 +428,12 @@ Due to the way in which the system clock is implemented on the QL (it is
 stored as a 32-bit unsigned number), early versions of this function
 have problems with dates after 3.14:07 on 19th January 2029 (this would
 result in a number of seconds which needs to be stored in all 32 bits).
+
 Although the SDATE and DATE$ functions treat the number correctly, the
-DATE
- function ignores the most significant bit, meaning that it returns the
-wrong value for dates later than this. The NewDate version of this
+DATE function ignores the most significant bit, meaning that it returns the
+wrong value for dates later than this. 
+
+The NewDate version of this
 function, as well as Minerva ROMs and under SMS, DATE treats the figure
 as a 32-bit signed number. Although this allows the line PRINT
 DATE$(DATE) to work correctly for all dates between 0.0:00 on 1st Jan
@@ -373,9 +447,11 @@ giving the largest negative number.
 DATE can accept the same six parameters accepted by SDATE. This enables
 you (for instance) to find out the day on a given date without having to
 alter the QL clock: PRINT DAY$(DATE(1968,6,25,1,1,0))
- This does also enable you to easily set the update date on a given file
-without altering the QL clock: SET\_FUPDT
-\\flp2\_test\_file,DATE(1990,11,1,0,0,0)
+
+This does also enable you to easily set the update date on a given file
+without altering the QL clock::
+
+    SET_FUPDT \flp2_test_file, DATE(1990,11,1,0,0,0)
 
 
 **SMS NOTE**
@@ -400,55 +476,89 @@ DATE$
 =====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  DATE$ [(date)] or                                                |
+| Syntax   | DATE$ [(date)] or                                                 |
 |          | DATE$ (year,month,day,hour,minute [,second])(SMS v2.57+ only)     |
 +----------+-------------------------------------------------------------------+
+| Location | QL ROM                                                            |
++----------+-------------------------------------------------------------------+
 
- DATE$ holds the current system date and time as a string in the
-following format: yyyy mmm dd hh:mm:ss 1991 May 06 18:18:44 (example) \|
-\| \| \| \| \| \| \| \| \| \| \\---- 19 TO 21 (seconds) \| \| \| \|
-\\------- 16 TO 17 (minutes) \| \| \| \\---------- 13 TO 14 (hour, 24h)
-\| \| \\------------- 10 TO 12 (day) \| \\----------------- 6 TO 8
-(month as string) \\--------------------- 1 TO 4 (year) If a parameter
-is used then DATE$ should return the date and time the given number of
+DATE$ holds the current system date and time as a string in the
+following format: yyyy mmm dd hh:mm:ss. 
+
+::
+
+    1991 May 06 18:18:44 (example)
+    |    |   |  |  |  |
+    |    |   |  |  |  +----- 19 TO 21 (seconds)
+    |    |   |  |  +-------- 16 TO 17 (minutes)
+    |    |   |  +----------- 13 TO 14 (hour, 24h)
+    |    |   +-------------- 10 TO 12 (day)
+    |    +------------------- 6 TO 8 (month as string)
+    +------------------------ 1 TO 4 (year) 
+
+
+If a parameter is used then DATE$ should return the date and time the given number of
 seconds after 1/1/1961, DATE$(DATE) is identical to DATE$ for any date
 before 3.14:07 on 19th Jan 2029 (see ADATE). However, for times after
 this date, the number of seconds since 1/1/1961 is represented by a
-negative number, calculated by number of seconds - 2147483648. This
-means that to calculate a specified date after 3.14:06 on 19th Jan 2029,
+negative number, calculated by number of seconds - 2147483648. 
+
+This means that to calculate a specified date after 3.14:06 on 19th Jan 2029,
 the following short function is required (for non-Minerva ROMs and
-non-SMS machines only): 100 DEFine FuNction DATE20$(seconds) 110
-offset='2147483648' 120 RETurn DATE$(seconds-offset) 130 END DEFine
- This function is not needed on Minerva ROMs, with the NewDate version
+non-SMS machines only):
+
+::
+
+    100 DEFine FuNction DATE20$(seconds) 
+    110   offset='2147483648' 
+    120   RETurn DATE$(seconds-offset) 
+    130 END DEFine
+
+This function is not needed on Minerva ROMs, with the NewDate version
 of DATE or under SMS - see DATE for a full explanation.
 
 
 **Example 1**
 
 It may be useful to read the different parts of the date from DATE$ and
-reformat them for use in letters. 100 D$=DATE$ 110 year=D$(1 TO 4):
-day=D$(10 TO 12):D$=D$(6 TO 8) 120 month=(D$ INSTR
-"..JanFebMarAprMayJunJulAugSepOctNovDec")/3 130 DIM month$(12,9):
-RESTORE 150 140 FOR m=1 TO 12: READ month$(m) 150 DATA
-"January","February","March","April","May","June","July" 160 DATA
-"August","September","October","November","December" 170 ALTKEY
-"d",month$(month)&" "&day&", "&year
+reformat them for use in letters. 
+
+::
+
+    100 D$=DATE$ 
+    110 year=D$(1 TO 4): day=D$(10 TO 12): D$=D$(6 TO 8) 
+    120 month=(D$ INSTR "..JanFebMarAprMayJunJulAugSepOctNovDec")/3 
+    130 DIM month$(12,9): RESTORE 150 
+    140 FOR m=1 TO 12: READ month$(m) 
+    150 DATA "January","February","March","April","May","June","July" 
+    160 DATA "August","September","October","November","December" 
+    170 ALTKEY "d", month$(month) & " " & day & ", " & year
 
 
 **Example 2**
 
-How to find the number of days between two dates: 100
-date1=DATE(2032,3,30,10,0,0) 110 date2=DATE(2000,3,30,10,0,0) 120 PRINT
-DAYS\_DIFF(date2,date1) 130 : 140 DEFine FuNction DAYS\_DIFF(dy1,dy2)
-150 LOCal offset,base\_date,diff 160 offset='2147483648' 170
-base\_date=DATE(2029,1,19,3,14,7) 180 IF (date1>=0 AND date2>=0) OR
-(date1<0 AND date2<0) 190 IF date1>=date2:diff=date1-date2:ELSE
-diff=date2-date1 240 ELSE 250 IF date1<0 260
-diff=(base\_date-date2)+(date1+offset 270 ELSE 280
-diff=(base\_date-date1)+(date2+offset) 290 END IF 300 END IF 310
-seconds\_per\_day=24\*60\*60 320 RETurn INT(diff/seconds\_per\_day) 330
-END DEFine
+How to find the number of days between two dates::
 
+    100 date1=DATE(2032,3,30,10,0,0)
+    110 date2=DATE(2000,3,30,10,0,0)
+    120 PRINT DAYS_DIFF(date2,date1)
+    130 :
+    140 DEFine FuNction DAYS_DIFF(dy1,dy2)
+    150 LOCal offset,base_date,diff
+    160 offset='2147483648'
+    170 base_date=DATE(2029,1,19,3,14,7)
+    180 IF (date1>=0 AND date2>=0) OR (date1<0 AND date2<0)
+    190 IF date1>=date2:diff=date1-date2:ELSE diff=date2-date1
+    240 ELSE
+    250 IF date1<0
+    260 diff=(base_date-date2)+(date1+offset
+    270 ELSE
+    280 diff=(base_date-date1)+(date2+offset)
+    290 END IF
+    300 END IF
+    310 seconds_per_day=24*60*60
+    320 RETurn INT(diff/seconds_per_day)
+    330 END DEFine 
 
 **NOTE 1**
 
@@ -471,9 +581,15 @@ to extract the year for instance. It is however, necessary to tell the
 operating system that you are not actually providing a parameter to be
 converted into a date. This is achieved by using the following format to
 slice DATE$: DATE$ [([seconds]) [([start] TO [end])]] The following are
-therefore all valid on Minerva: PRINT DATE$ PRINT DATE$(DATE+86400)
-TIMER$=DATE$()(13 TO ) YEAR$=(DATE$)(1 TO 4) YEAR$=DATE$(1E9)( TO 4)
- Only the first two examples will work on other ROMs.
+therefore all valid on Minerva::
+
+    PRINT DATE$ 
+    PRINT DATE$(DATE+86400)
+    TIMER$ = DATE$()(13 TO ) 
+    YEAR$ = (DATE$)(1 TO 4) 
+    YEAR$ = DATE$(1E9)( TO 4)
+
+Only the first two examples will work on other ROMs.
 
 
 **SMS NOTE**
@@ -496,13 +612,25 @@ DAY$
 ====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  DAY$ [(date)] or                                                 |
+| Syntax   | DAY$ [(date)] or                                                  |
 |          | DAY$ (year,month,day,hour,minute [,second]) (SMS v2.57+ only)     |
 +----------+-------------------------------------------------------------------+
+| Location | QL ROM                                                            |
++----------+-------------------------------------------------------------------+
 
- DAY$ holds the current day as a three character string: Sun Sunday Mon
-Monday Tue Tuesday Wed Wednesday Thu Thursday Fri Friday Sat Saturday If
-you provide a parameter, DAY$ will return the day of the given date
+DAY$ holds the current day as a three character string: 
+
+===  =========
+Sun  Sunday
+Mon  Monday
+Tue  Tuesday
+Wed  Wednesday
+Thu  Thursday
+Fri  Friday
+Sat  Saturday
+===  =========
+
+If you provide a parameter, DAY$ will return the day of the given date
 (which is stated in seconds after 1/1/1961). DAY$(DATE) = DAY$.
 
 
@@ -515,8 +643,7 @@ As with DATE$, you cannot slice DAY$ unless you have a Minerva ROM
 **SMS NOTE**
 
 In common with DATE$, from v2.57, DAY$ will now accept five or six
-parameters as with SDATE and DATE. You can also slice DAY$
- (like on Minerva) - see DATE$.
+parameters as with SDATE and DATE. You can also slice DAY$ (like on Minerva) - see DATE$.
 
 
 **CROSS-REFERENCE**
@@ -539,8 +666,7 @@ DBL
 | Location |  Beuletools                                                       |
 +----------+-------------------------------------------------------------------+
 
- This function returns the control codes needed to switch on emphasised
-mode on an EPSON compatible printer: DBL=CHR$(27)&"E".
+This function returns the control codes needed to switch on emphasised mode on an EPSON compatible printer: DBL=CHR$(27)&"E".
 
 
 **CROSS-REFERENCE**
@@ -565,19 +691,40 @@ DDOWN
 | Location |  Toolkit II                                                       |
 +----------+-------------------------------------------------------------------+
 
- This command adds the specified subdirectory to the default data device
-as a suffix. If the default program device is the same as the default
-data device, then this will also be altered by DDOWN. If the default
+This command adds the specified subdirectory to the default data device
+as a suffix. 
+
+If the default program device is the same as the default
+data device, then this will also be altered by DDOWN. 
+
+If the default
 destination device is a directory device (ie. if it ends with an
 underscore), DDOWN also alters this (whether or not it points to another
-drive). win1\_ \| +--------+-------+ \| \| \| C BASIC Quill \| \|
-+---+---+ +-----+-----+ \| \| \| \| include objects letters translations
-\| secret The above could be a directory tree on a hard disk. DATA\_USE
-win1\_ defines win1\_ as the default directory device, so WDIR will list
-all of the files on win1\_. DDOWN C will move into the C sub-directory,
-ie. DATAD$ is now win1\_C\_. DDOWN include will make WDIR list all of
+drive). 
+
+::
+
+    win1_
+    win1_C_
+    win1_C_include_
+    win1_C_objects_
+    win1_BASIC_
+    win1_QUILL_
+    win1_QUILL_letters_
+    win1_QUILL_translations
+    win1_secret_
+
+
+The above could be a directory tree on a hard disk. 
+
+DATA\_USE win1\_ defines win1\_ as the default directory device, so WDIR will list
+all of the files on win1\_. 
+
+DDOWN C will move into the C sub-directory, ie. DATAD$ is now win1\_C\_. 
+
+DDOWN include will make WDIR list all of
 the files on the hard disk which are prefixed by C\_include\_ (eg.
-win1\_C\_include\_math\_h)
+win1\_C\_include\_math\_h).
 
 
 **NOTE 1**
@@ -610,6 +757,8 @@ can be used to find out about the current sub-directory and default
 devices respectively.
 
 --------------
+
+.. *********************** YOU ARE HERE *******************************
 
 DEALLOCATE
 ==========
