@@ -7,6 +7,7 @@ TODO
 
 - Can we do something about the SYNTAX table cell contents? We should have it split onto new lines for each "or".
 - DATE$ has the same URL as DATE.
+- DEFAULT%, DEFAULT$ have the same URL as DEFAULT.
 
 
 DATA
@@ -758,8 +759,6 @@ devices respectively.
 
 --------------
 
-.. *********************** YOU ARE HERE *******************************
-
 DEALLOCATE
 ==========
 
@@ -769,7 +768,7 @@ DEALLOCATE
 | Location |  Turbo Toolkit                                                    |
 +----------+-------------------------------------------------------------------+
 
- This procedure is very similar to RECHP in that it cancels a
+This procedure is very similar to RECHP in that it cancels a
 reservation of common heap memory. However, the specified address must
 be an area of memory which had previously been set aside with
 ALLOCATION.
@@ -798,7 +797,7 @@ DEBUG
 | Location |  Turbo Toolkit (v3.20+)                                           |
 +----------+-------------------------------------------------------------------+
 
- This is a compiler directive intended to precede a DEFine PROCedure or
+This is a compiler directive intended to precede a DEFine PROCedure or
 DEFine FuNction routine which is used for debugging a program. The
 routine can be included or excluded from the program during compilation
 using the DEBUG\_LEVEL directive. Current versions of the TURBO parser
@@ -820,7 +819,7 @@ DEBUG\_LEVEL
 | Location |  Turbo Toolkit (v3.20+)                                           |
 +----------+-------------------------------------------------------------------+
 
- It is currently uncertain how this directive is used within TURBO
+It is currently uncertain how this directive is used within TURBO
 compiled programs.
 
 
@@ -840,7 +839,7 @@ DEFAULT
 | Location |  BTool                                                            |
 +----------+-------------------------------------------------------------------+
 
- The function DEFAULT usually simply returns the result of the given
+The function DEFAULT usually simply returns the result of the given
 expression, unless the expression contains undefined variables or does
 not produce a floating point number. In either of these latter cases
 DEFAULT will return the given default\_value.
@@ -849,12 +848,14 @@ DEFAULT will return the given default\_value.
 **Example**
 
 WRITE simply PRINTs a text to a given channel. If the channel ch was not
-a valid number for any reason then #1 is used: 100 DEFine PROCedure
-WRITE (ch, text$) 110 ch = DEFAULT(ch, 1) 120 PRINT#ch,text$ 130 END
-DEFine WRITE
+a valid number for any reason then #1 is used::
 
+    100 DEFine PROCedure WRITE (ch, text$) 
+    110 ch = DEFAULT(ch, 1) 
+    120 PRINT#ch,text$ 
+    130 END DEFine WRITE
 
-**CROSS-REFERENCE**
+**CROSS-REFERECE**
 
 `TYPE <KeywordsT.clean.html#type>`__. `DEFAULT$ <KeywordsD.clean.html#default>`__
 and `DEFAULT% <KeywordsD.clean.html#default>`__ work exactly like
@@ -871,7 +872,7 @@ DEFAULT%
 | Location |  BTool                                                            |
 +----------+-------------------------------------------------------------------+
 
- See DEFAULT !
+ See `DEFAULT <KeywordsD.clean.html#default>`__ !
 
 --------------
 
@@ -884,7 +885,7 @@ DEFAULT$
 | Location |  BTool                                                            |
 +----------+-------------------------------------------------------------------+
 
- See DEFAULT !
+ See `DEFAULT <KeywordsD.clean.html#default>`__ !
 
 --------------
 
@@ -897,18 +898,31 @@ DEFAULT\_DEVICE
 | Location |  Turbo Toolkit                                                    |
 +----------+-------------------------------------------------------------------+
 
- This command can be used in a similar way to PROG\_USE and DATA\_USE.
+This command can be used in a similar way to PROG\_USE and DATA\_USE. 
 It sets the default device (up to 31 characters), for the following
-Turbo Toolkit commands: CHARGE, EXECUTE, EXECUTE\_A, EXECUTE\_W
- LINK\_LOAD, LINK\_LOAD\_A, LINK\_LOAD\_W
- It has no effect on any other commands.
+Turbo Toolkit commands: 
+
+- CHARGE, 
+- EXECUTE, 
+- EXECUTE\_A, 
+- EXECUTE\_W
+- LINK\_LOAD, 
+- LINK\_LOAD\_A, 
+- LINK\_LOAD\_W.
+
+It has no effect on any other commands.
 
 
 **Example**
 
 For a series of linked programs, you may want to use the following in a
-boot file: DEFAULT\_DEVICE win1\_PROGS\_
- Each program could call another by uwing: EXECUTE\_W program2\_task
+boot file::
+
+    DEFAULT_DEVICE win1_PROGS_ 
+
+Each program could call another by using::
+
+    EXECUTE_W program2_task
 
 
 **NOTE 1**
@@ -921,7 +935,9 @@ command simply ignored the additional characters).
 **NOTE 2**
 
 As from v1.26, you do not need to pass the device name as a string, for
-example: DEFAULT\_DEVICE flp1\_
+example::
+
+    DEFAULT_DEVICE flp1_
 
 
 **CROSS-REFERENCE**
@@ -939,16 +955,18 @@ DEFAULT\_SCR
 | Location |  Fn (v1.02 or later)                                              |
 +----------+-------------------------------------------------------------------+
 
- This function is really only useful on a Minerva ROM (although it will
+This function is really only useful on a Minerva ROM (although it will
 work quite happily on any other ROM). It is sometimes useful when
 writing programs which are to run in Minerva's dual screen mode to
 discover which is the default screen. This is made necessary because all
 new windows which are opened, and all MODE commands operate on the
-current default screen. This therefore means that if a program is badly
+current default screen. 
+
+This therefore means that if a program is badly
 written, it is possible that whilst the program is running the default
 screen is switched, giving the result that some of its windows are
 opened on scr0 and some on scr1. PRINT DEFAULT\_SCR
- will return 0 or 1 depending whether the default screen is scr0 or
+will return 0 or 1 depending whether the default screen is scr0 or
 scr1. If Minerva is not in dual screen mode, or if Minerva is not
 present, 0 will be returned.
 
@@ -956,11 +974,17 @@ present, 0 will be returned.
 **Example**
 
 A program to change the MODE of the current program safely (ie. it will
-only alter the MODE of the screen in which the program is running): 100
-This\_JOB=DEFAULT\_SCR 110 SET\_MODE 8 120 : 200 DEFine PROCedure
-SET\_MODE (alp) 210 IF RMODE(This\_JOB)=alp:RETurn 220 IF
-This\_JOB=DEFAULT\_SCR:MODE alp:RETurn 230 MODE 64+32,-1:MODE alp:MODE
-64+32,-1 240 END DEFine
+only alter the MODE of the screen in which the program is running)::
+
+
+    100 This_JOB=DEFAULT_SCR 
+    110 SET_MODE 8 
+    120 : 
+    200 DEFine PROCedure SET_MODE (alp) 
+    210   IF RMODE(This_JOB)=alp:RETurn 
+    220   IF This_JOB=DEFAULT_SCR:MODE alp:RETurn 
+    230   MODE 64+32,-1:MODE alp:MODE 64+32,-1 
+    240 END DEFine
 
 
 **CROSS-REFERENCE**
@@ -971,7 +995,7 @@ job and can be used to alter the current default screen,
 
 --------------
 
-DEFine ...
+DEFine xxx
 ==========
 
 +----------+-------------------------------------------------------------------+
@@ -980,8 +1004,13 @@ DEFine ...
 | Location |  QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
 
- This keyword forms part of the structures: DEFine PROCedure, DEFine
-FuNction and END DEFine. As such, it cannot be used on its own within a
+This keyword forms part of the structures: 
+
+- DEFine PROCedure, 
+- DEFine FuNction,
+- END DEFine. 
+
+As such, it cannot be used on its own within a
 program - this will cause a 'bad line' error, except under SMS where it
 causes an error 'Incorrect Procedure or Function Definition'.
 
@@ -1002,7 +1031,7 @@ DEFine FuNction
 +----------+--------------------------------------------------------------------------------+
 
 
- This command marks the beginning of the SuperBASIC structure which is
+This command marks the beginning of the SuperBASIC structure which is
 used to surround lines of SuperBASIC code which forms an equivalent to a
 machine code function, which can be called from within SuperBASIC and
 will return a value dependent upon the code contained within the
@@ -1010,74 +1039,107 @@ structure. The syntax of the SuperBASIC structure can take two forms:
 
 --------------
 
-DEFine FuNction name[$ \| %]
-[(item\ :sup:`\*`\ [,item\ :sup:`i`]\ :sup:`\*`\ )]: statement
+DEFine FuNction name[$ \| %] [(item\ :sup:`\*`\ [,item\ :sup:`i`]\ :sup:`\*`\ )]: statement
 :sup:`\*`\ [:statement]\ :sup:`\*`:RETurn value
- or DEFine FuNction name[$ \| %] [(item
-:sup:`\*`\ [,item\ :sup:`i`]\ :sup:`\*` )] :sup:`\*`\ [LOCal var
-:sup:`\*`\ [,var\ :sup:`i`]\ :sup:`\*`]\ :sup:`\*
-` :sup:`\*`\ [statements]\ :sup:`\*
-` RETurn value END DEFine [name] When the specified function name is
+
+or 
+
+DEFine FuNction name[$ \| %] [(item :sup:`\*`\ [,item\ :sup:`i`]\ :sup:`\*` )] :sup:`\*`\ [LOCal var
+:sup:`\*`\ [,var\ :sup:`i`]\ :sup:`\*`]\ :sup:`\* ` :sup:`\*`\ [statements]\ :sup:`\*` RETurn value END DEFine [name] 
+
+--------------
+
+When the specified function name is
 called, the interpreter will search the SuperBASIC program for the
-related DEFine FuNction
- statement. If a related DEFine FuNction cannot be found, then the
-interpreter will search for a machine code function of that name. If the
-definition of name cannot be found, then the error 'Not Found' will be
+related DEFine FuNction statement. 
+
+If a related DEFine FuNction cannot be found, then the
+interpreter will search for a machine code function of that name. 
+
+If the definition of name cannot be found, then the error 'Not Found' will be
 reported if name was defined in the past, but the definition line has
-since been deleted. If name has never been defined in the current
-SuperBASIC program, then it will be treated as a normal variable and
-relevant error messages reported. Under SMS in both instances the value
-0 will be returned (name is treated as an undefined variable). The
-method of searching for a FuNction means that if a SuperBASIC FuNction
+since been deleted. 
+
+If name has never been defined in the current SuperBASIC program, then it will be treated as a normal variable and
+relevant error messages reported. 
+
+Under SMS in both instances the value
+0 will be returned (name is treated as an undefined variable). 
+
+The method of searching for a FuNction means that if a SuperBASIC FuNction
 is defined with the same name as a machine code one, the machine code
 one will no longer be available, and when the SuperBASIC FuNction is
 removed (for example with NEW), that keyword will no longer have any
 effect. If entered as a direct command, even the in-line structure will
 not have any effect unless it is also called on the same line, as the
-interpreter must jump to the relevant DEFine FuNction
- statement when the function is called. If a DEFine FuNction statement
+interpreter must jump to the relevant DEFine FuNction statement when the function is called. 
+
+If a DEFine FuNction statement
 appears in a program, if the code is not called, program flow will
 continue from the statement following the next END DEFine - it is
 however good practice to keep all definition structures towards the end
 of a program, and not to place the structure blocks in the middle of
 program code, as this makes it very difficult to follow the flow of
-programs. It is also good programming practice to make FuNctions
+programs. 
+
+It is also good programming practice to make FuNctions
 self-contained and not to jump out of them using GO TOs or GO SUBs (they
-can of course call other FuNctions and PROCedures). To call the DEFine
-FuNction, you merely need to include its name in an expression. If
+can of course call other FuNctions and PROCedures). 
+
+To call the DEFine FuNction, you merely need to include its name in an expression. If
 however any parameters are listed in the definition, you will need to
 pass the same number of parameters in brackets after the name of the
 FuNction, separated by any valid SuperBASIC separator {ie. comma (,),
 semicolon (;), backslash (\\), exclamation mark (!) or TO }. You can
 also place a hash (#) before the parameters if you so wish to indicate
-that it is a channel number. If not enough parameters are supplied, the
+that it is a channel number. 
+
+If not enough parameters are supplied, the
 program will report 'Error in Expression' when the missing parameter is
 used, except under SMS where the missing parameters are treated as unset
 variables and will therefore have the value 0 (if a numeric variable) or
-else contain an empty string (if a string variable). If however, too
+else contain an empty string (if a string variable). 
+
+If however, too
 many parameters are passed, the extra parameters are ignored. Parameters
 are passed by reference which means that the list of items in the DEFine
 FuNction statement are deemed LOCal to that definition - this means that
 any previous values of the items are stored whilst the definition block
 is active. What is more, the type of each item does not actually matter
 - they assume the type of the passed parameter. For example, the
-following short program will work without any problems: 10
-a$=QUERY$('What is your name') 20 DEFine FuNction QUERY$(x) 30 INPUT
-(x)!b$ 40 RETurn b$ 50 END DEFine
- Note though that the name of the FuNction must end with the correct
+following short program will work without any problems::
+
+    10 a$=QUERY$('What is your name') 
+    20 DEFine FuNction QUERY$(x) 
+    30   INPUT (x)!b$ 
+    40   RETurn b$ 
+    50 END DEFine
+
+Note though that the name of the FuNction must end with the correct
 variable type, ie. $ if a string is to be returned, or % if an integer
-is to be returned (although see note 7 below). One of the results of
+is to be returned (although see note 7 below). 
+
+One of the results of
 passing variables by reference is that if the item is altered within the
 definition block, if a variable is passed as a parameter, the variable
 itself will also be altered (although see note 4). This can be shown
-with the following short program: 100 x=10 110 y=Square(x) 120 PRINT
-x;'^2=';y 130 DEFine FuNction Square(za) 140 za=za\*za 150 RETurn za 160
-END DEFine
- This can be avoided by either assigning the item to a temporary
+with the following short program::
+
+    100 x=10 
+    110 y=Square(x) 
+    120 PRINT x;'^2=';y 
+    130 DEFine FuNction Square(za) 
+    140   za=za*za 
+    150   RETurn za 
+    160 END DEFine
+
+This can be avoided by either assigning the item to a temporary
 variable and then using the temporary variable instead (see the example
 below), or by passing the variable as an expression, by placing it
-inside brackets; for example by replacing line 110 with the following:
-110 y=Square((x))
+inside brackets; for example by replacing line 110 with the following::
+
+
+    110 y=Square((x))
 
 Having passed the necessary parameters to the Function, you can then use
 each item inside the definition block as normal.
@@ -1086,18 +1148,30 @@ each item inside the definition block as normal.
 **Example**
 
 A short program to calculate the length of the hypotenuse in a triangle,
-given the length of its two other sides: 100 MODE 4: WINDOW
-448,200,32,16: SCALE 100,0,0: PAPER 0 105 CLS: INK 7 110 AT 2,25: UNDER
-1: PRINT'Pythagoras calculator': UNDER 0 120 INPUT \\\\'Enter length of
-base of triangle:'!base 130 INPUT \\\\'Enter height of triangle:'!height
-140 hypotenuse=Pythag(base,height) 150 INK 4: LINE 50,20 TO 100,20 TO
-100,70 TO 50,20 160 INK 7: AT 16,35-LEN(base): PRINT base 170 AT 11,46:
-PRINT height 180 AT 11,31-LEN(hypotenuse): PRINT hypotenuse 190 : 1000
-DEFine FuNction Pythag(x,y) 1010 LOCal x1,y1 1020 x1=x\*x:y1=y\*y 1030
-RETurn SQRT(x1+y1) 1040 END DEFine
- See what happens if you replace lines 1000 to 1040 with the following:
-1000 DEFine FuNction Pythag(x,y) 1010 x=x\*x:y=y\*y 1020 RETurn
-SQRT(x\*y) 1030 END DEFine
+given the length of its two other sides::
+
+    100 MODE 4: WINDOW 448,200,32,16: SCALE 100,0,0: PAPER 0 105 CLS: INK 7 
+    110 AT 2,25: UNDER 1: PRINT'Pythagoras calculator': UNDER 0 
+    120 INPUT \\'Enter length of base of triangle:'!base 
+    130 INPUT \\'Enter height of triangle:'!height
+    140 hypotenuse=Pythag(base,height) 
+    150 INK 4: LINE 50,20 TO 100,20 TO 100,70 TO 50,20 
+    160 INK 7: AT 16,35-LEN(base): PRINT base 
+    170 AT 11,46: PRINT height 
+    180 AT 11,31-LEN(hypotenuse): PRINT hypotenuse 
+    190 : 
+    1000 DEFine FuNction Pythag(x,y) 
+    1010   LOCal x1,y1 
+    1020   x1=x*x:y1=y*y 
+    1030   RETurn SQRT(x1+y1) 
+    1040 END DEFine
+
+See what happens if you replace lines 1000 to 1040 with the following::
+
+    1000 DEFine FuNction Pythag(x,y) 
+    1010   x=x*x:y=y*y 
+    1020   RETurn SQRT(x*y) 
+    1030 END DEFine
 
 
 **NOTE 1**
@@ -1105,7 +1179,9 @@ SQRT(x\*y) 1030 END DEFine
 A FuNction must return a value under all circumstances. If the END
 DEFine is reached without a value having been returned then SuperBASIC
 will report an 'error in expression' (-17), specifying the error as
-having occured at the line containing the END DEFine. Under SMS the
+having occured at the line containing the END DEFine. 
+
+Under SMS the
 error 'RETurn not in PROCedure or FuNction' will be reported instead.
 
 
@@ -1121,7 +1197,9 @@ On pre MG ROMs, any more than nine parameters may upset the program,
 corrupting it by replacing names with PRINT towards the end of a
 program. This can however be circumvented by increasing the size of the
 Name Table by 8 bytes for each name (plus a little more for luck), using
-the line: CALL PEEK\_W(282)+36,N
+the line::
+
+    CALL PEEK\_W(282)+36,N
 
 
 **NOTE 4**
@@ -1139,7 +1217,9 @@ are allowed (up to 32767 recursions under Minerva). They do however
 gobble up memory at an amazing rate and can cause problems in compiled
 SuperBASIC due to the fact that they need an ever-increasing amount of
 stack space. They should be avoided wherever possible because they are
-also very slow. On SMS, if you try to use recursive functions too much,
+also very slow. 
+
+On SMS, if you try to use recursive functions too much,
 you may end up with the rather esoteric error 'program structures nested
 too deeply, my brain hurts'! It is however, more likely that you will
 end up with an 'Out of Error' memory and not be able to do anything else
@@ -1161,19 +1241,37 @@ name with a $ symbol when a string is to be returned and the FuNction
 will work perfectly well in the compiled version of the program.
 However, this should be avoided as the program will not work on other QL
 ROMs and also cannot be compiled with TURBO. For example, take the
-following program, which works under SMS or when QLiberated. For other
-ROMs and TURBO, rename the function GETSUBDIR$: 100
-file$='n1\_win2\_test\_bas' 110 test$=GETSUBDIR(file$) 295 : 300 DEFine
-FuNction GETSUBDIR(s$) 310 IF s$(LEN(s$))<>'\_':s$=s$&'\_' 320 IF
-LEN(s$)=5:IF s$(4) INSTR '1234567890':RETurn '' 322 REPeat t\_loop 325
-root=1 330 FOR x=1 TO LEN(s$) 340 IF s$(x)='\_' 350 IF x=3:IF s$(2)
-INSTR '1234567890':root=3 360 IF x=5:IF s$(4) INSTR '1234567890':root=5
-370 IF x>5:IF root=1:s$=PROGD$ & s$:NEXT t\_loop 380 IF x=8:IF
-root=3:root=8 390 END IF 400 NEXT x 410 IF root=1:s$=PROGD$ & s$:NEXT
-t\_loop 415 as$=s$ 420 IF root=3:s$=s$(1 TO 3) & PROGD$ 425 IF root=3:IF
-LEN(as$)>3:s$=s$&as$(4 TO):NEXT t\_loop:ELSE EXIT t\_loop 430 END FOR x
-435 EXIT t\_loop 440 END REPeat t\_loop 445 as$=s$ 460 RETurn s$(1 to
-root) 470 END DEFine
+following program, which works under SMS or when QLiberated. 
+
+For other
+ROMs and TURBO, rename the function to GETSUBDIR$::
+
+    100 file$='n1\_win2\_test\_bas' 
+    110 test$=GETSUBDIR(file$) 
+    295 : 
+    300 DEFine FuNction GETSUBDIR(s$) 
+    310   IF s$(LEN(s$))<>'_':s$=s$&'_' 
+    320   IF LEN(s$)=5:IF s$(4) INSTR '1234567890':RETurn '' 
+    322   REPeat t_loop 
+    325     root=1 
+    330     FOR x=1 TO LEN(s$) 
+    340       IF s$(x)='_' 
+    350       IF x=3:IF s$(2) INSTR '1234567890':root=3 
+    360       IF x=5:IF s$(4) INSTR '1234567890':root=5
+    370       IF x>5:IF root=1:s$=PROGD$ & s$:NEXT t_loop 
+    380       IF x=8:IF root=3:root=8 
+    390       END IF 
+    400     NEXT x 
+    410       IF root=1:s$=PROGD$ & s$:NEXT t_loop 
+    415       as$=s$ 
+    420       IF root=3:s$=s$(1 TO 3) & PROGD$ 
+    425       IF root=3:IF LEN(as$)>3:s$=s$&as$(4 TO):NEXT t_loop:ELSE EXIT t_loop 
+    430     END FOR x
+    435     EXIT t_loop 
+    440   END REPeat t_loop 
+    445   as$=s$ 
+    460   RETurn s$(1 to root) 
+    470 END DEFine
 
 
 **NOTE 8**
@@ -1181,7 +1279,9 @@ root) 470 END DEFine
 Do not try to DEFine one FuNction inside another - although this is
 actually allowed under most implementations, compilers presume that an
 END DEFine should be placed before the start of the next DEFine FuNction
-and it makes programs very difficult to follow. Under SMS the error
+and it makes programs very difficult to follow. 
+
+Under SMS the error
 'Defines may not be within other clauses' will be reported when you try
 to RUN the program.
 
@@ -1189,38 +1289,48 @@ to RUN the program.
 **NOTE 9**
 
 On Minerva pre v1.96, if you try to link in machine code procedures or
-functions from inside a DEFine PROCedure or DEFine FuNction
- block, problems could occur after a CLEAR command.
+functions from inside a DEFine PROCedure or DEFine FuNction block, problems could occur after a CLEAR command.
 
-WARNING 1:
-~~~~~~~~~~
+**WARNING 1**
 
 On most ROMs (at least on JM, MGx, AH and Minerva up to v1.97), a single
-line recursive FuNction will not respond to the break key. For example:
-10 DEFine FuNction Root(a): a=2^Root(a)
- The solution for all ROMs? - insert an additional colon (:) 10 DEFine
-FuNction Root(a)::a=2^Root(a)
- This is fixed on SMS v2.59+.
+line recursive FuNction will not respond to the break key. For example::
 
-WARNING 2:
-~~~~~~~~~~
+    10 DEFine FuNction Root(a): a=2^Root(a)
+
+The solution for all ROMs (or all those tested so far!) - insert an additional colon (:) as in::
+
+    10 DEFine FuNction Root(a)::a=2^Root(a)
+
+This is fixed on SMS v2.59+.
+
+**WARNING 2**
 
 All ROMs also suffer from this problem on multiple line recursive
 FuNctions, where there is no active program line between the definition
-line and the line which calls the FuNction. For example: 10 DEFine
-FuNction Root(a) 20 a = 2^Root(a) 30 END DEFine
- The solution here is to insert another active program line at line 15 -
-for example: 15 :
- or 15 PRINT
- Do however note that a REMark, DATA or LOCal line at line 15 will not
+line and the line which calls the FuNction. For example::
+
+    10 DEFine FuNction Root(a) 
+    20   a = 2^Root(a) 
+    30 END DEFine
+
+The solution here is to insert another active program line at line 15 -
+for example::
+
+    15 :
+
+or::
+
+    15 PRINT
+
+Do however note that a REMark, DATA or LOCal line at line 15 will not
 be sufficient as these are not active commands. Again, this is fixed
 under SMS v2.59.
 
-WARNING 3:
-~~~~~~~~~~
 
-Except under SMS, if you assign the same name to a FuNction
- as a resident command, not only will you no longer be able to use the
+**WARNING 3**
+
+Except under SMS, if you assign the same name to a FuNction as a resident command, not only will you no longer be able to use the
 resident command, but it may crash the system!
 
 
@@ -1240,7 +1350,7 @@ fixes this problem, allowing both.
 `END DEFine <KeywordsE.clean.html#end20define>`__ tells the interpreter where
 the end of the definition block can be found.
 `RETurn <KeywordsR.clean.html#return>`__ allows you to return the result of
-the Function. `DEFine PROCedure <KeywordsD.clean.html#define20procedure>`__
+the Function. `DEFine PROCedure <KeywordsD.clean.html#define-procedure>`__
 is very similar. `LOCal <KeywordsL.clean.html#local>`__ allows you to assign
 temporary variables with the same name as variables used outside the
 definition block. `PARUSE <KeywordsP.clean.html#paruse>`__ and
@@ -1251,6 +1361,10 @@ parameters which are passed to the definition block.
 
 DEFine PROCedure
 ================
+
+
+
+.. ************************ YOU ARE HERE *******************************
 
 +----------+-------------------------------------------------------------------------+
 | Syntax   | DEFine PROCedure name [(item :sup:`\*`\ [,item\ :sup:`i`]\ :sup:`\*` )] |
@@ -1352,18 +1466,16 @@ PROCedure and it makes programs very difficult to follow. Under SMS the
 error 'Defines may not be within other clauses' will be reported when
 you try to RUN the program.
 
-WARNING 1:
-~~~~~~~~~~
+**WARNING 1**
 
 As with DEFine FuNction problems do exist with recursive PROCedures
 which prevent the Break key from working. These problems are fixed by
 SMS v2.59+
 
-WARNING 2:
-~~~~~~~~~~
+**WARNING 2**
 
 Except under SMS, if you assign the same name to a PROCedure
- as a resident command, not only will you no longer be able to use the
+as a resident command, not only will you no longer be able to use the
 resident command, but it may crash the system!
 
 
