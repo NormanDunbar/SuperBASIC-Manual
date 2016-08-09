@@ -489,13 +489,13 @@ following format: yyyy mmm dd hh:mm:ss.
 ::
 
     1991 May 06 18:18:44 (example)
-    |    |   |  |  |  |
-    |    |   |  |  |  +----- 19 TO 21 (seconds)
-    |    |   |  |  +-------- 16 TO 17 (minutes)
-    |    |   |  +----------- 13 TO 14 (hour, 24h)
-    |    |   +-------------- 10 TO 12 (day)
-    |    +------------------- 6 TO 8 (month as string)
-    +------------------------ 1 TO 4 (year) 
+    |  | | | || || || ||
+    |  | | | || || || ++---- 19 TO 21 (seconds)
+    |  | | | || || ++------- 16 TO 17 (minutes)
+    |  | | | || ++---------- 13 TO 14 (hour, 24h)
+    |  | | | ++------------- 10 TO 12 (day)
+    |  | +-+----------------- 6 TO 8 (month as string)
+    +--+--------------------- 1 TO 4 (year) 
 
 
 If a parameter is used then DATE$ should return the date and time the given number of
@@ -1045,7 +1045,7 @@ DEFine FuNction name[$ \| %] [(item\ :sup:`\*`\ [,item\ :sup:`i`]\ :sup:`\*`\ )]
 or 
 
 DEFine FuNction name[$ \| %] [(item :sup:`\*`\ [,item\ :sup:`i`]\ :sup:`\*` )] :sup:`\*`\ [LOCal var
-:sup:`\*`\ [,var\ :sup:`i`]\ :sup:`\*`]\ :sup:`\* ` :sup:`\*`\ [statements]\ :sup:`\*` RETurn value END DEFine [name] 
+:sup:`\*`\ [,var\ :sup:`i`]\ :sup:`\*`]\ :sup:`\*` :sup:`\*`\ [statements]\ :sup:`\*` RETurn value END DEFine [name] 
 
 --------------
 
@@ -1199,7 +1199,7 @@ program. This can however be circumvented by increasing the size of the
 Name Table by 8 bytes for each name (plus a little more for luck), using
 the line::
 
-    CALL PEEK\_W(282)+36,N
+    CALL PEEK_W(282)+36,N
 
 
 **NOTE 4**
@@ -1246,7 +1246,7 @@ following program, which works under SMS or when QLiberated.
 For other
 ROMs and TURBO, rename the function to GETSUBDIR$::
 
-    100 file$='n1\_win2\_test\_bas' 
+    100 file$='n1_win2_test_bas' 
     110 test$=GETSUBDIR(file$) 
     295 : 
     300 DEFine FuNction GETSUBDIR(s$) 
@@ -1347,7 +1347,7 @@ fixes this problem, allowing both.
 
 **CROSS-REFERENCE**
 
-`END DEFine <KeywordsE.clean.html#end20define>`__ tells the interpreter where
+`END DEFine <KeywordsE.clean.html#end-define>`__ tells the interpreter where
 the end of the definition block can be found.
 `RETurn <KeywordsR.clean.html#return>`__ allows you to return the result of
 the Function. `DEFine PROCedure <KeywordsD.clean.html#define-procedure>`__
@@ -1362,10 +1362,6 @@ parameters which are passed to the definition block.
 DEFine PROCedure
 ================
 
-
-
-.. ************************ YOU ARE HERE *******************************
-
 +----------+-------------------------------------------------------------------------+
 | Syntax   | DEFine PROCedure name [(item :sup:`\*`\ [,item\ :sup:`i`]\ :sup:`\*` )] |
 +----------+-------------------------------------------------------------------------+
@@ -1376,35 +1372,54 @@ This command marks the beginning of the SuperBASIC structure which is
 used to surround lines of SuperBASIC code which forms an equivalent to a
 machine code SuperBASIC procedure, which can be called from within
 SuperBASIC as a sub-routine. This forms a powerful alternative to GO SUB
-and helps to make SuperBASIC programs very easy to read and de-bug. The
-syntax of the SuperBASIC structure can take two forms: DEFine PROCedure
-name [(item :sup:`\*`\ [,item\ :sup:`i`]\ :sup:`\*` )]: statement
-:sup:`\*`\ [:statement]\ :sup:`\*
-` or DEFine PROCedure name [(item
-:sup:`\*`\ [,item\ :sup:`i`]\ :sup:`\*` )] :sup:`\*`\ [LOCal var
-:sup:`\*`\ [,var\ :sup:`i`]\ :sup:`\*` ]\ :sup:`\*
-` :sup:`\*`\ [statements]\ :sup:`\*
-` [RETurn] END DEFine [name] When the specified procedure name is
+and helps to make SuperBASIC programs very easy to read and de-bug.
+
+The syntax of the SuperBASIC structure can take two forms: 
+
+--------------
+
+DEFine PROCedure name [(item :sup:`\*`\ [,item\ :sup:`i`]\ :sup:`\*` )]: statement
+:sup:`\*`\ [:statement]\ :sup:`\*` 
+
+or 
+
+DEFine PROCedure name [(item :sup:`\*`\ [,item\ :sup:`i`]\ :sup:`\*` )] :sup:`\*`\ [LOCal var
+:sup:`\*`\ [,var\ :sup:`i`]\ :sup:`\*` ]\ :sup:`\*` :sup:`\*`\ [statements]\ :sup:`\*` [RETurn] END DEFine [name] 
+
+--------------
+
+
+When the specified procedure name is
 called, the interpreter then searches the SuperBASIC program for the
-related DEFine PROCedure statement. If this cannot be found, then the
-interpreter will look for a machine code procedure of that name. If the
+related DEFine PROCedure statement. 
+
+If this cannot be found, then the
+interpreter will look for a machine code procedure of that name. 
+
+If the
 definition of name cannot be found, then the error 'Not Found' will be
 reported if name was defined in the past, but the definition line has
-since been deleted. If name has never been defined in the current
+since been deleted. 
+
+If name has never been defined in the current
 SuperBASIC program, then the 'Bad Name' error will be reported. As with
 FuNctions, the method of searching means that a machine code PROCedure
 can be overwritten with a SuperBASIC definition and then later lost.
 Parameters and items are treated in the same manner as with DEFine
 FuNction. However, please note that calling parameters should not appear
 in brackets after the name (unless you intend to pass them otherwise
-than by reference!). When called, all of the SuperBASIC code within the
+than by reference!). 
+
+When called, all of the SuperBASIC code within the
 definition block will be executed until either an END DEFine or RETurn
 is found, in which case execution will return to the statement after the
 calling statement. In contrast however, to DEFine FuNction, there is no
 need for a PROCedure definition block to contain a RETurn statement.
+
+
 Strictly a PROCedure cannot return a value - however due to the nature
 of the parameters being passed by reference (see DEFine FuNction), this
-is possible.
+*is* possible.
 
 
 **Example**
@@ -1412,12 +1427,21 @@ is possible.
 A simple demonstration program which highlights the fact that a
 PROCedure or FuNction can actually be recursive (ie. call itself), and
 also highlights the effect of passing parameters by reference - keep an
-eye on the values in #0: 100 radius=50:height=125:CLS:CLS#0 110
-Rndom\_circle radius,(height),100 120 AT
-#0,0,0:PRINT#0,radius,height,100 130 DEFine PROCedure Rndom\_circle
-(x,y,z) 140 INK RND(7):FILL RND(1) 150 CIRCLE RND (y),RND(z),x 160 FILL
-0 170 AT #0,0,0:PRINT#0,x,y,z:PAUSE 180 x=x-RND(5):y=y-1:z=z+1 190 IF
-x<1:RETurn 200 Rndom\_circle (x),y,z 210 END DEFine
+eye on the values in #0::
+
+    100 radius=50:height=125:CLS:CLS#0 
+    110 Rndom_circle radius,(height),100 
+    120 AT #0,0,0:PRINT#0,radius,height,100 
+    125 :
+    130 DEFine PROCedure Rndom_circle(x,y,z) 
+    140   INK RND(7):FILL RND(1) 
+    150   CIRCLE RND (y),RND(z),x 
+    160   FILL 0 
+    170   AT #0,0,0:PRINT#0,x,y,z:PAUSE 
+    180   x=x-RND(5):y=y-1:z=z+1 
+    190   IF x<1:RETurn 
+    200   Rndom_circle (x),y,z 
+    210 END DEFine
 
 
 **NOTE 1**
@@ -1432,7 +1456,9 @@ On pre MG ROMs, any more than nine parameters may upset the program,
 corrupting it by replacing names with PRINT towards the end of a
 program. This can however be circumvented by increasing the size of the
 Name Table by 8 bytes for each name (plus a little more for luck), using
-the line: CALL PEEK\_W(282)+36,N
+the line::
+
+    CALL PEEK_W(282)+36,N
 
 
 **NOTE 3**
@@ -1490,8 +1516,8 @@ versions prior to v2.90 as with DEFine FuNction for in-line code.
 
 **CROSS-REFERENCE**
 
-Please see `DEFine FuNction <KeywordsD.clean.html#define20function>`__! Also
-see `END DEFine <KeywordsE.clean.html#end20define>`__. Look at the example
+Please see `DEFine FuNction <KeywordsD.clean.html#define-function>`__! Also
+see `END DEFine <KeywordsE.clean.html#end-define>`__. Look at the example
 for `SWAP <KeywordsS.clean.html#swap>`__ which provides a more practical use
 of recursive `PROCedure <KeywordsP.clean.html#procedure>`__\ s.
 
@@ -1506,16 +1532,19 @@ DEFINED
 | Location |  BTool                                                            |
 +----------+-------------------------------------------------------------------+
 
- SuperBASIC is different from other BASIC dialects in that it does not
+SuperBASIC is different from other BASIC dialects in that it does not
 assign a default value to newly introduced but still unset variables
 (except on SMS which assigns the value Zero to an unset numeric variable
-and an empty string to an unset string). This makes it possible for a
+and an empty string to an unset string). 
+
+This makes it possible for a
 program to detect if a variable has been properly initialised - an
 'error in expression' (-17) is reported if you try to carry out
-operations on unset variables. The function DEFINED takes any parameter,
+operations on unset variables. 
+
+The function DEFINED takes any parameter,
 no matter what type it is, provided that it is a constant or a variable.
-DEFINED
- returns 0 if the parameter was a variable but unset and 1 for defined
+DEFINED returns 0 if the parameter was a variable but unset and 1 for defined
 variables and constant expressions.
 
 
@@ -1542,7 +1571,7 @@ DEG
 | Location |  QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
 
- This function is used to convert an angle in radians into an angle in
+This function is used to convert an angle in radians into an angle in
 degrees (which is the system more readily used by humans). Although this
 will work for any value of angle, due to the very nature of angles,
 angle should be in the range 0...2π, which will return a value in the
@@ -1566,26 +1595,38 @@ DELETE
 | Location | QL ROM, Toolkit II                                                |
 +----------+-------------------------------------------------------------------+
 
- The command DELETE removes the stated file from a medium (it actually
+The command DELETE removes the stated file from a medium (it actually
 only deletes its entry from the directory map, which thus allows these
 files to be recovered if necessary, with a utility such as the Public
 Domain RETTUNGE\_exe, provided that nothing has been written to the disk
-since it was deleted). The filename must include the name of the medium,
+since it was deleted). 
+
+The filename must include the name of the medium,
 unless you have Toolkit II installed, which alters the command so that
-the default data device is recognised (see DATAD$). The command does not
+the default data device is recognised (see DATAD$). 
+
+The command does not
 report an error if a file was not found! However, if an invalid device
-is used and Toolkit II is not present, an error will be reported. The
+is used and Toolkit II is not present, an error will be reported. 
+
+The
 THOR XVI variant of this command follows the original proposal for this
 command, allowing you to delete several files at the same time by
-listing each filename, eg: DELETE flp1\_boot,flp1\_main\_bas
- This latter syntax is accepted on non-Minerva systems, but only the
+listing each filename, eg::
+
+    DELETE flp1_boot,flp1_main_bas
+
+This latter syntax is accepted on non-Minerva systems, but only the
 first file will be deleted. If Toolkit II is present, error -15 (bad
 parameter) is reported.
 
 
 **Example**
 
-DELETE mdv2\_PROG\_bak DELETE PROG\_bak
+::
+
+    DELETE mdv2_PROG_bak 
+    DELETE PROG_bak
 
 
 **CROSS-REFERENCE**
@@ -1605,41 +1646,68 @@ DEL\_DEFB
 | Location |  Toolkit II                                                       |
 +----------+-------------------------------------------------------------------+
 
- QDOS stores information concerning devices and files (and in relation
+QDOS stores information concerning devices and files (and in relation
 to files, even their contents) in areas of memory known as 'slave
 blocks' (memory permitting). These slave blocks can be very useful,
 since when the computer tries to access the same device (or file) again,
 the access is much quicker, since the relevent details can be loaded
 from memory, rather than the device - the computer only need look at the
 device to make certain that it is the same device (or disk) as was
-previously used. There are three problems with the use of these slave
-blocks: -The initial device access is slowed down as all of the
-information is effectively read twice - once into memory and once into
-the program. -Some disk drives do not support a means of checking if a
-disk has been amended on a second computer since the last access -
-meaning that the old version of the information stored in the slave
-blocks can be loaded instead -On some hard-disks, the hard-disk itself
-may not have been altered (you may need to use a command such as
-WIN\_FLUSH). The command DEL\_DEFB can assist with the second of these
+previously used. 
+
+There are three problems with the use of these slave
+blocks: 
+
+- The initial device access is slowed down as all of the
+  information is effectively read twice - once into memory and once into
+  the program. 
+
+- Some disk drives do not support a means of checking if a
+  disk has been amended on a second computer since the last access -
+  meaning that the old version of the information stored in the slave
+  blocks can be loaded instead 
+
+- On some hard-disks, the hard-disk itself
+  may not have been altered (you may need to use a command such as
+  WIN\_FLUSH). 
+
+The command DEL\_DEFB can assist with the second of these
 problems, by deleting all of the slave blocks from memory. Another
 problem which can be assisted by DEL\_DEFB is 'heap fragmentation'. To
 keep memory tidy, there is an internal list which says where to find
 which pieces of information. These lists reserve memory and can lead to
 the phenomenon known as heap fragmentation. The following example
-demonstrates this: PRINT FREE\_MEM a=ALCHP(10000) b=ALCHP(10000) PRINT
-FREE\_MEM RECHP a PRINT FREE\_MEM
- First, we noted how much memory is free and then we reserved 20000
+demonstrates this::
+
+    PRINT FREE_MEM 
+    a=ALCHP(10000) 
+    b=ALCHP(10000) 
+    PRINT FREE_MEM 
+    RECHP a 
+    PRINT FREE_MEM
+
+First, we noted how much memory is free and then we reserved 20000
 bytes of memory in two steps. So there are now 20000 bytes of free
 memory less. Now, we release the first 10000 bytes and look again at the
 free memory: it has not actually increased as much as you would have
 thought! Actually, the memory isn't lost. FREE\_MEM returns the largest
 piece of free memory in RAM. A further ALCHP(10000) would not reduce
-FREE\_MEM in the above example. Maybe an illustration would make memory
-management clearer: free memory\|-------------------------\|
-ALCHP(10000)\|######\|------------------\|
-ALCHP(10000)\|######\|######\|-----------\| release first
-block\|======\|######\|-----------\| -- : free memory (returned by
-FREE\_MEM) ## : reserved memory == : free memory (used for ramdisks) The
+FREE\_MEM in the above example. 
+
+Maybe an illustration would make memory management clearer:: 
+
+    free memory          |-------------------------|
+    ALCHP(10000)         |######|------------------|
+    ALCHP(10000)         |######|######|-----------| 
+    release first block  |======|######|-----------| 
+
+Key::
+
+    -- : free memory (returned by FREE_MEM) 
+    ## : reserved memory 
+    == : free memory (used for ramdisks) 
+
+The
 above-mentioned internal list allocates a small piece of memory which
 may reduce the largest piece of free RAM available to certain operations
 which draw large chunks of memory at a time, causing them to fail (out
@@ -1679,7 +1747,7 @@ DESPR
 | Location |  DESPR                                                            |
 +----------+-------------------------------------------------------------------+
 
- The function DESPR uses an un-documented system call to try and release
+The function DESPR uses an un-documented system call to try and release
 a given number of bytes from the resident procedure memory on the QL. It
 is unknown how the ROM tries to decide which bytes to release.
 
@@ -1708,13 +1776,18 @@ DESTD$
 | Location |  Toolkit II                                                       |
 +----------+-------------------------------------------------------------------+
 
- This function always contains the current default destination device,
+ 
+This function always contains the current default destination device,
 which is an unofficial QDOS standard and supported by the Toolkit II
-variants of COPY, WCOPY, WREN, and SPL. When Toolkit II is initiated,
+variants of COPY, WCOPY, WREN, and SPL. 
+
+When Toolkit II is initiated,
 DESTD$='SER'. The default device means that if no other device is stated
 for the destination file, this device will be used. The default
 destination device will also be consulted if a device name is supplied
-but the given file cannot be found on that device. For example, assuming
+but the given file cannot be found on that device. 
+
+For example, assuming
 that DESTD$='flp2\_' and DATAD$='ram1\_', if you enter COPY
 example\_txt, then the file ram1\_example\_txt will be copied to
 flp2\_example\_txt. This idea can be extended to use prefixes as
@@ -1745,7 +1818,7 @@ DEST\_USE
 | Location |  Toolkit II                                                       |
 +----------+-------------------------------------------------------------------+
 
- This command sets the current default destination device to the named
+This command sets the current default destination device to the named
 directory device. An underscore will be added to the end of the name if
 one is not supplied. If you supply name as an empty string, this will
 turn off the default destination directory.
@@ -1753,7 +1826,9 @@ turn off the default destination directory.
 
 **Example**
 
-DEST\_USE win1\_Quill
+::
+
+    DEST_USE win1_Quill
 
 
 **NOTE 1**
@@ -1784,7 +1859,7 @@ DEMO
 | Location |  Shape Toolkit                                                    |
 +----------+-------------------------------------------------------------------+
 
- As the name suggests, this is only a demonstration. Try the command
+As the name suggests, this is only a demonstration. Try the command
 DEMO 1 and see what happens. Use only odd parameters if you want the
 screen to be restored to its previous status when the demonstration
 finishes.
@@ -1806,15 +1881,20 @@ DET
 | Location |  Math Package                                                     |
 +----------+-------------------------------------------------------------------+
 
- The function DET returns the determinant of a square matrix, meaning
+The function DET returns the determinant of a square matrix, meaning
 that the array (or the part passed) must have two dimensions of equal
-size, otherwise DET breaks with error -15 (bad parameter). The array
+size, otherwise DET breaks with error -15 (bad parameter). 
+
+The array
 needs to be a floating point array, any other type (including integer
-arrays) will also produce error -15.If no parameter is given, DET will
+arrays) will also produce error -15.
+
+If no parameter is given, DET will
 use the array that has been supplied to the previously executed MATINV
 command as its source. If however, this command has not yet been used,
-DET
- without a parameter will stop with the error -7 (not found). You may
+DET without a parameter will stop with the error -7 (not found). 
+
+You may
 ask what a determinant is? Briefly speaking, it represents a square
 matrix by a single number so that important characteristics of the
 matrix can be deduced from it, eg. the matrix cannot be inverted if the
@@ -1827,21 +1907,37 @@ We will try to approach the eigenvalues of a matrix and list them all
 (the so-called "spectrum" of a matrix). Due to approximation errors and
 the simple algorithm employed, there can be more output values than
 there should be. This can be improved by increasing estep in line 130,
-but at the cost of speed. The range of expected eigenvalues (eval1 to
+but at the cost of speed. 
+
+The range of expected eigenvalues (eval1 to
 eval2) is adapted to the chosen matrix whose random elements only range
 between 0 and 1. There is no limit for the positive size n of the
 matrix, n=0 is allowed but does not make sense because CHARPOLY becomes
-constant: 100 CLEAR: RANDOMISE 10: PRINT "Eigenvalues:" 110 n=2: DIM
-matrix(n,n), one(n,n) 120 MATRND matrix: MATIDN one 130 : 140 eval1=-1:
-eval2=1: esteps=200 150 eprec<(eval2-eval1)/estep) 160
-c1=CHARPOLY(matrix,eval1): count%=0 170 FOR eval=eval1+eprec TO eval2
-STEP eprec 180 c2=CHARPOLY(matrix,eval) 190 IF SGN(c1)<>SGN(c2) THEN
-PRINT eval 200 c1=c2: count%=count%+1 210 AT#0,0,0:
-PRINT#0,INT(100\*count%/esteps);"%" 220 END FOR eval 230 PRINT "absolute
-fault:"!eprec 240 : 250 DEFine FuNction CHARPOLY(matrix,lambda) 260
-LOCal diff(n,n),i 270 FOR i=1 TO n: one(i,i)=lambda 280 MATSUB
-diff,matrix,one 290 RETurn DET(diff) 300 END DEFine CHARPOLY
- In practice, a Newton iteration algorithm (or better) would be used.
+constant::
+
+    100 CLEAR: RANDOMISE 10: PRINT "Eigenvalues:" 
+    110 n=2: DIM matrix(n,n), one(n,n) 
+    120 MATRND matrix: MATIDN one 
+    130 : 
+    140 eval1=-1: eval2=1: esteps=200 
+    150 eprec<(eval2-eval1)/estep) 
+    160 c1=CHARPOLY(matrix,eval1): count%=0 
+    170 FOR eval=eval1+eprec TO eval2 STEP eprec 
+    180 c2=CHARPOLY(matrix,eval) 
+    190 IF SGN(c1)<>SGN(c2) THEN PRINT eval 
+    200 c1=c2: count%=count%+1 
+    210 AT#0,0,0: PRINT#0,INT(100*count%/esteps);"%" 
+    220 END FOR eval 
+    230 PRINT "absolute fault:"!eprec 
+    240 : 
+    250 DEFine FuNction CHARPOLY(matrix,lambda) 
+    260   LOCal diff(n,n),i 
+    270   FOR i=1 TO n: one(i,i)=lambda 
+    280   MATSUB diff,matrix,one 
+    290   RETurn DET(diff) 
+    300 END DEFine CHARPOLY
+
+In practice, a Newton iteration algorithm (or better) would be used.
 
 
 **CROSS-REFERENCE**
@@ -1866,7 +1962,7 @@ DEVICE\_SPACE
 | Location |  Turbo Toolkit                                                    |
 +----------+-------------------------------------------------------------------+
 
- This function returns the number of unused bytes on the medium (disk,
+This function returns the number of unused bytes on the medium (disk,
 hard disk or microdrive) to which the specified channel is open. The
 channel must relate to an open file on a directory device (otherwise
 junk figures may be returned).
@@ -1875,22 +1971,42 @@ junk figures may be returned).
 **Example**
 
 A short routine which saves an area of memory to disk, with error
-checking. 100 OPEN #3,'CON\_448X200A32X16' 110 CLS #3 120
-FILE$='FLP1\_MEMORY\_BIN' 130 FILE\_SIZE=20000:ADDR=ALCHP(FILE\_SIZE)
-140 REPEAT LOOP 150 INPUT #3,'ENTER FILENAME TO SAVE MEMORY TO :
-[DEFAULT=';(FILE$);']';F$ 160 IF F$='':F$=FILE$:ELSE FILE$=F$ 170
-OPEN\_STATE=DEVICE\_STATUS(2,FILE$) 180 IF OPEN\_STATE=-20:PRINT
-#3,'DEVICE IS READ ONLY':NEXT LOOP 190 IF OPEN\_STATE=-11:PRINT
-#3,'DEVICE IS FULL':NEXT LOOP 200 IF OPEN\_STATE=-8 210 INPUT #3,'DO YOU
-WANT TO DELETE EXISTING FILE ? (Y/N)';A$ 220 IF A$=='Y' 230
-CH=FOP\_IN(FILE$) 240 ELSE 250 PRINT #3;'ENTER NEW FILENAME':PAUSE 100
-260 NEXT LOOP 270 END IF 275 ELSE 277 CH=FOP\_NEW(FILE$) 280 END IF 300
-IF CH<0:REPORT #3:NEXT LOOP 305 FREE\_SPACE=DEVICE\_SPACE(#CH) 307 IF
-OPEN\_STATE=-8:FREE\_SPACE=FREE\_SPACE+FLEN(#CH) 310 IF
-FREE\_SPACE>=FILE\_SIZE:PRINT#3,'SAVING FILE':EXIT LOOP 320 PRINT
-#3;'NOT ENOUGH ROOM ON DEVICE' 330 CLOSE #CH 335 IF
-OPEN\_STATE<>-8:DELETE FILE$ 340 END REPEAT LOOP 350 CLOSE #CH 355
-DELETE FILE$ 360 SBYTES FILE$,ADDR,FILE\_SIZE
+checking. 
+
+::
+
+    100 OPEN #3,'CON_448X200A32X16' 
+    110 CLS #3 
+    120 FILE$='FLP1_MEMORY_BIN' 
+    130 FILE_SIZE=20000: ADDR=ALCHP(FILE_SIZE)
+    140 REPEAT LOOP 
+    150   INPUT #3,'ENTER FILENAME TO SAVE MEMORY TO : [DEFAULT=';(FILE$);']';F$ 
+    160   IF F$='': F$=FILE$: ELSE FILE$=F$ 
+    170   OPEN_STATE=DEVICE_STATUS(2,FILE$) 
+    180   IF OPEN_STATE=-20: PRINT #3,'DEVICE IS READ ONLY': NEXT LOOP 
+    190   IF OPEN_STATE=-11: PRINT #3,'DEVICE IS FULL': NEXT LOOP 
+    200   IF OPEN_STATE=-8 
+    210     INPUT #3,'DO YOU WANT TO DELETE EXISTING FILE ? (Y/N)';A$ 
+    220     IF A$=='Y' 
+    230       CH=FOP_IN(FILE$) 
+    240     ELSE 
+    250       PRINT #3;'ENTER NEW FILENAME': PAUSE 100
+    260       NEXT LOOP 
+    270     END IF 
+    275   ELSE 
+    277     CH=FOP_NEW(FILE$) 
+    280   END IF 
+    300   IF CH<0:REPORT #3: NEXT LOOP 
+    305   FREE_SPACE=DEVICE_SPACE(#CH) 
+    307   IF OPEN_STATE=-8: FREE_SPACE=FREE_SPACE+FLEN(#CH) 
+    310   IF FREE_SPACE>=FILE_SIZE: PRINT#3,'SAVING FILE': EXIT LOOP 
+    320   PRINT #3;'NOT ENOUGH ROOM ON DEVICE' 
+    330   CLOSE #CH 
+    335   IF OPEN_STATE<>-8: DELETE FILE$ 
+    340 END REPEAT LOOP 
+    350 CLOSE #CH 
+    355 DELETE FILE$ 
+    360 SBYTES FILE$,ADDR,FILE_SIZE
 
 
 **NOTE**
@@ -1905,7 +2021,7 @@ sectors.
 
 See `FOPEN <KeywordsF.clean.html#fopen>`__ and
 `DEVICE\_STATUS <KeywordsD.clean.html#device-status>`__ for more details on
-accessing directory devices. `DEV\_TYPE <KeywordsD.clean.html#dev-type>`__
+accessing directory devices. `DEVTYPE <KeywordsD.clean.html#devtype>`__
 finds out what type of device a channel is looking at.
 
 --------------
@@ -1919,29 +2035,41 @@ DEVICE\_STATUS
 | Location |  Turbo Toolkit                                                    |
 +----------+-------------------------------------------------------------------+
 
- This function returns a value representing the current status of the
+This function returns a value representing the current status of the
 device to which the specified filename$ points and can be used to check
 if an error will be generated when you try to access the given file. The
-open\_type defaults to 2 and can take the following values: -1Use for
-OPEN or OPEN\_NEW
- 0Use for OPEN
- 1Use for OPEN\_IN
- 2Use for OPEN\_NEW
- If an open\_type of 2 is specified, then the function will try to
+open\_type defaults to 2 and can take the following values:
+
+- -1: Use for OPEN or OPEN\_NEW
+-  0: Use for OPEN
+-  1: Use for OPEN\_IN
+-  2: Use for OPEN\_NEW
+
+If an open\_type of 2 is specified, then the function will try to
 create the file and return an error code if this is not possible. The
-temporary file is deleted in all cases. If an open\_type of 0 is
+temporary file is deleted in all cases. 
+
+If an open\_type of 0 is
 specified then the function will try to open the file for exclusive two
-way access and report any errors. However, if an open\_type of 1 is
+way access and report any errors. 
+
+If an open\_type of 1 is
 specified the function opens the specified file for read only access,
 which means that it does not care if a channel is already open to the
-file from another program. Finally, if an open\_type of -1 is specified,
+file from another program. 
+
+Finally, if an open\_type of -1 is specified,
 the function will first of all try to open a channel to the file,
-returning -8 if it already exists and can therefore be read. If it does
-not already exist, the function will tryo to create a temporary file and
+returning -8 if it already exists and can therefore be read. 
+
+If it does
+not already exist, the function will try to create a temporary file and
 then read back from it to check that the device can be written to and
 read from, reporting any errors which are found. Any temporary file is
 then deleted by the function. This enables IN USE and bad or changed
-medium errors can be detected! If the open is successful the amount of
+medium errors can be detected! 
+
+If the open is successful the amount of
 free space on the drive is returned akin to DEVICE\_SPACE, otherwise a
 standard QDOS error code is returned.
 
@@ -1976,7 +2104,7 @@ DEVLIST
 | Location |  TinyToolkit                                                      |
 +----------+-------------------------------------------------------------------+
 
- This command lists all directory devices recognised by the system to
+This command lists all directory devices recognised by the system to
 the specified channel. A directory device is one which contains files.
 The default list channel is #1.
 
@@ -2008,15 +2136,21 @@ DEVTYPE
 | Location |  SMS                                                              |
 +----------+-------------------------------------------------------------------+
 
- This function returns a value to indicate the type of device the
+This function returns a value to indicate the type of device the
 specified channel (default #0) is connected to. At present, you should
-only look at the first three bits of the return value, ie:
-x%=DEVTYPE(#channel) x%=x% && 3
- The value returned is: 0 - a purely serial device 1 - a screen device 2
-- a file system device (ie. it supports file positioning) Any other
-values indicate that there is something wrong with the channel (if the
-value is >2) otherwise, a negative value means that the channel is not
-open.
+only look at the first three bits of the return value, ie::
+
+    x%=DEVTYPE(#channel) 
+    x%=x% && 3
+
+The value returned is:
+
+- 0 - a purely serial device 
+- 1 - a screen device 
+- 2 - a file system device (ie. it supports file positioning) 
+
+Any other values indicate that there is something wrong with the channel (if the
+value is >2) otherwise, a negative value means that the channel is not open.
 
 
 **NOTE**
@@ -2043,16 +2177,20 @@ DEV\_LIST
 | Location |  DEV device, GOLD CARD, ST/QL, SMS                                |
 +----------+-------------------------------------------------------------------+
 
- This command lists all DEV\_USE definitions to the given channel,
+This command lists all DEV\_USE definitions to the given channel,
 default #1. You can also use a public domain utility, DEV Manager, to
 set and list DEV definitions on a per-program basis.
 
 
 **Example**
 
-DEV\_LIST for example 4a of DEV\_USE prints: DEV1\_ FLP2\_SOURCES\_ ->
-DEV4\_DEV2\_ FLP1\_COMPILER\_ -> DEV3\_DEV3\_ FLP1\_COMPILER\_UTILS\_ ->
-DEV4\_DEV4\_ RAM1\_ -> DEV5\_ DEV5\_ FLP1\_SOURCES\_OTHER\_ -> DEV1\_
+DEV\_LIST for example 4a of DEV\_USE prints::
+
+    DEV1_ FLP2_SOURCES_ -> DEV4_
+    DEV2_ FLP1_COMPILER_ -> DEV3_
+    DEV3_ FLP1_COMPILER_UTILS_ -> DEV4_
+    DEV4_ RAM1_ -> DEV5_ 
+    DEV5_ FLP1_SOURCES_OTHER_ -> DEV1_
 
 
 **CROSS-REFERENCE**
@@ -2074,7 +2212,7 @@ DEV\_NEXT
 | Location |  DEV device, GOLD CARD, ST/QL, SMS                                |
 +----------+-------------------------------------------------------------------+
 
- The function DEV\_NEXT returns the number of the next DEVice where a
+The function DEV\_NEXT returns the number of the next DEVice where a
 given DEV will look on next if a file was not found. If a DEV is not
 defined or has the search option disabled, DEV\_NEXT returns zero (0),
 otherwise an integer from 1 to 8 will be returned.
@@ -2082,11 +2220,19 @@ otherwise an integer from 1 to 8 will be returned.
 
 **Example**
 
-A program which lists a search path: 100 INPUT "Which DEV device
-(1..8)?"!n 110 IF n<1 OR n>8 THEN RUN 120 DIM checked%(8) 130 REPeat
-SPate 140 IF NOT DEV\_NEXT(n) OR checked%(n): EXIT SPate 150 PRINT
-DEV\_USE$(n) 160 checked%(n)=1 170 n=DEV\_NEXT(n) 180 END REPeat SPate
- If you understood this example, then you will know exactly how the DEV
+A program which lists a search path::
+
+    100 INPUT "Which DEV device (1..8)?"!n 
+    110 IF n<1 OR n>8 THEN RUN 
+    120 DIM checked%(8) 
+    130 REPeat SPate 
+    140   IF NOT DEV_NEXT(n) OR checked%(n): EXIT SPate 
+    150   PRINT DEV_USE$(n) 
+    160   checked%(n)=1 
+    170   n=DEV_NEXT(n) 
+    180 END REPeat SPate
+
+If you understood this example, then you will know exactly how the DEV
 device works.
 
 
@@ -2106,42 +2252,65 @@ DEV\_USE
 |          | DEV\_USE [n](SMS v2.70+ only) or                                  |
 |          | DEV\_USE [drivetype]                                              |
 +----------+-------------------------------------------------------------------+
-| Location |  DEV device, GOLD CARD, ST/QL, SMS                                |
+| Location | DEV device, GOLD CARD, ST/QL, SMS                                 |
 +----------+-------------------------------------------------------------------+
 
 The DEV device is a universal method of driving devices (MDV, FLP, WIN,
 MOS, ROM), and thus allows old software to recognise default devices/
 sub-directories as well as simplifying the use of them. It also
-introduces fully programmable search paths to QDOS. There are eight
+introduces fully programmable search paths to QDOS. 
+
+There are eight
 separate DEV drives available, DEV1\_ to DEV8\_, each of which can point
-to a real drive and directory defined with DEV\_USE. The first parameter
-of the command is the number of the DEV
- device to be defined, the second specifies what DEVn\_ represents.
+to a real drive and directory defined with DEV\_USE. 
+
+The first parameter
+of the command is the number of the DEV device to be defined. 
+
+The second specifies what DEVn\_ represents.
+
 There is no default and nothing is predefined, but DEV\_USE permits only
 valid drives and directories. Any default devices (DATAD$, PROGD$ etc)
 are not recognised so the full directory name (including the drive name)
-must be stated. There is one special second parameter, the empty string,
+must be stated. 
+
+There is one special second parameter, the empty string,
 which removes the definition of the given DEV device; there is no error
-reported if it was not defined. The second syntax also allows you to
+reported if it was not defined. 
+
+The second syntax (SMS v2.70+) also allows you to
 remove a definition by simply passing the number of the DEV device to
 delete.
 
 
 **Example 1**
 
-DEV\_USE 1,flp1\_ DEV\_USE 2,flp1\_SUBDIR\_ DEV\_USE 3,flp1\_SUBDIR
-DEV\_USE 4
- Each time that DEV1\_ is accessed, the actual drive which will be
-accessed is FLP1\_, eg. DIR DEV1\_ lists a directory of FLP1\_. However,
+::
+
+    DEV_USE 1,flp1_ 
+    DEV_USE 2,flp1_SUBDIR_ 
+    DEV_USE 3,flp1_SUBDIR
+    DEV_USE 4
+
+Each time that DEV1\_ is accessed, the actual drive which will be
+accessed is FLP1\_, eg. DIR DEV1\_ lists a directory of FLP1\_. 
+
+However,
 LOAD DEV2\_BOOT will load FLP1\_SUBDIR\_BOOT but especially note that
 LOAD DEV3\_BOOT would try to load FLP1\_SUBDIRBOOT (that's not a typing
-error). You can therefore see the importance of specifying the
+error). 
+
+You can therefore see the importance of specifying the
 underscore! Whereas DATA\_USE always adds an underscore to the supplied
 parameter if there one was not specified, DEV\_USE does not. Please pay
-attention to this difference! DEV\_USE's third parameter is optional and
+attention to this difference! 
+
+DEV\_USE's third parameter is optional and
 ranges from 0 to 8. This is used to specify another DEV device which
 should be tried if DEVn\_ was accessed for a given file, but the file
-was not present on that DEV device. In all other cases: if the drive in
+was not present on that DEV device. 
+
+In all other cases: if the drive in
 general is currently inaccessible (eg. open for direct sector
 read/write), the file is damaged or already in use, the DEV device will
 stop with the appropriate error message, and behave as normal in such
@@ -2150,88 +2319,135 @@ situations.
 
 **Example 2**
 
-DEV\_USE 1,flp1\_,2 DEV\_USE 2,flp1\_TEST\_
- VIEW DEV1\_Prog\_bas will first try to show FLP1\_Prog\_bas and if it
+::
+
+    DEV_USE 1,flp1_,2 
+    DEV_USE 2,flp1_TEST_ 
+
+VIEW DEV1\_Prog\_bas will first try to show FLP1\_Prog\_bas and if it
 did not find that file, it will then try DEV2\_Prog\_bas which is
 actually FLP1\_TEST\_Prog\_bas. If this also fails, VIEW stops with a
 'Not Found' error. You might notice that this could lead to an endless
 search if DEV2\_ was told to jump back to DEV1\_ if
-flp1\_TEST\_Prog\_bas also did not exist:
+flp1\_TEST\_Prog\_bas also did not exist.
 
 
 **Example 3**
 
-DEV\_USE 1,flp1\_,2 DEV\_USE 2,flp1\_TEST\_,1
- Luckily, this is no problem - the DEV device never circles back to a
+::
+
+    DEV_USE 1,flp1_,2 
+    DEV_USE 2,flp1_TEST_,1
+
+Luckily, this is no problem - the DEV device never circles back to a
 DEV which has already been tried. So, using the definition given for
 example 3, VIEW DEV1\_Prog\_bas looks for FLP1\_Prog\_bas, then
 FLP1\_TEST\_Prog\_bas and breaks with 'Not Found' because DEV1\_ has
-already been tested. That's why a DEV
- device cannot point to another DEV device, DEV\_USE 1,DEV2\_ is
-illegal. It is advisable to give seldom used drives and directories a
+already been tested. 
+
+That's why a DEV
+device cannot point to another DEV device, DEV\_USE 1,DEV2\_ is
+illegal. 
+
+It is advisable to give seldom used drives and directories a
 lower search priority because it naturally takes a little time to scan
 through a directory for a file. Preferred directories and fast RAM disks
 (which take next to no time to check for a file) should be checked
 before the less often-used directories are looked at.
 
-Example 4a:
-~~~~~~~~~~~
+**Example 4a**
 
-DEV\_USE 1,flp2\_SOURCES\_,4 DEV\_USE 2,flp1\_COMPILER\_,3 DEV\_USE
-3,flp1\_COMPILER\_UTILS\_,4 DEV\_USE 4,ram1\_,5 DEV\_USE
-5,flp2\_SOURCES\_OTHER\_,1
- The search path for DEV1\_ is:- FLP2\_SOURCES\_ go to DEV4\_ RAM1\_ go
-to DEV5\_ FLP2\_SOURCES\_OTHER\_ go to DEV1\_, we already tried that, so
-stop The search path for DEV2\_ is:- FLP1\_COMPILER\_go to DEV3\_
-FLP1\_COMPILER\_UTILS\_ go to DEV4\_ RAM1\_ go to DEV5\_
-FLP2\_SOURCES\_OTHER\_ go to DEV1\_ FLP2\_SOURCES\_ go to DEV4\_ ,
-already checked, so stop You see that the two search paths for DEV1\_
-and DEV2\_ are connected in one way. This rather complicated example
-suggests that it would be useful to set the data and program device as
-follows:
+::
 
-Example 4b:
-~~~~~~~~~~~
+    DEV_USE 1,flp2_SOURCES_,4 
+    DEV_USE 2,flp1_COMPILER_,3 
+    DEV_USE 3,flp1_COMPILER_UTILS_,4 
+    DEV_USE 4,ram1_,5 
+    DEV_USE 5,flp2_SOURCES_OTHER_,1
 
-DATA\_USE DEV1\_ PROG\_USE DEV2\_
- Taking into account that Toolkit II tries the program device after
+The search path for DEV1\_ is:
+
+- FLP2\_SOURCES\_ go to DEV4\_ 
+- RAM1\_ go to DEV5\_ 
+- FLP2\_SOURCES\_OTHER\_ go to DEV1\_, we already tried that, so
+  stop 
+
+The search path for DEV2\_ is:
+
+- FLP1\_COMPILER\_go to DEV3\_
+- FLP1\_COMPILER\_UTILS\_ go to DEV4\_ 
+- RAM1\_ go to DEV5\_FLP2\_SOURCES\_OTHER\_ go to DEV1\_ 
+- FLP2\_SOURCES\_ go to DEV4\_, already checked, so stop.
+
+You see that the two search paths for DEV1\_ and DEV2\_ are connected in one way. This rather complicated example
+suggests that it would be useful to set the data and program device as follows:
+
+**Example 4b**
+
+::
+
+    DATA_USE DEV1_ 
+    PROG_USE DEV2_
+
+Taking into account that Toolkit II tries the program device after
 failing to find a file on the data device, a VIEW TEXT will first search
 through the DEV1\_ list and then DEV2\_ (thus looking through all DEVs)
 while EX PROG\_exe stops after checking DEV2\_ and its connected DEVs.
+
 All operations creating or deleting files will only check for the
 original DEV definition and ignore the optional paths. This prevents
-files from being unintentionally deleted or overwritten. Given the
+files from being unintentionally deleted or overwritten. 
+
+Given the
 settings of examples 4a and 4b, OPEN\_IN #3,DEV1\_TEXT
- will act as VIEW did before whereas OPEN\_NEW #3,DEV1\_TEXT creates
+will act as VIEW did before whereas OPEN\_NEW #3,DEV1\_TEXT creates
 FLP2\_SOURCES\_TEXT or reports an error/asks if you want to overwrite
-(if necessary). DELETE always behaves as an exception in that it does
-not report an error if a file was not found. You may have noticed that
+(if necessary). 
+
+DELETE always behaves as an exception in that it does
+not report an error if a file was not found. 
+
+You may have noticed that
 the third parameter allows a wider range than the DEV number. A zero as
-the third parameter simply does the same as no third parameter. The
+the third parameter simply does the same as no third parameter. 
+
+The
 third syntax of DEV\_USE is completely different from the first two. It
 is analogous to the FLP\_USE, RAM\_USE and NFS\_USE
- commands and allows you to use a different three letter code for the
-DEV device: DEV\_USE fry. DEV1\_ is now called fry1\_, DEV2\_ fry2\_ and
-so on. However, you can also use existing devices:
+commands and allows you to use a different three letter code for the
+DEV device::
 
-Example 4c:
-~~~~~~~~~~~
+    DEV_USE fry. 
 
-DEV\_USE FLP
- Now, things become really complex. With examples 4a and 4b still being
+DEV1\_ is now called fry1\_, DEV2\_ fry2\_ and
+so on. However, you can also use existing devices.
+
+**Example 4c**
+
+::
+
+    DEV_USE FLP
+
+Now, things become really complex. With examples 4a and 4b still being
 valid, FLP1\_ actually refers to FLP1\_SOURCES\_, searching through all
-the other DEV definitions as well in order to find a file. The
+the other DEV definitions as well in order to find a file. 
+
+The
 definitions of DEV1\_ as FLP1\_SOURCES\_ and DEVs as FLP do not collide.
 However, if you issued FLP\_USE DEV, FLP1\_ and DEV1\_ are not known any
 more until FLP\_USE FLP restores the default name for disk drives.
+
 Equally, DEV\_USE DEV restores the DEV name (although this can be
 abbreviated by a DEV\_USE without any parameters).
 
-Example 5:
-~~~~~~~~~~
+**Example 5**
 
-DEV\_USE
- DEV1\_ refers to the true DEV1\_ again, DEV2\_, DEV3\_, ..., too.
+::
+
+    DEV_USE DEV1_ 
+
+refers to the true DEV1\_ again, DEV2\_, DEV3\_, ..., too.
+
 Renaming DEV has been mainly implemented to convince existing software
 believing that a directory file always has five letters (eg. MDV1\_) to
 accept sub-directories of level-2 drivers as directory files, too.
@@ -2266,17 +2482,23 @@ DEV\_USEN
 | Location |  SMSQ/E                                                           |
 +----------+-------------------------------------------------------------------+
 
- This command is provided on SMSQ/E to allow you to alter the three
+This command is provided on SMSQ/E to allow you to alter the three
 letter reference used to access the DEV devices. If no parameter is
 specified, then the name reverts to DEV.
 
 
 **Example**
 
-DEV\_USE 2,'win1\_progs\_' DEV\_USEN 'flp' DIR flp2\_
- This will provide a directory of win1\_progs\_ - this can be reset
-with: DEV\_USEN DIR dev2\_
+::
 
+    DEV_USE 2,'win1_progs_' 
+    DEV_USEN 'flp' DIR flp2_
+
+This will provide a directory of win1\_progs\_ - this can be reset
+with::
+
+    DEV_USEN 
+    DIR dev2_
 
 **CROSS-REFERENCE**
 
@@ -2295,18 +2517,25 @@ DEV\_USE$
 | Location |  DEV device, GOLD CARD, ST/QL, SMS                                |
 +----------+-------------------------------------------------------------------+
 
- The DEV\_USE$ function returns the actual drive and directory for the
+The DEV\_USE$ function returns the actual drive and directory for the
 number of a DEV device. If a device was not defined, DEV\_USE$ will
 return an empty string "", LEN(DEV\_USE$(n))=0.
 
 
 **Example**
 
-A listing of all DEV definitions: 100 UNDER 1: PRINT "DEV";: UNDER 0 110
-PRINT " ";: UNDER 1: PRINT "definition": UNDER 0 120 found=0 130 FOR n=1
-TO 8 140 IF LEN(DEV\_USE$(n)) THEN 150 PRINT n TO 5;DEV\_USE$(n) 160
-found=1 170 END IF 180 END FOR n 190 IF NOT found: PRINT "no DEVs
-defined"
+A listing of all DEV definitions::
+
+    100 UNDER 1: PRINT "DEV";: UNDER 0 
+    110 PRINT " ";: UNDER 1: PRINT "definition": UNDER 0 
+    120 found=0 
+    130 FOR n=1 TO 8 
+    140 IF LEN(DEV_USE$(n)) THEN 
+    150   PRINT n TO 5;DEV_USE$(n) 
+    160   found=1 
+    170 END IF 
+    180 END FOR n 
+    190 IF NOT found: PRINT "no DEVs defined"
 
 
 **CROSS-REFERENCE**
@@ -2319,13 +2548,13 @@ defined"
 DIM
 ===
 
-+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Syntax   | DIM array (index1 :sup:`\*`\ [index\ :sup:`i`]\ :sup:`\*` ) :sup:`\*`\ [,array\ :sup:`j` (index :sup:`\*`\ [index\ :sup:`j`]\ :sup:`\*` )]\ :sup:`\* |
-+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Location |QL ROM                                                                                                                                                |
-+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
++----------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Syntax   | DIM array (index1 :sup:`\*`\ [index\ :sup:`i`]\ :sup:`\*` ) :sup:`\*`\ [,array\ :sup:`j` (index :sup:`\*`\ [index\ :sup:`j`]\ :sup:`\*` )]\ :sup:`\*` |
++----------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Location |QL ROM                                                                                                                                                 |
++----------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
 
- The command DIM allows you to set up one or more SuperBASIC arrays
+The command DIM allows you to set up one or more SuperBASIC arrays
 which may be of string, integer or floating point type. Each index must
 be an integer in the range 0...32767.
 
@@ -2333,10 +2562,16 @@ Numeric Arrays
 ~~~~~~~~~~~~~~
 
 Each index defines the maximum number of elements (less one) in any one
-direction, which provides the following examples: DIM a(10)
- sets up a floating-point array a containing 11 elements, a(0) to a(10);
-DIM z%(10,10)
- sets up a two dimensional integer array z% containing 121 elements,
+direction, which provides the following examples::
+
+    DIM a(10)
+sets up a floating-point array a containing 11 elements, a(0) to a(10);
+
+::
+
+    DIM z%(10,10)
+
+sets up a two dimensional integer array z% containing 121 elements,
 z%(0,0) to z%(10,10) Each element can hold a different number which can
 later be accessed by specific reference to each index. When the array is
 set up, each element is set to zero.
@@ -2345,19 +2580,36 @@ String Arrays
 ~~~~~~~~~~~~~
 
 String arrays are peculiar and have various differences to both
-un-dimensioned strings and number arrays. In a string array, the final
+un-dimensioned strings and number arrays. 
+
+In a string array, the final
 index contains the maximum length of a string, rounded up to the next
 even number (an attempt to assign a longer string to one of the array
-elements will result in a truncated string). For example: DIM a$(10)
- sets up a one-dimensional string array a$ with a maximum of 10
+elements will result in a truncated string). For example::
+
+    DIM a$(10)
+
+sets up a one-dimensional string array a$ with a maximum of 10
 characters. This is similar to a$=FILL$(" ",10), except that a$ now has
-a maximum length; DIM z$(10,9)
- sets up a two-dimensional string array, which can hold 11 strings
-(z$(0) to z$(10)), each up to 9 characters long. When a string array is
-set up with DIM each entry is set to a nul string (""). The zero'th
+a maximum length; 
+
+::
+
+    DIM z$(10,9)
+
+sets up a two-dimensional string array, which can hold 11 strings
+(z$(0) to z$(10)), each up to 9 characters long. 
+
+When a string array is
+set up with DIM, each entry is set to a nul string (""). The zero'th
 element of each string array contains the actual length of that string,
-for example: DIM a$(10,10): a$(1)='Hello': PRINT a$(1,0)
- will return the value 5, as will PRINT LEN(a$(1)). If a$ is
+for example::
+
+    DIM a$(10,10): a$(1)='Hello': PRINT a$(1,0)
+
+will return the value 5, as will PRINT LEN(a$(1)). 
+
+If a$ is
 undimensioned and a$='Hello World', PRINT a$(0) does not generally work
 and will result in an 'Out of Range' error, except under SMS v2.60+ and
 Minerva where PRINT a$(0) is the same as PRINT LEN(a$).
@@ -2365,8 +2617,11 @@ Minerva where PRINT a$(0) is the same as PRINT LEN(a$).
 Sub-Sets of Arrays
 ~~~~~~~~~~~~~~~~~~
 
-Sub-sets of arrays can also be accessed, for example PRINT z$(0 TO 2)
- will print the first three strings stored in the array z$.
+Sub-sets of arrays can also be accessed, for example::
+
+    PRINT z$(0 TO 2)
+
+will print the first three strings stored in the array z$.
 
 Omitting Indices
 ~~~~~~~~~~~~~~~~
@@ -2374,70 +2629,158 @@ Omitting Indices
 This can be one of the most difficult parts of SuperBasic from the point
 of view of making programs compatible on all implementations of
 SuperBASIC and also making programs work the same under the interpreter
-and when compiled. The ST/QL Emulators (with E-Init v1.27 or later)
+and when compiled. 
+
+The ST/QL Emulators (with E-Init v1.27 or later)
 follow the same rules as SMS. If an index is omitted, SuperBASIC inserts
-a default index of: 0 TO DIMN (array,index\_no)
- For example, if array is a two-dimensional array, array(1) is the same
+a default index of::
+
+    0 TO DIMN (array,index_no)
+
+For example, if array is a two-dimensional array, array(1) is the same
 as using the form array (1,0 TO DIMN(array,2)). Unfortunately, string
-arrays are slightly different when using the last index. If the last
-index is omitted, this defaults to an index of: 1 TO LEN(array$(x))
- However, except on SMS, if a start descriptor is specified, but not an
+arrays are slightly different when using the last index. 
+
+If the last
+index is omitted, this defaults to an index of::
+
+    1 TO LEN(array$(x))
+
+However, except on SMS, if a start descriptor is specified, but not an
 end one, the last index defaults once again to: start\_descriptor TO
-DIMN(array$,index\_no)
- On SMS this defaults to start\_descriptor TO LEN(array$(x)
- Even more oddly, except on SMS and Minerva, if a start descriptor is
+DIMN(array$,index\_no). On SMS this defaults to start\_descriptor TO LEN(array$(x).
+
+Even more oddly, except on SMS and Minerva, if a start descriptor is
 omitted, but an end descriptor specified, the index defaults to: 0 TO
-end\_descriptor
- normally resulting in an error. (On SMS and Minerva this defaults to 1
-TO end\_descriptor) However, except on SMS and Minerva, if neither a
+end\_descriptor normally resulting in an error. (On SMS and Minerva this defaults to 1
+TO end\_descriptor).
+
+However, except on SMS and Minerva, if neither a
 start nor end descriptor are specified, but the TO itself is specified,
 this defaults to 0 TO DIMN (array$,index\_no), again normally causing an
-error. On SMS this defaults to 1 TO LEN (Array$ (x)
- On Minerva this defaults to 1 TO DIMN (array$,index\_no)
- This creates the following result: DIM a$(10):a$='Hello' INK 7:PAPER 0
-STRIP 2 PRINT a$
- Prints 'Hello' - a$ (1 TO LEN(a$) (On all implementations) PRINT a$(1
-TO)
- Prints 'Hello ' - a$(1 TO DIMN(a$,1)) (except on SMS, where it prints
+error. 
+
+On SMS this defaults to 1 TO LEN (Array$ (x)
+
+On Minerva this defaults to 1 TO DIMN (array$,index\_no)
+
+This creates the following result::
+
+    DIM a$(10):a$='Hello' INK 7:PAPER 0
+    STRIP 2 
+
+::
+
+    PRINT a$
+
+Prints 'Hello' => a$ (1 TO LEN(a$) (On all implementations) 
+
+::
+
+    PRINT a$(1 TO)
+
+Prints 'Hello ' => a$(1 TO DIMN(a$,1)) (except on SMS, where it prints
 'Hello', unless the program is compiled with Qliberator in which case
-the original system is adopted). PRINT a$(TO)
- Results in 'Out of Range' - a$(0 TO DIMN(a$,1)) (except on SMS, where
+the original system is adopted). 
+
+::
+
+    PRINT a$(TO)
+
+Results in 'Out of Range' => a$(0 TO DIMN(a$,1)) (except on SMS, where
 it prints 'Hello', and on Minerva where it prints 'Hello ' In both
 cases, if the program is compiled with Qliberator it still reports an
-error). PRINT a$( TO 5)
- Results in 'Out of Range' - a$(0 TO 5) (again on SMS and Minerva it
+error). 
+
+::
+
+    PRINT a$( TO 5)
+
+Results in 'Out of Range' => a$(0 TO 5) (again on SMS and Minerva it
 still prints 'Hello', unless the program is compiled with Qliberator,
 which reports an error).
 
 Un-Dimensioned Strings
 ~~~~~~~~~~~~~~~~~~~~~~
 
-You can use sub-sets of un-dimensioned strings, for example: a$='Hello
-World':PRINT a$(1 TO 5)
- However, such subsets are always treated as expressions, which means
+You can use sub-sets of un-dimensioned strings, for example::
+
+    a$='Hello World':PRINT a$(1 TO 5)
+
+However, such subsets are always treated as expressions, which means
 that if such a subset was passed as a parameter to a FuNction or
 PROCedure (see DEFine FuNction), it cannot be passed by reference and
-the string will remain unaltered by the FuNction/PROCedure. Compare this
+the string will remain unaltered by the FuNction/PROCedure. 
+
+Compare this
 with a sub-set of a string array, which will be altered (this sub-set
-exists as a sub-array). Please see Example 3 below. The handling of
+exists as a sub-array). Please see Example 3 below. 
+
+The handling of
 descriptors is also different with un-dimensioned strings. If neither a
 start nor an end descriptor are specified, this, like string arrays,
-defaults to: 1 TO LEN(string$)
- However, if the start descriptor is specified, but not the end
-descriptor, this defaults to: start\_descriptor TO LEN(string$)
- However, if the start descriptor is omitted (whether the end descriptor
+defaults to::
+
+    1 TO LEN(string$)
+
+However, if the start descriptor is specified, but not the end
+descriptor, this defaults to::
+
+    start_descriptor TO LEN(string$)
+
+However, if the start descriptor is omitted (whether the end descriptor
 is specified or just TO is used), unless you have Minerva or SMS, this
-defaults to: 0 TO end\_descriptor
- and 0 TO LEN(string$)
- respectively, both of which cause an 'out of range' error. On Minerva
-and SMS however, this defaults to: 1 TO end\_descriptor
- and 1 TO LEN(string$)
- respectively, thus avoiding this error. This leads to the following
-result: CLEAR: x$='Hello'
- INK 7: PAPER 0: STRIP 2 PRINT x$
- This Prints 'Hello' PRINT x$(1 TO)This prints 'Hello' PRINT x$(TO) This
-results in 'Out of Range' or 'Hello' on Minerva and SMS. PRINT x$( TO
-10)This results in 'Out of Range' or 'Hello' on Minerva and SMS.
+defaults to::
+
+    0 TO end_descriptor
+
+and::
+
+    0 TO LEN(string$)
+
+respectively, both of which cause an 'out of range' error. 
+
+On Minerva
+and SMS however, this defaults to::
+
+    1 TO end_descriptor
+
+and::
+
+    1 TO LEN(string$)
+
+respectively, thus avoiding this error. 
+
+This leads to the following result::
+
+    CLEAR 
+    x$='Hello'
+    INK 7: PAPER 0: STRIP 2 
+
+::
+
+    PRINT x$
+
+This Prints 'Hello'. 
+
+::
+
+    PRINT x$(1 TO)
+
+This prints 'Hello' 
+
+::
+
+    PRINT x$(TO) 
+
+This results in 'Out of Range' or 'Hello' on Minerva and SMS. 
+
+::
+
+    PRINT x$( TO 10)
+
+This results in 'Out of Range' or 'Hello' on Minerva and SMS.
+
 
 ERRORS
 ~~~~~~
@@ -2447,18 +2790,22 @@ some of the various errors which may be reported. SMS has an improved
 Interpreter which reports more intelligible error codes, therefore those
 have been used:
 
-'Only arrays may be dimensioned'
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Only arrays may be dimensioned**
 
 This occurs when you try to DIM the name of a procedure or function. It
 also occurs if you try to use DIM on one of the parameters of a
 procedure or function and that parameter is not itself a dimensioned
-variable: 100 DIM x(10) 110 c=1:test x,1 130 DEFine PROCedure test (a,b)
-140 DIM b(10) 150 END DEFine
+variable::
+
+    100 DIM x(10) 
+    110 c=1:test x,1 
+    130 DEFine PROCedure test (a,b)
+    140   DIM b(10) 
+    150 END DEFine
+
  On other implementations, 'Bad Name' is reported in both instances.
 
-'Procedure and function parameters may not be dimensioned'
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Procedure and function parameters may not be dimensioned**
 
 This only happens as in the example above where you try to DIMension a
 variable which is in fact one of the parameters from the DEFine
@@ -2467,77 +2814,130 @@ dimensioned variable, eg: TEST 1,x, you get this error under SMS. Also
 see note 7. On other implementations no error is reported and the
 problems listed in Note 7 occur.
 
-'SBASIC cannot put up with negative dimensions'
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**SBASIC cannot put up with negative dimensions**
 
 This occurs if you try to use a negative index, for example: DIM x(-10)
- On other implementations 'Out of Range' is reported.
+On other implementations 'Out of Range' is reported.
 
-'Dimensional overflow - you cannot be serious!'
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Dimensional overflow - you cannot be serious!**
 
 Too many indices have been specified in the DIM statement - refer to
 Appendix 8.
 
-'Error in Expression'
-~~~~~~~~~~~~~~~~~~~~~
+**Error in Expression**
 
 SMS has either been unable to make any sense of the index, or else it
 exceeds 32767. On other ROMs you will get the error 'Overflow' if index
- exceeds 32767.
+exceeds 32767.
 
-'Unknown function or array'
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Unknown function or array**
 
 This is generally reported of you try to use a Procedure name as the
 index. Other implementations report 'Error in Expression'
 
+EXAMPLES
+~~~~~~~~
 
 **Example 1**
 
 A program which acts as a simple quiz program, but shows off some of the
 best features of using arrays - it is simplicity itself to add new
 questions and answers to this quiz (just amend quest and target and add
-the new questions and answers as DATA at the end of the program): 100
-MODE 8:WINDOW 512,256,0,0:PAPER 0:CLS 110 WINDOW 448,200,32,16 120
-quest=5:target=5 130 DIM
-question$(quest,50),option$(quest,3,25),answer(quest) 140 RESTORE 150
-FOR i=0 TO quest-1 160 READ question$(i) 170 FOR j=1 TO 3:READ
-option$(i,j) 180 READ answer(i) 190 END FOR i 200 REPeat main\_loop 210
-score=0 220 FOR i=1 TO 7,1:BORDER 10,i:PAUSE 2 230 PAPER 6:CLS:INK 2:AT
-3,10:UNDER 1:CSIZE 2,1 240 PRINT 'QUIZ EXAMPLE':CSIZE 2,0:UNDER 0 250
-INK 0:AT 0,20:PRINT 'SCORE = ';score 260 DIM asked(quest) 270 REPeat
-loop 280 opt=RND(1 TO quest) 290 IF asked(opt)=1 THEN 300 FOR j=1 TO
-quest 310 IF asked(j)=0:opt=j:EXIT j 320 NEXT j 330 DIM
-asked(quest):NEXT loop 340 END FOR j 350 END IF 360 asked(opt)=1 370 AT
-4,0:CLS 2 380 ask\_question(opt) 390 reply=get\_answer 400 AT 16,0:PAPER
-2:INK 7 410 IF reply=answer(opt-1) 420 PRINT 'Correct':score=score+1 430
-ELSE 440 PRINT 'Wrong!':score=score-1
+the new questions and answers as DATA at the end of the program)::
 
-450 END IF 460 PAPER 6:INK 0 470 AT 0,20:PRINT 'SCORE = ';score 480
-PAUSE 490 IF score=target OR score<0:EXIT loop 500 END REPeat loop 510
-PAPER 0:CLS 520 INK 2+2\*(score=target):CSIZE 3,1 530 IF score=target
-540 PRINT 'Congratulations' 550 ELSE 560 PRINT 'Oh Dear' 570 END IF 580
-CSIZE 2,0:INK 7 590 PRINT \\\\'Try again?? -----> y/n' 600 REPeat keys
-610 key$=INKEY$(-1):IF key$ INSTR 'yn':EXIT keys 620 END REPeat keys 630
-IF key$=='n':STOP 640 END REPeat main\_loop 645 : 650 DEFine PROCedure
-ask\_question(no) 660 LOCal i 670 AT 6,0:start\_word=1:end\_word=1 680
-no=no-1 690 REPeat quest\_loop 700 FOR char=start\_word TO
-question$(no,0) 710 IF question$(no,char)=' ':EXIT char 720 END FOR char
-730 end\_word=char 740 PRINT !question$(no,start\_word TO end\_word)!
-750 IF end\_word=question$(no,0):EXIT quest\_loop 760
-start\_word=end\_word+1 770 END REPeat quest\_loop 780 REPeat opt\_loop
-790 PRINT \\\\ 800 FOR i=1 TO 3 810 PRINT TO 5;i;' = ';option$(no,i) 820
-END FOR i 830 END DEFine 835 : 840 DEFine FuNction get\_answer 850
-REPeat keys 860 key$=INKEY$(-1) 870 IF key$ INSTR '123':RETurn key$ 880
-END REPeat keys 890 END DEFine 895 : 900 DATA 'The standard Sinclair QL
-has how much memory?' 910 DATA '16K','128K','640K',2 920 DATA "What was
-the name of Sinclair's first computer?" 930 DATA 'Z80','ZX81','ZX80',3
-940 DATA 'Who is the main person responsible for QDOS?' 950 DATA
-'T.Tebby','J.Jones','C.Sinclair',1 960 DATA "Which company created the
-QL's Gold Card?" 970 DATA 'Miracle Ltd.','Digital Precision
-Ltd.','Mercury',1 980 DATA 'Who is the main person responsible for
-SuperBASIC?' 990 DATA 'T.Tebby','J.Jones','C.Sinclair',2
+    100 MODE 8:WINDOW 512,256,0,0:PAPER 0:CLS 
+    110 WINDOW 448,200,32,16 
+    120 quest=5:target=5 
+    130 DIM question$(quest,50),option$(quest,3,25),answer(quest) 
+    140 RESTORE 
+    150 FOR i=0 TO quest-1 
+    160   READ question$(i) 
+    170   FOR j=1 TO 3:READ option$(i,j) 
+    180   READ answer(i) 
+    190 END FOR i 
+    200 REPeat main_loop 
+    210   score=0 
+    220   FOR i=1 TO 7,1:BORDER 10,i:PAUSE 2 
+    230   PAPER 6:CLS:INK 2:AT 3,10:UNDER 1:CSIZE 2,1 
+    240   PRINT 'QUIZ EXAMPLE':CSIZE 2,0:UNDER 0 
+    250   INK 0:AT 0,20:PRINT 'SCORE = ';score 
+    260   DIM asked(quest) 
+    270   REPeat loop 
+    280     opt=RND(1 TO quest) 
+    290     IF asked(opt)=1 THEN 
+    300       FOR j=1 TO quest 
+    310         IF asked(j)=0:opt=j:EXIT j 
+    320         NEXT j 
+    330         DIM asked(quest):NEXT loop 
+    340       END FOR j 
+    350     END IF 
+    360     asked(opt)=1 
+    370     AT 4,0:CLS 2 
+    380     ask_question(opt) 
+    390     reply=get_answer 
+    400     AT 16,0:PAPER 2:INK 7 
+    410     IF reply=answer(opt-1) 
+    420       PRINT 'Correct':score=score+1 
+    430     ELSE 
+    440       PRINT 'Wrong!':score=score-1
+    450     END IF 
+    460     PAPER 6:INK 0 
+    470     AT 0,20:PRINT 'SCORE = ';score 
+    480     PAUSE 
+    490     IF score=target OR score<0:EXIT loop 
+    500   END REPeat loop 
+    510   PAPER 0:CLS 
+    520   INK 2+2*(score=target):CSIZE 3,1 
+    530   IF score=target
+    540     PRINT 'Congratulations' 
+    550   ELSE 
+    560     PRINT 'Oh Dear' 
+    570   END IF 
+    580   CSIZE 2,0:INK 7 
+    590   PRINT \\'Try again?? -----> y/n' 
+    600   REPeat keys
+    610     key$=INKEY$(-1):IF key$ INSTR 'yn':EXIT keys 
+    620   END REPeat keys 
+    630   IF key$=='n':STOP 
+    640 END REPeat main_loop 
+    645 : 
+    650 DEFine PROCedure ask_question(no) 
+    660   LOCal i 
+    670   AT 6,0:start_word=1:end_word=1 
+    680   no=no-1 
+    690   REPeat quest_loop 
+    700     FOR char=start_word TO question$(no,0) 
+    710       IF question$(no,char)=' ':EXIT char 
+    720     END FOR char
+    730     end_word=char 
+    740     PRINT !question$(no,start_word TO end_word)!
+    750     IF end_word=question$(no,0):EXIT quest_loop 
+    760     start_word=end_word+1 
+    770   END REPeat quest_loop 
+    780   REPeat opt_loop
+    790     PRINT \ 
+    800     FOR i=1 TO 3 
+    810       PRINT TO 5;i;' = ';option$(no,i) 
+    820     END FOR i 
+    830 END DEFine 
+    835 : 
+    840 DEFine FuNction get_answer 
+    850   REPeat keys 
+    860     key$=INKEY$(-1) 
+    870     IF key$ INSTR '123':RETurn key$ 
+    880   END REPeat keys 
+    890 END DEFine 
+    895 : 
+    900 DATA 'The standard Sinclair QL has how much memory?' 
+    910 DATA '16K','128K','640K',2 
+    920 DATA "What was the name of Sinclair's first computer?" 
+    930 DATA 'Z80','ZX81','ZX80',3
+    940 DATA 'Who is the main person responsible for QDOS?' 
+    950 DATA 'T.Tebby','J.Jones','C.Sinclair',1 
+    960 DATA "Which company created the QL's Gold Card?" 
+    970 DATA 'Miracle Ltd.','Digital Precision Ltd.','Mercury',1 
+    980 DATA 'Who is the main person responsible for SuperBASIC?' 
+    990 DATA 'T.Tebby','J.Jones','C.Sinclair',2
 
 Some of you may have noticed that we have used DIM option$(quest,3,25)
 when we could have used DIM option$(quest,2,25). The reason for this is
@@ -2547,18 +2947,32 @@ that each set of three options is separated by a blank string.
 
 **Example 2**
 
-Take the two arrays set up with DIM x(2,3,4),x$(2,4,6). The following
-sub-arrays produce the following equivalents: x(TO, TO 2, 1 TO) => x(0
-TO 2,0 TO 2,1 TO 4) x$(1 TO 2, TO 2) => x$(1 TO 2,0 TO 2,1 TO
-LEN(x$(..))) x$(TO 2, TO,1 TO) => x$(0 TO 2,0 TO 4,1 TO 6)
+Take the two arrays set up with::
+
+    DIM x(2,3,4),x$(2,4,6). 
+
+The following
+sub-arrays produce the following equivalents::
+
+    x(TO, TO 2, 1 TO) => x(0TO 2,0 TO 2,1 TO 4) 
+    x$(1 TO 2, TO 2) => x$(1 TO 2,0 TO 2,1 TO LEN(x$(..))) 
+    x$(TO 2, TO,1 TO) => x$(0 TO 2,0 TO 4,1 TO 6)
 
 
 **Example 3**
 
 A short example of the use of sub-arrays and subsets of undimensioned
-strings: 100 DIM a$(11) 110 a$='Hello World' 120 b$='Great World' 130
-swap\_array a$(1 TO 5),b$(1 TO 5) 140 PRINT a$,b$ 150 : 1000 DEFine
-PROCedure swap\_array (a,b) 1010 c$=b:b=a:a=c$ 1020 END DEFine
+strings::
+
+    100 DIM a$(11) 
+    110 a$='Hello World' 
+    120 b$='Great World' 
+    130 swap_array a$(1 TO 5),b$(1 TO 5) 
+    140 PRINT a$,b$ 
+    150 : 
+    1000 DEFine PROCedure swap_array (a,b) 
+    1010   c$=b: b=a: a=c$ 
+    1020 END DEFine
 
 
 **NOTE 1**
@@ -2580,18 +2994,22 @@ A variable cannot be used as both a simple variable and an array
 variable. It is set to an array variable as soon as the line containing
 the relevant DIM statement is parsed. This means that if a line
 containing DIM var has been entered, the array var cannot be used until
-such time as the program has RUN
- this line, and in any case, an attempt to use var without array
+such time as the program has RUN this line, and in any case, an attempt to use var without array
 descriptors (eg. var=1) is likely to fail, either resulting in a 'Bad
 Name' error or 'Error in Expression'.
 
 
 **NOTE 4**
 
-You cannot assign one array to another. For example: DIM a$ (3,10) , z$
-(3,10) :z$=a$
- will report a 'Not Implemented' error. Compare z$ ( 1, 1 TO 10 )=a$ (
-1, 1 TO 10 ).
+You cannot assign one array to another. For example::
+
+    DIM a$ (3,10) , z$(3,10) :z$=a$
+
+will report a 'Not Implemented' error. 
+
+Compare::
+
+    z$ ( 1, 1 TO 10 )=a$ (1, 1 TO 10 ).
 
 
 **NOTE 5**
@@ -2606,24 +3024,44 @@ strings. Un-dimensioned strings may also upset Qliberated tasks!
 
 On pre JS ROMs you cannot use one array as the array sub-script of
 another in the DIM statement (other than as the first sub-script), for
-example: DIM a(10):a(3)=10 DIM a$(10,a(3))
- If you try this, you will find that previous array sub-scripts are set
+example::
+
+    DIM a(10):a(3)=10 
+    DIM a$(10,a(3))
+
+If you try this, you will find that previous array sub-scripts are set
 to the value 0, ie. using the above example, a$(0) would be acceptable,
 whereas a$(2) would cause an error. This will work okay provided that
 the array is used as the first sub-script, otherwise use a temporary
-variable. For example: subs=a(3):DIM a$(10,subs) DIM a$(a(3),10)
- would both work okay on all ROM versions.
+variable. For example::
+
+    subs=a(3): DIM a$(10,subs) 
+    DIM a$(a(3),10)
+
+would both work okay on all ROM versions.
 
 
 **NOTE 7**
 
 There is a bug in SMS (at least up to v2.88) if you try to DIMension a
 variable which has been used as a parameter for a PROCedure or FuNction
-call. Take the example given above to demonstrate the error 'procedure
-and function parameters may not be dimensioned'. Now use CLEAR : TEST
-a,b - no error is reported (although line 140 has no effect). PRINT a,b
+call. 
+
+Take the example given above to demonstrate the error 'procedure
+and function parameters may not be dimensioned'. Now use:: 
+
+    CLEAR : TEST a,b 
+
+no error is reported (although line 140 has no effect). 
+
+::
+
+    PRINT a,b
+
 is equivalent to PRINT a; and any attempt to use b (eg. x=b) reports
-error in expression, even after CLEAR. On other ROMs no error is
+error in expression, even after CLEAR. 
+
+On other ROMs no error is
 reported. However, the variable passed as a parameter is not
 re-dimensioned, but some of its elements will no longer be the original
 value, but very small numbers and any attempt to assign another value to
@@ -2642,10 +3080,22 @@ and SuperCHARGE compilers treat strings the same as SMS, except see Note
 **MINERVA NOTE**
 
 Minerva alters the way in which both dimensioned and undimensioned
-strings are handled so that PRINT a$( TO 10) is now acceptable! See
-above. Minerva also allows you to slice expressions and numbers. Lines
-such as PRINT 'abcd' (2 TO 3) and a$=101010 (3) will now work. Minerva
-v1.96+ allows multiple index lists (see SMS Notes).
+strings are handled so that::
+
+    PRINT a$( TO 10) 
+
+is now acceptable! See above. 
+
+Minerva also allows you to slice expressions and numbers. Lines
+such as::
+
+    PRINT 'abcd' (2 TO 3) 
+
+and::
+
+    a$=101010 (3) 
+
+will now work. Minerva v1.96+ allows multiple index lists (see SMS Notes).
 
 
 **SMS NOTES**
@@ -2655,23 +3105,44 @@ are handled to make them more sensible (see above). We now await a
 compiler which handles strings in the same way! SMS says that it no
 longer handles multiple index lists on assignments (which apparently
 were allowed on earlier ROM versions - did anyone ever use these?). An
-example is the line: 100 DIM a$(3,4,5) 110 a$(3,4)='Hello' 120 a$(3,4)(2
-TO 5)='ELLO'
- SMS will not let you type in line 120 reporting invalid syntax. To
-overcome this you have to replace the line with: 120 a$(3,4,2 TO
-5)='ELLO'
- In common with Minerva, SMS will now also allow you to slice
+example is the line::
+
+    100 DIM a$(3,4,5) 
+    110 a$(3,4)='Hello' 
+    120 a$(3,4)(2 TO 5)='ELLO'
+
+SMS will not let you type in line 120 reporting invalid syntax. To
+overcome this you have to replace the line with::
+
+    120 a$(3,4,2 TO 5)='ELLO'
+
+In common with Minerva, SMS will now also allow you to slice
 expressions and numbers. There is a bug in current versions of SMS (at
 least up to v2.90) when passing string array sub-sets by reference, for
-example the following program: 5 DIM x$(11) 10 x$='Hello World' 15 PRINT
-x$ 20 change x$(1 TO 11) 30 PRINT x$ 1000 DEFine PROCedure change (a$)
-1010 a$(1 TO 3)='EXT' 1020 END DEFine
- At line 30, x$ is shown to be 'HeEXT World'?? It should be 'EXTlo
-World' - try making line 20 read: 20 change x$
- Although v2.90 fixes this problem, if you pass a sub-set of an
-undimensioned string, a worse problem is created - try deleting line 5
-and adding line: 1015 PRINT a$:PAUSE before RUNning the program (you may
-need to use CLEAR beforehand).
+example the following program::
+
+    5 DIM x$(11) 
+    10 x$='Hello World' 
+    15 PRINT x$ 
+    20 change x$(1 TO 11) 
+    30 PRINT x$ 
+    40 :
+    1000 DEFine PROCedure change (a$)
+    1010   a$(1 TO 3)='EXT' 
+    1020 END DEFine
+
+At line 30, x$ is shown to be 'HeEXT World'?? It should be 'EXTlo
+World'. Try making line 20 read::
+
+    20 change x$
+
+Although v2.90 fixes this problem, if you pass a sub-set of an
+undimensioned string, a worse problem is created. Try deleting line 5
+and adding line::
+
+    1015 PRINT a$: PAUSE 
+
+before RUNning the program (you may need to use CLEAR beforehand).
 
 
 **WARNING**
@@ -2693,23 +3164,35 @@ string.
 DIMN
 ====
 
-+----------+-------------------------------------------------------------------+
-| Syntax   |  DIMN (array [,dimension] )  or DIMN (array (dimension\ :sup:`1`  |
-+----------+-------------------------------------------------------------------+
-| Location |  QL ROM                                                           |
-+----------+-------------------------------------------------------------------+
++----------+-----------------------------------------------------------------------------------------------------------------+
+| Syntax   |  DIMN (array [,dimension] )  or DIMN (array (dimension\ :sup:`1` :sup:`*`\ [,dimension\ :sup:`i`]\ :sup:`*`\ )) |
++----------+-----------------------------------------------------------------------------------------------------------------+
+| Location |  QL ROM                                                                                                         |
++----------+-----------------------------------------------------------------------------------------------------------------+
 
- This function allows you to investigate the size of the given index of
-a specified array. The first syntax is the most common: it will return
+This function allows you to investigate the size of the given index of
+a specified array. 
+
+The first syntax is the most common: it will return
 the specified dimension (index) used in the original DIM statement when
 the array was defined. If the index did not exist, then a result of zero
-is returned. If dimension is not specified, then the size of the first
-index is returned. The second syntax is somewhat obscure and has no
+is returned. 
+
+If dimension is not specified, then the size of the first
+index is returned. 
+
+The second syntax is somewhat obscure and has no
 practical advantages. This second syntax will not allow you to access
 the size of the first index. It works by reference to the array itself,
-for example, PRINT DIMN(a$(1))
- will return the size of the second index, and PRINT DIMN(a$(1,1))
- will return the size of the third index and so forth. Once the number
+for example:: 
+
+    PRINT DIMN(a$(1))
+
+will return the size of the second index, and::
+
+    PRINT DIMN(a$(1,1))
+
+will return the size of the third index and so forth. Once the number
 of dimensions used within the DIMN statement has reached the number used
 by the array, then the value 1 will be returned. If any more are
 specified, then the error 'Out of Range' will result.
@@ -2717,12 +3200,51 @@ specified, then the error 'Out of Range' will result.
 
 **Examples**
 
-Take an array created with the statement: DIM a$(10,12)
- the following results will be returned: PRINT DIMN(a$)Will return 10
-PRINT DIMN(a$,1)Will return 10 PRINT DIMN(a$,2)Will return 12 PRINT
-DIMN(a$,3)Will return 0 PRINT DIMN(a$(1))Will return 12 PRINT
-DIMN(a$(1,1))Will return 1 PRINT DIMN(a$(1,1,1)) Will cause 'Out of
-Range' error.
+Take an array created with the statement::
+
+    DIM a$(10,12)
+
+The following results will be returned::
+
+    PRINT DIMN(a$)
+
+Will return 10.
+
+::
+
+    PRINT DIMN(a$,1)
+
+Will return 10.
+
+::
+
+    PRINT DIMN(a$,2)
+
+Will return 12. 
+
+::
+
+    PRINT DIMN(a$,3)
+
+Will return 0. 
+
+::
+
+    PRINT DIMN(a$(1))
+
+Will return 12. 
+
+::
+
+    PRINT DIMN(a$(1,1))
+
+Will return 1. 
+
+::
+
+    PRINT DIMN(a$(1,1,1)) 
+
+Will cause an 'Out of Range' error.
 
 
 **CROSS-REFERENCE**
@@ -2731,6 +3253,7 @@ Range' error.
 held within a string. `DIM <KeywordsD.clean.html#dim>`__ initialises an array.
 
 --------------
+    .. YOU ARE HERE ********************************
 
 DIR
 ===
