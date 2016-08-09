@@ -105,7 +105,7 @@ bool doStrings()
 
             // Yes we do... lose the colon and make it bold and not a heading.
             // But remember, it might not be at the start of a line!
-            cout << "..    " << a_line << endl << endl;   // Curent line as comment.
+            // cout << "..    " << a_line << endl << endl;   // Curent line as comment.
             cout << "**" << a_line.substr(0, pos + tempSize - 1) << "**" << endl;
             
             // Lose the following underline.
