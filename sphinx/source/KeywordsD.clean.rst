@@ -8,6 +8,8 @@ TODO
 - Can we do something about the SYNTAX table cell contents? We should have it split onto new lines for each "or".
 - DATE$ has the same URL as DATE.
 - DEFAULT%, DEFAULT$ have the same URL as DEFAULT.
+- There are two DIVs in this section. Both will have the same section URL. Fix.
+- There are two DRAWs in this section. Both will have the same section URL. Fix.
 
 
 DATA
@@ -2565,6 +2567,7 @@ Each index defines the maximum number of elements (less one) in any one
 direction, which provides the following examples::
 
     DIM a(10)
+
 sets up a floating-point array a containing 11 elements, a(0) to a(10);
 
 ::
@@ -3253,7 +3256,6 @@ Will cause an 'Out of Range' error.
 held within a string. `DIM <KeywordsD.clean.html#dim>`__ initialises an array.
 
 --------------
-    .. YOU ARE HERE ********************************
 
 DIR
 ===
@@ -3267,26 +3269,35 @@ DIR
 +----------+-------------------------------------------------------------------+
 
 This command produces a listing to the specified channel
-(default #1) of all of the files contained on the given device. The
+(default #1) of all of the files contained on the given device. 
+
+The
 listing gives the name of the device (specified with FORMAT) followed by
 the number of available sectors/the number of usable sectors; followed
 by a list of the files in the order they appear on the disk. If you try
 to get a directory of a ram disk, eg. DIR RAM1\_
- then the name of the device shown on screen will be RAM1. If Toolkit II
+then the name of the device shown on screen will be RAM1. 
+
+If Toolkit II
 is present, and #channel is a window, a <CTRL><F5> keystroke (pausing
 output) is generated at the end of each screen full of the listing. You
 can however also use the third syntax to output the directory to the
 specified file. If file already exists, you will be given the option of
 overwriting it. If file doesn't include a device name, the data default
-directory is used. The Toolkit II variant also supports the default data
+directory is used. 
+
+The Toolkit II variant also supports the default data
 directory, which will be used if no device name is given in device, or
-if the specified device name would result in the error 'Not Found'. If
+if the specified device name would result in the error 'Not Found'. 
+
+If
 you have Level-2 or Level-3 device drivers, and there are any
 sub-directories (created with MAKE\_DIR) in the given directory, then if
 you have Toolkit II present, the names of these sub-directories will
-appear with the suffix ->. You can then list the contents of these
-sub-directories by using DIR
- with the original device name plus the name of the sub-directory.
+appear with the suffix ->. 
+
+You can then list the contents of these sub-directories by using DIR
+with the original device name plus the name of the sub-directory.
 Level-3 drivers take this one step further in that after the name of the
 disk in the specified device, appears details of the type of disk being
 read, ie. MS-DOS or QDOS followed by SD, DD, HD or ED to confirm whether
@@ -3296,19 +3307,53 @@ Density. RAM disks are listed as QDOS SD.
 
 **Example 1**
 
-With a cartridge in the left hand microdrive slot, DIR mdv1\_
- might produce the following listing in window #1: QUILL 102/220 sectors
-boot QUILL install\_exe printer\_dat
+With a cartridge in the left hand microdrive slot, 
+
+::
+
+    DIR mdv1_
+
+might produce the following listing in window #1::
+
+    QUILL 102/220 sectors
+    boot 
+    QUILL 
+    install_exe 
+    printer_dat
 
 
 **Example 2**
 
-If Level-2 device drivers are present, DIR flp1\_ might produce the
-following: PSION DISK 1000/2880 sectors QUILL -> ARCHIVE -> With Level-3
+If Level-2 device drivers are present, 
+
+::
+
+    DIR flp1_ 
+
+might produce the following::
+
+    PSION DISK 1000/2880 sectors 
+    QUILL -> 
+    ARCHIVE -> 
+
+With Level-3
 drivers, you would get the same output except the first line would
-become: PSION DISK QDOS HD DIR 'flp1\_QUILL' would on both Level-2 and
-Level-3 drivers, then produce the following output: PSION DISK 1000/2880
-sectors QUILL\_boot QUILL\_QUILL QUILL\_install\_exe QUILL\_printer\_dat
+become::
+
+    PSION DISK QDOS HD 
+
+::
+
+    DIR 'flp1\_QUILL' 
+
+would on both Level-2 and
+Level-3 drivers, then produce the following output::
+
+    PSION DISK 1000/2880 sectors 
+    QUILL_boot 
+    QUILL_QUILL 
+    QUILL_install_exe 
+    QUILL_printer_dat
 
 
 **NOTE 1**
@@ -3316,15 +3361,25 @@ sectors QUILL\_boot QUILL\_QUILL QUILL\_install\_exe QUILL\_printer\_dat
 With the Toolkit II variant, the <CTRL><F5> will be generated even where
 the channel is a window which has been opened over the network (eg.
 n1\_scr\_200x200), which can cause problems as the slave machine will
-wait for a key to be pressed! This can be avoided if you have the
-command FIXPF
- (provided as part of the QPTR documentation), which will enable you to
-re-install the ROM variant of DIR. Alternatively write the directory to
-a file and copy the file to the host machine, eg. DIR \\ram1\_tmp,
-flp1\_SPL ram1\_tmp TO n1\_scr\_200x200
- It is even more sophisticated to use a named pipe instead of the
-temporary file ram1\_tmp for the same job: SPL pipe\_dir TO
-n1\_scr\_200x200 DIR \\pipe\_dir\_1000, flp1\_
+wait for a key to be pressed! 
+
+This can be avoided if you have the command FIXPF
+(provided as part of the QPTR documentation), which will enable you to
+re-install the ROM variant of DIR. 
+
+Alternatively write the directory to
+a file and copy the file to the host machine, eg. 
+
+::
+
+    DIR \ram1_tmp, flp1_
+    SPL ram1_tmp TO n1_scr_200x200
+
+It is even more sophisticated to use a named pipe instead of the
+temporary file ram1\_tmp for the same job::
+
+    SPL pipe_dir TO n1_scr_200x200 
+    DIR \pipe_dir_1000, flp1_
 
 
 **NOTE 2**
@@ -3362,8 +3417,11 @@ as they use this file to store the main directory!
 
 On some versions of Toolkit II, the third variant could cause problems
 if you supply the name of an existing file to store the directory in,
-for example: DIR \\ram1\_XDIR
- - if you said 'N' when asked if it was OK to Overwrite the existing
+for example::
+
+    DIR \ram1_XDIR
+
+if you said 'N' when asked if it was OK to Overwrite the existing
 file - the display would be sent to #0 and #0 would then be CLOSEd!!
 v2.49 of Toolkit II (and possibly earlier) does not cause any problems
 but does not report an error. v2.85 of SMSQ/E (and possibly earlier)
@@ -3373,7 +3431,11 @@ also has no problems but reports the error 'Already Exists'.
 **NOTE 7**
 
 Some people try to divide up DIRectory listings by creating files such
-as : SAVE 'flp1\_----------------'. However, DIR will only list the
+as::
+
+    SAVE 'flp1_----------------'
+
+However, DIR will only list the
 files in the order in which they were created if you are using a virgin
 disk which has not had other files deleted from it already.
 
@@ -3395,7 +3457,7 @@ DISCARD
 | Location |  Memory Toolkit (DIY Toolkit Vol H)                               |
 +----------+-------------------------------------------------------------------+
 
- This command removes memory which has been allocated with RESERVE
+This command removes memory which has been allocated with RESERVE
 fairly safely, ensuring that the memory had been allocated with RESERVE
 and has not already been DISCARDed. If the adr does not point to memory
 set aside with RESERVE the error 'not found' is returned.
@@ -3420,22 +3482,29 @@ DISP\_BLANK
 |          | SMSQ/E for Atari ST & TT (QVME cards only) |
 +----------+--------------------------------------------+
 
- The Atari range of computers can be attached to a wide range of
+The Atari range of computers can be attached to a wide range of
 monitors, some of which are able to display higher resolutions than
 others. A 17" multi-sync monitor, for example, can display resolutions
-of up to 1024x1024 (depending on make). The QVME card is unable to
+of up to 1024x1024 (depending on make). 
+
+The QVME card is unable to
 detect the various parameters related to monitors and therefore allows
 you to set your own parameters either from SuperBASIC or by configuring
-SMSQ/E. This command is used for setting the margins between the
+SMSQ/E. 
+
+This command is used for setting the margins between the
 currently displayed QL screen and the edges of the monitor. This
 difference is known as the overscan (pixels available on the monitor
 which are currently unused). xblank sets the number of horizontal pixels
 x2 from the edge of the monitor to the left hand side of the QL screen.
+
 The standard value for a 512x256 screen is 128 pixels (a standard QL
 monitor linked to an Atari can display a screen 640x480) (640-512)/2=64
-pixels from the left hand side of the monitor. If xblank is omitted or
-0, then the original value is left unaltered. yblank sets the number of
-lines x 0.5 from the top of the monitor to the top edge of the QL
+pixels from the left hand side of the monitor. 
+
+If xblank is omitted or 0, then the original value is left unaltered. 
+
+Yblank sets the number of lines x 0.5 from the top of the monitor to the top edge of the QL
 screen. The standard value is 56, which gives a top margin of
 (480-256)/2=112 pixels from the top of the screen. If yblank is omitted
 or 0, then the original value is left unaltered.
@@ -3459,14 +3528,16 @@ override any setting of the line scan rate with DISP\_RATE.
 parameters at the same time as amending the size of the displayed QL
 screen. `DISP\_RATE <KeywordsD.clean.html#disp-rate>`__ sets the frame and
 line scan rates for the display - if this command is used to adjust the
-line scan rate, this will alter the totoal number of lines. Both SMSQ/E
+line scan rate, this will alter the totoal number of lines. 
+
+Both SMSQ/E
 and QVME include programs to allow you to try out the various settings
-for the `DISP\_ <KeywordsD.clean.html#disp->`__... commands.
+for the various DISP\_... commands.
 
 --------------
 
 DISP\_INVERSE
-~~~~~~~~~~~~~
+=============
 
 +----------+-------------------------------------------------------------------+
 | Syntax   |  DISP\_INVERSE status                                             |
@@ -3474,7 +3545,7 @@ DISP\_INVERSE
 | Location |  SMSQ/E for Atari ST & TT                                         |
 +----------+-------------------------------------------------------------------+
 
- The Atari range of computers support a high resolution (640x400)
+The Atari range of computers support a high resolution (640x400)
 monochrome display mode which can be supported under SMSQ/E and SMS2. If
 SMSQ/E or SMS2 is running on an Atari ST connected to a monochrome
 monitor (or running on an Atari TT conected to such a monitor, without
@@ -3483,7 +3554,7 @@ display driver (if available) and set the QL into the monochrome 640x400
 display mode. The QL screen can then appear either as white ink on a
 black background or black ink on a white background. DISP\_INVERSE
 allows you to invert the QL display, with status=0
- giving the default white on black and status=1 the black on white
+giving the default white on black and status=1 the black on white
 display.
 
 
@@ -3511,31 +3582,42 @@ DISP\_RATE
 |          | SMSQ/E for Atari ST & TT (QVME cards only) |
 +----------+--------------------------------------------+
 
- Due to the multitude of monitors which are available for the Atari ST
+Due to the multitude of monitors which are available for the Atari ST
 range, it is necessary to be able to alter the horizontal and vertical
-scan rates (default = 50Hz, the setting on standard QL monitors). The
+scan rates (default = 50Hz, the setting on standard QL monitors). 
+
+The
 first parameter specifies the frame rate (the horizontal scan rate), a
 setting of 70 (or more) will reduce flicker on most Atari monitors. If
-omitted or 0, the original value is unchanged. The second parameter
+omitted or 0, the original value is unchanged. 
+
+The second parameter
 specifies the line rate (the vertical scan rate), although this is
 normally not required as it is equal to the frame rate multiplied by the
 total number of lines. If this parameter is omitted or zero, the
 original is recalculated by reference to the number of lines and the
-frame rate. The total number of lines and line rate can be calculated by
-reference to the following program: 100 INPUT #0,'Enter y size of QL
-screen (DISP\_SIZE) ';QLy 110 INPUT #0,'Enter horizontal frame rate
-(DISP\_RATE) ';Frate 120 INPUT #0,'Enter vertical blank pixels setting
-(DISP\_BLANK) ';Blanky 130 Total\_y=QLy+Blanky 140
-total\_lines=Total\_y\*(Qly/QLy) 150 PRINT 'The total number of
-displayed lines will be ';total\_lines 160 PRINT 'Line scan rate will be
-';total\_lines\*Frate
- If you use DISP\_RATE to set the line scan rate, then using the total
+frame rate. 
+
+The total number of lines and line rate can be calculated by
+reference to the following program:: 
+
+    100 INPUT #0,'Enter y size of QL screen (DISP_SIZE) ';QLy 
+    110 INPUT #0,'Enter horizontal frame rate (DISP_RATE) ';Frate 
+    120 INPUT #0,'Enter vertical blank pixels setting (DISP_BLANK) ';Blanky 
+    130 Total_y=QLy+Blanky 
+    140 total_lines=Total_y*(Qly/QLy) 
+    150 PRINT 'The total number of displayed lines will be ';total_lines 
+    160 PRINT 'Line scan rate will be ';total_lines*Frate
+
+If you use DISP\_RATE to set the line scan rate, then using the total
 number of lines (and hence the blank lines) are recalculated, using the
-following routine: 100 INPUT #0,'Enter y size of QL screen (DISP\_SIZE)
-';QLy 110 INPUT #0,'Enter horizontal frame rate (DISP\_RATE) ';Frate 120
-INPUT #0,'Enter vertical line scan rate (DISP\_RATE) ';Lrate 130
-Total\_y=INT(Lrate/Frate) 140 PRINT 'Blank Lines for DISP\_BLANK will be
-';Total\_y-QLy
+following routine::
+
+    100 INPUT #0,'Enter y size of QL screen (DISP_SIZE) ';QLy 
+    110 INPUT #0,'Enter horizontal frame rate (DISP_RATE) ';Frate 
+    120 INPUT #0,'Enter vertical line scan rate (DISP_RATE) ';Lrate 
+    130 Total_y=INT(Lrate/Frate) 
+    140 PRINT 'Blank Lines for DISP_BLANK will be ';Total_y-QLy
 
 
 **CROSS-REFERENCE**
@@ -3543,9 +3625,11 @@ Total\_y=INT(Lrate/Frate) 140 PRINT 'Blank Lines for DISP\_BLANK will be
 `DISP\_SIZE <KeywordsD.clean.html#disp-size>`__ allows you to pass these
 parameters at the same time as amending the size of the displayed QL
 screen. `DISP\_BLANK <KeywordsD.clean.html#disp-blank>`__ sets the number of
-horizontal and vertical blank pixels on the edge of the display. Both
+horizontal and vertical blank pixels on the edge of the display. 
+
+Both
 SMSQ/E and QVME include programs to allow you to try out the various
-settings for the `DISP\_ <KeywordsD.clean.html#disp->`__... commands.
+settings for the DISP\_... commands.
 
 --------------
 
@@ -3558,21 +3642,20 @@ DISP\_SIZE
 | Location |  QVME (Level E-19 Drivers onwards), SMSQ/E                        |
 +----------+-------------------------------------------------------------------+
 
- This command lets you alter the size of the QL screen being displayed.
+This command lets you alter the size of the QL screen being displayed.
+
 The first two parameters allow you to specify the display width in
 pixels and the height in lines (the normal QL display is DISP\_SIZE
 512,256). The remaining four parameters are those which can be set using
 the DISP\_RATE and DISP\_BLANK commands respectively. The effect of the
 first two parameters depends upon the system it is being used on:
 
-Extended Mode4 Emulator:
-~~~~~~~~~~~~~~~~~~~~~~~~
+**Extended Mode4 Emulator**
 
 Any width up to 512 will select the standard QL resolution. Any width
 over 512 will select the extended resolution (768x280).
 
-QVME, QXL and QPC:
-~~~~~~~~~~~~~~~~~~
+**QVME, QXL and QPC**
 
 The width and height of the display can only be altered in increments of
 32 pixels and 8 lines respectively. If width is not a multiple of 32 or
@@ -3590,14 +3673,13 @@ to the internal formula (see DISP\_RATE).
 **NOTE 2**
 
 DISP\_SIZE will not work if you have already used the A\_OLDSCR
- command.
+command.
 
 
 **NOTE 3**
 
 Some combinations of Super Gold Card and AURORA may cause the internal
-QL clock to run too quickly unless you follow DISP\_SIZE by PROT\_DATE
-0.
+QL clock to run too quickly unless you follow DISP\_SIZE by PROT\_DATE 0.
 
 
 **NOTE 4**
@@ -3640,13 +3722,15 @@ DISP\_TYPE
 | Location |  SMSQ/E                                                           |
 +----------+-------------------------------------------------------------------+
 
- This function returns a number which allows you to find out the type of
+This function returns a number which allows you to find out the type of
 display driver which is currently being used. The values returned are:
-0Original ST QL Emulator, QL Hardware (either of these two may support
-MODE 8) plus QXL and QPC. All of these (except the original ST QL
-emulator) may support higher resolutions. 1Extended Mode 4 Emulator
-(either 512x256 or 768x280 pixel screen) 2QVME Mode 4 Emulator
-4Monochrome display (only two colours)
+
+- 0 Original ST QL Emulator, QL Hardware (either of these two may support
+  MODE 8) plus QXL and QPC. All of these (except the original ST QL
+  emulator) may support higher resolutions. 
+- 1 Extended Mode 4 Emulator (either 512x256 or 768x280 pixel screen) 
+- 2 QVME Mode 4 Emulator
+- 4 Monochrome display (only two colours)
 
 
 **CROSS-REFERENCE**
@@ -3691,33 +3775,53 @@ DIV
 | Location |  QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
 
- This operator returns the integer part of x divided by y. If x or y is
+This operator returns the integer part of x divided by y. 
+
+If x or y is
 not an integer, then the given value is rounded to the nearest integer
-(compare INT). On non-SMS implementations the answer and both parameters
-must lie within the range -32768...32767. On SMS, the answer and both
+(compare INT). 
+
+On non-SMS implementations the answer and both parameters
+must lie within the range -32768...32767. 
+
+On SMS, the answer and both
 parameters can lie anywhere within roughly -2e9...2e9 (32-bit numbers).
+
 The result of the operation is always rounded down to the next integer
 ie. x DIV y=INT(x/y). Although this leads to some unexpected results
 with negative numbers this is so that the formula: x=y\*(x DIV y)+(x MOD
-y)
- is always true If you wish to use 32-bit numbers on non SMS systems,
+y) is always true.
+
+If you wish to use 32-bit numbers on non SMS systems,
 you will need to use the formula: PRINT INT(x/y) instead of PRINT x DIV
-y
- if either x or y is outside of the specified range.
+y if either x or y is outside of the specified range.
 
 
 **Examples**
 
-PRINT 13 DIV 5
- gives the result 2 (13 divided by 5 is 2.6) PRINT 13.4 DIV 1.5
- gives the result 6 (13 DIV 2). PRINT -13 DIV 5
- gives the result -3
+::
+
+    PRINT 13 DIV 5
+
+gives the result 2 (13 divided by 5 is 2.6) 
+
+::
+
+    PRINT 13.4 DIV 1.5
+
+gives the result 6 (13 DIV 2). 
+
+::
+
+    PRINT -13 DIV 5
+
+gives the result -3
 
 
 **NOTE**
 
 DIV has problems with the value -32768: PRINT -32768 DIV -1
- gives the result -32768 on most implementations. On Minerva v1.76 (or
+gives the result -32768 on most implementations. On Minerva v1.76 (or
 later) it gives the correct result, being an overflow error (the answer
 is +32768 which cannot be stored as a short integer variable). On SMS
 v2.75+, it returns the value +32768 as DIV can handle the larger
@@ -3740,7 +3844,7 @@ DIV
 | Location |  Math Package                                                     |
 +----------+-------------------------------------------------------------------+
 
- This function returns x/y as an integer in the same way as the ROM
+This function returns x/y as an integer in the same way as the ROM
 based DIV operator. However, this version is not limited to 16-bit
 integers (-32768..32767). It will happily handle 32-bit integer numbers
 (-INTMAX..INTMAX, roughly -1E9..1E9). Division by zero is not defined
@@ -3749,10 +3853,15 @@ and will produce an overflow message.
 
 **Example**
 
-PRINT -40000 DIV 3
- will produce an error on a standard QL ROM. Instead, you can now use:
-PRINT DIV(-40000,3)
- which gives the correct result.
+::
+
+    PRINT -40000 DIV 3
+
+will produce an error on a standard QL ROM. Instead, you can now use::
+
+    PRINT DIV(-40000,3)
+
+which gives the correct result.
 
 
 **NOTE 1**
@@ -3787,7 +3896,7 @@ DLINE
 | Location | QL ROM                                                                 |
 +----------+------------------------------------------------------------------------+
 
- This command deletes a given range of lines from the current SuperBASIC
+This command deletes a given range of lines from the current SuperBASIC
 program. The range of lines is as per the LIST command. If an empty
 range (for example DLINE) is specified, no action is taken. When the
 lines have been deleted, except under SMS, the current listed lines are
@@ -3828,21 +3937,28 @@ DLIST
 | Location |  Toolkit II                                                       |
 +----------+-------------------------------------------------------------------+
 
- This command lists all three current default directories (otherwise
+This command lists all three current default directories (otherwise
 returned by the DATAD$, PROGD$ and DESTD$ functions) to the specified
 channel (default #1).
 
 
 **Example**
 
-DLIST
- possible Output: flp1\_Quill\_letters\_ ram1\_ par
+::
+
+    DLIST
+
+possible Output::
+
+    flp1_Quill_letters_ 
+    ram1_ 
+    par
 
 
 **NOTE**
 
 Some Toolkit II manuals mention a second syntax: DLIST \\file
- but it seems as though this was never implemented. This should not be a
+but it seems as though this was never implemented. This should not be a
 problem since programs can read the same information from the DATAD$,
 PROGD$ and DESTD$ functions.
 
@@ -3871,18 +3987,26 @@ DMEDIUM\_DENSITY
 | Location |  SMSQ/E v2.73+                                                    |
 +----------+-------------------------------------------------------------------+
 
- This function returns a number representing the density of the medium
+This function returns a number representing the density of the medium
 on which the specified file or directory is located, or to which the
 specified channel is open. If no parameter is specified, it looks to
 channel #3 (or #1 if #3 is not open). An error will occur if the
-specified channel is not open or the given file does not exist. The
-value returned is: 0Non-directory device 1Double Density 2High Density
-3Extra Density 255Hard disk or ram disk as they have no density.
+specified channel is not open or the given file does not exist. 
+
+The value returned is: 
+
+- 0 Non-directory device 
+- 1 Double Density 
+- 2 High Density
+- 3 Extra Density 
+- 255 Hard disk or ram disk as they have no density.
 
 
 **Example**
 
-PRINT DMEDIUM\_DENSITY(\\flp1\_)
+::
+
+    PRINT DMEDIUM_DENSITY(\flp1_)
 
 
 **CROSS-REFERENCE**
@@ -3903,14 +4027,17 @@ DMEDIUM\_DRIVE$
 | Location |  SMSQ/E v2.73+                                                    |
 +----------+-------------------------------------------------------------------+
 
- This function returns the three letter code representing the device
+This function returns the three letter code representing the device
 connected to the specified channel or file. If no parameter is specified
 then it tries #1, unless channel #3 is open in which case it will access
 #3. If an error occurs, for example you specify a channel which is not
 open or a file which does not exist, then an error will occur. Luckily
 due to the fact that directories are stored in files under Level-2 and
-Level-3 drivers, this means that you can use PRINT
-DMEDIUM\_DRIVE$(\\flp2\_) if you wish. If the specified channel is not
+Level-3 drivers, this means that you can use:: 
+
+    PRINT DMEDIUM_DRIVE$(\flp2_) 
+
+if you wish. If the specified channel is not
 open to a directory device then an empty string will be returned.
 
 
@@ -3919,17 +4046,24 @@ open to a directory device then an empty string will be returned.
 This function does not appear to work 100%, for example on Falkenberg
 hard disk interfaces it returns 'WINq' - however you can get around this
 by copying the returned string to another variable and only looking at
-the first three letters, for example: DRV$=DMEDIUM\_DRIVE$ IF
-DRV$<>"":PRINT DRV$( TO 3)
+the first three letters, for example::
+
+    DRV$=DMEDIUM_DRIVE$ 
+    IF DRV$<>"":PRINT DRV$( TO 3)
 
 
 **NOTE 2**
 
 This function will ignore the dev\_ device, returning the three letter
-name of the device to which dev points, for example: DEV\_USE
-1,'flp1\_quill\_' drv$=DMEDIUM\_DRIVE$(\\DEV1\_) IF drv$<>'':PRINT
-drv$(to 3)
- compare: PRINT DMEDIUM\_DRIVE$(\\DEV1\_)
+name of the device to which dev points, for example::
+
+    DEV_USE 1,'flp1_quill_' 
+    drv$=DMEDIUM_DRIVE$(\DEV1_) 
+    IF drv$<>'':PRINT drv$(to 3)
+
+Compare::
+
+    PRINT DMEDIUM_DRIVE$(\DEV1_)
 
 
 **CROSS-REFERENCE**
@@ -3948,12 +4082,16 @@ DMEDIUM\_FORMAT
 | Location |  SMSQ/E v2.73+                                                    |
 +----------+-------------------------------------------------------------------+
 
- This function returns a number representing the operating system under
+This function returns a number representing the operating system under
 which the medium (or hard disk partition) on which the specified file or
 directory is located (or to which the specified channel is open) was
 created. If no parameter is specified, it looks to channel #3 (or #1 if
-#3 is not open). The values returned currently are: 1QDOS / SMSQ /
-SMSQ/E 2DOS / TOS
+#3 is not open). 
+
+The values returned currently are: 
+
+- 1 QDOS or SMSQ or SMSQ/E 
+- 2 DOS or TOS
 
 
 **NOTE**
@@ -3983,7 +4121,7 @@ DMEDIUM\_FREE
 | Location |  SMSQ/E v2.73+                                                    |
 +----------+-------------------------------------------------------------------+
 
- This function returns the number of free sectors available on the
+This function returns the number of free sectors available on the
 medium on which the specified file or directory is located, or to which
 the specified channel is open. If no parameter is specified, it looks to
 channel #3 (or #1 if #3 is not open).
@@ -3991,15 +4129,15 @@ channel #3 (or #1 if #3 is not open).
 
 **CROSS-REFERENCE**
 
-`DMEDIUM\_TOTAL <KeywordsD.clean.html#dmedium-total>`__\ allows you to find
+`DMEDIUM\_TOTAL <KeywordsD.clean.html#dmedium-total>`__ allows you to find
 out the total number of sectors available on the related medium.
-`DIR <KeywordsD.clean.html#dir>`__\ can also be used to obtain this
+`DIR <KeywordsD.clean.html#dir>`__ can also be used to obtain this
 information.
 
 --------------
 
 DMEDIUM\_NAME$
-~~~~~~~~~~~~~~
+==============
 
 +----------+-------------------------------------------------------------------+
 | Syntax   |  DMEDIUM\_NAME$ [(#channel)] or DMEDIUM\_NAME$ (\\file)           |
@@ -4007,7 +4145,7 @@ DMEDIUM\_NAME$
 | Location |  SMSQ/E v2.73+                                                    |
 +----------+-------------------------------------------------------------------+
 
- This function returns the name which was given to the medium on which
+This function returns the name which was given to the medium on which
 the specified file or directory is located (or to which the specified
 channel is open), when that medium was FORMATted. If no parameter is
 specified, it looks to channel #3 (or #1 if #3 is not open).
@@ -4018,21 +4156,46 @@ specified, it looks to channel #3 (or #1 if #3 is not open).
 A routine to re-format a floppy disk with the same details as previously
 allocated to that disk (except for the files). The drive to format (eg.
 flp1\_) can be passed with or without quotes, due to the use of line
-120:- 100 DEFine PROCedure RE\_FORMAT(drv) 110 v$=VER$:IF
-v$<>'HBA':PRINT #0,'NOT SUPPORTED':PAUSE:RETurn 120 drv$=PARSTR$(drv,1)
-130 CH=FOPEN(drv$) 140 IF CH<0:PRINT #0,'File Error - cannot access
-drive':PAUSE:RETurn 150 IF DMEDIUM\_RDONLY(#CH) 160 PRINT #0,'Disk Write
-Protected, cannot proceed':PAUSE 170 CLOSE #CH:RETurn 180 END IF 190
-dname$=DMEDIUM\_NAME$(#CH) 200 drv\_density=DMEDIUM\_DENSITY(#CH) 210 IF
-DMEDIUM\_FORMAT(#CH)<>1 220 PRINT #0,'Not QDOS / SMSQE disk, cannot
-proceed':PAUSE 230 CLOSE #CH:RETurn 240 END IF 250 IF
-DMEDIUM\_TYPE(#CH)<>1 260 PRINT #0,'This routine only supports floppy
-disks!!':PAUSE 270 CLOSE #CH:RETurn 280 END IF 290 CLOSE #CH 300 IF
-LEN(dname$)>10:dname$=dname$(1 TO 10) 310 SELect ON drv\_density 320
-=1:dname$=dname$&'\*D' 330 =2:dname$=dname$&'\*H' 340
-=3:dname$=dname$&'\*E' 350 END SELect 360 FORMAT drv$&dname$ 370 END
-DEFine
- RE\_FORMAT flp1\_or RE\_FORMAT 'flp2\_'
+120::
+
+    100 DEFine PROCedure RE_FORMAT(drv) 
+    110   v$=VER$:IF v$<>'HBA':PRINT #0,'NOT SUPPORTED':PAUSE:RETurn 
+    120   drv$=PARSTR$(drv,1)
+    130   CH=FOPEN(drv$) 
+    140   IF CH<0:PRINT #0,'File Error - cannot access drive':PAUSE:RETurn 
+    150   IF DMEDIUM_RDONLY(#CH) 
+    160     PRINT #0,'Disk Write Protected, cannot proceed':PAUSE 
+    170     CLOSE #CH:RETurn 
+    180   END IF 
+    190   dname$=DMEDIUM_NAME$(#CH) 
+    200   drv_density=DMEDIUM_DENSITY(#CH) 
+    210   IF DMEDIUM_FORMAT(#CH)<>1 
+    220     PRINT #0,'Not QDOS / SMSQE disk, cannot proceed':PAUSE 
+    230     CLOSE #CH:RETurn 
+    240   END IF 
+    250   IF DMEDIUM_TYPE(#CH)<>1 
+    260     PRINT #0,'This routine only supports floppy disks!!':PAUSE 
+    270     CLOSE #CH:RETurn 
+    280   END IF 
+    290   CLOSE #CH 
+    300   IF LEN(dname$)>10:dname$=dname$(1 TO 10) 
+    310   SELect ON drv_density 
+    320     =1:dname$=dname$&'*D' 
+    330     =2:dname$=dname$&'*H' 
+    340     =3:dname$=dname$&'*E' 
+    350   END SELect 
+    360   FORMAT drv$&dname$ 
+    370 END DEFine
+
+Usage::
+
+    REMark Without quotes:
+    RE_FORMAT flp1_
+
+or::
+
+    REMark With quotes:
+    RE_FORMAT 'flp2_'
 
 
 **CROSS-REFERENCE**
@@ -4043,7 +4206,7 @@ can read it with `DIR <KeywordsD.clean.html#dir>`__ also.
 --------------
 
 DMEDIUM\_RDONLY
-~~~~~~~~~~~~~~~
+===============
 
 +----------+-------------------------------------------------------------------+
 | Syntax   |  DMEDIUM\_RDONLY [(#channel)] or DMEDIUM\_RDONLY (\\file)         |
@@ -4051,7 +4214,7 @@ DMEDIUM\_RDONLY
 | Location |  SMSQ/E v2.73+                                                    |
 +----------+-------------------------------------------------------------------+
 
- This function returns the value 1 (true) if the the medium on which the
+This function returns the value 1 (true) if the the medium on which the
 specified file or directory is located (or to which the specified
 channel is open) is write-protected either through hardware or software
 control. If no parameter is specified, it looks to channel #3 (or #1 if
@@ -4080,7 +4243,7 @@ DMEDIUM\_REMOVE
 | Location |  SMSQ/E v2.73+                                                    |
 +----------+-------------------------------------------------------------------+
 
- This function returns the value 1 (true) if the medium on which the
+This function returns the value 1 (true) if the medium on which the
 specified file or directory is located (or to which the specified
 channel is open) is a removeable hard disk. Otherwise it returns 0
 (false). If no parameter is specified, it looks to channel #3 (or #1 if
@@ -4104,7 +4267,7 @@ currently open channels, see `CHANNELS <KeywordsC.clean.html#channels>`__.
 --------------
 
 DMEDIUM\_TOTAL
-~~~~~~~~~~~~~~
+==============
 
 +----------+-------------------------------------------------------------------+
 | Syntax   |  DMEDIUM\_TOTAL [(#channel)] or DMEDIUM\_TOTAL (\\file)           |
@@ -4112,7 +4275,7 @@ DMEDIUM\_TOTAL
 | Location |  SMSQ/E v2.73+                                                    |
 +----------+-------------------------------------------------------------------+
 
- This function returns the number of total sectors available on the
+This function returns the number of total sectors available on the
 medium on which the specified file or directory is located, or to which
 the specified channel is open. If no parameter is specified, it looks to
 channel #3 (or #1 if #3 is not open).
@@ -4120,16 +4283,16 @@ channel #3 (or #1 if #3 is not open).
 
 **CROSS-REFERENCE**
 
-`DMEDIUM\_FREE <KeywordsD.clean.html#dmedium-free>`__\ allows you to find out
+`DMEDIUM\_FREE <KeywordsD.clean.html#dmedium-free>`__ allows you to find out
 the number of sectors which currently do not contain any data on the
-related medium. `DIR <KeywordsD.clean.html#dir>`__\ can also be used to obtain
+related medium. `DIR <KeywordsD.clean.html#dir>`__ can also be used to obtain
 this information. `FORMAT <KeywordsF.clean.html#format>`__ releases all
 sectors on a disk, marking any which may be corrupt as unavailable.
 
 --------------
 
 DMEDIUM\_TYPE
-~~~~~~~~~~~~~
+=============
 
 +----------+-------------------------------------------------------------------+
 | Syntax   |  DMEDIUM\_TYPE [(#channel)] or DMEDIUM\_TYPE (\\file)             |
@@ -4137,11 +4300,17 @@ DMEDIUM\_TYPE
 | Location |  SMSQ/E v2.73+                                                    |
 +----------+-------------------------------------------------------------------+
 
- This function returns a number representing the type of drive on which
+This function returns a number representing the type of drive on which
 the specified file or directory is located (or to which the specified
 channel is open). If no parameter is specified, it looks to channel #3
-(or #1 if #3 is not open). The values currently returned are: 0RAM disk
-1Floppy disk drive 2Hard disk drive 3CD-ROM drive
+(or #1 if #3 is not open). 
+
+The values currently returned are: 
+
+- 0 RAM disk
+- 1 Floppy disk drive 
+- 2 Hard disk drive 
+- 3 CD-ROM drive
 
 
 **NOTE**
@@ -4165,26 +4334,47 @@ DNEXT
 | Location |  Toolkit II                                                       |
 +----------+-------------------------------------------------------------------+
 
- This command allows you to move across a directory tree by replacing
+This command allows you to move across a directory tree by replacing
 the current sub-directory with the specified subdirectory in the default
-data device. If the default program device is the same as the default
-data device, then this will also be altered by DNEXT. If the default
+data device. 
+
+If the default program device is the same as the default
+data device, then this will also be altered by DNEXT. 
+
+If the default
 destination device is a directory device (ie. if it ends with an
 underscore), DNEXT also alters the last sub-directory in this (whether
 or not it points to another drive, or is further down the directory
-tree). win1\_ \| +--------+-------+ \| \| \| C BASIC Quill \| \|
-+---+---+ +-----+-----+ \| \| \| \| include objects letters translations
-\| secret The above could be a directory tree on a hard disk. DATA\_USE
+tree). 
+
+::
+
+    win1_
+    win1_C_
+    win1_C_include_
+    win1_C_objects_
+    win1_BASIC_
+    win1_QUILL_
+    win1_QUILL_letters_
+    win1_QUILL_translations
+    win1_secret_
+
+The above could be a directory tree on a hard disk. DATA\_USE
 win1\_C\_ defines win1\_C\_ as the default directory device, so WDIR
-will list all of the files in win1\_C\_. Assuming that
+will list all of the files in win1\_C\_. 
+
+Assuming that
 PROGD$='win1\_BASIC\_' and DESTD$='flp2\_C\_Include\_', entering DNEXT
-Quill will result in the following: DATAD$='win1\_Quill\_'
-PROGD$='win1\_BASIC\_' DESTD$='flp2\_C\_Quill\_'
+Quill will result in the following: 
+
+- DATAD$='win1\_Quill\_'
+- PROGD$='win1\_BASIC\_' 
+- DESTD$='flp2\_C\_Quill\_'
 
 
 **NOTE 1**
 
- DNEXT does not check if there are any files with the given prefix which
+DNEXT does not check if there are any files with the given prefix which
 exist.
 
 
@@ -4222,29 +4412,45 @@ DO
 | Location |  Toolkit II                                                       |
 +----------+-------------------------------------------------------------------+
 
- This command allows you to execute a set of commands stored in a file
-(acting as an overlay). It is intended to perform tasks dictated by a
+This command allows you to execute a set of commands stored in a file
+(acting as an overlay). 
+
+It is intended to perform tasks dictated by a
 numberless file, which enables you to do many things whilst releasing
-memory once the tasks have been performed. DO is actually very similar
-to the Toolkit II variant MERGE
- and will ensure that if the given file only contains numberless lines,
-the channel is closed afterwards. It does however work just as well as
-MERGE on numbered files! A numberless program is basically a set of
+memory once the tasks have been performed. 
+
+DO is actually very similar to the Toolkit II variant MERGE
+and will ensure that if the given file only contains numberless lines,
+the channel is closed afterwards. 
+
+It does however work just as well as MERGE on numbered files! 
+
+A numberless program is basically a set of
 SuperBASIC lines which do not have any line numbers. These can therefore
 best be entered with the aid of an editor program. Each line is loaded
 into the QL with the relevant command, and then executed (one line at a
-time), as if they had been entered from the command line (#0). This
-therefore means that although they can call resident SuperBASIC
+time), as if they had been entered from the command line (#0). 
+
+This therefore means that although they can call resident SuperBASIC
 PROCedures and FuNctions, you can only have in-line structures, such as
-IF...END IF and SELect ON...END SELect. Once each line has been
-executed, it is lost and the memory occupied by that line released. One
+IF...END IF and SELect ON...END SELect. 
+
+Once each line has been
+executed, it is lost and the memory occupied by that line released. 
+
+One
 advantage for pre JS ROMs is that if you use a numberless file to link
 resident keywords, such keywords can then be used in the same program
 which MERGEd the numberless file. For example, if you have a numberless
-file flp1\_resident\_bas such as: a=RESPR(12000) LBYTES flp1\_Toolkit,a:
-CALL a
- you can then link and use the Toolkit commands in the same program by
-including a line such as: 110 DO flp1\_resident\_bas
+file flp1\_resident\_bas such as::
+
+    a=RESPR(12000) 
+    LBYTES flp1_Toolkit,a: CALL a
+
+you can then link and use the Toolkit commands in the same program by
+including a line such as:: 
+
+    110 DO flp1\_resident\_bas
 
 
 **NOTE**
@@ -4253,7 +4459,7 @@ On at least v2.28-v2.49 of Toolkit II, MERGE appears to work much better
 than DO at executing numberless files. If DO is entered as a direct
 command, none of the numberless lines are executed (compare MERGE which
 executes the first line), and if DO
- is part of a program, only the first line is executed (compare MERGE
+is part of a program, only the first line is executed (compare MERGE
 which executes all of the commands in the numberless file). This is
 fixed under SMS.
 
@@ -4276,28 +4482,40 @@ DOTLIN
 | Location |  HCO                                                              |
 +----------+-------------------------------------------------------------------+
 
- The command DOTLIN is a variant of LDRAW - it draws a dotted line in
+The command DOTLIN is a variant of LDRAW - it draws a dotted line in
 the specified colour col from the absolute co-ordinates (x1,y1) to
-(x2,y2). The three first parameters are small non-negative integers
+(x2,y2). 
+
+The three first parameters are small non-negative integers
 which specify after how many pixels the line is to be broken (they are
-known as the periods). The line is drawn by plotting the first p1
+known as the periods). 
+
+The line is drawn by plotting the first p1
 pixels, then leaving a gap of p2 pixels, plotting the next p3 pixels and
 once again leaving a gap of p2 pixels before recommencing the pattern.
 
 
 **Examples**
 
-DOTLIN 10,10,10,3,40,40,200,60
- draws a white line from the point (40,40) to the point (200,60) but
-only for periods of ten pixels. If a pixel is represented by an
-asterisk, this would look like this: \*\*\*\*\*\*\*\*\*\*
-\*\*\*\*\*\*\*\*\*\* ... \|-- 10 --\|\|-- 10 --\|\|-- 10 --\| ... DOTLIN
-with the periods 3, 5 and 10: \*\*\* \*\*\*\*\*\*\*\*\*\* \*\*\*
-\*\*\*\*\*\*\*\*\*\*
-\|3\|\|-5-\|\|---10---\|\|-5-\|\|3\|\|-5-\|\|---10---\|
+::
 
-CROSS-REFERENCES:
-~~~~~~~~~~~~~~~~~
+    DOTLIN 10,10,10,3,40,40,200,60
+
+draws a white line from the point (40,40) to the point (200,60) but
+only for periods of ten pixels. 
+
+If a pixel is represented by an asterisk, this would look like this::
+
+    **********          ********** ... 
+    |-- 10 --||-- 10 --||-- 10 --| ... 
+
+
+DOTLIN with the periods 3, 5 and 10::
+
+    ***     **********     ***     ********** 
+    |3||-5-||---10---||-5-||3||-5-||---10---|
+
+**CROSS-REFERENCE**
 
 All the warnings relevant to SET apply.
 
@@ -4312,7 +4530,7 @@ DRAW
 | Location |  Fast PLOT/DRAW Toolkit                                           |
 +----------+-------------------------------------------------------------------+
 
- This command draws a line in absolute co-ordinates on the screen. Any
+This command draws a line in absolute co-ordinates on the screen. Any
 windows and window attributes are ignored. x1 and x2 range from 0 to
 511, y1 and y2 from 0 to 255. DRAW uses the screen base address defined
 with SCRBASE (which enables it to draw on a screen stored in memory as
@@ -4325,22 +4543,44 @@ values give odd results without being dangerous.
 **Example**
 
 Here is a procedure which draws a line given in polar co-ordinates. A
-point in a polar system is specified by a radius and angle. 170 DEFine
-PROCedure POLAR\_DRAW (r1,phi1,r2,phi2,col) 180 REMark less precise but
-fast version 190 LOCal r,phi,r\_old,phi\_old,dr,dphi 200 LOCal
-x1,x2,y1,y2,dist 210 r\_old=r1: phi\_old=phi1 220 r=r1: phi=phi1 230
-x1=1.35\*r\_old\*SIN(phi\_old+PI/2)+255 240
-y1=r\_old\*COS(phi\_old+PI/2)+127 250 dist=(r1+r2)/2 \* (phi1+phi2)/PI
-260 IF dist==0 THEN RETurn 270 dr=(r2-r1)/dist: dphi=(phi2-phi1)/dist
-280 REPeat Drawing 290 IF r>=r2 AND phi>=phi2 THEN EXIT Drawing 300
-r=r\_old+dr: phi=phi\_old+dphi 310 x2=1.35\*r\*SIN(phi+PI/2)+255 320
-y2=r\*COS(phi+PI/2)+127 330 DRAW x1,y1 TO x2,y2 ,col 340 r\_old=r:
-phi\_old=phi 350 x1=x2: y1=y2 360 END REPeat Drawing 370 END DEFine
-POLAR\_DRAW
- POLAR 0,0 TO 100,8\*PI ,7 draws an archimedic spiral and these few
-lines create a polar pattern: 10 SCLR 0 20 FOR a=0 TO 50 STEP 10 30
-POLAR\_DRAW a,0 TO a,2\*PI ,7 40 POLAR\_DRAW 0,PI\*a/25 TO 50,PI\*a/25
-,7 50 END FOR a 60 REFRESH
+point in a polar system is specified by a radius and angle. 
+
+::
+
+    170 DEFine PROCedure POLAR_DRAW (r1,phi1,r2,phi2,col) 
+    180   REMark less precise but fast version 
+    190   LOCal r,phi,r_old,phi_old,dr,dphi 
+    200   LOCal x1,x2,y1,y2,dist 
+    210   r_old=r1: phi_old=phi1 
+    220   r=r1: phi=phi1 
+    230   x1=1.35*r_old*SIN(phi_old+PI/2)+255 
+    240   y1=r_old*COS(phi_old+PI/2)+127 
+    250   dist=(r1+r2)/2 * (phi1+phi2)/PI
+    260   IF dist==0 THEN RETurn 
+    270   dr=(r2-r1)/dist: dphi=(phi2-phi1)/dist
+    280   REPeat Drawing 
+    290     IF r>=r2 AND phi>=phi2 THEN EXIT Drawing 
+    300     r=r_old+dr: phi=phi_old+dphi 
+    310     x2=1.35*r*SIN(phi+PI/2)+255 
+    320     y2=r*COS(phi+PI/2)+127 
+    330     DRAW x1,y1 TO x2,y2 ,col 
+    340     r_old=r: phi_old=phi 
+    350     x1=x2: y1=y2 
+    360   END REPeat Drawing 
+    370 END DEFine POLAR_DRAW
+
+::
+
+    POLAR_DRAW 0,0 TO 100,8*PI ,7 
+
+draws an archimedic spiral and these few lines create a polar pattern::
+
+    10 SCLR 0 
+    20 FOR a=0 TO 50 STEP 10 
+    30 POLAR_DRAW a,0 TO a,2*PI ,7
+    40 POLAR_DRAW 0,PI*a/25 TO 50,PI*a/25, 7 
+    50 END FOR a 
+    60 REFRESH
 
 
 **NOTE**
@@ -4370,13 +4610,15 @@ DRAW
 | Location |  DRAW (DIY Toolkit - Vol G)                                       |
 +----------+-------------------------------------------------------------------+
 
- This command draws a line in absolute co-ordinates on the screen with
+This command draws a line in absolute co-ordinates on the screen with
 reference to the specified window channel (if any - default #1). The
 line is drawn from the last point plotted with the PLOT
- command from the same toolkit, to the point specified by x2,y2. This is
+command from the same toolkit, to the point specified by x2,y2. This is
 quicker than using the SuperBASIC LINE command and unlike other similar
 commands, it will support the current INK
- colour and OVER mode. <CTRL><F5> will pause the line drawing and it
+colour and OVER mode. 
+
+<CTRL><F5> will pause the line drawing and it
 will even work in MODE 4, 8 and 12 (on the THOR XVI, provided that you
 have v1.6+). The main limitation on this command is that the line must
 appear fully within the specified window, so x2 and y2 cannot exceed the
@@ -4408,15 +4650,18 @@ DROUND
 | Location |  TRIPRODRO                                                        |
 +----------+-------------------------------------------------------------------+
 
- The function DROUND will return the floating point number x
- rounded to d decimal digits, counted from the left of the number.
+The function DROUND will return the floating point number x
+rounded to d decimal digits, counted from the left of the number.
 DROUND rounds the last digit up or down depending on the next digit
 (ignoring any others).
 
 
 **Example**
 
-DROUND(3, 1234.56) = 1230 DROUND(4, 1234.56) = 1235
+::
+
+    DROUND(3, 1234.56) = 1230 
+    DROUND(4, 1234.56) = 1235
 
 
 **CROSS-REFERENCE**
@@ -4434,15 +4679,30 @@ DUP
 | Location |  Toolkit II                                                       |
 +----------+-------------------------------------------------------------------+
 
- This command strips off the last part of the default data device, thus
+This command strips off the last part of the default data device, thus
 moving up the directory tree. If the default program device is the same
 as the default data device, then this will also be altered by DUP. If
 the default destination device is a directory device (ie. if it ends
 with an underscore), DUP also alters this (whether or not it points to
-another drive). win1\_ \| +--------+-------+ \| \| \| C BASIC Quill \|
-\| +---+---+ +-----+-----+ \| \| \| \| include objects letters
-translations \| secret If DATAD$ is win1\_, DDOWN Quill moves down to
-win1\_Quill\_, whilst DUP will move DATAD$ back up to win1\_. If DATAD$
+another drive). 
+
+::
+
+    win1_
+    win1_C_
+    win1_C_include_
+    win1_C_objects_
+    win1_BASIC_
+    win1_QUILL_
+    win1_QUILL_letters_
+    win1_QUILL_translations
+    win1_secret_
+
+
+If DATAD$ is win1\_, DDOWN Quill moves down to
+win1\_Quill\_, whilst DUP will move DATAD$ back up to win1\_. 
+
+If DATAD$
 is win1\_Quill\_letters\_secret\_, three DUPs will change it back to
 win1\_.
 
