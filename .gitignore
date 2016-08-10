@@ -6,3 +6,4 @@ tools/fixLinkComments
 *.pickle
 sphinx/build/*
 tools/fixLinks
+tools/preHTMLTidy
