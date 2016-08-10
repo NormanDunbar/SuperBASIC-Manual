@@ -1,0 +1,1830 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html;
+      charset=ISO-8859-1">
+    <link rel="stylesheet" type="text/css" href="css/QLManualStyle.css" media="all" />
+    <title>Sinclair QL SuperBASIC/SBASIC Reference Manual - Keywords E</title>
+</head>
+<body>
+<div id="header">
+  SBASIC/SuperBASIC Reference Manual Online (c) RWAP Software
+  <br />
+  The Online Guide to programming the Sinclair QL Home Computer in SuperBASIC
+</div>
+<div id="sideBar">
+    <ul>
+        <li><a href="Foreword.html">Foreword</a></li>
+        <li><a href="Introduction.html">Introduction</a></li>
+        <li><a href="Credits.html">Credits</a></li>        
+        <li><a href="Structure.html">Structure</a></li>
+        <li><a href="WritingPrograms.html">Writing Programs</a></li>
+        <hr>
+        <li><a href="KeywordsA.html">Keywords - A</a></li>
+        <li><a href="KeywordsB.html">Keywords - B</a></li>
+        <li><a href="KeywordsC.html">Keywords - C</a></li>
+        <li><a href="KeywordsD.html">Keywords - D</a></li>
+        <li><a href="KeywordsE.html">Keywords - E</a></li>
+        <li><a href="KeywordsF.html">Keywords - F</a></li>
+        <li><a href="KeywordsG.html">Keywords - G</a></li>
+        <li><a href="KeywordsH.html">Keywords - H</a></li>
+        <li><a href="KeywordsI.html">Keywords - I</a></li>
+        <li><a href="KeywordsJ.html">Keywords - J</a></li>
+        <li><a href="KeywordsK.html">Keywords - K</a></li>
+        <li><a href="KeywordsL.html">Keywords - L</a></li>
+        <li><a href="KeywordsM.html">Keywords - M</a></li>
+        <li><a href="KeywordsN.html">Keywords - N</a></li>
+        <li><a href="KeywordsO.html">Keywords - O</a></li>
+        <li><a href="KeywordsP.html">Keywords - P</a></li>
+        <li><a href="KeywordsQ.html">Keywords - Q</a></li>
+        <li><a href="KeywordsR.html">Keywords - R</a></li>
+        <li><a href="KeywordsS.html">Keywords - S</a></li>
+        <li><a href="KeywordsT.html">Keywords - T</a></li>
+        <li><a href="KeywordsU.html">Keywords - U</a></li>
+        <li><a href="KeywordsV.html">Keywords - V</a></li>
+        <li><a href="KeywordsW.html">Keywords - W</a></li>
+        <li><a href="KeywordsX.html">Keywords - X</a></li>
+        <li><a href="KeywordsY.html">Keywords - Y</a></li>
+        <li><a href="KeywordsZ.html">Keywords - Z</a></li>
+        <li><a href="Keywords_.html">Keywords - Other</a></li>
+        <hr>
+        <li><a href="AppendicesIntro.html">Appendices Introduction</a></li>
+        <li><a href="Appendix01.html">Appendix 1 - Minerva</a></li>
+        <li><a href="Appendix02.html">Appendix 2 - SMSQE</a></li>
+        <li><a href="Appendix03.html">Appendix 3 - Emulators</a></li>
+        <li><a href="Appendix04.html">Appendix 4 - THOR Computers</a></li>
+        <li><a href="Appendix05.html">Appendix 5 - Expansion Boards</a></li>
+        <li><a href="Appendix06.html">Appendix 6 - Compatability</a></li>
+        <li><a href="Appendix07.html">Appendix 7 - Multiple BASICs</a></li>
+        <li><a href="Appendix08.html">Appendix 8 - Error Messages</a></li>
+        <li><a href="Appendix09.html">Appendix 9 - Character Set / Keyboard</a></li>
+        <li><a href="Appendix10.html">Appendix 10 - Fonts</a></li>
+        <li><a href="Appendix11.html">Appendix 11 - Mathematics</a></li>
+        <li><a href="Appendix12.html">Appendix 12 - Device Drivers</a></li>
+        <li><a href="Appendix13.html">Appendix 13 - Extended Pointer Environment</a></li>
+        <li><a href="Appendix14.html">Appendix 14 - Coercion</a></li>
+        <li><a href="Appendix15.html">Appendix 15 - Mouse Drivers</a></li>
+        <li><a href="Appendix16.html">Appendix 16 - The QL Display</a></li>
+        <li><a href="Appendix17.html">Appendix 17 - Networks</a></li>
+        <li><a href="Appendix18.html">Appendix 18 - Configuring Programs</a></li>
+    </ul>
+</div>
+<div id="mainText">
+<h1><a name="EASTER"></a>EASTER</h1><br>Syntax: <span style="font-style: italic;">EASTER (year%)</span>  where <span style="font-style: italic;">year%</span> >= 1583
+Location: <span style="font-style: italic;">Math Package
+<br></span><br>This function calculates the date of Easter Sunday for any
+<br>given  year  after  1583  (when  the  Gregorian  calender  was
+<br>introduced by Pope Gregory XIII to replace the Julian calender
+<br>of Julius Caeser which had been in use since 46 BC).
+<br><br><span style="font-style: italic;">EASTER</span> returns the date as a floating point number, where the
+<br>day is the integer part of the number and the month is given
+<br>by the digits following the floating point, eg.
+<br><span style="font-style: italic;">PRINT EASTER(1993)
+<br></span><br>shows 11.4       (April, 11th)
+<br><br><h3>Example:
+<br></h3><br>Easter Sunday is used as a basis to fix other clerical
+<br><br>days, so if two years have Easter Sunday on the same day,
+<br><br>the other holy dates are identical, too:
+<br><span style="font-style: italic;">100 INPUT "Year=";year
+<br>110 east1=EASTER(year)
+<br>120 FOR y=year+1 TO 32767
+<br>130  east2=EASTER(y)
+<br>140  IF east1=east2 THEN
+<br>150   PRINT "Next Easter Sunday on"!east1;". is in"!y;"."
+<br>160   EXIT y
+<br>170  END IF
+<br>180 END FOR y
+<br></span><br><h3>NOTE:
+<br></h3><br><span style="font-style: italic;">EASTER</span> does not return the correct value on SMSQ/E for some
+<br>reason.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;"href="KeywordsG.html#GREGOR">GREGOR</a><br><h3>
+<br></h3><hr style="width: 100%; height: 2px;"><h1><a name="ED"></a>ED</h1><br>Syntax: <span style="font-style: italic;">ED</span> [<span style="font-style: italic;">#ch,</span>] [<span style="font-style: italic;">start_line</span>]
+Location: <span style="font-style: italic;">Toolkit II
+<br></span><br>This command invokes Toolkit II's full-screen editor. This
+<br>provides powerful facilities for editing a SuperBASIC program
+<br>loaded in memory and forms a useful alternative to the QL's
+<br>standard <span style="font-style: italic;">EDIT</span> and <span style="font-style: italic;">AUTO</span> commands.
+<br><br><span style="font-style: italic;">ED</span> will list the current SuperBASIC program from its first
+<br>line (or from the specified <span style="font-style: italic;">start_line</span>) onwards in the given
+<br>channel (default #2). If the specified channel (#ch) is not a
+<br>console con_ channel, then an error -15 (Bad Parameter) will
+<br>be reported.
+<br><br>If any lines are too long to fit in the specified window,
+<br>they  are  wrapped  round  onto  the  next  line,  with  this
+<br>'continuation line' indented in order to differentiate from
+<br>other program lines. It does however make sense to use the
+<br>widest possible window to avoid wrapping of lines.
+<br><br>Once a window-full of the listing is shown, <span style="font-style: italic;">ED</span> will
+<br>activate the cursor in the window and you can then move up or
+<br>down through the listing by using the up and down cursor keys.
+<br>The left and right cursor keys will move across the listing
+<br>lines (and even 'blank' space where the actual program lines
+<br>do not appear).
+<br><br>Any attempt to alter a line (eg. to delete a character)
+<br>will activate that line, in which case it will be shown in
+<br>inverse colours. Any attempt to move the cursor off that line
+<br>(or pressing &lt;ENTER&gt;) will tell <span style="font-style: italic;">ED</span> to accept the alterations
+<br>and de-activate that line. If the line is not acceptable to
+<br>the SuperBASIC  parser,  then  a 'Bad  Line'  error  will  be
+<br>generated in #0 and the line re-activated.
+<br><br>If you press the Break key or &lt;ESC&gt; whilst a line is
+<br>active, it will be de-activated and returned to its original
+<br>state.
+<br><br>If no line is active, &lt;ENTER&gt; will insert a new line number
+<br>half-way (if possible) between the number of the line on which
+<br>the cursor is situated and the next line number. If there is
+<br>no room for an additional line between the two program lines,
+<br>&lt;ENTER&gt; will be ignored. If on the other hand, there is a gap
+<br>of 20 or more (or there are no further program lines), the new
+<br>line number will be the current line number plus 10.
+<br><br>Another way of creating new lines is to amend the line
+<br>number of the current line. If you do this, a new line with
+<br>the amended line number will be inserted (overwriting any
+<br>existing line) and the current line will remain the same (the
+<br>cursor remains on the same line). This enables you to copy
+<br>lines from one part of a program to another.
+<br><br>By way of further assistance to the SuperBASIC programmer,
+<br><span style="font-style: italic;">ED</span> can work in two modes - Overwrite Mode and Insert Mode. The
+<br>latter is the default, in which case any characters typed will
+<br>activate the current line and insert them at the current
+<br>cursor position. In Overwrite Mode, any characters typed will
+<br>activate the current line and replace the characters under the
+<br>cursor.
+<br><br>A line can be deleted either by using &lt;CTRL&gt;&lt;ALT&gt;&lt;&gt;
+<br>(except on SMS where you must use &lt;CTRL&gt;&lt;&gt;) or by deleting
+<br>all of the visible characters in a line. If you delete
+<br>everything but the line number, then the line pointed to by
+<br>that line number will be deleted.
+<br><br>There are several other keys available which make editing a
+<br>SuperBASIC program much easier than under <span style="font-style: italic;">EDIT</span>.  The keys
+<br>available from within the standard <span style="font-style: italic;">ED</span> are listed on the next
+<br>page.
+<br><br><h3>NOTE 1:
+<br></h3><br>Avoid <span style="font-style: italic;">ED #0</span> if possible.
+<br><br><h3>NOTE 2:
+<br></h3><br><span style="font-style: italic;">ED</span> is likely to cause various problems if used from within
+<br>a SuperBASIC program.
+<br><br><h3>NOTE 3:
+<br></h3><br>Any attempt to create SuperBASIC lines which are longer
+<br>than 32766 characters may crash SuperBASIC.
+<br><br><h3>NOTE 4:
+<br></h3><br>If a program contains a line 32767, this may upset <span style="font-style: italic;">ED</span> when
+<br>you are editing the end of the program.
+<br><br><h3>NOTE 5:
+<br></h3><br><span style="font-style: italic;">ED</span> is not very helpful when there is no program actually in
+<br>memory, as it starts off with a blank screen and you have to
+<br>type the whole line, including line number (even if you passed
+<br>a line number with the command).
+<br><br><h3>NOTE 6:
+<br></h3><br>As from SMS v2.58 you can use <span style="font-style: italic;">ED ERLIN</span> to edit the line which
+<br>has caused an error.  We are not certain if this works on
+<br>other implementations.
+<br><br><h3>NOTE 7:
+<br></h3><br>Any attempt to <span style="font-style: italic;">ED</span> a line number greater than 32757 can
+<br>cause problems (on some versions <span style="font-style: italic;">ED</span> creates negative line
+<br>numbers, on others you cannot see the line being edited).
+<br>SMSQ/E v2.85 (at least) does not have these problems, but see
+<br>Note 4 above.
+<br><br>The keys available in <span style="font-style: italic;">ED</span> are:
+<br><br>&lt;ENTER&gt;Create new line, unless line is active, in
+<br><br>which  case  this  tells  <span style="font-style: italic;">ED</span>  to  accept
+<br><br>alterations to the line and de-activate
+<br><br>it.
+<br><br>&lt;ESC&gt;Leave <span style="font-style: italic;">ED</span> - control returns to #0 unless
+<br><br>line  is  active,  in  which  case  this
+<br><br>de-activates line without altering it.
+<br><br>&lt;CTRL&gt;&lt;SPACE&gt;see &lt;ESC&gt;.
+<br><br>&lt;TAB&gt;Move to the right by multiples of eight.
+<br><br>&lt;SHIFT&gt;&lt;TAB&gt;Move to the left by multiples of eight.
+<br><br>&lt;&gt;Move up one line.
+<br><br>&lt;ALT&gt;&lt;&gt;Scroll up a line (cursor remains still,
+<br><br>text moves down)
+<br><br>&lt;SHIFT&gt;&lt;&gt;Scroll up one page (cursor remains still)
+<br><br>&lt;&gt;Move down one line
+<br><br>&lt;ALT&gt;&lt;&gt;Scroll down a line (cursor remains still,
+<br><br>text moves up)
+<br><br>&lt;SHIFT&gt;&lt;&gt;Scroll  down  one  page  (cursor  remains
+<br><br>still)
+<br><br>&lt;&gt;Move right one character
+<br><br>&lt;CTRL&gt;&lt;&gt;Delete  character  under  cursor  (line
+<br><br>becomes active)
+<br><br>&lt;&gt;Move left one character
+<br><br>&lt;CTRL&gt;&lt;&gt;Delete character to left of cursor (line
+<br><br>becomes active)
+<br><br>&lt;CTRL&gt;&lt;ALT&gt;&lt;&gt;Delete line under cursor (not under SMS).
+<br><br>&lt;SHIFT&gt;&lt;F4&gt;Switch between overwrite and insert mode
+<br><br>SMS adds the following additional keys:
+<br><br>&lt;SHIFT&gt;&lt;&gt;Move left one word
+<br><br>&lt;ALT&gt;&lt;&gt;Move to start of line
+<br><br>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;&gt;Delete  word  to  left  of  cursor  (line
+<br><br>becomes active)
+<br><br>&lt;CTRL&gt;&lt;ALT&gt;&lt;&gt;Delete from cursor to start of line (line
+<br><br>becomes active)
+<br><br>&lt;SHIFT&gt;&lt;&gt;Move right one word
+<br><br>&lt;ALT&gt;&lt;&gt;Move to end of line
+<br><br>&lt;CTRL&gt;&lt;SHIFT&gt;&lt;&gt;Delete word under cursor (line becomes
+<br><br>active)
+<br><br>&lt;CTRL&gt;&lt;ALT&gt;&lt;&gt;Delete from cursor to end of line (line
+<br><br>becomes active)
+<br><br>&lt;CTRL&gt;&lt;&gt;Delete whole line under cursor
+<br><br>&lt;SHIFT&gt;&lt;F5&gt;Stuff the currently activated line into
+<br><br>the Hotkey buffer so that this can be
+<br><br>later recalled with &lt;ALT&gt;&lt;SPACE&gt;.  Note
+<br><br>this will only work if the Hotkey system
+<br><br>is active (see <span style="font-style: italic;">HOT_GO</span>).  For this you need
+<br><br>v2.58+
+<br><br><h3>SMS NOTES:
+<br></h3><br>Oddly, the SuperBasic interpreter allows you to enter a
+<br>line which is beyond the permitted range of line numbers, for
+<br>example, enter as a direct command:
+<br><br><span style="font-style: italic;">40000 PRINT 'This should not be accepted'
+<br></span><br>No error is reported, and the line is executed as if it had
+<br>been entered without a line number!
+<br><br>SMS also suffers with problems if you edit a long line at
+<br>the bottom of a window, so that as you type in more text for
+<br>the line, the program line extends below the bottom of the
+<br>window. 'Invalid Syntax' is printed over and over in #0,
+<br>crashing the computer.  This was improved in v2.71 but still
+<br>has not been totally fixed.
+<br><br>The keying &lt;CTRL&gt;&lt;&gt; clashes with the key used by early
+<br>versions of the program MasterBasic (by Ergon Software) which
+<br>is used to move between occurences of an object which has been
+<br>searched for in the program.  This has been resolved in v1.46+
+<br>of the program.
+<br><br>If you try to use <span style="font-style: italic;">ED</span> on #2 and this is not open, then SMS
+<br>will use #0 (if this is not open, it will open a default
+<br>window #0).  This is useful for SBASICs which may be started
+<br>with only one channel open (an input channel).
+<br><br>Another useful feature implemented on SMS is that as from
+<br>v2.69, if you enter the command <span style="font-style: italic;">ED</span> without any parameters, this
+<br>has one of two effects.  If you have not previously used <span style="font-style: italic;">ED</span>,
+<br>this  edits  the  start  of  the  program  (as  on  all  other
+<br>versions).  However, if you have previously used <span style="font-style: italic;">ED</span>, the line
+<br>which is shown at the top of #2 is the line which was at the
+<br>top of the window when you left <span style="font-style: italic;">ED</span> previously - this can
+<br>therefore be useful when testing a section of the program.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>Please also refer to <a style="font-style: italic;" href="KeywordsA.html#AUTO">AUTO</a> and <a style="font-style: italic;" href="KeywordsE.html#EDIT">EDIT</a> which are replaced by this
+<br>command.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="EDIT"></a>EDIT</h1><br>Syntax: <span style="font-style: italic;">EDIT </span>[<span style="font-style: italic;">start_number</span>] [<span style="font-style: italic;">,step</span>]
+Location: <span style="font-style: italic;">QL ROM
+<br></span><br>This command allows you to enter the SuperBASIC line editor
+<br>in order to alter a SuperBASIC program loaded in memory. It
+<br>will automatically create line numbers in the command line
+<br>(#0) to assist in entering SuperBASIC programs, in much the
+<br>same way as <span style="font-style: italic;">AUTO</span>.
+<br><br><span style="font-style: italic;">EDIT</span> would normally only be entered as a direct command
+<br>(although you can include it in a program line, the line
+<br>numbers will not be generated until the program has finished
+<br>its work).
+<br><br>Once entered, you will be presented with the first line
+<br><span style="font-style: italic;">start_number</span> (default 100) - if this line already exists in the
+<br>program, then the existing line will be presented. Otherwise,
+<br>you will only see the current line number. Pressing the up and
+<br>down arrow keys will move you to the previous line or the next
+<br>line (respectively) in the program, although if there is no
+<br>previous (or next) line, then you will exit the <span style="font-style: italic;">EDIT</span> mode.
+<br>However, if you press the Enter key, if <span style="font-style: italic;">step</span> is specified
+<br>(default 0), this will act in the same way as <span style="font-style: italic;">AUTO</span>. However, if
+<br>step is not specified, you will leave <span style="font-style: italic;">EDIT</span> mode.
+<br><br>The main advantage of using <span style="font-style: italic;">EDIT</span> over <span style="font-style: italic;">ED</span> is how <span style="font-style: italic;">EDIT</span> handles
+<br>the screen.  If the program has not been previously <span style="font-style: italic;">EDIT</span>ed (or a
+<br>PROC/FN Cleared message has been displayed) then <span style="font-style: italic;">EDIT</span> will show
+<br>a section of the current program in #2 when you move off the
+<br>line currently being <span style="font-style: italic;">EDIT</span>ed with the cursor keys or &lt;ENTER&gt;.
+<br>This section will have the line which was just <span style="font-style: italic;">EDIT</span>ed as the top
+<br>line and will go on to fill #2 with additional lines of the
+<br>program.
+<br><br>However, if the program has already been <span style="font-style: italic;">EDIT</span>ed and the
+<br>PROC/FN Cleared message has not been displayed, then <span style="font-style: italic;">EDIT</span> will
+<br>not affect the display on screen (other than showing parts of
+<br>the program in #0) until you <span style="font-style: italic;">EDIT</span> a line which is within the
+<br>range of lines which were previously being <span style="font-style: italic;">EDIT</span>ed.  This range
+<br>of lines is actually slightly bigger than the lines which
+<br>would have been displayed in #2, going from an invisible top
+<br>line (the line above the displayed line) to an invisible
+<br>bottom line (the line below the displayed line).  Now, this
+<br>can be quite useful when searching a program for some text or
+<br>deciding where to copy a section of the program to, or even to
+<br>line up characters on screen when the program has been <span style="font-style: italic;">RUN</span>.
+<br><br>The listing which last appeared on #2 is represented as:-
+<br><br><span style="font-style: italic;">110 PAPER 0:INK 4:CLS</span>(Invisible Top Line)
+<br><span style="font-style: italic;"><br>--------------------------------------------
+<br><br>120 PRINT 'A PROGRAM'</span>(Displayed Lines)
+<br><span style="font-style: italic;"><br>130 PRINT 'TO GET YOUR NAME'|
+<br><br>140 INPUT \\'ENTER YOUR NAME';name$|
+<br><br>150 PRINT \\|
+<br><br>160 PRINT 'HELLO'!name$|
+<br><br>--------------------------------------------
+<br><br>170 PRINT \\"I'M YOUR COMPUTER"</span>(Invisible bottom Line)
+<br><br><h3>NOTE 1:
+<br></h3><br>You cannot set an absolute <span style="font-style: italic;">step</span> value of zero - omit this
+<br>parameter to achieve the same result!
+<br><br><h3>NOTE 2:
+<br></h3><br>On non-Minerva ROMs <span style="font-style: italic;">EDIT</span> uses the same routine as <span style="font-style: italic;">RENUM</span> to
+<br>check its parameters, which means that you can specify a
+<br><span style="font-style: italic;">start_line</span> and an <span style="font-style: italic;">end_line</span>, although they do nothing. For example:
+<br><br><span style="font-style: italic;">EDIT 100 TO 1000;1000,20
+<br></span><br>would createlines 1000, 1020, 1040, ....
+<br><h3><br>NOTE 3:
+<br></h3><br>The maximum line number is 32767.
+<br><br>Both <span style="font-style: italic;">start_number</span> and <span style="font-style: italic;">step</span> should be integers - if they are not,
+<br>they will be rounded to the nearest integer (compare <span style="font-style: italic;">INT</span>).
+<br><br><h3>NOTE 4:
+<br></h3><br>Additional keys are available for editing on Minerva (see
+<br><span style="font-style: italic;">INPUT</span>).
+<br><br><h3>NOTE 5:
+<br></h3><br><span style="font-style: italic;">EDIT</span> can give problems if it is issued after breaking into a
+<br>program which was in the middle of a PROCedure or FuNction at
+<br>the time. On non-Minerva ROMs, this is likely to produce a
+<br>'not implemented' error and the wrong line. Press Break and
+<br>try again  do not try to edit the line.
+<br><br>On Minerva ROMs (pre v1.97) this is compounded by the fact
+<br>that Minerva tends to try to run the program again. Sometimes
+<br>you are lucky and Minerva tries to jump to a non-existent line
+<br>number  before  presenting  you  with  the  desired  line.
+<br>Unfortunately, <span style="font-style: italic;">EDIT</span> is never really safe in this context, and
+<br>you should either type <span style="font-style: italic;">CLEAR</span> before <span style="font-style: italic;">EDIT</span> or use <span style="font-style: italic;">ED</span>.
+<br><br><h3>NOTE 6:
+<br></h3><br>On pre Minerva ROMs SuperBASIC is liable to lock up if you
+<br>try to <span style="font-style: italic;">EDIT</span> a line after trying to call a PROCedure/FuNction
+<br>which was defined at the end of the program, but had been
+<br>deleted.
+<br><br><h3>SMS NOTES:
+<br></h3><br>On SMS the <span style="font-style: italic;">EDIT</span> command is exactly the same as <span style="font-style: italic;">ED</span>.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsA.html#AUTO">AUTO</a> is very similar, especially where <a style="font-style: italic;" href="Keywordss.html#step">step</a> is specified.
+<br><br><a style="font-style: italic;" href="KeywordsD.html#DLINE">DLINE</a> deletes program lines.
+<br><br><a style="font-style: italic;" href="KeywordsI.html#INPUT">INPUT</a> contains details of the available keypresses for
+<br>cursor navigation.
+<br><br><a style="font-style: italic;" href="KeywordsE.html#ED">ED</a> provides a different means of editing a SuperBASIC
+<br>program.
+<br><br>PRINT PEEK_W(\\ HEX('9C')) returns the line number of the invisible
+<br>top line which was last <a style="font-style: italic;" href="KeywordsE.html#EDIT">EDIT</a>ed (except on SMS).
+<br><br>PRINT PEEK_W(\\ HEX('9E')) returns the line number of the bottom
+<br>line in #2 which was last <a style="font-style: italic;" href="KeywordsE.html#EDIT">EDIT</a>ed (except on SMS).
+<br><hr style="width: 100%; height: 2px;"><h1><a name="EDITF"></a>EDITF</h1><br>Syntax: <span style="font-style: italic;">EDITF (</span>[<span style="font-style: italic;">#ch,</span>]<span style="font-style: italic;"> </span>{<span style="font-style: italic;">default </span>|<span style="font-style: italic;"> default$</span>}<span style="font-style: italic;"> </span>[<span style="font-style: italic;">,maxlen%</span>]<span style="font-style: italic;">)
+<br></span>Location: <span style="font-style: italic;">Turbo Toolkit
+<br></span><br>This function is similar to <span style="font-style: italic;">EDLINE$</span>.  However, <span style="font-style: italic;">EDITF</span> is
+<br>intended solely for asking the user to enter a floating point
+<br>number.  The specified <span style="font-style: italic;">default</span> (which may be given as a number or
+<br>a string) is printed at the current text cursor position in <span style="font-style: italic;">#ch
+<br></span>(default #1) and allows you to edit it.  The parameter <span style="font-style: italic;">maxlen%
+<br></span>dictates  the  maximum  number  of  characters  allowed  (this
+<br>defaults  to  the  amount  set  when  the  Turbo  Toolkit  is
+<br>configured). The edited result is returned when &lt;ENTER&gt; is
+<br>pressed.
+<br><br>If the string contains a non-sensical value when &lt;ENTER&gt; is
+<br>pressed, a warning beep is sounded.
+<br><br><h3>NOTE:
+<br></h3><br>On non-SMS machines, a buffer full errror could be reported
+<br>if an attempt was made to enter a string longer than 118
+<br>characters, or the length of the longest SuperBASIC line
+<br>listed or edited to date, whichever is longer.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsS.html#EDLINE$">See EDLINE$</a>.  <a style="font-style: italic;" href="KeywordsE.html#EDIT%">EDIT%</a> and <a style="font-style: italic;" href="KeywordsE.html#EDIT$">EDIT$</a> are also useful.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="EDIT%"></a>EDIT%</h1><br>Syntax: <span style="font-style: italic;">EDIT% (</span>[<span style="font-style: italic;">#ch,</span>]<span style="font-style: italic;"> </span>{<span style="font-style: italic;">default </span>|<span style="font-style: italic;"> default$</span>}<span style="font-style: italic;"> </span>[<span style="font-style: italic;">,maxlen%</span>]<span style="font-style: italic;">)
+<br></span>Location: <span style="font-style: italic;">Turbo Toolkit
+<br></span><br>This function is the same as <span style="font-style: italic;">EDITF</span>, except that only integer
+<br>values are acceptable.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsS.html#EDITF">See EDITF</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="EDIT$"></a>EDIT$</h1><br>Syntax: <span style="font-style: italic;">EDIT$ (</span>[<span style="font-style: italic;">#ch,</span>]<span style="font-style: italic;"> default$ </span>[<span style="font-style: italic;">,maxlen%</span>]<span style="font-style: italic;">)
+<br></span>Location: <span style="font-style: italic;">Turbo Toolkit
+<br></span><br>This function is similar to <span style="font-style: italic;">EDLINE$</span>.  It operates in the same
+<br>way as <span style="font-style: italic;">EDITF</span>, except that any string of characters can be
+<br>edited, rather than being restricted to a number.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsS.html#EDITF">See EDITF</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="EDLINE$"></a>EDLINE$</h1><br>Syntax: <span style="font-style: italic;">EDLINE$ (#ch, maxlen%, edit$)
+<br></span>Location: <span style="font-style: italic;">EDLINE (DIY Toolkit Vol E)
+<br></span><br>The function <span style="font-style: italic;">EDLINE$</span> prints <span style="font-style: italic;">edit$</span> at the current text cursor
+<br>position in <span style="font-style: italic;">#ch</span> (there is no default channel) and allows you to
+<br>edit it.  A maximum length of <span style="font-style: italic;">maxlen%</span> characters is allowed. The
+<br>edited result is returned.
+<br><br>Unlike <span style="font-style: italic;">INPUT</span>, <span style="font-style: italic;">EDLINE$</span> will not finish with &lt;UP&gt; or &lt;DOWN&gt; but
+<br>only after &lt;ENTER&gt; and &lt;CTRL&gt;&lt;SPACE&gt; (also &lt;ESC&gt; on Minerva).
+<br>Instead &lt;UP&gt; and &lt;DOWN&gt; move the cursor to the start and end
+<br>of the string respectively; apart from that the usual keys for
+<br>editing are used: &lt;CTRL&gt;&lt;LEFT&gt; deletes the character to the
+<br>left of the cursor, &lt;CTRL&gt;&lt;RIGHT&gt; the character under the
+<br>cursor.
+<br><br><h3>Example:
+<br></h3><span style="font-style: italic;">100 CLS
+<br>110 REPeat ask_name
+<br>120   PRINT \"Please enter your name: ";
+<br>130   Name$ = "Billy the Kid"
+<br>140   Name$ = EDLINE$(#1,40,Name$)
+<br>150   PRINT "Your name is '";Name$;"' (y/n)? ";
+<br>160   ok$ = EDLINE$(#1,1,"y")
+<br>170   IF ok$ INSTR "yY" THEN EXIT ask_name
+<br>180   PRINT "Try again..."
+<br>190 END REPeat ask_name
+<br>200 PRINT "Hello,"!Name$;"!"
+<br></span><br><h3>NOTE:
+<br></h3><br>You need a special version of <span style="font-style: italic;">EDLINE$</span> to work correctly on
+<br>Minerva and SMS.  This version is included with the DIY
+<br>Toolkit package.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsE.html#EDLINE$">EDLINE$</a> can be used to input numbers but you have to ensure
+<br>that the entered text can be successfully coerced to a number,
+<br>see <a style="font-style: italic;" href="KeywordsC.html#CHECK%">CHECK%</a> and <a style="font-style: italic;" href="KeywordsC.html#CHECKF">CHECKF</a> for that.  <a style="font-style: italic;" href="KeywordsE.html#EDIT$">EDIT$</a> is similar.
+<br><br>Other routines for human input are for example: <a style="font-style: italic;" href="KeywordsI.html#INPUT">INPUT</a>, <a style="font-style: italic;" href="KeywordsI.html#INKEY$">INKEY$</a>,
+<br><a style="font-style: italic;" href="KeywordsA.html#ASK">ASK</a> and <a style="font-style: italic;" href="KeywordsR.html#REPLY">REPLY</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="EL"></a>EL</h1><br>Syntax: <span style="font-style: italic;">EL
+<br></span>Location: <span style="font-style: italic;">Beuletools
+<br></span><br>This function returns the control codes needed to switch on
+<br>the NLQ ( near  letter  quality) font on an EPSON compatible
+<br>printer:
+<br><br><span style="font-style: italic;">PRINT EL
+<br></span><br>is the same as
+<br><br><span style="font-style: italic;">PRINT CHR$(27)&amp;"x"&amp;CHR$(1).
+<br></span><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsN.html#NORM">NORM</a>, <a style="font-style: italic;" href="KeywordsB.html#BLD">BLD</a>, <a style="font-style: italic;" href="KeywordsD.html#DBL">DBL</a>, <a style="font-style: italic;" href="KeywordsE.html#ENL">ENL</a>, <a style="font-style: italic;" href="KeywordsP.html#PRO">PRO</a>, <a style="font-style: italic;" href="KeywordsS.html#SI">SI</a>, <a style="font-style: italic;" href="KeywordsN.html#NRM">NRM</a>, <a style="font-style: italic;" href="KeywordsU.html#UNL">UNL</a>, <a style="font-style: italic;" href="KeywordsA.html#ALT">ALT</a>, <a style="font-style: italic;" href="KeywordsE.html#ESC">ESC</a>, <a style="font-style: italic;" href="KeywordsF.html#FF">FF</a>, <a style="font-style: italic;" href="KeywordsL.html#LMAR">LMAR</a>, <a style="font-style: italic;" href="KeywordsR.html#RMAR">RMAR</a>, <a style="font-style: italic;" href="KeywordsP.html#PAGDIS">PAGDIS</a>,
+<br><a style="font-style: italic;" href="KeywordsP.html#PAGLEN">PAGLEN</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="ELIS"></a>ELIS</h1><br>Syntax: <span style="font-style: italic;">ELIS (keyword$)
+<br></span><br>Location:<span style="font-style: italic;"> TinyToolkit
+<br></span><br>This function will return the machine code start address of
+<br>the  specified  resident  keyword  if  it  is  recognised  by
+<br>SuperBASIC. If the keyword is unknown, then the function will
+<br>generate a Not Found error.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsK.html#KEY_ADD">KEY_ADD</a>, <a style="font-style: italic;" href="KeywordsF.html#FLIS">FLIS</a> and <a style="font-style: italic;" href="KeywordsC.html#CODEVEC">CODEVEC</a>.
+<br><br>Compare <a style="font-style: italic;" href="KeywordsF.html#FIND">FIND</a> and <a style="font-style: italic;" href="KeywordsL.html#LOOKUP%">LOOKUP%</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="ELLIPSE"></a>ELLIPSE</h1><br>Syntax:
+<br><br><span style="font-style: italic;">    ELLIPSE </span>[<span style="font-style: italic;">#ch,</span>] <span style="font-style: italic;">x,y,radius,ratio,ecc </span><sup>*</sup>[<span style="font-style: italic;">;x</span><sup>i</sup><span style="font-style: italic;">,y</span><sup>i</sup><span style="font-style: italic;">,radius</span><sup>i</sup><span style="font-style: italic;">,ratio</span><sup>i</sup><span style="font-style: italic;">,ecc</span><sup>i</sup>]<sup>*
+<br></sup>Location: <span style="font-style: italic;">QL ROM
+<br></span><br>Both the <span style="font-style: italic;">ELLIPSE</span> and <span style="font-style: italic;">CIRCLE</span> commands perform exactly the same
+<br>function. We have however decided to split them, since if
+<br>users adopt the habit of using <span style="font-style: italic;">ELLIPSE</span> to draw ellipses and <span style="font-style: italic;">CIRCLE
+<br></span>to draw circles, this will help users understand SuperBASIC
+<br>programs much more easily.
+<br><br>This command allows you to draw an ellipse in the current
+<br><span style="font-style: italic;">INK</span> colour of the given <span style="font-style: italic;">radius</span> with its centre point at the point
+<br><span style="font-style: italic;">(x,y)</span>. The <span style="font-style: italic;">ratio</span> affects the difference between the major axis and
+<br>the minor axis - the greater the ratio, the greater the
+<br>difference between the two. The major (<span style="font-style: italic;">y</span>) axis is specified by
+<br>the parameter <span style="font-style: italic;">radius</span>, whereas the minor (<span style="font-style: italic;">x</span>) axis is calculated by
+<br><span style="font-style: italic;">radius</span>*<span style="font-style: italic;">ratio</span> which therefore means that if <span style="font-style: italic;">ratio</span>>1, the major axis
+<br>will become the (<span style="font-style: italic;">x</span>) axis (if you see what we mean!).
+<br><span style="font-style: italic;"><br>ecc</span> defines the angle at which the ellipse will be drawn.
+<br>This is measured in radians and forms the anti-clockwise angle
+<br>between a vertical line drawn through the origin of the
+<br>ellipse and the major axis. Thus, <span style="font-style: italic;">ecc=PI/4</span> draws an ellipse at an
+<br>angle of 45 degrees.
+<br><br>The actual positioning and size of the ellipse will depend
+<br>upon the scale and shape of the specified window (default #1).
+<br><br>The  co-ordinates  are  calculated  by  reference  to  the
+<br>graphics origin, and the graphics pointer will be set to the
+<br>centre point of the last ellipse to be drawn on completion of
+<br>the command.
+<br><br>If any parts of the ellipse lie outside of the specified
+<br>window, they will not be drawn (there will not be an error).
+<br><br>If the parameters <span style="font-style: italic;">ratio</span> and <span style="font-style: italic;">ecc</span> are omitted, this command has
+<br>exactly the same effect as <span style="font-style: italic;">CIRCLE</span>.
+<br><br>This command will actually allow you to draw multiple
+<br>ellipses by including more sets of parameters. Each additional
+<br>set must be preceded by a semicolon (unless the preceding
+<br>ellipse uses five parameters): This means for example, that
+<br>these all perform the same action:
+<br><span style="font-style: italic;">ELLIPSE 100,100,20,1,2,50,50,20
+<br>ELLIPSE 100,100,20,1,2;50,50,20
+<br>ELLIPSE 100,100,20,1,2: CIRCLE 50,50,20
+<br></span><br><h3>
+<br></h3><br>Although the <span style="font-style: italic;">FILL</span> command will allow you to draw filled
+<br>ellipses on screen (in the current ink colour), you will need
+<br>to include a <span style="font-style: italic;">FILL 1</span> statement prior to each ellipse if they are
+<br>to appear independently on screen (this cannot be achieved
+<br>when using this command to draw multiple ellipses). If this
+<br>rule is not followed, then any points which lie on the same
+<br>horizontal  line  (even  though  they  may  be  in  different
+<br>ellipses) will be joined.
+<br><br><h3>Example:
+<br></h3><br>Try the following for an interesting effect:
+<br><span style="font-style: italic;">100 MODE 8
+<br>110 WINDOW 448,200,32,16:PAPER 0:CLS
+<br>120 SCALE 100,0,0
+<br>130 INK 4:OVER -1
+<br>140 REPeat loop
+<br>150   FOR ang=0 TO PI*2-(PI*2/20) STEP PI*2/20
+<br>160     FILL 1:ELLIPSE 70,50,40,.5,ang
+<br>170     FILL 1:ELLIPSE 70,50,40,.5,ang
+<br>180   END FOR ang
+<br>190 END REPeat loop
+<br></span><br><h3>NOTE:
+<br></h3><br>On all ROMs other than Minerva v1.89+, very small ellipses
+<br>and very large ones can cause problems: try <span style="font-style: italic;">ELLIPSE 80,80,80,6,1</span> on a
+<br>non-Minerva machine for a laugh. Unfortunately, Lightning SE
+<br>(v2.11) still contains this bug and will bring it back!
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>Please refer to <a style="font-style: italic;" href="KeywordsC.html#CIRCLE">CIRCLE</a>, <a style="font-style: italic;" href="KeywordsE.html#ELLIPSE_R">ELLIPSE_R</a>, <a style="font-style: italic;" href="KeywordsA.html#ARC">ARC</a>, <a style="font-style: italic;" href="KeywordsL.html#LINE">LINE</a> and <a style="font-style: italic;" href="KeywordsP.html#POINT">POINT</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="ELLIPSE_R"></a>ELLIPSE_R</h1><br>Syntax:
+<br><br><span style="font-style: italic;">    ELLIPSE_R </span>[<span style="font-style: italic;">#ch,</span>] <span style="font-style: italic;">x,y,radius,ratio,ecc </span><sup>*</sup>[<span style="font-style: italic;">;x</span><sup>i</sup><span style="font-style: italic;">,y</span><sup>i</sup><span style="font-style: italic;">,radius</span><sup>i</sup><span style="font-style: italic;">,ratio</span><sup>i</sup><span style="font-style: italic;">,ecc</span><sup>i</sup>]<sup>*
+<br></sup>Location: <span style="font-style: italic;">QL ROM
+<br></span><br>This command draws an ellipse relative to the current
+<br>graphics cursor. See <span style="font-style: italic;">ELLIPSE</span> above!
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>Please refer to <a style="font-style: italic;" href="KeywordsA.html#ARC_R">ARC_R</a> and <a style="font-style: italic;" href="KeywordsC.html#CIRCLE_R">CIRCLE_R</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="ELSE"></a>ELSE</h1><br>Syntax: <span style="font-style: italic;">ELSE </span><sup>*</sup>[<span style="font-style: italic;">:statements</span>]<sup>*
+<br></sup>Location: <span style="font-style: italic;">QL ROM
+<br></span><br>This command forms part of the <span style="font-style: italic;">IF</span>...<span style="font-style: italic;">END IF</span> structure and
+<br>allows  you  to  take  alternative  action  if  the  condition
+<br>contained in the <span style="font-style: italic;">IF</span> statement proves to be false.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsI.html#IF">IF</a> for more details.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="END"></a>END</h1><br>Syntax: <span style="font-style: italic;">END</span> ...
+Location: <span style="font-style: italic;">QL ROM
+<br></span><br>This keyword forms part of the structures:
+<br><br><span style="font-style: italic;">END WHEN</span>, <span style="font-style: italic;">END SELect</span>, <span style="font-style: italic;">END IF</span>, <span style="font-style: italic;">END REPeat</span>, <span style="font-style: italic;">END FOR</span> and <span style="font-style: italic;">END DEFine
+<br></span><br>As such, it cannot be used on its own within a program -
+<br>this will cause a 'bad line' error.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>Please refer to the individual structure descriptions below
+<br>for more details.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="END-DEFine"></a>END DEFine</h1><br>Syntax: <span style="font-style: italic;">END DEFine</span> [<span style="font-style: italic;">name</span>]
+Location: <span style="font-style: italic;">QL ROM
+<br></span><br>This command marks the end of the <span style="font-style: italic;">DEFine PROCedure</span> and <span style="font-style: italic;">DEFine
+<br>FuNction</span> SuperBASIC structures, and has no meaning on its own.
+<br>You may if you wish, place the name of the <span style="font-style: italic;">PROCedure</span> or <span style="font-style: italic;">FuNction
+<br></span>after <span style="font-style: italic;">END DEFine</span> to help make the SuperBASIC program more readable
+<br>- this will however have no effect on how the command is
+<br>treated by the interpreter, which will still take the next <span style="font-style: italic;">END
+<br>DEFine</span> as the end of the current definition block (even if it is
+<br>followed by a different name).
+<br><br>The  interpreter  will  jump  out  of  a  definition  block
+<br>whenever it meets a <span style="font-style: italic;">RETurn</span> statement. It will also jump out of a
+<br><span style="font-style: italic;">DEFine PROCedure</span> definition when it meets an <span style="font-style: italic;">END DEFine</span> statement. This
+<br>does of course mean that <span style="font-style: italic;">END DEFine</span> can be used in the middle of a
+<br><span style="font-style: italic;">PROCedure</span> to force a return to the calling statement - however,
+<br>this can cause other problems and a <span style="font-style: italic;">RETurn</span> should be used, with
+<br><span style="font-style: italic;">END DEFine</span> only appearing at the very end of the definition block.
+<br><br>On the other hand, the interpreter can only jump out of a
+<br><span style="font-style: italic;">DEFine FuNction</span> definition if it meets a <span style="font-style: italic;">RETurn</span> - if the interpreter
+<br>comes across an <span style="font-style: italic;">END DEFine</span> in such situations, it will report the
+<br>error 'Error In Expression'.  On SMS the error 'RETurn not in
+<br>Procedure or Function' is reported.
+<br><br>If the definition block is not actually being used, but the
+<br>interpreter is working its way through the program, when a
+<br><span style="font-style: italic;">DEFine PROCedure</span> or <span style="font-style: italic;">DEFine FuNction</span> statement is met, the interpreter
+<br>will search for the next <span style="font-style: italic;">END DEFine</span>, and having found one, will
+<br>resume the program at the next statement. This does however
+<br>mean, that unless an in-line <span style="font-style: italic;">DEFine</span> structure is being used, if
+<br>this  command  is  missing,  the  interpreter  will  carry  on
+<br>searching through the program and may just stop without an
+<br>error if <span style="font-style: italic;">END DEFine</span> does not appear anywhere in the program after
+<br>the initial <span style="font-style: italic;">DEFine PROCedure</span> (or <span style="font-style: italic;">DEFine FuNction</span>).
+<br><br><h3>Example 1:
+<br></h3><br>The above rules mean that the following example will work
+<br><br>under  SuperBASIC,  but  is  extremely  inefficient  and
+<br><br>difficult to decode:
+<br><span style="font-style: italic;">10 FOR i=1 TO 100
+<br>20   PRINT power(i)
+<br>30   DEFine FuNction power(x)
+<br>40     RETurn 2^x
+<br>50   END DEFine
+<br>60 END FOR i
+<br></span><br><h3>
+<br></h3><br><h3>Example 2:
+<br></h3><br>See if you can work out why the following program goes
+<br><br>wrong:
+<br><span style="font-style: italic;">100 FOR i=1 TO 100
+<br>110   PRINT power(i)
+<br>120   DEFine FuNction power(x)
+<br>130     DEFine FuNction base
+<br>140       RETurn 2
+<br>150     END DEFine base
+<br>160     RETurn base^x
+<br>170   END DEFine power
+<br>180 END FOR i
+<br></span><br>If you are having trouble, try inserting:
+<br><span style="font-style: italic;">155 PRINT 'Program line 155: ';x
+<br></span><br><h3>NOTE:
+<br></h3><br><span style="font-style: italic;">END DEFine</span> need not appear in an in-line definition statement,
+<br>except under SMS.
+<br><br><h3>SMS NOTE:
+<br></h3><br>Checks are made on a program before it is run, and so if an
+<br><span style="font-style: italic;">END DEFine</span> statement is missing, this will be reported as an error
+<br>('Incomplete DEFine clause').
+<br><br>SMS's improved interpreter will report the error 'Misplaced
+<br>END DEFine' if <span style="font-style: italic;">END DEFine</span> does not mark the end of a <span style="font-style: italic;">DEFine PROCedure
+<br></span>or <span style="font-style: italic;">DEFine FuNction</span> block.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>Please see <a style="font-style: italic;" href="KeywordsD.html#DEFine-PROCedure">DEFine PROCedure</a> and <a style="font-style: italic;" href="KeywordsD.html#DEFine-FuNction">DEFine FuNction</a>.
+<br><br>Other SuperBASIC structures are <a style="font-style: italic;" href="KeywordsS.html#SELect-ON">SELect ON</a>, <a style="font-style: italic;" href="KeywordsI.html#IF">IF</a>, <a style="font-style: italic;" href="KeywordsR.html#REPeat">REPeat</a>, <a style="font-style: italic;" href="KeywordsW.html#WHEN">WHEN</a> and
+<br><a style="font-style: italic;" href="KeywordsF.html#FOR">FOR</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="END-FOR"></a>END FOR</h1><br>Syntax: <span style="font-style: italic;">END FOR loop
+<br></span><br>or <span style="font-style: italic;">END FOR</span> [<span style="font-style: italic;">loop</span>]SMS only
+Location: <span style="font-style: italic;">QL ROM
+<br></span><br>This command marks the end of the <span style="font-style: italic;">FOR</span>..<span style="font-style: italic;">END FOR</span> SuperBASIC
+<br>structure with the same loop name, and has no real meaning on
+<br>its own.
+<br><br>When the interpreter meets this statement, it then looks at
+<br>the stack to see if a related <span style="font-style: italic;">FOR</span> command has already been
+<br>parsed. If not, then the error 'Not Found' will be reported,
+<br>however, if such a <span style="font-style: italic;">FOR</span> loop has been parsed, the interpreter
+<br>will fetch the end parameter and if the loop is not yet at
+<br>this value, then <span style="font-style: italic;">step</span> is added to <span style="font-style: italic;">loop</span> and control returned to
+<br>the statement following <span style="font-style: italic;">FOR</span>. If however <span style="font-style: italic;">loop</span> is already at the
+<br>end value, control passes to the statement following <span style="font-style: italic;">END FOR</span>.
+<br><br>The second variant is only available under SMS, where the
+<br>interpreter presumes that if no loop name is specified, the
+<br>programmer means the interpreter to return control to the most
+<br>recent <span style="font-style: italic;">FOR</span> statement (if the <span style="font-style: italic;">loop</span> is not at its final value).
+<br><br>When an <span style="font-style: italic;">EXIT loop</span> is found, the interpreter will search for
+<br>the relative <span style="font-style: italic;">END FOR loop</span>, and if found, will resume program flow
+<br>at the next statement.  Under SMS, neither <span style="font-style: italic;">EXIT</span> nor <span style="font-style: italic;">END FOR</span> need
+<br>have a <span style="font-style: italic;">loop</span> identifier, and therefore <span style="font-style: italic;">EXIT</span> will simply cause the
+<br>program to jump to the statement after the next <span style="font-style: italic;">END FOR</span> command
+<br>(if no loop is specified). This does however mean, that except
+<br>under SMS, unless an in-line <span style="font-style: italic;">FOR</span> structure is being used, if
+<br>this  command  is  missing,  the  interpreter  will  carry  on
+<br>searching through the program and may just stop without an
+<br>error if <span style="font-style: italic;">END FOR</span> loop does not appear anywhere in the program.
+<br><br><h3>NOTE:
+<br></h3><br><span style="font-style: italic;">END FOR</span> need not appear in an in-line <span style="font-style: italic;">FOR</span> statement.
+<br><br><h3>SMS NOTE:
+<br></h3><br>SMS will report 'unable to find an open loop' if the
+<br>interpreter comes across an <span style="font-style: italic;">END FOR</span> command (without a loop
+<br>variable name) without a corresponding open <span style="font-style: italic;">FOR</span> loop.
+<br><br>If the interpreter comes across an <span style="font-style: italic;">END FOR</span> command (with a
+<br>loop variable name) without a corresponding open <span style="font-style: italic;">FOR</span> loop the
+<br>error 'undefined loop control variable' is reported.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>Please see <a style="font-style: italic;" href="KeywordsF.html#FOR">FOR</a>.
+<br><br>Compare <a style="font-style: italic;" href="KeywordsN.html#NEXT">NEXT</a> and <a style="font-style: italic;" href="KeywordsE.html#EXIT">EXIT</a>.
+<br><br>Other SuperBASIC structures are: <a style="font-style: italic;" href="KeywordsD.html#DEFine-PROCedure">DEFine PROCedure</a>, <a style="font-style: italic;" href="KeywordsD.html#DEFine-FuNction">DEFine FuNction</a>,
+<br><a style="font-style: italic;" href="KeywordsS.html#SELect-ON">SELect ON</a>, IF, <a style="font-style: italic;" href="KeywordsR.html#REPeat">REPeat</a>, and <a style="font-style: italic;" href="KeywordsW.html#WHEN">WHEN</a>.
+<hr style="width: 100%; height: 2px;">
+<br><br><h3><br>END IF<br></h3><br>Syntax: <span style="font-style: italic;">END IF
+<br></span>Location: <span style="font-style: italic;">QL ROM
+<br></span><br>This command marks the end of the <span style="font-style: italic;">IF</span>..<span style="font-style: italic;">END IF</span> SuperBASIC
+<br>structure, and has no meaning on its own.
+<br><br>When the interpreter finds an <span style="font-style: italic;">IF</span> condition statement it
+<br>then evaluates the condition and carries out certain commands
+<br>depending on whether the condition was true or false. Having
+<br>carried out those commands, the interpreter then looks for a
+<br>related <span style="font-style: italic;">END IF</span> command, and will pass control onto the statement
+<br>following <span style="font-style: italic;">END IF</span>.  This does however mean, that except under
+<br>SMS, unless an in-line <span style="font-style: italic;">IF</span> structure is being used, if this
+<br>command is missing, the interpreter will carry on searching
+<br>through the program and may just stop without an error if <span style="font-style: italic;">END IF
+<br></span>does not appear anywhere in the program.
+<br><br><h3>NOTE 1:
+<br></h3><br><span style="font-style: italic;">END IF</span> need not appear in an in-line <span style="font-style: italic;">IF</span> statement.
+<br><br><h3>NOTE 2:
+<br></h3><br>All ROMs (except for Minerva v1.93+ or SMS) can get mixed
+<br>up with multiple in-line <span style="font-style: italic;">IF</span>..<span style="font-style: italic;">END IF</span> structures - see <span style="font-style: italic;">IF</span>.
+<br><br><h3>SMS NOTE:
+<br></h3><br>Checks are made on a program before it is run, and so if an
+<br><span style="font-style: italic;">END IF</span> statement appears without a corresponding <span style="font-style: italic;">IF</span> command, the
+<br>error 'Misplaced END IF' is reported.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>Please see <a style="font-style: italic;" href="KeywordsI.html#IF">IF</a>.
+<br><br>Other SuperBASIC structures are: <a style="font-style: italic;" href="KeywordsD.html#DEFine-PROCedure">DEFine PROCedure</a>, <a style="font-style: italic;" href="KeywordsD.html#DEFine-FuNction">DEFine FuNction</a>,
+<br><a style="font-style: italic;" href="KeywordsS.html#SELect-ON">SELect ON</a>, <a style="font-style: italic;" href="KeywordsR.html#REPeat">REPeat</a>, <a style="font-style: italic;" href="KeywordsF.html#FOR">FOR</a>, and <a style="font-style: italic;" href="KeywordsW.html#WHEN">WHEN</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="END-REPeat"></a>END REPeat</h1><br>Syntax: <span style="font-style: italic;">END REPeat identifier
+<br></span><br>or <span style="font-style: italic;">END REPeat</span> [<span style="font-style: italic;">identifier</span>]<span style="font-style: italic;">SMS only
+<br></span>Location: <span style="font-style: italic;">QL ROM
+<br></span><br>This command marks the end of the <span style="font-style: italic;">REPeat</span>...<span style="font-style: italic;">END REPeat</span> SuperBASIC
+<br>structure with the same <span style="font-style: italic;">identifier</span>, and has no meaning on its own.
+<br><br>When the interpreter meets this statement, it then looks at
+<br>the stack to see if a related <span style="font-style: italic;">REPeat</span> command has already been
+<br>parsed. If not, then the error 'Not Found' will be reported,
+<br>however,  if  such  a  <span style="font-style: italic;">REPeat  identifier</span>  has  been  parsed,  the
+<br>interpreter will force the program to loop around and return
+<br>control to the statement following <span style="font-style: italic;">REPeat</span>.
+<br><br>Under SMS there is no need to specify the identifier on the
+<br><span style="font-style: italic;">END REPeat</span> statement, in which case, the interpreter will presume
+<br>that this is the end of the last <span style="font-style: italic;">REPeat</span> loop to have been
+<br>encountered.
+<br><br>When an <span style="font-style: italic;">EXIT identifier</span> is found, the interpreter will search
+<br>for the relative <span style="font-style: italic;">END REPeat identifier</span> (or under SMS the next <span style="font-style: italic;">END REPeat
+<br></span>command), and if found, will resume program flow at the next
+<br>statement. This does however mean, that except under SMS,
+<br>unless an in-line <span style="font-style: italic;">REPeat</span> structure is being used, if this
+<br>command is missing, the interpreter will carry on searching
+<br>through the program and may just stop without an error if <span style="font-style: italic;">END
+<br>REPeat</span> <span style="font-style: italic;">identifier</span> (or <span style="font-style: italic;">END REPeat</span> under SMS) does not appear anywhere in
+<br>the program.
+<br><br><h3>NOTE:
+<br></h3><br><span style="font-style: italic;">END REPeat</span> need not appear in an in-line <span style="font-style: italic;">REPeat</span> statement.
+<br><br><h3>SMS NOTE:
+<br></h3><br>SMS will report 'unable to find an open loop' if the
+<br>interpreter comes across an <span style="font-style: italic;">END REPeat</span> command (without a loop
+<br>identifier) without a corresponding open <span style="font-style: italic;">REPeat</span> loop.
+<br><br>If the interpreter comes across an <span style="font-style: italic;">END REPeat</span> command (with a
+<br>loop identifier) without a corresponding open <span style="font-style: italic;">REPeat</span> loop the
+<br>error 'undefined loop control variable' is reported.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>Please see <a style="font-style: italic;" href="KeywordsR.html#REPeat">REPeat</a>.
+<br><br><a style="font-style: italic;" href="KeywordsN.html#NEXT-identifier">NEXT identifier</a> is practially the same although see <a style="font-style: italic;" href="KeywordsE.html#EXIT">EXIT</a>.
+<br><br>Other SuperBASIC structures are: <a style="font-style: italic;" href="KeywordsD.html#DEFine-PROCedure">DEFine PROCedure</a>, <a style="font-style: italic;" href="KeywordsD.html#DEFine-FuNction">DEFine FuNction</a>,
+<br><a style="font-style: italic;" href="KeywordsS.html#SELect-ON">SELect ON</a>,<a style="font-style: italic;" href="KeywordsI.html#IF">IF</a>, <a style="font-style: italic;" href="KeywordsF.html#FOR">FOR</a>, and <a style="font-style: italic;" href="KeywordsW.html#WHEN">WHEN</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="END-SELect"></a>END SELect</h1><br>Syntax: <span style="font-style: italic;">END SELect
+<br></span>Location: <span style="font-style: italic;">QL ROM
+<br></span><br>This marks the end of the <span style="font-style: italic;">SELect ON</span>...<span style="font-style: italic;">END SELect</span> SuperBASIC
+<br>structure, and has no meaning on its own.
+<br><br>When the interpreter has found a match for the value of the
+<br>variable, it performs a series of commands, and then looks for
+<br>the end of the block marked with <span style="font-style: italic;">END SELect</span>. This means that
+<br>except under SMS, unless an in-line <span style="font-style: italic;">SELect ON</span> structure is being
+<br>used, if this command is missing, the interpreter will carry
+<br>on searching through the program and may just stop without an
+<br>error if <span style="font-style: italic;">END SELect</span> does not appear anywhere in the program.
+<br><br><h3>NOTE 1:
+<br></h3><br><span style="font-style: italic;">END SELect</span> need not appear in an in-line <span style="font-style: italic;">SELect ON</span> statement.
+<br><br><h3>NOTE 2:
+<br></h3><br>Under  SMS,  if  <span style="font-style: italic;">END  SELect</span>  appears  in  an  in-line  <span style="font-style: italic;">SELect  ON
+<br></span>statement, if any commands appear after <span style="font-style: italic;">END SELect</span> on the same
+<br>line, an error will be reported.
+<br><br><h3>SMS NOTE:
+<br></h3><br>Checks are made on a program before it is run, and so if an
+<br><span style="font-style: italic;">END SELect</span> statement is missing, this will be reported as an error
+<br>('Incomplete SELect clause').
+<br><br>SMS's improved interpreter will report the error 'Misplaced
+<br>END SELect' if <span style="font-style: italic;">END SELect</span> does not mark the end of a <span style="font-style: italic;">SELect ON
+<br></span>definition block.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>Please see <a style="font-style: italic;" href="KeywordsS.html#SELect-ON">SELect ON</a>.
+<br><br>Other SuperBASIC structures are <a style="font-style: italic;" href="KeywordsD.html#DEFine-PROCedure">DEFine PROCedure</a>, <a style="font-style: italic;" href="KeywordsD.html#DEFine-FuNction">DEFine FuNction</a>, <a style="font-style: italic;" href="KeywordsI.html#IF">IF</a>,
+<br><a style="font-style: italic;" href="KeywordsR.html#REPeat">REPeat</a>, <a style="font-style: italic;" href="KeywordsW.html#WHEN">WHEN</a> and <a style="font-style: italic;" href="KeywordsF.html#FOR">FOR</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="END-WHEN"></a>END WHEN</h1><br>Syntax: <span style="font-style: italic;">END WHEN
+<br></span>Location: <span style="font-style: italic;">QL ROM (post JM)
+<br></span><br>This marks the end of the SuperBASIC structures: <span style="font-style: italic;">WHEN ERRor
+<br></span>and <span style="font-style: italic;">WHEN condition</span> ...  <span style="font-style: italic;">END WHEN</span>, and has no meaning on its own.
+<br><br>When the program is first run, the interpreter marks the
+<br>start of this structure and then (unless it is an in-line
+<br>structure) looks for the end of the block marked with <span style="font-style: italic;">END WHEN</span>.
+<br>This means that if this statement is missing, except under
+<br>SMS, the interpreter will carry on searching through the
+<br>program and may just stop without an error if <span style="font-style: italic;">END WHEN</span> does not
+<br>appear anywhere in the program.
+<br><br><h3>NOTE:
+<br></h3><br><span style="font-style: italic;">END WHEN</span> need not appear in a single line <span style="font-style: italic;">WHEN</span> or <span style="font-style: italic;">WHEN ERRor
+<br></span>statement, eg. <span style="font-style: italic;">100 WHEN a>4:PRINT 'a>4'</span>.
+<br><br><h3>SMS NOTES:
+<br></h3><br>Checks are made on a program before it is run, and so if an
+<br><span style="font-style: italic;">END WHEN</span> statement is missing, this will be reported as an error.
+<br><br>SMS's improved interpreter will also report the error
+<br>'Misplaced END WHEN' if <span style="font-style: italic;">END WHEN</span> does not mark the end of a <span style="font-style: italic;">WHEN
+<br></span><span style="font-style: italic;">ERROR</span> definition block.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>Please see <a style="font-style: italic;" href="KeywordsW.html#WHEN-ERRor">WHEN ERRor</a> and <a style="font-style: italic;" href="KeywordsW.html#WHEN-condition">WHEN condition</a>.
+<br><br>Other SuperBASIC structures are <a style="font-style: italic;" href="KeywordsD.html#DEFine-PROCedure">DEFine PROCedure</a>, <a style="font-style: italic;" href="KeywordsD.html#DEFine-FuNction">DEFine FuNction</a>,
+<br><a style="font-style: italic;" href="KeywordsI.html#IF">IF</a>, <a style="font-style: italic;" href="KeywordsR.html#REPeat">REPeat</a>, <a style="font-style: italic;" href="KeywordsS.html#SELect">SELect</a> and <a style="font-style: italic;" href="KeywordsF.html#FOR">FOR</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="END_CMD"></a>END_CMD</h1><br>Syntax: <span style="font-style: italic;">END_CMD
+<br></span>Location: <span style="font-style: italic;">Turbo Toolkit
+<br></span><br>This marks the end of a numberless file of direct commands
+<br>for use with the <span style="font-style: italic;">MERGE</span> command.  This command should be entered
+<br>on its own as the last line of the numberless file.
+<br><br>It overcomes the problem explained in NOTE 1 of <span style="font-style: italic;">MERGE</span>.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>Please see <a style="font-style: italic;" href="KeywordsM.html#MERGE">MERGE</a>.
+<br><br><a style="font-style: italic;" href="KeywordsD.html#DO">DO</a> is also useful for executing such files.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="END_WHEN"></a>END_WHEN</h1><br>Syntax: <span style="font-style: italic;">END_WHEN
+<br></span>Location: <span style="font-style: italic;">Turbo Toolkit
+<br></span><br>This marks the end of the Turbo structure equivalent to the
+<br>SuperBASIC <span style="font-style: italic;">WHEN ERRor</span> structure.
+<br><br><span style="font-style: italic;">END_WHEN</span> has no meaning on its own and should only be used
+<br>within Turbo compiled programs.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>Please see <a style="font-style: italic;" href="KeywordsW.html#WHEN_ERROR">WHEN_ERROR</a>
+<hr style="width: 100%; height: 2px;"><h1><a name="ENV_DEL"></a>ENV_DEL</h1><br>Syntax: <span style="font-style: italic;">ENV_DEL name$
+<br></span>Location: <span style="font-style: italic;">Environment Variables
+<br></span><br>This command is used to remove a specified environment
+<br>variable.  Please note that the name of the environment
+<br>variable is case sensitive.
+<br><br>If an empty string is passed as the argument, then an error
+<br>will be reported.
+<br><br><h3>Example:
+<br></h3><br>A boot program may specify where the files for the main
+<br><br>program are stored and then pass it to subsequently called
+<br><br>programs  with.    Once  the  program  has  finished,  the
+<br><br>environment variable may be deleted.
+<br><br><span style="font-style: italic;">1000 source$='win1_PROGS_utils_'
+<br><br>1010 SETENV "PROGLOC="&amp;source$
+<br><br>1020 EXEC_W source$&amp;'main_exe'
+<br><br>1030 ENV_DEL "PROGLOC"
+<br></span><br><h3>CROSS-REFERENCE:<br></h3><br>Please see <a style="font-style: italic;" href="KeywordsS.html#SETENV">SETENV
+</a><hr style="width: 100%; height: 2px;"><h1><a name="ENV_LIST"></a>ENV_LIST</h1><br>Syntax: <span style="font-style: italic;">ENV_LIST </span>[<span style="font-style: italic;">#ch</span>]
+Location: <span style="font-style: italic;">Environment Variables
+<br></span><br>This  command  lists  all  currently  active  environment
+<br>variables to the specified channel (default #1).
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>Please see <a style="font-style: italic;" href="KeywordsS.html#SETENV">SETENV
+</a><br><h3>
+<br></h3><hr style="width: 100%; height: 2px;"><h1><a name="ENL"></a>ENL</h1><br>Syntax: <span style="font-style: italic;">ENL
+<br></span>Location: <span style="font-style: italic;">Beuletools
+<br></span><br>This function returns the control codes needed to switch on
+<br>double width on an EPSON compatible printer:
+<br><span style="font-style: italic;">PRINT ENL
+<br></span><br>is the same as:
+<br><span style="font-style: italic;">PRINT CHR$(27)&amp;"W"&amp;CHR$(1)
+<br></span><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsN.html#NORM">NORM</a>, <a style="font-style: italic;" href="KeywordsB.html#BLD">BLD</a>, <a style="font-style: italic;" href="KeywordsE.html#EL">EL</a>, <a style="font-style: italic;" href="KeywordsD.html#DBL">DBL</a>, <a style="font-style: italic;" href="KeywordsP.html#PRO">PRO</a>, <a style="font-style: italic;" href="KeywordsS.html#SI">SI</a>, <a style="font-style: italic;" href="KeywordsN.html#NRM">NRM</a>, <a style="font-style: italic;" href="KeywordsU.html#UNL">UNL</a>, <a style="font-style: italic;" href="KeywordsA.html#ALT">ALT</a>, <a style="font-style: italic;" href="KeywordsE.html#ESC">ESC</a>, <a style="font-style: italic;" href="KeywordsF.html#FF">FF</a>, <a style="font-style: italic;" href="KeywordsL.html#LMAR">LMAR</a>, <a style="font-style: italic;" href="KeywordsR.html#RMAR">RMAR</a>, <a style="font-style: italic;" href="KeywordsP.html#PAGDIS">PAGDIS</a>,
+<br><a style="font-style: italic;" href="KeywordsP.html#PAGLEN">PAGLEN</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="EOF"></a>EOF</h1><br>Syntax: <span style="font-style: italic;">EOF</span> [<span style="font-style: italic;">(#ch)</span>]
+Location: <span style="font-style: italic;">QL ROM
+<br></span><br>This is a logical function which actually has two uses in
+<br>SuperBASIC. If no channel number is specified, then <span style="font-style: italic;">PRINT EOF
+<br></span>will return 1 unless the current program contains some <span style="font-style: italic;">DATA
+<br></span>lines which have not yet been <span style="font-style: italic;">READ</span>. This is therefore useful to
+<br>create programs which can handle any amount of data.
+<br><br>However, if a channel number is specified, for example
+<br><span style="font-style: italic;">PRINT EOF(#1)</span>, then zero will be returned unless the given channel
+<br>is linked to a file and the file pointer is at (or beyond) the
+<br>end of that file (ie. whether or not there is data to be read
+<br>from that channel).
+<br><br><h3>Example:
+<br></h3><br>Two simple programs to retrieve an address from a given
+<br><br>name (the full name must be given on input). The first of
+<br><br>these has the data stored in the program, whereas the
+<br><br>second has it stored on a file called flp1_address_data:
+<br><span style="font-style: italic;">100 RESTORE
+<br>110 MODE 4
+<br>120 OPEN #3,con_448x200a32x16:BORDER#3,1,2:PAPER#3,0:INK#3,7
+<br>130 INPUT #3,'Input name to look for:'!search$
+<br>140 REPeat loop
+<br>150  IF EOF:PRINT#3\\"No address stored":EXIT loop
+<br>160  READ name$,address$
+<br>170  IF name$==search$:PRINT #3\\name$,address$:EXIT loop
+<br>180 END REPeat loop
+<br>190 CLOSE #3
+<br>200 DATA 'Fred Blogs','17 Mulberry Court'
+<br>210 DATA 'John Peters','182 Johnson Ave.'
+<br>220 DATA 'Martin Edwards','83 Olive Drive'
+<br></span><br><h3>
+<br></h3><span style="font-style: italic;">100 OPEN_IN #3,flp1_Address_data
+<br>110 MODE 4
+<br>120 OPEN #4,con_448x200a32x16:BORDER#4,1,2:PAPER#4,0:INK#4,7
+<br>130 INPUT #4,'Input name to look for:'!search$
+<br>140 REPeat loop
+<br>150  IF EOF(#3):PRINT#4\\"No address stored":EXIT loop
+<br>160  INPUT #3;name$,address$
+<br>170  IF name$==search$:PRINT #4\\name$,address$:EXIT loop
+<br>180 END REPeat loop
+<br>190 CLOSE #4:CLOSE #3
+<br></span><br><h3>SMS NOTE:
+<br></h3><br>Until v2.55 this command was the same as <span style="font-style: italic;">EOFW</span>, which meant
+<br>that it would only return a value if there was data waiting or
+<br>it had received an end of file code - this was changed back to
+<br>the original to maintain compatability.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsD.html#DATA">DATA</a> specifies a line of data statements. <a style="font-style: italic;" href="KeywordsR.html#RESTORE">RESTORE</a> resets the
+<br>data pointer and <a style="font-style: italic;" href="KeywordsR.html#READ">READ</a> will actually fetch the data. <a style="font-style: italic;" href="KeywordsC.html#CLOSE">CLOSE</a> closes
+<br>a given channel after it has been used. <a style="font-style: italic;" href="KeywordsP.html#PEND">PEND</a> or <a style="font-style: italic;" href="KeywordsI.html#IO_PEND%">IO_PEND%</a> are much
+<br>better for use on pipes.  See also <a style="font-style: italic;" href="KeywordsE.html#EOFW">EOFW</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="EOFW"></a>EOFW</h1><br>Syntax: <span style="font-style: italic;">EOFW (#ch)
+<br></span>Location: <span style="font-style: italic;">SMS
+<br></span><br>This function is very similar to <span style="font-style: italic;">EOF</span> in that it returns the
+<br>value 0 if there is data waiting to be read from the specified
+<br>channel, otherwise it returns 1.
+<br><br>The difference is that this version of the function will
+<br>however wait until data is received or the end of file code is
+<br>received, which is especially useful on pipes which may not
+<br>always work with <span style="font-style: italic;">EOF</span> which returns 1 if the channel does not
+<br>contain any data to be read.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsE.html#EOF">EOF</a>.
+<br><br><a style="font-style: italic;" href="KeywordsP.html#PEND">PEND</a> and <a style="font-style: italic;" href="KeywordsI.html#IO_PEND%">IO_PEND%</a> are very similar.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="EPROM_LOAD"></a>EPROM_LOAD</h1><br>Syntax: <span style="font-style: italic;">EPROM_LOAD device_file
+<br></span>Location: <span style="font-style: italic;">ATARI_REXT (v1.21+), SMS
+<br></span><br>You cannot plug QL EPROM cartridges into the various other
+<br>computers which now support QL software, which would normally
+<br>make some software which contains part of its code on EPROM,
+<br>unuseable.
+<br><br>In order that you can use such software on other computers,
+<br>you need to create a file on an original QL containing an
+<br>image of the EPROM cartridge plugged into the QL's ROM port.
+<br>To do this, use the command:
+<br><br><span style="font-style: italic;">SBYTES flp1_EPROM_image,49152,16384
+<br></span><br>(It is hoped that software producers who sell software
+<br>which requires an EPROM cartridge will make versions available
+<br>with ready-made images of the cartridge, so that the software
+<br>can be used by users without access to an original QL).
+<br><br>Having done this, you will need to have the ST/QL Emulator
+<br>switched on (or SMS loaded on the other computer), then insert
+<br>that disk into the Atari's disk drive, and use the command:
+<br><br><span style="font-style: italic;">EPROM_LOAD flp1_EPROM_image
+<br></span><br>This will then copy the EPROM code into the same address on
+<br>the Emulator or other computer as the EPROM cartridge occupies
+<br>on the QL, thus making it useable.
+<br><br><h3>NOTE 1:
+<br></h3><br>If you make images of several EPROM cartridges in this way,
+<br>then additional ones which are loaded with <span style="font-style: italic;">EPROM_LOAD</span> will be
+<br>stored in arbitrary addresses under SMS or the emulator.
+<br>Therefore you will need to ensure that cartridges which insist
+<br>on being loaded at the address $C000 (the QL's ROM port
+<br>address), will need to be loaded first with <span style="font-style: italic;">EPROM_LOAD</span>.
+<br><br><h3>NOTE 2:
+<br></h3><br>On early versions of the Emulator, this was called <span style="font-style: italic;">ROM_LOAD</span>.
+<br><br><h3>NOTE 3:
+<br></h3><br>On SMS before v2.52, this could crash the system if used on
+<br>a Gold Card or Super Gold Card without the specified file
+<br>being present.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See also <a style="font-style: italic;" href="KeywordsR.html#ROM">ROM</a>, <a style="font-style: italic;" href="KeywordsR.html#ROMs">ROMs</a> and <a style="font-style: italic;" href="KeywordsR.html#ROM_TEST">ROM_TEST</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="EPS"></a>EPS</h1><br>Syntax: <span style="font-style: italic;">EPS</span> [<span style="font-style: italic;">(x)</span>]
+Location: <span style="font-style: italic;">Math Package
+<br></span><br>Since the precision of the QL is limited, a number may not
+<br>change if a very small value is added. The function <span style="font-style: italic;">EPS(x)
+<br></span>returns the smallest value which can be added to <span style="font-style: italic;">x</span> so that the
+<br>sum of <span style="font-style: italic;">x</span> and <span style="font-style: italic;">EPS(x)</span> will be different from <span style="font-style: italic;">x</span>. This only makes
+<br>sense for floating point numbers.
+<br><br>The default parameter is 0.
+<br><br><span style="font-style: italic;">EPS(x)</span> attains its smallest value at <span style="font-style: italic;">x=0</span>, so <span style="font-style: italic;">EPS(0)</span> returns the
+<br>smallest absolute number which can be handled by SuperBASIC.
+<br><span style="font-style: italic;">EPS(x)</span> is always greater than zero and <span style="font-style: italic;">EPS(x)=EPS(-x)</span>.
+<br><br><h3>Example:
+<br></h3><br>An approximation of PI/4 as proposed by Leibniz:
+<br><span style="font-style: italic;">100 x = 0: d = 1
+<br>110 t0 = DATE
+<br>120 FOR i=1 TO 1E100
+<br>130   IF ABS(1/d) < EPS(x) THEN EXIT i
+<br>140   x = x + 1/d
+<br>150   d = - SGN(d) * (ABS(d)+2)
+<br>160 END FOR i
+<br>170 t = DATE - t0
+<br>180 PRINT "Iterations ="!i!"  Runtime ="!t;"s"
+<br>190 PRINT "Iterations per Second ="!i/t
+<br>200 PRINT "PI ="!4*x!"(";PI;")"
+<br></span><br>Unfortunately, the algorithm is not efficient enough to
+<br><br>compete  with  the  QL's  precision,  so  that  about  2E9
+<br><br>iterations are necessary to get a suitable result. Since
+<br><br>this will take a while (ages!), you can reduce precision by
+<br><br>a factor of one million, by modifying line 130:
+<br><span style="font-style: italic;">130   IF ABS(1/d) < 1E6 * EPS(x) THEN EXIT i
+<br></span><br>The program will then finish after 1075 iterations with <span style="font-style: italic;">4*x
+<br><br>= 3.140662</span>, not bad compared to 3.141593 when taking the
+<br><br>drastic reduction of precision into account.
+<br><br><h3>NOTE:
+<br></h3><br><span style="font-style: italic;">EPS</span> does not recognise the higher precision used by Minerva.
+<br>Minerva's higher precision may have an effect on fractals and
+<br>similar esoteric calculations.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="EQ$"></a>EQ$</h1><br>Syntax: <span style="font-style: italic;">EQ$ (type, string1$, string2$ )
+<br></span>Location: <span style="font-style: italic;">Btool
+<br></span><br>This function expects the same parameters as <span style="font-style: italic;">GT$</span>.
+<br><br>It will return a value of 1 if the two strings are equal to
+<br>each other using the same test as <span style="font-style: italic;">GT$</span>.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsG.html#GT$">GT$</a> for more details.
+<br><a href="KeywordsN.html#NE$">NE$</a> is the same as <a style="font-style: italic;" href="KeywordsN.html#NOT-EQ$">NOT EQ$ (type, string1$, string2$)</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="ERLIN"></a>ERLIN</h1><br>Syntax: <span style="font-style: italic;">ERLIN
+<br></span>Location: <span style="font-style: italic;">QL ROM (post JM version)
+<br></span><br>This  function  returns  the  line  where  the  last  error
+<br>occurred.  If the error occurred in a line typed into the
+<br>command window (#0), then zero is returned (zero is also
+<br>returned if there is no error).
+<br><br><h3>Example:
+<br></h3><br>It takes a lot of time to debug programs, so save typing by
+<br><br>including a variation of the following line in your BOOT
+<br><br>program. Then, if an error occurs and the program stops
+<br><br>with an error message, simply press &lt;ALT&gt;&lt;E&gt; to see and
+<br><br>edit the line where something went wrong.
+<br><span style="font-style: italic;">ALTKEY "e","ED ERLIN-20"&amp;CODE(216)&amp;CODE(216),""
+<br></span><br>or
+<br><span style="font-style: italic;">ALTKEY "e","AUTO ERLIN",""
+<br></span><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsE.html#ERNUM">ERNUM</a> returns the error number, <a style="font-style: italic;" href="KeywordsR.html#REPORT">REPORT</a> invokes an error
+<br>message and <a style="font-style: italic;" href="KeywordsW.html#WHEN-ERRor">WHEN ERRor</a> allows error trapping.  <a style="font-style: italic;" href="KeywordsE.html#ERLIN%">ERLIN%</a> is exactly the
+<br>same.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="ERLIN%"></a>ERLIN%</h1><br>Syntax: <span style="font-style: italic;">ERLIN%
+<br></span>Location: <span style="font-style: italic;">Turbo Toolkit
+<br></span><br>This function is exactly the same as <span style="font-style: italic;">ERLIN</span>, except it will
+<br>work on all versions of the QL ROM.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsE.html#ERLIN">ERLIN</a> and <a style="font-style: italic;" href="KeywordsE.html#ERNUM%">ERNUM%</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="ERNUM"></a>ERNUM</h1><br>Syntax: <span style="font-style: italic;">ERNUM
+<br></span>Location: <span style="font-style: italic;">QL ROM (post JM version)
+<br></span><br>This function returns the error number of the last error
+<br>which occurred.  An  error  number is  negative  and  can  be
+<br>returned by any program (SuperBASIC, jobs, M/C Toolkits,...).
+<br><br>The equivalent error messages are the same on all of the
+<br>implementations  of  SuperBASIC,  although  they  are  also
+<br>supported in different languages (see the Appendix for other
+<br>languages):
+<br><br><h3>ErrorEnglish message
+<br></h3><br>-1Not Complete
+<br><br>-2Invalid Job
+<br><br>-3Out of Memory
+<br><br>-4Out of Range
+<br><br>-5Buffer Full
+<br><br>-6Channel not Open
+<br><br>-7Not Found
+<br><br>-8Already Exists
+<br><br>-9     In Use
+<br><br>-10     End of File
+<br><br>-11     Drive Full
+<br><br>-12     Bad Name
+<br><br>-13     Xmit Error
+<br><br>-14     Format Failed
+<br><br>-15     Bad Parameter
+<br><br>-16     Bad or Changed Medium
+<br><br>-17     Error in Expression
+<br><br>-18     Overflow
+<br><br>-19     Not Implemented Yet
+<br><br>-20     Read Only
+<br><br>-21     Bad Line
+<br><br><h3>NOTE:
+<br></h3><br>Jobs may return a positive error number. The meaning of
+<br>such a number depends on the job. No error message will be
+<br>reported.
+<br><br><h3>SMS NOTE:
+<br></h3><br>The error messages have been redefined to try to make them
+<br>more intelligent, they are now:
+<br><br><h3>ErrorEnglish Message
+<br></h3><br>-1     Incomplete
+<br><br>-2     Invalid Job ID
+<br><br>-3     Insufficient memory
+<br><br>-4     Value out of range
+<br><br>-5     Buffer full
+<br><br>-6     Invalid channel ID
+<br><br>-7     Not found
+<br><br>-8     Already exists
+<br><br>-9     Is in use
+<br><br>-10     End of file
+<br><br>-11     Medium is full
+<br><br>-12     Invalid name
+<br><br>-13     Transmission error
+<br><br>-14     Format failed
+<br><br>-15     Invalid parameter
+<br><br>-16     Medium check failed
+<br><br>-17     Error in expression
+<br><br>-18     Arithmetic overflow
+<br><br>-19     Not implemented
+<br><br>-20     Write protected
+<br><br>-21     Invalid syntax
+<br><br>-22     Unknown message
+<br><br>-23     Access denied
+<br><br>Other errors are reported by the SBASIC interpreter, but
+<br>these are not covered by <span style="font-style: italic;">ERNUM</span>.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsE.html#ERLIN">ERLIN</a> returns the line number where the error occurred.
+<br><br><a style="font-style: italic;" href="KeywordsE.html#ERNUM%">ERNUM%</a> is the same as this function.
+<br><br><a style="font-style: italic;" href="KeywordsR.html#REPORT">REPORT</a> invokes an error message and <a style="font-style: italic;" href="KeywordsW.html#WHEN-ERRor">WHEN ERRor</a> can be used to
+<br>trap errors.
+<br><br>The <a style="font-style: italic;" href="KeywordsE.html#ERR_">ERR_</a>... functions are alternatives to <a style="font-style: italic;" href="KeywordsE.html#ERNUM">ERNUM</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="ERNUM%"></a>ERNUM%</h1><br>Syntax: <span style="font-style: italic;">ERNUM%
+<br></span>Location: <span style="font-style: italic;">Turbo Toolkit
+<br></span><br>This function is exactly the same as <span style="font-style: italic;">ERNUM</span>, except it will
+<br>work on all versions of the QL ROM.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsE.html#ERNUM">ERNUM</a> and <a style="font-style: italic;" href="KeywordsE.html#ERLIN%">ERLIN%</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="ERR_..."></a>ERR_...</h1><br>Syntax: <span style="font-style: italic;">ERR_NC</span>, <span style="font-style: italic;">ERR_NJ</span>, <span style="font-style: italic;">ERR_OM</span>, <span style="font-style: italic;">ERR_OR</span>, <span style="font-style: italic;">ERR_BO</span>, <span style="font-style: italic;">ERR_NO</span>, <span style="font-style: italic;">ERR_NF</span>, <span style="font-style: italic;">ERR_EX</span>,
+<br><span style="font-style: italic;">ERR_IU</span>, <span style="font-style: italic;">ERR_EF</span>, <span style="font-style: italic;">ERR_DF</span>, <span style="font-style: italic;">ERR_BN</span>, <span style="font-style: italic;">ERR_TE</span>, <span style="font-style: italic;">ERR_FF</span>, <span style="font-style: italic;">ERR_BP</span>, <span style="font-style: italic;">ERR_FE</span>, <span style="font-style: italic;">ERR_XP</span>,
+<br><span style="font-style: italic;">ERR_OV</span>, <span style="font-style: italic;">ERR_NI</span>, <span style="font-style: italic;">ERR_RO</span>, <span style="font-style: italic;">ERR_BL
+<br></span>Location: <span style="font-style: italic;">QL ROM (post JM version)
+<br></span><br>These are logical functions which return either 0 or 1 if
+<br>the corresponding error has occurred. Only one of them can
+<br>have the value 1 at any time.
+<br><br><h3>functionerror           error-code
+<br></h3><br><span style="font-style: italic;">ERR_NC</span>NOT COMPLETE-1
+<br><br><span style="font-style: italic;">ERR_NJ</span>INVALID JOB-2
+<br><br><span style="font-style: italic;">ERR_OM</span>OUT OF MEMORY-3
+<br><br><span style="font-style: italic;">ERR_OR</span>OUT OF RANGE-4
+<br><br><span style="font-style: italic;">ERR_BO</span>BUFFER OVERFLOW-5
+<br><br><span style="font-style: italic;">ERR_NO</span>CHANNEL NOT OPEN-6
+<br><br><span style="font-style: italic;">ERR_NF</span>NOT FOUND-7
+<br><br><span style="font-style: italic;">ERR_EX</span>ALREADY EXISTS-8
+<br><br><span style="font-style: italic;">ERR_IU</span>IN USE-9
+<br><br><span style="font-style: italic;">ERR_EF</span>END OF FILE-10
+<br><br><span style="font-style: italic;">ERR_DF</span>DRIVE FULL-11
+<br><br><span style="font-style: italic;">ERR_BN</span>BAD NAME-12
+<br><br><span style="font-style: italic;">ERR_TE</span>TRANSMISSION ERROR-13
+<br><br><span style="font-style: italic;">ERR_FF</span>FORMAT FAILED-14
+<br><br><span style="font-style: italic;">ERR_BP</span>BAD PARAMETER-15
+<br><br><span style="font-style: italic;">ERR_FE</span>FILE ERROR-16
+<br><br><span style="font-style: italic;">ERR_XP</span>ERROR IN EXPRESSION-17
+<br><br><span style="font-style: italic;">ERR_OV</span>ARITHMETIC OVERFLOW-18
+<br><br><span style="font-style: italic;">ERR_NI</span>NOT IMPLEMENTED-19
+<br><br><span style="font-style: italic;">ERR_RO</span>READ ONLY-20
+<br><br><span style="font-style: italic;">ERR_BL</span>BAD LINE-21
+<br><br><h3>NOTE 1:
+<br></h3><br>These functions are  not affected by <span style="font-style: italic;">REPORT</span>.
+<br><br><h3>NOTE 2:
+<br></h3><br>On Minerva pre v1.98, the <span style="font-style: italic;">ERR_</span> functions were returning 1 if
+<br>any higher error had occured!!
+<br><br><h3>WARNING:
+<br></h3><br>The JS ROM version of <span style="font-style: italic;">ERR_DF</span> had a bug which crashed the
+<br>system when used.
+<br><br>All later operating systems and Toolkit II, the THOR XVI,
+<br>the Amiga-QL Emulator, TinyToolkit, and BTool fix this.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See Appendix for other languages.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="ERRor"></a>ERRor</h1><br>Syntax: <span style="font-style: italic;">ERRor
+<br></span>Location: <span style="font-style: italic;">QL ROM (post JM)
+<br></span><br>This keyword forms part of the structure <span style="font-style: italic;">WHEN ERRor</span>. Please
+<br>refer to <span style="font-style: italic;">WHEN ERRor</span>. As such, this keyword cannot be used in a
+<br>program on its own - this will report 'bad line'.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsW.html#WHEN-ERRor">WHEN ERRor</a> contains a detailed description of this structure.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="ERT"></a>ERT</h1><br>Syntax: <span style="font-style: italic;">ERT function
+<br></span>Location: <span style="font-style: italic;">HOTKEY II
+<br></span><br>Normally, whenever you use a function (or anything else
+<br>which may return an error code), you will need to assign the
+<br>result of the function (or whatever else) to a variable and
+<br>then test that variable in order to see whether or not an
+<br>error has been generated.  If an error has been generated, you
+<br>will then need to report the error (if you do not intend to
+<br>take any action to try and rectify the situation), something
+<br>which can take a lot of program space, if you intend to write
+<br>a program which does not require the command <span style="font-style: italic;">REPort</span> to be
+<br>present.
+<br><br>The command <span style="font-style: italic;">ERT</span> was introduced in the Hotkey System II to
+<br>enable you to write programs which test the result for an
+<br>error code and report the error all in one step.
+<br><br><h3>Example:
+<br></h3><br>(1) A simple program which provides its own error trapping:
+<br><span style="font-style: italic;">100 PAPER 0:INK 7
+<br>110 REPeat loop
+<br>120   CLS
+<br>130   AT 0,0:PRINT 'Enter an integer (0 to 300): ';
+<br>140   xerr=GET_INT
+<br>150   IF xerr<0:PRINT 'Error - try again':ELSE x=xerr:EXIT loop
+<br>160 PAUSE
+<br>170 END REPeat loop
+<br>180 PRINT 'The integer was : ';x
+<br>185 :
+<br>190 DEFine FuNction GET_INT
+<br>200  valid$='0123456789'
+<br>210  INPUT a$:IF a$='':RETurn -1
+<br>220  FOR i=1 TO LEN(a$):IF a$(i) INSTR valid$=0:RETurn -17
+<br>230  IF a$>300:RETurn -4
+<br>240  RETurn a$
+<br>250 END DEFine
+<br></span><br>(2) A similar program which is designed to stop on an
+<br><br>error:
+<br><span style="font-style: italic;">100 PAPER 0:INK 7
+<br>110 CLS
+<br>120 AT 0,0:PRINT 'Enter an integer (0 to 300): ';
+<br>130 xerr=GET_INT
+<br>140 IF xerr<0:REPORT xerr:STOP:ELSE x=xerr
+<br>150 PRINT 'The integer was : ';x
+<br>155 :
+<br>160 DEFine FuNction GET_INT
+<br>170  valid$='0123456789'
+<br>180  INPUT a$:IF a$='':RETurn -1
+<br>190  FOR i=1 TO LEN(a$):IF a$(i) INSTR valid$=0:RETurn -17
+<br>200  IF a$>300:RETurn -4
+<br>210  RETurn a$
+<br>220 END DEFine
+<br></span><br><h3>
+<br></h3><br>(3) The same program as in the second example, but using
+<br><br><span style="font-style: italic;">ERT</span>:
+<br><span style="font-style: italic;">100 PAPER 0:INK 7
+<br>110 CLS
+<br>120 AT 0,0:PRINT 'Enter an integer (0 to 300): ';
+<br>130 ERT GET_INT
+<br>140 PRINT 'The integer was : ';x
+<br>150 DEFine FuNction GET_INT
+<br>160  valid$='0123456789'
+<br>170  INPUT a$:IF a$='':RETurn -1
+<br>180  FOR i=1 TO LEN(a$):IF a$(i) INSTR valid$=0:RETurn -17
+<br>190  IF a$>300:RETurn -4
+<br>200  x=a$
+<br>210  RETurn x
+<br>220 END DEFine
+<br></span><br><h3>NOTE:
+<br></h3><br>When you are using <span style="font-style: italic;">ERT</span>, always beware of what you are
+<br>testing for an error, for example, if you had altered line 130
+<br>in the second example to:
+<br><br><span style="font-style: italic;">130 ERT x=GET_INT
+<br></span><br>you would not actually be testing to see whether the
+<br>function  <span style="font-style: italic;">GET_INT</span>  returned  an  error,  but  whether  the  line
+<br><span style="font-style: italic;">x=GET_INT</span> produced an error - <span style="font-style: italic;">x</span> itself would not be altered, hence
+<br>the need to assign the result to <span style="font-style: italic;">x</span> inside the function.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsR.html#REPort">REPort</a> will report an error without stopping the program.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="ET"></a>ET</h1><br>Syntax: <span style="font-style: italic;">ET file </span><sup>*</sup>[<span style="font-style: italic;">,</span>{<span style="font-style: italic;">filex</span> | <span style="font-style: italic;">#chx</span>}]<sup>*</sup> [<span style="font-style: italic;">;cmd$</span>]
+Location: <span style="font-style: italic;">Toolkit II
+<br></span><br>The syntax for <span style="font-style: italic;">ET</span> is the same as for the Toolkit II variant
+<br>of <span style="font-style: italic;">EX</span> and it also operates in a similar manner. However, <span style="font-style: italic;">ET</span> is
+<br>intended for low level debugging, ie. to trace execution of
+<br>the machine code commands step by step. A monitor program such
+<br>as Qmon is necessary.
+<br><br>The command <span style="font-style: italic;">ET</span> loads the executable program, installs the
+<br>job and immediately suspends the job by setting its priority
+<br>to zero. Control is then returned to SuperBASIC to allow you
+<br>to use a monitor program.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsE.html#EX">EX
+</a><br><h3>
+<br></h3><hr style="width: 100%; height: 2px;"><h1><a name="ETAB$"></a>ETAB$</h1><br>Syntax: <span style="font-style: italic;">ETAB$ (string$ </span>[<span style="font-style: italic;">,tabdist</span>])  where  <span style="font-style: italic;">tabdist=1..255
+<br></span>Location: <span style="font-style: italic;">BTool
+<br></span><br>Some editors and word-processors use the character <span style="font-style: italic;">CHR$(9)</span> as
+<br>a tab mark to save the space which would otherwise be needed
+<br>to store several spaces. The function <span style="font-style: italic;">ETAB$</span> takes a given
+<br>string, expands all tab marks in it and returns the result. If
+<br>the tabulator distance, <span style="font-style: italic;">tabdist</span>, is not given, a default of eight
+<br>characters is assumed.
+<br><br>The length of <span style="font-style: italic;">string$</span> has to be smaller than 256 characters:
+<br><span style="font-style: italic;">LEN(string$)<256</span>. <span style="font-style: italic;">tabdist>255</span> has no effect.
+<br><br><h3>Example:
+<br></h3><br>The  text  file  test_txt  is  shown  with  all  tab  marks
+<br><br>expanded:
+<br><span style="font-style: italic;">100 OPEN_IN#3,test_txt
+<br>110 CLS
+<br>120 REPeat all_lines
+<br>130   IF EOF(#3) THEN EXIT all_lines
+<br>140   INPUT#3,line$
+<br>150   IF LEN(line$)>255 THEN line$=line$(1 TO 255)
+<br>160   PRINT ETAB$(line$,4)
+<br>170 END REPeat all_lines
+<br>180 CLOSE#3
+<br></span><br><h3>NOTE:
+<br></h3><br>A value of <span style="font-style: italic;">tabdist<=0</span> will not produce usable output.
+<br><br><h3>WARNING:
+<br></h3><br>Although tab mark distances of 32766 and 32767 are allowed,
+<br><span style="font-style: italic;">ETAB$</span> will not produce a sensible output. It may even possibly
+<br>crash the system.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsC.html#CTAB$">CTAB$</a> is the complimentary function to <a style="font-style: italic;" href="KeywordsE.html#ETAB$">ETAB$</a>.
+<br><br><a style="font-style: italic;" href="KeywordsI.html#INSTR">INSTR</a> finds the position of a string in another string.
+<br><a href="KeywordsL.html#LEN">LEN</a> returns the length of a string.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="ETAT"></a>ETAT</h1><br>Syntax: <span style="font-style: italic;">ETAT (file$)
+<br></span>Location: <span style="font-style: italic;">ETAT
+<br></span><br>This function checks to see if the given file (passed as a
+<br>string) exists and then checks upon its status (whether it can
+<br>be opened etc). If necessary a standard error number is
+<br>returned, otherwise <span style="font-style: italic;">ETAT</span> will return 0, which means that the
+<br>file can be accessed without the danger of an error such as
+<br>"not found". This can therefore be used to avoid the need for
+<br>error trapping.
+<br><br><h3>Example:
+<br></h3><br>This program copies text files to window #1:
+<br><span style="font-style: italic;">100 REPeat input_loop
+<br>110   INPUT "File to view:"!file$
+<br>120   AnError=ETAT(file$)
+<br>130   IF NOT AnError: EXIT input_loop
+<br>140   PRINT "Sorry, ";: REPORT#1,AnError
+<br>150 END REPeat input_loop
+<br>160 OPEN_IN#3,file$
+<br>170 REPeat view_file
+<br>180   IF EOF(#3) THEN EXIT view_file
+<br>190   INPUT#3,line$: PRINT line$
+<br>200 END REPeat view_file
+<br>210 CLOSE#3
+<br></span><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsF.html#FTEST">FTEST</a> works like <a style="font-style: italic;" href="KeywordsE.html#ETAT">ETAT</a> but recognises the default device and
+<br>directory.
+<br><br><a style="font-style: italic;" href="KeywordsF.html#FILE_OPEN">FILE_OPEN</a>, <a style="font-style: italic;" href="KeywordsF.html#FOPEN">FOPEN</a>, <a style="font-style: italic;" href="KeywordsF.html#FOP_IN">FOP_IN</a>, <a style="font-style: italic;" href="KeywordsF.html#FOP_OVER">FOP_OVER</a> and <a style="font-style: italic;" href="KeywordsF.html#FOP_NEW">FOP_NEW</a> are all functions to
+<br>open files without the need for error trapping.
+<br><br><a style="font-style: italic;" href="KeywordsO.html#OPEN">OPEN</a>, <a style="font-style: italic;" href="KeywordsO.html#OPEN_IN">OPEN_IN</a> and <a style="font-style: italic;" href="KeywordsO.html#OPEN_NEW">OPEN_NEW</a> stop with error messages if an error
+<br>occurs.  To avoid this, error trapping facilities, such as <a style="font-style: italic;" href="KeywordsW.html#WHEN">WHEN</a>
+<a href="KeywordsE.html#ERRor">ERRor</a> have to be used.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="EW"></a>EW</h1><br>Syntax: <span style="font-style: italic;">EW file </span><sup>*</sup>[<span style="font-style: italic;">,</span>{<span style="font-style: italic;">file</span><sup>x</sup> | <span style="font-style: italic;">#ch</span><sup>x</sup>}]<sup>*</sup> [<span style="font-style: italic;">;cmd$</span>]
+Location: <span style="font-style: italic;">Toolkit II, THOR XVI
+<br></span><br>This command causes the given file (which must be an
+<br>executable program) to be executed.  If the drivename is not
+<br>given, or the file cannot be found on the given device, <span style="font-style: italic;">EW</span> will
+<br>load the first file from the default program directory (see
+<br><span style="font-style: italic;">PROGD$</span>), with subsequent programs being loaded from the default
+<br>data directory (see <span style="font-style: italic;">DATAD$</span>).
+<br><br>The calling program will be stopped whilst the new job is
+<br>running (ie. the new job cannot multitask with the calling
+<br>program). If you supply any channels (which must already be
+<br>open in the calling program) or filenames as parameters, these
+<br>form channels which can be accessed by the job. If your
+<br>program has been compiled with QLiberator or is to be run as
+<br>an SBASIC job under SMS then each supplied channel will become
+<br>#0, #1, #2 .... Note that with Turbo compiled programs the
+<br>channels work backwards and will become #15, #14, #13 ...
+<br><br>To access these channels from within the job, merely ensure
+<br>that the job does not try to open its own channel with the
+<br>same number, and then write the program lines as if the
+<br>channels were open.
+<br><br>Further, you can pass a command string (<span style="font-style: italic;">cmd$</span>) to the program
+<br>specifying what the executed job should do. It depends on the
+<br>job what <span style="font-style: italic;">cmd$</span> should look like and also how you will access the
+<br>given string.  The Turbo and QLiberator compilers include
+<br>commands in their Toolkits to read the supplied string; and
+<br>Minerva MultiBASICs and SMS SBASICs include the function <span style="font-style: italic;">CMD$
+<br></span>which allows you to read the supplied string.  If you have not
+<br>used one of these compilers to produce the job, then you will
+<br>need to read the string from the stack. Please note that the
+<br>command string must appear as the last parameter for the
+<br>command. The command string can be explicit strings and names
+<br>as well as expressions. However, variables must be converted
+<br>into expressions, for example by:
+<br><span style="font-style: italic;">EW 'flp1_xchange';(dataspace)
+<br></span><br>On some very early versions of Toolkit II, you needed:
+<br><span style="font-style: italic;">EW 'flp1_xchange';dataspace&amp;""
+<br></span><br>Executable programs often return an error code back to the
+<br>owner job (the program which started it). Especially with 'C'
+<br>compiled programs, this will be non-zero if there are any
+<br>errors.  <span style="font-style: italic;">EW</span> stops the owner job if this happened. There is
+<br>unfortunately no way to stop this from happening unless you
+<br>use error trapping (eg. <span style="font-style: italic;">WHEN ERRor</span>, or <span style="font-style: italic;">Q_ERR_ON</span> from QLiberator).
+<br><br><h3>Example 1:
+<br></h3><span style="font-style: italic;">EW QED;"flp1_readme_txt"
+<br></span><br>The  editor  will  be  started  from  the  default  program
+<br><br>directory and told to load the file readme_txt.
+<br><br><h3>Example 2:
+<br></h3><span style="font-style: italic;">EW mdv1_QUILL
+<br></span><br>will start QUILL from microdrive 1.
+<br><br><h3>NOTE 1:
+<br></h3><br>There are problems with <span style="font-style: italic;">EW</span> and <span style="font-style: italic;">EX</span> in Toolkit II v2.05 (and
+<br>previous versions) which make them unreliable and difficult to
+<br>use with compiled programs. The main problem lay in what was
+<br>classed to be the owner of a secondary Job. From v2.06
+<br>onwards, the owner for <span style="font-style: italic;">EX</span> has been Job 0 and the owner for <span style="font-style: italic;">EW</span>,
+<br>the current Job.
+<br><br><h3>NOTE 2:
+<br></h3><br>TinyToolkit and BTool allow you to break out of a program
+<br>started with <span style="font-style: italic;">EW</span> at any time by pressing &lt;CTRL&gt;&lt;SPACE&gt; - the
+<br>program can then be treated as if it was started with <span style="font-style: italic;">EX</span>.
+<br><br><h3>NOTE 3:
+<br></h3><br>On some versions of the QL ROM (and Toolkit II), unless the
+<br>Pointer Environment is loaded, you may need to press &lt;CTRL&gt;&lt;C&gt;
+<br>to get back the cursor at the end of the task.
+<br><br><h3>NOTE 4:
+<br></h3><br>You cannot use <span style="font-style: italic;">EW</span> (or similar) to execute a file stored on
+<br>a PC or TOS disk (even with Level-3 Device Drivers) - see the
+<br>Device Drivers Appendix, in particular the notes on Level-3
+<br>Device Drivers for further details.
+<br><br><h3>MINERVA NOTES:
+<br></h3><br>As from v1.93+, MultiBASICs can be started up with the
+<br>command:
+<br><br><span style="font-style: italic;">EW pipep </span><sup>*</sup>[<span style="font-style: italic;">,</span>{<span style="font-style: italic;">file</span><sup>x</sup> | <span style="font-style: italic;">#ch</span><sup>x</sup>}]<sup>*</sup> [<span style="font-style: italic;">;cmd$</span>]
+<br><br>prior  to  this  version,  you  needed  to  load  the  file
+<br>Multib_exe contained on the disk supplied with Minerva and use
+<br>the command:
+<br><span style="font-style: italic;"><br>EW flp1_Multib_exe </span><sup>*</sup>[<span style="font-style: italic;">,</span>{<span style="font-style: italic;">file</span><sup>x</sup> | <span style="font-style: italic;">#ch</span><sup>x</sup>}]<sup>*</sup> [<span style="font-style: italic;">;cmd$</span>]
+<br><br>How any supplied channels are dealt with is slightly
+<br>different to all other implementations.  Its effect depends on
+<br>how many channels are passed:
+<br><br>No channels passedMultiBASIC started with a
+<br>single small window which
+<br>is the same for #0 and #1
+<br><br>One channel passedThis becomes both #0 and #1
+<br><br>Two channels passedThese  become  #0  and  #1
+<br>respectively.
+<br><br>Three or more channels passedThe first two become #0 and
+<br>#1 respectively, then any
+<br>additional ones become #3
+<br>onwards.
+<br><br>Minerva MultiBASICs also treat any command string passed to
+<br>them in a special way:
+<br><br>(1) If the last character of the command string is an
+<br>exclamation mark (!), then the MultiBASIC is started up with
+<br>the original keywords built into the ROM, and any which had
+<br>been linked into SuperBASIC subsequently (for example Toolkit
+<br>II) will not be available to that MultiBASIC.  This character
+<br>is then removed from the command string before it can be read
+<br>by the MultiBASIC.
+<br><br>(2) If the command string contains the greater than sign
+<br>(>), then anything which appears before that character in the
+<br>string, is opened as an input command channel (thus allowing
+<br>you to run a MultiBASIC program in the background) and then
+<br>all characters up to and including the greater than character
+<br>are deleted from the command string before it can be read by
+<br>the MultiBASIC.
+<br><br><h3>Example:
+<br></h3><br>Take a simple BASIC program to convert a given file (say
+<br><br>flp1_TEST_TXT) into uppercase:
+<br><span style="font-style: italic;">110 REPeat loop
+<br>120   IF EOF(#0) THEN EXIT loop
+<br>130   INPUT #0,a$
+<br>140   IF a$='' THEN NEXT loop
+<br>150   FOR i=1 TO LEN(a$)
+<br>160     IF CODE(a$(i))>96 AND CODE(a$(i))<123 THEN
+<br>170       a$(i)=CHR$(CODE(a$(i))-32)
+<br>180     END IF
+<br>190   END FOR i
+<br>200   PRINT a$
+<br>210 END REPeat loop
+<br>220 IF VER$(-1):CLOSE #0
+<br></span><br>Save this as flp1_UC_bas and then enter the command:
+<br><br><span style="font-style: italic;">OPEN #3,con
+<br><br>EW pipep,flp1_test_txt,#3;'flp1_UC_bas>'
+<br></span><br>or, prior to v1.93, use:
+<br><span style="font-style: italic;"><br>OPEN #3,con
+<br><br>EW flp1_Multib_exe,flp1_test_txt,#3;'flp1_UC_bas>'
+<br></span><br>The last line checks to make sure this program is not being
+<br>run from the original SuperBASIC interpreter (job 0) in which
+<br>case, it then closes #0.
+<br><br>Unfortunately, on v1.97 (at least), this program fails to
+<br>spot the end of the file (try <span style="font-style: italic;">PEND</span> instead of <span style="font-style: italic;">EOF</span>), and therefore
+<br>reports an 'End of File' error on completion.  Oddly, this
+<br>error is not reported if you use <span style="font-style: italic;">EX</span> to run the program.
+<br><br><h3>SMS NOTE:
+<br></h3><br>SMS  allows  <span style="font-style: italic;">EW</span>  and  <span style="font-style: italic;">EX</span>  to  run  basic  programs  in  the
+<br>background, as an SBASIC job.  For example, using the Minerva
+<br>example program above, this could be used with the line:
+<br><br><span style="font-style: italic;">EW flp1_UC_bas,flp1_test_txt,#3
+<br></span><br>This does not report an error on completion.
+<br><br>Beware however that prior to v2.69, this command would not
+<br>work in Qliberated programs to start an SBASIC program.
+<br><br>Because of this ability, SMS v2.58+ has amended the <span style="font-style: italic;">EW</span> set
+<br>of commands so that it searches for a file in much the same
+<br>way as <span style="font-style: italic;">LOAD</span> under SMS.  Taking a default program device to be
+<br>flp1_, <span style="font-style: italic;">EW ram1_TEST</span> will look for the following files:-
+<br><br>ram1_TEST
+<br><br>ram1_TEST_sav
+<br><br>ram1_TEST_bas
+<br><br>flp1_ram1_TEST
+<br><br>flp1_ram1_TEST_sav
+<br><br>flp1_ram1_TEST_bas
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>For further information see <a style="font-style: italic;" href="KeywordsE.html#EX">EX</a>.
+<br><br><a style="font-style: italic;" href="KeywordsS.html#SBASIC">SBASIC</a> allows you to set up several SBASIC jobs under SMS.
+<br><a href="KeywordsM.html#MB">MB</a> allowed you to start up a MultiBASIC on early versions
+<br>of Minerva.
+<br><br>Please also see the appendix on Multiple BASICs.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="EX"></a>EX</h1><br>Syntax: <span style="font-style: italic;">EX file </span><sup>*</sup>[<span style="font-style: italic;">,</span>{<span style="font-style: italic;">file</span><sup>x</sup> | <span style="font-style: italic;">#ch</span><sup>x</sup>}]<sup>*</sup> [<span style="font-style: italic;">;cmd$</span>]
+Location: <span style="font-style: italic;">Toolkit II, THOR XVI
+<br></span><br>This command forces the given file (which must be an
+<br>executable  program)  to  be  executed  and  control  is  then
+<br>generally returned to the calling program to enable the new
+<br>job  to  multitask  alongside  the  calling  program.  Similar
+<br>parameters as for <span style="font-style: italic;">EW</span> can be passed to the job.
+<br><br>Use <span style="font-style: italic;">EW</span> if the program cannot multitask for some reason or
+<br>if you do not want it to.
+<br><br><h3>Example 1:
+<br></h3><span style="font-style: italic;">EX QED;"readme_txt"
+<br></span><br>The editor will be started from the default program device
+<br><br>and told to load the file readme_txt from the editor's
+<br><br>default device.
+<br><br><h3>Example 2:
+<br></h3><span style="font-style: italic;">EX UC_obj,ram1_hope_lis,par
+<br></span><br>A program called UC_obj (a program which converts text to
+<br><br>all upper case) will be started up to run alongside all
+<br><br>other programs.  Two new channels ('ram1_hope_lis' and
+<br><br>'par') are opened for the task to use for its input and
+<br><br>output channels respectively - the task must not open its
+<br><br>own channels but will rely upon the user supplying them as
+<br><br>parameters. The BASIC version of such a program is:
+<br><span style="font-style: italic;">110 REPeat loop
+<br>120   IF EOF(#0) THEN EXIT loop
+<br>130   INPUT #0,a$
+<br>140   IF a$='' THEN NEXT loop
+<br>150   FOR i=1 TO LEN(a$)
+<br>160     IF CODE(a$(i))>96 AND CODE(a$(i))<123 THEN
+<br>170       a$(i)=CHR$(CODE(a$(i))-32)
+<br>180     END IF
+<br>190   END FOR i
+<br>200   PRINT#1,a$
+<br>210 END REPeat loop
+<br></span><br>Turbo users will need to alter #0 and #1 to #15 and #14
+<br><br>respectively.  Minerva and SMS users can use this program
+<br><br>without compiling it (see <span style="font-style: italic;">EW</span> above).
+<br><br><h3>Using EX to set up filters
+<br></h3><br>It is actually quite simple to create a multitasking
+<br>environment on the QL using the <span style="font-style: italic;">EX</span> command to set up several
+<br>programs all of which will process a given file (or data
+<br>entered into a given channel) in turn. The syntax for this
+<br>version of the command is:
+<br><br><span style="font-style: italic;">EX jobparams</span><sup>1</sup><span style="font-style: italic;"> </span><sup>*</sup>[<span style="font-style: italic;">TO jobparams</span><sup>i</sup>]<sup>*</sup> [<span style="font-style: italic;">TO #chan</span><sup>0</sup>]
+<br><br>where  <span style="font-style: italic;">jobparams</span>  represents  the  same  parameters  as  are
+<br>available for the normal <span style="font-style: italic;">EX</span> command, being:
+<br><br><span style="font-style: italic;">file </span><sup>*</sup>[<span style="font-style: italic;">,</span>{<span style="font-style: italic;">file</span><sup>x</sup><span style="font-style: italic;"> </span>| <span style="font-style: italic;">#ch</span><sup>x</sup>}]<sup>*</sup> [<span style="font-style: italic;">;cmd$</span>]
+<br><br>What this actually does, is to set up a chain of jobs or
+<br>channels whereby one extra channel is opened for each job to
+<br>form the output channel for the job on the left of the <span style="font-style: italic;">TO</span> and
+<br>another channel is opened to form the input channel of the job
+<br>on the right of the <span style="font-style: italic;">TO</span>.  Where a channel number appears at the
+<br>end of the line (after a <span style="font-style: italic;">TO</span>), this is taken as being the final
+<br>output channel and nothing further can be done to the original
+<br>input.
+<br><br><h3>Examples:
+<br></h3><br>How about extending the Upper case conversion 'filter' so
+<br><br>that a given text file is then printed out one line at a
+<br><br>time with each line being printed out as normal, but then
+<br><br>printed again, but this time backwards!
+<br><br>First of all, the program to do the printing:-
+<br><span style="font-style: italic;">110 REPeat loop
+<br>120   IF EOF(#0): EXIT loop:   REMark Turbo uses #15, not #0
+<br>130   INPUT #0,a$:PRINT#1,a$: REMark Turbo uses #14, not #1
+<br>140   IF CMD$=='y':      REMark Turbo users use OPTION_CMD$
+<br>150     IF a$='':NEXT loop
+<br>160     FOR lop=LEN(a$) TO 1 STEP -1
+<br>170       PRINT#1,a$(lop);
+<br>180     END FOR lop
+<br>190     PRINT#1
+<br>200   END IF
+<br>210 END REPeat loop
+<br></span><br>Compile this program and save the compiled version as
+<br>flp1_Back_obj. Now to carry out the desired task:
+<br><span style="font-style: italic;">OPEN #3,con
+<br>EX flp1_uc_obj,flp1_test_txt TO flp1_back_obj,#3;'y'
+<br></span><br>On Minerva v1.93+, you could use:
+<br><span style="font-style: italic;">OPEN #3,con
+<br>EX pipep,flp1_test_txt;'flp1_uc_bas>' TO pipep,#3;'flp1_back_bas>y'
+<br></span><br>Or on SMS:
+<br><span style="font-style: italic;">OPEN #3,con
+<br>EX flp1_uc_bas,flp1_test_txt TO flp1_back_bas,#3;'y'
+<br></span><br><h3>
+<br></h3><br>How about trying this:-
+<br><span style="font-style: italic;">OPEN #3,con
+<br>EX flp1_uc_obj,flp1_test_txt TO flp1_back_obj;'y' TO flp1_back_obj,#3;'y'
+<br></span><br><h3>NOTE 1:
+<br></h3><br>On pre JS ROMs, you may find that if you <span style="font-style: italic;">EX</span> a new Job
+<br>whilst there is already one Job in progress, the ink and paper
+<br>colours of the first Job are set to zero. This is a problem
+<br>unless you have a key to redraw the screen for the first Job
+<br>(or the Pointer Interface).
+<br><br><h3>NOTE 2:
+<br></h3><br>The THOR XVI always ensures that cursor control is passed
+<br>to the new Job on start-up rather than returning to the
+<br>calling Job.
+<br><br><h3>MINERVA NOTE:
+<br></h3><br>Please refer to notes about <span style="font-style: italic;">EW</span> which explain how to use
+<br>this command to control MultiBASICs.
+<br><br><h3>SMS NOTE:
+<br></h3><br>Please refer to notes about <span style="font-style: italic;">EW</span> and use this command to
+<br>control multiple SBASICs.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>Use <a style="font-style: italic;" href="KeywordsF.html#FTYP">FTYP</a> or <a style="font-style: italic;" href="KeywordsF.html#FILE_TYP">FILE_TYP</a> to check if a file is executable.
+<br><br><a style="font-style: italic;" href="KeywordsF.html#FDAT">FDAT</a> returns the dataspace of an executable file, <a style="font-style: italic;" href="KeywordsF.html#FXTRA">FXTRA
+</a>provides other information. <a style="font-style: italic;" href="KeywordsE.html#ET">ET</a> is very similar to <a style="font-style: italic;" href="KeywordsE.html#EX">EX</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="EXCHG"></a>EXCHG</h1><br>Syntax: <span style="font-style: italic;">EXCHG device_file,old$,new$
+<br></span>Location: <span style="font-style: italic;">ATARI_REXT
+<br></span><br>This command creates a Job which opens a channel to the
+<br>specified file and then works through the file, replacing
+<br>every occurrence of <span style="font-style: italic;">old$</span> with <span style="font-style: italic;">new$</span>. The search for <span style="font-style: italic;">old$</span> is case
+<br>independent.  Both <span style="font-style: italic;">old$</span> and <span style="font-style: italic;">new$</span> must be the same length.
+<br><br><h3>Example:
+<br></h3><br><span style="font-style: italic;">EXCHG flp1_Task_obj,'mdv','flp'
+<br></span><br>will replace all references to mdv1_ or mdv2_ to flp1_ and
+<br>flp2_ respectively in the file flp1_task_obj.
+<br><br><h3>NOTE:
+<br></h3><br><span style="font-style: italic;">CHR$(0)</span> cannot be replaced!
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See also <a style="font-style: italic;" href="KeywordsC.html#CONVERT">CONVERT</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="EXEC"></a>EXEC</h1><br>Syntax: <span style="font-style: italic;">EXEC program
+<br></span><br>or <span style="font-style: italic;">EXEC file </span><sup>*</sup>[<span style="font-style: italic;">,</span>{<span style="font-style: italic;">file</span><sup>x</sup> | <span style="font-style: italic;">#ch</span><sup>x</sup>}]<sup>*</sup> [<span style="font-style: italic;">;cmd$</span>]<span style="font-style: italic;">(Toolkit  II,  THOR
+<br>XVI)
+<br></span><br>or <span style="font-style: italic;">EXEC file </span><sup>*</sup>[<span style="font-style: italic;">,#ch</span><sup>x</sup>]<sup>*</sup> [<span style="font-style: italic;">;cmd$</span>]<span style="font-style: italic;">(Minerva v1.93+)
+<br></span>Location: <span style="font-style: italic;">QL ROM, Toolkit II
+<br></span><br>This command loads and starts a machine code or compiled
+<br>program, but then returns control to the calling job (ie. the
+<br>job which issued <span style="font-style: italic;">EXEC</span>) so that both jobs are multitasking.
+<br><br>Minerva v1.97+ has now implemented a sub-set of the Toolkit
+<br>II standard, in that you can pass details of existing channels
+<br>to a job as well as a command string.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>With Toolkit II installed or on a THOR XVI, <a style="font-style: italic;" href="KeywordsE.html#EXEC">EXEC</a> is the same
+<br>as <a style="font-style: italic;" href="KeywordsE.html#EX">EX</a>.
+<br><br>See also <a style="font-style: italic;" href="KeywordsE.html#EXEC_W">EXEC_W</a>, <a style="font-style: italic;" href="KeywordsE.html#EW">EW</a>, <a style="font-style: italic;" href="KeywordsT.html#TTEX">TTEX</a> and <a style="font-style: italic;" href="KeywordsE.html#ET">ET</a>.
+<br><br>If you are using the Hotkey System or SMS then see<a style="font-style: italic;" href="KeywordsE.html#EXEP">EXEP</a> in
+<br>this manual.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="EXEC_W"></a>EXEC_W</h1><br>Syntax: <span style="font-style: italic;">EXEC_W program
+<br></span><br>or <span style="font-style: italic;">EXEC_W file </span><sup>*</sup>[<span style="font-style: italic;">,</span>{<span style="font-style: italic;">file</span><sup>x</sup> | <span style="font-style: italic;">#ch</span><sup>x</sup>}]<sup>*</sup> [<span style="font-style: italic;">;cmd$</span>]<span style="font-style: italic;">(Toolkit  II,  THOR
+<br>XVI)
+<br></span><br>or <span style="font-style: italic;">EXEC_W file </span><sup>*</sup>[<span style="font-style: italic;">,#ch</span><sup>x</sup>]<sup>*</sup> [<span style="font-style: italic;">;cmd$</span>]<span style="font-style: italic;">(Minerva v1.93+)
+<br></span>Location: <span style="font-style: italic;">QL ROM, Toolkit II
+<br></span><br>This command is the same as <span style="font-style: italic;">EXEC</span> except that the calling job
+<br>is suspended until the program has finished.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>Toolkit II and a THOR XVI make <a style="font-style: italic;" href="KeywordsE.html#EXEC_W">EXEC_W</a> the same as <a style="font-style: italic;" href="KeywordsE.html#EW">EW</a>.
+<br><br>See also <a style="font-style: italic;" href="KeywordsE.html#EXEC">EXEC</a>, <a style="font-style: italic;" href="KeywordsE.html#EX">EX</a>, <a style="font-style: italic;" href="KeywordsT.html#TTEW">TTEW</a> and <a style="font-style: italic;" href="KeywordsE.html#ET">ET</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="EXEP"></a>EXEP</h1><br>Syntax: <span style="font-style: italic;">EXEP filename </span>[<span style="font-style: italic;">;cmd$</span>] [<span style="font-style: italic;">,Jobname$</span>] [<span style="font-style: italic;">,options</span>]
+<br><br>or <span style="font-style: italic;">EXEP Thingname$ </span>[<span style="font-style: italic;">;cmd$</span>] [<span style="font-style: italic;">,Jobname$</span>] [<span style="font-style: italic;">,options</span>] <span style="font-style: italic;">(version 2.17+)
+<br></span>Location: <span style="font-style: italic;">HOTKEY II
+<br></span><br>The first variant of the <span style="font-style: italic;">EXEP</span> command is similar to the <span style="font-style: italic;">EX
+<br></span>and <span style="font-style: italic;">EW</span> commands provided by Toolkit II.  However, not only does
+<br><span style="font-style: italic;">EXEP</span> allow you to pass a command string to the program being
+<br>called (as with <span style="font-style: italic;">EX</span> or <span style="font-style: italic;">EW</span>), but you can also supply the Job name
+<br>which will be shown in a list of the Jobs currently loaded
+<br>into memory.
+<br><br>In order to make various 'problem' programs work correctly
+<br>under the Pointer Environment, it is sometimes necessary to
+<br>pass various parameters (options) to the Hotkey System when
+<br>the program is called in order to tell it how to treat the
+<br>program.
+<br><br>The command <span style="font-style: italic;">EXEP</span> allows you to execute a program (in the
+<br>same way as with <span style="font-style: italic;">EXEC</span>), but at the same time, pass these
+<br>parameters to the Pointer Environment.  The parameters (or
+<br>options) currently supported are:
+<br><br><span style="font-style: italic;">P</span> [<span style="font-style: italic;">,size</span>]-This  tells  the  Hotkey  System  that  the
+<br>program is a Psion program (eg. Quill)
+<br>which will try to grab all of the available
+<br>memory.  If <span style="font-style: italic;">size</span> is not specifed, then the
+<br>Hotkey System will ask the user to specify
+<br>the maximum amount of memory (in kilobytes)
+<br>that the program should use before the
+<br>program actually starts.  Otherwise, the
+<br>program  will  be  allowed  to  use<span style="font-style: italic;">  size
+<br></span>kilobytes of memory (if available).  When
+<br>the Pointer Environment was first released,
+<br>Qjump produced a program (Grabber) which
+<br>could be used to amend the amount of memory
+<br>addressed by the Psion programs once and
+<br>for all - if this program has been used on
+<br>your copies of the Psion programs, then do
+<br>not use this option.
+<br><br><span style="font-style: italic;">G</span> [<span style="font-style: italic;">,x,y,a,b</span>]-When a  program is started, the Pointer
+<br>Interface will store the area of the screen
+<br>contained  under  each  window  as  it  is
+<br>opened, restoring any part of the screen is
+<br>no longer covered by an active window. This
+<br>provides non-destructive windows, one of
+<br>the major assets of the Pointer Interface.
+<br>However, some programs have a habit of
+<br>opening windows, writing to the screen and
+<br>then closing the window so that the text
+<br>cannot be altered - creating background
+<br>information. Unfortunately, due to the way
+<br>in which the Pointer Interface works, as
+<br>soon  as  this  window  is  closed,  the
+<br>background information would be lost.
+<br><br>The solution to this is to use a guardian
+<br>window (created using this parameter) which
+<br>specifies the area of the screen which the
+<br>program is allowed to use and which must
+<br>therefore not be restored until the program
+<br>has ended (even if there are no current
+<br>windows open on that area).  The parameters
+<br>are used to open a guardian window <span style="font-style: italic;">x</span> pixels
+<br>wide by <span style="font-style: italic;">y</span> pixels high at the origin (<span style="font-style: italic;">a,b</span>).
+<br><br>Any attempt by a program to open or resize
+<br>a window so that part of it would fall
+<br>outside this Guardian window will fail.
+<br><br>If you do not pass the size of the Guardian
+<br>window as a parameter (eg. <span style="font-style: italic;">EXEP flp1_Graph_exe,g</span>),
+<br>the maximum permissible window size will be
+<br>assumed (eg. 512x256 on a standard QL).
+<br><br><span style="font-style: italic;">F</span>-Some programs  which use <span style="font-style: italic;">KEYROW</span> to read the
+<br>keyboard, or access the screen directly,
+<br>can wreak havoc when multitasking alongside
+<br>other programs.
+<br><br>This parameter causes the computer to only
+<br>pass any keypresses read with <span style="font-style: italic;">KEYROW</span> to the
+<br>program started with <span style="font-style: italic;">EXEP</span>.
+<br><br><span style="font-style: italic;">U</span>-With some programs, for example, a clock,
+<br>it  is desirable for this to be updated
+<br>on screen even though it is not the Job at
+<br>the top of the pile (ie. it is overwriting
+<br>part  of  the  current  Job's  windows).
+<br>The Pointer Interface will allow you to do
+<br>this  by  passing  the  <span style="font-style: italic;">u</span>  parameter  (for
+<br>unlock), for example:
+<br><br><span style="font-style: italic;">EXEP flp1_Clock,u
+<br></span><br>The second syntax of <span style="font-style: italic;">EXEP</span> is similar, except that instead of
+<br>loading a task stored with the given filename, it searches
+<br>through the Thing list for an Executable Thing with the given
+<br>Thingname and then (if present), will start that up as a new
+<br>Job (if it is not present, then <span style="font-style: italic;">EXEP</span> will look on the default
+<br>program device for a file called Thingname).
+<br><br>For example, if you have QPAC2 present, <span style="font-style: italic;">EXEP Files</span> will call
+<br>up the files sub-menu (in the latest versions of QPAC2, you
+<br>could use, for example:
+<br><span style="font-style: italic;"><br>EXEP files;'\S \D flp1__exe \O v','View _EXE'
+<br></span><br>to create a View files menu which will list all of the
+<br>files on flp1_ which end with _exe, without any sort order;
+<br>the job being called 'View _EXE' in the Jobs list).
+<br><br><h3>Examples:
+<br></h3><br>(1) Consider the following program:
+<br><span style="font-style: italic;">100 MODE 4
+<br>110 OPEN #0,CON_10x10a132x66
+<br>120 OPEN #1,CON_448x200a32x16
+<br>130 PAPER 0:INK 7:CLS
+<br>140 BORDER 1,2:AT 10,9:PRINT 'Y AXIS'
+<br>150 AT 15,35:PRINT 'X AXIS'
+<br>160 OPEN #1,CON_248x100a132x66:BORDER 1,4
+<br>170 PAUSE
+<br></span><br>If this program was compiled (without windows being copied
+<br><br>across) and then run, as soon as line 160 was reached, the
+<br><br>information around the sides of the graph would be lost!
+<br><br>The reason for the <span style="font-style: italic;">PAUSE</span> in line 170 is that as soon as the
+<br><br>compiled program reached the end, it would close all of its
+<br><br>windows, and you would not be able to see anything!
+<br><br>The answer is to use a Guardian window (created using this
+<br><br>parameter). Presuming that the above program has been
+<br><br>compiled under the filename flp1_Graph_exe, you could use
+<br><br>the line:
+<br><br><span style="font-style: italic;">EXEP flp1_Graph_exe,G,448,200,32,16
+<br></span><br>to define a Guardian window 448x200 pixels with its origin
+<br><br>at (32,16).
+<br><br>(2) Try for example, compiling the following program and
+<br><br>starting it with:
+<br><span style="font-style: italic;">EXEP flp1_Test_exe,u
+<br></span><br> (presuming that is the filename you allocate to it):
+<br><span style="font-style: italic;">100 OPEN #1,con_512x256a0x0
+<br>110 REPeat Loop
+<br>120   PRINT KEYROW(0)
+<br>130 END REPeat Loop
+<br></span><br>You will find it very difficult to do anything (including
+<br><br>removing this job). The solution is to pass this parameter
+<br><br>to the Pointer Interface which tells it to Freeze the
+<br><br>program when it is in buried under another Job's windows
+<br><br>(eg. if you used &lt;CTRL&gt;&lt;C&gt; to change to another Job). For
+<br><br>example, use the line:
+<br><span style="font-style: italic;">EXEP flp1_Test_exe,f
+<br></span><br>(3) The SuperBASIC line:
+<br><span style="font-style: italic;">EXEP flp1_EDT;'flp2_Text',Editor,g
+<br></span><br>will start up an editor stored under the filename flp1_EDT,
+<br>which will be given the Job name 'Editor' (which will be shown
+<br>for example in the JOBS table), provide it with a guardian
+<br>window  of  512x256,  and  tell  it  to  load  a  file  called
+<br>flp2_Text.
+<br><br><h3>NOTE 1:
+<br></h3><br>Before v2.21 of the Hotkey System II, you could not pass a
+<br>command string to the program being called.
+<br><br><h3>NOTE 2:
+<br></h3><br>The various parameters can be mixed together, for example:
+<br><br><span style="font-style: italic;">EXEP flp1_Graph_exe,F,G,448,200,32,16;'ser1'
+<br></span><br><h3>NOTE 3:
+<br></h3><br>Versions earlier than v2.24 will not allow you to alter the
+<br>Job Name, which will otherwise be the name given the program
+<br>when it was created.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsT.html#THING">THING</a> allows you to test whether or not a given Thing is
+<br>present.
+<br><br><a style="font-style: italic;" href="KeywordsE.html#EX">EX</a>, <a style="font-style: italic;" href="KeywordsE.html#EXEC">EXEC</a>, <a style="font-style: italic;" href="KeywordsE.html#EW">EW</a> and <a style="font-style: italic;" href="KeywordsE.html#EXEC_W">EXEC_W</a> are all similar to the first variant of
+<br><a style="font-style: italic;" href="KeywordsE.html#EXEP">EXEP</a>.
+<br><br><a style="font-style: italic;" href="KeywordsG.html#GET_STUFF$">GET_STUFF$</a> will call up the QPAC2 files sub-menu and allow you
+<br>to read the chosen filename.
+<br><br><a style="font-style: italic;" href="KeywordsH.html#HOT_THING">HOT_THING</a> allows you to set up a hotkey to call an Executable
+<br>Thing.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="EXIT"></a>EXIT</h1><br>Syntax: <span style="font-style: italic;">EXIT loop_variable</span>  <span style="font-style: italic;">(FOR loops)
+<br></span><br>or <span style="font-style: italic;">EXIT loop_name</span>      <span style="font-style: italic;">(REPeat loops)
+<br></span><br>or <span style="font-style: italic;">EXIT</span><span style="font-style: italic;">(SMS only)
+<br></span>Location: <span style="font-style: italic;">QL ROM
+<br></span><br>Using the first two variants of this command, the specified
+<br>loop (either a <span style="font-style: italic;">FOR</span> or a <span style="font-style: italic;">REPeat</span> structure) will be finished and
+<br>the program  will  jump  to the  first  statement  after  the
+<br>relative <span style="font-style: italic;">END FOR loop_variable</span> or <span style="font-style: italic;">END REPeat loop_name</span>.
+<br><br>The third variant only exists under SMS and will force the
+<br>interpreter to jump out of the current loop being executed,
+<br>whether it is a <span style="font-style: italic;">FOR loop</span> or a <span style="font-style: italic;">REPeat loop</span> - the interpreter will just
+<br>search the program for the next <span style="font-style: italic;">END REPeat</span> or <span style="font-style: italic;">END FOR</span> statement.
+<br><br><h3>NOTE 1:
+<br></h3><br>If two or more loops are nested together, it is possible to
+<br><span style="font-style: italic;">EXIT</span> the outer loop from within the inner loop:
+<br><br><span style="font-style: italic;">REPeat loop1
+<br></span><br>...
+<br><br><span style="font-style: italic;">REPeat loop2
+<br></span><br>...
+<br><br><span style="font-style: italic;">IF condition THEN EXIT loop1</span> ---+
+<br><br>...                               |
+<br><br><span style="font-style: italic;">END REPeat loop2</span>             |
+<br><br>...                              |
+<br><br><span style="font-style: italic;">END REPeat loop1 </span>                |
+<br><br>...                   <------------+
+<br><br>Such a structure is not regarded as elegant by some people
+<br>because it is not possible to draw a structogram from this.
+<br><br><h3>NOTE 2:
+<br></h3><br>If a program is badly written, this can lead to confusion -
+<br>for example, try:
+<br><span style="font-style: italic;">100 REPeat loop
+<br>120   PRINT 'Hello'
+<br>130   EXIT loop
+<br>140 END REPeat loop
+<br>150 END REPeat loop
+<br></span><br>The interpreter fails to notice the misplaced <span style="font-style: italic;">END REPeat</span> at
+<br>line 150.  The first time that <span style="font-style: italic;">EXIT loop</span> is encountered, the
+<br>interpreter leaves the loop at line 140 - however, line 150
+<br>forces the interpreter to execute the loop a second time.
+<br>This time, <span style="font-style: italic;">EXIT loop</span> forces the interpreter to jump out the loop
+<br>at line 150.  The same thing happens if you use <span style="font-style: italic;">FOR ... END FOR
+<br></span>instead of <span style="font-style: italic;">REPeat ... END REPeat
+<br></span><br>This feature allows you to jump back into a loop from
+<br>anywhere in the program (although this should be avoided).
+<br><br>Compare what happens if <span style="font-style: italic;">NEXT loop</span> is used instead of <span style="font-style: italic;">END REPeat
+<br>loop</span> in line 150, <span style="font-style: italic;">EXIT loop</span> will always exit the loop at line 140.
+<br>This means that <span style="font-style: italic;">NEXT loop</span> can also be used to jump back into a
+<br>loop from anywhere in the program (although again, this should
+<br>be avoided).
+<br><br>Note that in any event, these latter two features will only
+<br>work if the named loop has already been <span style="font-style: italic;">RUN</span> (setting up the
+<br>loop variables)!!
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>Please see <a style="font-style: italic;" href="KeywordsF.html#FOR">FOR</a> and <a style="font-style: italic;" href="KeywordsR.html#REPeat">REPeat</a> for more details.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="EXP"></a>EXP</h1><br>Syntax: <span style="font-style: italic;">EXP (var)
+<br></span>Location: <span style="font-style: italic;">QL ROM
+<br></span><br>This function returns the value of the mathematical base e
+<br>to the power of the given parameter (in other words, this is
+<br>equivalent to the mathematical expression e<span style="font-style: italic;"><sup>var</sup></span>). This is the
+<br>opposite to the function <span style="font-style: italic;">LN</span>, ie. <span style="font-style: italic;">var=LN(EXP(var)</span>).
+<br><br>QDOS supports <span style="font-style: italic;">var</span> in the range -512...511.
+<br><br>The approximate value of e can be found by:
+<br><span style="font-style: italic;">PRINT EXP(1)
+<br></span><span style="font-style: italic;">PRINT EXP(0)
+<br></span><br>returns the value  1 - as any good mathematician knows,
+<br>anything to the power of 0 returns the value 1.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsL.html#LN">LN</a> returns the natural logarithm of the given value.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="EXPAND"></a>EXPAND</h1><br>Syntax: <span style="font-style: italic;">EXPAND file$
+<br></span>Location: <span style="font-style: italic;">COMPICT
+<br></span><br>This command takes a screen file (which must have been
+<br>created with <span style="font-style: italic;">COMPRESS</span>), and re-expands it on the visible screen.
+<br><br><h3>NOTE 1:
+<br></h3><br><span style="font-style: italic;">EXPAND</span> needs a working space of 32K. A memory overflow error
+<br>will be reported if there is not enough memory available.
+<br><br><h3>NOTE 2:
+<br></h3><br><span style="font-style: italic;">EXPAND</span> assumes that the screen starts at $20000 and will
+<br>therefore not work on Minerva's second screen or extended
+<br>resolutions.
+<br><br><h3>NOTE 3:
+<br></h3><br><span style="font-style: italic;">EXPAND</span> will not work on QLs with resolutions above 512x256
+<br><br><h3>WARNING:
+<br></h3><br>If the file was not saved by <span style="font-style: italic;">COMPRESS</span>, it is most likely that
+<br>the system will crash. This is certain if the file is longer
+<br>than 32K.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsC.html#COMPRESS">COMPRESS</a>, <a style="font-style: italic;" href="KeywordsF.html#FASTEXPAND">FASTEXPAND</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="EXPLODE"></a>EXPLODE</h1><br>Syntax: <span style="font-style: italic;">EXPLODE
+<br></span>Location: <span style="font-style: italic;">ST/QL, QSound
+<br></span><br>This command produces the sound of an explosion, very nice.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsS.html#SND_EXT">SND_EXT</a>, <a style="font-style: italic;" href="KeywordsB.html#BELL">BELL</a>, <a style="font-style: italic;" href="KeywordsS.html#SHOOT">SHOOT</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="EXTRAS"></a>EXTRAS</h1><br>Syntax: <span style="font-style: italic;">EXTRAS </span>[<span style="font-style: italic;">#channel</span>]
+<br><br>or <span style="font-style: italic;">EXTRAS \file</span>              <span style="font-style: italic;">(Toolkit II, THOR only)
+<br></span><br>or <span style="font-style: italic;">EXTRAS </span>[<span style="font-style: italic;">#channel</span>][<span style="font-style: italic;">,width</span>]  <span style="font-style: italic;">(BTool only)
+<br></span>Location: <span style="font-style: italic;">Toolkit II, THOR XVI, QSound, BTool
+<br></span><br>This command lists all of the machine code Procedures and
+<br>Functions (keywords) which are recognised by the SuperBASIC
+<br>interpreter in the given channel (default #1), or the given
+<br>file  (if  the  second  variant  is  used),  which  will  be
+<br>automatically opened and even overwritten if it already exists
+<br>(after asking the user to confirm that this is okay).  The
+<br>file will be closed at the end of the operation.
+<br><br>The THOR XVI version will not list those keywords which are
+<br>resident in ROM (ie. available when the THOR is first powered
+<br>up).
+<br><br>The BTool version lists the keywords in columns and as such
+<br>is the same as <span style="font-style: italic;">EXTRAS_W</span>.  The number of columns is adapted
+<br>automatically to a window's width; if this is too wide for
+<br>your needs then you can specify a <span style="font-style: italic;">width</span> in characters.
+<br><br>The QSound variant is intended for output to a non-screen
+<br>channel (see <span style="font-style: italic;">WIDTH</span>), in which case an empty line appears between
+<br>each name.  If output is sent to a window, then the words are
+<br>all printed on the same line, obscuring output.
+<br><br><h3>NOTE 1:
+<br></h3><br>BTool's <span style="font-style: italic;">EXTRAS</span> does not support the SuperBASIC <span style="font-style: italic;">WIDTH</span> command
+<br>and you will therefore need to specify an absolute <span style="font-style: italic;">width</span> as the
+<br>second parameter to format output.
+<br><br><h3>NOTE 2:
+<br></h3><br>Versions of Tiny Toolkit pre v1.10 contained a different
+<br>implementation of this command, now renamed <span style="font-style: italic;">TXTRAS</span>.
+<br><br><h3>NOTE 3:
+<br></h3><br>Within an SBASIC (on SMS), <span style="font-style: italic;">EXTRAS</span> only lists those keywords
+<br>used in that SBASIC to date - this is because the whole name
+<br>table is not copied when an SBASIC is started up, allowing
+<br>different SBASICs to use the same name for different things.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>Use <a style="font-style: italic;" href="KeywordsS.html#SXTRAS">SXTRAS</a> if you have a lot of extensions in memory and you
+<br>are looking for a specific one.  See also <a style="font-style: italic;" href="KeywordsT.html#TXTRAS">TXTRAS</a>, <a style="font-style: italic;" href="KeywordsV.html#VOCAB">VOCAB</a> and <a style="font-style: italic;" href="KeywordsN.html#NEW_NAME">NEW_NAME</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="EXTRAS_W"></a>EXTRAS_W</h1><br>Syntax: <span style="font-style: italic;">EXTRAS_W</span> [<span style="font-style: italic;">#ch</span>]
+Location: <span style="font-style: italic;">ATARI_REXT
+<br></span><br>This lists all of the current SuperBASIC commands to the
+<br>given channel (default #1). Unlike <span style="font-style: italic;">EXTRAS</span>, the output appears in
+<br>columns and there is no pause when the given window is full.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsE.html#EXTRAS">EXTRAS</a> is very similar.
+<br></div>
+</body>
+</html>
