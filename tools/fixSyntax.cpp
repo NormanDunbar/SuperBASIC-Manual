@@ -100,7 +100,7 @@ void doSyntax(const size_t pos)
         // Read a few more lines. We shouldn't hit EOF here! (FLW!)
         getline(cin, a_line);
         posLocation = a_line.find("Location:", 0, 9);
-        if ((posLocation != string::npos) || (a_line.size() == 0)) {
+        if ((posLocation != string::npos) || (a_line.empty())) {
             break;
         } else {
             buffer += (" " + a_line);
@@ -165,7 +165,7 @@ void doLocation(const size_t pos)
     while (1) {
         // Read a few more lines. We shouldn't hit EOF here! (FLW!)
         getline(cin, a_line);
-        if (a_line.size() == 0) {
+        if (a_line.empty()) {
             break;
         } else {
             buffer += (" " + a_line);
