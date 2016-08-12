@@ -228,8 +228,51 @@ EDIT
 +----------+-------------------------------------------------------------------+
 | Syntax   |  EDIT [start\_number] [,step]                                     |
 +----------+-------------------------------------------------------------------+
-| Location |  QL ROM  This command allows you to enter the SuperBASIC line editor in order to alter a SuperBASIC program loaded in memory. It will automatically create line numbers in the command line (#0) to assist in entering SuperBASIC programs, in much the same way as AUTO. EDIT would normally only be entered as a direct command (although you can include it in a program line, the line numbers will not be generated until the program has finished its work). Once entered, you will be presented with the first line start\_number (default 100) - if this line already exists in the program, then the existing line will be presented. Otherwise, you will only see the current line number. Pressing the up and down arrow keys will move you to the previous line or the next line (respectively) in the program, although if there is no previous (or next) line, then you will exit the EDIT mode. However, if you press the Enter key, if step is specified (default 0), this will act in the same way as AUTO. However, if step is not specified, you will leave EDIT mode. The main advantage of using EDIT over ED is how EDIT handles the screen. If the program has not been previously EDITed (or a PROC/FN Cleared message has been displayed) then EDIT will show a section of the current program in #2 when you move off the line currently being EDITed with the cursor keys or <ENTER>. This section will have the line which was just EDITed as the top line and will go on to fill #2 with additional lines of the program. However, if the program has already been EDITed and the PROC/FN Cleared message has not been displayed, then EDIT will not affect the display on screen (other than showing parts of the program in #0) until you EDIT a line which is within the range of lines which were previously being EDITed. This range of lines is actually slightly bigger than the lines which would have been displayed in #2, going from an invisible top line (the line above the displayed line) to an invisible bottom line (the line below the displayed line). Now, this can be quite useful when searching a program for some text or deciding where to copy a section of the program to, or even to line up characters on screen when the program has been RUN. The listing which last appeared on #2 is represented as:- 110 PAPER 0:INK 4:CLS(Invisible Top Line) -------------------------------------------- 120 PRINT 'A PROGRAM'(Displayed Lines) 130 PRINT 'TO GET YOUR NAME'\| 140 INPUT \\\\'ENTER YOUR NAME';name$\| 150 PRINT \\\\\| 160 PRINT 'HELLO'!name$\| -------------------------------------------- 170 PRINT \\\\"I'M YOUR COMPUTER"(Invisible bottom Line) |
+| Location |  QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
+
+This command allows you to enter the SuperBASIC line editor in order to alter a SuperBASIC 
+program loaded in memory. It will automatically create line numbers in the command line (#0) 
+to assist in entering SuperBASIC programs, in much the same way as AUTO. EDIT would normally 
+only be entered as a direct command (although you can include it in a program line, the 
+line numbers will not be generated until the program has finished its work). 
+
+Once entered, you will be presented with the first line start\_number (default 100) - if 
+this line already exists in the program, then the existing line will be presented. 
+Otherwise, you will only see the current line number.
+
+Pressing the up and down arrow keys will move you to the previous line or the next line 
+(respectively) in the program, although if there is no previous (or next) line, then you 
+will exit the EDIT mode. However, if you press the Enter key, if step is specified 
+(default 0), this will act in the same way as AUTO. However, if step is not specified, 
+you will leave EDIT mode. 
+
+The main advantage of using EDIT over ED is how EDIT handles the screen. If the program 
+has not been previously EDITed (or a PROC/FN Cleared message has been displayed) then 
+EDIT will show a section of the current program in #2 when you move off the line currently 
+being EDITed with the cursor keys or <ENTER>. This section will have the line which was just 
+EDITed as the top line and will go on to fill #2 with additional lines of the program. However, 
+if the program has already been EDITed and the PROC/FN Cleared message has not been displayed, 
+then EDIT will not affect the display on screen (other than showing parts of the program in #0) 
+until you EDIT a line which is within the range of lines which were previously being EDITed. 
+
+This range of lines is actually slightly bigger than the lines which would have been displayed 
+in #2, going from an invisible top line (the line above the displayed line) to an invisible 
+bottom line (the line below the displayed line). Now, this can be quite useful when searching 
+a program for some text or deciding where to copy a section of the program to, or even to 
+line up characters on screen when the program has been RUN. 
+
+The listing which last appeared on #2 is represented as::
+
+    110 PAPER 0:INK 4:CLS(Invisible Top Line) 
+    -------------------------------------------- 
+    120 PRINT 'A PROGRAM'(Displayed Lines) 
+    130 PRINT 'TO GET YOUR NAME'
+    140 INPUT \\'ENTER YOUR NAME';name$
+    150 PRINT \\
+    160 PRINT 'HELLO'!name$
+    -------------------------------------------- 
+    170 PRINT \\"I'M YOUR COMPUTER"(Invisible bottom Line )
 
 **NOTE 1**
 
@@ -240,9 +283,11 @@ achieve the same result!
 
 On non-Minerva ROMs EDIT uses the same routine as RENUM to check its
 parameters, which means that you can specify a start\_line and an
-end\_line, although they do nothing. For example: EDIT 100 TO
-1000;1000,20
- would createlines 1000, 1020, 1040, ....
+end\_line, although they do nothing. For example::
+
+    EDIT 100 TO 1000;1000,20
+
+would create lines 1000, 1020, 1040, ....
 
 **NOTE 3**
 
@@ -257,11 +302,14 @@ Additional keys are available for editing on Minerva (see INPUT).
 **NOTE 5**
 
 EDIT can give problems if it is issued after breaking into a program
-which was in the middle of a PROCedure or FuNction at the time. On
-non-Minerva ROMs, this is likely to produce a 'not implemented' error
+which was in the middle of a PROCedure or FuNction at the time. 
+
+On non-Minerva ROMs, this is likely to produce a 'not implemented' error
 and the wrong line. Press Break and try again do not try to edit the
 line. On Minerva ROMs (pre v1.97) this is compounded by the fact that
-Minerva tends to try to run the program again. Sometimes you are lucky
+Minerva tends to try to run the program again. 
+
+Sometimes you are lucky
 and Minerva tries to jump to a non-existent line number before
 presenting you with the desired line. Unfortunately, EDIT is never
 really safe in this context, and you should either type CLEAR before
@@ -284,10 +332,20 @@ On SMS the EDIT command is exactly the same as ED.
 `DLINE <KeywordsD.clean.html#dline>`__ deletes program lines.
 `INPUT <KeywordsI.clean.html#input>`__ contains details of the available
 keypresses for cursor navigation. `ED <KeywordsE.clean.html#ed>`__ provides a
-different means of editing a SuperBASIC program. PRINT PEEK\_W(\\\\
-HEX('9C')) returns the line number of the invisible top line which was
-last `EDIT <KeywordsE.clean.html#edit>`__\ ed (except on SMS). PRINT
-PEEK\_W(\\\\ HEX('9E')) returns the line number of the bottom line in #2
+different means of editing a SuperBASIC program. 
+
+::
+
+    PRINT PEEK_W(\\HEX('9C')) 
+
+returns the line number of the invisible top line which was
+last `EDIT <KeywordsE.clean.html#edit>`__\ ed (except on SMS). 
+
+::
+
+    PRINT PEEK_W(\\HEX('9E')) 
+
+returns the line number of the bottom line in #2
 which was last `EDIT <KeywordsE.clean.html#edit>`__\ ed (except on SMS).
 
 --------------
@@ -298,8 +356,17 @@ EDITF
 +----------+-------------------------------------------------------------------+
 | Syntax   |  EDITF ([#ch,] {default \| default$} [,maxlen%])                  |
 +----------+-------------------------------------------------------------------+
-| Location |  Turbo Toolkit  This function is similar to EDLINE$. However, EDITF is intended solely for asking the user to enter a floating point number. The specified default (which may be given as a number or a string) is printed at the current text cursor position in #ch  (default #1) and allows you to edit it. The parameter maxlen%  dictates the maximum number of characters allowed (this defaults to the amount set when the Turbo Toolkit is configured). The edited result is returned when <ENTER> is pressed. If the string contains a non-sensical value when <ENTER> is pressed, a warning beep is sounded. |
+| Location |  Turbo Toolkit                                                    |
 +----------+-------------------------------------------------------------------+
+
+This function is similar to EDLINE$. However, EDITF is intended solely for asking 
+the user to enter a floating point number. The specified default (which may be 
+given as a number or a string) is printed at the current text cursor position 
+in #ch  (default #1) and allows you to edit it. The parameter maxlen%  dictates 
+the maximum number of characters allowed (this defaults to the amount set when 
+the Turbo Toolkit is configured). The edited result is returned when <ENTER> 
+is pressed. If the string contains a non-sensical value when <ENTER> is pressed, 
+a warning beep is sounded.
 
 **NOTE**
 
@@ -310,7 +377,7 @@ whichever is longer.
 
 **CROSS-REFERENCE**
 
-`See EDLINE$ <KeywordsS.clean.html#edline>`__.
+See `EDLINE$ <KeywordsE.clean.html#edline>`__.
 `EDIT% <KeywordsE.clean.html#edit>`__ and `EDIT$ <KeywordsE.clean.html#edit>`__
 are also useful.
 
@@ -322,12 +389,14 @@ EDIT%
 +----------+-------------------------------------------------------------------+
 | Syntax   |  EDIT% ([#ch,] {default \| default$} [,maxlen%])                  |
 +----------+-------------------------------------------------------------------+
-| Location |  Turbo Toolkit  This function is the same as EDITF, except that only integer values are acceptable. |
+| Location |  Turbo Toolkit                                                    |
 +----------+-------------------------------------------------------------------+
+
+This function is the same as EDITF, except that only integer values are acceptable.
 
 **CROSS-REFERENCE**
 
-`See EDITF <KeywordsS.clean.html#editf>`__.
+See `EDITF <KeywordsE.clean.html#editf>`__.
 
 --------------
 
@@ -337,12 +406,16 @@ EDIT$
 +----------+-------------------------------------------------------------------+
 | Syntax   |  EDIT$ ([#ch,] default$ [,maxlen%])                               |
 +----------+-------------------------------------------------------------------+
-| Location |  Turbo Toolkit  This function is similar to EDLINE$. It operates in the same way as EDITF, except that any string of characters can be edited, rather than being restricted to a number. |
+| Location |  Turbo Toolkit                                                    |
 +----------+-------------------------------------------------------------------+
+
+This function is similar to EDLINE$. It operates in the same way as EDITF, 
+except that any string of characters can be edited, rather than being 
+restricted to a number.
 
 **CROSS-REFERENCE**
 
-`See EDITF <KeywordsS.clean.html#editf>`__.
+See `EDITF <KeywordsE.clean.html#editf>`__.
 
 --------------
 
@@ -352,16 +425,33 @@ EDLINE$
 +----------+-------------------------------------------------------------------+
 | Syntax   |  EDLINE$ (#ch, maxlen%, edit$)                                    |
 +----------+-------------------------------------------------------------------+
-| Location |  EDLINE (DIY Toolkit Vol E)  The function EDLINE$ prints edit$ at the current text cursor position in #ch (there is no default channel) and allows you to edit it. A maximum length of maxlen% characters is allowed. The edited result is returned. Unlike INPUT, EDLINE$ will not finish with <UP> or <DOWN> but only after <ENTER> and <CTRL><SPACE> (also <ESC> on Minerva). Instead <UP> and <DOWN> move the cursor to the start and end of the string respectively; apart from that the usual keys for editing are used: <CTRL><LEFT> deletes the character to the left of the cursor, <CTRL><RIGHT> the character under the cursor. |
+| Location |  EDLINE (DIY Toolkit Vol E)                                       |
 +----------+-------------------------------------------------------------------+
+
+The function EDLINE$ prints edit$ at the current text cursor position in #ch 
+(there is no default channel) and allows you to edit it. A maximum length of 
+maxlen% characters is allowed. The edited result is returned. Unlike INPUT, 
+EDLINE$ will not finish with <UP> or <DOWN> but only after <ENTER> and 
+<CTRL><SPACE> (also <ESC> on Minerva). Instead <UP> and <DOWN> move the cursor 
+to the start and end of the string respectively; apart from that the usual 
+keys for editing are used: <CTRL><LEFT> deletes the character to the left 
+of the cursor, <CTRL><RIGHT> the character under the cursor.
 
 **Example**
 
-100 CLS 110 REPeat ask\_name 120 PRINT \\"Please enter your name: "; 130
-Name$ = "Billy the Kid" 140 Name$ = EDLINE$(#1,40,Name$) 150 PRINT "Your
-name is '";Name$;"' (y/n)? "; 160 ok$ = EDLINE$(#1,1,"y") 170 IF ok$
-INSTR "yY" THEN EXIT ask\_name 180 PRINT "Try again..." 190 END REPeat
-ask\_name 200 PRINT "Hello,"!Name$;"!"
+::
+
+    100 CLS 
+    110 REPeat ask_name 
+    120 PRINT \"Please enter your name: "; 
+    130 Name$ = "Billy the Kid" 
+    140 Name$ = EDLINE$(#1,40,Name$) 
+    150 PRINT "Your name is '";Name$;"' (y/n)? "; 
+    160 ok$ = EDLINE$(#1,1,"y") 
+    170 IF ok$ INSTR "yY" THEN EXIT ask_name 
+    180 PRINT "Try again..." 
+    190 END REPeat ask_name 
+    200 PRINT "Hello,"!Name$;"!"
 
 **NOTE**
 
@@ -387,8 +477,17 @@ EL
 +----------+-------------------------------------------------------------------+
 | Syntax   |  EL                                                               |
 +----------+-------------------------------------------------------------------+
-| Location |  Beuletools  This function returns the control codes needed to switch on the NLQ ( near letter quality) font on an EPSON compatible printer: PRINT EL  is the same as PRINT CHR$(27)&"x"&CHR$(1). |
+| Location |  Beuletools                                                       |
 +----------+-------------------------------------------------------------------+
+
+This function returns the control codes needed to switch on the NLQ ( near letter 
+quality) font on an EPSON compatible printer::
+
+    PRINT EL  
+
+is the same as::
+
+    PRINT CHR$(27)&"x"&CHR$(1).
 
 **CROSS-REFERENCE**
 
@@ -409,8 +508,12 @@ ELIS
 +----------+-------------------------------------------------------------------+
 | Syntax   |  ELIS (keyword$)                                                  |
 +----------+-------------------------------------------------------------------+
-| Location |  TinyToolkit  This function will return the machine code start address of the specified resident keyword if it is recognised by SuperBASIC. If the keyword is unknown, then the function will generate a Not Found error. |
+| Location |  TinyToolkit                                                      |
 +----------+-------------------------------------------------------------------+
+
+This function will return the machine code start address of the specified resident 
+keyword if it is recognised by SuperBASIC. If the keyword is unknown, then the 
+function will generate a Not Found error.
 
 **CROSS-REFERENCE**
 
@@ -424,59 +527,93 @@ Compare `FIND <KeywordsF.clean.html#find>`__ and
 ELLIPSE
 =======
 
-+----------+-------------------------------------------------------------------+
-| Syntax   | |          |  ELLIPSE [#ch,] x,y,radius,ratio,ecc :sup:`\*`\ [;x\ :sup:`i`\ ,y\ :sup:`i`\ ,radius\ :sup:`i`\ ,ratio\ :sup:`i`\ ,ecc\ :sup:`i`]\ :sup:`\*|
-+----------+-------------------------------------------------------------------+
- Both the ELLIPSE and CIRCLE commands perform exactly the same function.
++----------+---------------------------------------------------------------------------------------------------------------------------------------------+
+| Syntax   | ELLIPSE [#ch,] x,y,radius,ratio,ecc :sup:`\*`\ [;x\ :sup:`i`\ ,y\ :sup:`i`\ ,radius\ :sup:`i`\ ,ratio\ :sup:`i`\ ,ecc\ :sup:`i`]\ :sup:`\*` |
++----------+---------------------------------------------------------------------------------------------------------------------------------------------+
+| Location | QL ROM                                                                                                                                      |
++----------+---------------------------------------------------------------------------------------------------------------------------------------------+
+
+Both the ELLIPSE and CIRCLE commands perform exactly the same function.
 We have however decided to split them, since if users adopt the habit of
-using ELLIPSE to draw ellipses and CIRCLE
- to draw circles, this will help users understand SuperBASIC programs
-much more easily. This command allows you to draw an ellipse in the
+using ELLIPSE to draw ellipses and CIRCLE to draw circles, 
+this will help users understand SuperBASIC programs
+much more easily. 
+
+This command allows you to draw an ellipse in the
 current INK colour of the given radius with its centre point at the
-point (x,y). The ratio affects the difference between the major axis and
+point (x,y). 
+
+The ratio affects the difference between the major axis and
 the minor axis - the greater the ratio, the greater the difference
-between the two. The major (y) axis is specified by the parameter
+between the two. 
+
+The major (y) axis is specified by the parameter
 radius, whereas the minor (x) axis is calculated by radius\*ratio which
 therefore means that if ratio>1, the major axis will become the (x) axis
-(if you see what we mean!). ecc defines the angle at which the ellipse
+(if you see what we mean!). 
+
+Ecc defines the angle at which the ellipse
 will be drawn. This is measured in radians and forms the anti-clockwise
 angle between a vertical line drawn through the origin of the ellipse
 and the major axis. Thus, ecc=PI/4 draws an ellipse at an angle of 45
-degrees. The actual positioning and size of the ellipse will depend upon
-the scale and shape of the specified window (default #1). The
+degrees. 
+
+The actual positioning and size of the ellipse will depend upon
+the scale and shape of the specified window (default #1). 
+
+The
 co-ordinates are calculated by reference to the graphics origin, and the
 graphics pointer will be set to the centre point of the last ellipse to
 be drawn on completion of the command. If any parts of the ellipse lie
 outside of the specified window, they will not be drawn (there will not
-be an error). If the parameters ratio and ecc are omitted, this command
+be an error). 
+
+If the parameters ratio and ecc are omitted, this command
 has exactly the same effect as CIRCLE. This command will actually allow
 you to draw multiple ellipses by including more sets of parameters. Each
 additional set must be preceded by a semicolon (unless the preceding
-ellipse uses five parameters): This means for example, that these all
-perform the same action: ELLIPSE 100,100,20,1,2,50,50,20 ELLIPSE
-100,100,20,1,2;50,50,20 ELLIPSE 100,100,20,1,2: CIRCLE 50,50,20
+ellipse uses five parameters). This means for example, that these all
+perform the same action::
+
+    ELLIPSE 100,100,20,1,2,50,50,20 
+    ELLIPSE 100,100,20,1,2; 50,50,20 
+    ELLIPSE 100,100,20,1,2: CIRCLE 50,50,20
 
 Although the FILL command will allow you to draw filled ellipses on
 screen (in the current ink colour), you will need to include a FILL 1
 statement prior to each ellipse if they are to appear independently on
 screen (this cannot be achieved when using this command to draw multiple
-ellipses). If this rule is not followed, then any points which lie on
+ellipses). 
+
+If this rule is not followed, then any points which lie on
 the same horizontal line (even though they may be in different ellipses)
 will be joined.
 
 **Example**
 
-Try the following for an interesting effect: 100 MODE 8 110 WINDOW
-448,200,32,16:PAPER 0:CLS 120 SCALE 100,0,0 130 INK 4:OVER -1 140 REPeat
-loop 150 FOR ang=0 TO PI\*2-(PI\*2/20) STEP PI\*2/20 160 FILL 1:ELLIPSE
-70,50,40,.5,ang 170 FILL 1:ELLIPSE 70,50,40,.5,ang 180 END FOR ang 190
-END REPeat loop
+Try the following for an interesting effect::
+
+    100 MODE 8 
+    110 WINDOW 448,200,32,16:PAPER 0:CLS 
+    120 SCALE 100,0,0 
+    130 INK 4:OVER -1 
+    140 REPeat loop 
+    150   FOR ang=0 TO PI*2-(PI*2/20) STEP PI*2/20 
+    160     FILL 1:ELLIPSE 70,50,40,.5,ang 
+    170     FILL 1:ELLIPSE 70,50,40,.5,ang 
+    180   END FOR ang 
+    190 END REPeat loop
 
 **NOTE**
 
 On all ROMs other than Minerva v1.89+, very small ellipses and very
-large ones can cause problems: try ELLIPSE 80,80,80,6,1 on a non-Minerva
-machine for a laugh. Unfortunately, Lightning SE (v2.11) still contains
+large ones can cause problems. Try::
+
+    ELLIPSE 80,80,80,6,1 
+
+on a non-Minerva machine for a laugh. 
+
+Unfortunately, Lightning SE (v2.11) still contains
 this bug and will bring it back!
 
 **CROSS-REFERENCE**
@@ -490,10 +627,13 @@ Please refer to `CIRCLE <KeywordsC.clean.html#circle>`__,
 ELLIPSE\_R
 ==========
 
-+----------+-------------------------------------------------------------------+
-| Syntax   | |          |  ELLIPSE\_R [#ch,] x,y,radius,ratio,ecc :sup:`\*`\ [;x\ :sup:`i`\ ,y\ :sup:`i`\ ,radius\ :sup:`i`\ ,ratio\ :sup:`i`\ ,ecc\ :sup:`i`]\ :sup:`\*|
-+----------+-------------------------------------------------------------------+
- This command draws an ellipse relative to the current graphics cursor.
++----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+| Syntax   | ELLIPSE\_R [#ch,] x,y,radius,ratio,ecc :sup:`\*`\ [;x\ :sup:`i`\ ,y\ :sup:`i`\ ,radius\ :sup:`i`\ ,ratio\ :sup:`i`\ ,ecc\ :sup:`i`]\ :sup:`\*` |
++----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+| Location | QL ROM                                                                                                                                         |
++----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+
+This command draws an ellipse relative to the current graphics cursor.
 See ELLIPSE above!
 
 **CROSS-REFERENCE**
@@ -507,10 +647,12 @@ ELSE
 ====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  ELSE :sup:`\*`\ [:statements]\ :sup:`\*                          |
+| Syntax   |  ELSE :sup:`\*`\ [:statements]\ :sup:`\*`                         |
 +----------+-------------------------------------------------------------------+
-| Location |  QL ROM  This command forms part of the IF...END IF structure and allows you to take alternative action if the condition contained in the IF statement proves to be false. |
+| Location |  QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
+
+This command forms part of the IF...END IF structure and allows you to take alternative action if the condition contained in the IF statement proves to be false.
 
 **CROSS-REFERENCE**
 
@@ -524,8 +666,12 @@ END
 +----------+-------------------------------------------------------------------+
 | Syntax   |  END ...                                                          |
 +----------+-------------------------------------------------------------------+
-| Location |  QL ROM  This keyword forms part of the structures: END WHEN, END SELect, END IF, END REPeat, END FOR and END DEFine  As such, it cannot be used on its own within a program - this will cause a 'bad line' error. |
+| Location |  QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
+
+This keyword forms part of the structures: END WHEN, END SELect, END IF, END REPeat, 
+END FOR and END DEFine  As such, it cannot be used on its own within a 
+program - this will cause a 'bad line' error.
 
 **CROSS-REFERENCE**
 
