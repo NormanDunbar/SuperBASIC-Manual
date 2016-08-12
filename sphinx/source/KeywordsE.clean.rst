@@ -1,3 +1,7 @@
+==========
+Keywords E
+==========
+
 EASTER
 ======
 
@@ -652,7 +656,8 @@ ELSE
 | Location |  QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
 
-This command forms part of the IF...END IF structure and allows you to take alternative action if the condition contained in the IF statement proves to be false.
+This command forms part of the IF...END IF structure and allows you to take alternative 
+action if the condition contained in the IF statement proves to be false.
 
 **CROSS-REFERENCE**
 
@@ -686,24 +691,65 @@ END DEFine
 +----------+-------------------------------------------------------------------+
 | Syntax   |  END DEFine [name]                                                |
 +----------+-------------------------------------------------------------------+
-| Location |  QL ROM  This command marks the end of the DEFine PROCedure and DEFine FuNction SuperBASIC structures, and has no meaning on its own. You may if you wish, place the name of the PROCedure or FuNction  after END DEFine to help make the SuperBASIC program more readable - this will however have no effect on how the command is treated by the interpreter, which will still take the next END DEFine as the end of the current definition block (even if it is followed by a different name). The interpreter will jump out of a definition block whenever it meets a RETurn statement. It will also jump out of a DEFine PROCedure definition when it meets an END DEFine statement. This does of course mean that END DEFine can be used in the middle of a PROCedure to force a return to the calling statement - however, this can cause other problems and a RETurn should be used, with END DEFine only appearing at the very end of the definition block. On the other hand, the interpreter can only jump out of a DEFine FuNction definition if it meets a RETurn - if the interpreter comes across an END DEFine in such situations, it will report the error 'Error In Expression'. On SMS the error 'RETurn not in Procedure or Function' is reported. If the definition block is not actually being used, but the interpreter is working its way through the program, when a DEFine PROCedure or DEFine FuNction statement is met, the interpreter will search for the next END DEFine, and having found one, will resume the program at the next statement. This does however mean, that unless an in-line DEFine structure is being used, if this command is missing, the interpreter will carry on searching through the program and may just stop without an error if END DEFine does not appear anywhere in the program after the initial DEFine PROCedure (or DEFine FuNction). |
+| Location |  QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
+
+This command marks the end of the DEFine PROCedure and DEFine FuNction SuperBASIC 
+structures, and has no meaning on its own. You may if you wish, place the name of 
+the PROCedure or FuNction  after END DEFine to help make the SuperBASIC program 
+more readable - this will however have no effect on how the command is treated 
+by the interpreter, which will still take the next END DEFine as the end of the 
+current definition block (even if it is followed by a different name). 
+
+The interpreter will jump out of a definition block whenever it meets a RETurn 
+statement. It will also jump out of a DEFine PROCedure definition when it meets 
+an END DEFine statement. This does of course mean that END DEFine can be used in 
+the middle of a PROCedure to force a return to the calling statement - however, 
+this can cause other problems and a RETurn should be used, with END DEFine 
+only appearing at the very end of the definition block. 
+
+On the other hand, the interpreter can only jump out of a DEFine FuNction definition 
+if it meets a RETurn - if the interpreter comes across an END DEFine in such situations, 
+it will report the error 'Error In Expression'. On SMS the error 'RETurn not in 
+Procedure or Function' is reported. If the definition block is not actually being used, 
+but the interpreter is working its way through the program, when a DEFine PROCedure 
+or DEFine FuNction statement is met, the interpreter will search for the next END DEFine, 
+and having found one, will resume the program at the next statement. 
+
+This does however mean, that unless an in-line DEFine structure is being used, if 
+this command is missing, the interpreter will carry on searching through the program 
+and may just stop without an error if END DEFine does not appear anywhere in the 
+program after the initial DEFine PROCedure (or DEFine FuNction).
 
 **Example 1**
 
 The above rules mean that the following example will work under
-SuperBASIC, but is extremely inefficient and difficult to decode: 10 FOR
-i=1 TO 100 20 PRINT power(i) 30 DEFine FuNction power(x) 40 RETurn 2^x
-50 END DEFine 60 END FOR i
+SuperBASIC, but is extremely inefficient and difficult to decode::
+
+    10 FOR i=1 TO 100 
+    20   PRINT power(i) 
+    30   DEFine FuNction power(x) 
+    40     RETurn 2^x 
+    50   END DEFine 
+    60 END FOR i
 
 **Example 2**
 
-See if you can work out why the following program goes wrong: 100 FOR
-i=1 TO 100 110 PRINT power(i) 120 DEFine FuNction power(x) 130 DEFine
-FuNction base 140 RETurn 2 150 END DEFine base 160 RETurn base^x 170 END
-DEFine power 180 END FOR i
- If you are having trouble, try inserting: 155 PRINT 'Program line 155:
-';x
+See if you can work out why the following program goes wrong::
+
+    100 FOR i=1 TO 100 
+    110   PRINT power(i) 
+    120   DEFine FuNction power(x) 
+    130     DEFine FuNction base 
+    140       RETurn 2 
+    150     END DEFine base 
+    160     RETurn base^x 
+    170   END DEFine power 
+    180 END FOR i 
+
+If you are having trouble, try inserting::
+
+    155 PRINT 'Program line 155:';x
 
 **NOTE**
 
@@ -716,8 +762,7 @@ Checks are made on a program before it is run, and so if an END DEFine
 statement is missing, this will be reported as an error ('Incomplete
 DEFine clause'). SMS's improved interpreter will report the error
 'Misplaced END DEFine' if END DEFine does not mark the end of a DEFine
-PROCedure
- or DEFine FuNction block.
+PROCedure or DEFine FuNction block.
 
 **CROSS-REFERENCE**
 
@@ -735,8 +780,40 @@ END FOR
 +----------+-------------------------------------------------------------------+
 | Syntax   |  END FOR loop                                                     |
 +----------+-------------------------------------------------------------------+
-| Location |  QL ROM  This command marks the end of the FOR..END FOR SuperBASIC structure with the same loop name, and has no real meaning on its own. When the interpreter meets this statement, it then looks at the stack to see if a related FOR command has already been parsed. If not, then the error 'Not Found' will be reported, however, if such a FOR loop has been parsed, the interpreter will fetch the end parameter and if the loop is not yet at this value, then step is added to loop and control returned to the statement following FOR. If however loop is already at the end value, control passes to the statement following END FOR. The second variant is only available under SMS, where the interpreter presumes that if no loop name is specified, the programmer means the interpreter to return control to the most recent FOR statement (if the loop is not at its final value). When an EXIT loop is found, the interpreter will search for the relative END FOR loop, and if found, will resume program flow at the next statement. Under SMS, neither EXIT nor END FOR need have a loop identifier, and therefore EXIT will simply cause the program to jump to the statement after the next END FOR command (if no loop is specified). This does however mean, that except under SMS, unless an in-line FOR structure is being used, if this command is missing, the interpreter will carry on searching through the program and may just stop without an error if END FOR loop does not appear anywhere in the program. |
+| Location |  QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
+
+This command marks the end of the FOR..END FOR SuperBASIC structure with the same 
+loop name, and has no real meaning on its own. When the interpreter meets this 
+statement, it then looks at the stack to see if a related FOR command has already 
+been parsed. 
+
+If not, then the error 'Not Found' will be reported, however, if such a FOR loop 
+has been parsed, the interpreter will fetch the end parameter and if the loop is 
+not yet at this value, then step is added to loop and control returned to the 
+statement following FOR. 
+
+If however loop is already at the end value, control 
+passes to the statement following END FOR. 
+
+The second variant is only available 
+under SMS, where the interpreter presumes that if no loop name is specified, the 
+programmer means the interpreter to return control to the most recent FOR 
+statement (if the loop is not at its final value). 
+
+When an EXIT loop is found, 
+the interpreter will search for the relative END FOR loop, and if found, will 
+resume program flow at the next statement. 
+
+Under SMS, neither EXIT nor END FOR 
+need have a loop identifier, and therefore EXIT will simply cause the program 
+to jump to the statement after the next END FOR command (if no loop is 
+specified). 
+
+This does however mean, that except under SMS, unless an in-line 
+FOR structure is being used, if this command is missing, the interpreter will 
+carry on searching through the program and may just stop without an error if 
+END FOR loop does not appear anywhere in the program.
 
 **NOTE**
 
@@ -768,8 +845,23 @@ END IF
 +----------+-------------------------------------------------------------------+
 | Syntax   |  END IF                                                           |
 +----------+-------------------------------------------------------------------+
-| Location |  QL ROM  This command marks the end of the IF..END IF SuperBASIC structure, and has no meaning on its own. When the interpreter finds an IF condition statement it then evaluates the condition and carries out certain commands depending on whether the condition was true or false. Having carried out those commands, the interpreter then looks for a related END IF command, and will pass control onto the statement following END IF. This does however mean, that except under SMS, unless an in-line IF structure is being used, if this command is missing, the interpreter will carry on searching through the program and may just stop without an error if END IF  does not appear anywhere in the program. |
+| Location |  QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
+
+This command marks the end of the IF..END IF SuperBASIC structure, and has no meaning 
+on its own. 
+
+When the interpreter finds an IF condition statement it then evaluates 
+the condition and carries out certain commands depending on whether the condition was 
+true or false. 
+
+Having carried out those commands, the interpreter then looks for a 
+related END IF command, and will pass control onto the statement following END IF. 
+
+This does however mean, that except under SMS, unless an in-line IF structure is 
+being used, if this command is missing, the interpreter will carry on searching 
+through the program and may just stop without an error if END IF  does not appear 
+anywhere in the program. 
 
 **NOTE 1**
 
@@ -802,8 +894,32 @@ END REPeat
 +----------+-------------------------------------------------------------------+
 | Syntax   |  END REPeat identifier  or END REPeat [identifier]SMS only        |
 +----------+-------------------------------------------------------------------+
-| Location |  QL ROM  This command marks the end of the REPeat...END REPeat SuperBASIC structure with the same identifier, and has no meaning on its own. When the interpreter meets this statement, it then looks at the stack to see if a related REPeat command has already been parsed. If not, then the error 'Not Found' will be reported, however, if such a REPeat identifier has been parsed, the interpreter will force the program to loop around and return control to the statement following REPeat. Under SMS there is no need to specify the identifier on the END REPeat statement, in which case, the interpreter will presume that this is the end of the last REPeat loop to have been encountered. When an EXIT identifier is found, the interpreter will search for the relative END REPeat identifier (or under SMS the next END REPeat  command), and if found, will resume program flow at the next statement. This does however mean, that except under SMS, unless an in-line REPeat structure is being used, if this command is missing, the interpreter will carry on searching through the program and may just stop without an error if END REPeat identifier (or END REPeat under SMS) does not appear anywhere in the program. |
+| Location |  QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
+
+This command marks the end of the REPeat...END REPeat SuperBASIC structure with 
+the same identifier, and has no meaning on its own. 
+
+When the interpreter meets this 
+statement, it then looks at the stack to see if a related REPeat command has already 
+been parsed. If not, then the error 'Not Found' will be reported, however, if such 
+a REPeat identifier has been parsed, the interpreter will force the program to loop 
+around and return control to the statement following REPeat. 
+
+Under SMS there is no 
+need to specify the identifier on the END REPeat statement, in which case, the 
+interpreter will presume that this is the end of the last REPeat loop to have been 
+encountered. 
+
+When an EXIT identifier is found, the interpreter will search for the 
+relative END REPeat identifier (or under SMS the next END REPeat  command), and if 
+found, will resume program flow at the next statement. 
+
+This does however mean, that 
+except under SMS, unless an in-line REPeat structure is being used, if this command 
+is missing, the interpreter will carry on searching through the program and may just 
+stop without an error if END REPeat identifier (or END REPeat under SMS) does not 
+appear anywhere in the program.
 
 **NOTE**
 
@@ -835,8 +951,18 @@ END SELect
 +----------+-------------------------------------------------------------------+
 | Syntax   |  END SELect                                                       |
 +----------+-------------------------------------------------------------------+
-| Location |  QL ROM  This marks the end of the SELect ON...END SELect SuperBASIC structure, and has no meaning on its own. When the interpreter has found a match for the value of the variable, it performs a series of commands, and then looks for the end of the block marked with END SELect. This means that except under SMS, unless an in-line SELect ON structure is being used, if this command is missing, the interpreter will carry on searching through the program and may just stop without an error if END SELect does not appear anywhere in the program. |
+| Location |  QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
+
+This marks the end of the SELect ON...END SELect SuperBASIC structure, and has no 
+meaning on its own. When the interpreter has found a match for the value of the 
+variable, it performs a series of commands, and then looks for the end of the block 
+marked with END SELect. 
+
+This means that except under SMS, unless an in-line SELect 
+ON structure is being used, if this command is missing, the interpreter will carry 
+on searching through the program and may just stop without an error if END SELect 
+does not appear anywhere in the program.
 
 **NOTE 1**
 
@@ -845,7 +971,7 @@ END SELect need not appear in an in-line SELect ON statement.
 **NOTE 2**
 
 Under SMS, if END SELect appears in an in-line SELect ON
- statement, if any commands appear after END SELect on the same line, an
+statement, if any commands appear after END SELect on the same line, an
 error will be reported.
 
 **SMS NOTE**
@@ -854,8 +980,7 @@ Checks are made on a program before it is run, and so if an END SELect
 statement is missing, this will be reported as an error ('Incomplete
 SELect clause'). SMS's improved interpreter will report the error
 'Misplaced END SELect' if END SELect does not mark the end of a SELect
-ON
- definition block.
+ON definition block.
 
 **CROSS-REFERENCE**
 
@@ -873,21 +998,32 @@ END WHEN
 +----------+-------------------------------------------------------------------+
 | Syntax   |  END WHEN                                                         |
 +----------+-------------------------------------------------------------------+
-| Location |  QL ROM (post JM)  This marks the end of the SuperBASIC structures: WHEN ERRor  and WHEN condition ... END WHEN, and has no meaning on its own. When the program is first run, the interpreter marks the start of this structure and then (unless it is an in-line structure) looks for the end of the block marked with END WHEN. This means that if this statement is missing, except under SMS, the interpreter will carry on searching through the program and may just stop without an error if END WHEN does not appear anywhere in the program. |
+| Location |  QL ROM (post JM)                                                 |
 +----------+-------------------------------------------------------------------+
+
+This marks the end of the SuperBASIC structures: WHEN ERRor and WHEN condition ... 
+END WHEN, and has no meaning on its own. When the program is first run, the 
+interpreter marks the start of this structure and then (unless it is an in-line 
+structure) looks for the end of the block marked with END WHEN. 
+
+This means that if this statement is missing, except under SMS, the interpreter 
+will carry on searching through the program and may just stop without an error 
+if END WHEN does not appear anywhere in the program.
 
 **NOTE**
 
-END WHEN need not appear in a single line WHEN or WHEN ERRor
- statement, eg. 100 WHEN a>4:PRINT 'a>4'.
+END WHEN need not appear in a single line WHEN or WHEN ERRor statement, eg::
+
+    100 WHEN a>4:PRINT 'a>4'.
 
 **SMS NOTES**
 
 Checks are made on a program before it is run, and so if an END WHEN
-statement is missing, this will be reported as an error. SMS's improved
+statement is missing, this will be reported as an error. 
+
+SMS's improved
 interpreter will also report the error 'Misplaced END WHEN' if END WHEN
-does not mark the end of a WHEN
- ERROR definition block.
+does not mark the end of a WHEN ERROR definition block.
 
 **CROSS-REFERENCE**
 
@@ -906,8 +1042,12 @@ END\_CMD
 +----------+-------------------------------------------------------------------+
 | Syntax   |  END\_CMD                                                         |
 +----------+-------------------------------------------------------------------+
-| Location |  Turbo Toolkit  This marks the end of a numberless file of direct commands for use with the MERGE command. This command should be entered on its own as the last line of the numberless file. It overcomes the problem explained in NOTE 1 of MERGE. |
+| Location |  Turbo Toolkit                                                    |
 +----------+-------------------------------------------------------------------+
+
+This marks the end of a numberless file of direct commands for use with the MERGE 
+command. This command should be entered on its own as the last line of the numberless 
+file. It overcomes the problem explained in NOTE 1 of MERGE. 
 
 **CROSS-REFERENCE**
 
@@ -922,8 +1062,12 @@ END\_WHEN
 +----------+-------------------------------------------------------------------+
 | Syntax   |  END\_WHEN                                                        |
 +----------+-------------------------------------------------------------------+
-| Location |  Turbo Toolkit  This marks the end of the Turbo structure equivalent to the SuperBASIC WHEN ERRor structure. END\_WHEN has no meaning on its own and should only be used within Turbo compiled programs. |
+| Location |  Turbo Toolkit                                                    |
 +----------+-------------------------------------------------------------------+
+
+This marks the end of the Turbo structure equivalent to the SuperBASIC WHEN ERRor 
+structure. END\_WHEN has no meaning on its own and should only be used within 
+Turbo compiled programs.
 
 **CROSS-REFERENCE**
 
@@ -937,16 +1081,25 @@ ENV\_DEL
 +----------+-------------------------------------------------------------------+
 | Syntax   |  ENV\_DEL name$                                                   |
 +----------+-------------------------------------------------------------------+
-| Location |  Environment Variables  This command is used to remove a specified environment variable. Please note that the name of the environment variable is case sensitive. If an empty string is passed as the argument, then an error will be reported. |
+| Location |  Environment Variables                                            |
 +----------+-------------------------------------------------------------------+
+
+This command is used to remove a specified environment variable. Please note that 
+the name of the environment variable is case sensitive. If an empty string is 
+passed as the argument, then an error will be reported.
 
 **Example**
 
 A boot program may specify where the files for the main program are
 stored and then pass it to subsequently called programs with. Once the
-program has finished, the environment variable may be deleted. 1000
-source$='win1\_PROGS\_utils\_' 1010 SETENV "PROGLOC="&source$ 1020
-EXEC\_W source$&'main\_exe' 1030 ENV\_DEL "PROGLOC"
+program has finished, the environment variable may be deleted. 
+
+::
+
+    1000 source$='win1_PROGS_utils\_' 
+    1010 SETENV "PROGLOC="&source$ 
+    1020 EXEC_W source$&'main_exe' 
+    1030 ENV_DEL "PROGLOC"
 
 **CROSS-REFERENCE**
 
@@ -960,8 +1113,11 @@ ENV\_LIST
 +----------+-------------------------------------------------------------------+
 | Syntax   |  ENV\_LIST [#ch]                                                  |
 +----------+-------------------------------------------------------------------+
-| Location |  Environment Variables  This command lists all currently active environment variables to the specified channel (default #1). |
+| Location |  Environment Variables                                            |
 +----------+-------------------------------------------------------------------+
+
+This command lists all currently active environment variables to the specified 
+channel (default #1).
 
 **CROSS-REFERENCE**
 
@@ -975,8 +1131,17 @@ ENL
 +----------+-------------------------------------------------------------------+
 | Syntax   |  ENL                                                              |
 +----------+-------------------------------------------------------------------+
-| Location |  Beuletools  This function returns the control codes needed to switch on double width on an EPSON compatible printer: PRINT ENL  is the same as: PRINT CHR$(27)&"W"&CHR$(1) |
+| Location |  Beuletools                                                       |
 +----------+-------------------------------------------------------------------+
+
+This function returns the control codes needed to switch on double width on an 
+EPSON compatible printer::
+
+    PRINT ENL
+
+is the same as::
+
+    PRINT CHR$(27)&"W"&CHR$(1)
 
 **CROSS-REFERENCE**
 
@@ -997,28 +1162,49 @@ EOF
 +----------+-------------------------------------------------------------------+
 | Syntax   |  EOF [(#ch)]                                                      |
 +----------+-------------------------------------------------------------------+
-| Location |  QL ROM  This is a logical function which actually has two uses in SuperBASIC. If no channel number is specified, then PRINT EOF  will return 1 unless the current program contains some DATA  lines which have not yet been READ. This is therefore useful to create programs which can handle any amount of data. However, if a channel number is specified, for example PRINT EOF(#1), then zero will be returned unless the given channel is linked to a file and the file pointer is at (or beyond) the end of that file (ie. whether or not there is data to be read from that channel). |
+| Location |  QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
+
+This is a logical function which actually has two uses in SuperBASIC. If no channel 
+number is specified, then PRINT EOF  will return 1 unless the current program 
+contains some DATA  lines which have not yet been READ. This is therefore useful 
+to create programs which can handle any amount of data. However, if a channel 
+number is specified, for example PRINT EOF(#1), then zero will be returned unless 
+the given channel is linked to a file and the file pointer is at (or beyond) the 
+end of that file (ie. whether or not there is data to be read from that channel).
 
 **Example**
 
 Two simple programs to retrieve an address from a given name (the full
 name must be given on input). The first of these has the data stored in
 the program, whereas the second has it stored on a file called
-flp1\_address\_data: 100 RESTORE 110 MODE 4 120 OPEN
-#3,con\_448x200a32x16:BORDER#3,1,2:PAPER#3,0:INK#3,7 130 INPUT #3,'Input
-name to look for:'!search$ 140 REPeat loop 150 IF EOF:PRINT#3\\\\"No
-address stored":EXIT loop 160 READ name$,address$ 170 IF
-name$==search$:PRINT #3\\\\name$,address$:EXIT loop 180 END REPeat loop
-190 CLOSE #3 200 DATA 'Fred Blogs','17 Mulberry Court' 210 DATA 'John
-Peters','182 Johnson Ave.' 220 DATA 'Martin Edwards','83 Olive Drive'
+flp1\_address\_data::
 
-100 OPEN\_IN #3,flp1\_Address\_data 110 MODE 4 120 OPEN
-#4,con\_448x200a32x16:BORDER#4,1,2:PAPER#4,0:INK#4,7 130 INPUT #4,'Input
-name to look for:'!search$ 140 REPeat loop 150 IF EOF(#3):PRINT#4\\\\"No
-address stored":EXIT loop 160 INPUT #3;name$,address$ 170 IF
-name$==search$:PRINT #4\\\\name$,address$:EXIT loop 180 END REPeat loop
-190 CLOSE #4:CLOSE #3
+    100 RESTORE 
+    110 MODE 4 
+    120 OPEN #3,con_448x200a32x16:BORDER#3,1,2:PAPER#3,0:INK#3,7 
+    130 INPUT #3,'Input name to look for:'!search$ 
+    140 REPeat loop 
+    150   IF EOF:PRINT#3\\"No address stored":EXIT loop 
+    160   READ name$,address$ 
+    170   IF name$==search$:PRINT #3\\name$,address$:EXIT loop 
+    180 END REPeat loop
+    190 CLOSE #3 
+    200 DATA 'Fred Blogs','17 Mulberry Court' 
+    210 DATA 'John Peters','182 Johnson Ave.' 
+    220 DATA 'Martin Edwards','83 Olive Drive'
+
+::
+
+    100 OPEN_IN #3,flp1_Address_data 
+    110 MODE 4 120 OPEN #4,con_448x200a32x16:BORDER#4,1,2:PAPER#4,0:INK#4,7 
+    130 INPUT #4,'Input name to look for:'!search$ 
+    140 REPeat loop 
+    150   IF EOF(#3):PRINT#4\\"No address stored":EXIT loop 
+    160   INPUT #3;name$,address$  
+    170   IF name$==search$:PRINT #4\\name$,address$:EXIT loop 
+    180 END REPeat loop
+    190 CLOSE #4:CLOSE #3
 
 **SMS NOTE**
 
