@@ -5,26 +5,21 @@ Keywords E
 TODO
 ====
 
+- EDIT, EDIT% and EDIT$ have the same URL. Fix. Fix links too.
+- ERLIN and ERLIN% ditto.
+- ERNUM and ERNUM% ditto.
 
 
 EASTER
 ======
 
-+----------+---------------------------------------+
-| Syntax   |  EASTER (year%) where year% >= 1583   |
-+----------+---------------------------------------+
-| Location |  Math Package                         |
-+----------+---------------------------------------+
++----------+-------------------------------------------------------------------+
+| Syntax   |  EASTER (year%) where year% >= 1583                               |
++----------+-------------------------------------------------------------------+
+| Location |  Math Package                                                     |
++----------+-------------------------------------------------------------------+
 
-This function calculates the date of Easter Sunday for any given year after 1583 (when the Gregorian calender was introduced by Pope Gregory XIII to replace the Julian calender of Julius Caeser which had been in use since 46 BC). 
-
-EASTER returns the date as a floating point number, where the day is the integer part of the number and the month is given by the digits following the floating point, eg.
-
-::
-
-     PRINT EASTER(1993)  
-
-shows 11.4 (April, 11th)
+This function calculates the date of Easter Sunday for any given year after 1583 (when the Gregorian calender was introduced by Pope Gregory XIII to replace the Julian calender of Julius Caeser which had been in use since 46 BC). EASTER returns the date as a floating point number, where the day is the integer part of the number and the month is given by the digits following the floating point, eg. PRINT EASTER(1993)  shows 11.4 (April, 11th) 
 
 **Example**
 
@@ -58,8 +53,32 @@ ED
 +----------+-------------------------------------------------------------------+
 | Syntax   |  ED [#ch,] [start\_line]                                          |
 +----------+-------------------------------------------------------------------+
-| Location |  Toolkit II  This command invokes Toolkit II's full-screen editor. This provides powerful facilities for editing a SuperBASIC program loaded in memory and forms a useful alternative to the QL's standard EDIT and AUTO commands. ED will list the current SuperBASIC program from its first line (or from the specified start\_line) onwards in the given channel (default #2). If the specified channel (#ch) is not a console con\_ channel, then an error -15 (Bad Parameter) will be reported. If any lines are too long to fit in the specified window, they are wrapped round onto the next line, with this 'continuation line' indented in order to differentiate from other program lines. It does however make sense to use the widest possible window to avoid wrapping of lines. Once a window-full of the listing is shown, ED will activate the cursor in the window and you can then move up or down through the listing by using the up and down cursor keys. The left and right cursor keys will move across the listing lines (and even 'blank' space where the actual program lines do not appear). Any attempt to alter a line (eg. to delete a character) will activate that line, in which case it will be shown in inverse colours. Any attempt to move the cursor off that line (or pressing <ENTER>) will tell ED to accept the alterations and de-activate that line. If the line is not acceptable to the SuperBASIC parser, then a 'Bad Line' error will be generated in #0 and the line re-activated. If you press the Break key or <ESC> whilst a line is active, it will be de-activated and returned to its original state. If no line is active, <ENTER> will insert a new line number half-way (if possible) between the number of the line on which the cursor is situated and the next line number. If there is no room for an additional line between the two program lines, <ENTER> will be ignored. If on the other hand, there is a gap of 20 or more (or there are no further program lines), the new line number will be the current line number plus 10. Another way of creating new lines is to amend the line number of the current line. If you do this, a new line with the amended line number will be inserted (overwriting any existing line) and the current line will remain the same (the cursor remains on the same line). This enables you to copy lines from one part of a program to another. By way of further assistance to the SuperBASIC programmer, ED can work in two modes - Overwrite Mode and Insert Mode. The latter is the default, in which case any characters typed will activate the current line and insert them at the current cursor position. In Overwrite Mode, any characters typed will activate the current line and replace the characters under the cursor. A line can be deleted either by using <CTRL><ALT><> (except on SMS where you must use <CTRL><>) or by deleting all of the visible characters in a line. If you delete everything but the line number, then the line pointed to by that line number will be deleted. There are several other keys available which make editing a SuperBASIC program much easier than under EDIT. The keys available from within the standard ED are listed on the next page. |
+| Location |  Toolkit II                                                       |
 +----------+-------------------------------------------------------------------+
+
+This command invokes Toolkit II's full-screen editor. This provides powerful facilities for editing a SuperBASIC program loaded in memory and forms a useful alternative to the QL's standard EDIT and AUTO commands. 
+
+ED will list the current SuperBASIC program from its first line (or from the specified start\_line) onwards in the given channel (default #2). If the specified channel (#ch) is not a console con\_ channel, then an error -15 (Bad Parameter) will be reported. If any lines are too long to fit in the specified window, they are wrapped round onto the next line, with this 'continuation line' indented in order to differentiate from other program lines. It does however make sense to use the widest possible window to avoid wrapping of lines. 
+
+Once a window-full of the listing is shown, ED will activate the cursor in the window and you can then move up or down through the listing by using the up and down cursor keys. The left and right cursor keys will move across the listing lines (and even 'blank' space where the actual program lines do not appear). 
+
+Any attempt to alter a line (eg. to delete a character) will activate that line, in which case it will be shown in inverse colours. Any attempt to move the cursor off that line (or pressing <ENTER>) will tell ED to accept the alterations and de-activate that line. 
+
+If the line is not acceptable to the SuperBASIC parser, then a 'Bad Line' error will be generated in #0 and the line re-activated. 
+
+If you press the Break key or <ESC> whilst a line is active, it will be de-activated and returned to its original state. If no line is active, <ENTER> will insert a new line number half-way (if possible) between the number of the line on which the cursor is situated and the next line number. If there is no room for an additional line between the two program lines, <ENTER> will be ignored. 
+
+If on the other hand, there is a gap of 20 or more (or there are no further program lines), the new line number will be the current line number plus 10. 
+
+Another way of creating new lines is to amend the line number of the current line. If you do this, a new line with the amended line number will be inserted (overwriting any existing line) and the current line will remain the same (the cursor remains on the same line). This enables you to copy lines from one part of a program to another. 
+
+By way of further assistance to the SuperBASIC programmer, ED can work in two modes - Overwrite Mode and Insert Mode. The latter is the default, in which case any characters typed will activate the current line and insert them at the current cursor position. 
+
+In Overwrite Mode, any characters typed will activate the current line and replace the characters under the cursor. 
+
+A line can be deleted either by using <CTRL><ALT><> (except on SMS where you must use <CTRL><>) or by deleting all of the visible characters in a line. If you delete everything but the line number, then the line pointed to by that line number will be deleted. 
+
+There are several other keys available which make editing a SuperBASIC program much easier than under EDIT. The keys available from within the standard ED are listed on the next page.
 
 **NOTE 1**
 
@@ -97,49 +116,109 @@ an error. We are not certain if this works on other implementations.
 Any attempt to ED a line number greater than 32757 can cause problems
 (on some versions ED creates negative line numbers, on others you cannot
 see the line being edited). SMSQ/E v2.85 (at least) does not have these
-problems, but see Note 4 above. The keys available in ED are:
-<ENTER>Create new line, unless line is active, in which case this tells
-ED to accept alterations to the line and de-activate it. <ESC>Leave ED -
-control returns to #0 unless line is active, in which case this
-de-activates line without altering it. <CTRL><SPACE>see <ESC>. <TAB>Move
-to the right by multiples of eight. <SHIFT><TAB>Move to the left by
-multiples of eight. <>Move up one line. <ALT><>Scroll up a line (cursor
-remains still, text moves down) <SHIFT><>Scroll up one page (cursor
-remains still) <>Move down one line <ALT><>Scroll down a line (cursor
-remains still, text moves up) <SHIFT><>Scroll down one page (cursor
-remains still) <>Move right one character <CTRL><>Delete character under
-cursor (line becomes active) <>Move left one character <CTRL><>Delete
-character to left of cursor (line becomes active) <CTRL><ALT><>Delete
-line under cursor (not under SMS). <SHIFT><F4>Switch between overwrite
-and insert mode SMS adds the following additional keys: <SHIFT><>Move
-left one word <ALT><>Move to start of line <CTRL><SHIFT><>Delete word to
-left of cursor (line becomes active) <CTRL><ALT><>Delete from cursor to
-start of line (line becomes active) <SHIFT><>Move right one word
-<ALT><>Move to end of line <CTRL><SHIFT><>Delete word under cursor (line
-becomes active) <CTRL><ALT><>Delete from cursor to end of line (line
-becomes active) <CTRL><>Delete whole line under cursor <SHIFT><F5>Stuff
-the currently activated line into the Hotkey buffer so that this can be
-later recalled with <ALT><SPACE>. Note this will only work if the Hotkey
-system is active (see HOT\_GO). For this you need v2.58+
+problems, but see Note 4 above. 
+
+**ED Special Key Presses**
+
+The keys available in ED are:
+
++----------------+--------------------------------------------------------------------------------+
+| Key Press      | Action                                                                         |
++================+================================================================================+
+| <ENTER>        | Create new line, unless line is active, in which case this tells ED to accept  |
+|                | alterations to the line and de-activate it.                                    |
++----------------+--------------------------------------------------------------------------------+
+| <ESC>          | Leave ED - control returns to #0 unless line is active, in which case this     |
+|                | de-activates line without altering it.                                         |
++----------------+--------------------------------------------------------------------------------+
+| <CTRL><SPACE>  | See <ESC>.                                                                     |
++----------------+--------------------------------------------------------------------------------+
+| <TAB>          | Move to the right by multiples of eight.                                       |
++----------------+--------------------------------------------------------------------------------+
+| <SHIFT><TAB>   | Move to the left by multiples of eight.                                        |
++----------------+--------------------------------------------------------------------------------+
+| ↑              | Move up one line.                                                              |
++----------------+--------------------------------------------------------------------------------+
+| <ALT> ↑        | Scroll up a line (cursor remains still, text moves down).                      |
++----------------+--------------------------------------------------------------------------------+
+| <SHIFT> ↑      | Scroll up one page (cursor remains still).                                     |
++----------------+--------------------------------------------------------------------------------+
+| ↓              | Move down one line.                                                            |
++----------------+--------------------------------------------------------------------------------+
+| <ALT> ↓        | Scroll down a line (cursor remains still, text moves up).                      |
++----------------+--------------------------------------------------------------------------------+
+| <SHIFT> ↓      | Scroll down one page (cursor remains still).                                   |
++----------------+--------------------------------------------------------------------------------+
+| →              | Move right one character.                                                      |
++----------------+--------------------------------------------------------------------------------+
+| <CTRL> →       | Delete character under cursor (line becomes active.                            |
++----------------+--------------------------------------------------------------------------------+
+| ←              | Move left one character.                                                       |
++----------------+--------------------------------------------------------------------------------+
+| <CTRL> ←       | Delete character to left of cursor (line becomes active).                      |
++----------------+--------------------------------------------------------------------------------+
+| <CTRL><ALT> ←  | Delete line under cursor (not under SMS.                                       |
++----------------+--------------------------------------------------------------------------------+
+| <SHIFT><F4>    | Switch between overwrite and insert mode.                                      |
++----------------+--------------------------------------------------------------------------------+
+
+
+SMS adds the following additional keys: 
+
++------------------+--------------------------------------------------------------------------------+
+| Key Press        | Action                                                                         |
++==================+================================================================================+
+| <SHIFT> ←        | Move left one word.                                                            |
++------------------+--------------------------------------------------------------------------------+
+| <ALT> ←          | Move to start of line.                                                         |
++------------------+--------------------------------------------------------------------------------+
+| <CTRL><SHIFT> ←  | Delete word to left of cursor (line becomes active).                           |
++------------------+--------------------------------------------------------------------------------+
+| <CTRL><ALT> ←    | Delete from cursor to start of line (line becomes active).                     |
++------------------+--------------------------------------------------------------------------------+
+| <SHIFT> →        | Move right one word.                                                           |
++------------------+--------------------------------------------------------------------------------+
+| <ALT> →          | Move to end of line.                                                           |
++------------------+--------------------------------------------------------------------------------+
+| <CTRL><SHIFT> →  | Delete word under cursor (line becomes active).                                |
++------------------+--------------------------------------------------------------------------------+
+| <CTRL><ALT> →    | Delete from cursor to end of line (line becomes active).                       |
++------------------+--------------------------------------------------------------------------------+
+| <CTRL> ←         | Delete whole line under cursor.                                                |
++------------------+--------------------------------------------------------------------------------+
+| <SHIFT><F5>      | Stuff the currently activated line into the Hotkey buffer so that this can be  |
+|                  | later recalled with <ALT><SPACE>. **Note** this will only work if the Hotkey   |
+|                  | system is active (see HOT\_GO). For this you need v2.58+.                      |
++------------------+--------------------------------------------------------------------------------+
 
 **SMS NOTES**
 
 Oddly, the SuperBasic interpreter allows you to enter a line which is
 beyond the permitted range of line numbers, for example, enter as a
-direct command: 40000 PRINT 'This should not be accepted'
- No error is reported, and the line is executed as if it had been
-entered without a line number! SMS also suffers with problems if you
+direct command::
+
+    40000 PRINT 'This should not be accepted'
+
+No error is reported, and the line is executed as if it had been
+entered without a line number! 
+
+SMS also suffers with problems if you
 edit a long line at the bottom of a window, so that as you type in more
 text for the line, the program line extends below the bottom of the
 window. 'Invalid Syntax' is printed over and over in #0, crashing the
 computer. This was improved in v2.71 but still has not been totally
-fixed. The keying <CTRL><> clashes with the key used by early versions
+fixed. 
+
+The keying <CTRL> → clashes with the key used by early versions
 of the program MasterBasic (by Ergon Software) which is used to move
 between occurences of an object which has been searched for in the
-program. This has been resolved in v1.46+ of the program. If you try to
+program. This has been resolved in v1.46+ of the program. 
+
+If you try to
 use ED on #2 and this is not open, then SMS will use #0 (if this is not
 open, it will open a default window #0). This is useful for SBASICs
 which may be started with only one channel open (an input channel).
+
 Another useful feature implemented on SMS is that as from v2.69, if you
 enter the command ED without any parameters, this has one of two
 effects. If you have not previously used ED, this edits the start of the
@@ -161,8 +240,51 @@ EDIT
 +----------+-------------------------------------------------------------------+
 | Syntax   |  EDIT [start\_number] [,step]                                     |
 +----------+-------------------------------------------------------------------+
-| Location |  QL ROM  This command allows you to enter the SuperBASIC line editor in order to alter a SuperBASIC program loaded in memory. It will automatically create line numbers in the command line (#0) to assist in entering SuperBASIC programs, in much the same way as AUTO. EDIT would normally only be entered as a direct command (although you can include it in a program line, the line numbers will not be generated until the program has finished its work). Once entered, you will be presented with the first line start\_number (default 100) - if this line already exists in the program, then the existing line will be presented. Otherwise, you will only see the current line number. Pressing the up and down arrow keys will move you to the previous line or the next line (respectively) in the program, although if there is no previous (or next) line, then you will exit the EDIT mode. However, if you press the Enter key, if step is specified (default 0), this will act in the same way as AUTO. However, if step is not specified, you will leave EDIT mode. The main advantage of using EDIT over ED is how EDIT handles the screen. If the program has not been previously EDITed (or a PROC/FN Cleared message has been displayed) then EDIT will show a section of the current program in #2 when you move off the line currently being EDITed with the cursor keys or <ENTER>. This section will have the line which was just EDITed as the top line and will go on to fill #2 with additional lines of the program. However, if the program has already been EDITed and the PROC/FN Cleared message has not been displayed, then EDIT will not affect the display on screen (other than showing parts of the program in #0) until you EDIT a line which is within the range of lines which were previously being EDITed. This range of lines is actually slightly bigger than the lines which would have been displayed in #2, going from an invisible top line (the line above the displayed line) to an invisible bottom line (the line below the displayed line). Now, this can be quite useful when searching a program for some text or deciding where to copy a section of the program to, or even to line up characters on screen when the program has been RUN. The listing which last appeared on #2 is represented as:- 110 PAPER 0:INK 4:CLS(Invisible Top Line) -------------------------------------------- 120 PRINT 'A PROGRAM'(Displayed Lines) 130 PRINT 'TO GET YOUR NAME'\| 140 INPUT \\\\'ENTER YOUR NAME';name$\| 150 PRINT \\\\\| 160 PRINT 'HELLO'!name$\| -------------------------------------------- 170 PRINT \\\\"I'M YOUR COMPUTER"(Invisible bottom Line) |
+| Location |  QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
+
+This command allows you to enter the SuperBASIC line editor in order to alter a SuperBASIC 
+program loaded in memory. It will automatically create line numbers in the command line (#0) 
+to assist in entering SuperBASIC programs, in much the same way as AUTO. EDIT would normally 
+only be entered as a direct command (although you can include it in a program line, the 
+line numbers will not be generated until the program has finished its work). 
+
+Once entered, you will be presented with the first line start\_number (default 100) - if 
+this line already exists in the program, then the existing line will be presented. 
+Otherwise, you will only see the current line number.
+
+Pressing the up and down arrow keys will move you to the previous line or the next line 
+(respectively) in the program, although if there is no previous (or next) line, then you 
+will exit the EDIT mode. However, if you press the Enter key, if step is specified 
+(default 0), this will act in the same way as AUTO. However, if step is not specified, 
+you will leave EDIT mode. 
+
+The main advantage of using EDIT over ED is how EDIT handles the screen. If the program 
+has not been previously EDITed (or a PROC/FN Cleared message has been displayed) then 
+EDIT will show a section of the current program in #2 when you move off the line currently 
+being EDITed with the cursor keys or <ENTER>. This section will have the line which was just 
+EDITed as the top line and will go on to fill #2 with additional lines of the program. However, 
+if the program has already been EDITed and the PROC/FN Cleared message has not been displayed, 
+then EDIT will not affect the display on screen (other than showing parts of the program in #0) 
+until you EDIT a line which is within the range of lines which were previously being EDITed. 
+
+This range of lines is actually slightly bigger than the lines which would have been displayed 
+in #2, going from an invisible top line (the line above the displayed line) to an invisible 
+bottom line (the line below the displayed line). Now, this can be quite useful when searching 
+a program for some text or deciding where to copy a section of the program to, or even to 
+line up characters on screen when the program has been RUN. 
+
+The listing which last appeared on #2 is represented as::
+
+    110 PAPER 0:INK 4:CLS(Invisible Top Line) 
+    -------------------------------------------- 
+    120 PRINT 'A PROGRAM'(Displayed Lines) 
+    130 PRINT 'TO GET YOUR NAME'
+    140 INPUT \\'ENTER YOUR NAME';name$
+    150 PRINT \\
+    160 PRINT 'HELLO'!name$
+    -------------------------------------------- 
+    170 PRINT \\"I'M YOUR COMPUTER"(Invisible bottom Line )
 
 **NOTE 1**
 
@@ -173,9 +295,11 @@ achieve the same result!
 
 On non-Minerva ROMs EDIT uses the same routine as RENUM to check its
 parameters, which means that you can specify a start\_line and an
-end\_line, although they do nothing. For example: EDIT 100 TO
-1000;1000,20
- would createlines 1000, 1020, 1040, ....
+end\_line, although they do nothing. For example::
+
+    EDIT 100 TO 1000;1000,20
+
+would create lines 1000, 1020, 1040, ....
 
 **NOTE 3**
 
@@ -190,11 +314,14 @@ Additional keys are available for editing on Minerva (see INPUT).
 **NOTE 5**
 
 EDIT can give problems if it is issued after breaking into a program
-which was in the middle of a PROCedure or FuNction at the time. On
-non-Minerva ROMs, this is likely to produce a 'not implemented' error
+which was in the middle of a PROCedure or FuNction at the time. 
+
+On non-Minerva ROMs, this is likely to produce a 'not implemented' error
 and the wrong line. Press Break and try again do not try to edit the
 line. On Minerva ROMs (pre v1.97) this is compounded by the fact that
-Minerva tends to try to run the program again. Sometimes you are lucky
+Minerva tends to try to run the program again. 
+
+Sometimes you are lucky
 and Minerva tries to jump to a non-existent line number before
 presenting you with the desired line. Unfortunately, EDIT is never
 really safe in this context, and you should either type CLEAR before
@@ -217,10 +344,20 @@ On SMS the EDIT command is exactly the same as ED.
 `DLINE <KeywordsD.clean.html#dline>`__ deletes program lines.
 `INPUT <KeywordsI.clean.html#input>`__ contains details of the available
 keypresses for cursor navigation. `ED <KeywordsE.clean.html#ed>`__ provides a
-different means of editing a SuperBASIC program. PRINT PEEK\_W(\\\\
-HEX('9C')) returns the line number of the invisible top line which was
-last `EDIT <KeywordsE.clean.html#edit>`__\ ed (except on SMS). PRINT
-PEEK\_W(\\\\ HEX('9E')) returns the line number of the bottom line in #2
+different means of editing a SuperBASIC program. 
+
+::
+
+    PRINT PEEK_W(\\HEX('9C')) 
+
+returns the line number of the invisible top line which was
+last `EDIT <KeywordsE.clean.html#edit>`__\ ed (except on SMS). 
+
+::
+
+    PRINT PEEK_W(\\HEX('9E')) 
+
+returns the line number of the bottom line in #2
 which was last `EDIT <KeywordsE.clean.html#edit>`__\ ed (except on SMS).
 
 --------------
@@ -231,8 +368,17 @@ EDITF
 +----------+-------------------------------------------------------------------+
 | Syntax   |  EDITF ([#ch,] {default \| default$} [,maxlen%])                  |
 +----------+-------------------------------------------------------------------+
-| Location |  Turbo Toolkit  This function is similar to EDLINE$. However, EDITF is intended solely for asking the user to enter a floating point number. The specified default (which may be given as a number or a string) is printed at the current text cursor position in #ch  (default #1) and allows you to edit it. The parameter maxlen%  dictates the maximum number of characters allowed (this defaults to the amount set when the Turbo Toolkit is configured). The edited result is returned when <ENTER> is pressed. If the string contains a non-sensical value when <ENTER> is pressed, a warning beep is sounded. |
+| Location |  Turbo Toolkit                                                    |
 +----------+-------------------------------------------------------------------+
+
+This function is similar to EDLINE$. However, EDITF is intended solely for asking 
+the user to enter a floating point number. The specified default (which may be 
+given as a number or a string) is printed at the current text cursor position 
+in #ch  (default #1) and allows you to edit it. The parameter maxlen%  dictates 
+the maximum number of characters allowed (this defaults to the amount set when 
+the Turbo Toolkit is configured). The edited result is returned when <ENTER> 
+is pressed. If the string contains a non-sensical value when <ENTER> is pressed, 
+a warning beep is sounded.
 
 **NOTE**
 
@@ -243,7 +389,7 @@ whichever is longer.
 
 **CROSS-REFERENCE**
 
-`See EDLINE$ <KeywordsS.clean.html#edline>`__.
+See `EDLINE$ <KeywordsE.clean.html#edline>`__.
 `EDIT% <KeywordsE.clean.html#edit>`__ and `EDIT$ <KeywordsE.clean.html#edit>`__
 are also useful.
 
@@ -255,12 +401,14 @@ EDIT%
 +----------+-------------------------------------------------------------------+
 | Syntax   |  EDIT% ([#ch,] {default \| default$} [,maxlen%])                  |
 +----------+-------------------------------------------------------------------+
-| Location |  Turbo Toolkit  This function is the same as EDITF, except that only integer values are acceptable. |
+| Location |  Turbo Toolkit                                                    |
 +----------+-------------------------------------------------------------------+
+
+This function is the same as EDITF, except that only integer values are acceptable.
 
 **CROSS-REFERENCE**
 
-`See EDITF <KeywordsS.clean.html#editf>`__.
+See `EDITF <KeywordsE.clean.html#editf>`__.
 
 --------------
 
@@ -270,12 +418,16 @@ EDIT$
 +----------+-------------------------------------------------------------------+
 | Syntax   |  EDIT$ ([#ch,] default$ [,maxlen%])                               |
 +----------+-------------------------------------------------------------------+
-| Location |  Turbo Toolkit  This function is similar to EDLINE$. It operates in the same way as EDITF, except that any string of characters can be edited, rather than being restricted to a number. |
+| Location |  Turbo Toolkit                                                    |
 +----------+-------------------------------------------------------------------+
+
+This function is similar to EDLINE$. It operates in the same way as EDITF, 
+except that any string of characters can be edited, rather than being 
+restricted to a number.
 
 **CROSS-REFERENCE**
 
-`See EDITF <KeywordsS.clean.html#editf>`__.
+See `EDITF <KeywordsE.clean.html#editf>`__.
 
 --------------
 
@@ -285,16 +437,33 @@ EDLINE$
 +----------+-------------------------------------------------------------------+
 | Syntax   |  EDLINE$ (#ch, maxlen%, edit$)                                    |
 +----------+-------------------------------------------------------------------+
-| Location |  EDLINE (DIY Toolkit Vol E)  The function EDLINE$ prints edit$ at the current text cursor position in #ch (there is no default channel) and allows you to edit it. A maximum length of maxlen% characters is allowed. The edited result is returned. Unlike INPUT, EDLINE$ will not finish with <UP> or <DOWN> but only after <ENTER> and <CTRL><SPACE> (also <ESC> on Minerva). Instead <UP> and <DOWN> move the cursor to the start and end of the string respectively; apart from that the usual keys for editing are used: <CTRL><LEFT> deletes the character to the left of the cursor, <CTRL><RIGHT> the character under the cursor. |
+| Location |  EDLINE (DIY Toolkit Vol E)                                       |
 +----------+-------------------------------------------------------------------+
+
+The function EDLINE$ prints edit$ at the current text cursor position in #ch 
+(there is no default channel) and allows you to edit it. A maximum length of 
+maxlen% characters is allowed. The edited result is returned. Unlike INPUT, 
+EDLINE$ will not finish with <UP> or <DOWN> but only after <ENTER> and 
+<CTRL><SPACE> (also <ESC> on Minerva). Instead <UP> and <DOWN> move the cursor 
+to the start and end of the string respectively; apart from that the usual 
+keys for editing are used: <CTRL><LEFT> deletes the character to the left 
+of the cursor, <CTRL><RIGHT> the character under the cursor.
 
 **Example**
 
-100 CLS 110 REPeat ask\_name 120 PRINT \\"Please enter your name: "; 130
-Name$ = "Billy the Kid" 140 Name$ = EDLINE$(#1,40,Name$) 150 PRINT "Your
-name is '";Name$;"' (y/n)? "; 160 ok$ = EDLINE$(#1,1,"y") 170 IF ok$
-INSTR "yY" THEN EXIT ask\_name 180 PRINT "Try again..." 190 END REPeat
-ask\_name 200 PRINT "Hello,"!Name$;"!"
+::
+
+    100 CLS 
+    110 REPeat ask_name 
+    120 PRINT \"Please enter your name: "; 
+    130 Name$ = "Billy the Kid" 
+    140 Name$ = EDLINE$(#1,40,Name$) 
+    150 PRINT "Your name is '";Name$;"' (y/n)? "; 
+    160 ok$ = EDLINE$(#1,1,"y") 
+    170 IF ok$ INSTR "yY" THEN EXIT ask_name 
+    180 PRINT "Try again..." 
+    190 END REPeat ask_name 
+    200 PRINT "Hello,"!Name$;"!"
 
 **NOTE**
 
@@ -320,8 +489,17 @@ EL
 +----------+-------------------------------------------------------------------+
 | Syntax   |  EL                                                               |
 +----------+-------------------------------------------------------------------+
-| Location |  Beuletools  This function returns the control codes needed to switch on the NLQ ( near letter quality) font on an EPSON compatible printer: PRINT EL  is the same as PRINT CHR$(27)&"x"&CHR$(1). |
+| Location |  Beuletools                                                       |
 +----------+-------------------------------------------------------------------+
+
+This function returns the control codes needed to switch on the NLQ ( near letter 
+quality) font on an EPSON compatible printer::
+
+    PRINT EL  
+
+is the same as::
+
+    PRINT CHR$(27)&"x"&CHR$(1).
 
 **CROSS-REFERENCE**
 
@@ -342,8 +520,12 @@ ELIS
 +----------+-------------------------------------------------------------------+
 | Syntax   |  ELIS (keyword$)                                                  |
 +----------+-------------------------------------------------------------------+
-| Location |  TinyToolkit  This function will return the machine code start address of the specified resident keyword if it is recognised by SuperBASIC. If the keyword is unknown, then the function will generate a Not Found error. |
+| Location |  TinyToolkit                                                      |
 +----------+-------------------------------------------------------------------+
+
+This function will return the machine code start address of the specified resident 
+keyword if it is recognised by SuperBASIC. If the keyword is unknown, then the 
+function will generate a Not Found error.
 
 **CROSS-REFERENCE**
 
@@ -357,59 +539,93 @@ Compare `FIND <KeywordsF.clean.html#find>`__ and
 ELLIPSE
 =======
 
-+----------+-------------------------------------------------------------------+
-| Syntax   | |          |  ELLIPSE [#ch,] x,y,radius,ratio,ecc :sup:`\*`\ [;x\ :sup:`i`\ ,y\ :sup:`i`\ ,radius\ :sup:`i`\ ,ratio\ :sup:`i`\ ,ecc\ :sup:`i`]\ :sup:`\*|
-+----------+-------------------------------------------------------------------+
- Both the ELLIPSE and CIRCLE commands perform exactly the same function.
++----------+---------------------------------------------------------------------------------------------------------------------------------------------+
+| Syntax   | ELLIPSE [#ch,] x,y,radius,ratio,ecc :sup:`\*`\ [;x\ :sup:`i`\ ,y\ :sup:`i`\ ,radius\ :sup:`i`\ ,ratio\ :sup:`i`\ ,ecc\ :sup:`i`]\ :sup:`\*` |
++----------+---------------------------------------------------------------------------------------------------------------------------------------------+
+| Location | QL ROM                                                                                                                                      |
++----------+---------------------------------------------------------------------------------------------------------------------------------------------+
+
+Both the ELLIPSE and CIRCLE commands perform exactly the same function.
 We have however decided to split them, since if users adopt the habit of
-using ELLIPSE to draw ellipses and CIRCLE
- to draw circles, this will help users understand SuperBASIC programs
-much more easily. This command allows you to draw an ellipse in the
+using ELLIPSE to draw ellipses and CIRCLE to draw circles, 
+this will help users understand SuperBASIC programs
+much more easily. 
+
+This command allows you to draw an ellipse in the
 current INK colour of the given radius with its centre point at the
-point (x,y). The ratio affects the difference between the major axis and
+point (x,y). 
+
+The ratio affects the difference between the major axis and
 the minor axis - the greater the ratio, the greater the difference
-between the two. The major (y) axis is specified by the parameter
+between the two. 
+
+The major (y) axis is specified by the parameter
 radius, whereas the minor (x) axis is calculated by radius\*ratio which
 therefore means that if ratio>1, the major axis will become the (x) axis
-(if you see what we mean!). ecc defines the angle at which the ellipse
+(if you see what we mean!). 
+
+Ecc defines the angle at which the ellipse
 will be drawn. This is measured in radians and forms the anti-clockwise
 angle between a vertical line drawn through the origin of the ellipse
 and the major axis. Thus, ecc=PI/4 draws an ellipse at an angle of 45
-degrees. The actual positioning and size of the ellipse will depend upon
-the scale and shape of the specified window (default #1). The
+degrees. 
+
+The actual positioning and size of the ellipse will depend upon
+the scale and shape of the specified window (default #1). 
+
+The
 co-ordinates are calculated by reference to the graphics origin, and the
 graphics pointer will be set to the centre point of the last ellipse to
 be drawn on completion of the command. If any parts of the ellipse lie
 outside of the specified window, they will not be drawn (there will not
-be an error). If the parameters ratio and ecc are omitted, this command
+be an error). 
+
+If the parameters ratio and ecc are omitted, this command
 has exactly the same effect as CIRCLE. This command will actually allow
 you to draw multiple ellipses by including more sets of parameters. Each
 additional set must be preceded by a semicolon (unless the preceding
-ellipse uses five parameters): This means for example, that these all
-perform the same action: ELLIPSE 100,100,20,1,2,50,50,20 ELLIPSE
-100,100,20,1,2;50,50,20 ELLIPSE 100,100,20,1,2: CIRCLE 50,50,20
+ellipse uses five parameters). This means for example, that these all
+perform the same action::
+
+    ELLIPSE 100,100,20,1,2,50,50,20 
+    ELLIPSE 100,100,20,1,2; 50,50,20 
+    ELLIPSE 100,100,20,1,2: CIRCLE 50,50,20
 
 Although the FILL command will allow you to draw filled ellipses on
 screen (in the current ink colour), you will need to include a FILL 1
 statement prior to each ellipse if they are to appear independently on
 screen (this cannot be achieved when using this command to draw multiple
-ellipses). If this rule is not followed, then any points which lie on
+ellipses). 
+
+If this rule is not followed, then any points which lie on
 the same horizontal line (even though they may be in different ellipses)
 will be joined.
 
 **Example**
 
-Try the following for an interesting effect: 100 MODE 8 110 WINDOW
-448,200,32,16:PAPER 0:CLS 120 SCALE 100,0,0 130 INK 4:OVER -1 140 REPeat
-loop 150 FOR ang=0 TO PI\*2-(PI\*2/20) STEP PI\*2/20 160 FILL 1:ELLIPSE
-70,50,40,.5,ang 170 FILL 1:ELLIPSE 70,50,40,.5,ang 180 END FOR ang 190
-END REPeat loop
+Try the following for an interesting effect::
+
+    100 MODE 8 
+    110 WINDOW 448,200,32,16:PAPER 0:CLS 
+    120 SCALE 100,0,0 
+    130 INK 4:OVER -1 
+    140 REPeat loop 
+    150   FOR ang=0 TO PI*2-(PI*2/20) STEP PI*2/20 
+    160     FILL 1:ELLIPSE 70,50,40,.5,ang 
+    170     FILL 1:ELLIPSE 70,50,40,.5,ang 
+    180   END FOR ang 
+    190 END REPeat loop
 
 **NOTE**
 
 On all ROMs other than Minerva v1.89+, very small ellipses and very
-large ones can cause problems: try ELLIPSE 80,80,80,6,1 on a non-Minerva
-machine for a laugh. Unfortunately, Lightning SE (v2.11) still contains
+large ones can cause problems. Try::
+
+    ELLIPSE 80,80,80,6,1 
+
+on a non-Minerva machine for a laugh. 
+
+Unfortunately, Lightning SE (v2.11) still contains
 this bug and will bring it back!
 
 **CROSS-REFERENCE**
@@ -423,10 +639,13 @@ Please refer to `CIRCLE <KeywordsC.clean.html#circle>`__,
 ELLIPSE\_R
 ==========
 
-+----------+-------------------------------------------------------------------+
-| Syntax   | |          |  ELLIPSE\_R [#ch,] x,y,radius,ratio,ecc :sup:`\*`\ [;x\ :sup:`i`\ ,y\ :sup:`i`\ ,radius\ :sup:`i`\ ,ratio\ :sup:`i`\ ,ecc\ :sup:`i`]\ :sup:`\*|
-+----------+-------------------------------------------------------------------+
- This command draws an ellipse relative to the current graphics cursor.
++----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+| Syntax   | ELLIPSE\_R [#ch,] x,y,radius,ratio,ecc :sup:`\*`\ [;x\ :sup:`i`\ ,y\ :sup:`i`\ ,radius\ :sup:`i`\ ,ratio\ :sup:`i`\ ,ecc\ :sup:`i`]\ :sup:`\*` |
++----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+| Location | QL ROM                                                                                                                                         |
++----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+
+This command draws an ellipse relative to the current graphics cursor.
 See ELLIPSE above!
 
 **CROSS-REFERENCE**
@@ -440,10 +659,13 @@ ELSE
 ====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  ELSE :sup:`\*`\ [:statements]\ :sup:`\*                          |
+| Syntax   |  ELSE :sup:`\*`\ [:statements]\ :sup:`\*`                         |
 +----------+-------------------------------------------------------------------+
-| Location |  QL ROM  This command forms part of the IF...END IF structure and allows you to take alternative action if the condition contained in the IF statement proves to be false. |
+| Location |  QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
+
+This command forms part of the IF...END IF structure and allows you to take alternative 
+action if the condition contained in the IF statement proves to be false.
 
 **CROSS-REFERENCE**
 
@@ -457,8 +679,12 @@ END
 +----------+-------------------------------------------------------------------+
 | Syntax   |  END ...                                                          |
 +----------+-------------------------------------------------------------------+
-| Location |  QL ROM  This keyword forms part of the structures: END WHEN, END SELect, END IF, END REPeat, END FOR and END DEFine  As such, it cannot be used on its own within a program - this will cause a 'bad line' error. |
+| Location |  QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
+
+This keyword forms part of the structures: END WHEN, END SELect, END IF, END REPeat, 
+END FOR and END DEFine  As such, it cannot be used on its own within a 
+program - this will cause a 'bad line' error.
 
 **CROSS-REFERENCE**
 
@@ -473,24 +699,65 @@ END DEFine
 +----------+-------------------------------------------------------------------+
 | Syntax   |  END DEFine [name]                                                |
 +----------+-------------------------------------------------------------------+
-| Location |  QL ROM  This command marks the end of the DEFine PROCedure and DEFine FuNction SuperBASIC structures, and has no meaning on its own. You may if you wish, place the name of the PROCedure or FuNction  after END DEFine to help make the SuperBASIC program more readable - this will however have no effect on how the command is treated by the interpreter, which will still take the next END DEFine as the end of the current definition block (even if it is followed by a different name). The interpreter will jump out of a definition block whenever it meets a RETurn statement. It will also jump out of a DEFine PROCedure definition when it meets an END DEFine statement. This does of course mean that END DEFine can be used in the middle of a PROCedure to force a return to the calling statement - however, this can cause other problems and a RETurn should be used, with END DEFine only appearing at the very end of the definition block. On the other hand, the interpreter can only jump out of a DEFine FuNction definition if it meets a RETurn - if the interpreter comes across an END DEFine in such situations, it will report the error 'Error In Expression'. On SMS the error 'RETurn not in Procedure or Function' is reported. If the definition block is not actually being used, but the interpreter is working its way through the program, when a DEFine PROCedure or DEFine FuNction statement is met, the interpreter will search for the next END DEFine, and having found one, will resume the program at the next statement. This does however mean, that unless an in-line DEFine structure is being used, if this command is missing, the interpreter will carry on searching through the program and may just stop without an error if END DEFine does not appear anywhere in the program after the initial DEFine PROCedure (or DEFine FuNction). |
+| Location |  QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
+
+This command marks the end of the DEFine PROCedure and DEFine FuNction SuperBASIC 
+structures, and has no meaning on its own. You may if you wish, place the name of 
+the PROCedure or FuNction  after END DEFine to help make the SuperBASIC program 
+more readable - this will however have no effect on how the command is treated 
+by the interpreter, which will still take the next END DEFine as the end of the 
+current definition block (even if it is followed by a different name). 
+
+The interpreter will jump out of a definition block whenever it meets a RETurn 
+statement. It will also jump out of a DEFine PROCedure definition when it meets 
+an END DEFine statement. This does of course mean that END DEFine can be used in 
+the middle of a PROCedure to force a return to the calling statement - however, 
+this can cause other problems and a RETurn should be used, with END DEFine 
+only appearing at the very end of the definition block. 
+
+On the other hand, the interpreter can only jump out of a DEFine FuNction definition 
+if it meets a RETurn - if the interpreter comes across an END DEFine in such situations, 
+it will report the error 'Error In Expression'. On SMS the error 'RETurn not in 
+Procedure or Function' is reported. If the definition block is not actually being used, 
+but the interpreter is working its way through the program, when a DEFine PROCedure 
+or DEFine FuNction statement is met, the interpreter will search for the next END DEFine, 
+and having found one, will resume the program at the next statement. 
+
+This does however mean, that unless an in-line DEFine structure is being used, if 
+this command is missing, the interpreter will carry on searching through the program 
+and may just stop without an error if END DEFine does not appear anywhere in the 
+program after the initial DEFine PROCedure (or DEFine FuNction).
 
 **Example 1**
 
 The above rules mean that the following example will work under
-SuperBASIC, but is extremely inefficient and difficult to decode: 10 FOR
-i=1 TO 100 20 PRINT power(i) 30 DEFine FuNction power(x) 40 RETurn 2^x
-50 END DEFine 60 END FOR i
+SuperBASIC, but is extremely inefficient and difficult to decode::
+
+    10 FOR i=1 TO 100 
+    20   PRINT power(i) 
+    30   DEFine FuNction power(x) 
+    40     RETurn 2^x 
+    50   END DEFine 
+    60 END FOR i
 
 **Example 2**
 
-See if you can work out why the following program goes wrong: 100 FOR
-i=1 TO 100 110 PRINT power(i) 120 DEFine FuNction power(x) 130 DEFine
-FuNction base 140 RETurn 2 150 END DEFine base 160 RETurn base^x 170 END
-DEFine power 180 END FOR i
- If you are having trouble, try inserting: 155 PRINT 'Program line 155:
-';x
+See if you can work out why the following program goes wrong::
+
+    100 FOR i=1 TO 100 
+    110   PRINT power(i) 
+    120   DEFine FuNction power(x) 
+    130     DEFine FuNction base 
+    140       RETurn 2 
+    150     END DEFine base 
+    160     RETurn base^x 
+    170   END DEFine power 
+    180 END FOR i 
+
+If you are having trouble, try inserting::
+
+    155 PRINT 'Program line 155:';x
 
 **NOTE**
 
@@ -503,8 +770,7 @@ Checks are made on a program before it is run, and so if an END DEFine
 statement is missing, this will be reported as an error ('Incomplete
 DEFine clause'). SMS's improved interpreter will report the error
 'Misplaced END DEFine' if END DEFine does not mark the end of a DEFine
-PROCedure
- or DEFine FuNction block.
+PROCedure or DEFine FuNction block.
 
 **CROSS-REFERENCE**
 
@@ -522,8 +788,40 @@ END FOR
 +----------+-------------------------------------------------------------------+
 | Syntax   |  END FOR loop                                                     |
 +----------+-------------------------------------------------------------------+
-| Location |  QL ROM  This command marks the end of the FOR..END FOR SuperBASIC structure with the same loop name, and has no real meaning on its own. When the interpreter meets this statement, it then looks at the stack to see if a related FOR command has already been parsed. If not, then the error 'Not Found' will be reported, however, if such a FOR loop has been parsed, the interpreter will fetch the end parameter and if the loop is not yet at this value, then step is added to loop and control returned to the statement following FOR. If however loop is already at the end value, control passes to the statement following END FOR. The second variant is only available under SMS, where the interpreter presumes that if no loop name is specified, the programmer means the interpreter to return control to the most recent FOR statement (if the loop is not at its final value). When an EXIT loop is found, the interpreter will search for the relative END FOR loop, and if found, will resume program flow at the next statement. Under SMS, neither EXIT nor END FOR need have a loop identifier, and therefore EXIT will simply cause the program to jump to the statement after the next END FOR command (if no loop is specified). This does however mean, that except under SMS, unless an in-line FOR structure is being used, if this command is missing, the interpreter will carry on searching through the program and may just stop without an error if END FOR loop does not appear anywhere in the program. |
+| Location |  QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
+
+This command marks the end of the FOR..END FOR SuperBASIC structure with the same 
+loop name, and has no real meaning on its own. When the interpreter meets this 
+statement, it then looks at the stack to see if a related FOR command has already 
+been parsed. 
+
+If not, then the error 'Not Found' will be reported, however, if such a FOR loop 
+has been parsed, the interpreter will fetch the end parameter and if the loop is 
+not yet at this value, then step is added to loop and control returned to the 
+statement following FOR. 
+
+If however loop is already at the end value, control 
+passes to the statement following END FOR. 
+
+The second variant is only available 
+under SMS, where the interpreter presumes that if no loop name is specified, the 
+programmer means the interpreter to return control to the most recent FOR 
+statement (if the loop is not at its final value). 
+
+When an EXIT loop is found, 
+the interpreter will search for the relative END FOR loop, and if found, will 
+resume program flow at the next statement. 
+
+Under SMS, neither EXIT nor END FOR 
+need have a loop identifier, and therefore EXIT will simply cause the program 
+to jump to the statement after the next END FOR command (if no loop is 
+specified). 
+
+This does however mean, that except under SMS, unless an in-line 
+FOR structure is being used, if this command is missing, the interpreter will 
+carry on searching through the program and may just stop without an error if 
+END FOR loop does not appear anywhere in the program.
 
 **NOTE**
 
@@ -550,13 +848,28 @@ ON <KeywordsS.clean.html#select-on>`__, IF,
 --------------
 
 END IF
-~~~~~~
+======
 
 +----------+-------------------------------------------------------------------+
 | Syntax   |  END IF                                                           |
 +----------+-------------------------------------------------------------------+
-| Location |  QL ROM  This command marks the end of the IF..END IF SuperBASIC structure, and has no meaning on its own. When the interpreter finds an IF condition statement it then evaluates the condition and carries out certain commands depending on whether the condition was true or false. Having carried out those commands, the interpreter then looks for a related END IF command, and will pass control onto the statement following END IF. This does however mean, that except under SMS, unless an in-line IF structure is being used, if this command is missing, the interpreter will carry on searching through the program and may just stop without an error if END IF  does not appear anywhere in the program. |
+| Location |  QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
+
+This command marks the end of the IF..END IF SuperBASIC structure, and has no meaning 
+on its own. 
+
+When the interpreter finds an IF condition statement it then evaluates 
+the condition and carries out certain commands depending on whether the condition was 
+true or false. 
+
+Having carried out those commands, the interpreter then looks for a 
+related END IF command, and will pass control onto the statement following END IF. 
+
+This does however mean, that except under SMS, unless an in-line IF structure is 
+being used, if this command is missing, the interpreter will carry on searching 
+through the program and may just stop without an error if END IF  does not appear 
+anywhere in the program. 
 
 **NOTE 1**
 
@@ -589,8 +902,32 @@ END REPeat
 +----------+-------------------------------------------------------------------+
 | Syntax   |  END REPeat identifier  or END REPeat [identifier]SMS only        |
 +----------+-------------------------------------------------------------------+
-| Location |  QL ROM  This command marks the end of the REPeat...END REPeat SuperBASIC structure with the same identifier, and has no meaning on its own. When the interpreter meets this statement, it then looks at the stack to see if a related REPeat command has already been parsed. If not, then the error 'Not Found' will be reported, however, if such a REPeat identifier has been parsed, the interpreter will force the program to loop around and return control to the statement following REPeat. Under SMS there is no need to specify the identifier on the END REPeat statement, in which case, the interpreter will presume that this is the end of the last REPeat loop to have been encountered. When an EXIT identifier is found, the interpreter will search for the relative END REPeat identifier (or under SMS the next END REPeat  command), and if found, will resume program flow at the next statement. This does however mean, that except under SMS, unless an in-line REPeat structure is being used, if this command is missing, the interpreter will carry on searching through the program and may just stop without an error if END REPeat identifier (or END REPeat under SMS) does not appear anywhere in the program. |
+| Location |  QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
+
+This command marks the end of the REPeat...END REPeat SuperBASIC structure with 
+the same identifier, and has no meaning on its own. 
+
+When the interpreter meets this 
+statement, it then looks at the stack to see if a related REPeat command has already 
+been parsed. If not, then the error 'Not Found' will be reported, however, if such 
+a REPeat identifier has been parsed, the interpreter will force the program to loop 
+around and return control to the statement following REPeat. 
+
+Under SMS there is no 
+need to specify the identifier on the END REPeat statement, in which case, the 
+interpreter will presume that this is the end of the last REPeat loop to have been 
+encountered. 
+
+When an EXIT identifier is found, the interpreter will search for the 
+relative END REPeat identifier (or under SMS the next END REPeat  command), and if 
+found, will resume program flow at the next statement. 
+
+This does however mean, that 
+except under SMS, unless an in-line REPeat structure is being used, if this command 
+is missing, the interpreter will carry on searching through the program and may just 
+stop without an error if END REPeat identifier (or END REPeat under SMS) does not 
+appear anywhere in the program.
 
 **NOTE**
 
@@ -622,8 +959,18 @@ END SELect
 +----------+-------------------------------------------------------------------+
 | Syntax   |  END SELect                                                       |
 +----------+-------------------------------------------------------------------+
-| Location |  QL ROM  This marks the end of the SELect ON...END SELect SuperBASIC structure, and has no meaning on its own. When the interpreter has found a match for the value of the variable, it performs a series of commands, and then looks for the end of the block marked with END SELect. This means that except under SMS, unless an in-line SELect ON structure is being used, if this command is missing, the interpreter will carry on searching through the program and may just stop without an error if END SELect does not appear anywhere in the program. |
+| Location |  QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
+
+This marks the end of the SELect ON...END SELect SuperBASIC structure, and has no 
+meaning on its own. When the interpreter has found a match for the value of the 
+variable, it performs a series of commands, and then looks for the end of the block 
+marked with END SELect. 
+
+This means that except under SMS, unless an in-line SELect 
+ON structure is being used, if this command is missing, the interpreter will carry 
+on searching through the program and may just stop without an error if END SELect 
+does not appear anywhere in the program.
 
 **NOTE 1**
 
@@ -632,7 +979,7 @@ END SELect need not appear in an in-line SELect ON statement.
 **NOTE 2**
 
 Under SMS, if END SELect appears in an in-line SELect ON
- statement, if any commands appear after END SELect on the same line, an
+statement, if any commands appear after END SELect on the same line, an
 error will be reported.
 
 **SMS NOTE**
@@ -641,8 +988,7 @@ Checks are made on a program before it is run, and so if an END SELect
 statement is missing, this will be reported as an error ('Incomplete
 SELect clause'). SMS's improved interpreter will report the error
 'Misplaced END SELect' if END SELect does not mark the end of a SELect
-ON
- definition block.
+ON definition block.
 
 **CROSS-REFERENCE**
 
@@ -660,21 +1006,32 @@ END WHEN
 +----------+-------------------------------------------------------------------+
 | Syntax   |  END WHEN                                                         |
 +----------+-------------------------------------------------------------------+
-| Location |  QL ROM (post JM)  This marks the end of the SuperBASIC structures: WHEN ERRor  and WHEN condition ... END WHEN, and has no meaning on its own. When the program is first run, the interpreter marks the start of this structure and then (unless it is an in-line structure) looks for the end of the block marked with END WHEN. This means that if this statement is missing, except under SMS, the interpreter will carry on searching through the program and may just stop without an error if END WHEN does not appear anywhere in the program. |
+| Location |  QL ROM (post JM)                                                 |
 +----------+-------------------------------------------------------------------+
+
+This marks the end of the SuperBASIC structures: WHEN ERRor and WHEN condition ... 
+END WHEN, and has no meaning on its own. When the program is first run, the 
+interpreter marks the start of this structure and then (unless it is an in-line 
+structure) looks for the end of the block marked with END WHEN. 
+
+This means that if this statement is missing, except under SMS, the interpreter 
+will carry on searching through the program and may just stop without an error 
+if END WHEN does not appear anywhere in the program.
 
 **NOTE**
 
-END WHEN need not appear in a single line WHEN or WHEN ERRor
- statement, eg. 100 WHEN a>4:PRINT 'a>4'.
+END WHEN need not appear in a single line WHEN or WHEN ERRor statement, eg::
+
+    100 WHEN a>4:PRINT 'a>4'.
 
 **SMS NOTES**
 
 Checks are made on a program before it is run, and so if an END WHEN
-statement is missing, this will be reported as an error. SMS's improved
+statement is missing, this will be reported as an error. 
+
+SMS's improved
 interpreter will also report the error 'Misplaced END WHEN' if END WHEN
-does not mark the end of a WHEN
- ERROR definition block.
+does not mark the end of a WHEN ERROR definition block.
 
 **CROSS-REFERENCE**
 
@@ -693,8 +1050,12 @@ END\_CMD
 +----------+-------------------------------------------------------------------+
 | Syntax   |  END\_CMD                                                         |
 +----------+-------------------------------------------------------------------+
-| Location |  Turbo Toolkit  This marks the end of a numberless file of direct commands for use with the MERGE command. This command should be entered on its own as the last line of the numberless file. It overcomes the problem explained in NOTE 1 of MERGE. |
+| Location |  Turbo Toolkit                                                    |
 +----------+-------------------------------------------------------------------+
+
+This marks the end of a numberless file of direct commands for use with the MERGE 
+command. This command should be entered on its own as the last line of the numberless 
+file. It overcomes the problem explained in NOTE 1 of MERGE. 
 
 **CROSS-REFERENCE**
 
@@ -709,8 +1070,12 @@ END\_WHEN
 +----------+-------------------------------------------------------------------+
 | Syntax   |  END\_WHEN                                                        |
 +----------+-------------------------------------------------------------------+
-| Location |  Turbo Toolkit  This marks the end of the Turbo structure equivalent to the SuperBASIC WHEN ERRor structure. END\_WHEN has no meaning on its own and should only be used within Turbo compiled programs. |
+| Location |  Turbo Toolkit                                                    |
 +----------+-------------------------------------------------------------------+
+
+This marks the end of the Turbo structure equivalent to the SuperBASIC WHEN ERRor 
+structure. END\_WHEN has no meaning on its own and should only be used within 
+Turbo compiled programs.
 
 **CROSS-REFERENCE**
 
@@ -724,16 +1089,25 @@ ENV\_DEL
 +----------+-------------------------------------------------------------------+
 | Syntax   |  ENV\_DEL name$                                                   |
 +----------+-------------------------------------------------------------------+
-| Location |  Environment Variables  This command is used to remove a specified environment variable. Please note that the name of the environment variable is case sensitive. If an empty string is passed as the argument, then an error will be reported. |
+| Location |  Environment Variables                                            |
 +----------+-------------------------------------------------------------------+
+
+This command is used to remove a specified environment variable. Please note that 
+the name of the environment variable is case sensitive. If an empty string is 
+passed as the argument, then an error will be reported.
 
 **Example**
 
 A boot program may specify where the files for the main program are
 stored and then pass it to subsequently called programs with. Once the
-program has finished, the environment variable may be deleted. 1000
-source$='win1\_PROGS\_utils\_' 1010 SETENV "PROGLOC="&source$ 1020
-EXEC\_W source$&'main\_exe' 1030 ENV\_DEL "PROGLOC"
+program has finished, the environment variable may be deleted. 
+
+::
+
+    1000 source$='win1_PROGS_utils\_' 
+    1010 SETENV "PROGLOC="&source$ 
+    1020 EXEC_W source$&'main_exe' 
+    1030 ENV_DEL "PROGLOC"
 
 **CROSS-REFERENCE**
 
@@ -747,8 +1121,11 @@ ENV\_LIST
 +----------+-------------------------------------------------------------------+
 | Syntax   |  ENV\_LIST [#ch]                                                  |
 +----------+-------------------------------------------------------------------+
-| Location |  Environment Variables  This command lists all currently active environment variables to the specified channel (default #1). |
+| Location |  Environment Variables                                            |
 +----------+-------------------------------------------------------------------+
+
+This command lists all currently active environment variables to the specified 
+channel (default #1).
 
 **CROSS-REFERENCE**
 
@@ -762,8 +1139,17 @@ ENL
 +----------+-------------------------------------------------------------------+
 | Syntax   |  ENL                                                              |
 +----------+-------------------------------------------------------------------+
-| Location |  Beuletools  This function returns the control codes needed to switch on double width on an EPSON compatible printer: PRINT ENL  is the same as: PRINT CHR$(27)&"W"&CHR$(1) |
+| Location |  Beuletools                                                       |
 +----------+-------------------------------------------------------------------+
+
+This function returns the control codes needed to switch on double width on an 
+EPSON compatible printer::
+
+    PRINT ENL
+
+is the same as::
+
+    PRINT CHR$(27)&"W"&CHR$(1)
 
 **CROSS-REFERENCE**
 
@@ -784,28 +1170,49 @@ EOF
 +----------+-------------------------------------------------------------------+
 | Syntax   |  EOF [(#ch)]                                                      |
 +----------+-------------------------------------------------------------------+
-| Location |  QL ROM  This is a logical function which actually has two uses in SuperBASIC. If no channel number is specified, then PRINT EOF  will return 1 unless the current program contains some DATA  lines which have not yet been READ. This is therefore useful to create programs which can handle any amount of data. However, if a channel number is specified, for example PRINT EOF(#1), then zero will be returned unless the given channel is linked to a file and the file pointer is at (or beyond) the end of that file (ie. whether or not there is data to be read from that channel). |
+| Location |  QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
+
+This is a logical function which actually has two uses in SuperBASIC. If no channel 
+number is specified, then PRINT EOF  will return 1 unless the current program 
+contains some DATA  lines which have not yet been READ. This is therefore useful 
+to create programs which can handle any amount of data. However, if a channel 
+number is specified, for example PRINT EOF(#1), then zero will be returned unless 
+the given channel is linked to a file and the file pointer is at (or beyond) the 
+end of that file (ie. whether or not there is data to be read from that channel).
 
 **Example**
 
 Two simple programs to retrieve an address from a given name (the full
 name must be given on input). The first of these has the data stored in
 the program, whereas the second has it stored on a file called
-flp1\_address\_data: 100 RESTORE 110 MODE 4 120 OPEN
-#3,con\_448x200a32x16:BORDER#3,1,2:PAPER#3,0:INK#3,7 130 INPUT #3,'Input
-name to look for:'!search$ 140 REPeat loop 150 IF EOF:PRINT#3\\\\"No
-address stored":EXIT loop 160 READ name$,address$ 170 IF
-name$==search$:PRINT #3\\\\name$,address$:EXIT loop 180 END REPeat loop
-190 CLOSE #3 200 DATA 'Fred Blogs','17 Mulberry Court' 210 DATA 'John
-Peters','182 Johnson Ave.' 220 DATA 'Martin Edwards','83 Olive Drive'
+flp1\_address\_data::
 
-100 OPEN\_IN #3,flp1\_Address\_data 110 MODE 4 120 OPEN
-#4,con\_448x200a32x16:BORDER#4,1,2:PAPER#4,0:INK#4,7 130 INPUT #4,'Input
-name to look for:'!search$ 140 REPeat loop 150 IF EOF(#3):PRINT#4\\\\"No
-address stored":EXIT loop 160 INPUT #3;name$,address$ 170 IF
-name$==search$:PRINT #4\\\\name$,address$:EXIT loop 180 END REPeat loop
-190 CLOSE #4:CLOSE #3
+    100 RESTORE 
+    110 MODE 4 
+    120 OPEN #3,con_448x200a32x16:BORDER#3,1,2:PAPER#3,0:INK#3,7 
+    130 INPUT #3,'Input name to look for:'!search$ 
+    140 REPeat loop 
+    150   IF EOF:PRINT#3\\"No address stored":EXIT loop 
+    160   READ name$,address$ 
+    170   IF name$==search$:PRINT #3\\name$,address$:EXIT loop 
+    180 END REPeat loop
+    190 CLOSE #3 
+    200 DATA 'Fred Blogs','17 Mulberry Court' 
+    210 DATA 'John Peters','182 Johnson Ave.' 
+    220 DATA 'Martin Edwards','83 Olive Drive'
+
+::
+
+    100 OPEN_IN #3,flp1_Address_data 
+    110 MODE 4 120 OPEN #4,con_448x200a32x16:BORDER#4,1,2:PAPER#4,0:INK#4,7 
+    130 INPUT #4,'Input name to look for:'!search$ 
+    140 REPeat loop 
+    150   IF EOF(#3):PRINT#4\\"No address stored":EXIT loop 
+    160   INPUT #3;name$,address$  
+    170   IF name$==search$:PRINT #4\\name$,address$:EXIT loop 
+    180 END REPeat loop
+    190 CLOSE #4:CLOSE #3
 
 **SMS NOTE**
 
@@ -832,8 +1239,15 @@ EOFW
 +----------+-------------------------------------------------------------------+
 | Syntax   |  EOFW (#ch)                                                       |
 +----------+-------------------------------------------------------------------+
-| Location |  SMS  This function is very similar to EOF in that it returns the value 0 if there is data waiting to be read from the specified channel, otherwise it returns 1. The difference is that this version of the function will however wait until data is received or the end of file code is received, which is especially useful on pipes which may not always work with EOF which returns 1 if the channel does not contain any data to be read. |
+| Location |  SMS                                                              |
 +----------+-------------------------------------------------------------------+
+
+This function is very similar to EOF in that it returns the value 0 if there is 
+data waiting to be read from the specified channel, otherwise it returns 1. The 
+difference is that this version of the function will however wait until data is 
+received or the end of file code is received, which is especially useful on pipes 
+which may not always work with EOF which returns 1 if the channel does not contain 
+any data to be read.
 
 **CROSS-REFERENCE**
 
@@ -848,8 +1262,27 @@ EPROM\_LOAD
 +----------+-------------------------------------------------------------------+
 | Syntax   |  EPROM\_LOAD device\_file                                         |
 +----------+-------------------------------------------------------------------+
-| Location |  ATARI\_REXT (v1.21+), SMS  You cannot plug QL EPROM cartridges into the various other computers which now support QL software, which would normally make some software which contains part of its code on EPROM, unuseable. In order that you can use such software on other computers, you need to create a file on an original QL containing an image of the EPROM cartridge plugged into the QL's ROM port. To do this, use the command: SBYTES flp1\_EPROM\_image,49152,16384  (It is hoped that software producers who sell software which requires an EPROM cartridge will make versions available with ready-made images of the cartridge, so that the software can be used by users without access to an original QL). Having done this, you will need to have the ST/QL Emulator switched on (or SMS loaded on the other computer), then insert that disk into the Atari's disk drive, and use the command: EPROM\_LOAD flp1\_EPROM\_image  This will then copy the EPROM code into the same address on the Emulator or other computer as the EPROM cartridge occupies on the QL, thus making it useable. |
+| Location |  ATARI\_REXT (v1.21+), SMS                                        |
 +----------+-------------------------------------------------------------------+
+
+You cannot plug QL EPROM cartridges into the various other computers which now 
+support QL software, which would normally make some software which contains part 
+of its code on EPROM, unuseable. In order that you can use such software on other 
+computers, you need to create a file on an original QL containing an image of the 
+EPROM cartridge plugged into the QL's ROM port. To do this, use the command:: 
+
+    SBYTES flp1_EPROM_image,49152,16384  
+
+It is hoped that software producers who sell software which requires an EPROM 
+cartridge will make versions available with ready-made images of the cartridge, 
+so that the software can be used by users without access to an original QL. 
+
+Having 
+done this, you will need to have the ST/QL Emulator switched on (or SMS loaded on 
+the other computer), then insert that disk into the Atari's disk drive, and use 
+the command: EPROM\_LOAD flp1\_EPROM\_image  This will then copy the EPROM code 
+into the same address on the Emulator or other computer as the EPROM cartridge 
+occupies on the QL, thus making it useable.
 
 **NOTE 1**
 
@@ -882,22 +1315,40 @@ EPS
 +----------+-------------------------------------------------------------------+
 | Syntax   |  EPS [(x)]                                                        |
 +----------+-------------------------------------------------------------------+
-| Location |  Math Package  Since the precision of the QL is limited, a number may not change if a very small value is added. The function EPS(x)  returns the smallest value which can be added to x so that the sum of x and EPS(x) will be different from x. This only makes sense for floating point numbers. The default parameter is 0. EPS(x) attains its smallest value at x=0, so EPS(0) returns the smallest absolute number which can be handled by SuperBASIC. EPS(x) is always greater than zero and EPS(x)=EPS(-x). |
+| Location |  Math Package                                                     |
 +----------+-------------------------------------------------------------------+
+
+Since the precision of the QL is limited, a number may not change if a very small 
+value is added. The function EPS(x)  returns the smallest value which can be added 
+to x so that the sum of x and EPS(x) will be different from x. This only makes 
+sense for floating point numbers. The default parameter is 0. EPS(x) attains its 
+smallest value at x=0, so EPS(0) returns the smallest absolute number which can 
+be handled by SuperBASIC. EPS(x) is always greater than zero and EPS(x)=EPS(-x).
 
 **Example**
 
-An approximation of PI/4 as proposed by Leibniz: 100 x = 0: d = 1 110 t0
-= DATE 120 FOR i=1 TO 1E100 130 IF ABS(1/d) < EPS(x) THEN EXIT i 140 x =
-x + 1/d 150 d = - SGN(d) \* (ABS(d)+2) 160 END FOR i 170 t = DATE - t0
-180 PRINT "Iterations ="!i!" Runtime ="!t;"s" 190 PRINT "Iterations per
-Second ="!i/t 200 PRINT "PI ="!4\*x!"(";PI;")"
- Unfortunately, the algorithm is not efficient enough to compete with
+An approximation of PI/4 as proposed by Leibniz::
+
+    100 x = 0: d = 1 
+    110 t0 = DATE 
+    120 FOR i=1 TO 1E100 
+    130   IF ABS(1/d) < EPS(x) THEN EXIT i 
+    140   x = x + 1/d 
+    150   d = - SGN(d) \* (ABS(d)+2) 
+    160 END FOR i 
+    170 t = DATE - t0 
+    180 PRINT "Iterations ="!i!" Runtime ="!t;"s" 
+    190 PRINT "Iterations per Second ="!i/t 
+    200 PRINT "PI ="!4\*x!"(";PI;")"
+
+Unfortunately, the algorithm is not efficient enough to compete with
 the QL's precision, so that about 2E9 iterations are necessary to get a
 suitable result. Since this will take a while (ages!), you can reduce
-precision by a factor of one million, by modifying line 130: 130 IF
-ABS(1/d) < 1E6 \* EPS(x) THEN EXIT i
- The program will then finish after 1075 iterations with 4\*x =
+precision by a factor of one million, by modifying line 130::
+
+    130 IF ABS(1/d) < 1E6 * EPS(x) THEN EXIT i
+
+The program will then finish after 1075 iterations with 4\*x =
 3.140662, not bad compared to 3.141593 when taking the drastic reduction
 of precision into account.
 
@@ -915,8 +1366,11 @@ EQ$
 +----------+-------------------------------------------------------------------+
 | Syntax   |  EQ$ (type, string1$, string2$ )                                  |
 +----------+-------------------------------------------------------------------+
-| Location |  Btool  This function expects the same parameters as GT$. It will return a value of 1 if the two strings are equal to each other using the same test as GT$. |
+| Location |  Btool                                                            |
 +----------+-------------------------------------------------------------------+
+
+This function expects the same parameters as GT$. It will return a value of 1 if 
+the two strings are equal to each other using the same test as GT$.
 
 **CROSS-REFERENCE**
 
@@ -932,17 +1386,25 @@ ERLIN
 +----------+-------------------------------------------------------------------+
 | Syntax   |  ERLIN                                                            |
 +----------+-------------------------------------------------------------------+
-| Location |  QL ROM (post JM version)  This function returns the line where the last error occurred. If the error occurred in a line typed into the command window (#0), then zero is returned (zero is also returned if there is no error). |
+| Location |  QL ROM (post JM version)                                         |
 +----------+-------------------------------------------------------------------+
+
+This function returns the line where the last error occurred. 
+If the error occurred in a line typed into the command window (#0), then zero is 
+returned (zero is also returned if there is no error).
 
 **Example**
 
 It takes a lot of time to debug programs, so save typing by including a
 variation of the following line in your BOOT program. Then, if an error
 occurs and the program stops with an error message, simply press
-<ALT><E> to see and edit the line where something went wrong. ALTKEY
-"e","ED ERLIN-20"&CODE(216)&CODE(216),""
- or ALTKEY "e","AUTO ERLIN",""
+<ALT><E> to see and edit the line where something went wrong::
+
+    ALTKEY "e","ED ERLIN-20"&CODE(216)&CODE(216),""
+
+or::
+
+    ALTKEY "e","AUTO ERLIN",""
 
 **CROSS-REFERENCE**
 
@@ -959,8 +1421,11 @@ ERLIN%
 +----------+-------------------------------------------------------------------+
 | Syntax   |  ERLIN%                                                           |
 +----------+-------------------------------------------------------------------+
-| Location |  Turbo Toolkit  This function is exactly the same as ERLIN, except it will work on all versions of the QL ROM. |
+| Location |  Turbo Toolkit                                                    |
 +----------+-------------------------------------------------------------------+
+
+This function is exactly the same as ERLIN, except it will work on all versions 
+of the QL ROM.
 
 **CROSS-REFERENCE**
 
@@ -975,17 +1440,61 @@ ERNUM
 +----------+-------------------------------------------------------------------+
 | Syntax   |  ERNUM                                                            |
 +----------+-------------------------------------------------------------------+
-| Location |  QL ROM (post JM version)  This function returns the error number of the last error which occurred. An error number is negative and can be returned by any program (SuperBASIC, jobs, M/C Toolkits,...). The equivalent error messages are the same on all of the implementations of SuperBASIC, although they are also supported in different languages (see the Appendix for other languages): |
+| Location |  QL ROM (post JM version)                                         |
 +----------+-------------------------------------------------------------------+
 
-ErrorEnglish message
-~~~~~~~~~~~~~~~~~~~~
+This function returns the error number of the last error which occurred. An error 
+number is negative and can be returned by any program (SuperBASIC, jobs, M/C 
+Toolkits,...). The equivalent error messages are the same on all of the 
+implementations of SuperBASIC, although they are also supported in different 
+languages (see the Appendix for other languages):
 
--1Not Complete -2Invalid Job -3Out of Memory -4Out of Range -5Buffer
-Full -6Channel not Open -7Not Found -8Already Exists -9 In Use -10 End
-of File -11 Drive Full -12 Bad Name -13 Xmit Error -14 Format Failed -15
-Bad Parameter -16 Bad or Changed Medium -17 Error in Expression -18
-Overflow -19 Not Implemented Yet -20 Read Only -21 Bad Line
++-------+------------------------+
+| Error | English message        |
++=======+========================+
+| -1    | Not Complete           |
++-------+------------------------+
+| -2    | Invalid Job            |
++-------+------------------------+
+| -3    | Out of Memory          |
++-------+------------------------+
+| -4    | Out of Range           |
++-------+------------------------+
+| -5    | Buffer Full            |
++-------+------------------------+
+| -6    | Channel not Open       |
++-------+------------------------+
+| -7    | Not Found              |
++-------+------------------------+
+| -8    | Already Exists         |
++-------+------------------------+
+| -9    | In Use                 |
++-------+------------------------+
+| -10   | End of File            |
++-------+------------------------+
+| -11   | Drive Full             |
++-------+------------------------+
+| -12   | Bad Name               |
++-------+------------------------+
+| -13   | Xmit Error             |
++-------+------------------------+
+| -14   | Format Failed          |
++-------+------------------------+
+| -15   | Bad Parameter          |
++-------+------------------------+
+| -16   | Bad or Changed Medium  |
++-------+------------------------+
+| -17   | Error in Expression    |
++-------+------------------------+
+| -18   | Overflow               |
++-------+------------------------+
+| -19   | Not Implemented Yet    |
++-------+------------------------+
+| -20   | Read Only              |
++-------+------------------------+
+| -21   | Bad Line               |
++-------+------------------------+
+
 
 **NOTE**
 
@@ -997,16 +1506,58 @@ depends on the job. No error message will be reported.
 The error messages have been redefined to try to make them more
 intelligent, they are now:
 
-ErrorEnglish Message
-~~~~~~~~~~~~~~~~~~~~
++-------+------------------------+
+| Error | English message        |
++=======+========================+
+| -1    | Incomplete             |
++-------+------------------------+
+| -2    | Invalid Job ID         |
++-------+------------------------+
+| -3    | Insufficient memory    |
++-------+------------------------+
+| -4    | Value out of range     |
++-------+------------------------+
+| -5    | Buffer full            |
++-------+------------------------+
+| -6    | Invalid channel ID     |
++-------+------------------------+
+| -7    | Not found              |
++-------+------------------------+
+| -8    | Already exists         |
++-------+------------------------+
+| -9    | Is in use              |
++-------+------------------------+
+| -10   | End of file            |
++-------+------------------------+
+| -11   | Medium is full         |
++-------+------------------------+
+| -12   | Invalid name           |
++-------+------------------------+
+| -13   | Transmission error     |
++-------+------------------------+
+| -14   | Format failed          |
++-------+------------------------+
+| -15   | Invalid parameter      |
++-------+------------------------+
+| -16   | Medium check failed    |
++-------+------------------------+
+| -17   | Error in expression    |
++-------+------------------------+
+| -18   | Arithmetic overflow    |
++-------+------------------------+
+| -19   | Not implemented        |
++-------+------------------------+
+| -20   | Write protected        |
++-------+------------------------+
+| -21   | Invalid syntax         |
++-------+------------------------+
+| -22   | Unknown message        |
++-------+------------------------+
+| -23   | Access denied          |
++-------+------------------------+
 
--1 Incomplete -2 Invalid Job ID -3 Insufficient memory -4 Value out of
-range -5 Buffer full -6 Invalid channel ID -7 Not found -8 Already
-exists -9 Is in use -10 End of file -11 Medium is full -12 Invalid name
--13 Transmission error -14 Format failed -15 Invalid parameter -16
-Medium check failed -17 Error in expression -18 Arithmetic overflow -19
-Not implemented -20 Write protected -21 Invalid syntax -22 Unknown
-message -23 Access denied Other errors are reported by the SBASIC
+
+Other errors are reported by the SBASIC
 interpreter, but these are not covered by ERNUM.
 
 **CROSS-REFERENCE**
@@ -1026,8 +1577,11 @@ ERNUM%
 +----------+-------------------------------------------------------------------+
 | Syntax   |  ERNUM%                                                           |
 +----------+-------------------------------------------------------------------+
-| Location |  Turbo Toolkit  This function is exactly the same as ERNUM, except it will work on all versions of the QL ROM. |
+| Location |  Turbo Toolkit                                                    |
 +----------+-------------------------------------------------------------------+
+
+This function is exactly the same as ERNUM, except it will work on all versions 
+of the QL ROM.
 
 **CROSS-REFERENCE**
 
@@ -1040,22 +1594,63 @@ ERR\_...
 ========
 
 +----------+-------------------------------------------------------------------+
-| Syntax   | |          |  ERR\_NC, ERR\_NJ, ERR\_OM, ERR\_OR, ERR\_BO, ERR\_NO, ERR\_NF, ERR\_EX, ERR\_IU, ERR\_EF, ERR\_DF, ERR\_BN, ERR\_TE, ERR\_FF, ERR\_BP, ERR\_FE, ERR\_XP, ERR\_OV, ERR\_NI, ERR\_RO, ERR\_BL|
+| Syntax   | ERR\_NC, ERR\_NJ, ERR\_OM, ERR\_OR, ERR\_BO, ERR\_NO, ERR\_NF,    | 
+|          | ERR\_EX, ERR\_IU, ERR\_EF, ERR\_DF, ERR\_BN, ERR\_TE, ERR\_FF,    | 
+|          | ERR\_BP, ERR\_FE, ERR\_XP, ERR\_OV, ERR\_NI, ERR\_RO, ERR\_BL     |
 +----------+-------------------------------------------------------------------+
- These are logical functions which return either 0 or 1 if the
+| Location | QL ROM                                                            |
++----------+-------------------------------------------------------------------+
+
+These are logical functions which return either 0 or 1 if the
 corresponding error has occurred. Only one of them can have the value 1
 at any time.
 
-functionerror error-code
-~~~~~~~~~~~~~~~~~~~~~~~~
++----------+-------------------------+
+| Function | Error Code              |
++==========+=========================+
+| ERR\_NC  | NOT COMPLETE        -1  |
++----------+-------------------------+
+| ERR\_NJ  | INVALID JOB         -2  |
++----------+-------------------------+
+| ERR\_OM  | OUT OF MEMORY       -3  |
++----------+-------------------------+
+| ERR\_OR  | OUT OF RANGE        -4  |
++----------+-------------------------+
+| ERR\_BO  | BUFFER OVERFLOW     -5  |
++----------+-------------------------+
+| ERR\_NO  | CHANNEL NOT OPEN    -6  |
++----------+-------------------------+
+| ERR\_NF  | NOT FOUND           -7  |
++----------+-------------------------+
+| ERR\_EX  | ALREADY EXISTS      -8  |
++----------+-------------------------+
+| ERR\_IU  | IN USE              -9  |
++----------+-------------------------+
+| ERR\_EF  | END OF FILE         -10 |
++----------+-------------------------+
+| ERR\_DF  | DRIVE FULL          -11 |
++----------+-------------------------+
+| ERR\_BN  | BAD NAME            -12 |
++----------+-------------------------+
+| ERR\_TE  | TRANSMISSION ERROR  -13 |
++----------+-------------------------+
+| ERR\_FF  | FORMAT FAILED       -14 |
++----------+-------------------------+
+| ERR\_BP  | BAD PARAMETER       -15 |
++----------+-------------------------+
+| ERR\_FE  | FILE ERROR          -16 |
++----------+-------------------------+
+| ERR\_XP  | ERROR IN EXPRESSION -17 |
++----------+-------------------------+
+| ERR\_OV  | ARITHMETIC OVERFLOW -18 |
++----------+-------------------------+
+| ERR\_NI  | NOT IMPLEMENTED     -19 |
++----------+-------------------------+
+| ERR\_RO  | READ ONLY           -20 |
++----------+-------------------------+
+| ERR\_BL  | BAD LINE            -21 |
++----------+-------------------------+
 
-ERR\_NCNOT COMPLETE-1 ERR\_NJINVALID JOB-2 ERR\_OMOUT OF MEMORY-3
-ERR\_OROUT OF RANGE-4 ERR\_BOBUFFER OVERFLOW-5 ERR\_NOCHANNEL NOT OPEN-6
-ERR\_NFNOT FOUND-7 ERR\_EXALREADY EXISTS-8 ERR\_IUIN USE-9 ERR\_EFEND OF
-FILE-10 ERR\_DFDRIVE FULL-11 ERR\_BNBAD NAME-12 ERR\_TETRANSMISSION
-ERROR-13 ERR\_FFFORMAT FAILED-14 ERR\_BPBAD PARAMETER-15 ERR\_FEFILE
-ERROR-16 ERR\_XPERROR IN EXPRESSION-17 ERR\_OVARITHMETIC OVERFLOW-18
-ERR\_NINOT IMPLEMENTED-19 ERR\_ROREAD ONLY-20 ERR\_BLBAD LINE-21
 
 **NOTE 1**
 
@@ -1084,8 +1679,12 @@ ERRor
 +----------+-------------------------------------------------------------------+
 | Syntax   |  ERRor                                                            |
 +----------+-------------------------------------------------------------------+
-| Location |  QL ROM (post JM)  This keyword forms part of the structure WHEN ERRor. Please refer to WHEN ERRor. As such, this keyword cannot be used in a program on its own - this will report 'bad line'. |
+| Location |  QL ROM (post JM)                                                 |
 +----------+-------------------------------------------------------------------+
+
+This keyword forms part of the structure WHEN ERRor. Please refer to WHEN ERRor. 
+As such, this keyword cannot be used in a program on its own - this will report 
+'bad line'.
 
 **CROSS-REFERENCE**
 
@@ -1100,39 +1699,93 @@ ERT
 +----------+-------------------------------------------------------------------+
 | Syntax   |  ERT function                                                     |
 +----------+-------------------------------------------------------------------+
-| Location |  HOTKEY II  Normally, whenever you use a function (or anything else which may return an error code), you will need to assign the result of the function (or whatever else) to a variable and then test that variable in order to see whether or not an error has been generated. If an error has been generated, you will then need to report the error (if you do not intend to take any action to try and rectify the situation), something which can take a lot of program space, if you intend to write a program which does not require the command REPort to be present. The command ERT was introduced in the Hotkey System II to enable you to write programs which test the result for an error code and report the error all in one step. |
+| Location |  HOTKEY II                                                        |
 +----------+-------------------------------------------------------------------+
 
-**Example**
+Normally, whenever you use a function (or anything else which may return an error 
+code), you will need to assign the result of the function (or whatever else) to a 
+variable and then test that variable in order to see whether or not an error has 
+been generated. 
 
-(1) A simple program which provides its own error trapping: 100 PAPER
-0:INK 7 110 REPeat loop 120 CLS 130 AT 0,0:PRINT 'Enter an integer (0 to
-300): '; 140 xerr=GET\_INT 150 IF xerr<0:PRINT 'Error - try again':ELSE
-x=xerr:EXIT loop 160 PAUSE 170 END REPeat loop 180 PRINT 'The integer
-was : ';x 185 : 190 DEFine FuNction GET\_INT 200 valid$='0123456789' 210
-INPUT a$:IF a$='':RETurn -1 220 FOR i=1 TO LEN(a$):IF a$(i) INSTR
-valid$=0:RETurn -17 230 IF a$>300:RETurn -4 240 RETurn a$ 250 END DEFine
- (2) A similar program which is designed to stop on an error: 100 PAPER
-0:INK 7 110 CLS 120 AT 0,0:PRINT 'Enter an integer (0 to 300): '; 130
-xerr=GET\_INT 140 IF xerr<0:REPORT xerr:STOP:ELSE x=xerr 150 PRINT 'The
-integer was : ';x 155 : 160 DEFine FuNction GET\_INT 170
-valid$='0123456789' 180 INPUT a$:IF a$='':RETurn -1 190 FOR i=1 TO
-LEN(a$):IF a$(i) INSTR valid$=0:RETurn -17 200 IF a$>300:RETurn -4 210
-RETurn a$ 220 END DEFine
+If an error has been generated, you will then need to report the 
+error (if you do not intend to take any action to try and rectify the situation), 
+something which can take a lot of program space, if you intend to write a program 
+which does not require the command REPort to be present. 
 
-(3) The same program as in the second example, but using ERT: 100 PAPER
-0:INK 7 110 CLS 120 AT 0,0:PRINT 'Enter an integer (0 to 300): '; 130
-ERT GET\_INT 140 PRINT 'The integer was : ';x 150 DEFine FuNction
-GET\_INT 160 valid$='0123456789' 170 INPUT a$:IF a$='':RETurn -1 180 FOR
-i=1 TO LEN(a$):IF a$(i) INSTR valid$=0:RETurn -17 190 IF a$>300:RETurn
--4 200 x=a$ 210 RETurn x 220 END DEFine
+The command ERT was 
+introduced in the Hotkey System II to enable you to write programs which test the 
+result for an error code and report the error all in one step.
+
+**Example 1**
+
+A simple program which provides its own error trapping::
+
+    100 PAPER 0:INK 7 
+    110 REPeat loop 
+    120 CLS 
+    130 AT 0,0:PRINT 'Enter an integer (0 to 300): '; 
+    140 xerr=GET_INT 
+    150 IF xerr<0:PRINT 'Error - try again':ELSE x=xerr:EXIT loop 
+    160 PAUSE 
+    170 END REPeat loop 
+    180 PRINT 'The integer was : ';x 
+    185 : 
+    190 DEFine FuNction GET_INT 
+    200   valid$='0123456789' 
+    210   INPUT a$:IF a$='':RETurn -1 
+    220   FOR i=1 TO LEN(a$):IF a$(i) INSTR valid$=0:RETurn -17 
+    230   IF a$>300:RETurn -4 
+    240   RETurn a$ 
+    250 END DEFine
+
+
+**Example 2**
+
+A similar program which is designed to stop on an error::
+
+    100 PAPER 0:INK 7 
+    110 CLS 
+    120 AT 0,0:PRINT 'Enter an integer (0 to 300): '; 
+    130 xerr=GET_INT 
+    140 IF xerr<0:REPORT xerr:STOP:ELSE x=xerr 
+    150 PRINT 'The integer was : ';x 
+    155 : 
+    160 DEFine FuNction GET_INT 
+    170   valid$='0123456789' 
+    180   INPUT a$:IF a$='':RETurn -1 
+    190   FOR i=1 TO LEN(a$):IF a$(i) INSTR valid$=0:RETurn -17 
+    200   IF a$>300:RETurn -4 
+    210   RETurn a$ 
+    220 END DEFine
+
+**Example 3**
+
+
+The same program as in the second example, but using ERT::
+
+    100 PAPER 0:INK 7 
+    110 CLS 
+    120 AT 0,0:PRINT 'Enter an integer (0 to 300): '; 
+    130 ERT GET_INT 
+    140 PRINT 'The integer was : ';x 
+    150 DEFine FuNction GET_INT 
+    160   valid$='0123456789' 
+    170   INPUT a$:IF a$='':RETurn -1 
+    180   FOR i=1 TO LEN(a$):IF a$(i) INSTR valid$=0:RETurn -17 
+    190   IF a$>300:RETurn -4 
+    200   x=a$ 
+    210   RETurn x 
+    220 END DEFine
 
 **NOTE**
 
 When you are using ERT, always beware of what you are testing for an
 error, for example, if you had altered line 130 in the second example
-to: 130 ERT x=GET\_INT
- you would not actually be testing to see whether the function GET\_INT
+to::
+
+    130 ERT x=GET_INT
+
+you would not actually be testing to see whether the function GET\_INT
 returned an error, but whether the line x=GET\_INT produced an error - x
 itself would not be altered, hence the need to assign the result to x
 inside the function.
@@ -1150,8 +1803,18 @@ ET
 +----------+-------------------------------------------------------------------+
 | Syntax   |  ET file :sup:`\*`\ [,{filex \| #chx}]\ :sup:`\*` [;cmd$]         |
 +----------+-------------------------------------------------------------------+
-| Location |  Toolkit II  The syntax for ET is the same as for the Toolkit II variant of EX and it also operates in a similar manner. However, ET is intended for low level debugging, ie. to trace execution of the machine code commands step by step. A monitor program such as Qmon is necessary. The command ET loads the executable program, installs the job and immediately suspends the job by setting its priority to zero. Control is then returned to SuperBASIC to allow you to use a monitor program. |
+| Location |  Toolkit II                                                       |
 +----------+-------------------------------------------------------------------+
+
+The syntax for ET is the same as for the Toolkit II variant of EX and it also 
+operates in a similar manner. However, ET is intended for low level debugging, 
+ie. to trace execution of the machine code commands step by step. 
+
+A monitor program such as Qmon is necessary. 
+
+The command ET loads the executable program, installs the job and immediately 
+suspends the job by setting its priority to zero. Control is then returned to 
+SuperBASIC to allow you to use a monitor program.
 
 **CROSS-REFERENCE**
 
