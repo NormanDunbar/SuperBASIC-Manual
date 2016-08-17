@@ -2,6 +2,14 @@
 Keywords E
 ==========
 
+TODO
+====
+
+- EDIT, EDIT% and EDIT$ have the same URL. Fix. Fix links too.
+- ERLIN and ERLIN% ditto.
+- ERNUM and ERNUM% ditto.
+
+
 EASTER
 ======
 
@@ -840,7 +848,7 @@ ON <KeywordsS.clean.html#select-on>`__, IF,
 --------------
 
 END IF
-~~~~~~
+======
 
 +----------+-------------------------------------------------------------------+
 | Syntax   |  END IF                                                           |
@@ -1231,8 +1239,15 @@ EOFW
 +----------+-------------------------------------------------------------------+
 | Syntax   |  EOFW (#ch)                                                       |
 +----------+-------------------------------------------------------------------+
-| Location |  SMS  This function is very similar to EOF in that it returns the value 0 if there is data waiting to be read from the specified channel, otherwise it returns 1. The difference is that this version of the function will however wait until data is received or the end of file code is received, which is especially useful on pipes which may not always work with EOF which returns 1 if the channel does not contain any data to be read. |
+| Location |  SMS                                                              |
 +----------+-------------------------------------------------------------------+
+
+This function is very similar to EOF in that it returns the value 0 if there is 
+data waiting to be read from the specified channel, otherwise it returns 1. The 
+difference is that this version of the function will however wait until data is 
+received or the end of file code is received, which is especially useful on pipes 
+which may not always work with EOF which returns 1 if the channel does not contain 
+any data to be read.
 
 **CROSS-REFERENCE**
 
@@ -1247,8 +1262,27 @@ EPROM\_LOAD
 +----------+-------------------------------------------------------------------+
 | Syntax   |  EPROM\_LOAD device\_file                                         |
 +----------+-------------------------------------------------------------------+
-| Location |  ATARI\_REXT (v1.21+), SMS  You cannot plug QL EPROM cartridges into the various other computers which now support QL software, which would normally make some software which contains part of its code on EPROM, unuseable. In order that you can use such software on other computers, you need to create a file on an original QL containing an image of the EPROM cartridge plugged into the QL's ROM port. To do this, use the command: SBYTES flp1\_EPROM\_image,49152,16384  (It is hoped that software producers who sell software which requires an EPROM cartridge will make versions available with ready-made images of the cartridge, so that the software can be used by users without access to an original QL). Having done this, you will need to have the ST/QL Emulator switched on (or SMS loaded on the other computer), then insert that disk into the Atari's disk drive, and use the command: EPROM\_LOAD flp1\_EPROM\_image  This will then copy the EPROM code into the same address on the Emulator or other computer as the EPROM cartridge occupies on the QL, thus making it useable. |
+| Location |  ATARI\_REXT (v1.21+), SMS                                        |
 +----------+-------------------------------------------------------------------+
+
+You cannot plug QL EPROM cartridges into the various other computers which now 
+support QL software, which would normally make some software which contains part 
+of its code on EPROM, unuseable. In order that you can use such software on other 
+computers, you need to create a file on an original QL containing an image of the 
+EPROM cartridge plugged into the QL's ROM port. To do this, use the command:: 
+
+    SBYTES flp1_EPROM_image,49152,16384  
+
+It is hoped that software producers who sell software which requires an EPROM 
+cartridge will make versions available with ready-made images of the cartridge, 
+so that the software can be used by users without access to an original QL. 
+
+Having 
+done this, you will need to have the ST/QL Emulator switched on (or SMS loaded on 
+the other computer), then insert that disk into the Atari's disk drive, and use 
+the command: EPROM\_LOAD flp1\_EPROM\_image  This will then copy the EPROM code 
+into the same address on the Emulator or other computer as the EPROM cartridge 
+occupies on the QL, thus making it useable.
 
 **NOTE 1**
 
@@ -1281,22 +1315,40 @@ EPS
 +----------+-------------------------------------------------------------------+
 | Syntax   |  EPS [(x)]                                                        |
 +----------+-------------------------------------------------------------------+
-| Location |  Math Package  Since the precision of the QL is limited, a number may not change if a very small value is added. The function EPS(x)  returns the smallest value which can be added to x so that the sum of x and EPS(x) will be different from x. This only makes sense for floating point numbers. The default parameter is 0. EPS(x) attains its smallest value at x=0, so EPS(0) returns the smallest absolute number which can be handled by SuperBASIC. EPS(x) is always greater than zero and EPS(x)=EPS(-x). |
+| Location |  Math Package                                                     |
 +----------+-------------------------------------------------------------------+
+
+Since the precision of the QL is limited, a number may not change if a very small 
+value is added. The function EPS(x)  returns the smallest value which can be added 
+to x so that the sum of x and EPS(x) will be different from x. This only makes 
+sense for floating point numbers. The default parameter is 0. EPS(x) attains its 
+smallest value at x=0, so EPS(0) returns the smallest absolute number which can 
+be handled by SuperBASIC. EPS(x) is always greater than zero and EPS(x)=EPS(-x).
 
 **Example**
 
-An approximation of PI/4 as proposed by Leibniz: 100 x = 0: d = 1 110 t0
-= DATE 120 FOR i=1 TO 1E100 130 IF ABS(1/d) < EPS(x) THEN EXIT i 140 x =
-x + 1/d 150 d = - SGN(d) \* (ABS(d)+2) 160 END FOR i 170 t = DATE - t0
-180 PRINT "Iterations ="!i!" Runtime ="!t;"s" 190 PRINT "Iterations per
-Second ="!i/t 200 PRINT "PI ="!4\*x!"(";PI;")"
- Unfortunately, the algorithm is not efficient enough to compete with
+An approximation of PI/4 as proposed by Leibniz::
+
+    100 x = 0: d = 1 
+    110 t0 = DATE 
+    120 FOR i=1 TO 1E100 
+    130   IF ABS(1/d) < EPS(x) THEN EXIT i 
+    140   x = x + 1/d 
+    150   d = - SGN(d) \* (ABS(d)+2) 
+    160 END FOR i 
+    170 t = DATE - t0 
+    180 PRINT "Iterations ="!i!" Runtime ="!t;"s" 
+    190 PRINT "Iterations per Second ="!i/t 
+    200 PRINT "PI ="!4\*x!"(";PI;")"
+
+Unfortunately, the algorithm is not efficient enough to compete with
 the QL's precision, so that about 2E9 iterations are necessary to get a
 suitable result. Since this will take a while (ages!), you can reduce
-precision by a factor of one million, by modifying line 130: 130 IF
-ABS(1/d) < 1E6 \* EPS(x) THEN EXIT i
- The program will then finish after 1075 iterations with 4\*x =
+precision by a factor of one million, by modifying line 130::
+
+    130 IF ABS(1/d) < 1E6 * EPS(x) THEN EXIT i
+
+The program will then finish after 1075 iterations with 4\*x =
 3.140662, not bad compared to 3.141593 when taking the drastic reduction
 of precision into account.
 
@@ -1314,8 +1366,11 @@ EQ$
 +----------+-------------------------------------------------------------------+
 | Syntax   |  EQ$ (type, string1$, string2$ )                                  |
 +----------+-------------------------------------------------------------------+
-| Location |  Btool  This function expects the same parameters as GT$. It will return a value of 1 if the two strings are equal to each other using the same test as GT$. |
+| Location |  Btool                                                            |
 +----------+-------------------------------------------------------------------+
+
+This function expects the same parameters as GT$. It will return a value of 1 if 
+the two strings are equal to each other using the same test as GT$.
 
 **CROSS-REFERENCE**
 
@@ -1331,17 +1386,25 @@ ERLIN
 +----------+-------------------------------------------------------------------+
 | Syntax   |  ERLIN                                                            |
 +----------+-------------------------------------------------------------------+
-| Location |  QL ROM (post JM version)  This function returns the line where the last error occurred. If the error occurred in a line typed into the command window (#0), then zero is returned (zero is also returned if there is no error). |
+| Location |  QL ROM (post JM version)                                         |
 +----------+-------------------------------------------------------------------+
+
+This function returns the line where the last error occurred. 
+If the error occurred in a line typed into the command window (#0), then zero is 
+returned (zero is also returned if there is no error).
 
 **Example**
 
 It takes a lot of time to debug programs, so save typing by including a
 variation of the following line in your BOOT program. Then, if an error
 occurs and the program stops with an error message, simply press
-<ALT><E> to see and edit the line where something went wrong. ALTKEY
-"e","ED ERLIN-20"&CODE(216)&CODE(216),""
- or ALTKEY "e","AUTO ERLIN",""
+<ALT><E> to see and edit the line where something went wrong::
+
+    ALTKEY "e","ED ERLIN-20"&CODE(216)&CODE(216),""
+
+or::
+
+    ALTKEY "e","AUTO ERLIN",""
 
 **CROSS-REFERENCE**
 
@@ -1358,8 +1421,11 @@ ERLIN%
 +----------+-------------------------------------------------------------------+
 | Syntax   |  ERLIN%                                                           |
 +----------+-------------------------------------------------------------------+
-| Location |  Turbo Toolkit  This function is exactly the same as ERLIN, except it will work on all versions of the QL ROM. |
+| Location |  Turbo Toolkit                                                    |
 +----------+-------------------------------------------------------------------+
+
+This function is exactly the same as ERLIN, except it will work on all versions 
+of the QL ROM.
 
 **CROSS-REFERENCE**
 
@@ -1374,17 +1440,61 @@ ERNUM
 +----------+-------------------------------------------------------------------+
 | Syntax   |  ERNUM                                                            |
 +----------+-------------------------------------------------------------------+
-| Location |  QL ROM (post JM version)  This function returns the error number of the last error which occurred. An error number is negative and can be returned by any program (SuperBASIC, jobs, M/C Toolkits,...). The equivalent error messages are the same on all of the implementations of SuperBASIC, although they are also supported in different languages (see the Appendix for other languages): |
+| Location |  QL ROM (post JM version)                                         |
 +----------+-------------------------------------------------------------------+
 
-ErrorEnglish message
-~~~~~~~~~~~~~~~~~~~~
+This function returns the error number of the last error which occurred. An error 
+number is negative and can be returned by any program (SuperBASIC, jobs, M/C 
+Toolkits,...). The equivalent error messages are the same on all of the 
+implementations of SuperBASIC, although they are also supported in different 
+languages (see the Appendix for other languages):
 
--1Not Complete -2Invalid Job -3Out of Memory -4Out of Range -5Buffer
-Full -6Channel not Open -7Not Found -8Already Exists -9 In Use -10 End
-of File -11 Drive Full -12 Bad Name -13 Xmit Error -14 Format Failed -15
-Bad Parameter -16 Bad or Changed Medium -17 Error in Expression -18
-Overflow -19 Not Implemented Yet -20 Read Only -21 Bad Line
++-------+------------------------+
+| Error | English message        |
++=======+========================+
+| -1    | Not Complete           |
++-------+------------------------+
+| -2    | Invalid Job            |
++-------+------------------------+
+| -3    | Out of Memory          |
++-------+------------------------+
+| -4    | Out of Range           |
++-------+------------------------+
+| -5    | Buffer Full            |
++-------+------------------------+
+| -6    | Channel not Open       |
++-------+------------------------+
+| -7    | Not Found              |
++-------+------------------------+
+| -8    | Already Exists         |
++-------+------------------------+
+| -9    | In Use                 |
++-------+------------------------+
+| -10   | End of File            |
++-------+------------------------+
+| -11   | Drive Full             |
++-------+------------------------+
+| -12   | Bad Name               |
++-------+------------------------+
+| -13   | Xmit Error             |
++-------+------------------------+
+| -14   | Format Failed          |
++-------+------------------------+
+| -15   | Bad Parameter          |
++-------+------------------------+
+| -16   | Bad or Changed Medium  |
++-------+------------------------+
+| -17   | Error in Expression    |
++-------+------------------------+
+| -18   | Overflow               |
++-------+------------------------+
+| -19   | Not Implemented Yet    |
++-------+------------------------+
+| -20   | Read Only              |
++-------+------------------------+
+| -21   | Bad Line               |
++-------+------------------------+
+
 
 **NOTE**
 
@@ -1396,16 +1506,58 @@ depends on the job. No error message will be reported.
 The error messages have been redefined to try to make them more
 intelligent, they are now:
 
-ErrorEnglish Message
-~~~~~~~~~~~~~~~~~~~~
++-------+------------------------+
+| Error | English message        |
++=======+========================+
+| -1    | Incomplete             |
++-------+------------------------+
+| -2    | Invalid Job ID         |
++-------+------------------------+
+| -3    | Insufficient memory    |
++-------+------------------------+
+| -4    | Value out of range     |
++-------+------------------------+
+| -5    | Buffer full            |
++-------+------------------------+
+| -6    | Invalid channel ID     |
++-------+------------------------+
+| -7    | Not found              |
++-------+------------------------+
+| -8    | Already exists         |
++-------+------------------------+
+| -9    | Is in use              |
++-------+------------------------+
+| -10   | End of file            |
++-------+------------------------+
+| -11   | Medium is full         |
++-------+------------------------+
+| -12   | Invalid name           |
++-------+------------------------+
+| -13   | Transmission error     |
++-------+------------------------+
+| -14   | Format failed          |
++-------+------------------------+
+| -15   | Invalid parameter      |
++-------+------------------------+
+| -16   | Medium check failed    |
++-------+------------------------+
+| -17   | Error in expression    |
++-------+------------------------+
+| -18   | Arithmetic overflow    |
++-------+------------------------+
+| -19   | Not implemented        |
++-------+------------------------+
+| -20   | Write protected        |
++-------+------------------------+
+| -21   | Invalid syntax         |
++-------+------------------------+
+| -22   | Unknown message        |
++-------+------------------------+
+| -23   | Access denied          |
++-------+------------------------+
 
--1 Incomplete -2 Invalid Job ID -3 Insufficient memory -4 Value out of
-range -5 Buffer full -6 Invalid channel ID -7 Not found -8 Already
-exists -9 Is in use -10 End of file -11 Medium is full -12 Invalid name
--13 Transmission error -14 Format failed -15 Invalid parameter -16
-Medium check failed -17 Error in expression -18 Arithmetic overflow -19
-Not implemented -20 Write protected -21 Invalid syntax -22 Unknown
-message -23 Access denied Other errors are reported by the SBASIC
+
+Other errors are reported by the SBASIC
 interpreter, but these are not covered by ERNUM.
 
 **CROSS-REFERENCE**
@@ -1425,8 +1577,11 @@ ERNUM%
 +----------+-------------------------------------------------------------------+
 | Syntax   |  ERNUM%                                                           |
 +----------+-------------------------------------------------------------------+
-| Location |  Turbo Toolkit  This function is exactly the same as ERNUM, except it will work on all versions of the QL ROM. |
+| Location |  Turbo Toolkit                                                    |
 +----------+-------------------------------------------------------------------+
+
+This function is exactly the same as ERNUM, except it will work on all versions 
+of the QL ROM.
 
 **CROSS-REFERENCE**
 
@@ -1439,22 +1594,63 @@ ERR\_...
 ========
 
 +----------+-------------------------------------------------------------------+
-| Syntax   | |          |  ERR\_NC, ERR\_NJ, ERR\_OM, ERR\_OR, ERR\_BO, ERR\_NO, ERR\_NF, ERR\_EX, ERR\_IU, ERR\_EF, ERR\_DF, ERR\_BN, ERR\_TE, ERR\_FF, ERR\_BP, ERR\_FE, ERR\_XP, ERR\_OV, ERR\_NI, ERR\_RO, ERR\_BL|
+| Syntax   | ERR\_NC, ERR\_NJ, ERR\_OM, ERR\_OR, ERR\_BO, ERR\_NO, ERR\_NF,    | 
+|          | ERR\_EX, ERR\_IU, ERR\_EF, ERR\_DF, ERR\_BN, ERR\_TE, ERR\_FF,    | 
+|          | ERR\_BP, ERR\_FE, ERR\_XP, ERR\_OV, ERR\_NI, ERR\_RO, ERR\_BL     |
 +----------+-------------------------------------------------------------------+
- These are logical functions which return either 0 or 1 if the
+| Location | QL ROM                                                            |
++----------+-------------------------------------------------------------------+
+
+These are logical functions which return either 0 or 1 if the
 corresponding error has occurred. Only one of them can have the value 1
 at any time.
 
-functionerror error-code
-~~~~~~~~~~~~~~~~~~~~~~~~
++----------+-------------------------+
+| Function | Error Code              |
++==========+=========================+
+| ERR\_NC  | NOT COMPLETE        -1  |
++----------+-------------------------+
+| ERR\_NJ  | INVALID JOB         -2  |
++----------+-------------------------+
+| ERR\_OM  | OUT OF MEMORY       -3  |
++----------+-------------------------+
+| ERR\_OR  | OUT OF RANGE        -4  |
++----------+-------------------------+
+| ERR\_BO  | BUFFER OVERFLOW     -5  |
++----------+-------------------------+
+| ERR\_NO  | CHANNEL NOT OPEN    -6  |
++----------+-------------------------+
+| ERR\_NF  | NOT FOUND           -7  |
++----------+-------------------------+
+| ERR\_EX  | ALREADY EXISTS      -8  |
++----------+-------------------------+
+| ERR\_IU  | IN USE              -9  |
++----------+-------------------------+
+| ERR\_EF  | END OF FILE         -10 |
++----------+-------------------------+
+| ERR\_DF  | DRIVE FULL          -11 |
++----------+-------------------------+
+| ERR\_BN  | BAD NAME            -12 |
++----------+-------------------------+
+| ERR\_TE  | TRANSMISSION ERROR  -13 |
++----------+-------------------------+
+| ERR\_FF  | FORMAT FAILED       -14 |
++----------+-------------------------+
+| ERR\_BP  | BAD PARAMETER       -15 |
++----------+-------------------------+
+| ERR\_FE  | FILE ERROR          -16 |
++----------+-------------------------+
+| ERR\_XP  | ERROR IN EXPRESSION -17 |
++----------+-------------------------+
+| ERR\_OV  | ARITHMETIC OVERFLOW -18 |
++----------+-------------------------+
+| ERR\_NI  | NOT IMPLEMENTED     -19 |
++----------+-------------------------+
+| ERR\_RO  | READ ONLY           -20 |
++----------+-------------------------+
+| ERR\_BL  | BAD LINE            -21 |
++----------+-------------------------+
 
-ERR\_NCNOT COMPLETE-1 ERR\_NJINVALID JOB-2 ERR\_OMOUT OF MEMORY-3
-ERR\_OROUT OF RANGE-4 ERR\_BOBUFFER OVERFLOW-5 ERR\_NOCHANNEL NOT OPEN-6
-ERR\_NFNOT FOUND-7 ERR\_EXALREADY EXISTS-8 ERR\_IUIN USE-9 ERR\_EFEND OF
-FILE-10 ERR\_DFDRIVE FULL-11 ERR\_BNBAD NAME-12 ERR\_TETRANSMISSION
-ERROR-13 ERR\_FFFORMAT FAILED-14 ERR\_BPBAD PARAMETER-15 ERR\_FEFILE
-ERROR-16 ERR\_XPERROR IN EXPRESSION-17 ERR\_OVARITHMETIC OVERFLOW-18
-ERR\_NINOT IMPLEMENTED-19 ERR\_ROREAD ONLY-20 ERR\_BLBAD LINE-21
 
 **NOTE 1**
 
@@ -1483,8 +1679,12 @@ ERRor
 +----------+-------------------------------------------------------------------+
 | Syntax   |  ERRor                                                            |
 +----------+-------------------------------------------------------------------+
-| Location |  QL ROM (post JM)  This keyword forms part of the structure WHEN ERRor. Please refer to WHEN ERRor. As such, this keyword cannot be used in a program on its own - this will report 'bad line'. |
+| Location |  QL ROM (post JM)                                                 |
 +----------+-------------------------------------------------------------------+
+
+This keyword forms part of the structure WHEN ERRor. Please refer to WHEN ERRor. 
+As such, this keyword cannot be used in a program on its own - this will report 
+'bad line'.
 
 **CROSS-REFERENCE**
 
@@ -1499,39 +1699,93 @@ ERT
 +----------+-------------------------------------------------------------------+
 | Syntax   |  ERT function                                                     |
 +----------+-------------------------------------------------------------------+
-| Location |  HOTKEY II  Normally, whenever you use a function (or anything else which may return an error code), you will need to assign the result of the function (or whatever else) to a variable and then test that variable in order to see whether or not an error has been generated. If an error has been generated, you will then need to report the error (if you do not intend to take any action to try and rectify the situation), something which can take a lot of program space, if you intend to write a program which does not require the command REPort to be present. The command ERT was introduced in the Hotkey System II to enable you to write programs which test the result for an error code and report the error all in one step. |
+| Location |  HOTKEY II                                                        |
 +----------+-------------------------------------------------------------------+
 
-**Example**
+Normally, whenever you use a function (or anything else which may return an error 
+code), you will need to assign the result of the function (or whatever else) to a 
+variable and then test that variable in order to see whether or not an error has 
+been generated. 
 
-(1) A simple program which provides its own error trapping: 100 PAPER
-0:INK 7 110 REPeat loop 120 CLS 130 AT 0,0:PRINT 'Enter an integer (0 to
-300): '; 140 xerr=GET\_INT 150 IF xerr<0:PRINT 'Error - try again':ELSE
-x=xerr:EXIT loop 160 PAUSE 170 END REPeat loop 180 PRINT 'The integer
-was : ';x 185 : 190 DEFine FuNction GET\_INT 200 valid$='0123456789' 210
-INPUT a$:IF a$='':RETurn -1 220 FOR i=1 TO LEN(a$):IF a$(i) INSTR
-valid$=0:RETurn -17 230 IF a$>300:RETurn -4 240 RETurn a$ 250 END DEFine
- (2) A similar program which is designed to stop on an error: 100 PAPER
-0:INK 7 110 CLS 120 AT 0,0:PRINT 'Enter an integer (0 to 300): '; 130
-xerr=GET\_INT 140 IF xerr<0:REPORT xerr:STOP:ELSE x=xerr 150 PRINT 'The
-integer was : ';x 155 : 160 DEFine FuNction GET\_INT 170
-valid$='0123456789' 180 INPUT a$:IF a$='':RETurn -1 190 FOR i=1 TO
-LEN(a$):IF a$(i) INSTR valid$=0:RETurn -17 200 IF a$>300:RETurn -4 210
-RETurn a$ 220 END DEFine
+If an error has been generated, you will then need to report the 
+error (if you do not intend to take any action to try and rectify the situation), 
+something which can take a lot of program space, if you intend to write a program 
+which does not require the command REPort to be present. 
 
-(3) The same program as in the second example, but using ERT: 100 PAPER
-0:INK 7 110 CLS 120 AT 0,0:PRINT 'Enter an integer (0 to 300): '; 130
-ERT GET\_INT 140 PRINT 'The integer was : ';x 150 DEFine FuNction
-GET\_INT 160 valid$='0123456789' 170 INPUT a$:IF a$='':RETurn -1 180 FOR
-i=1 TO LEN(a$):IF a$(i) INSTR valid$=0:RETurn -17 190 IF a$>300:RETurn
--4 200 x=a$ 210 RETurn x 220 END DEFine
+The command ERT was 
+introduced in the Hotkey System II to enable you to write programs which test the 
+result for an error code and report the error all in one step.
+
+**Example 1**
+
+A simple program which provides its own error trapping::
+
+    100 PAPER 0:INK 7 
+    110 REPeat loop 
+    120 CLS 
+    130 AT 0,0:PRINT 'Enter an integer (0 to 300): '; 
+    140 xerr=GET_INT 
+    150 IF xerr<0:PRINT 'Error - try again':ELSE x=xerr:EXIT loop 
+    160 PAUSE 
+    170 END REPeat loop 
+    180 PRINT 'The integer was : ';x 
+    185 : 
+    190 DEFine FuNction GET_INT 
+    200   valid$='0123456789' 
+    210   INPUT a$:IF a$='':RETurn -1 
+    220   FOR i=1 TO LEN(a$):IF a$(i) INSTR valid$=0:RETurn -17 
+    230   IF a$>300:RETurn -4 
+    240   RETurn a$ 
+    250 END DEFine
+
+
+**Example 2**
+
+A similar program which is designed to stop on an error::
+
+    100 PAPER 0:INK 7 
+    110 CLS 
+    120 AT 0,0:PRINT 'Enter an integer (0 to 300): '; 
+    130 xerr=GET_INT 
+    140 IF xerr<0:REPORT xerr:STOP:ELSE x=xerr 
+    150 PRINT 'The integer was : ';x 
+    155 : 
+    160 DEFine FuNction GET_INT 
+    170   valid$='0123456789' 
+    180   INPUT a$:IF a$='':RETurn -1 
+    190   FOR i=1 TO LEN(a$):IF a$(i) INSTR valid$=0:RETurn -17 
+    200   IF a$>300:RETurn -4 
+    210   RETurn a$ 
+    220 END DEFine
+
+**Example 3**
+
+
+The same program as in the second example, but using ERT::
+
+    100 PAPER 0:INK 7 
+    110 CLS 
+    120 AT 0,0:PRINT 'Enter an integer (0 to 300): '; 
+    130 ERT GET_INT 
+    140 PRINT 'The integer was : ';x 
+    150 DEFine FuNction GET_INT 
+    160   valid$='0123456789' 
+    170   INPUT a$:IF a$='':RETurn -1 
+    180   FOR i=1 TO LEN(a$):IF a$(i) INSTR valid$=0:RETurn -17 
+    190   IF a$>300:RETurn -4 
+    200   x=a$ 
+    210   RETurn x 
+    220 END DEFine
 
 **NOTE**
 
 When you are using ERT, always beware of what you are testing for an
 error, for example, if you had altered line 130 in the second example
-to: 130 ERT x=GET\_INT
- you would not actually be testing to see whether the function GET\_INT
+to::
+
+    130 ERT x=GET_INT
+
+you would not actually be testing to see whether the function GET\_INT
 returned an error, but whether the line x=GET\_INT produced an error - x
 itself would not be altered, hence the need to assign the result to x
 inside the function.
@@ -1549,8 +1803,18 @@ ET
 +----------+-------------------------------------------------------------------+
 | Syntax   |  ET file :sup:`\*`\ [,{filex \| #chx}]\ :sup:`\*` [;cmd$]         |
 +----------+-------------------------------------------------------------------+
-| Location |  Toolkit II  The syntax for ET is the same as for the Toolkit II variant of EX and it also operates in a similar manner. However, ET is intended for low level debugging, ie. to trace execution of the machine code commands step by step. A monitor program such as Qmon is necessary. The command ET loads the executable program, installs the job and immediately suspends the job by setting its priority to zero. Control is then returned to SuperBASIC to allow you to use a monitor program. |
+| Location |  Toolkit II                                                       |
 +----------+-------------------------------------------------------------------+
+
+The syntax for ET is the same as for the Toolkit II variant of EX and it also 
+operates in a similar manner. However, ET is intended for low level debugging, 
+ie. to trace execution of the machine code commands step by step. 
+
+A monitor program such as Qmon is necessary. 
+
+The command ET loads the executable program, installs the job and immediately 
+suspends the job by setting its priority to zero. Control is then returned to 
+SuperBASIC to allow you to use a monitor program.
 
 **CROSS-REFERENCE**
 
@@ -1599,17 +1863,30 @@ ETAT
 +----------+-------------------------------------------------------------------+
 | Syntax   |  ETAT (file$)                                                     |
 +----------+-------------------------------------------------------------------+
-| Location |  ETAT  This function checks to see if the given file (passed as a string) exists and then checks upon its status (whether it can be opened etc). If necessary a standard error number is returned, otherwise ETAT will return 0, which means that the file can be accessed without the danger of an error such as "not found". This can therefore be used to avoid the need for error trapping. |
+| Location |  ETAT                                                             |
 +----------+-------------------------------------------------------------------+
+This function checks to see if the given file (passed as a string) exists and then 
+checks upon its status (whether it can be opened etc). If necessary a standard 
+error number is returned, otherwise ETAT will return 0, which means that the file 
+can be accessed without the danger of an error such as "not found". This can 
+therefore be used to avoid the need for error trapping.
 
 **Example**
 
-This program copies text files to window #1: 100 REPeat input\_loop 110
-INPUT "File to view:"!file$ 120 AnError=ETAT(file$) 130 IF NOT AnError:
-EXIT input\_loop 140 PRINT "Sorry, ";: REPORT#1,AnError 150 END REPeat
-input\_loop 160 OPEN\_IN#3,file$ 170 REPeat view\_file 180 IF EOF(#3)
-THEN EXIT view\_file 190 INPUT#3,line$: PRINT line$ 200 END REPeat
-view\_file 210 CLOSE#3
+This program copies text files to window #1::
+
+    100 REPeat input_loop 
+    110 INPUT "File to view:"!file$ 
+    120   AnError=ETAT(file$) 
+    130   IF NOT AnError: EXIT input_loop 
+    140   PRINT "Sorry, ";: REPORT#1,AnError 
+    150 END REPeat input_loop 
+    160 OPEN_IN#3,file$ 
+    170 REPeat view_file 
+    180 IF EOF(#3) THEN EXIT view_file 
+    190 INPUT#3,line$: PRINT line$ 
+    200 END REPeat view_file 
+    210 CLOSE#3
 
 **CROSS-REFERENCE**
 
@@ -1631,22 +1908,67 @@ be used.
 EW
 ==
 
-+----------+-------------------------------------------------------------------+
-| Syntax   |  EW file :sup:`\*`\ [,{file\ :sup:`x` \|                          |
-+----------+-------------------------------------------------------------------+
-| Location |  Toolkit II, THOR XVI  This command causes the given file (which must be an executable program) to be executed. If the drivename is not given, or the file cannot be found on the given device, EW will load the first file from the default program directory (see PROGD$), with subsequent programs being loaded from the default data directory (see DATAD$). The calling program will be stopped whilst the new job is running (ie. the new job cannot multitask with the calling program). If you supply any channels (which must already be open in the calling program) or filenames as parameters, these form channels which can be accessed by the job. If your program has been compiled with QLiberator or is to be run as an SBASIC job under SMS then each supplied channel will become #0, #1, #2 .... Note that with Turbo compiled programs the channels work backwards and will become #15, #14, #13 ... To access these channels from within the job, merely ensure that the job does not try to open its own channel with the same number, and then write the program lines as if the channels were open. Further, you can pass a command string (cmd$) to the program specifying what the executed job should do. It depends on the job what cmd$ should look like and also how you will access the given string. The Turbo and QLiberator compilers include commands in their Toolkits to read the supplied string; and Minerva MultiBASICs and SMS SBASICs include the function CMD$  which allows you to read the supplied string. If you have not used one of these compilers to produce the job, then you will need to read the string from the stack. Please note that the command string must appear as the last parameter for the command. The command string can be explicit strings and names as well as expressions. However, variables must be converted into expressions, for example by: EW 'flp1\_xchange';(dataspace)  On some very early versions of Toolkit II, you needed: EW 'flp1\_xchange';dataspace&""  Executable programs often return an error code back to the owner job (the program which started it). Especially with 'C' compiled programs, this will be non-zero if there are any errors. EW stops the owner job if this happened. There is unfortunately no way to stop this from happening unless you use error trapping (eg. WHEN ERRor, or Q\_ERR\_ON from QLiberator). |
-+----------+-------------------------------------------------------------------+
++----------+----------------------------------------------------------------------+
+| Syntax   |  EW file :sup:`\*`\ [,{file\ :sup:`x` \| #ch\ :sup:`x`\ }]\ :sup:`\*`|
++----------+----------------------------------------------------------------------+
+| Location | Toolkit II, THOR XVI                                                 |
++----------+----------------------------------------------------------------------+
+
+This command causes the given file (which must be an executable program) to be executed. 
+
+If the drivename is not given, or the file cannot be found on the given device, EW 
+will load the first file from the default program directory (see PROGD$), with subsequent 
+programs being loaded from the default data directory (see DATAD$). The calling program 
+will be stopped whilst the new job is running (ie. the new job cannot multitask with the 
+calling program). If you supply any channels (which must already be open in the calling 
+program) or filenames as parameters, these form channels which can be accessed by the job. 
+
+If your program has been compiled with QLiberator or is to be run as an SBASIC job under 
+SMS then each supplied channel will become #0, #1, #2 .... 
+
+Note that with Turbo compiled programs the channels work backwards and will become #15, #14, 
+#13 ... To access these channels from within the job, merely ensure that the job does not 
+try to open its own channel with the same number, and then write the program lines as if 
+the channels were open. Further, you can pass a command string (cmd$) to the program 
+specifying what the executed job should do. It depends on the job what cmd$ should look 
+like and also how you will access the given string. The Turbo and QLiberator compilers 
+include commands in their Toolkits to read the supplied string; and Minerva MultiBASICs 
+and SMS SBASICs include the function CMD$  which allows you to read the supplied string. 
+
+If you have not used one of these compilers to produce the job, then you will need to 
+read the string from the stack. Please note that the command string must appear as the 
+last parameter for the command. The command string can be explicit strings and names as 
+well as expressions. However, variables must be converted into expressions, for example 
+by::
+
+    EW 'flp1_xchange';(dataspace)  
+
+On some very early versions of Toolkit II, you needed::
+
+    EW 'flp1_xchange';dataspace&""  
+
+Executable programs often return an error code back to the owner job (the program which 
+started it). Especially with 'C' compiled programs, this will be non-zero if there are any 
+errors. EW stops the owner job if this happened. There is unfortunately no way to stop 
+this from happening unless you use error trapping (eg. WHEN ERRor, or Q\_ERR\_ON 
+from QLiberator).
 
 **Example 1**
 
-EW QED;"flp1\_readme\_txt"
- The editor will be started from the default program directory and told
+::
+
+    EW QED;"flp1_readme_txt"
+
+The editor will be started from the default program directory and told
 to load the file readme\_txt.
 
 **Example 2**
 
-EW mdv1\_QUILL
- will start QUILL from microdrive 1.
+::
+
+    EW mdv1_QUILL
+
+will start QUILL from microdrive 1.
 
 **NOTE 1**
 
@@ -1677,44 +1999,71 @@ details.
 
 **MINERVA NOTES**
 
-As from v1.93+, MultiBASICs can be started up with the command: EW pipep
-:sup:`\*`\ [,{file\ :sup:`x` \| #ch\ :sup:`x`}]\ :sup:`\*` [;cmd$] prior
-to this version, you needed to load the file Multib\_exe contained on
-the disk supplied with Minerva and use the command: EW flp1\_Multib\_exe
-:sup:`\*`\ [,{file\ :sup:`x` \| #ch\ :sup:`x`}]\ :sup:`\*` [;cmd$] How
-any supplied channels are dealt with is slightly different to all other
-implementations. Its effect depends on how many channels are passed: No
-channels passedMultiBASIC started with a single small window which is
-the same for #0 and #1 One channel passedThis becomes both #0 and #1 Two
-channels passedThese become #0 and #1 respectively. Three or more
-channels passedThe first two become #0 and #1 respectively, then any
-additional ones become #3 onwards. Minerva MultiBASICs also treat any
-command string passed to them in a special way: (1) If the last
-character of the command string is an exclamation mark (!), then the
-MultiBASIC is started up with the original keywords built into the ROM,
-and any which had been linked into SuperBASIC subsequently (for example
-Toolkit II) will not be available to that MultiBASIC. This character is
-then removed from the command string before it can be read by the
-MultiBASIC. (2) If the command string contains the greater than sign
-(>), then anything which appears before that character in the string, is
-opened as an input command channel (thus allowing you to run a
-MultiBASIC program in the background) and then all characters up to and
-including the greater than character are deleted from the command string
-before it can be read by the MultiBASIC.
+As from v1.93+, MultiBASICs can be started up with the command:
+
+    EW pipep :sup:`*`\ [,{file\ :sup:`x` \| #ch\ :sup:`x`}]\ :sup:`*` [;cmd$] 
+
+Prior to this version, you needed to load the file Multib\_exe contained on
+the disk supplied with Minerva and use the command:
+
+    EW flp1_Multib_exe :sup:`*`\ [,{file\ :sup:`x` \| #ch\ :sup:`x`}]\ :sup:`*` [;cmd$] 
+
+How any supplied channels are dealt with is slightly different to all other
+implementations. Its effect depends on how many channels are passed: 
+
+- No channels passed - MultiBASIC started with a single small window which is
+  the same for #0 and #1.
+- One channel passed - This becomes both #0 and #1. 
+- Two channels passed - These become #0 and #1 respectively. 
+- Three or more channels passed - The first two become #0 and #1 respectively, then any
+  additional ones become #3 onwards. 
+
+Minerva MultiBASICs also treat any command string passed to them in a special way: 
+
+- If the last character of the command string is an exclamation mark (!), then the
+  MultiBASIC is started up with the original keywords built into the ROM,
+  and any which had been linked into SuperBASIC subsequently (for example
+  Toolkit II) will not be available to that MultiBASIC. This character is
+  then removed from the command string before it can be read by the
+  MultiBASIC. 
+
+- If the command string contains the greater than sign
+  (>), then anything which appears before that character in the string, is
+  opened as an input command channel (thus allowing you to run a
+  MultiBASIC program in the background) and then all characters up to and
+  including the greater than character are deleted from the command string
+  before it can be read by the MultiBASIC.
 
 **Example**
 
 Take a simple BASIC program to convert a given file (say
-flp1\_TEST\_TXT) into uppercase: 110 REPeat loop 120 IF EOF(#0) THEN
-EXIT loop 130 INPUT #0,a$ 140 IF a$='' THEN NEXT loop 150 FOR i=1 TO
-LEN(a$) 160 IF CODE(a$(i))>96 AND CODE(a$(i))<123 THEN 170
-a$(i)=CHR$(CODE(a$(i))-32) 180 END IF 190 END FOR i 200 PRINT a$ 210 END
-REPeat loop 220 IF VER$(-1):CLOSE #0
- Save this as flp1\_UC\_bas and then enter the command: OPEN #3,con EW
-pipep,flp1\_test\_txt,#3;'flp1\_UC\_bas>'
- or, prior to v1.93, use: OPEN #3,con EW
-flp1\_Multib\_exe,flp1\_test\_txt,#3;'flp1\_UC\_bas>'
- The last line checks to make sure this program is not being run from
+flp1\_TEST\_TXT) into uppercase::
+
+    110 REPeat loop 
+    120   IF EOF(#0) THEN EXIT loop 
+    130   INPUT #0,a$ 
+    140   IF a$='' THEN NEXT loop 
+    150   FOR i=1 TO LEN(a$) 
+    160     IF CODE(a$(i))>96 AND CODE(a$(i))<123 THEN 
+    170       a$(i)=CHR$(CODE(a$(i))-32) 
+    180     END IF 
+    190   END FOR i 
+    200   PRINT a$ 
+    210 END REPeat loop 
+    220 IF VER$(-1):CLOSE #0
+
+Save this as flp1\_UC\_bas and then enter the command::
+
+    OPEN #3,con 
+    EW pipep,flp1_test_txt,#3;'flp1_UC_bas>'
+
+or, prior to v1.93, use::
+
+    OPEN #3,con 
+    EW flp1_Multib_exe,flp1_test_txt,#3;'flp1_UC\_bas>'
+
+
+The last line checks to make sure this program is not being run from
 the original SuperBASIC interpreter (job 0) in which case, it then
 closes #0. Unfortunately, on v1.97 (at least), this program fails to
 spot the end of the file (try PEND instead of EOF), and therefore
@@ -1725,15 +2074,30 @@ reported if you use EX to run the program.
 
 SMS allows EW and EX to run basic programs in the background, as an
 SBASIC job. For example, using the Minerva example program above, this
-could be used with the line: EW flp1\_UC\_bas,flp1\_test\_txt,#3
- This does not report an error on completion. Beware however that prior
+could be used with the line::
+
+    EW flp1_UC_bas,flp1_test_txt,#3
+
+This does not report an error on completion. Beware however that prior
 to v2.69, this command would not work in Qliberated programs to start an
 SBASIC program. Because of this ability, SMS v2.58+ has amended the EW
 set of commands so that it searches for a file in much the same way as
-LOAD under SMS. Taking a default program device to be flp1\_, EW
-ram1\_TEST will look for the following files:- ram1\_TEST
-ram1\_TEST\_sav ram1\_TEST\_bas flp1\_ram1\_TEST flp1\_ram1\_TEST\_sav
-flp1\_ram1\_TEST\_bas
+LOAD under SMS. 
+
+Taking a default program device to be flp1\_, 
+
+::
+
+    EW ram1_TEST 
+
+will look for the following files:
+
+- ram1_TEST
+- ram1_TEST_sav 
+- ram1_TEST_bas 
+- flp1_ram1_TEST 
+- flp1_ram1_TEST_sav
+- flp1_ram1_TEST_bas
 
 **CROSS-REFERENCE**
 
