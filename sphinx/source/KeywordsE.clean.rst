@@ -19,7 +19,12 @@ EASTER
 | Location |  Math Package                                                     |
 +----------+-------------------------------------------------------------------+
 
-This function calculates the date of Easter Sunday for any given year after 1583 (when the Gregorian calender was introduced by Pope Gregory XIII to replace the Julian calender of Julius Caeser which had been in use since 46 BC). EASTER returns the date as a floating point number, where the day is the integer part of the number and the month is given by the digits following the floating point, eg. PRINT EASTER(1993)  shows 11.4 (April, 11th) 
+This function calculates the date of Easter Sunday for any given year after 1583 
+(when the Gregorian calender was introduced by Pope Gregory XIII to replace the 
+Julian calender of Julius Caeser which had been in use since 46 BC). EASTER 
+returns the date as a floating point number, where the day is the integer part 
+of the number and the month is given by the digits following the floating 
+point, eg. PRINT EASTER(1993)  shows 11.4 (April, 11th) 
 
 **Example**
 
@@ -56,29 +61,63 @@ ED
 | Location |  Toolkit II                                                       |
 +----------+-------------------------------------------------------------------+
 
-This command invokes Toolkit II's full-screen editor. This provides powerful facilities for editing a SuperBASIC program loaded in memory and forms a useful alternative to the QL's standard EDIT and AUTO commands. 
+This command invokes Toolkit II's full-screen editor. This provides powerful 
+facilities for editing a SuperBASIC program loaded in memory and forms a useful 
+alternative to the QL's standard EDIT and AUTO commands. 
 
-ED will list the current SuperBASIC program from its first line (or from the specified start\_line) onwards in the given channel (default #2). If the specified channel (#ch) is not a console con\_ channel, then an error -15 (Bad Parameter) will be reported. If any lines are too long to fit in the specified window, they are wrapped round onto the next line, with this 'continuation line' indented in order to differentiate from other program lines. It does however make sense to use the widest possible window to avoid wrapping of lines. 
+ED will list the current SuperBASIC program from its first line (or from the 
+specified start\_line) onwards in the given channel (default #2). If the specified 
+channel (#ch) is not a console con\_ channel, then an error -15 (Bad Parameter) 
+will be reported. If any lines are too long to fit in the specified window, they 
+are wrapped round onto the next line, with this 'continuation line' indented in 
+order to differentiate from other program lines. It does however make sense to 
+use the widest possible window to avoid wrapping of lines. 
 
-Once a window-full of the listing is shown, ED will activate the cursor in the window and you can then move up or down through the listing by using the up and down cursor keys. The left and right cursor keys will move across the listing lines (and even 'blank' space where the actual program lines do not appear). 
+Once a window-full of the listing is shown, ED will activate the cursor in the 
+window and you can then move up or down through the listing by using the up and 
+down cursor keys. The left and right cursor keys will move across the listing 
+lines (and even 'blank' space where the actual program lines do not appear). 
 
-Any attempt to alter a line (eg. to delete a character) will activate that line, in which case it will be shown in inverse colours. Any attempt to move the cursor off that line (or pressing <ENTER>) will tell ED to accept the alterations and de-activate that line. 
+Any attempt to alter a line (eg. to delete a character) will activate that line, 
+in which case it will be shown in inverse colours. Any attempt to move the cursor 
+off that line (or pressing <ENTER>) will tell ED to accept the alterations and 
+de-activate that line. 
 
-If the line is not acceptable to the SuperBASIC parser, then a 'Bad Line' error will be generated in #0 and the line re-activated. 
+If the line is not acceptable to the SuperBASIC parser, then a 'Bad Line' error 
+will be generated in #0 and the line re-activated. 
 
-If you press the Break key or <ESC> whilst a line is active, it will be de-activated and returned to its original state. If no line is active, <ENTER> will insert a new line number half-way (if possible) between the number of the line on which the cursor is situated and the next line number. If there is no room for an additional line between the two program lines, <ENTER> will be ignored. 
+If you press the Break key or <ESC> whilst a line is active, it will be 
+de-activated and returned to its original state. If no line is active, <ENTER> 
+will insert a new line number half-way (if possible) between the number of the 
+line on which the cursor is situated and the next line number. If there is no 
+room for an additional line between the two program lines, <ENTER> will be 
+ignored. 
 
-If on the other hand, there is a gap of 20 or more (or there are no further program lines), the new line number will be the current line number plus 10. 
+If on the other hand, there is a gap of 20 or more (or there are no further 
+program lines), the new line number will be the current line number plus 10. 
 
-Another way of creating new lines is to amend the line number of the current line. If you do this, a new line with the amended line number will be inserted (overwriting any existing line) and the current line will remain the same (the cursor remains on the same line). This enables you to copy lines from one part of a program to another. 
+Another way of creating new lines is to amend the line number of the current 
+line. If you do this, a new line with the amended line number will be inserted 
+(overwriting any existing line) and the current line will remain the same (the 
+cursor remains on the same line). This enables you to copy lines from one 
+part of a program to another. 
 
-By way of further assistance to the SuperBASIC programmer, ED can work in two modes - Overwrite Mode and Insert Mode. The latter is the default, in which case any characters typed will activate the current line and insert them at the current cursor position. 
+By way of further assistance to the SuperBASIC programmer, ED can work in two 
+modes - Overwrite Mode and Insert Mode. The latter is the default, in which 
+case any characters typed will activate the current line and insert them at 
+the current cursor position. 
 
-In Overwrite Mode, any characters typed will activate the current line and replace the characters under the cursor. 
+In Overwrite Mode, any characters typed will activate the current line and 
+replace the characters under the cursor. 
 
-A line can be deleted either by using <CTRL><ALT><> (except on SMS where you must use <CTRL><>) or by deleting all of the visible characters in a line. If you delete everything but the line number, then the line pointed to by that line number will be deleted. 
+A line can be deleted either by using <CTRL><ALT><> (except on SMS where you 
+must use <CTRL><>) or by deleting all of the visible characters in a line. If 
+you delete everything but the line number, then the line pointed to by that 
+line number will be deleted. 
 
-There are several other keys available which make editing a SuperBASIC program much easier than under EDIT. The keys available from within the standard ED are listed on the next page.
+There are several other keys available which make editing a SuperBASIC program 
+much easier than under EDIT. The keys available from within the standard ED 
+are listed on the next page.
 
 **NOTE 1**
 
@@ -900,9 +939,10 @@ END REPeat
 ==========
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  END REPeat identifier  or END REPeat [identifier]SMS only        |
+| Syntax   || END REPeat identifier  or                                        |
+|          || END REPeat [identifier]SMS only                                  |
 +----------+-------------------------------------------------------------------+
-| Location |  QL ROM                                                           |
+| Location || QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
 
 This command marks the end of the REPeat...END REPeat SuperBASIC structure with 
@@ -1828,16 +1868,32 @@ ETAB$
 +----------+-------------------------------------------------------------------+
 | Syntax   |  ETAB$ (string$ [,tabdist]) where tabdist=1..255                  |
 +----------+-------------------------------------------------------------------+
-| Location |  BTool  Some editors and word-processors use the character CHR$(9) as a tab mark to save the space which would otherwise be needed to store several spaces. The function ETAB$ takes a given string, expands all tab marks in it and returns the result. If the tabulator distance, tabdist, is not given, a default of eight characters is assumed. The length of string$ has to be smaller than 256 characters: LEN(string$)<256. tabdist>255 has no effect. |
+| Location |  BTool                                                            |
 +----------+-------------------------------------------------------------------+
+
+Some editors and word-processors use the character CHR$(9) as a tab mark to save 
+the space which would otherwise be needed to store several spaces. The function 
+ETAB$ takes a given string, expands all tab marks in it and returns the result. 
+
+If the tabulator distance, tabdist, is not given, a default of eight characters 
+is assumed. The length of string$ has to be smaller than 256 characters: 
+LEN(string$)<256. 
+
+Tabdist>255 has no effect.
 
 **Example**
 
-The text file test\_txt is shown with all tab marks expanded: 100
-OPEN\_IN#3,test\_txt 110 CLS 120 REPeat all\_lines 130 IF EOF(#3) THEN
-EXIT all\_lines 140 INPUT#3,line$ 150 IF LEN(line$)>255 THEN
-line$=line$(1 TO 255) 160 PRINT ETAB$(line$,4) 170 END REPeat all\_lines
-180 CLOSE#3
+The text file test\_txt is shown with all tab marks expanded::
+
+    100 OPEN_IN#3,test_txt 
+    110 CLS 
+    120 REPeat all_lines 
+    130   IF EOF(#3) THEN EXIT all_lines 
+    140   INPUT#3,line$ 
+    150   IF LEN(line$)>255 THEN line$=line$(1 TO 255) 
+    160   PRINT ETAB$(line$,4) 
+    170 END REPeat all_lines
+    180 CLOSE#3
 
 **NOTE**
 
@@ -1865,6 +1921,7 @@ ETAT
 +----------+-------------------------------------------------------------------+
 | Location |  ETAT                                                             |
 +----------+-------------------------------------------------------------------+
+
 This function checks to see if the given file (passed as a string) exists and then 
 checks upon its status (whether it can be opened etc). If necessary a standard 
 error number is returned, otherwise ETAT will return 0, which means that the file 
@@ -2112,50 +2169,83 @@ Multiple BASICs.
 EX
 ==
 
-+----------+-------------------------------------------------------------------+
-| Syntax   |  EX file :sup:`\*`\ [,{file\ :sup:`x` \|                          |
-+----------+-------------------------------------------------------------------+
-| Location |  Toolkit II, THOR XVI  This command forces the given file (which must be an executable program) to be executed and control is then generally returned to the calling program to enable the new job to multitask alongside the calling program. Similar parameters as for EW can be passed to the job. Use EW if the program cannot multitask for some reason or if you do not want it to. |
-+----------+-------------------------------------------------------------------+
++----------+-------------------------------------------------------------------------------+
+| Syntax   |  EX file :sup:`\*`\ [,{file\ :sup:`x` \| #ch\ :sup:`x`\ }]\ :sup:`\*` [;cmd$] |
++----------+-------------------------------------------------------------------------------+
+| Location |  Toolkit II, THOR XVI                                                         |
++----------+-------------------------------------------------------------------------------+
+
+This command forces the given file (which must be an executable program) to be 
+executed and control is then generally returned to the calling program to enable 
+the new job to multitask alongside the calling program. Similar parameters as 
+for EW can be passed to the job. 
+
+Use EW if the program cannot multitask for some reason or if you do not want it to.
 
 **Example 1**
 
-EX QED;"readme\_txt"
- The editor will be started from the default program device and told to
+::
+
+    EX QED;"readme_txt"
+
+The QED editor will be started from the default program device and told to
 load the file readme\_txt from the editor's default device.
 
 **Example 2**
 
-EX UC\_obj,ram1\_hope\_lis,par
- A program called UC\_obj (a program which converts text to all upper
+::
+
+    EX UC_obj,ram1_hope_lis,par
+
+A program called UC\_obj (a program which converts text to all upper
 case) will be started up to run alongside all other programs. Two new
 channels ('ram1\_hope\_lis' and 'par') are opened for the task to use
 for its input and output channels respectively - the task must not open
 its own channels but will rely upon the user supplying them as
-parameters. The BASIC version of such a program is: 110 REPeat loop 120
-IF EOF(#0) THEN EXIT loop 130 INPUT #0,a$ 140 IF a$='' THEN NEXT loop
-150 FOR i=1 TO LEN(a$) 160 IF CODE(a$(i))>96 AND CODE(a$(i))<123 THEN
-170 a$(i)=CHR$(CODE(a$(i))-32) 180 END IF 190 END FOR i 200 PRINT#1,a$
-210 END REPeat loop
- Turbo users will need to alter #0 and #1 to #15 and #14 respectively.
+parameters. 
+
+The BASIC version of such a program is::
+
+    110 REPeat loop 
+    120 IF EOF(#0) THEN EXIT loop 
+    130 INPUT #0,a$ 
+    140 IF a$='' THEN NEXT loop
+    150 FOR i=1 TO LEN(a$) 
+    160   IF CODE(a$(i))>96 AND CODE(a$(i))<123 THEN
+    170     a$(i)=CHR$(CODE(a$(i))-32) 
+    180   END IF 
+    190 END FOR i 
+    200 PRINT#1,a$
+    210 END REPeat loop
+
+Turbo users will need to alter #0 and #1 to #15 and #14 respectively.
+
 Minerva and SMS users can use this program without compiling it (see EW
 above).
 
-Using EX to set up filters
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Using EX to set up filters**
 
 It is actually quite simple to create a multitasking environment on the
 QL using the EX command to set up several programs all of which will
-process a given file (or data entered into a given channel) in turn. The
-syntax for this version of the command is: EX jobparams\ :sup:`1`
-:sup:`\*`\ [TO jobparams\ :sup:`i`]\ :sup:`\*` [TO #chan\ :sup:`0`]
+process a given file (or data entered into a given channel) in turn. 
+
+The
+syntax for this version of the command is: 
+
+    EX jobparams\ :sup:`1`:sup:`\*`\ [TO jobparams\ :sup:`i`]\ :sup:`\*` [TO #chan\ :sup:`0`]
+
 where jobparams represents the same parameters as are available for the
-normal EX command, being: file :sup:`\*`\ [,{file\ :sup:`x` \|
-#ch\ :sup:`x`}]\ :sup:`\*` [;cmd$] What this actually does, is to set up
+normal EX command, being: 
+
+    file :sup:`\*`\ [,{file\ :sup:`x` \|#ch\ :sup:`x`}]\ :sup:`\*` [;cmd$] 
+
+What this actually does, is to set up
 a chain of jobs or channels whereby one extra channel is opened for each
 job to form the output channel for the job on the left of the TO and
 another channel is opened to form the input channel of the job on the
-right of the TO. Where a channel number appears at the end of the line
+right of the TO. 
+
+Where a channel number appears at the end of the line
 (after a TO), this is taken as being the final output channel and
 nothing further can be done to the original input.
 
@@ -2164,22 +2254,42 @@ nothing further can be done to the original input.
 How about extending the Upper case conversion 'filter' so that a given
 text file is then printed out one line at a time with each line being
 printed out as normal, but then printed again, but this time backwards!
-First of all, the program to do the printing:- 110 REPeat loop 120 IF
-EOF(#0): EXIT loop: REMark Turbo uses #15, not #0 130 INPUT
-#0,a$:PRINT#1,a$: REMark Turbo uses #14, not #1 140 IF CMD$=='y': REMark
-Turbo users use OPTION\_CMD$ 150 IF a$='':NEXT loop 160 FOR lop=LEN(a$)
-TO 1 STEP -1 170 PRINT#1,a$(lop); 180 END FOR lop 190 PRINT#1 200 END IF
-210 END REPeat loop
- Compile this program and save the compiled version as flp1\_Back\_obj.
-Now to carry out the desired task: OPEN #3,con EX
-flp1\_uc\_obj,flp1\_test\_txt TO flp1\_back\_obj,#3;'y'
- On Minerva v1.93+, you could use: OPEN #3,con EX
-pipep,flp1\_test\_txt;'flp1\_uc\_bas>' TO pipep,#3;'flp1\_back\_bas>y'
- Or on SMS: OPEN #3,con EX flp1\_uc\_bas,flp1\_test\_txt TO
-flp1\_back\_bas,#3;'y'
 
-How about trying this:- OPEN #3,con EX flp1\_uc\_obj,flp1\_test\_txt TO
-flp1\_back\_obj;'y' TO flp1\_back\_obj,#3;'y'
+First of all, the program to do the printing::
+
+    110 REPeat loop 
+    120   IF EOF(#0): EXIT loop: REMark Turbo uses #15, not #0 
+    130   INPUT #0,a$:PRINT#1,a$: REMark Turbo uses #14, not #1 
+    140   IF CMD$=='y': REMark Turbo users use OPTION_CMD$ 
+    150   IF a$='':NEXT loop 
+    160   FOR lop=LEN(a$) TO 1 STEP -1 
+    170     PRINT#1,a$(lop); 
+    180   END FOR lop 
+    190   PRINT#1 
+    200   END IF
+    210 END REPeat loop
+
+Compile this program and save the compiled version as flp1\_Back\_obj.
+
+Now to carry out the desired task::
+
+    OPEN #3,con 
+    EX flp1_uc_obj,flp1_test_txt TO flp1_back_obj,#3;'y'
+
+On Minerva v1.93+, you could use::
+
+    OPEN #3,con 
+    EX pipep,flp1_test_txt;'flp1_uc_bas>' TO pipep,#3;'flp1_back_bas>y'
+
+Or on SMS:: 
+
+    OPEN #3,con 
+    EX flp1_uc_bas,flp1_test_txt TO flp1_back_bas,#3;'y'
+
+How about trying this::
+
+    OPEN #3,con 
+    EX flp1_uc_obj,flp1_test_txt TO flp1_back_obj;'y' TO flp1_back_obj,#3;'y'
 
 **NOTE 1**
 
@@ -2220,14 +2330,21 @@ EXCHG
 +----------+-------------------------------------------------------------------+
 | Syntax   |  EXCHG device\_file,old$,new$                                     |
 +----------+-------------------------------------------------------------------+
-| Location |  ATARI\_REXT  This command creates a Job which opens a channel to the specified file and then works through the file, replacing every occurrence of old$ with new$. The search for old$ is case independent. Both old$ and new$ must be the same length. |
+| Location |  ATARI\_REXT                                                      |
 +----------+-------------------------------------------------------------------+
+
+This command creates a Job which opens a channel to the specified file and then 
+works through the file, replacing every occurrence of old$ with new$. The 
+search for old$ is case independent. Both old$ and new$ must be the same length.
 
 **Example**
 
-EXCHG flp1\_Task\_obj,'mdv','flp'
- will replace all references to mdv1\_ or mdv2\_ to flp1\_ and flp2\_
-respectively in the file flp1\_task\_obj.
+::
+
+    EXCHG flp1_Task_obj,'mdv','flp'
+
+will replace all references to mdv1\_ or mdv2\_ to flp1\_ and flp2\_ respectively 
+in the file flp1\_task\_obj.
 
 **NOTE**
 
@@ -2242,16 +2359,20 @@ See also `CONVERT <KeywordsC.clean.html#convert>`__.
 EXEC
 ====
 
-+----------+-------------------------------------------------------------------+
-| Syntax   |  EXEC program  or                                                 |
-|          | EXEC file :sup:`\*`\ [,{file\ :sup:`x` \| #ch\ :sup:`x`}]\ :sup:`\*` [;cmd$](Toolkit II, THOR XVI)  or|
-|          | EXEC file :sup:`\*`\ [,#ch\ :sup:`x`]\ :sup:`\*` [;cmd$](Minerva v1.93+)|
-+----------+-------------------------------------------------------------------+
- This command loads and starts a machine code or compiled program, but
++----------+----------------------------------------------------------------------------------------------------------+
+| Syntax   || EXEC program  or                                                                                        |
+|          || EXEC file :sup:`\*`\ [,{file\ :sup:`x` \| #ch\ :sup:`x`}]\ :sup:`\*` [;cmd$] (Toolkit II, THOR XVI)  or |
+|          || EXEC file :sup:`\*`\ [,#ch\ :sup:`x`]\ :sup:`\*` [;cmd$] (Minerva v1.93+)                               |
++----------+----------------------------------------------------------------------------------------------------------+
+| Location || QL ROM, Toolkit II                                                                                      |
++----------+----------------------------------------------------------------------------------------------------------+
+
+This command loads and starts a machine code or compiled program, but
 then returns control to the calling job (ie. the job which issued EXEC)
-so that both jobs are multitasking. Minerva v1.97+ has now implemented a
-sub-set of the Toolkit II standard, in that you can pass details of
-existing channels to a job as well as a command string.
+so that both jobs are multitasking. 
+
+Minerva v1.97+ has now implemented a sub-set of the Toolkit II standard, 
+in that you can pass details of existing channels to a job as well as a command string.
 
 **CROSS-REFERENCE**
 
@@ -2261,19 +2382,22 @@ With Toolkit II installed or on a THOR XVI,
 `EXEC\_W <KeywordsE.clean.html#exec-w>`__, `EW <KeywordsE.clean.html#ew>`__,
 `TTEX <KeywordsT.clean.html#ttex>`__ and `ET <KeywordsE.clean.html#et>`__. If you
 are using the Hotkey System or SMS then
-see\ `EXEP <KeywordsE.clean.html#exep>`__ in this manual.
+see `EXEP <KeywordsE.clean.html#exep>`__ in this manual.
 
 --------------
 
 EXEC\_W
 =======
 
-+----------+-------------------------------------------------------------------+
-| Syntax   |  EXEC\_W program  or                                              |
-|          | EXEC\_W file :sup:`\*`\ [,{file\ :sup:`x` \| #ch\ :sup:`x`}]\ :sup:`\*` [;cmd$](Toolkit II, THOR XVI)  or|
-|          | EXEC\_W file :sup:`\*`\ [,#ch\ :sup:`x`]\ :sup:`\*` [;cmd$](Minerva v1.93+)|
-+----------+-------------------------------------------------------------------+
- This command is the same as EXEC except that the calling job is
++----------+-------------------------------------------------------------------------------------------------------------+
+| Syntax   || EXEC\_W program  or                                                                                        |
+|          || EXEC\_W file :sup:`\*`\ [,{file\ :sup:`x` \| #ch\ :sup:`x`}]\ :sup:`\*` [;cmd$] (Toolkit II, THOR XVI)  or |
+|          || EXEC\_W file :sup:`\*`\ [,#ch\ :sup:`x`]\ :sup:`\*` [;cmd$] (Minerva v1.93+)                               |
++----------+-------------------------------------------------------------------------------------------------------------+
+| Location || QL ROM, Toolkit II                                                                                         |
++----------+-------------------------------------------------------------------------------------------------------------+
+
+This command is the same as EXEC except that the calling job is
 suspended until the program has finished.
 
 **CROSS-REFERENCE**
@@ -2289,98 +2413,162 @@ EXEP
 ====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  EXEP filename [;cmd$] [,Jobname$] [,options] or                  |
-|          | EXEP Thingname$ [;cmd$] [,Jobname$] [,options] (version 2.17+)    |
+| Syntax   || EXEP filename [;cmd$] [,Jobname$] [,options] or                  |
+|          || EXEP Thingname$ [;cmd$] [,Jobname$] [,options] (version 2.17+)   |
 +----------+-------------------------------------------------------------------+
- The first variant of the EXEP command is similar to the EX
- and EW commands provided by Toolkit II. However, not only does EXEP
+| Location || HOTKEY II                                                        |
++----------+-------------------------------------------------------------------+
+ 
+The first variant of the EXEP command is similar to the EX
+and EW commands provided by Toolkit II. However, not only does EXEP
 allow you to pass a command string to the program being called (as with
 EX or EW), but you can also supply the Job name which will be shown in a
-list of the Jobs currently loaded into memory. In order to make various
+list of the Jobs currently loaded into memory. 
+
+In order to make various
 'problem' programs work correctly under the Pointer Environment, it is
 sometimes necessary to pass various parameters (options) to the Hotkey
 System when the program is called in order to tell it how to treat the
-program. The command EXEP allows you to execute a program (in the same
+program. 
+
+The command EXEP allows you to execute a program (in the same
 way as with EXEC), but at the same time, pass these parameters to the
 Pointer Environment. The parameters (or options) currently supported
-are: P [,size]-This tells the Hotkey System that the program is a Psion
-program (eg. Quill) which will try to grab all of the available memory.
-If size is not specifed, then the Hotkey System will ask the user to
-specify the maximum amount of memory (in kilobytes) that the program
-should use before the program actually starts. Otherwise, the program
-will be allowed to use size
- kilobytes of memory (if available). When the Pointer Environment was
-first released, Qjump produced a program (Grabber) which could be used
-to amend the amount of memory addressed by the Psion programs once and
-for all - if this program has been used on your copies of the Psion
-programs, then do not use this option. G [,x,y,a,b]-When a program is
-started, the Pointer Interface will store the area of the screen
-contained under each window as it is opened, restoring any part of the
-screen is no longer covered by an active window. This provides
-non-destructive windows, one of the major assets of the Pointer
-Interface. However, some programs have a habit of opening windows,
-writing to the screen and then closing the window so that the text
-cannot be altered - creating background information. Unfortunately, due
-to the way in which the Pointer Interface works, as soon as this window
-is closed, the background information would be lost. The solution to
-this is to use a guardian window (created using this parameter) which
-specifies the area of the screen which the program is allowed to use and
-which must therefore not be restored until the program has ended (even
-if there are no current windows open on that area). The parameters are
-used to open a guardian window x pixels wide by y pixels high at the
-origin (a,b). Any attempt by a program to open or resize a window so
-that part of it would fall outside this Guardian window will fail. If
-you do not pass the size of the Guardian window as a parameter (eg. EXEP
-flp1\_Graph\_exe,g), the maximum permissible window size will be assumed
-(eg. 512x256 on a standard QL). F-Some programs which use KEYROW to read
-the keyboard, or access the screen directly, can wreak havoc when
-multitasking alongside other programs. This parameter causes the
-computer to only pass any keypresses read with KEYROW to the program
-started with EXEP. U-With some programs, for example, a clock, it is
-desirable for this to be updated on screen even though it is not the Job
-at the top of the pile (ie. it is overwriting part of the current Job's
-windows). The Pointer Interface will allow you to do this by passing the
-u parameter (for unlock), for example: EXEP flp1\_Clock,u
- The second syntax of EXEP is similar, except that instead of loading a
+are: 
+
+- P [,size]- This tells the Hotkey System that the program is a Psion
+  program (eg. Quill) which will try to grab all of the available memory.
+
+  If size is not specifed, then the Hotkey System will ask the user to
+  specify the maximum amount of memory (in kilobytes) that the program
+  should use before the program actually starts. Otherwise, the program
+  will be allowed to use size
+  kilobytes of memory (if available). 
+
+  When the Pointer Environment was
+  first released, Qjump produced a program (Grabber) which could be used
+  to amend the amount of memory addressed by the Psion programs once and
+  for all - if this program has been used on your copies of the Psion
+  programs, then do not use this option. 
+
+- G [,x,y,a,b] - When a program is
+  started, the Pointer Interface will store the area of the screen
+  contained under each window as it is opened, restoring any part of the
+  screen is no longer covered by an active window. 
+
+  This provides
+  non-destructive windows, one of the major assets of the Pointer
+  Interface. However, some programs have a habit of opening windows,
+  writing to the screen and then closing the window so that the text
+  cannot be altered - creating background information. 
+
+  Unfortunately, due
+  to the way in which the Pointer Interface works, as soon as this window
+  is closed, the background information would be lost. 
+
+  The solution to
+  this is to use a guardian window (created using this parameter) which
+  specifies the area of the screen which the program is allowed to use and
+  which must therefore not be restored until the program has ended (even
+  if there are no current windows open on that area). The parameters are
+  used to open a guardian window x pixels wide by y pixels high at the
+  origin (a,b). 
+
+  Any attempt by a program to open or resize a window so
+  that part of it would fall outside this Guardian window will fail. 
+
+  If you do not pass the size of the Guardian window as a parameter (eg. EXEP
+  flp1\_Graph\_exe,g), the maximum permissible window size will be assumed
+  (eg. 512x256 on a standard QL). 
+
+- F - Some programs which use KEYROW to read
+  the keyboard, or access the screen directly, can wreak havoc when
+  multitasking alongside other programs. 
+
+  This parameter causes the
+  computer to only pass any keypresses read with KEYROW to the program
+  started with EXEP. 
+
+- U - With some programs, for example, a clock, it is
+  desirable for this to be updated on screen even though it is not the Job
+  at the top of the pile (ie. it is overwriting part of the current Job's
+  windows). 
+
+  The Pointer Interface will allow you to do this by passing the
+  u parameter (for unlock), for example::
+
+    EXEP flp1_Clock,u
+
+The second syntax of EXEP is similar, except that instead of loading a
 task stored with the given filename, it searches through the Thing list
 for an Executable Thing with the given Thingname and then (if present),
 will start that up as a new Job (if it is not present, then EXEP will
-look on the default program device for a file called Thingname). For
-example, if you have QPAC2 present, EXEP Files will call up the files
-sub-menu (in the latest versions of QPAC2, you could use, for example:
-EXEP files;'\\S \\D flp1\_\_exe \\O v','View \_EXE'
- to create a View files menu which will list all of the files on flp1\_
+look on the default program device for a file called Thingname). 
+
+For example, if you have QPAC2 present, EXEP Files will call up the files
+sub-menu (in the latest versions of QPAC2, you could use, for example::
+
+    EXEP files;'\S \D flp1__exe \O v','View _EXE'
+
+to create a View files menu which will list all of the files on flp1\_
 which end with \_exe, without any sort order; the job being called 'View
 \_EXE' in the Jobs list).
 
-**Examples**
+**Example 1**
 
-(1) Consider the following program: 100 MODE 4 110 OPEN
-#0,CON\_10x10a132x66 120 OPEN #1,CON\_448x200a32x16 130 PAPER 0:INK
-7:CLS 140 BORDER 1,2:AT 10,9:PRINT 'Y AXIS' 150 AT 15,35:PRINT 'X AXIS'
-160 OPEN #1,CON\_248x100a132x66:BORDER 1,4 170 PAUSE
- If this program was compiled (without windows being copied across) and
+Consider the following program::
+
+    100 MODE 4 
+    110 OPEN #0,CON_10x10a132x66 
+    120 OPEN #1,CON_448x200a32x16 
+    130 PAPER 0:INK 7:CLS 
+    140 BORDER 1,2:AT 10,9:PRINT 'Y AXIS' 
+    150 AT 15,35:PRINT 'X AXIS'
+    160 OPEN #1,CON_248x100a132x66:BORDER 1,4 
+    170 PAUSE
+
+If this program was compiled (without windows being copied across) and
 then run, as soon as line 160 was reached, the information around the
 sides of the graph would be lost! The reason for the PAUSE in line 170
 is that as soon as the compiled program reached the end, it would close
 all of its windows, and you would not be able to see anything! The
 answer is to use a Guardian window (created using this parameter).
 Presuming that the above program has been compiled under the filename
-flp1\_Graph\_exe, you could use the line: EXEP
-flp1\_Graph\_exe,G,448,200,32,16
- to define a Guardian window 448x200 pixels with its origin at (32,16).
-(2) Try for example, compiling the following program and starting it
-with: EXEP flp1\_Test\_exe,u
- (presuming that is the filename you allocate to it): 100 OPEN
-#1,con\_512x256a0x0 110 REPeat Loop 120 PRINT KEYROW(0) 130 END REPeat
-Loop
- You will find it very difficult to do anything (including removing this
+flp1\_Graph\_exe, you could use the line::
+
+    EXEP flp1_Graph_exe,G,448,200,32,16
+
+to define a Guardian window 448x200 pixels with its origin at (32,16).
+
+**Example 2**
+
+Try for example, compiling the following program and starting it
+with:: 
+
+    EXEP flp1_Test_exe,u
+
+(presuming that is the filename you allocate to it)::
+
+    100 OPEN #1,con_512x256a0x0 
+    110 REPeat Loop 
+    120   PRINT KEYROW(0) 
+    130 END REPeat Loop
+
+You will find it very difficult to do anything (including removing this
 job). The solution is to pass this parameter to the Pointer Interface
 which tells it to Freeze the program when it is in buried under another
 Job's windows (eg. if you used <CTRL><C> to change to another Job). For
-example, use the line: EXEP flp1\_Test\_exe,f
- (3) The SuperBASIC line: EXEP flp1\_EDT;'flp2\_Text',Editor,g
- will start up an editor stored under the filename flp1\_EDT, which will
+example, use the line::
+
+    EXEP flp1_Test_exe,f 
+
+**Example 3**
+
+The SuperBASIC line:: 
+
+    EXEP flp1_EDT;'flp2_Text',Editor,g
+
+will start up an editor stored under the filename flp1\_EDT, which will
 be given the Job name 'Editor' (which will be shown for example in the
 JOBS table), provide it with a guardian window of 512x256, and tell it
 to load a file called flp2\_Text.
@@ -2392,8 +2580,9 @@ string to the program being called.
 
 **NOTE 2**
 
-The various parameters can be mixed together, for example: EXEP
-flp1\_Graph\_exe,F,G,448,200,32,16;'ser1'
+The various parameters can be mixed together, for example::
+
+    EXEP flp1_Graph_exe,F,G,448,200,32,16;'ser1'
 
 **NOTE 3**
 
@@ -2417,15 +2606,20 @@ to call an Executable Thing.
 EXIT
 ====
 
-+----------+-------------------------------------------------------------------+
-| Syntax   |  EXIT loop\_variable (FOR loops)  or                              |
-|          | EXIT loop\_name (REPeat loops)  or                                |
-|          | EXIT(SMS only)                                                    |
-+----------+-------------------------------------------------------------------+
- Using the first two variants of this command, the specified loop
++----------+--------------------------------------------------------------------+
+| Syntax   || EXIT loop\_variable (FOR loops)  or                               |
+|          || EXIT loop\_name (REPeat loops)  or                                |
+|          || EXIT(SMS only)                                                    |
++----------+--------------------------------------------------------------------+
+| Location || QL ROM                                                            |
++----------+--------------------------------------------------------------------+
+
+Using the first two variants of this command, the specified loop
 (either a FOR or a REPeat structure) will be finished and the program
 will jump to the first statement after the relative END FOR
-loop\_variable or END REPeat loop\_name. The third variant only exists
+loop\_variable or END REPeat loop\_name. 
+
+The third variant only exists
 under SMS and will force the interpreter to jump out of the current loop
 being executed, whether it is a FOR loop or a REPeat loop - the
 interpreter will just search the program for the next END REPeat or END
@@ -2434,31 +2628,50 @@ FOR statement.
 **NOTE 1**
 
 If two or more loops are nested together, it is possible to EXIT the
-outer loop from within the inner loop: REPeat loop1
- ... REPeat loop2
- ... IF condition THEN EXIT loop1 ---+ ... \| END REPeat loop2 \| ... \|
-END REPeat loop1 \| ... <------------+ Such a structure is not regarded
-as elegant by some people because it is not possible to draw a
-structogram from this.
+outer loop from within the inner loop::
+
+    REPeat loop1
+      ... 
+      REPeat loop2
+        ... 
+        IF condition THEN EXIT loop1 ---+ 
+        ...                             | 
+      END REPeat loop2                  | 
+      ...                               |
+    END REPeat loop1                    | 
+    ...                    <------------+ 
+
+
+Such a structure is not regarded as elegant by some people because it is 
+not possible to draw a structogram from this.
 
 **NOTE 2**
 
 If a program is badly written, this can lead to confusion - for example,
-try: 100 REPeat loop 120 PRINT 'Hello' 130 EXIT loop 140 END REPeat loop
-150 END REPeat loop
- The interpreter fails to notice the misplaced END REPeat at line 150.
+try::
+
+    100 REPeat loop 
+    120   PRINT 'Hello' 
+    130   EXIT loop 
+    140 END REPeat loop
+    150 END REPeat loop
+
+The interpreter fails to notice the misplaced END REPeat at line 150.
+
 The first time that EXIT loop is encountered, the interpreter leaves the
 loop at line 140 - however, line 150 forces the interpreter to execute
 the loop a second time. This time, EXIT loop forces the interpreter to
 jump out the loop at line 150. The same thing happens if you use FOR ...
-END FOR
- instead of REPeat ... END REPeat
- This feature allows you to jump back into a loop from anywhere in the
+END FOR instead of REPeat ... END REPeat
+
+This feature allows you to jump back into a loop from anywhere in the
 program (although this should be avoided). Compare what happens if NEXT
 loop is used instead of END REPeat loop in line 150, EXIT loop will
 always exit the loop at line 140. This means that NEXT loop can also be
 used to jump back into a loop from anywhere in the program (although
-again, this should be avoided). Note that in any event, these latter two
+again, this should be avoided). 
+
+Note that in any event, these latter two
 features will only work if the named loop has already been RUN (setting
 up the loop variables)!!
 
@@ -2475,8 +2688,25 @@ EXP
 +----------+-------------------------------------------------------------------+
 | Syntax   |  EXP (var)                                                        |
 +----------+-------------------------------------------------------------------+
-| Location |  QL ROM  This function returns the value of the mathematical base e to the power of the given parameter (in other words, this is equivalent to the mathematical expression e\ :sup:`var`). This is the opposite to the function LN, ie. var=LN(EXP(var)). QDOS supports var in the range -512...511. The approximate value of e can be found by: PRINT EXP(1)  PRINT EXP(0)  returns the value 1 - as any good mathematician knows, anything to the power of 0 returns the value 1. |
+| Location |  QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
+
+This function returns the value of the mathematical base e to the power of the 
+given parameter (in other words, this is equivalent to the mathematical 
+expression e\ :sup:`var`). This is the opposite to the function LN, ie. 
+var=LN(EXP(var)). 
+
+QDOS supports var in the range -512...511. The approximate value of e can be 
+found by::
+
+    PRINT EXP(1)  
+
+::
+
+    PRINT EXP(0)  
+
+returns the value 1 - as any good mathematician knows, anything to the power 
+of 0 returns the value 1.
 
 **CROSS-REFERENCE**
 
@@ -2491,8 +2721,11 @@ EXPAND
 +----------+-------------------------------------------------------------------+
 | Syntax   |  EXPAND file$                                                     |
 +----------+-------------------------------------------------------------------+
-| Location |  COMPICT  This command takes a screen file (which must have been created with COMPRESS), and re-expands it on the visible screen. |
+| Location |  COMPICT                                                          |
 +----------+-------------------------------------------------------------------+
+
+This command takes a screen file (which must have been created with COMPRESS), 
+and re-expands it on the visible screen.
 
 **NOTE 1**
 
@@ -2526,8 +2759,10 @@ EXPLODE
 +----------+-------------------------------------------------------------------+
 | Syntax   |  EXPLODE                                                          |
 +----------+-------------------------------------------------------------------+
-| Location |  ST/QL, QSound  This command produces the sound of an explosion, very nice. |
+| Location |  ST/QL, QSound                                                    |
 +----------+-------------------------------------------------------------------+
+
+This command produces the sound of an explosion, very nice.
 
 **CROSS-REFERENCE**
 
@@ -2540,21 +2775,31 @@ EXTRAS
 ======
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  EXTRAS [#channel] or                                             |
-|          | EXTRAS \\file (Toolkit II, THOR only)  or                         |
-|          | EXTRAS [#channel][,width] (BTool only)                            |
+| Syntax   || EXTRAS [#channel] or                                             |
+|          || EXTRAS \\file (Toolkit II, THOR only)  or                        |
+|          || EXTRAS [#channel][,width] (BTool only)                           |
 +----------+-------------------------------------------------------------------+
- This command lists all of the machine code Procedures and Functions
+| Location || Toolkit II, THOR XVI, QSound, BTool                              |
++----------+-------------------------------------------------------------------+
+
+This command lists all of the machine code Procedures and Functions
 (keywords) which are recognised by the SuperBASIC interpreter in the
 given channel (default #1), or the given file (if the second variant is
 used), which will be automatically opened and even overwritten if it
-already exists (after asking the user to confirm that this is okay). The
-file will be closed at the end of the operation. The THOR XVI version
+already exists (after asking the user to confirm that this is okay). 
+
+The file will be closed at the end of the operation. 
+
+The THOR XVI version
 will not list those keywords which are resident in ROM (ie. available
-when the THOR is first powered up). The BTool version lists the keywords
+when the THOR is first powered up). 
+
+The BTool version lists the keywords
 in columns and as such is the same as EXTRAS\_W. The number of columns
 is adapted automatically to a window's width; if this is too wide for
-your needs then you can specify a width in characters. The QSound
+your needs then you can specify a width in characters. 
+
+The QSound
 variant is intended for output to a non-screen channel (see WIDTH), in
 which case an empty line appears between each name. If output is sent to
 a window, then the words are all printed on the same line, obscuring
@@ -2593,8 +2838,12 @@ EXTRAS\_W
 +----------+-------------------------------------------------------------------+
 | Syntax   |  EXTRAS\_W [#ch]                                                  |
 +----------+-------------------------------------------------------------------+
-| Location |  ATARI\_REXT  This lists all of the current SuperBASIC commands to the given channel (default #1). Unlike EXTRAS, the output appears in columns and there is no pause when the given window is full. |
+| Location |  ATARI\_REXT                                                      |
 +----------+-------------------------------------------------------------------+
+
+This lists all of the current SuperBASIC commands to the given channel (default 
+#1). Unlike EXTRAS, the output appears in columns and there is no pause when 
+the given window is full.
 
 **CROSS-REFERENCE**
 
