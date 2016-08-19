@@ -1,0 +1,4 @@
+-  Lefty ←
+-  Right →
+-  Up ↑
+-  Down ↓

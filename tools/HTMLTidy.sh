@@ -4,13 +4,17 @@
 
 DIR=`dirname "${0}"`
 HTML="${1}"
+TMP=${HTML}.tmp
 CLEAN="${HTML%%html}clean.html"
 ERRS="${HTML%%html}errors.txt"
 CHECK=0
 
 # Clean up first...
+# PreClean...
+preHTMLTidy < ${HTML} > ${TMP}
+
 echo "Cleaning '${HTML}' as '${CLEAN}', with errors in '${ERRS}'"
-tidy -indent -wrap 1000 -upper -ashtml -utf8 -file "${ERRS}" -output "${CLEAN}" "${HTML}"
+tidy -indent -wrap 1000 -upper -ashtml -utf8 -file "${ERRS}" -output "${CLEAN}" "${TMP}"
 CHECK=${?}
 
 # 1 = Warnings
@@ -42,6 +46,8 @@ then
     exit $?
 fi
 
+# Finished with ${TMP}
+#rm ${TMP} 2>/dev/null
 
 # All done. Sort of. Need to go manual now.
 echo "Done."
