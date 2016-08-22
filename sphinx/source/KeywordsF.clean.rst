@@ -6,6 +6,15 @@ Keywords F
 TODO
 ====
 
+- FILE\_TYP is missing!
+- FGET% and FGET$ have the same URL. Fix.
+- FPUT% and FPUT$ have the same URL. Fix.
+- FILL and FILL$ have the same URL. Fix.
+- FREAD and FREAD$ have the same URL. Fix.
+- FWRITE and FWRITE$ have the same URL. Fix.
+
+
+
 
 FACT
 ====
@@ -25,12 +34,12 @@ returns the factorial of the number, calculated as the product:
 n elements can be combined in FACT(n) different ways, eg. take the three
 first letters, the FACT(3)=6 permutations of A, B and C are: 
 
-1. A B C 
-2. A C B 
-3. B A C 
-4. B C A 
-5. C A B 
-6. C B A
+1. ABC 
+2. ACB 
+3. BAC 
+4. BCA 
+5. CAB 
+6. CBA
 
 **CROSS-REFERENCE**
 
@@ -62,23 +71,30 @@ FASTEXPAND
 ==========
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  FASTEXPAND adr1,adr2 |                                           |
+| Syntax   |  FASTEXPAND adr1,adr2                                             |
 +----------+-------------------------------------------------------------------+
 | Location |  COMPICT                                                          |
 +----------+-------------------------------------------------------------------+
 
-|  If a screen which has been compressed and saved with COMPRESS is
+If a screen which has been compressed and saved with COMPRESS is
 loaded into memory with LBYTES (for example), this command allows
 quicker expansion of the screen than would otherwise be possible with
-EXPAND. FASTEXPAND also allows you to expand the screen to any address
+EXPAND. 
+
+FASTEXPAND also allows you to expand the screen to any address
 (provided that there is at least 32K of free memory stored there). adr1
 is the address where the compressed screen is stored and adr2 the place
 in RAM where the expanded screen should be moved to.
 
 **Example**
 
-| 100 COMPRESS ram1\_test\_scr 110 a=ALCHP(FLEN(\\ram1\_test\_scr)) 120
-LBYTES ram1\_test\_scr,a 130 FASTEXPAND a,SCREEN 140 RECHP a
+::
+
+    100 COMPRESS ram1_test_scr 
+    110 a=ALCHP(FLEN(\ram1_test_scr)) 
+    120 LBYTES ram1_test_scr,a 
+    130 FASTEXPAND a,SCREEN 
+    140 RECHP a
 
 **NOTE**
 
@@ -96,77 +112,123 @@ FBKDT
 =====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  FBKDT [(#channel)] or FBKDT (\\file) |                           |
+| Syntax   || FBKDT [(#channel)] or                                            |
+|          || FBKDT (\\file)                                                   |
 +----------+-------------------------------------------------------------------+
-| Location |  Level-2 Device Drivers, SMS                                      |
+| Location || Level-2 Device Drivers, SMS                                      |
 +----------+-------------------------------------------------------------------+
 
-|  It is proposed that this function be used to return the date on which
+It is proposed that this function be used to return the date on which
 a given file was last backed up. Current versions of SuperBASIC
 commands, such as COPY and WCOPY do not set the back-up date of the file
-being copied, although some software may do this. The idea of a back-up
+being copied, although some software may do this, WinBack for example. 
+
+The idea of a back-up
 date is mainly for use in automatic back-up programs which can be told
 to copy all files on a given medium within certain parameters, namely
 files which have been altered since a specific date and which have been
-altered since the last time that they were backed up. The value returned
+altered since the last time that they were backed up. 
+
+The value returned
 is the date in QDOS format, ie. the number of seconds since Midnight 1st
 January 1961 {check this initial date with PRINT DATE$(0)}. This backup
 time currently needs to be set manually using SET\_FBKDT, although it is
 hoped that future versions of COPY and WCOPY will do so automatically.
+
 If it has not been set, FBKDT will return zero. The default data device
 and sub-directories are supported, default channel is #3.
 
 **Example**
 
-| The next page contains a PROCedure to make an intelligent backup of
+The PROCedure below will make an intelligent backup of
 all files contained in the medium specified by the first parameter to
 the medium specified in the second parameter, which have been altered
 since they were last backed up. TinyToolkit's TCONNECT or DIY-TK's QLINK
 is necessary to use this example. This can be used for example by
-entering the line: BACKUP flp1\_ TO flp2\_
-|  Although sub-directories and the default data device are fully
+entering the line::
+
+    BACKUP flp1_ TO flp2_
+
+Although sub-directories and the default data device are fully
 supported on the medium being backed-up, the procedures would need
 modificication to enable them to create similar sub-directories on the
 destination device. The PROCedure makes heavy use of recursive
 programming, which means that it uses a lot of memory (not all of which
 is released at the end of the PROCedure). It would need a considerable
-re-write to be in a form which could be safely compiled. 100 DEFine
-PROCedure BACKUP (dir1,dir2) 110 LOCal
-dir1$,dir2$,old\_datad$,old\_destd$ 120 LOCal ERRno,outer,sloop 130
-dir1$=PARSTR$(dir1,1):dir2$=PARSTR$(dir2,2) 140
-old\_datad$=DATAD$:old\_destd$=DESTD$ 150 DATA\_USE '':ERRno=-7 160
-REPeat sloop 170 IF FTEST(dir1$)<0 180 dir1$=old\_datad$&dir1$ 190 IF
-FTEST(dir1$)<0:PRINT #0,dir1$;' ';:EXIT sloop 200 END IF 210
-full\_dir$=(dir1$&' ')(1 TO 5):orig\_dir$=dir1$ 220 IF FTEST(dir2$)<0
-230 outer=FOP\_NEW(dir2$):IF outer>0:CLOSE #outer 240 IF outer<0 250
-dir2$=old\_destd$&dir2$ 260 IF
-old\_destd$(LEN(old\_destd$))<>'\_':ERRno= -15:EXIT sloop 270 IF
-FOP\_OVER(dir2$)<0:PRINT #0,dir2$;' ';:EXIT sloop 280 END IF 290 END IF
-300 ERRno=0:EXIT sloop 310 END REPeat sloop 320 DATA\_USE old\_datad$
-330 IF ERRno<0:REPORT ERRno:RETurn 340 IF
-dir2$(LEN(dir2$))<>'\_':dir2$=dir2$&'\_' 350 main\_ch=-1:max\_ch=0 360
-read\_directory dir1$ 370 PRINT #0,'Backup complete' 380 FOR i=main\_ch
-TO max\_ch:CLOSE #i 390 END DEFine 400 : 410 DEFine PROCedure
-read\_directory(current\_dir$) 420 LOCal in\_ch,out\_ch 430
-in\_ch=FOPEN('scr\_'):IF main\_ch=-1:main\_ch=in\_ch 440
-out\_ch=FOPEN(pipe\_10000):DIR #out\_ch,current\_dir$ 450 TCONNECT
-#out\_ch TO #in\_ch 460 CLOSE #out\_ch 470 copy\_file$
-#in\_ch,full\_dir$,dir2$ 480 IF in\_ch>max\_ch:max\_ch=in\_ch 490 END
-DEFine 500 :
-|  (The rest of this example follows on the next page). 510 DEFine
-PROCedure copy\_file$(chan,in$,out$) 520 LOCal
-files\_loop,junk$,outer,test1,test2 530 INPUT #chan,junk$,junk$ 540
-REPeat files\_loop 550 IF EOF(#chan):EXIT files\_loop 560 INPUT
-#chan,in\_file$ 570 out\_file$=out$&in\_file$ 580
-in\_file$=in$&in\_file$ 590 IF LEN(in\_file$)>3 600 IF
-in\_file$(LEN(in\_file$)-2 TO)=' ->' 610 read\_directory in\_file$(1 TO
-LEN(in\_file$)-3) 620 NEXT files\_loop 630 END IF 640 END IF 650
-test1=FBKDT(\\in\_file$) 660 outer=FOPEN(out\_file$) 670 IF outer>0 680
-test2=FUPDT(#outer):CLOSE #outer 690 ELSE 700 test2=-7 710 END IF 720 IF
-test2<test1 OR test1=0 730 PRINT 'Backing-up'!in\_file$!'=>'!out\_file$
-740 DELETE out\_file$:COPY in\_file$ TO out\_file$ 750 SET\_FBKDT
-\\in\_file$,DATE 760 END IF 770 END REPeat files\_loop 775 CLOSE#chan
-780 END DEFine
+re-write to be in a form which could be safely compiled. 
+
+::
+
+    100 DEFine PROCedure BACKUP (dir1,dir2) 
+    110   LOCal dir1$,dir2$,old_datad$,old_destd$ 
+    120   LOCal ERRno,outer,sloop 
+    130   dir1$=PARSTR$(dir1,1):dir2$=PARSTR$(dir2,2) 
+    140   old_datad$=DATAD$:old_destd$=DESTD$ 
+    150   DATA_USE '':ERRno=-7 
+    160   REPeat sloop 
+    170     IF FTEST(dir1$)<0 
+    180       dir1$=old_datad$&dir1$ 
+    190       IF FTEST(dir1$)<0:PRINT #0,dir1$;' ';:EXIT sloop 
+    200     END IF 
+    210     full_dir$=(dir1$&' ')(1 TO 5):orig_dir$=dir1$ 
+    220     IF FTEST(dir2$)<0
+    230       outer=FOP_NEW(dir2$):IF outer>0:CLOSE #outer 
+    240       IF outer<0  
+    250         dir2$=old_destd$&dir2$ 
+    260         IF old_destd$(LEN(old_destd$))<>'_':ERRno= -15:EXIT sloop 
+    270         IF FOP_OVER(dir2$)<0:PRINT #0,dir2$;' ';:EXIT sloop 
+    280       END IF 
+    290     END IF
+    300     ERRno=0:EXIT sloop 
+    310   END REPeat sloop 
+    320   DATA_USE old_datad$
+    330   IF ERRno<0:REPORT ERRno:RETurn 
+    340   IF dir2$(LEN(dir2$))<>'_':dir2$=dir2$&'_' 
+    350   main_ch=-1:max_ch=0 
+    360   read_directory dir1$ 
+    370   PRINT #0,'Backup complete' 
+    380   FOR i=main_ch TO max_ch:CLOSE #i 
+    390 END DEFine 
+    400 : 
+    410 DEFine PROCedure read_directory(current_dir$) 
+    420   LOCal in_ch,out_ch 
+    430   in_ch=FOPEN('scr_'):IF main_ch=-1:main_ch=in_ch 
+    440   out_ch=FOPEN(pipe_10000):DIR #out_ch,current_dir$ 
+    450   TCONNECT #out_ch TO #in_ch 
+    460   CLOSE #out_ch 
+    470   copy_file$ #in_ch,full_dir$,dir2$ 
+    480   IF in_ch>max_ch:max_ch=in_ch 
+    490 END DEFine 
+    500 :
+    510 DEFine PROCedure copy_file$(chan,in$,out$) 
+    520   LOCal files_loop,junk$,outer,test1,test2 
+    530   INPUT #chan,junk$,junk$ 
+    540   REPeat files_loop 
+    550     IF EOF(#chan):EXIT files_loop 
+    560     INPUT #chan,in_file$ 
+    570     out_file$=out$&in_file$ 
+    580     in_file$=in$&in_file$ 
+    590     IF LEN(in_file$)>3 
+    600       IF in_file$(LEN(in_file$)-2 TO)=' ->' 
+    610         read_directory in_file$(1 TO LEN(in_file$)-3) 
+    620         NEXT files_loop 
+    630       END IF 
+    640     END IF 
+    650     test1=FBKDT(\in_file$) 
+    660     outer=FOPEN(out_file$) 
+    670     IF outer>0  
+    680       test2=FUPDT(#outer):CLOSE #outer 
+    690     ELSE 
+    700       test2=-7 
+    710     END IF 
+    720     IF test2<test1 OR test1=0 
+    730       PRINT 'Backing-up'!in_file$!'=>'!out_file$
+    740       DELETE out_file$:COPY in_file$ TO out_file$ 
+    750       SET_FBKDT \in_file$,DATE 
+    760     END IF 
+    770   END REPeat files_loop 
+    775   CLOSE#chan
+    780 END DEFine
 
 **CROSS-REFERENCE**
 
@@ -185,12 +247,13 @@ FDAT
 ====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  FDAT [(#channel)] or FDAT (\\filename) (Toolkit II and THOR) |   |
+| Syntax   || FDAT [(#channel)] or                                             |
+|          || FDAT (\\filename) (Toolkit II and THOR)                          |
 +----------+-------------------------------------------------------------------+
-| Location |  Toolkit II, THOR XVI, BTool                                      |
+| Location ||  Toolkit II, THOR XVI, BTool                                     |
 +----------+-------------------------------------------------------------------+
 
-|  This function returns the value of four bytes (at offset 6 to 9) in a
+This function returns the value of four bytes (at offset 6 to 9) in a
 file header. This value represents the dataspace of executable files
 (file type 1). There is no convention for any other file types. The
 default data device and sub-directories are supported, the default
@@ -209,23 +272,33 @@ FDEC$
 =====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  FDEC$ (value,length,ndp) |                                       |
+| Syntax   |  FDEC$ (value,length,ndp)                                         |
 +----------+-------------------------------------------------------------------+
 | Location |  Toolkit II, THOR XVI                                             |
 +----------+-------------------------------------------------------------------+
 
-|  This function is similar to CDEC$ except for two major differences.
+This function is similar to CDEC$ except for two major differences.
 FDEC$ does not assume that value is an integer, and therefore uses the
-whole of value, although if the given ndp
-|  number of decimal places is less than the number of decimal places in
-value, value will be rounded up or down accordingly. FDEC$ does not
+whole of value, although if the given ndp (number of decimal places) is less than 
+the number of decimal places in
+value, value will be rounded up or down accordingly. 
+
+FDEC$ does not
 insert commas in the characters to the left of the decimal point.
 
 **Examples**
 
-| PRINT FDEC$(100.235,6,2)
-|  will print '100.24' PRINT FDEC$(100,6,2)
-|  will print '100.00'
+::
+
+    PRINT FDEC$(100.235,6,2)
+
+will print '100.24' 
+
+::
+
+    PRINT FDEC$(100,6,2)
+
+will print '100.00'
 
 **CROSS-REFERENCE**
 
@@ -237,24 +310,37 @@ FEXP$
 =====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  FEXP$ (value,length,ndp) |                                       |
+| Syntax   |  FEXP$ (value,length,ndp)                                         |
 +----------+-------------------------------------------------------------------+
 | Location |  Toolkit II                                                       |
 +----------+-------------------------------------------------------------------+
 
-|  This function is different to CDEC$ in that it always prints the
+This function is different to CDEC$ in that it always prints the
 given value in exponential format. This means that there is always only
 one character to the left of the decimal point (plus any sign), and ndp
-states how many characters should be to the right of the decimal point.
+(number odf decimal places) states how many characters should be to the right 
+of the decimal point.
+
 FEXP$ does not assume that value is an integer and therefore also caters
 for floating point values. The length of the field must be at least
-ndp+7, otherwise a nul string is returned. If necessary, values are
+ndp+7, otherwise an empty string is returned. 
+
+If necessary, values are
 rounded up or down to fit in the specified ndp number of decimal places.
 
 **Examples**
 
-PRINT FEXP$(-100.235,11,4) will print -1.0023E+02 PRINT
-FEXP$$(100.235,11,4) will print 1.0024E+02
+::
+
+    PRINT FEXP$(-100.235,11,4) 
+
+will print -1.0023E+02 
+
+::
+
+    PRINT FEXP$$(100.235,11,4) 
+
+will print 1.0024E+02
 
 **CROSS-REFERENCE**
 
@@ -269,12 +355,12 @@ FF
 ==
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  FF |                                                             |
+| Syntax   |  FF                                                               |
 +----------+-------------------------------------------------------------------+
 | Location |  Beuletools                                                       |
 +----------+-------------------------------------------------------------------+
 
-|  This function returns CHR$(12), which performs a form feed when sent
+This function returns CHR$(12), which performs a form feed when sent
 to an EPSON compatible printer.
 
 **CROSS-REFERENCE**
@@ -299,10 +385,11 @@ FGET%
 | Location |  BTool                                                            |
 +----------+-------------------------------------------------------------------+
 
-|  This function reads two bytes from #channel (default #1) and makes an
+This function reads two bytes from #channel (default #1) and makes an
 integer value from them, so these bytes should be in the internal format
-of an integer to make FGET% useful. An integer is stored in two bytes as
-Integer = Byte1\*256+ byte2
+of an integer to make FGET% useful. 
+
+An integer is stored in two bytes as Integer = Byte1\*256+ byte2
 
 **CROSS-REFERENCE**
 
@@ -322,15 +409,23 @@ FGET$
 | Location |  BTool                                                            |
 +----------+-------------------------------------------------------------------+
 
-|  This function reads a string in internal format from a specified
-channel (default #1) and returns the string. A string is stored
+This function reads a string in internal format from a specified
+channel (default #1) and returns the string. 
+
+A string is stored
 internally as a two byte integer (see FGET%) specifying the length of
-the string followed by the string itself.
+the string followed by the characters of the string itself.
 
 **Example**
 
-| 100 OPEN\_NEW#3,ram1\_test 110 PRINT#3,MKS$("Hello World.") 120
-FPOS\_A#3,0 130 PRINT FGET$(#3) 140 CLOSE#3 150 DELETE ram1\_test
+::
+
+    100 OPEN_NEW#3,ram1_test 
+    110 PRINT#3,MKS$("Hello World.") 
+    120 FPOS_A#3,0 
+    130 PRINT FGET$(#3) 
+    140 CLOSE#3 
+    150 DELETE ram1_test
 
 **CROSS-REFERENCE**
 
@@ -351,14 +446,17 @@ FGETB
 | Location |  BTool                                                            |
 +----------+-------------------------------------------------------------------+
 
-|  This function reads a single byte (character) from a specified
+This function reads a single byte (character) from a specified
 channel (default #1) and returns its numeric value.
 
 **Example**
 
-| 100 PRINT "Please press any key..." 110 CLEAR: c = FGETB 120 PRINT
-"You pressed '";CHR$(c);"', "; 130 PRINT "which is
-code"!c!"($";HEX$(c,8);")."
+::
+
+    100 PRINT "Please press any key..." 
+    110 CLEAR: c = FGETB 
+    120 PRINT "You pressed '";CHR$(c);"', "; 
+    130 PRINT "which is code"!c!"($";HEX$(c,8);")."
 
 **CROSS-REFERENCE**
 
@@ -376,19 +474,27 @@ FGETL
 | Location |  BTool                                                            |
 +----------+-------------------------------------------------------------------+
 
-|  This function reads four bytes, being the internal representation of
+This function reads four bytes, being the internal representation of
 a longword, from a specified channel (default #1) and returns the
 longword's value.
 
 **Example**
 
-| It is preferable to store a large integer in internal format because
+It is preferable to store a large integer in internal format because
 this is faster than text representation and needs less memory, even if
-the number could be stored in internal float format: 100 large\_int =
-1.19344E7 110 : 120 REMark save value 130 OPEN\_NEW#3,ram1\_test 140
-PRINT#3,MKL$(large\_int) 150 CLOSE#3: CLEAR 160 : 170 REMark read value
-180 OPEN\_IN#3,ram1\_test 190 large\_int = FGETL(#3) 200 CLOSE#3: PRINT
-large\_int
+the number could be stored in internal float format::
+
+    100 large_int = 1.19344E7 
+    110 : 
+    120 REMark save value 
+    130 OPEN_NEW#3,ram1_test 
+    140 PRINT#3,MKL$(large_int) 
+    150 CLOSE#3: CLEAR 
+    160 : 
+    170 REMark read value
+    180 OPEN_IN#3,ram1_test 
+    190 large_int = FGETL(#3) 
+    200 CLOSE#3: PRINT large_int
 
 **CROSS-REFERENCE**
 
@@ -408,7 +514,7 @@ FGETF
 | Location |  BTool                                                            |
 +----------+-------------------------------------------------------------------+
 
-|  The function FGETF gets six bytes from a channel (default #1) in the
+The function FGETF gets six bytes from a channel (default #1) in the
 internal format of a floating point number.
 
 **WARNING**
@@ -434,53 +540,85 @@ FGETH$
 | Location |  BTool                                                            |
 +----------+-------------------------------------------------------------------+
 
-|  This function reads the file header from an open channel
-|  linked to a file (default #3). Each file has a header of 64 bytes
+This function reads the file header from an open channel
+linked to a file (default #3). 
+
+Each file has a header of 64 bytes
 which contains technical information about the file. FGETH$ returns a
-string containing 64 characters, each of which represents one byte. The
-string contains the following information:
+string containing 64 characters, each of which represents one byte of 
+the file header. The string contains the following information:
 
-charactermeaningvalueequivalent position in stringfunction
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++-----------+---------------------------------+--------------------+---------------------+
+| Character | Meaning                         | Value in string    | Equivalent Function |
++===========+=================================+====================+=====================+
+|  1...4    | file length                     | CVL(h$(1 TO 4))    | FLEN                |
++-----------+---------------------------------+--------------------+---------------------+
+|      5    | file access key                 | CODE(h$(5))        | None                |
++-----------+---------------------------------+--------------------+---------------------+
+|      6    | file type                       | CODE(h$(6))        | FTYP                |
++-----------+---------------------------------+--------------------+---------------------+
+|  7..14    | type dependent info (see below) |                    | FDAT,FXTRA          |
++-----------+---------------------------------+--------------------+---------------------+
+| 15..16    | filename length                 | CVI%(h$(15 TO 16)) | LEN(FNAME$)         |
++-----------+---------------------------------+--------------------+---------------------+
+| 17..52    | filename bytes                  | CVS$(h$(15 TO 52)) | FNAME$              |
++-----------+---------------------------------+--------------------+---------------------+
+| 53..56    | update time                     | CVL(h$(53 TO 56))  | FUPDT               |
++-----------+---------------------------------+--------------------+---------------------+
+| 57..58    | version number                  | CVI%(h$(57 TO 58)) | FVERS               |
++-----------+---------------------------------+--------------------+---------------------+
+| 59..60    | reserved                        | CVI%(h$(59 TO 60)) | None                |
++-----------+---------------------------------+--------------------+---------------------+
+| 61..64    | backup date                     | CVL(h$(61 TO 64))  | FBKDT               |
++-----------+---------------------------------+--------------------+---------------------+
 
-| 1..4file lengthCVL(h$(1 TO 4))FLEN
-|  5file access keyCODE(h$(5))(none) 6 file typeCODE(h$(6))FTYP
-|  7..14 type dependent info (see below)FDAT,FXTRA
-|  15..16filename lengthCVI%(h$(15 TO 16))LEN(FNAME$)
-|  17..52 filename CVS$(h$(15 TO 52))FNAME$
-|  53..56update timeCVL(h$(53 TO 56))FUPDT
-|  57..58version numberCVI%(h$(57 TO 58))FVERS
-|  59..60(reserved)CVI%(h$(59 TO 60))
-|  61..64backup dateCVL(h$(61 TO 64))FBKDT
-|  The type dependent information is different for each file type. For
+The type dependent information is different for each file type. For
 type 1 (executable files) bytes 7 to 10 hold the dataspace: CVL(h$(7 TO
 10)). In early documentation, bytes 57 to 60 were reserved for a
 reference date which was never implemented. The last eight bytes (57 to
 64) are actually not used on level-1 drivers, level-2 drivers use every
-byte. There is an unofficial standard for the file access key, which is
+byte. There is an *unofficial* standard for the file access key, which is
 generally used by Toolkits to store file attributes in the format:
 
-Bit No:Meaning
-~~~~~~~~~~~~~~
++--------+-------------------------------------------------------------------------------------------------------+
+| Bit No | Meaning                                                                                               |
++--------+-------------------------------------------------------------------------------------------------------+
+|     7  | Set if the file is read-only.                                                                         |
++--------+-------------------------------------------------------------------------------------------------------+
+|     6  | Set if the file is hidden and will not appear on a directory of the disk. Neither can it be accessed. |
++--------+-------------------------------------------------------------------------------------------------------+
+| 0 - 5  | are used to contain the User Number. Basically, this file will only be                                |
+|        | accessible by someone with the same user number (0-63).                                               |
+|        |                                                                                                       |
+|        | Files with a                                                                                          | 
+|        | user number of 0 will be visible and useable by any user.                                             |
+|        |                                                                                                       |
+|        | Files with a                                                                                          |
+|        | user number of 63 are generally only available to a user in a special                                 |
+|        | mode (normally this will require a password).                                                         |
++--------+-------------------------------------------------------------------------------------------------------+
 
-7Set if the file is read-only. 6Set if the file is hidden and will not
-appear on a directory of the disk. Neither can it be accessed. 0 - 5are
-used to contain the User Number. Basically, this file will only be
-accessible by someone with the same user number (0-63). Files with a
-user number of 0 will be visible and useable by any user. Files with a
-user number of 63 are generally only available to a user in a special
-mode (normally this will require a password). You will need specialist
-toolkits (such as Toolkit III and System, neither of which are
-compatible with SMS if the File Access Key is to have any effect).
+You will need specialist toolkits such as Toolkit III and System, neither of which are
+compatible with SMS if the File Access Key is to have any effect.
 
 **Examples**
 
-| Nearly every part of a file header (apart from the two unused bytes)
+Nearly every part of a file header (apart from the two unused bytes)
 can be read by special functions (see the list above), here are two
-functions to read the rest: 100 DEFine FuNction FACCKEY (chan) 110 LOCal
-h$ 120 h$=FGETH$(#chan) 130 RETurn CODE(h$(5)) 140 END DEFine FACCKEY
-100 DEFine FuNction FSPEC% (chan) 110 LOCal h$ 120 h$=FGETH$(#chan) 130
-RETurn CVI%(h$(59 TO 60)) 140 END DEFine FSPEC%
+functions to read the rest::
+
+    100 DEFine FuNction FACCKEY (chan) 
+    110   LOCal h$ 
+    120   h$=FGETH$(#chan) 
+    130   RETurn CODE(h$(5)) 
+    140 END DEFine FACCKEY
+    150 :
+    160 DEFine FuNction FSPEC% (chan) 
+    170   LOCal h$ 
+    180   h$=FGETH$(#chan) 
+    190   RETurn CVI%(h$(59 TO 60)) 
+    200 END DEFine FSPEC%
+    
 
 **CROSS-REFERENCE**
 
@@ -503,12 +641,13 @@ FILE\_DAT
 =========
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  FILE\_DAT (filename) |  or FILE\_DAT (file$) |                   |
+| Syntax   || FILE\_DAT (filename) or                                          |
+|          || FILE\_DAT (file$)                                                |
 +----------+-------------------------------------------------------------------+
-| Location |  TinyToolkit                                                      |
+| Location || TinyToolkit                                                      |
 +----------+-------------------------------------------------------------------+
 
-|  This is the same as FDAT except that default devices and sub-
+This is the same as FDAT except that default devices and sub-
 directories are not supported.
 
 --------------
@@ -517,26 +656,40 @@ FILE\_LEN
 =========
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  FILE\_LEN (filename) |  or FILE\_LEN (file$) |                   |
+| Syntax   || FILE\_LEN (filename) or                                          |
+|          || FILE\_LEN (file$)                                                |
 +----------+-------------------------------------------------------------------+
-| Location |  TinyToolkit                                                      |
+| Location || TinyToolkit                                                      |
 +----------+-------------------------------------------------------------------+
 
-|  This function returns the length of a file in bytes. It does not
+This function returns the length of a file in bytes. It does not
 support the default devices or sub-directories.
 
 **Example**
 
-| A short program to show simple file statistics (without any support of
-wild cards): 100 dev$="FLP1\_" 110 OPEN#3,PIPE\_10000: OPEN#4,PIPE\_200
-120 TCONNECT #3 TO #4 130 DIR#3,dev$: INPUT#4,h$\\h$ 140 : 150 sum=0:
-count=0 160 REPeat add\_lengths 170 IF NOT PEND(#4) THEN EXIT
-add\_lengths 180 INPUT#4,file$ 185 IF " ->" INSTR file$ THEN NEXT
-add\_lengths 190 sum=sum+FILE\_LEN(dev$ & file$) 200 count=count+1 210
-END REPeat add\_lengths 220 : 230 CLS 240 PRINT "There are"!count!"files
-in"!dev$;"." 250 PRINT "They are altogether"!sum!"bytes long," 260 PRINT
-"the average length is"!INT(sum/count+.5)!"bytes."
-|  TinyToolkit's TCONNECT or DIY Toolkit's QLINK is necessary
+A short program to show simple file statistics (without any support of
+wild cards):: 
+
+    100 dev$="FLP1_" 
+    110 OPEN#3,PIPE_10000: OPEN#4,PIPE_200
+    120 TCONNECT #3 TO #4 
+    130 DIR#3,dev$: INPUT#4,h$\h$ 
+    140 : 
+    150 sum=0: count=0 
+    160 REPeat add_lengths 
+    170   IF NOT PEND(#4) THEN EXIT add_lengths 
+    180   INPUT#4,file$ 
+    185   IF " ->" INSTR file$ THEN NEXT add_lengths 
+    190   sum=sum+FILE_LEN(dev$ & file$) 
+    200   count=count+1 
+    210 END REPeat add_lengths 
+    220 : 
+    230 CLS 
+    240 PRINT "There are"!count!"files in"!dev$;"." 
+    250 PRINT "They are altogether"!sum!"bytes long," 
+    260 PRINT "the average length is"!INT(sum/count+.5)!"bytes."
+
+TinyToolkit's TCONNECT or DIY Toolkit's QLINK is necessary
 
 **NOTE**
 
@@ -562,34 +715,49 @@ FILE\_OPEN
 ==========
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  FILE\_OPEN ([#ch,] device [,{mode% \| ChID}]) |                  |
+| Syntax   |  FILE\_OPEN ([#ch,] device [,{mode% \| ChID}])                    |
 +----------+-------------------------------------------------------------------+
 | Location |  BTool                                                            |
 +----------+-------------------------------------------------------------------+
 
-|  FILE\_OPEN is a function which will open any device (default data
+FILE\_OPEN is a function which will open any device (default data
 directory supported for files) for all kinds of tasks. If a channel
 number #ch is not supplied, FILE\_OPEN will choose the channel number on
 its own by searching for the next free channel number and returning it.
+
 FILE\_OPEN returns the channel number if it was not specified or
 otherwise zero. In case of failure it will return a (negative) error
 code. If error -4 ('out of range') is returned when a channel number has
 not been supplied, this indicates that the channel table of a compiled
-job is full. The third parameter can be either the open mode or the
-channel ID of an un-named pipe. The open mode (default 0) is: 0 (old
-exclusive) - open an existing file to read and write 1 (old shared) -
-open an existing file to read only 2 (new exclusive) - create a new file
-if it does not exist 3 (new overwrite) - create a new file, whether or
-not it exists 4 (dir open) - open a directory to read only. If the third
-parameter is the channel ID of an open input pipe, then FILE\_OPEN will
+job is full. 
+
+The third parameter can be either the open mode or the
+channel ID of an un-named pipe. 
+
+The open mode (default 0) is: 
+
+- 0 (old exclusive) - open an existing file to read and write. 
+- 1 (old shared) - open an existing file to read only. 
+- 2 (new exclusive) - create a new file if it does not exist.
+- 3 (new overwrite) - create a new file, whether or not it exists. 
+- 4 (dir open) - open a directory to read only. 
+
+If the third parameter is the channel ID of an open input pipe, then FILE\_OPEN will
 create an output pipe linked to that channel.
 
 **Example**
 
-| Count additional keywords: 100 ch1=FILE\_OPEN(pipe\_10000) 110
-ch2=FILE\_OPEN(pipe\_,CHANID(#ch1)) 120 EXTRAS#ch1 130 FOR count=1 TO
-1E6 140 IF IO\_PEND%(#ch2) THEN EXIT 150 INPUT#ch2,keyword$ 160 AT 0,0:
-PRINT count 170 END FOR count 180 CLOSE#ch1,#ch2
+Count additional keywords::
+
+    100 ch1=FILE_OPEN(pipe_10000) 
+    110 ch2=FILE_OPEN(pipe_,CHANID(#ch1)) 
+    120 EXTRAS#ch1 
+    130 FOR count=1 TO 1E6 
+    140   IF IO_PEND%(#ch2) THEN EXIT 
+    150   INPUT#ch2,keyword$ 
+    160   AT 0,0: PRINT count 
+    170 END FOR count 
+    180 CLOSE#ch1,#ch2
 
 **CROSS-REFERENCE**
 
@@ -612,12 +780,12 @@ FILE\_POS
 =========
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  FILE\_POS (#channel) |                                           |
+| Syntax   |  FILE\_POS (#channel)                                             |
 +----------+-------------------------------------------------------------------+
 | Location |  TinyToolkit                                                      |
 +----------+-------------------------------------------------------------------+
 
-|  This performs the same function as FPOS, although with slightly less
+This performs the same function as FPOS, although with slightly less
 flexible parameters.
 
 --------------
@@ -626,12 +794,12 @@ FILE\_PTRA
 ==========
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  FILE\_PTRA #channel, position |                                  |
+| Syntax   |  FILE\_PTRA #channel, position                                    |
 +----------+-------------------------------------------------------------------+
 | Location |  TinyToolkit                                                      |
 +----------+-------------------------------------------------------------------+
 
-|  This command forces the file pointer to be set to the given position.
+This command forces the file pointer to be set to the given position.
 Positions greater than the actual file length or smaller than zero will
 set the pointer to the end or start of the file respectively.
 
@@ -648,32 +816,52 @@ FILE\_PTRR
 ==========
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  FILE\_PTRR #channel, bytes |                                     |
+| Syntax   |  FILE\_PTRR #channel, bytes                                       |
 +----------+-------------------------------------------------------------------+
 | Location |  TinyToolkit                                                      |
 +----------+-------------------------------------------------------------------+
 
-|  This command moves the file pointer from its current position by the
+This command moves the file pointer from its current position by the
 given number of bytes forward, negative numbers allow backward movement.
+
 The file pointer cannot go beyond the limits of the file itself, so if
 you try to do so, the pointer will be set to the start or end of the
 file.
 
 **Example**
 
-| A program to store several names and telephone numbers in a file and
+A program to store several names and telephone numbers in a file and
 then to search for the given name and return the relevant telephone
-number: 100 DIM a$(3,30),number(3) 110 RESTORE 120 FOR i=1 TO 3: READ
-a$(i),number(i) 130 OPEN\_NEW #3,flp2\_phone\_dbs 140 FOR stores=1 TO 3
-150 PUT#3,a$(stores),number(stores) 160 END FOR stores 170 CLOSE#3 180 :
-200 INPUT name$ 210 OPEN\_IN#3,flp2\_phone\_dbs 220 REPeat find\_NAME
-230 IF EOF(#3) THEN PRINT'NAME not found...': STOP 240 GET#3,entry$ 250
-IF entry$==name$ THEN 260 GET#3,telno 270 EXIT find\_NAME 280 END IF 290
-FILE\_PTRR#3,6: REMark skip next phone number 300 END REPeat find\_NAME
-310 CLOSE#3 320 PRINT entry$;'....';telno 330 : 350 DATA 'P.C.
-Green','999' 360 DATA 'CATFLAP inc.','7212.002121' 370 DATA
-'Tim','98081'
-|  Note that on Minerva, Integer Tokenisation will need to be disabled.
+number:: 
+
+    100 DIM a$(3,30),number(3) 
+    110 RESTORE 
+    120 FOR i=1 TO 3: READ a$(i),number(i) 
+    130 OPEN_NEW #3,flp2_phone_dbs 
+    140 FOR stores=1 TO 3
+    150   PUT#3,a$(stores),number(stores) 
+    160 END FOR stores 
+    170 CLOSE#3 
+    180 :
+    200 INPUT name$ 
+    210 OPEN_IN#3,flp2_phone_dbs 
+    220 REPeat find_NAME
+    230   IF EOF(#3) THEN PRINT 'NAME not found...': STOP 
+    240   GET#3,entry$ 
+    250   IF entry$==name$ THEN 
+    260     GET#3,telno 
+    270     EXIT find_NAME 
+    280   END IF 
+    290   FILE_PTRR#3,6: REMark skip next phone number 
+    300 END REPeat find_NAME
+    310 CLOSE#3 
+    320 PRINT entry$;'....';telno 
+    330 : 
+    350 DATA 'P.C. Green','999' 
+    360 DATA 'CATFLAP inc.','7212.002121' 
+    370 DATA 'Tim','98081'
+
+Note that on Minerva, Integer Tokenisation will need to be disabled.
 
 **CROSS-REFERENCE**
 
@@ -688,12 +876,12 @@ FILL
 ====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  FILL [#channel,] boolean |                                       |
+| Syntax   |  FILL [#channel,] boolean                                         |
 +----------+-------------------------------------------------------------------+
 | Location |  QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
 
-|  This command switches Fill mode on and off. If the Fill mode is on
+This command switches Fill mode on and off. If the Fill mode is on
 (after FILL 1), all points in the given window channel (default #1) that
 have the same vertical co-ordinate are connected by a line in the
 current ink colour so that only non-reentrant figures can be filled
@@ -702,14 +890,22 @@ horizontal row of pixels. The fill mode is de-activated by FILL 0.
 
 **Example 1**
 
-| FILL 1: POINT 20,20,40,20: FILL 0
-|  draws a horizontal line from 20,20 to 40,20.
+::
+
+    FILL 1: POINT 20,20,40,20: FILL 0
+
+draws a horizontal line from 20,20 to 40,20.
 
 **Example 2**
 
-| 100 DEFine PROCedure SQUARE (x,y,size,angle) 110 LOCal n: POINT x,y
-120 TURNTO angle: PENDOWN: FILL 1 130 FOR n=1 TO 4: MOVE size: TURN 270
-140 PENUP: FILL 0 150 END DEFine SQUARE
+::
+
+    100 DEFine PROCedure SQUARE (x,y,size,angle) 
+    110   LOCal n: POINT x,y
+    120   TURNTO angle: PENDOWN: FILL 1 
+    130   FOR n=1 TO 4: MOVE size: TURN 270
+    140   PENUP: FILL 0 
+    150 END DEFine SQUARE
 
 **NOTE 1**
 
@@ -732,46 +928,67 @@ together if any points appear on the same horizontal line!
 
 **NOTE 4**
 
-| FILL works by setting aside a buffer of approximately 1K. Whenever a
+FILL works by setting aside a buffer of approximately 1K. Whenever a
 point is then plotted in the given window, FILL looks at the buffer to
 see if anything appears to the left of that point on the same horizontal
 line (in which case, it fills the line between the two points),
 otherwise, FILL will just note the co-ordinate of the point in its
-buffer. FILL then checks if anything appears to the right of the given
+buffer. 
+
+FILL then checks if anything appears to the right of the given
 point, and if so, will fill the line between the two points. Again, the
 co-ordinate of the point will be stored if nothing appears to the right
-of it. This should explain quite a few of FILL's quirks. Whenever a new
+of it. 
+
+This should explain quite a few of FILL's quirks. Whenever a new
 FILL command is used on that window, the old buffer is lost, meaning
 that FILL will forget about any points previously plotted.
+
 Unfortunately, the interaction of this buffer causes a lot of problems
 (and prevents re-entrant shapes), especially in view of the fact that
 only FILL or CLOSE will clear the buffer. The buffer is not cleared once
 a shape has been completely filled (eg. with CIRCLE), nor even when the
-screen is cleared with CLS. Try this for example:- 100 INK 7:FILL 1 110
-CIRCLE 50,50,20 130 CLS 135 INK 2 140 CIRCLE 70,60,20
+screen is cleared with CLS. Try this for example::
+
+    100 INK 7:FILL 1 
+    110 CIRCLE 50,50,20 
+    130 CLS 
+    135 INK 2 
+    140 CIRCLE 70,60,20
 
 **NOTE 5**
 
-| If OVER -1 is switched on, the same line of an image may be FILLed
+If OVER -1 is switched on, the same line of an image may be FILLed
 twice causing that line to be left empty, unless you start drawing the
 image from either the top or the bottom. You may also encounter problems
 if you try to draw a line which has already been completed by FILL - for
-example try:- 100 OVER -1:FILL 1 110 LINE 50,50 TO 60,60 TO 70,50 TO
-50,50
-|  The FILL command will complete the triangle as soon as the line
+example try::
+
+    100 OVER -1: FILL 1 
+    110 LINE 50,50 TO 60,60 TO 70,50 TO 50,50
+
+The FILL command will complete the triangle as soon as the line
 between the points (60,60) and (70,50) has been drawn, therefore this
-should be re-written: 100 OVER -1:FILL 1 110 LINE 50,50 TO 60,60 TO
-70,50
-|  On Minerva v1.97 and SMSQ/E, matters are further complicated - the
+should be re-written::
+
+    100 OVER -1:FILL 1 
+    110 LINE 50,50 TO 60,60 TO 70,50
+
+On Minerva v1.97 and SMSQ/E, matters are further complicated - the
 first example draws a complete triangle, whereas the second one doesn't!
 
 **NOTE 6**
 
-| If OVER -1 is switched on, a shape which is drawn as FILLed will not
+If OVER -1 is switched on, a shape which is drawn as FILLed will not
 be wiped out by re-drawing the same shape again, unless you do a FILL 1
-before re-drawing the shape. For example, try this: 100 OVER -1:FILL
-1:CIRCLE 50,50,20 110 PAUSE:CIRCLE 50,50,20
-|  The answer is to insert a line: 105 FILL 1
+before re-drawing the shape. For example, try this::
+
+    100 OVER -1:FILL 1:CIRCLE 50,50,20 
+    110 PAUSE: CIRCLE 50,50,20
+
+The answer is to insert a line::
+
+    105 FILL 1
 
 **NOTE 7**
 
