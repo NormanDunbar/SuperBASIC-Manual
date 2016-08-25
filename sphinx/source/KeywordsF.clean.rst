@@ -1006,20 +1006,41 @@ FILL$
 =====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  FILL$ (short$,length) |                                          |
+| Syntax   |  FILL$ (short$,length)                                            |
 +----------+-------------------------------------------------------------------+
 | Location |  QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
 
-|  This function will generate a string of the given length and return
+This function will generate a string of the given length and return
 it. The new string will consist of a repeated series of short$ which may
 be one or two characters long. The length (as with any string) ranges
 from 0 to 32767.
 
 **Examples**
 
-| FILL$("W-",7)="W-W-W-W" FILL$("+",10)="++++++++++" FILL$("Jo",0)=""
-FILL$("Test",6)="TeTeTe"
+::
+ 
+    FILL$("W-",7)
+    
+returns "W-W-W-W".
+
+::
+ 
+    FILL$("+",10)
+    
+returns "++++++++++".
+
+::
+ 
+    FILL$("Jo",0)
+
+retuns "" (the empty string).
+
+::
+
+    FILL$("Test",6)
+
+returns "TeTeTe".
 
 **NOTE 1**
 
@@ -1033,8 +1054,8 @@ in) if you declare the string explicitly rather than using FILL$.
 
 **NOTE 3**
 
-| The maximum length of string that can be produced with FILL$
-|  depends on the ROM version - see the Compatability Appendix.
+The maximum length of string that can be produced with FILL$
+depends on the ROM version - see the Compatability Appendix.
 
 **CROSS-REFERENCE**
 
@@ -1046,22 +1067,27 @@ FIND
 ====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  FIND (procfn$) |                                                 |
+| Syntax   |  FIND (procfn$)                                                   |
 +----------+-------------------------------------------------------------------+
 | Location |  BTool                                                            |
 +----------+-------------------------------------------------------------------+
 
-|  If procfn$ is the name of a machine code keyword (eg. "FILL$") then
+If procfn$ is the name of a machine code keyword (eg. "FILL$") then
 the function FIND returns the address where the definition is stored in
-memory. If, however, procfn$ contains the name of a SuperBASIC PROCedure
+memory. 
+
+If, however, procfn$ contains the name of a SuperBASIC PROCedure
 or FuNction then FIND will return the line number where the PROCedure or
-FuNction starts. FIND returns 0 if the passed name is unknown.
+FuNction starts. 
+
+FIND returns 0 if the passed name is unknown.
 
 **Example**
 
-| <ALT><R> requests a Procedure/Function name and calls Toolkit II's
-full screen editor accordingly: ALTKEY "r","ED
-FIND('')"&CHR$(192)&CHR$(192)
+<ALT><r> requests a Procedure/Function name and calls Toolkit II's
+full screen editor accordingly::
+
+    ALTKEY "r","ED FIND('')"&CHR$(192)&CHR$(192)
 
 **CROSS-REFERENCE**
 
@@ -1075,29 +1101,41 @@ FLASH
 =====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  FLASH [#ch,] switch |                                            |
+| Syntax   |  FLASH [#ch,] switch                                              |
 +----------+-------------------------------------------------------------------+
 | Location |  QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
 
-|  This command turns on or off flashing in the specified window channel
-(default #1). switch can only have the values 0 (to enable flashing) and
-1 (to turn flashing on). This command will only have any effect in MODE
-8. If flashing is enabled, then any characters PRINTed to the given
+This command turns on or off flashing in the specified window channel
+(default #1). Switch can only have the values 0 (to enable flashing) and
+1 (to turn flashing on). 
+
+This command will only have any effect in MODE
+8. 
+
+If flashing is enabled, then any characters PRINTed to the given
 window afterwards will be shown to flash - it is first written out as
 normal, but then the parts of the character which would normally be
 shown in the current INK colour will alternate with the colour of the
-background. The colour of the background can in fact be different for
+background. 
+
+The colour of the background can in fact be different for
 each row of pixels - this is calculated by the colour of the left-most
 pixel on each row for each character PRINTed.
 
 **Example**
 
-| This short listing shows the effect of the FLASH command - note that
-the display is not actually changed back to its original form. 100 PAPER
-2: INK 1 120 CSIZE 3,1: MODE 8: CLS 130 FOR i=0 TO 50: LINE 80+i,80 TO
-15+i,10 140 INK 7: CURSOR 100,120 150 OVER 1: FLASH 1: PRINT 'This is
-flashing' 160 CSIZE 1,0: FLASH 0
+This short listing shows the effect of the FLASH command - note that
+the display is not actually changed back to its original form. 
+
+::
+
+    100 PAPER 2: INK 1 
+    120 CSIZE 3,1: MODE 8: CLS 
+    130 FOR i=0 TO 50: LINE 80+i,80 TO 15+i,10 
+    140 INK 7: CURSOR 100,120 
+    150 OVER 1: FLASH 1: PRINT 'This is flashing' 
+    160 CSIZE 1,0: FLASH 0
 
 **NOTE 1**
 
@@ -1127,15 +1165,18 @@ FLEN
 ====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  FLEN [(#channel)] or FLEN (\\file)(Toolkit II and THOR only) |   |
+| Syntax   || FLEN [(#channel)] or                                             |
+|          || FLEN (\\file)(Toolkit II and THOR only)                          |
 +----------+-------------------------------------------------------------------+
-| Location |  Toolkit II, THOR XVI, BTool                                      |
+| Location || Toolkit II, THOR XVI, BTool                                      |
 +----------+-------------------------------------------------------------------+
 
-|  This function returns the length of a file in bytes. If the second
+This function returns the length of a file in bytes. If the second
 version is used, then Toolkit II's default data device and
 sub-directories will be supported, meaning that the command will consult
-the default data directory if necessary (see DATAD$). If you use the
+the default data directory if necessary (see DATAD$). 
+
+If you use the
 first version however, you will first of all need to open a channel. If
 you do not supply a channel number, then the default used by the
 function is #3.
@@ -1147,8 +1188,10 @@ can be stored is divided up into sectors, which are normally 512 bytes
 long. A file does not occupy the number of bytes returned by FLEN but a
 certain number of sectors for the contents of the file itself, a few
 bytes for the file header and the directory entries (sector map, etc).
-The total number of sectors which are occupied by the file data are:
-sectors=2+CEIL(FLEN(\\file)/512).
+The total number of sectors which are occupied by the file data are::
+
+    sectors = 2 + CEIL(FLEN(\file)/512)
+    
 
 **NOTE 2**
 
@@ -1172,16 +1215,19 @@ FLIS
 ====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  FLIS (procfn$) |                                                 |
+| Syntax   |  FLIS (procfn$)                                                   |
 +----------+-------------------------------------------------------------------+
 | Location |  Tiny Toolkit                                                     |
 +----------+-------------------------------------------------------------------+
 
-|  If procfn$ is the name of a SuperBASIC PROCedure or FuNction then
+If procfn$ is the name of a SuperBASIC PROCedure or FuNction then
 FLIS will return the line number where the PROCedure or FuNction is
-defined. If however, it is a machine code keyword (eg. "FILL$") then the
-function FLIS will return 0. If the name is not recognised the error
-'Not Found' is reported.
+defined. 
+
+If however, it is a machine code keyword (eg. "FILL$") then the
+function FLIS will return 0. 
+
+If the name is not recognised the error 'Not Found' is reported.
 
 **CROSS-REFERENCE**
 
@@ -1195,40 +1241,55 @@ FLP\_DENSITY
 ============
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  FLP\_DENSITY density density = S, D, H, E |                      |
+| Syntax   |  FLP\_DENSITY density  (density = S, D, H or E)                   |
 +----------+-------------------------------------------------------------------+
 | Location |  Gold Cards, SMS                                                  |
 +----------+-------------------------------------------------------------------+
 
-|  There are four types of floppy disk drives which can be connected to
+There are four types of floppy disk drives which can be connected to
 a QL with a Gold Card (or to other computers which are running a QL
 emulator). The command FLP\_DENSITY sets the type for use with FORMAT:
 
-sideddensityabbrevcapacitydensity
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++--------+---------+--------+----------+--------------+
+| Sides  | Density | Abbrev | Capacity | FLP\_Density |
++========+=========+========+==========+==============+
+| Single | Double  | SSDD   |  360 Kb  | S            |
++--------+---------+--------+----------+--------------+
+| Double | Double  | DSDD   |  720 Kb  | D            |
++--------+---------+--------+----------+--------------+
+| Double | High    | DSHD   | 1440 Kb  | H            |
++--------+---------+--------+----------+--------------+
+| Double | Extra   | DSED   | 3240 Kb  | E            |
++--------+---------+--------+----------+--------------+
 
-| singledoubleSSDD360 KS
-|  doubledoubleDSDD720 KD
-|  doublehighDSHD1440 KH
-|  doubleextraDSED3240 KE
-|  Parameters other than the four letters S, D, H and E, (including
+Parameters other than the four letters S, D, H and E, (including
 several characters or several parameters) are not allowed.
 
 **Examples**
 
-| FLP\_DENSITY h FLP\_DENSITY 'D'
+::
+
+    FLP_DENSITY h 
+    FLP_DENSITY 'D'
 
 **NOTE 1**
 
-| Tests have shown that it is not always advisable to FORMAT a disk to a
+Tests have shown that it is not always advisable to FORMAT a disk to a
 lower density than would otherwise be possible, for example a high
 density disk to double density. The result may be that the number of
 good sectors is less than could have been achieved by formatting a disk
-of the lower density. During testing, an undamaged double density disk
+of the lower density. 
+
+During testing, an undamaged double density disk
 was formatted to 1440 sectors and a high density disk to 2880 sectors,
 but if the high density disk had been formatted to double density, eg.
-with: FLP\_DENSITY D : FORMAT flp1\_
-|  less than 1440 sectors might be good sectors. You may also find that
+with::
+
+    FLP_DENSITY D : FORMAT flp1_
+    
+less than 1440 sectors might be good sectors. 
+
+You may also find that
 some disk drives which support the higher density will be unable to read
 these disks, since it will presume that they are FORMATted to their
 maximum density.
@@ -1282,7 +1343,7 @@ achieved with a special `FORMAT <KeywordsF.clean.html#format>`__ syntax.
 `FLP\_TRACK <KeywordsF.clean.html#flp-track>`__ allows you to specify the
 number of tracks to be formatted onto a disk.
 `STAT <KeywordsS.clean.html#stat>`__ prints the name, good and free sectors of
-a medium. See also the `DMEDIUM\_ <KeywordsD.clean.html#dmedium->`__...
+a medium. See also the `DMEDIUM\_ <KeywordsD.clean.html#dmedium-density>`__...
 functions.
 
 --------------
@@ -1291,14 +1352,16 @@ FLP\_EXT
 ========
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  FLP\_EXT |                                                       |
+| Syntax   |  FLP\_EXT                                                         |
 +----------+-------------------------------------------------------------------+
 | Location |  Gold Cards                                                       |
 +----------+-------------------------------------------------------------------+
 
-|  If you use RES\_128 or RES\_SIZE to reset the computer to 128K memory
-only attempts to access the floppy disk drives can be haphazard, and can
-even crash the computer. The command FLP\_EXT resolves these problems
+If you use RES\_128 or RES\_SIZE to reset the computer to 128K memory
+any attempts to access the floppy disk drives can be haphazard, and can
+even crash the computer. 
+
+The command FLP\_EXT resolves these problems
 and adds the following commands for use: RAM\_USE, CACHE\_ON,
 CACHE\_OFF, SCR2DIS, SCR2EN, AUTO\_TK2F1, AUTO\_TK2F2, AUTO\_DIS,
 FLP\_JIGGLE, PAR\_USE, FSERVE, NFS\_USE, DEV\_USE, DEV\_LIST, DEV\_USE$,
@@ -1316,23 +1379,33 @@ FLP\_JIGGLE
 ===========
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  FLP\_JIGGLE [driveno,] flag |                                    |
+| Syntax   |  FLP\_JIGGLE [driveno,] flag                                      |
 +----------+-------------------------------------------------------------------+
 | Location |  Gold Cards                                                       |
 +----------+-------------------------------------------------------------------+
 
-|  There were originally various problems when using Mitsubishi ED disk
+There were originally various problems when using Mitsubishi ED disk
 drives with the Gold Card and so a fix was incorporated in both the Gold
 Card and Super Gold Card operating systems which forces the drive
-read/write head to make a number of rapid steps. This can however cause
+read/write head to make a number of rapid steps. 
+
+This can however cause
 problems with other ED disk drives (normally seen in the form of 'Not
-Found' or 'Bad or Changed Medium' errors. It was therefore felt
+Found' or 'Bad or Changed Medium' errors. 
+
+It was therefore felt
 necessary to be able to enable or disable this feature at the users
-request (the default is to have the feature disabled). To enable this
-feature set flag to 1, 0 will disable it. If driveno is not specified,
+request (the default is to have the feature disabled). 
+
+To enable this
+feature set flag to 1, 0 will disable it. 
+
+If driveno is not specified,
 then the setting will be applied to all disk drives connected to the
 (Super) Gold Card and automatically stored so that it is available on
-power on. However, if driveno is specified, then the setting will only
+power on. 
+
+If driveno is specified, then the setting will only
 apply to that specified disk drive and will be forgotten when the power
 is switched off.
 
@@ -1348,52 +1421,49 @@ FLP\_SEC
 ========
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  FLP\_SEC level |                                                 |
+| Syntax   |  FLP\_SEC level                                                   |
 +----------+-------------------------------------------------------------------+
 | Location |  Gold Cards, Trump Card, SMS, THORs                               |
 +----------+-------------------------------------------------------------------+
 
-|  The Gold Card, Trump Card and Thor range of computers, together with
+The Gold Card, Trump Card and Thor range of computers, together with
 SMS provide a high standard of disk security, meaning that they are
 unlikely to fail to notice when a disk has been swapped over, and
-thereby try to write a file across two disks! However, this level of
+thereby try to write a file across two disks! 
+
+However, this level of
 security does affect the speed of disk access, as the system must check
-to see if the disk has been altered each time that it is written to. The
-command FLP\_SEC allows you to choose between three levels of security,
+to see if the disk has been altered each time that it is written to. 
+
+The command FLP\_SEC allows you to choose between three levels of security,
 the lowest of which (level 0) is still at least as secure as many other
 disk operating systems (such as MSDOS). The lower the level of security,
 the quicker disk access will be. The levels of security are as follows:-
 
 Security Level 0
-~~~~~~~~~~~~~~~~
-
-The disk system will only check to see if the disk has changed if a file
-is opened and the disk has stopped (ie. the disk light will have gone
-out) since the last time it was checked. The disk map is only updated
-when a file is closed (or flushed) and no other disk access has happened
-within half a second. Confusion can be expected on both read and write
-operations whenever a disk is changed whilst the disk light is still on
-or there are files open to the disk.
+    The disk system will only check to see if the disk has changed if a file
+    is opened and the disk has stopped (ie. the disk light will have gone
+    out) since the last time it was checked. The disk map is only updated
+    when a file is closed (or flushed) and no other disk access has happened
+    within half a second. Confusion can be expected on both read and write
+    operations whenever a disk is changed whilst the disk light is still on
+    or there are files open to the disk.
 
 Security Level 1
-~~~~~~~~~~~~~~~~
-
-The disk is checked each time that a file is opened, data is written to
-the disk, or the disk map is to be written; provided that the disk has
-stopped since the last time it was checked. The disk map is only updated
-when a file is closed (or flushed) and no other disk access has happened
-within half a second. The disk is not checked when anything is read from
-the disk, which can lead to confusion if a disk is changed whilst there
-are files still open.
+    The disk is checked each time that a file is opened, data is written to
+    the disk, or the disk map is to be written; provided that the disk has
+    stopped since the last time it was checked. The disk map is only updated
+    when a file is closed (or flushed) and no other disk access has happened
+    within half a second. The disk is not checked when anything is read from
+    the disk, which can lead to confusion if a disk is changed whilst there
+    are files still open.
 
 Security Level 2
-~~~~~~~~~~~~~~~~
-
-The disk is checked whenever a file is opened, data is written to or
-read from the disk, or the map is to be read or written to; provided
-that the disk has stopped since the last time that it was checked. The
-disk map and directory are updated and the slave buffers flushed every
-time that a file is closed (or flushed).
+    The disk is checked whenever a file is opened, data is written to or
+    read from the disk, or the map is to be read or written to; provided
+    that the disk has stopped since the last time that it was checked. The
+    disk map and directory are updated and the slave buffers flushed every
+    time that a file is closed (or flushed).
 
 **SMS NOTE**
 
@@ -1406,25 +1476,28 @@ FLP\_START
 ==========
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  FLP\_START time |                                                |
+| Syntax   |  FLP\_START time                                                  |
 +----------+-------------------------------------------------------------------+
-| Location |  Gold Cards, Trump Card, THORs, ST/QL (level D.02+ drivers),      |
+| Location |  Gold Cards, Trump Card, THORs, ST/QL (level D.02+ drivers), SMS  |
 +----------+-------------------------------------------------------------------+
 
-SMS
-|  The disk system always tries to read data from a disk as soon as it
+The disk system always tries to read data from a disk as soon as it
 can. However, when writing to a disk, it is necessary to ensure that the
-disk is running at full speed before any information is sent to it. For
-relatively new drives, the default waiting time of 0.5 seconds should be
-enough to ensure that the disk is running at full speed. The command
-FLP\_START can be used for older disks to allow a longer run-up time.
-You will need to specify the time in 20ms units - some older drives may
+disk is running at full speed before any information is sent to it. 
+
+For relatively new drives, the default waiting time of 0.5 seconds should be
+enough to ensure that the disk is running at full speed. 
+
+The command FLP\_START can be used for older disks to allow a longer run-up time. You will need to specify the time in 20ms units - some older drives may
 require a value of about 60.
 
 **Example**
 
-FLP\_START 13 - set the start up time to 13\*20ms (260ms) - this may
-suit the most recent 3.5" drives.
+::
+
+    FLP_START 13 
+    
+sets the start up time to 13 \* 20ms (260ms) - this may suit the most recent 3.5" drives.
 
 **NOTE**
 
@@ -1442,28 +1515,41 @@ FLP\_STEP
 =========
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  FLP\_STEP [drive,] rate |                                        |
+| Syntax   |  FLP\_STEP [drive,] rate                                          |
 +----------+-------------------------------------------------------------------+
 | Location |  Disk Interfaces, Gold Cards, SMS                                 |
 +----------+-------------------------------------------------------------------+
 
-|  The step rate enables the computer to known how quickly to step
+The step rate enables the computer to known how quickly to step
 across tracks on the disk surface. Normally, this is automatically set
 to 3 milliseconds (ms) for 80 track disks and 6ms for 40 track disks,
 although if the system detects repeated errors on reading the disk, it
-will automatically slow the step rate. Various old disk drives may
+will automatically slow the step rate. 
+
+Various old disk drives may
 require a slower stepping speed (you will generally know this from the
 noise the disk drive makes - it will make a repetitive knocking sound
 each time that the disk is accessed). You can do this by increasing the
-value specified by setting the rate using this command. If drive is not
+value specified by setting the rate using this command. 
+
+If drive is not
 specified, the new step rate is taken to apply to all disk drives
 connected to the system, otherwise, you can specify the number of the
 drive to which the new step rate is to apply.
 
 **Examples**
 
-FLP\_STEP 12Will produce quite a slow step rate for older drives.
-FLP\_STEP 2,12Will produce a step rate of 12ms for the drive in FLP2\_.
+::
+
+    FLP_STEP 12
+    
+Will produce quite a slow step rate for older drives.
+
+::
+
+    FLP_STEP 2,12
+
+Will produce a step rate of 12ms for the drive in FLP2\_.
 
 **NOTE 1**
 
@@ -1487,15 +1573,17 @@ FLP\_TRACK
 ==========
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  FLP\_TRACK tracks |                                              |
+| Syntax   |  FLP\_TRACK tracks                                                |
 +----------+-------------------------------------------------------------------+
 | Location |  Gold Cards, Trump Card, THOR, ST/QL, SMS                         |
 +----------+-------------------------------------------------------------------+
 
-|  When a disk is formatted, the operating system will check to see if
+When a disk is formatted, the operating system will check to see if
 there are more than 55 tracks on the disk, and if so, will presume that
 it should be formatted to 80 tracks (otherwise it will presume the disk
-is to be formatted to 40 tracks). The command FLP\_TRACK allows you to
+is to be formatted to 40 tracks). 
+
+The command FLP\_TRACK allows you to
 override this setting, so that you can format a disk to, say, 75 tracks.
 FLP\_TRACK 40 should be used as standard when a 40 track disk drive is
 attached to the system as this will prevent the system from trying to
@@ -1503,8 +1591,11 @@ read track 55 (which does not exist!!), thus saving wear on the drive.
 
 **Example**
 
-| FLP\_TRACK 40
-|  can be used on a standard DSDD 80 track disk to format it into a form
+::
+
+    FLP_TRACK 40
+    
+can be used on a standard DSDD 80 track disk to format it into a form
 readable on a 40 track drive.
 
 **CROSS-REFERENCE**
@@ -1520,16 +1611,19 @@ FLP\_USE
 +----------+-------------------------------------------------------------------+
 | Syntax   |  FLP\_USE [device]                                                |
 +----------+-------------------------------------------------------------------+
-| Location |  Gold Cards, Trump Card, THORs,                                   |
+| Location |  Gold Cards, Trump Card, THORs, ST/QL, SMS                        |
 +----------+-------------------------------------------------------------------+
 
-ST/QL, SMS
-|  Software which was written in the early days of the QL tended to
+Software which was written in the early days of the QL tended to
 assume that it would always be run from microdrive, and therefore
 included no facilities to alter the default devices used by the
-software. You may even find some software was written on a non-standard
+software. 
+
+You may even find some software was written on a non-standard
 disk system and assumed that disks would be accessed via FDK rather than
-the normal FLP. The FLP\_USE command allows you to use such software by
+the normal FLP. 
+
+The FLP\_USE command allows you to use such software by
 making the FLP device emulate any other device. You merely need to
 supply a three letter parameter representing the name of the device
 which is to be emulated. Once you do this, the FLP device will no longer
@@ -1538,9 +1632,11 @@ to using FLP to access the disk drives.
 
 **Example**
 
-| FLP\_USE 'mdv'
-|  will allow you to use software which would normally run from
-microdrive (unless it is copy protected!).
+::
+
+    FLP_USE 'mdv'
+
+will allow you to use software which would normally run from microdrive (unless it is copy protected!).
 
 **CROSS-REFERENCE**
 
