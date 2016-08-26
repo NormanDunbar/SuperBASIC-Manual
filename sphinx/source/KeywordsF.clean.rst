@@ -1659,14 +1659,18 @@ FLUSH
 | Location |  Toolkit II                                                       |
 +----------+-------------------------------------------------------------------+
 
-|  The command FLUSH forces all of the QL's temporary buffers attached
+The command FLUSH forces all of the QL's temporary buffers attached
 to the specified channel (default #3) to be emptied into that channel.
-This will only work on channels attached to files {any other type of
-channel will return error -15 (bad parameter)}. This command is
+This will only work on channels attached to files, any other type of
+channel will return error -15 (bad parameter). 
+
+This command is
 necessary due to the use by QDOS of slave blocks whenever a file is
 opened. Data can be stored partly in the slave blocks to aid speed and
 when writing to a file, which will only be written to that file once the
-channel has been CLOSEd or the slave blocks have become full. Because of
+channel has been CLOSEd or the slave blocks have become full. 
+
+Because of
 this, there is always a danger that part of the data will be lost if
 there is a power failure or other accident. FLUSH helps you to avoid
 this.
@@ -1686,19 +1690,23 @@ FMAKE\_DIR
 ==========
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  FMAKE\_DIR (subdirectory) |                                      |
+| Syntax   |  FMAKE\_DIR (subdirectory)                                        |
 +----------+-------------------------------------------------------------------+
 | Location |  Level-2 Device Drivers                                           |
 +----------+-------------------------------------------------------------------+
 
-|  This function will only work if Level-2 or Level-3 device drivers are
-available. FMAKE\_DIR is identical to MAKE\_DIR except that it is a
+This function will only work if Level-2 or Level-3 device drivers are
+available. 
+
+FMAKE\_DIR is identical to MAKE\_DIR except that it is a
 function and does not stop a program if an error occurs, instead it
-returns the code of the error concerned. The following errors need some
-explanation: Error -9 (in use):there is already a sub-directory with the
-same name; Error -8 (already exists):file (not a sub-directory) exists
-already with that name; Error -15 (bad parameter):medium does not
-support sub-directories.
+returns the code of the error concerned. 
+
+The following errors need some explanation: 
+
+- Error -9 (in use) : There is already a sub-directory with the same name; 
+- Error -8 (already exists) : File (not a sub-directory) exists already with that name; 
+- Error -15 (bad parameter) : Medium does not support sub-directories.
 
 **NOTE 1**
 
@@ -1723,17 +1731,24 @@ FNAME$
 ======
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  FNAME$ [(#channel)] or FNAME$ (\\file)(Toolkit II only) |        |
+| Syntax   || FNAME$ [(#channel)] or                                           |
+|          || FNAME$ (\\file)(Toolkit II only)                                 |
 +----------+-------------------------------------------------------------------+
-| Location |  Toolkit II, BTool                                                |
+| Location || Toolkit II, BTool                                                |
 +----------+-------------------------------------------------------------------+
 
-|  This function returns the filename of a file attached to the
+This function returns the filename of a file attached to the
 specified channel (default #3), including the sub-directory prefix but
-without the pure device name (eg. RAM1\_). The second syntax enables you
-to find out the full filename of the specified file. It is hard to
+without the pure device name (eg. RAM1\_). 
+
+The second syntax enables you
+to find out the full filename of the specified file. 
+
+It is hard to
 understand why one should need to find out about the name of an opened
-file - the second syntax is even more absurd. One possible usage is to
+file - the second syntax is even more absurd. 
+
+One possible usage is to
 convert a Toolkit II filename, which need not include the current
 sub-directory, to a full file name. However, the functions DATAD$,
 PROGD$ together with some string operations are much faster and more
@@ -1754,29 +1769,38 @@ FOPEN
 =====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  FOPEN (#ch, name) |  or FOPEN (name) |                           |
+| Syntax   || FOPEN (#ch, name) or                                             |
+|          || FOPEN (name)                                                     |
 +----------+-------------------------------------------------------------------+
-| Location |  Toolkit II, THOR XVI                                             |
+| Location || Toolkit II, THOR XVI                                             |
 +----------+-------------------------------------------------------------------+
 
-|  This function is designed to allow you to access files safely without
-causing errors which force a program to stop. If the first variant of
+This function is designed to allow you to access files safely without
+causing errors which force a program to stop. 
+
+If the first variant of
 FOPEN is used, this is actually very similar to the command OPEN in
 operation, except that if for some reason opening the specified channel
 (#ch) with the specified name would cause an error, FOPEN returns the
 relevant error code. If the specified channel is successfully opened,
-then FOPEN returns 0. By contrast, if the second variant of the command
+then FOPEN returns 0. 
+
+By contrast, if the second variant of the command
 is used, where no specific channel number is used, if successful, FOPEN
-|  will return a positive number representing the number of the next
+will return a positive number representing the number of the next
 available channel (ie. the number of the lowest entry in the channel
-table which is empty). If a negative number is returned, this is the
+table which is empty). 
+
+If a negative number is returned, this is the
 appropriate error number, allowing the programmer to take any necessary
 action (such as requesting the user to input a new file name).
 
 **Examples**
 
-| ERRno=FOPEN(#3,scr\_448x200a32x16) Chan=FOPEN('flp1\_Input\_dat'): IF
-Chan>0 THEN INPUT #Chan,x
+::
+
+    ERRno = FOPEN(#3,scr_448x200a32x16) 
+    Chan = FOPEN('flp1_Input_dat'): IF Chan>0 THEN INPUT #Chan,x
 
 **NOTE 1**
 
@@ -1811,12 +1835,13 @@ FOP\_DIR
 ========
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  FOP\_DIR (#ch, name) |  or FOP\_DIR (name) |                     |
+| Syntax   || FOP\_DIR (#ch, name) or                                          |
+|          || FOP\_DIR (name)                                                  |
 +----------+-------------------------------------------------------------------+
-| Location |  Toolkit II, THOR XVI                                             |
+| Location || Toolkit II, THOR XVI                                             |
 +----------+-------------------------------------------------------------------+
 
-|  The function FOP\_DIR is a complementary function to OPEN\_DIR in
+The function FOP\_DIR is a complementary function to OPEN\_DIR in
 much the same way as FOPEN is to OPEN. This function returns the same
 values and suffers from the same problem as FOPEN.
 
@@ -1832,12 +1857,13 @@ FOP\_IN
 =======
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  FOP\_IN (#ch, name) |  or FOP\_IN (name) |                       |
+| Syntax   || FOP\_IN (#ch, name) or                                           |
+|          || FOP\_IN (name)                                                   |
 +----------+-------------------------------------------------------------------+
-| Location |  Toolkit II, THOR XVI                                             |
+| Location || Toolkit II, THOR XVI                                             |
 +----------+-------------------------------------------------------------------+
 
-|  The function FOP\_IN falls into the same series of functions as
+The function FOP\_IN falls into the same series of functions as
 FOPEN, FOP\_DIR, FOP\_NEW and FOP\_OVER. This function is a
 complementary function to OPEN\_IN in much the same way as FOPEN is to
 OPEN. This function returns the same values and suffers from the same
@@ -1854,12 +1880,13 @@ FOP\_NEW
 ========
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  FOP\_NEW (#ch, name) |  or FOP\_NEW (name) |                     |
+| Syntax   || FOP\_NEW (#ch, name) or                                          |
+|          || FOP\_NEW (name)                                                  |
 +----------+-------------------------------------------------------------------+
-| Location |  Toolkit II, THOR XVI                                             |
+| Location || Toolkit II, THOR XVI                                             |
 +----------+-------------------------------------------------------------------+
 
-|  This function, together with its companions FOPEN, FOP\_IN, FOP\_DIR
+This function, together with its companions FOPEN, FOP\_IN, FOP\_DIR
 and FOP\_OVER, is designed to allow you to access files safely without
 causing errors which force a program to stop. This function is the
 complement to OPEN\_NEW and returns the same values and suffers from the
@@ -1879,12 +1906,13 @@ FOP\_OVER
 =========
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  FOP\_OVER (#ch, name) |  or FOP\_OVER (name) |                   |
+| Syntax   || FOP\_OVER (#ch, name) or                                         |
+|          || FOP\_OVER (name)                                                 |
 +----------+-------------------------------------------------------------------+
-| Location |  Toolkit II, THOR XVI                                             |
+| Location || Toolkit II, THOR XVI                                             |
 +----------+-------------------------------------------------------------------+
 
-|  This function is the complement to OPEN\_OVER and suffers from the
+This function is the complement to OPEN\_OVER and suffers from the
 same problem as FOPEN. It also returns the same values as FOP\_NEW,
 except that it will implicitly over-write an existing file with the same
 name.
@@ -1900,146 +1928,256 @@ FOR
 ===
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  FOR var = range :sup:`\*`\ [,range\ :sup:`i`]\ :sup:`\* `        |
+| Syntax   |  FOR var = range :sup:`\*`\ [,range\ :sup:`i`]\ :sup:`\*`         |
 +----------+-------------------------------------------------------------------+
 | Location |  QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
 
-|  The SuperBASIC version of the classic FOR loop is extremely flexible.
-The syntax of this SuperBASIC structure can take two forms: FOR
-var=range :sup:`\*`\ [,range\ :sup:`i`]\ :sup:`\*` :statement
-:sup:`\*`\ [:statement]\ :sup:`\*
-` or FOR var=range :sup:`\*`\ [,range\ :sup:`i`]\ :sup:`\*
-` :sup:`\*`\ [statements]\ :sup:`\*
-` [EXIT var] [NEXT var] END FOR var
-|  where range can be one of the following: start\_value TO end\_value
-[STEP step] ,or value
-|  The first of these variants is known as an in-line FOR loop. Provided
+The SuperBASIC version of the classic FOR loop is *extremely* flexible.
+
+The syntax of this SuperBASIC structure can take two forms:
+
+    FOR var=range :sup:`\*`\ [,range\ :sup:`i`]\ :sup:`\*` :statement :sup:`\*`\ [:statement]\ :sup:`\*` 
+
+or :
+
+    FOR var=range :sup:`\*`\ [,range\ :sup:`i`]\ :sup:`\*` :sup:`\*`\ [statements]\ :sup:`\*` [EXIT var] [NEXT var] END FOR var
+
+Where range can be one of the following:
+
+    start\_value TO end\_value [STEP step]
+    
+or, simply just:
+
+    value
+    
+The first of these variants is known as an in-line FOR loop. Provided
 that there is at least one statement following FOR, this line will be
 repeated until the end value is reached (see below). There is no need
 for a related END FOR statement and therefore the shortest in-line FOR
-loop possible is: FOR x=1 to 100:NEXT x
-|  If an in-line loop is terminated prematurely, for example with EXIT,
+loop possible is::
+
+    FOR x=1 to 100: NEXT x
+
+If an in-line loop is terminated prematurely, for example with EXIT,
 control will be passed to the statement following the corresponding END
 FOR statement (if one exists), or the next program line. This allows the
-following: FOR x=1 TO 100: IF INKEY$=' ': EXIT x: END FOR x: PRINT x
-|  The basic function of FOR is to count a floating point variable from
+following::
+
+    FOR x=1 TO 100: IF INKEY$=' ': EXIT x: END FOR x: PRINT x
+
+The basic function of FOR is to count a floating point variable from
 a given start value to an end value by adding step to var during each
 pass of the loop (step may be positive or negative depending on the
 start and end values). If no step is specified, STEP 1 will be assumed.
+
 However, if step is negative when the end value is greater than the
 start value (or vice versa), then the loop will immediately exit, and
-nothing contained in the loop will be processed. A similar effect can be
-achieved by using a REPeat structure: var=start\_value REPeat loop ...
-IF var>=end\_value THEN EXIT loop: ELSE var=var+step END REPeat loop
+nothing contained in the loop will be processed. 
+
+A similar effect can be
+achieved by using a REPeat structure::
+
+    var=start_value 
+    REPeat loop 
+      ...
+      IF var >= end_value THEN 
+        EXIT loop
+      ELSE var = var + step 
+    END REPeat loop
 
 The similarity between these two SuperBASIC loop types can be extended
 to the use of EXIT and NEXT statements which can be used identically in
-both structures. EXIT terminates the loop, and the next statement which
+both structures. 
+
+EXIT terminates the loop, and the next statement which
 will be processed is the first statement after the corresponding END
 FOR. NEXT forces the program to make the next pass of the loop.
 
-PROGRAMMING NOTES
-~~~~~~~~~~~~~~~~~
+**PROGRAMMING NOTES**
 
-| (1) When NEXT is used within a FOR..END FOR structure, if var is
-already at the end\_value, the NEXT statement will have no effect: 100
-FOR x=1 TO 9 110 PRINT x;" "; 120 IF x MOD 2 THEN NEXT x 130 PRINT x^2
-140 END FOR x
-|  Output: 1 2 43 4 165 6 367 8 649 81 To prevent the odd result when
-x=9, line 120 would need to be altered to read: 120 IF x MOD 2 THEN NEXT
-x: EXIT x
-|  (2) Except on a Minerva ROM or under SMS, the loop variable is set to
-0 before the FOR is executed, therefore the following program prints the
-square roots of the numbers 0 to 9: 100 x=3 110 FOR x=x TO 9 120 PRINT
-x;' '; 130 IF NOT RND(10) THEN EXIT x 140 PRINT SQRT(x) 150 END FOR x
-|  On Minerva ROMs and under SMS, this would print out all of the square
-roots of the numbers 3 to 9 (as expected). (3) A NEXT statement directly
-after the FOR statement could be used to omit some values of the loop
-variable: 100 FOR x=1 TO 9 110 IF x MOD 2 THEN NEXT x: EXIT x 120 PRINT
-x;TO 4;x^2 130 END FOR x
-|  However, in some cases, it may be easier and shorter to write: 100
-FOR x=2,4,6,8 110 PRINT x;TO 4;x^2 120 END FOR x
-|  (4) Single values and intervals can be freely mixed after the equals
-sign: the following examples are valid expressions: FOR x=2,4 TO 10 STEP
-2,4.5,7 TO -4 STEP -.2 FOR x=1
+1. When NEXT is used within a FOR..END FOR structure, if var is
+   already at the end\_value, the NEXT statement will have no effect::
 
-| (5) To shorten program lines even further, the FOR loop can be used in
-a single line and the END FOR omitted (this is called an in-line FOR
-loop): FOR x=2,4,6,8: PRINT x;TO 4;x^2
+       100 FOR x=1 TO 9 
+       110 PRINT x;" "; 
+       120 IF x MOD 2 THEN NEXT x 
+       130 PRINT x^2
+       140 END FOR x
+
+   Output:: 
+   
+        1 2 4
+        3 4 16
+        5 6 36
+        7 8 64
+        9 81 
+    
+   To prevent the odd result when x=9, line 120 would need to be altered to read::
+
+        120 IF x MOD 2 THEN NEXT x: EXIT x
+
+2. Except on a Minerva ROM or under SMS, the loop variable is set to
+   0 before the FOR is executed, therefore the following program prints the
+   square roots of the numbers 0 to 9::
+
+       100 x=3 
+       110 FOR x=x TO 9 
+       120 PRINT x;' '; 
+       130 IF NOT RND(10) THEN EXIT x 
+       140 PRINT SQRT(x) 
+       150 END FOR x
+
+   On Minerva ROMs and under SMS, this would print out all of the square
+   roots of the numbers 3 to 9 (as expected). 
+
+3. A NEXT statement directly after the FOR statement could be used to omit some 
+   values of the loop variable::
+   
+       100 FOR x=1 TO 9 
+       110 IF x MOD 2 THEN NEXT x: EXIT x 
+       120 PRINT x; TO 4; x^2 
+       130 END FOR x
+
+   However, in some cases, it may be easier and shorter to write::
+
+       100 FOR x=2,4,6,8 
+       110 PRINT x; TO 4; x^2 
+       120 END FOR x
+
+4. Single values and intervals can be freely mixed after the equals
+   sign. The following examples are all valid expressions::
+
+       FOR x=2,4 TO 10 STEP 2,4.5,7 TO -4 STEP -.2 
+       FOR x=1
+
+5. To shorten program lines even further, the FOR loop can be used in
+   a single line and the END FOR omitted (this is called an in-line FOR
+   loop)::
+
+       FOR x=2,4,6,8: PRINT x; TO 4; x^2
 
 **Example 1**
 
-| A short routine to count the lines of a text file (using the oddities
-of the NEXT command): 100 OPEN#3,file 110 FOR lines=0 TO 10000 120 IF
-EOF(#3) THEN PRINT lines: EXIT lines 130 INPUT #3,line$: NEXT lines 140
-PRINT 'OOPS - program is longer than 10000 lines!!' 150 END FOR lines
-160 CLOSE#3
+A short routine to count the lines of a text file (using the oddities
+of the NEXT command):: 
+
+    100 OPEN#3,file 
+    110 FOR lines=0 TO 10000 
+    120   IF EOF(#3) THEN PRINT lines: EXIT lines 
+    130   INPUT #3,line$: NEXT lines 
+    140   PRINT 'OOPS - program is longer than 10000 lines!!' 
+    150 END FOR lines
+    160 CLOSE#3
 
 **Example 2**
 
-| The next example is a routine to nest a variable number (loops) of
-times which go from Value\_min to Value\_max at Value\_step: 100 FOR
-loop=1 TO loops:Value(loop)=Value\_min(loop) 110 REPeat Nesting 120 <
-instructions using Value(1...s) > 130 FOR loop=1 TO loops 140 IF
-Value(loop)=Value\_max(loop) THEN 150 IF loop=loops THEN EXIT Nesting
-160 Value(loop)=Value\_min(loop) 170 NEXT loop 180 ELSE 190
-Value(loop)=Value(loop)+Value\_step(loop) 200 EXIT loop 210 END IF 220
-END FOR loop 230 END REPeat Nesting
+The next example is a routine to nest a variable number (loops) of
+times which go from Value\_min to Value\_max at Value\_step:: 
+
+    100 FOR loop=1 TO loops:Value(loop)=Value_min(loop) 
+    110 REPeat Nesting 
+    120 <instructions using Value(1...s) go here> 
+    130   FOR loop=1 TO loops 
+    140     IF Value(loop)=Value_max(loop) THEN 
+    150       IF loop=loops THEN EXIT Nesting
+    160       Value(loop)=Value_min(loop) 
+    170       NEXT loop 
+    180     ELSE 
+    190       Value(loop)=Value(loop)+Value_step(loop) 
+    200       EXIT loop 
+    210     END IF 
+    220   END FOR loop 
+    230 END REPeat Nesting
 
 **NOTE 1**
 
-| If you use multiple in-line FOR loops in the same program line, only
-the inner loop will be executed. For example: FOR i=1 TO 3:FOR j=1 TO
-10:PRINT i\*j:END FOR j
-|  Output: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 This will actually work
-correctly under SMS. You can get it to work on a Minerva ROM and under
-SMS (but not others) if the line is amended to read: FOR i=1 TO 3: FOR
-j=1 TO 10: PRINT i\*j: END FOR j: END FOR i
-|  In fact, SMS will even allow the line to work if it simply reads: FOR
-i=1 TO 3: FOR j=1 TO 10: PRINT i\*j
+If you use multiple in-line FOR loops in the same program line, only
+the inner loop will be executed. For example::
+
+    FOR i=1 TO 3: FOR j=1 TO 10: PRINT i*j: END FOR j
+
+Output:: 
+    
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10 
+
+This will actually work correctly under SMS. 
+
+You can get it to work on a Minerva ROM and under
+SMS (but not others) if the line is amended to read:: 
+
+    FOR i=1 TO 3: FOR j=1 TO 10: PRINT i*j: END FOR j: END FOR i
+
+In fact, SMS will even allow the line to work if it simply reads::
+
+    FOR i=1 TO 3: FOR j=1 TO 10: PRINT i*j
 
 **NOTE 2**
 
-| Unless you have SMS or a Minerva ROM, do not use GO SUB
-|  together with an in-line FOR loop, because this will act as an END
-FOR command and will not call the desired routine: 100 FOR i=1 TO 10:
-PRINT 'Junk - test';: GO SUB 200: PRINT i 110 STOP 200 PRINT ' Number ';
-210 RETurn
+Unless you have SMS or a Minerva ROM, do not use GO SUB together with an 
+in-line FOR loop, because this will act as an END
+FOR command and will not call the desired routine::
+
+    100 FOR i=1 TO 10: PRINT 'Junk - test';: GO SUB 200: PRINT i 
+    110 STOP 
+    200 PRINT ' Number ';
+    210 RETurn
 
 **NOTE 3**
 
-| On JS (except ST/QL) and MGx ROMs, you cannot use the first of several
-PROCedure/FuNction parameters as the loop identifier: 100 TEST 5,10 110
-FOR j=1 TO 10:PRINT 'OOPS...' 120 FOR k=1 TO 10:PRINT 'OKAY...' 125 :
-130 DEFine PROCedure TEST(j,k) 140 AT j,k:PRINT 'Errors .....' 150 END
-DEFine
+On JS (except ST/QL) and MGx ROMs, you cannot use the first of several
+PROCedure/FuNction parameters as the loop identifier::
+
+    100 TEST 5,10 
+    110 FOR j=1 TO 10: PRINT 'OOPS...' 
+    120 FOR k=1 TO 10: PRINT 'OKAY...' 
+    125 :
+    130 DEFine PROCedure TEST(j,k) 
+    140   AT j,k:PRINT 'Errors .....' 
+    150 END DEFine
 
 **NOTE 4**
 
-| No error will be reported and all should work okay if NEXT
-|  is used instead of END FOR (unless you try to use EXIT which would
+No error will be reported and all should work okay if NEXT
+is used instead of END FOR (unless you try to use EXIT which would
 try to jump to the statement after the non-existent corresponding END
 FOR, and may reach the end of the program without finding the END FOR,
 therefore stopping without reporting any error), but you will have seen
-that NEXT is intended for another purpose. Apart from programming
+that NEXT is intended for another purpose. 
+
+Apart from programming
 elegance, compilers may not be able to understand your meaning (they
 assume that you have forgotten the END FOR) and may abort compilation or
 report a warning.
 
 **NOTE 5**
 
-Counting downwards without a negative step has no effect at all (eg. FOR
-loop=0 TO -3). Omitting the STEP parameter is the same as STEP 1.
+Counting downwards without a negative step has no effect at all For example::
+
+    FOR loop=0 TO -3 
+    
+Omitting the STEP parameter is the same as STEP 1.
 
 **MINERVA NOTES**
 
-| On a Minerva machine, a FOR loop can use either a single character
-string variable or an integer variable: FOR A$='A' TO 'Z' STEP
-CHR$(2):PRINT A$;' ';
-|  This prints out A C E G I K M O Q S U W Y. FOR loop%=1 TO 255
-|  This is a little quicker than FOR loop=1 to 255
-|  These examples will not work on other ROMs, unless you have SMS, even
+On a Minerva machine, a FOR loop can use either a single character
+string variable or an integer variable:: 
+
+    FOR A$='A' TO 'Z' STEP CHR$(2):PRINT A$;' ';
+    
+This prints out::
+
+    A C E G I K M O Q S U W Y 
+
+::
+
+    FOR loop%=1 TO 255: ...: END FOR loop%
+    
+This is a little quicker than::
+
+    FOR loop=1 to 255: ...: END FOR loop
+
+These examples will not work on other ROMs, unless you have SMS, even
 if they will let you type them in!
 
 **SMS NOTES**
@@ -2048,7 +2186,9 @@ Like Minerva, SMS will allow you to use integer variables in FOR loops
 (but not string variables). As from v2.57, the range is checked to
 ensure that it is within the valid word integer range (-327678..32767)
 when the FOR loop is started, otherwise it returns 'Error in
-Expression'. If you try to use a string loop variable, the error
+Expression'. 
+
+If you try to use a string loop variable, the error
 'unacceptable loop variable' is reported. EXIT, NEXT and END FOR do not
 need to contain the loop identifier, SMS will presume that when used in
 a program, they refer to the loop currently being executed.
@@ -2056,8 +2196,8 @@ a program, they refer to the loop currently being executed.
 **CROSS-REFERENCE**
 
 `REPeat <KeywordsR.clean.html#repeat>`__...\ `END
-REPeat <KeywordsE.clean.html#end20repeat>`__ is the other loop type. See `END
-FOR <KeywordsE.clean.html#end20for>`__.
+REPeat <KeywordsE.clean.html#end-repeat>`__ is the other loop type. See `END
+FOR <KeywordsE.clean.html#end-for>`__.
 
 --------------
 
