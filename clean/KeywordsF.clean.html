@@ -1,0 +1,3498 @@
+    
+<H1><A name="FACT" id="FACT"></A>FACT</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FACT(n)</SPAN> where <SPAN style="font-style: italic;">n=0..300<BR></SPAN> Location: <SPAN style="font-style: italic;">Math Package, FACT<BR></SPAN>
+    The <SPAN style="font-style: italic;">FACT</SPAN> function takes a non-negative integer <SPAN style="font-style: italic;">n</SPAN> up to 300
+    and returns the factorial of the number, calculated as the
+    product:
+    
+    <SPAN style="font-style: italic;">1*2*3*...*n<BR></SPAN>
+    
+<H3>Example:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">n</SPAN> elements can be combined in <SPAN style="font-style: italic;">FACT(n)</SPAN> different ways, eg.
+    
+    take the three first letters, the <SPAN style="font-style: italic;">FACT(3)=6</SPAN> permutations of A,
+    
+    B and C are:
+    
+    1. A B C
+    
+    2. A C B
+    
+    3. B A C
+    
+    4. B C A
+    
+    5. C A B
+    
+    6. C B A
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsB.html#BINOM">BINOM</A>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FALSE%" id="FALSE%"></A>FALSE%</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FALSE%<BR></SPAN> Location: <SPAN style="font-style: italic;">TRUFA<BR></SPAN>
+    The function <SPAN style="font-style: italic;">FALSE%</SPAN> returns the constant 0. It is used to
+    write programs which are more legible or which adopt habits
+    from the PASCAL language.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsT.html#TRUE%=1">TRUE%=1</A>.
+    
+    See <A style="font-style: italic;" href="KeywordsS.html#SET">SET</A> concerning user definable resident constants.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FASTEXPAND" id="FASTEXPAND"></A>FASTEXPAND</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FASTEXPAND adr1,adr2<BR></SPAN> Location: <SPAN style="font-style: italic;">COMPICT<BR></SPAN>
+    If a screen which has been compressed and saved with
+    <SPAN style="font-style: italic;">COMPRESS</SPAN> is loaded into memory with <SPAN style="font-style: italic;">LBYTES</SPAN> (for example), this
+    command allows quicker expansion of the screen than would
+    otherwise be possible with <SPAN style="font-style: italic;">EXPAND</SPAN>. <SPAN style="font-style: italic;">FASTEXPAND</SPAN> also allows you to
+    expand the screen to any address (provided that there is at
+    least 32K of free memory stored there).
+    
+    <SPAN style="font-style: italic;">adr1</SPAN> is the address where the compressed screen is stored
+    and <SPAN style="font-style: italic;">adr2</SPAN> the place in RAM where the expanded screen should be
+    moved to.
+    
+    
+<H3>Example:</H3>
+
+<P><SPAN style="font-style: italic;">100 COMPRESS ram1_test_scr
+    110 a=ALCHP(FLEN(\ram1_test_scr))
+    120 LBYTES ram1_test_scr,a
+    130 FASTEXPAND a,SCREEN
+    140 RECHP a<BR></SPAN>
+    
+<H3>NOTE:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">FASTEXPAND</SPAN> will not work on screen resolutions in excess of
+    512x256 pixels.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsC.html#COMPRESS">COMPRESS</A>, <A style="font-style: italic;" href="KeywordsE.html#EXPAND">EXPAND</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FBKDT" id="FBKDT"></A>FBKDT</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FBKDT</SPAN> [<SPAN style="font-style: italic;">(#channel)</SPAN>]
+    
+    or <SPAN style="font-style: italic;">FBKDT (\file)<BR></SPAN> Location: <SPAN style="font-style: italic;">Level-2 Device Drivers, SMS<BR></SPAN>
+    It is proposed that this function be used to return the
+    date on which a given file was last backed up. Current
+    versions of SuperBASIC commands, such as <SPAN style="font-style: italic;">COPY</SPAN> and <SPAN style="font-style: italic;">WCOPY</SPAN> do not
+    set the back-up date of the file being copied, although some
+    software may do this.
+    
+    The idea of a back-up date is mainly for use in automatic
+    back-up programs which can be told to copy all files on a
+    given medium within certain parameters, namely files which
+    have been altered since a specific date and which have been
+    altered since the last time that they were backed up.
+    
+    The value returned is the date in QDOS format, ie. the
+    number of seconds since Midnight 1st January 1961 {check this
+    initial date with <SPAN style="font-style: italic;">PRINT DATE$(0)</SPAN>}.
+    
+    This backup time currently needs to be set manually using
+    <SPAN style="font-style: italic;">SET_FBKDT</SPAN>, although it is hoped that future versions of <SPAN style="font-style: italic;">COPY</SPAN> and
+    <SPAN style="font-style: italic;">WCOPY</SPAN> will do so automatically. If it has not been set, <SPAN style="font-style: italic;">FBKDT</SPAN> will
+    return zero.
+    
+    The default data device and sub-directories are supported,
+    default channel is #3.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    The next page contains a PROCedure to make an intelligent
+    
+    backup of all files contained in the medium specified by
+    
+    the first parameter to the medium specified in the second
+    
+    parameter, which have been altered since they were last
+    
+    backed up.
+    
+    TinyToolkit's <SPAN style="font-style: italic;">TCONNECT</SPAN> or DIY-TK's <SPAN style="font-style: italic;">QLINK</SPAN> is necessary to use
+    
+    this example.
+    
+    This can be used for example by entering the line:
+    
+    <SPAN style="font-style: italic;">BACKUP flp1_ TO flp2_<BR></SPAN>
+    Although sub-directories and the default data device are
+    
+    fully supported on the medium being backed-up, the
+    
+    procedures would need modificication to enable them to
+    
+    create similar sub-directories on the destination device.
+    
+    The <SPAN style="font-style: italic;">PROCedure</SPAN> makes heavy use of recursive programming, which
+    
+    means that it uses a lot of memory (not all of which is
+    
+    released at the end of the <SPAN style="font-style: italic;">PROCedure</SPAN>). It would need a
+    
+    considerable re-write to be in a form which could be safely
+    
+    compiled.
+    <SPAN style="font-style: italic;">100 DEFine PROCedure BACKUP (dir1,dir2)
+    110 LOCal dir1$,dir2$,old_datad$,old_destd$
+    120 LOCal ERRno,outer,sloop
+    130 dir1$=PARSTR$(dir1,1):dir2$=PARSTR$(dir2,2)
+    140 old_datad$=DATAD$:old_destd$=DESTD$
+    150 DATA_USE '':ERRno=-7
+    160 REPeat sloop
+    170 IF FTEST(dir1$)&lt;0
+    180 dir1$=old_datad$&amp;dir1$
+    190 IF FTEST(dir1$)&lt;0:PRINT #0,dir1$;' ';:EXIT sloop
+    200 END IF
+    210 full_dir$=(dir1$&amp;' ')(1 TO 5):orig_dir$=dir1$
+    220 IF FTEST(dir2$)&lt;0
+    230 outer=FOP_NEW(dir2$):IF outer&gt;0:CLOSE #outer
+    240 IF outer&lt;0
+    250 dir2$=old_destd$&amp;dir2$
+    260 IF old_destd$(LEN(old_destd$))&lt;&gt;'_':ERRno= -15:EXIT sloop
+    270 IF FOP_OVER(dir2$)&lt;0:PRINT #0,dir2$;' ';:EXIT sloop
+    280 END IF
+    290 END IF
+    300 ERRno=0:EXIT sloop
+    310 END REPeat sloop
+    320 DATA_USE old_datad$
+    330 IF ERRno&lt;0:REPORT ERRno:RETurn
+    340 IF dir2$(LEN(dir2$))&lt;&gt;'_':dir2$=dir2$&amp;'_'
+    350 main_ch=-1:max_ch=0
+    360 read_directory dir1$
+    370 PRINT #0,'Backup complete'
+    380 FOR i=main_ch TO max_ch:CLOSE #i
+    390 END DEFine
+    400 :
+    410 DEFine PROCedure read_directory(current_dir$)
+    420 LOCal in_ch,out_ch
+    430 in_ch=FOPEN('scr_'):IF main_ch=-1:main_ch=in_ch
+    440 out_ch=FOPEN(pipe_10000):DIR #out_ch,current_dir$
+    450 TCONNECT #out_ch TO #in_ch
+    460 CLOSE #out_ch
+    470 copy_file$ #in_ch,full_dir$,dir2$
+    480 IF in_ch&gt;max_ch:max_ch=in_ch
+    490 END DEFine
+    500 :<BR></SPAN> (The rest of this example follows on the next page).
+    <SPAN style="font-style: italic;">510 DEFine PROCedure copy_file$(chan,in$,out$)
+    520 LOCal files_loop,junk$,outer,test1,test2
+    530 INPUT #chan,junk$,junk$
+    540 REPeat files_loop
+    550 IF EOF(#chan):EXIT files_loop
+    560 INPUT #chan,in_file$
+    570 out_file$=out$&amp;in_file$
+    580 in_file$=in$&amp;in_file$
+    590 IF LEN(in_file$)&gt;3
+    600 IF in_file$(LEN(in_file$)-2 TO)=' -&gt;'
+    610 read_directory in_file$(1 TO LEN(in_file$)-3)
+    620 NEXT files_loop
+    630 END IF
+    640 END IF
+    650 test1=FBKDT(\in_file$)
+    660 outer=FOPEN(out_file$)
+    670 IF outer&gt;0
+    680 test2=FUPDT(#outer):CLOSE #outer
+    690 ELSE
+    700 test2=-7
+    710 END IF
+    720 IF test2&lt;test1 OR test1=0
+    730 PRINT 'Backing-up'!in_file$!'=&gt;'!out_file$
+    740 DELETE out_file$:COPY in_file$ TO out_file$
+    750 SET_FBKDT \in_file$,DATE
+    760 END IF
+    770 END REPeat files_loop
+    775 CLOSE#chan
+    780 END DEFine<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsF.html#FUPDT">FUPDT</A>, <A style="font-style: italic;" href="KeywordsF.html#FLEN">FLEN</A>, <A style="font-style: italic;" href="KeywordsF.html#FTYP">FTYP</A>, <A style="font-style: italic;" href="KeywordsF.html#FDAT">FDAT</A>, <A style="font-style: italic;" href="KeywordsF.html#FXTRA">FXTRA</A>, <A style="font-style: italic;" href="KeywordsF.html#FILE_LEN">FILE_LEN</A>, <A style="font-style: italic;" href="KeywordsF.html#FILE_LEN">FILE_LEN</A>, <A style="font-style: italic;" href="KeywordsF.html#FILE_TYP">FILE_TYP</A>, <A style="font-style: italic;" href="KeywordsF.html#FVERS">FVERS</A> and
+    <A style="font-style: italic;" href="KeywordsF.html#FNAME$">FNAME$</A> return other information about a file.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FDAT" id="FDAT"></A>FDAT</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FDAT</SPAN> [<SPAN style="font-style: italic;">(#channel)</SPAN>]
+    
+    or <SPAN style="font-style: italic;">FDAT (\filename)</SPAN> <SPAN style="font-style: italic;">(Toolkit II and THOR)<BR></SPAN> Location: <SPAN style="font-style: italic;">Toolkit II, THOR XVI, BTool<BR></SPAN>
+    This function returns the value of four bytes (at offset 6
+    to 9) in a file header. This value represents the dataspace of
+    executable files (file type 1).
+    
+    There is no convention for any other file types. The
+    default data device and sub-directories are supported, the
+    default channel is #3.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsF.html#FXTRA">FXTRA</A> returns the other four bytes of the type dependent
+    information contained in the file header.
+    <A href="KeywordsF.html#FILE_DAT">FILE_DAT</A> is very similar to <A style="font-style: italic;" href="KeywordsF.html#FDAT">FDAT</A>.
+    
+    See also <A style="font-style: italic;" href="KeywordsF.html#FTYP">FTYP</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FDEC$" id="FDEC$"></A>FDEC$</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FDEC$ (value,length,ndp)<BR></SPAN> Location: <SPAN style="font-style: italic;">Toolkit II, THOR XVI<BR></SPAN>
+    This function is similar to <SPAN style="font-style: italic;">CDEC$</SPAN> except for two major
+    differences. <SPAN style="font-style: italic;">FDEC$</SPAN> does not assume that <SPAN style="font-style: italic;">value</SPAN> is an integer, and
+    therefore uses the whole of <SPAN style="font-style: italic;">value</SPAN>, although if the given <SPAN style="font-style: italic;">ndp<BR></SPAN> number of decimal places is less than the number of decimal
+    places in <SPAN style="font-style: italic;">value</SPAN>, <SPAN style="font-style: italic;">value</SPAN> will be rounded up or down accordingly.
+    
+    <SPAN style="font-style: italic;">FDEC$</SPAN> does not insert commas in the characters to the left
+    of the decimal point.
+    
+    
+<H3>Examples:</H3>
+
+<P><SPAN style="font-style: italic;">PRINT FDEC$(100.235,6,2)<BR></SPAN>
+    will print '100.24'
+    <SPAN style="font-style: italic;">PRINT FDEC$(100,6,2)<BR></SPAN>
+    will print '100.00'
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    Please see <A style="font-style: italic;" href="KeywordsC.html#CDEC$">CDEC$</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FEXP$" id="FEXP$"></A>FEXP$</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FEXP$ (value,length,ndp)<BR></SPAN> Location: <SPAN style="font-style: italic;">Toolkit II<BR></SPAN>
+    This function is different to <SPAN style="font-style: italic;">CDEC$</SPAN> in that it always prints
+    the given <SPAN style="font-style: italic;">value</SPAN> in exponential format. This means that there is
+    always only one character to the left of the decimal point
+    (plus any sign), and <SPAN style="font-style: italic;">ndp</SPAN> states how many characters should be
+    to the right of the decimal point. <SPAN style="font-style: italic;">FEXP$</SPAN> does not assume that
+    <SPAN style="font-style: italic;">value</SPAN> is an integer and therefore also caters for floating point
+    values.
+    
+    The <SPAN style="font-style: italic;">length</SPAN> of the field must be at least <SPAN style="font-style: italic;">ndp+7</SPAN>, otherwise a
+    nul string is returned. If necessary, values are rounded up or
+    down to fit in the specified <SPAN style="font-style: italic;">ndp</SPAN> number of decimal places.
+    
+    
+<H3>Examples:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">PRINT FEXP$(-100.235,11,4)</SPAN> will print -1.0023E+02
+    
+    <SPAN style="font-style: italic;">PRINT FEXP$$(100.235,11,4)</SPAN> will print 1.0024E+02
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsC.html#CDEC$">CDEC$</A>, <A style="font-style: italic;" href="KeywordsI.html#IDEC$">IDEC$</A>, <A style="font-style: italic;" href="KeywordsF.html#FDEC$">FDEC$</A> and <A style="font-style: italic;" href="KeywordsP.html#PRINT_USING">PRINT_USING</A> all provide means of formatting
+    number output.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FF" id="FF"></A>FF</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FF<BR></SPAN> Location: <SPAN style="font-style: italic;">Beuletools<BR></SPAN>
+    This function returns <SPAN style="font-style: italic;">CHR$(12)</SPAN>, which performs a form feed
+    when sent to an EPSON compatible printer.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsN.html#NORM">NORM</A>, <A style="font-style: italic;" href="KeywordsB.html#BLD">BLD</A>, <A style="font-style: italic;" href="KeywordsE.html#EL">EL</A>, <A style="font-style: italic;" href="KeywordsD.html#DBL">DBL</A>, <A style="font-style: italic;" href="KeywordsE.html#ENL">ENL</A>, <A style="font-style: italic;" href="KeywordsP.html#PRO">PRO</A>, <A style="font-style: italic;" href="KeywordsS.html#SI">SI</A>, <A style="font-style: italic;" href="KeywordsN.html#NRM">NRM</A>, <A style="font-style: italic;" href="KeywordsU.html#UNL">UNL</A>, <A style="font-style: italic;" href="KeywordsA.html#ALT">ALT</A>, <A style="font-style: italic;" href="KeywordsE.html#ESC">ESC</A>, <A style="font-style: italic;" href="KeywordsL.html#LMAR">LMAR</A>, <A style="font-style: italic;" href="KeywordsR.html#RMAR">RMAR</A>,
+    <A style="font-style: italic;" href="KeywordsP.html#PAGDIS">PAGDIS</A>, <A style="font-style: italic;" href="KeywordsP.html#PAGLEN">PAGLEN</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FGET%" id="FGET%"></A>FGET%</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FGET%</SPAN> [<SPAN style="font-style: italic;">(#channel)</SPAN>] Location: <SPAN style="font-style: italic;">BTool<BR></SPAN>
+    This function reads two bytes from <SPAN style="font-style: italic;">#channel</SPAN> (default #1) and
+    makes an integer value from them, so these bytes should be in
+    the internal format of an integer to make <SPAN style="font-style: italic;">FGET%</SPAN> useful.
+    
+    An integer is stored in two bytes as <SPAN style="font-style: italic;">Integer = Byte1*256+ byte2<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsG.html#GET">GET</A> and <A style="font-style: italic;" href="KeywordsM.html#MKI$">MKI$</A>.
+    
+    <A style="font-style: italic;" href="KeywordsC.html#CVI%">CVI%</A> converts a string containing the internal format of an
+    integer to an integer number. See also <A style="font-style: italic;" href="KeywordsF.html#FPUT%">FPUT%</A>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FGET$" id="FGET$"></A>FGET$</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FGET$</SPAN> [<SPAN style="font-style: italic;">(#channel)</SPAN>] Location: <SPAN style="font-style: italic;">BTool<BR></SPAN>
+    This function reads a string in internal format from a
+    specified <SPAN style="font-style: italic;">channel</SPAN> (default #1) and returns the string.
+    
+    A string is stored internally as a two byte integer (see
+    <SPAN style="font-style: italic;">FGET%</SPAN>) specifying the length of the string followed by the
+    string itself.
+    
+    
+<H3>Example:</H3>
+
+<P><SPAN style="font-style: italic;">100 OPEN_NEW#3,ram1_test
+    110 PRINT#3,MKS$("Hello World.")
+    120 FPOS_A#3,0
+    130 PRINT FGET$(#3)
+    140 CLOSE#3
+    150 DELETE ram1_test<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsG.html#GET">GET</A>, <A style="font-style: italic;" href="KeywordsF.html#FGETB">FGETB</A>, <A style="font-style: italic;" href="KeywordsF.html#FGET%">FGET%</A>, <A style="font-style: italic;" href="KeywordsF.html#FGETL">FGETL</A>, <A style="font-style: italic;" href="KeywordsM.html#MKS$">MKS$</A>.
+    
+    <A style="font-style: italic;" href="KeywordsF.html#FPUT$">FPUT$</A> writes a string in internal format.
+    
+    <A style="font-style: italic;" href="KeywordsC.html#CVS$">CVS$</A> converts a string into its internal format.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FGETB" id="FGETB"></A>FGETB</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FGETB</SPAN> [<SPAN style="font-style: italic;">(#channel)</SPAN>] Location: <SPAN style="font-style: italic;">BTool<BR></SPAN>
+    This function reads a single byte (character) from a
+    specified <SPAN style="font-style: italic;">channel</SPAN> (default #1) and returns its numeric value.
+    
+    
+<H3>Example:</H3>
+
+<P><SPAN style="font-style: italic;">100 PRINT "Please press any key..."
+    110 CLEAR: c = FGETB
+    120 PRINT "You pressed '";CHR$(c);"', ";
+    130 PRINT "which is code"!c!"($";HEX$(c,8);")."<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    The Toolkit II equivalent is <A style="font-style: italic;" href="KeywordsB.html#BGET">BGET</A>. See also <A style="font-style: italic;" href="KeywordsF.html#FPUTB">FPUTB</A>!
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FGETL" id="FGETL"></A>FGETL</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FGETL</SPAN> [<SPAN style="font-style: italic;">(#channel)</SPAN>] Location: <SPAN style="font-style: italic;">BTool<BR></SPAN>
+    This function reads four bytes, being the internal
+    representation of a longword, from a specified <SPAN style="font-style: italic;">channel</SPAN> (default
+    #1) and returns the longword's value.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    It is preferable to store a large integer in internal
+    
+    format because this is faster than text representation and
+    
+    needs less memory, even if the number could be stored in
+    
+    internal float format:
+    <SPAN style="font-style: italic;">100 large_int = 1.19344E7
+    110 :
+    120 REMark save value
+    130 OPEN_NEW#3,ram1_test
+    140 PRINT#3,MKL$(large_int)
+    150 CLOSE#3: CLEAR
+    160 :
+    170 REMark read value
+    180 OPEN_IN#3,ram1_test
+    190 large_int = FGETL(#3)
+    200 CLOSE#3: PRINT large_int<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsL.html#LGET">LGET</A>, <A style="font-style: italic;" href="KeywordsM.html#MKL$">MKL$</A>.
+    <A href="KeywordsF.html#FPUTL">FPUTL</A> allows you to write numbers in internal format to
+    channels.
+    <A href="KeywordsC.html#CVL">CVL</A> converts strings containing the internal format to long
+    integers.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FGETF" id="FGETF"></A>FGETF</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FGETF</SPAN> [<SPAN style="font-style: italic;">(#channel)</SPAN>] Location: <SPAN style="font-style: italic;">BTool<BR></SPAN>
+    The function <SPAN style="font-style: italic;">FGETF</SPAN> gets six bytes from a <SPAN style="font-style: italic;">channel</SPAN> (default #1)
+    in the internal format of a floating point number.
+    
+    
+<H3>WARNING:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">FGETF</SPAN> will hang SuperBASIC if the six bytes did not
+    represent a valid floating point, so be careful.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsG.html#GET">GET</A>, <A style="font-style: italic;" href="KeywordsM.html#MKF$">MKF$</A>, <A style="font-style: italic;" href="KeywordsP.html#PEEK_F">PEEK_F</A>, <A style="font-style: italic;" href="KeywordsF.html#FPUTF">FPUTF</A>.
+    
+    <A style="font-style: italic;" href="KeywordsC.html#CVF">CVF</A> converts a string containing the internal format into a
+    floating point number.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FGETH$" id="FGETH$"></A>FGETH$</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FGETH$</SPAN> [<SPAN style="font-style: italic;">(#filechan)</SPAN>] Location: <SPAN style="font-style: italic;">BTool<BR></SPAN>
+    This function reads the file header from an open <SPAN style="font-style: italic;">channel<BR></SPAN> linked to a file (default #3). Each file has a header of 64
+    bytes which contains technical information about the file.
+    <SPAN style="font-style: italic;">FGETH$</SPAN> returns a string containing 64 characters, each of which
+    represents one byte. The string contains the following
+    information:
+    
+<H3>charactermeaningvalueequivalent
+    position in stringfunction</H3>
+
+<P>1..4file length<SPAN style="font-style: italic;">CVL(h$(1 TO 4))</SPAN><SPAN style="font-style: italic;">FLEN<BR></SPAN> 5file access key<SPAN style="font-style: italic;">CODE(h$(5))</SPAN>(none)
+    6 file type<SPAN style="font-style: italic;">CODE(h$(6))</SPAN><SPAN style="font-style: italic;">FTYP<BR></SPAN> 7..14 type dependent info (see below)<SPAN style="font-style: italic;">FDAT</SPAN>,<SPAN style="font-style: italic;">FXTRA<BR></SPAN> 15..16filename length<SPAN style="font-style: italic;">CVI%(h$(15 TO 16))LEN(FNAME$)<BR></SPAN> 17..52 filename <SPAN style="font-style: italic;">CVS$(h$(15 TO 52))FNAME$<BR></SPAN> 53..56update time<SPAN style="font-style: italic;">CVL(h$(53 TO 56))FUPDT<BR></SPAN> 57..58version number<SPAN style="font-style: italic;">CVI%(h$(57 TO 58))FVERS<BR></SPAN> 59..60(reserved)<SPAN style="font-style: italic;">CVI%(h$(59 TO 60))<BR></SPAN> 61..64backup date<SPAN style="font-style: italic;">CVL(h$(61 TO 64))FBKDT<BR></SPAN>
+    The type dependent information is different for each file
+    type. For type 1 (executable files) bytes 7 to 10 hold the
+    dataspace: <SPAN style="font-style: italic;">CVL(h$(7 TO 10))</SPAN>.
+    
+    In early documentation, bytes 57 to 60 were reserved for a
+    reference date which was never implemented.
+    
+    The last eight bytes (57 to 64) are actually not used on
+    level-1 drivers, level-2 drivers use every byte.
+    
+    There is an unofficial standard for the file access key,
+    which is generally used by Toolkits to store file attributes
+    in the format:
+    
+    
+<H3>Bit No:Meaning</H3>
+
+<P>
+    7Set if the file is read-only.
+    
+    6Set if the file is hidden and will not appear on
+    a directory of the disk. Neither can it be
+    accessed.
+    
+    0 - 5are used to contain the User Number. Basically,
+    this file will only be accessible by someone with
+    the same user number (0-63). Files with a user
+    number of 0 will be visible and useable by any
+    user. Files with a user number of 63 are
+    generally only available to a user in a special
+    mode (normally this will require a password).
+    
+    You will need specialist toolkits (such as Toolkit III and
+    System, neither of which are compatible with SMS if the File
+    Access Key is to have any effect).
+    
+    
+<H3>
+    
+    Examples:</H3>
+
+<P>
+    Nearly every part of a file header (apart from the two
+    
+    unused bytes) can be read by special functions (see the
+    
+    list above), here are two functions to read the rest:
+    <SPAN style="font-style: italic;">100 DEFine FuNction FACCKEY (chan)
+    110 LOCal h$
+    120 h$=FGETH$(#chan)
+    130 RETurn CODE(h$(5))
+    140 END DEFine FACCKEY
+    100 DEFine FuNction FSPEC% (chan)
+    110 LOCal h$
+    120 h$=FGETH$(#chan)
+    130 RETurn CVI%(h$(59 TO 60))
+    140 END DEFine FSPEC%<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsF.html#FSETH$">FSETH$</A> is the counterpart of <A style="font-style: italic;" href="KeywordsF.html#FGETH$">FGETH$</A>.
+    <A href="KeywordsH.html#HEADR">HEADR</A> and <A style="font-style: italic;" href="KeywordsG.html#GetHEAD">GetHEAD</A> read file headers to given memory positions,
+    <A style="font-style: italic;" href="KeywordsF.html#FSETH$">FSETH$</A>, <A style="font-style: italic;" href="KeywordsH.html#HEADS">HEADS</A> and <A style="font-style: italic;" href="KeywordsS.html#SetHEAD">SetHEAD</A> set them.
+    
+    Functions like <A style="font-style: italic;" href="KeywordsF.html#FLEN">FLEN</A>, <A style="font-style: italic;" href="KeywordsF.html#FTYP">FTYP</A>, <A style="font-style: italic;" href="KeywordsF.html#FXTRA">FXTRA</A> etc. read the file header
+    implicitly and return a certain piece of information from it.
+    
+    Use the <A style="font-style: italic;" href="KeywordsC.html#CVI%">CVI%</A>, <A style="font-style: italic;" href="KeywordsC.html#CVL">CVL</A> and <A style="font-style: italic;" href="KeywordsC.html#CVS$">CVS$</A> functions to convert the internal
+    representations to actual values.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FILE_DAT" id="FILE_DAT"></A>FILE_DAT</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FILE_DAT (filename)<BR></SPAN>
+    or <SPAN style="font-style: italic;">FILE_DAT (file$)<BR></SPAN> Location: <SPAN style="font-style: italic;">TinyToolkit<BR></SPAN>
+    This is the same as <SPAN style="font-style: italic;">FDAT</SPAN> except that default devices and
+    sub- directories are not supported.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FILE_LEN" id="FILE_LEN"></A>FILE_LEN</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FILE_LEN (filename)<BR></SPAN>
+    or <SPAN style="font-style: italic;">FILE_LEN (file$)<BR></SPAN> Location: <SPAN style="font-style: italic;">TinyToolkit<BR></SPAN>
+    This function returns the length of a file in bytes. It
+    does not support the default devices or sub-directories.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    A short program to show simple file statistics (without any
+    
+    support of wild cards):
+    <SPAN style="font-style: italic;">100 dev$="FLP1_"
+    110 OPEN#3,PIPE_10000: OPEN#4,PIPE_200
+    120 TCONNECT #3 TO #4
+    130 DIR#3,dev$: INPUT#4,h$\h$
+    140 :
+    150 sum=0: count=0
+    160 REPeat add_lengths
+    170 IF NOT PEND(#4) THEN EXIT add_lengths
+    180 INPUT#4,file$
+    185 IF " -&gt;" INSTR file$ THEN NEXT add_lengths
+    190 sum=sum+FILE_LEN(dev$ &amp; file$)
+    200 count=count+1
+    210 END REPeat add_lengths
+    220 :
+    230 CLS
+    240 PRINT "There are"!count!"files in"!dev$;"."
+    250 PRINT "They are altogether"!sum!"bytes long,"
+    260 PRINT "the average length is"!INT(sum/count+.5)!"bytes."<BR></SPAN>
+    TinyToolkit's <SPAN style="font-style: italic;">TCONNECT</SPAN> or DIY Toolkit's <SPAN style="font-style: italic;">QLINK</SPAN> is necessary
+    
+    
+<H3>NOTE:</H3>
+
+<P>
+    It is not recommended to get a file list by writing a
+    directory into a file or pipe.
+    
+    Problems arise with sub-directories on level-2 drivers: a
+    sub-directory is marked with an appended " -&gt;" in the
+    directory list (<SPAN style="font-style: italic;">WDIR</SPAN>, <SPAN style="font-style: italic;">WSTAT</SPAN>, <SPAN style="font-style: italic;">DIR</SPAN>), so opening a file such a "test
+    -&gt;" will fail.
+    
+    Refer to <SPAN style="font-style: italic;">OPEN_DIR</SPAN> and <SPAN style="font-style: italic;">FOP_DIR</SPAN> for a cleaner method.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsF.html#FLEN">FLEN</A> has a more flexible syntax.
+    <A href="KeywordsF.html#FILE_TYP">FILE_TYP</A>, <A style="font-style: italic;" href="KeywordsF.html#FILE_DAT">FILE_DAT</A>, <A style="font-style: italic;" href="KeywordsF.html#FILE_POS">FILE_POS</A>, <A style="font-style: italic;" href="KeywordsF.html#FNAME$">FNAME$</A>, <A style="font-style: italic;" href="KeywordsF.html#FPOS">FPOS</A>, <A style="font-style: italic;" href="KeywordsF.html#FTYP">FTYP</A>, <A style="font-style: italic;" href="KeywordsF.html#FUPDT">FUPDT</A> and <A style="font-style: italic;" href="KeywordsF.html#FXTRA">FXTRA</A> hold
+    other information on a file.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FILE_OPEN" id="FILE_OPEN"></A>FILE_OPEN</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FILE_OPEN (</SPAN>[<SPAN style="font-style: italic;">#ch,</SPAN>] <SPAN style="font-style: italic;">device</SPAN> [<SPAN style="font-style: italic;">,</SPAN>{<SPAN style="font-style: italic;">mode%</SPAN> | <SPAN style="font-style: italic;">ChID</SPAN>}]<SPAN style="font-style: italic;">)<BR></SPAN> Location: <SPAN style="font-style: italic;">BTool<BR></SPAN>
+    <SPAN style="font-style: italic;">FILE_OPEN</SPAN> is a function which will open any device (default
+    data directory supported for files) for all kinds of tasks.
+    
+    If a channel number <SPAN style="font-style: italic;">#ch</SPAN> is not supplied, <SPAN style="font-style: italic;">FILE_OPEN</SPAN> will choose
+    the channel number on its own by searching for the next free
+    channel number and returning it.
+    <SPAN style="font-style: italic;">
+    FILE_OPEN</SPAN> returns the channel number if it was not specified
+    or otherwise zero. In case of failure it will return a
+    (negative) error code. If error -4 ('out of range') is
+    returned when a channel number has not been supplied, this
+    indicates that the channel table of a compiled job is full.
+    
+    The third parameter can be either the open mode or the
+    channel ID of an un-named pipe. The open mode (default 0) is:
+    
+    0 (old exclusive) - open an existing file to read and write
+    
+    1 (old shared) - open an existing file to read only
+    
+    2 (new exclusive) - create a new file if it does not exist
+    
+    3 (new overwrite) - create a new file, whether or not it
+    exists
+    
+    4 (dir open) - open a directory to read only.
+    
+    If the third parameter is the channel ID of an open input
+    pipe, then <SPAN style="font-style: italic;">FILE_OPEN</SPAN> will create an output pipe linked to that
+    channel.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    Count additional keywords:
+    <SPAN style="font-style: italic;">100 ch1=FILE_OPEN(pipe_10000)
+    110 ch2=FILE_OPEN(pipe_,CHANID(#ch1))
+    120 EXTRAS#ch1
+    130 FOR count=1 TO 1E6
+    140 IF IO_PEND%(#ch2) THEN EXIT
+    150 INPUT#ch2,keyword$
+    160 AT 0,0: PRINT count
+    170 END FOR count
+    180 CLOSE#ch1,#ch2<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsF.html#FILE_OPEN">FILE_OPEN</A> combines <A style="font-style: italic;" href="KeywordsO.html#OPEN">OPEN</A>, <A style="font-style: italic;" href="KeywordsO.html#OPEN_IN">OPEN_IN</A>, <A style="font-style: italic;" href="KeywordsO.html#OPEN_NEW">OPEN_NEW</A>, <A style="font-style: italic;" href="KeywordsO.html#OPEN_OVER">OPEN_OVER</A>, <A style="font-style: italic;" href="KeywordsO.html#OPEN_DIR">OPEN_DIR</A>, <A style="font-style: italic;" href="KeywordsF.html#FOPEN">FOPEN</A>,
+    <A style="font-style: italic;" href="KeywordsF.html#FOP_IN">FOP_IN</A>, <A style="font-style: italic;" href="KeywordsF.html#FOP_OVER">FOP_OVER</A>, <A style="font-style: italic;" href="KeywordsF.html#FOP_NEW">FOP_NEW</A>, <A style="font-style: italic;" href="KeywordsF.html#FOP_DIR">FOP_DIR</A>, <A style="font-style: italic;" href="KeywordsT.html#TTEOPEN">TTEOPEN</A> and <A style="font-style: italic;" href="KeywordsT.html#TCONNECT">TCONNECT</A>.
+    
+    See also <A style="font-style: italic;" href="KeywordsC.html#CHANID">CHANID</A> and <A style="font-style: italic;" href="KeywordsE.html#ERNUM">ERNUM</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FILE_POS" id="FILE_POS"></A>FILE_POS</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FILE_POS (#channel)<BR></SPAN> Location: <SPAN style="font-style: italic;">TinyToolkit<BR></SPAN>
+    This performs the same function as <SPAN style="font-style: italic;">FPOS</SPAN>, although with
+    slightly less flexible parameters.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FILE_PTRA" id="FILE_PTRA"></A>FILE_PTRA</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FILE_PTRA #channel, position<BR></SPAN> Location: <SPAN style="font-style: italic;">TinyToolkit<BR></SPAN>
+    This command forces the file pointer to be set to the given
+    position. Positions greater than the actual file length or
+    smaller than zero will set the pointer to the end or start of
+    the file respectively.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsF.html#FILE_PTRR">FILE_PTRR</A>, <A style="font-style: italic;" href="KeywordsF.html#FILE_POS">FILE_POS</A>, <A style="font-style: italic;" href="KeywordsF.html#FPOS">FPOS</A>, <A style="font-style: italic;" href="KeywordsF.html#FLEN">FLEN</A>, <A style="font-style: italic;" href="KeywordsF.html#FILE_LEN">FILE_LEN</A>, <A style="font-style: italic;" href="KeywordsG.html#GET">GET</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FILE_PTRR" id="FILE_PTRR"></A>FILE_PTRR</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FILE_PTRR #channel, bytes<BR></SPAN> Location: <SPAN style="font-style: italic;">TinyToolkit<BR></SPAN>
+    This command moves the file pointer from its current
+    position by the given number of bytes forward, negative
+    numbers allow backward movement.
+    
+    The file pointer cannot go beyond the limits of the file
+    itself, so if you try to do so, the pointer will be set to the
+    start or end of the file.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    A program to store several names and telephone numbers in a
+    
+    file and then to search for the given name and return the
+    
+    relevant telephone number:
+    <SPAN style="font-style: italic;">100 DIM a$(3,30),number(3)
+    110 RESTORE
+    120 FOR i=1 TO 3: READ a$(i),number(i)
+    130 OPEN_NEW #3,flp2_phone_dbs
+    140 FOR stores=1 TO 3
+    150 PUT#3,a$(stores),number(stores)
+    160 END FOR stores
+    170 CLOSE#3
+    180 :
+    200 INPUT name$
+    210 OPEN_IN#3,flp2_phone_dbs
+    220 REPeat find_NAME
+    230 IF EOF(#3) THEN PRINT'NAME not found...': STOP
+    240 GET#3,entry$
+    250 IF entry$==name$ THEN
+    260 GET#3,telno
+    270 EXIT find_NAME
+    280 END IF
+    290 FILE_PTRR#3,6: REMark skip next phone number
+    300 END REPeat find_NAME
+    310 CLOSE#3
+    320 PRINT entry$;'....';telno
+    330 :
+    350 DATA 'P.C. Green','999'
+    360 DATA 'CATFLAP inc.','7212.002121'
+    370 DATA 'Tim','98081'<BR></SPAN>
+    Note that on Minerva, Integer Tokenisation will need to be
+    disabled.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsF.html#FILE_PTRA">FILE_PTRA</A>, <A style="font-style: italic;" href="KeywordsF.html#FILE_POS">FILE_POS</A>, <A style="font-style: italic;" href="KeywordsF.html#FPOS">FPOS</A>, <A style="font-style: italic;" href="KeywordsF.html#FLEN">FLEN</A>, <A style="font-style: italic;" href="KeywordsF.html#FILE_LEN">FILE_LEN</A>, <A style="font-style: italic;" href="KeywordsG.html#GET">GET</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FILL" id="FILL"></A>FILL</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FILL</SPAN> [<SPAN style="font-style: italic;">#channel,</SPAN>] <SPAN style="font-style: italic;">boolean<BR></SPAN> Location: <SPAN style="font-style: italic;">QL ROM<BR></SPAN>
+    This command switches Fill mode on and off.
+    
+    If the Fill mode is on (after <SPAN style="font-style: italic;">FILL 1</SPAN>), all points in the
+    given window <SPAN style="font-style: italic;">channel</SPAN> (default #1) that have the same vertical
+    co-ordinate are connected by a line in the current ink colour
+    so that only non-reentrant figures can be filled correctly.
+    This means that figures must only contain two points on each
+    horizontal row of pixels. The fill mode is de-activated by
+    <SPAN style="font-style: italic;">FILL 0</SPAN>.
+    
+    
+<H3>Example 1:</H3>
+
+<P><SPAN style="font-style: italic;">FILL 1: POINT 20,20,40,20: FILL 0<BR></SPAN>
+    draws a horizontal line from 20,20 to 40,20.
+    
+    
+<H3>Example 2:</H3>
+
+<P><SPAN style="font-style: italic;">100 DEFine PROCedure SQUARE (x,y,size,angle)
+    110 LOCal n: POINT x,y
+    120 TURNTO angle: PENDOWN: FILL 1
+    130 FOR n=1 TO 4: MOVE size: TURN 270
+    140 PENUP: FILL 0
+    150 END DEFine SQUARE<BR></SPAN>
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">FILL</SPAN> only affects those graphic commands which use relative
+    co-ordinates, ie. which are influenced by <SPAN style="font-style: italic;">SCALE</SPAN>. Commands which
+    operate in absolute window or screen co-ordinates will not
+    invoke filling.
+    
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    On non-Minerva ROMs, 1K of memory may be lost if you do not
+    issue a <SPAN style="font-style: italic;">FILL 0</SPAN> before closing a window. This is however fixed by
+    v1.38 (or later) of the Pointer Interface (although earlier
+    versions will re-introduce it to Minerva!).
+    
+    
+<H3>NOTE 3:</H3>
+
+<P>
+    When drawing several shapes, all of which are to be filled,
+    ensure that you issue a <SPAN style="font-style: italic;">FILL 0</SPAN> between each shape, otherwise
+    they will be joined together if any points appear on the same
+    horizontal line!
+    
+    
+<H3>NOTE 4:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">FILL</SPAN> works by setting aside a buffer of approximately 1K.
+    Whenever a point is then plotted in the given window, <SPAN style="font-style: italic;">FILL</SPAN> looks
+    at the buffer to see if anything appears to the left of that
+    point on the same horizontal line (in which case, it fills the
+    line between the two points), otherwise, <SPAN style="font-style: italic;">FILL</SPAN> will just note the
+    co-ordinate of the point in its buffer. <SPAN style="font-style: italic;">FILL</SPAN> then checks if
+    anything appears to the right of the given point, and if so,
+    will fill the line between the two points. Again, the
+    co-ordinate of the point will be stored if nothing appears to
+    the right of it. This should explain quite a few of <SPAN style="font-style: italic;">FILL</SPAN>'s
+    quirks.
+    
+    Whenever a new <SPAN style="font-style: italic;">FILL</SPAN> command is used on that window, the old
+    buffer is lost, meaning that <SPAN style="font-style: italic;">FILL</SPAN> will forget about any points
+    previously plotted.
+    
+    Unfortunately, the interaction of this buffer causes a lot
+    of problems (and prevents re-entrant shapes), especially in
+    view of the fact that only <SPAN style="font-style: italic;">FILL</SPAN> or <SPAN style="font-style: italic;">CLOSE</SPAN> will clear the buffer.
+    The buffer is not cleared once a shape has been completely
+    filled (eg. with <SPAN style="font-style: italic;">CIRCLE</SPAN>), nor even when the screen is cleared
+    with <SPAN style="font-style: italic;">CLS</SPAN>. Try this for example:-
+    <SPAN style="font-style: italic;">100 INK 7:FILL 1
+    110 CIRCLE 50,50,20
+    130 CLS
+    135 INK 2
+    140 CIRCLE 70,60,20<BR></SPAN>
+    
+<H3>NOTE 5:</H3>
+
+<P>
+    If <SPAN style="font-style: italic;">OVER -1</SPAN> is switched on, the same line of an image may be
+    <SPAN style="font-style: italic;">FILL</SPAN>ed twice causing that line to be left empty, unless you
+    start drawing the image from either the top or the bottom. You
+    may also encounter problems if you try to draw a line which
+    has already been completed by <SPAN style="font-style: italic;">FILL</SPAN> - for example try:-
+    <SPAN style="font-style: italic;">100 OVER -1:FILL 1
+    110 LINE 50,50 TO 60,60 TO 70,50 TO 50,50<BR></SPAN>
+    The <SPAN style="font-style: italic;">FILL</SPAN> command will complete the triangle as soon as the
+    line between the points (60,60) and (70,50) has been drawn,
+    therefore this should be re-written:
+    <SPAN style="font-style: italic;">100 OVER -1:FILL 1
+    110 LINE 50,50 TO 60,60 TO 70,50<BR></SPAN>
+    On Minerva v1.97 and SMSQ/E, matters are further
+    complicated - the first example draws a complete triangle,
+    whereas the second one doesn't!
+    
+    
+<H3>NOTE 6:</H3>
+
+<P>
+    If <SPAN style="font-style: italic;">OVER -1</SPAN> is switched on, a shape which is drawn as <SPAN style="font-style: italic;">FILL</SPAN>ed
+    will not be wiped out by re-drawing the same shape again,
+    unless you do a <SPAN style="font-style: italic;">FILL 1</SPAN> before re-drawing the shape. For example,
+    try this:
+    <SPAN style="font-style: italic;">100 OVER -1:FILL 1:CIRCLE 50,50,20
+    110 PAUSE:CIRCLE 50,50,20<BR></SPAN>
+    The answer is to insert a line:
+    <SPAN style="font-style: italic;">105 FILL 1<BR></SPAN>
+    
+<H3>NOTE 7:</H3>
+
+<P>
+    On Minvera pre v1.86 <SPAN style="font-style: italic;">FILL 0</SPAN> when fill was not actually
+    switched on would stop SuperBASIC!!
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    The paint colour of <A style="font-style: italic;" href="KeywordsF.html#FILL">FILL</A> is specified by <A style="font-style: italic;" href="KeywordsI.html#INK">INK</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FILL$" id="FILL$"></A>FILL$</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FILL$ (short$,length)<BR></SPAN> Location: <SPAN style="font-style: italic;">QL ROM<BR></SPAN>
+    This function will generate a string of the given length
+    and return it. The new string will consist of a repeated
+    series of <SPAN style="font-style: italic;">short$</SPAN> which may be one or two characters long. The
+    <SPAN style="font-style: italic;">length</SPAN> (as with any string) ranges from 0 to 32767.
+    
+    
+<H3>Examples:</H3>
+
+<P><SPAN style="font-style: italic;">FILL$("W-",7)="W-W-W-W"
+    FILL$("+",10)="++++++++++"
+    FILL$("Jo",0)=""
+    FILL$("Test",6)="TeTeTe"<BR></SPAN>
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    A bug in the THOR XVI (v6.40) meant that the return stack
+    could be destroyed when appending the result to an even length
+    string.
+    
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    A program will run more quickly (although it is more
+    difficult to type in) if you declare the string explicitly
+    rather than using <SPAN style="font-style: italic;">FILL$</SPAN>.
+    
+    
+<H3>NOTE 3:</H3>
+
+<P>
+    The maximum length of string that can be produced with <SPAN style="font-style: italic;">FILL$<BR></SPAN> depends on the ROM version - see the Compatability Appendix.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    Refer to <A style="font-style: italic;" href="KeywordsD.html#DIM">DIM</A> about strings in general.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FIND" id="FIND"></A>FIND</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FIND (procfn$)<BR></SPAN> Location: <SPAN style="font-style: italic;">BTool<BR></SPAN>
+    If <SPAN style="font-style: italic;">procfn$</SPAN> is the name of a machine code keyword (eg.
+    "FILL$") then the function <SPAN style="font-style: italic;">FIND</SPAN> returns the address where the
+    definition is stored in memory. If, however, <SPAN style="font-style: italic;">procfn$</SPAN> contains the
+    name of a SuperBASIC <SPAN style="font-style: italic;">PROCedure</SPAN> or <SPAN style="font-style: italic;">FuNction</SPAN> then <SPAN style="font-style: italic;">FIND</SPAN> will return the
+    line number where the <SPAN style="font-style: italic;">PROCedure</SPAN> or <SPAN style="font-style: italic;">FuNction</SPAN> starts.
+    <SPAN style="font-style: italic;">
+    FIND</SPAN> returns 0 if the passed name is unknown.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    &lt;ALT&gt;&lt;R&gt; requests a Procedure/Function name and calls
+    
+    Toolkit II's full screen editor accordingly:
+    
+    <SPAN style="font-style: italic;">ALTKEY "r","ED FIND('')"&amp;CHR$(192)&amp;CHR$(192)<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsK.html#KEY_ADD">KEY_ADD</A>, <A style="font-style: italic;" href="KeywordsE.html#ELIS">ELIS</A>, <A style="font-style: italic;" href="KeywordsN.html#NEW_NAME">NEW_NAME</A>
+    Also see <A style="font-style: italic;" href="KeywordsF.html#FLIS">FLIS</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FLASH" id="FLASH"></A>FLASH</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FLASH</SPAN> [<SPAN style="font-style: italic;">#ch,</SPAN>] <SPAN style="font-style: italic;">switch<BR></SPAN> Location: <SPAN style="font-style: italic;">QL ROM<BR></SPAN>
+    This command turns on or off flashing in the specified
+    window channel (default #1).
+    
+    <SPAN style="font-style: italic;">switch</SPAN> can only have the values 0 (to enable flashing) and 1
+    (to turn flashing on).
+    
+    This command will only have any effect in <SPAN style="font-style: italic;">MODE 8</SPAN>.
+    
+    If flashing is enabled, then any characters <SPAN style="font-style: italic;">PRINT</SPAN>ed to the
+    given window afterwards will be shown to flash - it is first
+    written out as normal, but then the parts of the character
+    which would normally be shown in the current <SPAN style="font-style: italic;">INK</SPAN> colour will
+    alternate with the colour of the background. The colour of the
+    background can in fact be different for each row of pixels -
+    this is calculated by the colour of the left-most pixel on
+    each row for each character <SPAN style="font-style: italic;">PRINT</SPAN>ed.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    This short listing shows the effect of the <SPAN style="font-style: italic;">FLASH</SPAN> command -
+    
+    note that the display is not actually changed back to its
+    
+    original form.
+    
+    <SPAN style="font-style: italic;">100 PAPER 2: INK 1
+    
+    120 CSIZE 3,1: MODE 8: CLS
+    
+    130 FOR i=0 TO 50: LINE 80+i,80 TO 15+i,10
+    
+    140 INK 7: CURSOR 100,120
+    
+    150 OVER 1: FLASH 1: PRINT 'This is flashing'
+    
+    160 CSIZE 1,0: FLASH 0<BR></SPAN>
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    This command only affects characters <SPAN style="font-style: italic;">PRINT</SPAN>ed to the screen
+    after the <SPAN style="font-style: italic;">FLASH 1</SPAN>. There is no effect on graphics commands, or
+    <SPAN style="font-style: italic;">BLOCK</SPAN> or <SPAN style="font-style: italic;">LINE</SPAN>.
+    
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    Spurious results may occur if you write over part of a
+    flashing character (with <SPAN style="font-style: italic;">OVER -1</SPAN>).
+    
+    
+<H3>NOTE 3:</H3>
+
+<P>
+    This command does not work on the Amiga-QDOS Emulator or
+    ST/QL Emulators.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    Please also refer to <A style="font-style: italic;" href="KeywordsU.html#UNDER">UNDER</A>, <A style="font-style: italic;" href="KeywordsO.html#OVER">OVER</A> and <A style="font-style: italic;" href="KeywordsP.html#PRINT">PRINT</A>.
+    
+    <A style="font-style: italic;" href="KeywordsM.html#MODE">MODE</A> resets the <A style="font-style: italic;" href="KeywordsF.html#FLASH">FLASH</A> mode to off.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FLEN" id="FLEN"></A>FLEN</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FLEN</SPAN> [<SPAN style="font-style: italic;">(#channel)</SPAN>]
+    
+    or <SPAN style="font-style: italic;">FLEN (\file)(Toolkit II and THOR only)<BR></SPAN> Location: <SPAN style="font-style: italic;">Toolkit II, THOR XVI, BTool<BR></SPAN>
+    This function returns the length of a file in bytes. If the
+    second version is used, then Toolkit II's default data device
+    and sub-directories will be supported, meaning that the
+    command will consult the default data directory if necessary
+    (see <SPAN style="font-style: italic;">DATAD$</SPAN>).
+    
+    If you use the first version however, you will first of all
+    need to open a channel. If you do not supply a channel number,
+    then the default used by the function is #3.
+    
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    The space on disks, cartridges, ramdisks and all other
+    media where files can be stored is divided up into sectors,
+    which are normally 512 bytes long. A file does not occupy the
+    number of bytes returned by <SPAN style="font-style: italic;">FLEN</SPAN> but a certain number of sectors
+    for the contents of the file itself, a few bytes for the file
+    header and the directory entries (sector map, etc). The total
+    number of sectors which are occupied by the file data are:
+    
+    <SPAN style="font-style: italic;">sectors=2+CEIL(FLEN(\file)/512)</SPAN>.
+    
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    If the second syntax does not work, update your Toolkit.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsF.html#FILE_LEN">FILE_LEN</A> has a slightly different syntax.
+    
+    <A style="font-style: italic;" href="KeywordsF.html#FILE_TYP">FILE_TYP</A>, <A style="font-style: italic;" href="KeywordsF.html#FILE_DAT">FILE_DAT</A>, <A style="font-style: italic;" href="KeywordsF.html#FILE_POS">FILE_POS</A>, <A style="font-style: italic;" href="KeywordsF.html#FNAME$">FNAME$</A>, <A style="font-style: italic;" href="KeywordsF.html#FPOS">FPOS</A>, <A style="font-style: italic;" href="KeywordsF.html#FTYP">FTYP</A>, <A style="font-style: italic;" href="KeywordsF.html#FUPDT">FUPDT</A> and <A style="font-style: italic;" href="KeywordsF.html#FXTRA">FXTRA</A> hold
+    other information about a file.
+    
+    <A style="font-style: italic;" href="KeywordsH.html#HEADR">HEADR</A> and <A style="font-style: italic;" href="KeywordsH.html#HEADS">HEADS</A> allow you to directly access a file header.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FLIS" id="FLIS"></A>FLIS</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FLIS (procfn$)<BR></SPAN> Location: <SPAN style="font-style: italic;">Tiny Toolkit<BR></SPAN>
+    If <SPAN style="font-style: italic;">procfn$</SPAN> is the name of a SuperBASIC <SPAN style="font-style: italic;">PROCedure</SPAN> or <SPAN style="font-style: italic;">FuNction</SPAN> then
+    <SPAN style="font-style: italic;">FLIS</SPAN> will return the line number where the <SPAN style="font-style: italic;">PROCedure</SPAN> or <SPAN style="font-style: italic;">FuNction</SPAN> is
+    defined. If however, it is a machine code keyword (eg.
+    "FILL$") then the function <SPAN style="font-style: italic;">FLIS</SPAN> will return 0.
+    
+    If the name is not recognised the error 'Not Found' is
+    reported.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsK.html#KEY_ADD">KEY_ADD</A>, <A style="font-style: italic;" href="KeywordsE.html#ELIS">ELIS</A>, <A style="font-style: italic;" href="KeywordsN.html#NEW_NAME">NEW_NAME</A>
+    Also see <A style="font-style: italic;" href="KeywordsF.html#FIND">FIND</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FLP_DENSITY" id="FLP_DENSITY"></A>FLP_DENSITY</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FLP_DENSITY density</SPAN> <SPAN style="font-style: italic;">density = S, D, H, E<BR></SPAN> Location: <SPAN style="font-style: italic;">Gold Cards, SMS<BR></SPAN>
+    There are four types of floppy disk drives which can be
+    connected to a QL with a Gold Card (or to other computers
+    which are running a QL emulator). The command <SPAN style="font-style: italic;">FLP_DENSITY</SPAN> sets
+    the type for use with <SPAN style="font-style: italic;">FORMAT</SPAN>:
+    
+<H3>sideddensityabbrevcapacity<SPAN style="font-style: italic;">density<BR></SPAN></H3>singledoubleSSDD360 K<SPAN style="font-style: italic;">S<BR></SPAN> doubledoubleDSDD720 K<SPAN style="font-style: italic;">D<BR></SPAN> doublehighDSHD1440 K<SPAN style="font-style: italic;">H<BR></SPAN> doubleextraDSED3240 K<SPAN style="font-style: italic;">E<BR></SPAN>
+    Parameters other than the four letters <SPAN style="font-style: italic;">S</SPAN>, <SPAN style="font-style: italic;">D</SPAN>, <SPAN style="font-style: italic;">H</SPAN> and <SPAN style="font-style: italic;">E</SPAN>,
+    (including several characters or several parameters) are not
+    allowed.
+    
+    
+<H3>Examples:</H3>
+
+<P><SPAN style="font-style: italic;">FLP_DENSITY h
+    FLP_DENSITY 'D'<BR></SPAN>
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    Tests have shown that it is not always advisable to <SPAN style="font-style: italic;">FORMAT</SPAN> a
+    disk to a lower density than would otherwise be possible, for
+    example a high density disk to double density. The result may
+    be that the number of good sectors is less than could have
+    been achieved by formatting a disk of the lower density.
+    During testing, an undamaged double density disk was formatted
+    to 1440 sectors and a high density disk to 2880 sectors, but
+    if the high density disk had been formatted to double density,
+    eg. with:
+    <SPAN style="font-style: italic;">
+    FLP_DENSITY D : FORMAT flp1_<BR></SPAN>
+    less than 1440 sectors might be good sectors.
+    
+    You may also find that some disk drives which support the
+    higher density will be unable to read these disks, since it
+    will presume that they are <SPAN style="font-style: italic;">FORMAT</SPAN>ted to their maximum density.
+    
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    Since <SPAN style="font-style: italic;">FLP_DENSITY</SPAN> only has any affect during formatting, it
+    should generally be avoided. This does not really matter
+    because a disk is automatically formatted to the highest
+    possible density and it would be a waste of money to use a HD
+    disk as a DD disk.
+    
+    
+<H3>NOTE 3:</H3>
+
+<P>
+    If a high or extra density disk is formatted on a system
+    which does not support those capacities, it will be formatted
+    to double density without any disadvantages. Such a disk does
+    not cause problems when used with a Gold Card QL.
+    
+    
+<H3>NOTE 4:</H3>
+
+<P>
+    A double density disk cannot be formatted to a higher
+    density with HD drives - the Level-2 (or Level-3) device
+    driver will automatically reduce a density which had been set
+    at too high a figure by <SPAN style="font-style: italic;">FLP_DENSITY</SPAN>, to the appropriate figure. An
+    ED drive however can successfully format HD disks and even DD
+    disks to high and extra density, but such disks may be
+    unreliable, ie. data could be easily lost.
+    
+    
+<H3>NOTE 4:</H3>
+
+<P>
+    High density is only supported on 3.5" disks, not 5.25"
+    disks (widely used on MS/DOS systems). Extra density also only
+    exists on 3.5" disks. QL DD and HD formatted disks have the
+    same physical (but not software) format as MS/DOS and Atari
+    TOS disks.
+    
+    
+<H3>NOTE 5:</H3>
+
+<P>
+    High density and Extra density disks are much faster than
+    double density disks, ED disks can even be as fast as slow
+    hard disks.
+    
+    
+<H3>NOTE 6:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">FLP_DENSITY</SPAN> overrides the in-built trial-and-error density
+    detection which is slow for HD drives and even slower with ED
+    drives. This can however cause problems when <SPAN style="font-style: italic;">FORMAT</SPAN>ting DSDD
+    disks - see <SPAN style="font-style: italic;">FORMAT</SPAN>!
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    The same effect as <A style="font-style: italic;" href="KeywordsF.html#FLP_DENSITY">FLP_DENSITY</A> can be achieved with a special
+    <A style="font-style: italic;" href="KeywordsF.html#FORMAT">FORMAT</A> syntax.
+    
+    <A style="font-style: italic;" href="KeywordsF.html#FLP_TRACK">FLP_TRACK</A> allows you to specify the number of tracks to be
+    formatted onto a disk.
+    
+    <A style="font-style: italic;" href="KeywordsS.html#STAT">STAT</A> prints the name, good and free sectors of a medium.
+    
+    See also the <A style="font-style: italic;" href="KeywordsD.html#DMEDIUM_">DMEDIUM_</A>... functions.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FLP_EXT" id="FLP_EXT"></A>FLP_EXT</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FLP_EXT<BR></SPAN> Location: <SPAN style="font-style: italic;">Gold Cards<BR></SPAN>
+    If you use <SPAN style="font-style: italic;">RES_128</SPAN> or <SPAN style="font-style: italic;">RES_SIZE</SPAN> to reset the computer to 128K
+    memory only attempts to access the floppy disk drives can be
+    haphazard, and can even crash the computer.
+    
+    The command <SPAN style="font-style: italic;">FLP_EXT</SPAN> resolves these problems and adds the
+    following commands for use:
+    
+    <SPAN style="font-style: italic;">RAM_USE</SPAN>, <SPAN style="font-style: italic;">CACHE_ON</SPAN>, <SPAN style="font-style: italic;">CACHE_OFF</SPAN>, <SPAN style="font-style: italic;">SCR2DIS</SPAN>, <SPAN style="font-style: italic;">SCR2EN</SPAN>, <SPAN style="font-style: italic;">AUTO_TK2F1</SPAN>, <SPAN style="font-style: italic;">AUTO_TK2F2</SPAN>,
+    <SPAN style="font-style: italic;">AUTO_DIS</SPAN>, <SPAN style="font-style: italic;">FLP_JIGGLE</SPAN>, <SPAN style="font-style: italic;">PAR_USE</SPAN>, <SPAN style="font-style: italic;">FSERVE</SPAN>, <SPAN style="font-style: italic;">NFS_USE</SPAN>, <SPAN style="font-style: italic;">DEV_USE</SPAN>, <SPAN style="font-style: italic;">DEV_LIST</SPAN>, <SPAN style="font-style: italic;">DEV_USE$</SPAN>,
+    <SPAN style="font-style: italic;">DEV_NEXT</SPAN>, <SPAN style="font-style: italic;">SDUMP</SPAN>, <SPAN style="font-style: italic;">SDP_SET</SPAN>, <SPAN style="font-style: italic;">SDP_KEY</SPAN>, <SPAN style="font-style: italic;">SDP_DEV</SPAN>, <SPAN style="font-style: italic;">PRT_USE</SPAN>, <SPAN style="font-style: italic;">PRT_ABT</SPAN>, <SPAN style="font-style: italic;">RES_128</SPAN>, <SPAN style="font-style: italic;">RES_SIZE</SPAN>,
+    <SPAN style="font-style: italic;">PROT_DATE<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsR.html#RES_128">RES_128</A> and <A style="font-style: italic;" href="KeywordsT.html#TK2_EXT">TK2_EXT</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FLP_JIGGLE" id="FLP_JIGGLE"></A>FLP_JIGGLE</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FLP_JIGGLE</SPAN> [<SPAN style="font-style: italic;">driveno,</SPAN>] <SPAN style="font-style: italic;">flag<BR></SPAN> Location: <SPAN style="font-style: italic;">Gold Cards<BR></SPAN>
+    There were originally various problems when using
+    Mitsubishi ED disk drives with the Gold Card and so a fix was
+    incorporated in both the Gold Card and Super Gold Card
+    operating systems which forces the drive read/write head to
+    make a number of rapid steps. This can however cause problems
+    with other ED disk drives (normally seen in the form of 'Not
+    Found' or 'Bad or Changed Medium' errors.
+    
+    It was therefore felt necessary to be able to enable or
+    disable this feature at the users request (the default is to
+    have the feature disabled).
+    
+    To enable this feature set <SPAN style="font-style: italic;">flag</SPAN> to 1, 0 will disable it.
+    
+    If <SPAN style="font-style: italic;">driveno</SPAN> is not specified, then the setting will be applied
+    to all disk drives connected to the (Super) Gold Card and
+    automatically stored so that it is available on power on.
+    
+    However, if <SPAN style="font-style: italic;">driveno</SPAN> is specified, then the setting will only
+    apply to that specified disk drive and will be forgotten when
+    the power is switched off.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsF.html#FLP_STEP">FLP_STEP</A> and <A style="font-style: italic;" href="KeywordsF.html#FLP_START">FLP_START</A> which overcome various other problems
+    with some disk drives.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FLP_SEC" id="FLP_SEC"></A>FLP_SEC</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FLP_SEC level<BR></SPAN> Location: <SPAN style="font-style: italic;">Gold Cards, Trump Card, SMS, THORs<BR></SPAN>
+    The Gold Card, Trump Card and Thor range of computers,
+    together with SMS provide a high standard of disk security,
+    meaning that they are unlikely to fail to notice when a disk
+    has been swapped over, and thereby try to write a file across
+    two disks!
+    
+    However, this level of security does affect the speed of
+    disk access, as the system must check to see if the disk has
+    been altered each time that it is written to.
+    
+    The command <SPAN style="font-style: italic;">FLP_SEC</SPAN> allows you to choose between three levels
+    of security, the lowest of which (level 0) is still at least
+    as secure as many other disk operating systems (such as
+    MSDOS). The lower the level of security, the quicker disk
+    access will be.
+    
+    The levels of security are as follows:-
+    
+    
+<H3>Security Level 0</H3>
+
+<P>
+    The disk system will only check to see if the disk has
+    changed if a file is opened and the disk has stopped (ie. the
+    disk light will have gone out) since the last time it was
+    checked. The disk map is only updated when a file is closed
+    (or flushed) and no other disk access has happened within half
+    a second.
+    
+    Confusion can be expected on both read and write operations
+    whenever a disk is changed whilst the disk light is still on
+    or there are files open to the disk.
+    
+    
+<H3>Security Level 1</H3>
+
+<P>
+    The disk is checked each time that a file is opened, data
+    is written to the disk, or the disk map is to be written;
+    provided that the disk has stopped since the last time it was
+    checked. The disk map is only updated when a file is closed
+    (or flushed) and no other disk access has happened within half
+    a second.
+    
+    The disk is not checked when anything is read from the
+    disk, which can lead to confusion if a disk is changed whilst
+    there are files still open.
+    
+    
+<H3>Security Level 2</H3>
+
+<P>
+    The disk is checked whenever a file is opened, data is
+    written to or read from the disk, or the map is to be read or
+    written to; provided that the disk has stopped since the last
+    time that it was checked. The disk map and directory are
+    updated and the slave buffers flushed every time that a file
+    is closed (or flushed).
+    
+    
+<H3>SMS NOTE:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">FLP_SEC</SPAN> has no effect - the security level is fixed at 2, the
+    most secure.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FLP_START" id="FLP_START"></A>FLP_START</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FLP_START time<BR></SPAN> Location: <SPAN style="font-style: italic;">Gold Cards, Trump Card, THORs, ST/QL (level D.02+
+    drivers), SMS<BR></SPAN>
+    The disk system always tries to read data from a disk as
+    soon as it can. However, when writing to a disk, it is
+    necessary to ensure that the disk is running at full speed
+    before any information is sent to it. For relatively new
+    drives, the default waiting time of 0.5 seconds should be
+    enough to ensure that the disk is running at full speed.
+    
+    The command <SPAN style="font-style: italic;">FLP_START</SPAN> can be used for older disks to allow a
+    longer run-up time. You will need to specify the time in 20ms
+    units - some older drives may require a value of about 60.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">FLP_START 13</SPAN> - set the start up time to 13*20ms (260ms) - this
+    may suit the most recent 3.5" drives.
+    
+    
+<H3>NOTE:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">FLP_START</SPAN> has no effect on either the QXL or QPC
+    implementations of SMSQ and SMSQ/E.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    You may also need to alter the stepping rate with <A style="font-style: italic;" href="KeywordsF.html#FLP_STEP">FLP_STEP</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FLP_STEP" id="FLP_STEP"></A>FLP_STEP</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FLP_STEP</SPAN> [<SPAN style="font-style: italic;">drive,</SPAN>] <SPAN style="font-style: italic;">rate<BR></SPAN> Location: <SPAN style="font-style: italic;">Disk Interfaces, Gold Cards, SMS<BR></SPAN>
+    The step <SPAN style="font-style: italic;">rate</SPAN> enables the computer to known how quickly to
+    step across tracks on the disk surface. Normally, this is
+    automatically set to 3 milliseconds (ms) for 80 track disks
+    and 6ms for 40 track disks, although if the system detects
+    repeated errors on reading the disk, it will automatically
+    slow the step rate.
+    
+    Various old disk drives may require a slower stepping speed
+    (you will generally know this from the noise the disk drive
+    makes - it will make a repetitive knocking sound each time
+    that the disk is accessed). You can do this by increasing the
+    value specified by setting the <SPAN style="font-style: italic;">rate</SPAN> using this command.
+    
+    If <SPAN style="font-style: italic;">drive</SPAN> is not specified, the new step rate is taken to
+    apply to all disk drives connected to the system, otherwise,
+    you can specify the number of the drive to which the new step
+    rate is to apply.
+    
+    
+<H3>Examples:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">FLP_STEP 12</SPAN>Will produce quite a slow step rate for
+    older drives.
+    
+    <SPAN style="font-style: italic;">FLP_STEP 2,12</SPAN>Will produce a step rate of 12ms for the
+    drive in FLP2_.
+    
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    The first, optional parameter may not be available on some
+    interfaces.
+    
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">FLP_STEP</SPAN> has no effect on the QXL, QPC or Atari
+    implementations of SMSQ and SMS.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsF.html#FLP_SEC">FLP_SEC</A> will alter the security setting for reading and
+    writing to a disk.
+    
+    <A style="font-style: italic;" href="KeywordsF.html#FLP_START">FLP_START</A> may also be needed on older drives.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FLP_TRACK" id="FLP_TRACK"></A>FLP_TRACK</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FLP_TRACK tracks<BR></SPAN>
+    Location: <SPAN style="font-style: italic;">Gold Cards, Trump Card, THOR, ST/QL, SMS<BR></SPAN>
+    When a disk is formatted, the operating system will check
+    to see if there are more than 55 tracks on the disk, and if
+    so, will presume that it should be formatted to 80 tracks
+    (otherwise it will presume the disk is to be formatted to 40
+    tracks).
+    
+    The command <SPAN style="font-style: italic;">FLP_TRACK</SPAN> allows you to override this setting, so
+    that you can format a disk to, say, 75 tracks.
+    
+    <SPAN style="font-style: italic;">FLP_TRACK 40</SPAN> should be used as standard when a 40 track disk
+    drive is attached to the system as this will prevent the
+    system from trying to read track 55 (which does not exist!!),
+    thus saving wear on the drive.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">FLP_TRACK 40<BR></SPAN>
+    can be used on a standard DSDD 80 track
+    
+    disk to format it into a form readable on
+    
+    a 40 track drive.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsF.html#FLP_DENSITY">FLP_DENSITY</A> also affects how a disk is <A style="font-style: italic;" href="KeywordsF.html#FORMAT">FORMAT</A>ted.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FLP_USE" id="FLP_USE"></A>FLP_USE</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FLP_USE</SPAN> [<SPAN style="font-style: italic;">device</SPAN>]
+    
+    Location: <SPAN style="font-style: italic;">Gold Cards, Trump Card, THORs, ST/QL, SMS<BR></SPAN>
+    Software which was written in the early days of the QL
+    tended to assume that it would always be run from microdrive,
+    and therefore included no facilities to alter the default
+    devices used by the software. You may even find some software
+    was written on a non-standard disk system and assumed that
+    disks would be accessed via FDK rather than the normal FLP.
+    
+    The <SPAN style="font-style: italic;">FLP_USE</SPAN> command allows you to use such software by making
+    the FLP device emulate any other device. You merely need to
+    supply a three letter parameter representing the name of the
+    device which is to be emulated. Once you do this, the FLP
+    device will no longer be recognised.
+    
+    If the device is not specified, then the system reverts to
+    using FLP to access the disk drives.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">FLP_USE 'mdv'<BR></SPAN>
+    will allow you to use software which would normally run
+    
+    from microdrive (unless it is copy protected!).
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsR.html#RAM_USE">RAM_USE</A>, <A style="font-style: italic;" href="KeywordsD.html#DEV_USE">DEV_USE</A> and <A style="font-style: italic;" href="KeywordsW.html#WIN_USE">WIN_USE</A> are very similar.
+    
+    <A style="font-style: italic;" href="KeywordsD.html#DMEDIUM_TYPE">DMEDIUM_TYPE</A> can be used to find out the type of device which a
+    name actually refers to.
+    
+    <A style="font-style: italic;" href="KeywordsD.html#DMEDIUM_NAME">DMEDIUM_NAME</A> will return the default name of a device.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FLUSH" id="FLUSH"></A>FLUSH</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FLUSH</SPAN> [<SPAN style="font-style: italic;">#ch</SPAN>] Location: <SPAN style="font-style: italic;">Toolkit II<BR></SPAN>
+    The command <SPAN style="font-style: italic;">FLUSH</SPAN> forces all of the QL's temporary buffers
+    attached to the specified channel (default #3) to be emptied
+    into that channel. This will only work on channels attached
+    to files {any other type of channel will return error -15 (bad
+    parameter)}.
+    
+    This command is necessary due to the use by QDOS of slave
+    blocks whenever a file is opened. Data can be stored partly
+    in the slave blocks to aid speed and when writing to a file,
+    which will only be written to that file once the channel has
+    been <SPAN style="font-style: italic;">CLOSE</SPAN>d or the slave blocks have become full. Because of
+    this, there is always a danger that part of the data will be
+    lost if there is a power failure or other accident. <SPAN style="font-style: italic;">FLUSH</SPAN> helps
+    you to avoid this.
+    
+    
+<H3>NOTE:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">FLUSH</SPAN> will not work with Micro Peripherals disk drives. Nor
+    can it be used to flush the Networks.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsO.html#OPEN">OPEN</A> and <A style="font-style: italic;" href="KeywordsC.html#CLOSE">CLOSE</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FMAKE_DIR" id="FMAKE_DIR"></A>FMAKE_DIR</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FMAKE_DIR (subdirectory)<BR></SPAN> Location: <SPAN style="font-style: italic;">Level-2 Device Drivers<BR></SPAN>
+    This function will only work if Level-2 or Level-3 device
+    drivers are available.
+    
+    <SPAN style="font-style: italic;">FMAKE_DIR</SPAN> is identical to <SPAN style="font-style: italic;">MAKE_DIR</SPAN> except that it is a function
+    and does not stop a program if an error occurs, instead it
+    returns the code of the error concerned. The following errors
+    need some explanation:
+    
+    Error -9 (in use):there is already a
+    sub-directory with the same
+    name;
+    
+    Error -8 (already exists):file (not a sub-directory)
+    exists already with that
+    name;
+    
+    Error -15 (bad parameter):medium does not support
+    sub-directories.
+    
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    If <SPAN style="font-style: italic;">MAKE_DIR</SPAN> or <SPAN style="font-style: italic;">FMAKE_DIR</SPAN> fail on a ramdisk, an old type ramdisk
+    may have been loaded. There is no other way to activate the
+    integral ramdisk other than by resetting the whole system.
+    
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    If error -15 occurs (ie. if you try to created a
+    sub-directory on a medium where this is not possible),
+    <SPAN style="font-style: italic;">MAKE_DIR</SPAN> and <SPAN style="font-style: italic;">FMAKE_DIR</SPAN> will leave an empty file with the name of the
+    desired sub-directory on the medium. Remember to remove this.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsM.html#MAKE_DIR">MAKE_DIR</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FNAME$" id="FNAME$"></A>FNAME$</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FNAME$</SPAN> [<SPAN style="font-style: italic;">(#channel)</SPAN>]
+    
+    or <SPAN style="font-style: italic;">FNAME$ (\file)(Toolkit II only)<BR></SPAN> Location: <SPAN style="font-style: italic;">Toolkit II, BTool<BR></SPAN>
+    This function returns the filename of a file attached to
+    the specified channel (default #3), including the
+    sub-directory prefix but without the pure device name (eg.
+    RAM1_). The second syntax enables you to find out the full
+    filename of the specified file.
+    
+    It is hard to understand why one should need to find out
+    about the name of an opened file - the second syntax is even
+    more absurd. One possible usage is to convert a Toolkit II
+    filename, which need not include the current sub-directory, to
+    a full file name. However, the functions <SPAN style="font-style: italic;">DATAD$</SPAN>, <SPAN style="font-style: italic;">PROGD$</SPAN> together
+    with some string operations are much faster and more elegant
+    because they skip the need to access the file header.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsF.html#FLEN">FLEN</A>, <A style="font-style: italic;" href="KeywordsF.html#FTYP">FTYP</A>, <A style="font-style: italic;" href="KeywordsF.html#FDAT">FDAT</A>, <A style="font-style: italic;" href="KeywordsF.html#FXTRA">FXTRA</A>, <A style="font-style: italic;" href="KeywordsF.html#FUPDT">FUPDT</A>, <A style="font-style: italic;" href="KeywordsF.html#FILE_LEN">FILE_LEN</A> and <A style="font-style: italic;" href="KeywordsF.html#FILE_TYP">FILE_TYP</A> return other
+    information about a file.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FOPEN" id="FOPEN"></A>FOPEN</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FOPEN (#ch, name)<BR></SPAN>
+    or <SPAN style="font-style: italic;">FOPEN (name)<BR></SPAN> Location: <SPAN style="font-style: italic;">Toolkit II, THOR XVI<BR></SPAN>
+    This function is designed to allow you to access files
+    safely without causing errors which force a program to stop.
+    
+    If the first variant of <SPAN style="font-style: italic;">FOPEN</SPAN> is used, this is actually very
+    similar to the command <SPAN style="font-style: italic;">OPEN</SPAN> in operation, except that if for
+    some reason opening the specified channel (#ch) with the
+    specified name would cause an error, <SPAN style="font-style: italic;">FOPEN</SPAN> returns the relevant
+    error code. If the specified channel is successfully opened,
+    then <SPAN style="font-style: italic;">FOPEN</SPAN> returns 0.
+    
+    By contrast, if the second variant of the command is used,
+    where no specific channel number is used, if successful, <SPAN style="font-style: italic;">FOPEN<BR></SPAN> will return a positive number representing the number of the
+    next available channel (ie. the number of the lowest entry in
+    the channel table which is empty). If a negative number is
+    returned, this is the appropriate error number, allowing the
+    programmer to take any necessary action (such as requesting
+    the user to input a new file name).
+    
+    
+<H3>Examples:</H3>
+
+<P><SPAN style="font-style: italic;">ERRno=FOPEN(#3,scr_448x200a32x16)
+    Chan=FOPEN('flp1_Input_dat'): IF Chan&gt;0 THEN INPUT #Chan,x<BR></SPAN>
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    All versions of this command (other than v2.28 of Toolkit
+    II or later) can be confused by filenames which exceed 36
+    characters, in which case <SPAN style="font-style: italic;">FOPEN</SPAN> will return 0. On later
+    versions, <SPAN style="font-style: italic;">FOPEN</SPAN> supports 41 character filenames (including any
+    default directory).
+    
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    Although <SPAN style="font-style: italic;">FOPEN</SPAN> opens a file for both reading and writing, it
+    will only return an error if the file does not already exist
+    or is in use. It does not check whether the file is read
+    only. Use <SPAN style="font-style: italic;">FOP_NEW</SPAN> or <SPAN style="font-style: italic;">DMEDIUM_RDONLY</SPAN> for this. If you do not check
+    whether the file is read only, an error will only be reported
+    if you try to write to the file!!
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsE.html#ERNUM">ERNUM</A> contains details of the various error messages.
+    
+    <A style="font-style: italic;" href="KeywordsW.html#WHEN%20ERRor">WHEN ERRor</A> allows you to error trap a complete program.
+    
+    Also see <A style="font-style: italic;" href="KeywordsF.html#FOP_DIR">FOP_DIR</A>, <A style="font-style: italic;" href="KeywordsF.html#FOP_IN">FOP_IN</A>, <A style="font-style: italic;" href="KeywordsF.html#FOP_OVER">FOP_OVER</A> and <A style="font-style: italic;" href="KeywordsF.html#FOP_NEW">FOP_NEW</A>.
+    
+    Also see <A style="font-style: italic;" href="KeywordsO.html#OPEN">OPEN</A>.
+    
+    <A style="font-style: italic;" href="KeywordsF.html#FTEST">FTEST</A> allows you to test the status of a file without
+    (explicitly) opening a channel.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FOP_DIR" id="FOP_DIR"></A>FOP_DIR</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FOP_DIR (#ch, name)<BR></SPAN>
+    or <SPAN style="font-style: italic;">FOP_DIR (name)<BR></SPAN> Location: <SPAN style="font-style: italic;">Toolkit II, THOR XVI<BR></SPAN>
+    The function <SPAN style="font-style: italic;">FOP_DIR</SPAN> is a complementary function to <SPAN style="font-style: italic;">OPEN_DIR</SPAN> in
+    much the same way as <SPAN style="font-style: italic;">FOPEN</SPAN> is to <SPAN style="font-style: italic;">OPEN</SPAN>. This function returns the
+    same values and suffers from the same problem as <SPAN style="font-style: italic;">FOPEN</SPAN>.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsF.html#FOPEN">FOPEN</A>, <A style="font-style: italic;" href="KeywordsT.html#TTEOPEN">TTEOPEN</A> and <A style="font-style: italic;" href="KeywordsO.html#OPEN_DIR">OPEN_DIR</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FOP_IN" id="FOP_IN"></A>FOP_IN</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FOP_IN (#ch, name)<BR></SPAN>
+    or <SPAN style="font-style: italic;">FOP_IN (name)<BR></SPAN> Location: <SPAN style="font-style: italic;">Toolkit II, THOR XVI<BR></SPAN>
+    The function <SPAN style="font-style: italic;">FOP_IN</SPAN> falls into the same series of functions
+    as <SPAN style="font-style: italic;">FOPEN</SPAN>, <SPAN style="font-style: italic;">FOP_DIR</SPAN>, <SPAN style="font-style: italic;">FOP_NEW</SPAN> and <SPAN style="font-style: italic;">FOP_OVER</SPAN>.
+    
+    This function is a complementary function to <SPAN style="font-style: italic;">OPEN_IN</SPAN> in much
+    the same way as <SPAN style="font-style: italic;">FOPEN</SPAN> is to <SPAN style="font-style: italic;">OPEN</SPAN>. This function returns the same
+    values and suffers from the same problem as <SPAN style="font-style: italic;">FOPEN</SPAN>.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsF.html#FOPEN">FOPEN</A> and <A style="font-style: italic;" href="KeywordsO.html#OPEN_IN">OPEN_IN</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FOP_NEW" id="FOP_NEW"></A>FOP_NEW</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FOP_NEW (#ch, name)<BR></SPAN>
+    or <SPAN style="font-style: italic;">FOP_NEW (name)<BR></SPAN> Location: <SPAN style="font-style: italic;">Toolkit II, THOR XVI<BR></SPAN>
+    This function, together with its companions <SPAN style="font-style: italic;">FOPEN</SPAN>, <SPAN style="font-style: italic;">FOP_IN</SPAN>,
+    <SPAN style="font-style: italic;">FOP_DIR</SPAN> and <SPAN style="font-style: italic;">FOP_OVER</SPAN>, is designed to allow you to access files
+    safely without causing errors which force a program to stop.
+    
+    This function is the complement to <SPAN style="font-style: italic;">OPEN_NEW</SPAN> and returns the
+    same values and suffers from the same problem as <SPAN style="font-style: italic;">FOPEN</SPAN>.
+    
+    If the specified file already exists, you are asked whether
+    you want to over-write the existing file. An error (-8) is
+    returned if you press N, and error (-20) is returned if the
+    disk is read only.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsF.html#FOPEN">FOPEN</A> and <A style="font-style: italic;" href="KeywordsO.html#OPEN_NEW">OPEN_NEW</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FOP_OVER" id="FOP_OVER"></A>FOP_OVER</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FOP_OVER (#ch, name)<BR></SPAN>
+    or <SPAN style="font-style: italic;">FOP_OVER (name)<BR></SPAN> Location: <SPAN style="font-style: italic;">Toolkit II, THOR XVI<BR></SPAN>
+    This function is the complement to <SPAN style="font-style: italic;">OPEN_OVER</SPAN> and suffers from
+    the same problem as <SPAN style="font-style: italic;">FOPEN</SPAN>. It also returns the same values as
+    <SPAN style="font-style: italic;">FOP_NEW</SPAN>, except that it will implicitly over-write an existing
+    file with the same name.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsF.html#FOPEN">FOPEN</A> and <A style="font-style: italic;" href="KeywordsO.html#OPEN_OVER">OPEN_OVER</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FOR" id="FOR"></A>FOR</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FOR var = range</SPAN> <SUP>*</SUP>[<SPAN style="font-style: italic;">,range</SPAN><SUP>i</SUP>]<SUP>*<BR></SUP> Location: <SPAN style="font-style: italic;">QL ROM<BR></SPAN>
+    The SuperBASIC version of the classic <SPAN style="font-style: italic;">FOR</SPAN> loop is extremely
+    flexible. The syntax of this SuperBASIC structure can take two
+    forms:
+    
+    <SPAN style="font-style: italic;">FOR var=range</SPAN> <SUP>*</SUP>[<SPAN style="font-style: italic;">,range</SPAN><SUP>i</SUP>]<SUP>*</SUP> <SPAN style="font-style: italic;">:statement</SPAN> <SUP>*</SUP>[<SPAN style="font-style: italic;">:statement</SPAN>]<SUP>*<BR></SUP>
+    or
+    
+    FOR <SPAN style="font-style: italic;">var=range</SPAN> <SUP>*</SUP>[<SPAN style="font-style: italic;">,range</SPAN><SUP>i</SUP>]<SUP>*<BR></SUP>
+    <SUP>*</SUP>[<SPAN style="font-style: italic;">statements</SPAN>]<SUP>*<BR></SUP>
+    [<SPAN style="font-style: italic;">EXIT var</SPAN>]
+    
+    [<SPAN style="font-style: italic;">NEXT var</SPAN>]
+    
+    <SPAN style="font-style: italic;">END FOR var<BR></SPAN>
+    where range can be one of the following:
+    
+    <SPAN style="font-style: italic;">start_value TO end_value</SPAN> [<SPAN style="font-style: italic;">STEP step</SPAN>] ,or
+    
+    <SPAN style="font-style: italic;">value<BR></SPAN>
+    The first of these variants is known as an in-line <SPAN style="font-style: italic;">FOR</SPAN> loop.
+    Provided that there is at least one statement following <SPAN style="font-style: italic;">FOR</SPAN>,
+    this line will be repeated until the end value is reached (see
+    below). There is no need for a related <SPAN style="font-style: italic;">END FOR</SPAN> statement and
+    therefore the shortest in-line <SPAN style="font-style: italic;">FOR</SPAN> loop possible is:
+    <SPAN style="font-style: italic;">FOR x=1 to 100:NEXT x<BR></SPAN>
+    If an in-line loop is terminated prematurely, for example
+    with <SPAN style="font-style: italic;">EXIT</SPAN>, control will be passed to the statement following the
+    corresponding <SPAN style="font-style: italic;">END FOR</SPAN> statement (if one exists), or the next
+    program line. This allows the following:
+    <SPAN style="font-style: italic;">FOR x=1 TO 100: IF INKEY$=' ': EXIT x: END FOR x: PRINT x<BR></SPAN>
+    The basic function of <SPAN style="font-style: italic;">FOR</SPAN> is to count a floating point
+    variable from a given start value to an end value by adding
+    <SPAN style="font-style: italic;">step</SPAN> to <SPAN style="font-style: italic;">var</SPAN> during each pass of the loop (<SPAN style="font-style: italic;">step</SPAN> may be positive or
+    negative depending on the start and end values). If no <SPAN style="font-style: italic;">step</SPAN> is
+    specified, <SPAN style="font-style: italic;">STEP 1</SPAN> will be assumed. However, if <SPAN style="font-style: italic;">step</SPAN> is negative
+    when the end value is greater than the start value (or vice
+    versa), then the loop will immediately exit, and nothing
+    contained in the loop will be processed.
+    
+    A similar effect can be achieved by using a REPeat
+    structure:
+    <SPAN style="font-style: italic;">var=start_value
+    REPeat loop
+    ...
+    IF var&gt;=end_value THEN EXIT loop: ELSE var=var+step
+    END REPeat loop<BR></SPAN>
+    
+<H3></H3>
+
+<P>
+    The similarity between these two SuperBASIC loop types can
+    be extended to the use of <SPAN style="font-style: italic;">EXIT</SPAN> and <SPAN style="font-style: italic;">NEXT</SPAN> statements which can be
+    used identically in both structures. <SPAN style="font-style: italic;">EXIT</SPAN> terminates the loop,
+    and the next statement which will be processed is the first
+    statement after the corresponding <SPAN style="font-style: italic;">END FOR</SPAN>. <SPAN style="font-style: italic;">NEXT</SPAN> forces the
+    program to make the next pass of the loop.
+    
+    
+<H3>PROGRAMMING NOTES</H3>
+
+<P>
+    (1) When <SPAN style="font-style: italic;">NEXT</SPAN> is used within a <SPAN style="font-style: italic;">FOR</SPAN>..<SPAN style="font-style: italic;">END FOR</SPAN> structure, if <SPAN style="font-style: italic;">var</SPAN> is
+    already at the <SPAN style="font-style: italic;">end_value</SPAN>, the <SPAN style="font-style: italic;">NEXT</SPAN> statement will have no effect:
+    <SPAN style="font-style: italic;">100 FOR x=1 TO 9
+    110 PRINT x;" ";
+    120 IF x MOD 2 THEN NEXT x
+    130 PRINT x^2
+    140 END FOR x<BR></SPAN>
+    Output: 1 2 43 4 165 6 367 8 649 81
+    
+    To prevent the odd result when x=9, line 120 would need to
+    be altered to read:
+    <SPAN style="font-style: italic;">120 IF x MOD 2 THEN NEXT x: EXIT x<BR></SPAN>
+    (2) Except on a Minerva ROM or under SMS, the loop variable
+    is set to 0 before the <SPAN style="font-style: italic;">FOR</SPAN> is executed, therefore the following
+    program prints the square roots of the numbers 0 to 9:
+    <SPAN style="font-style: italic;">100 x=3
+    110 FOR x=x TO 9
+    120 PRINT x;' ';
+    130 IF NOT RND(10) THEN EXIT x
+    140 PRINT SQRT(x)
+    150 END FOR x<BR></SPAN>
+    On Minerva ROMs and under SMS, this would print out all of
+    the square roots of the numbers 3 to 9 (as expected).
+    
+    (3) A <SPAN style="font-style: italic;">NEXT</SPAN> statement directly after the <SPAN style="font-style: italic;">FOR</SPAN> statement could
+    be used to omit some values of the loop variable:
+    <SPAN style="font-style: italic;">100 FOR x=1 TO 9
+    110 IF x MOD 2 THEN NEXT x: EXIT x
+    120 PRINT x;TO 4;x^2
+    130 END FOR x<BR></SPAN>
+    However, in some cases, it may be easier and shorter to
+    write:
+    <SPAN style="font-style: italic;">100 FOR x=2,4,6,8
+    110 PRINT x;TO 4;x^2
+    120 END FOR x<BR></SPAN>
+    (4) Single values and intervals can be freely mixed after
+    the equals sign: the following examples are valid expressions:
+    <SPAN style="font-style: italic;">FOR x=2,4 TO 10 STEP 2,4.5,7 TO -4 STEP -.2
+    FOR x=1<BR></SPAN>
+    
+<H3></H3>
+
+<P>
+    (5) To shorten program lines even further, the <SPAN style="font-style: italic;">FOR</SPAN> loop can
+    be used in a single line and the <SPAN style="font-style: italic;">END FOR</SPAN> omitted (this is called
+    an in-line <SPAN style="font-style: italic;">FOR</SPAN> loop):
+    <SPAN style="font-style: italic;">FOR x=2,4,6,8: PRINT x;TO 4;x^2<BR></SPAN>
+    
+<H3>Example 1:</H3>
+
+<P>
+    A short routine to count the lines of a text file (using
+    
+    the oddities of the <SPAN style="font-style: italic;">NEXT</SPAN> command):
+    <SPAN style="font-style: italic;">100 OPEN#3,file
+    110 FOR lines=0 TO 10000
+    120 IF EOF(#3) THEN PRINT lines: EXIT lines
+    130 INPUT #3,line$: NEXT lines
+    140 PRINT 'OOPS - program is longer than 10000 lines!!'
+    150 END FOR lines
+    160 CLOSE#3<BR></SPAN>
+    
+<H3>Example 2:</H3>
+
+<P>
+    The next example is a routine to nest a variable number
+    
+    (<SPAN style="font-style: italic;">loops</SPAN>) of times which go from <SPAN style="font-style: italic;">Value_min</SPAN> to <SPAN style="font-style: italic;">Value_max</SPAN> at
+    
+    <SPAN style="font-style: italic;">Value_step</SPAN>:
+    <SPAN style="font-style: italic;">100 FOR loop=1 TO loops:Value(loop)=Value_min(loop)
+    110 REPeat Nesting
+    120 &lt; instructions using Value(1...s) &gt;
+    130 FOR loop=1 TO loops
+    140 IF Value(loop)=Value_max(loop) THEN
+    150 IF loop=loops THEN EXIT Nesting
+    160 Value(loop)=Value_min(loop)
+    170 NEXT loop
+    180 ELSE
+    190 Value(loop)=Value(loop)+Value_step(loop)
+    200 EXIT loop
+    210 END IF
+    220 END FOR loop
+    230 END REPeat Nesting<BR></SPAN>
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    If you use multiple in-line <SPAN style="font-style: italic;">FOR</SPAN> loops in the same program
+    line, only the inner loop will be executed. For example:
+    <SPAN style="font-style: italic;">FOR i=1 TO 3:FOR j=1 TO 10:PRINT i*j:END FOR j<BR></SPAN>
+    Output: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+    
+    This will actually work correctly under SMS.
+    
+    You can get it to work on a Minerva ROM and under SMS (but
+    not others) if the line is amended to read:
+    <SPAN style="font-style: italic;">FOR i=1 TO 3: FOR j=1 TO 10: PRINT i*j: END FOR j: END FOR i<BR></SPAN>
+    In fact, SMS will even allow the line to work if it simply
+    reads:
+    <SPAN style="font-style: italic;">FOR i=1 TO 3: FOR j=1 TO 10: PRINT i*j<BR></SPAN>
+    
+<H3></H3>
+
+<P>
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    Unless you have SMS or a Minerva ROM, do not use <SPAN style="font-style: italic;">GO SUB<BR></SPAN> together with an in-line <SPAN style="font-style: italic;">FOR</SPAN> loop, because this will act as an
+    <SPAN style="font-style: italic;">END FOR</SPAN> command and will not call the desired routine:
+    <SPAN style="font-style: italic;">100 FOR i=1 TO 10: PRINT 'Junk - test';: GO SUB 200: PRINT i
+    110 STOP
+    200 PRINT ' Number ';
+    210 RETurn<BR></SPAN>
+    
+<H3>NOTE 3:</H3>
+
+<P>
+    On JS (except ST/QL) and MGx ROMs, you cannot use the first
+    of several <SPAN style="font-style: italic;">PROCedure</SPAN>/<SPAN style="font-style: italic;">FuNction</SPAN> parameters as the loop identifier:
+    <SPAN style="font-style: italic;">100 TEST 5,10
+    110 FOR j=1 TO 10:PRINT 'OOPS...'
+    120 FOR k=1 TO 10:PRINT 'OKAY...'
+    125 :
+    130 DEFine PROCedure TEST(j,k)
+    140 AT j,k:PRINT 'Errors .....'
+    150 END DEFine<BR></SPAN>
+    
+<H3>NOTE 4:</H3>
+
+<P>
+    No error will be reported and all should work okay if <SPAN style="font-style: italic;">NEXT<BR></SPAN> is used instead of <SPAN style="font-style: italic;">END FOR</SPAN> (unless you try to use <SPAN style="font-style: italic;">EXIT</SPAN> which would
+    try to jump to the statement after the non-existent
+    corresponding <SPAN style="font-style: italic;">END FOR</SPAN>, and may reach the end of the program
+    without finding the <SPAN style="font-style: italic;">END FOR</SPAN>, therefore stopping without reporting
+    any error), but you will have seen that <SPAN style="font-style: italic;">NEXT</SPAN> is intended for
+    another purpose.
+    
+    Apart from programming elegance, compilers may not be able
+    to understand your meaning (they assume that you have
+    forgotten the <SPAN style="font-style: italic;">END FOR</SPAN>) and may abort compilation or report a
+    warning.
+    
+    
+<H3>NOTE 5:</H3>
+
+<P>
+    Counting downwards without a negative step has no effect at
+    all (eg. <SPAN style="font-style: italic;">FOR loop=0 TO -3</SPAN>).
+    
+    Omitting the <SPAN style="font-style: italic;">STEP</SPAN> parameter is the same as <SPAN style="font-style: italic;">STEP 1</SPAN>.
+    
+    
+<H3>MINERVA NOTES:</H3>
+
+<P>
+    On a Minerva machine, a <SPAN style="font-style: italic;">FOR</SPAN> loop can use either a single
+    character string variable or an integer variable:
+    <SPAN style="font-style: italic;">FOR A$='A' TO 'Z' STEP CHR$(2):PRINT A$;' ';<BR></SPAN>
+    This prints out A C E G I K M O Q S U W Y.
+    <SPAN style="font-style: italic;">FOR loop%=1 TO 255<BR></SPAN>
+    This is a little quicker than <SPAN style="font-style: italic;">FOR loop=1 to 255<BR></SPAN>
+    These examples will not work on other ROMs, unless you have
+    SMS, even if they will let you type them in!
+    
+    
+<H3>SMS NOTES:</H3>
+
+<P>
+    Like Minerva, SMS will allow you to use integer variables
+    in <SPAN style="font-style: italic;">FOR</SPAN> loops (but not string variables). As from v2.57, the
+    range is checked to ensure that it is within the valid word
+    integer range (-327678..32767) when the <SPAN style="font-style: italic;">FOR</SPAN> loop is started,
+    otherwise it returns 'Error in Expression'.
+    
+    If you try to use a string loop variable, the error
+    'unacceptable loop variable' is reported.
+    
+    <SPAN style="font-style: italic;">EXIT</SPAN>, <SPAN style="font-style: italic;">NEXT</SPAN> and <SPAN style="font-style: italic;">END FOR</SPAN> do not need to contain the loop
+    identifier, SMS will presume that when used in a program, they
+    refer to the loop currently being executed.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsR.html#REPeat">REPeat</A>...<A style="font-style: italic;" href="KeywordsE.html#END%20REPeat">END REPeat</A> is the other loop type.
+    
+    See <A style="font-style: italic;" href="KeywordsE.html#END%20FOR">END FOR</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FORCE_TYPE" id="FORCE_TYPE"></A>FORCE_TYPE</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FORCE_TYPE string$<BR></SPAN> Location: <SPAN style="font-style: italic;">TinyToolkit<BR></SPAN>
+    This command forces the given string to be typed into the
+    current keyboard queue, just as if you had typed it from the
+    keyboard. There is not much use for this command in
+    connection with applications because key macros such as <SPAN style="font-style: italic;">ALTKEY<BR></SPAN> are much easier to use. But, <SPAN style="font-style: italic;">FORCE_TYPE</SPAN> can be used to perform an
+    action without anyone actually needing to press a key.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    Your telephone rings and you talk half an hour with a
+    
+    friend. Meanwhile your computer crashes - God only knows
+    
+    why - and the BASIC program you were writing has now
+    
+    disappeared along with everything else. You could decrease
+    
+    this danger by writing and compiling such a program:
+    <SPAN style="font-style: italic;">100 last_stroke=DATE
+    110 REPeat Sleeping
+    120 IF KEYROW(1) THEN last_stroke=DATE
+    130 IF DATE-last_stroke&gt;300 THEN
+    140 FORCE_TYPE "SAVE_O FLP1_Backup_bas"&amp;CHR$(10)
+    150 REPeat Wait: IF KEYROW(1) THEN EXIT Wait
+    160 last_stroke=DATE
+    170 END IF
+    180 END REPeat Sleeping<BR></SPAN>
+    This example should be adapted to your specific needs,
+    
+    applications and tools.
+    
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    Every console channel (ie. con_ windows) has a keyboard
+    queue - the channel accessed by <SPAN style="font-style: italic;">FORCE_TYPE</SPAN> must first be activated
+    by a dummy <SPAN style="font-style: italic;">INKEY$</SPAN>, <SPAN style="font-style: italic;">PEND</SPAN> etc. to that channel.
+    
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    In earlier versions of Tinytoolkit (pre v1.10), this
+    command was called <SPAN style="font-style: italic;">TYPE_IN</SPAN>, which could cause problems with Turbo
+    compiled programs.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsS.html#STAMP">STAMP</A> does exactly the same as <A style="font-style: italic;" href="KeywordsF.html#FORCE_TYPE">FORCE_TYPE</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FORMAT" id="FORMAT"></A>FORMAT</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FORMAT</SPAN> [<SPAN style="font-style: italic;">#channel,</SPAN>] <SPAN style="font-style: italic;">medium<BR></SPAN> Location: <SPAN style="font-style: italic;">QL ROM<BR></SPAN>
+    Each medium where data can be stored as files (disks,
+    ramdisks, microdrives or hard disks) has to be given a
+    structure which is recognisable by QDOS. This is done by
+    <SPAN style="font-style: italic;">FORMAT</SPAN>ting it. Each medium can also be given a name of up to ten
+    characters long.
+    
+    The command <SPAN style="font-style: italic;">FORMAT</SPAN> clears a medium from scratch so that any
+    data stored there is definitively lost. Be careful!
+    
+    The following standard devices can be formatted:
+    MDV1_ .. MDV8_microdrive cartridges
+    FLP1_ .. FLP8_floppy disks
+    RAM1_ .. RAM8_ramdisks
+    WIN1_ .. WIN8_hard disks
+    
+    Depending on the type of medium, several additions to the
+    pure medium name are possible:
+    
+    MDVUp to ten characters can be added, these will
+    form the name of the cartridge, eg:
+    
+    <SPAN style="font-style: italic;">FORMAT mdv2_SuperBASIC<BR></SPAN>
+    FLPAs with microdrive cartridges, a medium name can
+    be added. If the eleventh character of the name
+    is an asterisk (*), the disk will be formatted
+    single sided, ie. just the first side is used.
+    
+    In order to use the single sided only option, is
+    it necessary to put the whole parameter in
+    quotes, eg:
+    
+    <SPAN style="font-style: italic;">FORMAT "flp1_TEST *"<BR></SPAN>
+    This is not applicable to HD and ED disks: their
+    density will also be affected, making them single
+    sided double density (SSDD). If a single sided
+    disk can still be bought today, it will actually
+    be a double sided disk of low quality.
+    
+    With Super Gold Card, Gold Card and SMS, an
+    appended asterisk plus a letter which indicates
+    the density will format the disk accordingly:
+    
+    S, D, H and E are allowed, eg:
+    <SPAN style="font-style: italic;">
+    FORMAT "flp1_TEST*h"<BR></SPAN>
+    see <SPAN style="font-style: italic;">FLP_DENSITY</SPAN>.
+    
+    RAMThis depends very much on the ramdisk drivers:
+    With standard static ramdisks, which are built
+    into most disk interfaces and available as public
+    domain, you need to specify how many sectors are
+    to be allocated to the ramdisk by adding the
+    number of sectors to the device name, eg:
+    
+    <SPAN style="font-style: italic;">FORMAT ram1_200<BR></SPAN>
+    formats ram2_ to 200 sectors (100K). These static
+    ramdisks must be <SPAN style="font-style: italic;">FORMAT</SPAN>ted before use.
+    
+    On the other hand, the Qjump ramprt ramdisk
+    (provided with Qpac 2 and various expansion
+    boards, including Trump Card, Gold Card and Super
+    Gold Card) is dynamic - it adapts its size
+    automatically to the size of the files being
+    stored on it - there is no need to <SPAN style="font-style: italic;">FORMAT</SPAN> the
+    ramdisk prior to use. This can however also be
+    used as a static ramdisk.
+    
+    Trump Card, Super Gold Card and Gold Card ROMs
+    also contain a special variant of a ramdisk which
+    allows you to produce an image of a microdrive
+    cartridge on a ramdisk, for example by using
+    <SPAN style="font-style: italic;">FORMAT ram4_mdv2</SPAN>. Faulty files are marked with an
+    asterisk added to the end of their filenames.
+    Although this may allow you to 'rescue' a corrupt
+    microdrive cartridge those files marked with an
+    asterisk are faulty and therefore unreliable.
+    
+    The name of a ramdisk is always the name of the
+    medium without an underscore, eg. RAM1 for RAM1_;
+    this is the same on dynamic ramdisks.
+    
+    WINA medium name can normally be stated, as with a
+    microdrive cartridge. Please check the
+    documentation of the hard disk drivers, they
+    differ very much! For example, the firmware on
+    the Falkenberg interface disables <SPAN style="font-style: italic;">FORMAT</SPAN> for hard
+    disks until certain settings have been specified
+    with another command. On the THOR, an asterisk
+    needs to be included, eg. <SPAN style="font-style: italic;">FORMAT 'win1_*HARDDISK'</SPAN>, see
+    below.
+    
+    SMS for ATARI computers and QXL / QPC,
+    expects you to have already partitioned the hard
+    disk using the computer's native commands.
+    
+    On ATARIs, under SMSQ/E you then need to identify
+    the drive and partition using <SPAN style="font-style: italic;">WIN_DRIVE</SPAN>. After
+    that, you can use the normal QL <SPAN style="font-style: italic;">FORMAT</SPAN> command on
+    all these systems, however, SMSQ/E has adopted a
+    level of protection which insists that you must
+    use the <SPAN style="font-style: italic;">WIN_FORMAT</SPAN> command before <SPAN style="font-style: italic;">FORMAT</SPAN> and the <SPAN style="font-style: italic;">FORMAT<BR></SPAN> command itself will display two characters on
+    screen and ask you to type them in. You should
+    then use <SPAN style="font-style: italic;">WIN_FORMAT</SPAN> to protect the partition again.
+    
+    The standard drivers for the ST/QL Emulators
+    adopt a form of protection in that you will need
+    to type in the two characters shown on screen as
+    with SMSQ/E. You can also only <SPAN style="font-style: italic;">FORMAT</SPAN> a hard disk
+    from SuperBasic Job 0 and then only when Channel
+    #0 is <SPAN style="font-style: italic;">OPEN</SPAN>. If the hard disk has already been
+    partitioned by the Atari ST (the first partition
+    will normally be marked GEM or BGM), then you
+    will be asked to enter the number of the first
+    partition to be used by QDOS and the number of
+    subsequent partitions ot be used for this disk.
+    
+    Under SMSQ/E on the QXL or QPC, this same two-
+    level protection is adopted. However, instead of
+    passing the medium name of the hard-disk, you
+    have to pass the size of the QL hard disk to be
+    created in megabytes, for example:
+    
+    <SPAN style="font-style: italic;">FORMAT WIN1_20<BR></SPAN>
+    This will create a 20Megabyte harddisk on PC
+    drive C:
+    
+    On early versions, the maximum size that could be
+    created was 23 Megabytes and only one drive could
+    be created. Later versions allow you to create
+    WIN1 to WIN8 (all on drive C:).
+    
+    After formatting, <SPAN style="font-style: italic;">FORMAT</SPAN> will either report that the process
+    has failed (error -14), because there was no cartridge/disk in
+    the drive or if the medium was faulty. The command will also
+    fail if the given device was write-protected.
+    
+    If everything was okay, a small message is printed to the
+    specified <SPAN style="font-style: italic;">channel</SPAN> (default #1) indicating how many sectors could
+    be achieved and how many were good. If the two numbers differ,
+    QDOS will have marked some sectors as bad and will ignore
+    them. However, experience shows that if the difference between
+    the two numbers is great, it can be very dangerous to store
+    important data on those disks/cartridges.
+    
+    It is recommended that new microdrive cartridges should be
+    formatted 10 times before use (you should expect to get about
+    220 available sectors). It may also be useful to try
+    formatting the cartridge in the other microdrive.
+    
+    
+<H3>Examples:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">FORMAT mdv2_Startup</SPAN>formats cartridge in
+    microdrive 2
+    
+    <SPAN style="font-style: italic;">FORMAT "mdv2_Startup"</SPAN> as above
+    
+    <SPAN style="font-style: italic;">FORMAT flp1_backup</SPAN> formats disk in disk drive
+    1
+    
+    <SPAN style="font-style: italic;">FORMAT "flp1_backup *"</SPAN> as above but single sided
+    
+    <SPAN style="font-style: italic;">FORMAT "flp1_backup*d"</SPAN> double sided, double
+    density
+    
+    <SPAN style="font-style: italic;">FORMAT "flp2_backup*h"</SPAN> double sided, high density
+    
+    <SPAN style="font-style: italic;">FORMAT ram1_100</SPAN> format ramdisk 1 to 50K
+    
+    <SPAN style="font-style: italic;">FORMAT ram1_</SPAN> remove ramdisk 1
+    
+    <SPAN style="font-style: italic;">FORMAT ram1_mdv1</SPAN>format ram1_ to 255 sectors
+    and copy cartridge in
+    microdrive 1
+    
+    
+<H3>Notes on the different media:</H3>
+
+<P>
+    The traditional microdrive is relatively slow and
+    unreliable, and cartridges need to be formatted several times
+    to give good results (usually around 210-220 sectors) -
+    pushing them firmly into the microdrive slot while they are
+    being formatted is said to be more efficient. However, as new
+    cartridges are becoming more rare and expensive today, the
+    next best and very highly recommended upgrade are disk drives.
+    It is also becoming less and less common to find users who can
+    read information stored on microdrive, SMS and emulators for
+    example, do not support microdrives.
+    
+    
+<H3>3.5" double density disks (720K)</H3>are pretty cheap and you
+    can get them everywhere (although the quality does vary); they
+    have become a standard on the QL, although it is becoming ever
+    more difficult to find replacement disk drives. <SPAN style="font-style: italic;">FORMAT</SPAN> should
+    report 1440 sectors.
+    
+    
+<H3>3.5" high density disks (1.4Mb)</H3>are also fairly cheap and
+    you can get them everywhere (although the quality does vary).
+    These have become the new standard disks used by IBM
+    compatible computers and therefore the disk drives are easy to
+    obtain. <SPAN style="font-style: italic;">FORMAT</SPAN> should report 2880 sectors.
+    
+<H3>
+    3.5" extra density disks (3.2Mb)</H3>are fairly expensive and
+    difficult to obtain as they were never really accepted in the
+    IBM PC world, although for a time, they looked like becoming a
+    new standard for the QL, being very quick and storing a lot of
+    information. <SPAN style="font-style: italic;">FORMAT</SPAN> should report either 1600 or 6400 sectors
+    (see note 8).
+    
+<H3>
+    5.25" disks (720K)</H3>are also widely spread in the QL scene,
+    especially in the USA, although they are now becoming less and
+    less common. With the introduction of the Super Gold Card and
+    Gold Card by Miracle Systems Ltd, high density (HD, 1440K) and
+    even extra density (ED, 3200K) drives have become available to
+    QDOS for the first time. These formats are several times
+    faster and even more reliable, not to mention the increased
+    space for programs and data.
+    
+    
+<H3>Harddisks</H3>are becoming more and more common, with them
+    being readily available to people using Emulators on other
+    computers, and also now the release of relatively cheap
+    interfaces and disk drives for the QL and AURORA.
+    
+    
+<H3>Ramdisks</H3>are not specific to any hardware configuration
+    because they only exist in RAM and any stored data is lost if
+    the machine is reset or turned off. On the other hand,
+    ramdisks are extremely fast.
+    
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    Unless you have a Minerva ROM (see below), do not try to
+    <SPAN style="font-style: italic;">FORMAT</SPAN> a microdrive whilst any microdrive is still running,
+    since this will report an 'in use' error.
+    
+    <SPAN style="font-style: italic;">PEEK(SYS_VARS+HEX('EE'))<BR></SPAN>
+    will be zero if no microdrives are running.
+    
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    On the THOR XVI (v6.37 and earlier), there existed a bug
+    when accessing anything greater than win2_.
+    
+    
+<H3>NOTE 3:</H3>
+
+<P>
+    If there is no disk in a drive, <SPAN style="font-style: italic;">FORMAT</SPAN> may also fail with a
+    read only error (-20) instead of reporting not found (-7).
+    
+    
+<H3>NOTE 4:</H3>
+
+<P>
+    You cannot use <SPAN style="font-style: italic;">FORMAT n1_flp1_</SPAN> (for example) to <SPAN style="font-style: italic;">FORMAT</SPAN> a medium
+    over the network.
+    
+    
+<H3>NOTE 5:</H3>
+
+<P>
+    The ST/QL drivers cannot <SPAN style="font-style: italic;">FORMAT</SPAN> the fifth and subsequent
+    partitions on the hard disk unless the extended partition
+    table is in the form used by SUPRA, ICD and similar drives.
+    
+    
+<H3>NOTE 6:</H3>
+
+<P>
+    Minerva (pre v1.98) had some bugs in the code for
+    <SPAN style="font-style: italic;">FORMAT</SPAN>ting microdrives.
+    
+    
+<H3>NOTE 7:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">FORMAT</SPAN> expects the specified channel (or #1) to be <SPAN style="font-style: italic;">OPEN</SPAN>,
+    otherwise an error will be reported.
+    
+    
+<H3>NOTE 8:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">FORMAT</SPAN> cannot report a number of sectors in excess of 32768
+    and so may return wrong values on large capacity drives. SMS
+    correctly reports the number of sectors obtained, although on
+    an ED disk, <SPAN style="font-style: italic;">FORMAT</SPAN> will report 1600 Sectors (<SPAN style="font-style: italic;">DIR</SPAN> will show the
+    figure of 6400 sectors instead!). This is because on an ED
+    disk, sectors are 2048 bytes long instead of the usual 512
+    bytes expected by the QL device drivers (which have to be
+    fooled to see each sector as 4x512 byte sectors).
+    
+    
+<H3>MINERVA NOTE:</H3>
+
+<P>
+    On Minerva v1.78 (and later), a check is carried out before
+    performing <SPAN style="font-style: italic;">FORMAT</SPAN> to see if there are any files open on the
+    desired medium. This stops Digital Precision's Conqueror and
+    Solution from working correctly. To switch it off, use:
+    
+    <SPAN style="font-style: italic;">POKE !124 !49, PEEK (!124 !49) || 128<BR></SPAN>
+    
+<H3>SMS NOTES:</H3>
+
+<P>
+    As with Minerva, you cannot <SPAN style="font-style: italic;">FORMAT</SPAN> a medium if there are any
+    files open on that medium ('Is In Use' error is reported).
+    
+    If there is a problem during the <SPAN style="font-style: italic;">FORMAT</SPAN> process, SMS will
+    emit a series of <SPAN style="font-style: italic;">BEEP</SPAN>s. However, be warned that an error
+    messaage is not always displayed and the <SPAN style="font-style: italic;">FORMAT</SPAN> may appear to
+    have completed correctly!!
+    
+    SMS does not allow you to access the QL's microdrives, nor
+    can it solve the problem on the QXL below.
+    
+    SMS can corrupt floppy disks (so they have to be thrown
+    away) if you try to <SPAN style="font-style: italic;">FORMAT</SPAN> them to the wrong density.
+    
+    Some users have reported problems in using SMS to <SPAN style="font-style: italic;">FORMAT<BR></SPAN> Double Density disks in ED disk drives linked to a Super Gold
+    Card. This appears to afflict versions of SMS after v2.85 and
+    all makes of ED drives. The problem only occurs if you
+    specify the density with <SPAN style="font-style: italic;">FORMAT 'flp1_NAME*D'</SPAN> or <SPAN style="font-style: italic;">FLP_DENSITY 'D'</SPAN>. In
+    these cases, a noise is emitted during <SPAN style="font-style: italic;">FORMAT</SPAN> to indicate that
+    it has failed, but SMS still reports 1440/1440 sectors, even
+    though subsequent attempts to access the disk report 'Not
+    Found'. The answer is to not use <SPAN style="font-style: italic;">FLP_DENSITY</SPAN> in this instance.
+    
+    
+<H3>QXL NOTES:</H3>
+
+<P>
+    You cannot reliably <SPAN style="font-style: italic;">FORMAT</SPAN> floppy disks from scratch on most
+    PCs using this emulator. <SPAN style="font-style: italic;">FORMAT</SPAN> merely re-formats an already
+    formatted disk.
+    
+    Prior to v2.67 of SMS there existed several further
+    problems with <SPAN style="font-style: italic;">FORMAT</SPAN> on QXL.
+    
+    
+<H3>THOR XVI NOTES:</H3>
+
+<P>
+    The THOR XVI, v6.37 (and later) allows a variant of the
+    medium name to deal with the THOR's hard disk:
+    
+    <SPAN style="font-style: italic;">FORMAT "win1_options*name"<BR></SPAN>
+    The available options which can be specified are:
+    
+    <SPAN style="font-style: italic;">/C</SPAN>Certify drive before formatting - this reconstructs the
+    THOR's defect list, describing the bad sectors and
+    tracks
+    
+    <SPAN style="font-style: italic;">/Q</SPAN>Quick reformat - merely sets up new directory map
+    
+    <SPAN style="font-style: italic;">/F</SPAN>Fast reformat - does not verify the disk
+    
+    <SPAN style="font-style: italic;">/Gn</SPAN>Set group or cluster size in blocks.
+    
+    Default = /G16
+    
+    <SPAN style="font-style: italic;">/Dn</SPAN>Set directory size in number of groups or clusters.
+    
+    Default = /D2
+    
+    
+<H3>Examples:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">FORMAT 'win1_/Q*Main'
+    
+    FORMAT 'win1_/G16/D2*THORDisk'<BR></SPAN>
+    
+<H3>WARNING:</H3>
+
+<P>
+    Prior to v2.71 of SMS <SPAN style="font-style: italic;">FORMAT flp3_1</SPAN> on the QXL could in fact
+    <SPAN style="font-style: italic;">FORMAT WIN1_</SPAN>.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    Before formatting, the number of tracks on a disk can be
+    specified with <A style="font-style: italic;" href="KeywordsF.html#FLP_TRACK">FLP_TRACK</A>. HD and ED disks can be formatted to
+    different densities if <A style="font-style: italic;" href="KeywordsF.html#FLP_DENSITY">FLP_DENSITY</A> was used to override automatic
+    detection of the density.
+    
+    See <A style="font-style: italic;" href="KeywordsW.html#WIN_FORMAT">WIN_FORMAT</A> for hard disk protection.
+    
+    <A style="font-style: italic;" href="KeywordsD.html#DMEDIUM_">DMEDIUM_</A>xxx functions return details about how a medium has
+    been formatted.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FPOS" id="FPOS"></A>FPOS</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FPOS</SPAN> [<SPAN style="font-style: italic;">(#channel)</SPAN>] Location: <SPAN style="font-style: italic;">Toolkit II, THOR XVI, BTool<BR></SPAN>
+    This function returns the current position of the file
+    pointer. The relevant file must already be open as <SPAN style="font-style: italic;">#channel</SPAN>,
+    default channel is #3. A value of zero means that the file
+    pointer is at the very beginning of a file, whereas a position
+    equivalent to the file length means that it points to the very
+    end. The file pointer is a means by which the QL can keep
+    track of exactly whereabouts in a file it should take the next
+    input from, or write to.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsF.html#FILE_POS">FILE_POS</A> works exactly as <A style="font-style: italic;" href="KeywordsF.html#FPOS">FPOS</A> but does not use a default
+    channel.
+    
+    <A style="font-style: italic;" href="KeywordsF.html#FILE_PTRA">FILE_PTRA</A> and <A style="font-style: italic;" href="KeywordsF.html#FILE_PTRR">FILE_PTRR</A> move the file pointer, which may also be
+    set with <A style="font-style: italic;" href="KeywordsG.html#GET">GET</A>, <A style="font-style: italic;" href="KeywordsP.html#PUT">PUT</A>, <A style="font-style: italic;" href="KeywordsB.html#BGET">BGET</A> and <A style="font-style: italic;" href="KeywordsB.html#BPUT">BPUT</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FPOS_A" id="FPOS_A"></A>FPOS_A</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FPOS_A</SPAN> <SPAN style="font-style: italic;">(</SPAN>[<SPAN style="font-style: italic;">#ch,</SPAN>] <SPAN style="font-style: italic;">pos)<BR></SPAN> Location: <SPAN style="font-style: italic;">BTool<BR></SPAN>
+    This is the same as <SPAN style="font-style: italic;">FILE_PTRA</SPAN> !
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FPOS_R" id="FPOS_R"></A>FPOS_R</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FPOS_R (</SPAN>[<SPAN style="font-style: italic;">#ch,</SPAN>] <SPAN style="font-style: italic;">offset)<BR></SPAN> Location: <SPAN style="font-style: italic;">BTool<BR></SPAN>
+    This is the same as <SPAN style="font-style: italic;">FILE_PTRR</SPAN> !
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FPUT$" id="FPUT$"></A>FPUT$</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FPUT$</SPAN> [<SPAN style="font-style: italic;">#ch,</SPAN>] <SPAN style="font-style: italic;">string</SPAN> <SUP>*</SUP>[<SPAN style="font-style: italic;">,string</SPAN><SUP>i</SUP>]<SUP>*<BR></SUP> Location: <SPAN style="font-style: italic;">BTool<BR></SPAN>
+    This command writes the given <SPAN style="font-style: italic;">string</SPAN>(s) in internal format
+    to <SPAN style="font-style: italic;">#ch</SPAN>, default is #1. The internal format of a string is a
+    word (two bytes) giving the length of the string followed by
+    the contents of the string itself.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">FPUT$ 'Hello'<BR></SPAN>
+    will produce the equivalent of
+    
+    <SPAN style="font-style: italic;">PRINT CHR$(0)&amp;CHR$(5)&amp;'Hello'<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsF.html#FGET$">FGET$</A>, <A style="font-style: italic;" href="KeywordsP.html#PUT">PUT</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FPUT%" id="FPUT%"></A>FPUT%</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FPUT%</SPAN> [<SPAN style="font-style: italic;">#ch,</SPAN>] <SPAN style="font-style: italic;">integer</SPAN> <SUP>*</SUP>[<SPAN style="font-style: italic;">,integer</SPAN><SUP>i</SUP>]<SUP>*<BR></SUP> Location: <SPAN style="font-style: italic;">BTool<BR></SPAN>
+    This command writes the specified <SPAN style="font-style: italic;">integer</SPAN>(s) (range
+    0...32767) in its internal format to <SPAN style="font-style: italic;">#ch</SPAN>, default is #1. An
+    integer is stored internally as two bytes (one word).
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsF.html#FGET%">FGET%</A>, <A style="font-style: italic;" href="KeywordsP.html#PUT">PUT</A>
+    
+<H3></H3>
+
+<P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FPUTB" id="FPUTB"></A>FPUTB</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FPUTB</SPAN> [<SPAN style="font-style: italic;">#ch,</SPAN>] {<SPAN style="font-style: italic;">byte</SPAN> | <SPAN style="font-style: italic;">string$</SPAN>} <SUP>*</SUP>[<SPAN style="font-style: italic;">,</SPAN>{<SPAN style="font-style: italic;">byte</SPAN><SUP>i</SUP> | <SPAN style="font-style: italic;">string</SPAN><SUP>i</SUP><SPAN style="font-style: italic;">$</SPAN>}]<SUP>*<BR></SUP> Location: <SPAN style="font-style: italic;">BTool<BR></SPAN>
+    <SPAN style="font-style: italic;">FPUTB</SPAN> is a command which writes single or multiple bytes to
+    a channel <SPAN style="font-style: italic;">#ch</SPAN> (default #1). <SPAN style="font-style: italic;">FPUTB</SPAN> can take any kind of
+    parameters which must be either a numeric value byte in the
+    range 0..255 for a single byte, in the range 256..32767 for
+    two bytes or a string <SPAN style="font-style: italic;">string$</SPAN>.
+    
+    
+<H3>Example 1:</H3>
+
+<P><SPAN style="font-style: italic;">CLS: FPUTB "First line",10,"Second line"
+    CLS: FPUTB "First line",2570,"Third line"<BR></SPAN>
+    (because <SPAN style="font-style: italic;">CVI% (CHR$ (10) &amp; CHR$ (10) )=2570</SPAN>)
+    
+    
+<H3>Example 2:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">FPUTB</SPAN> is very handy for controlling printers,
+    <SPAN style="font-style: italic;">OPEN#3,par
+    FPUTB#3,27,"x",1
+    CLOSE#3<BR></SPAN>
+    will enable near letter quality (NLQ) on an EPSON
+    compatible printer.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsB.html#BPUT">BPUT</A>, <A style="font-style: italic;" href="KeywordsC.html#CHR$">CHR$</A>, <A style="font-style: italic;" href="KeywordsC.html#CODE">CODE</A>. <A style="font-style: italic;" href="KeywordsF.html#FGETB">FGETB</A> is a complementary function.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FPUTF" id="FPUTF"></A>FPUTF</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FPUTF</SPAN> [<SPAN style="font-style: italic;">#ch,</SPAN>] <SPAN style="font-style: italic;">float</SPAN> <SUP>*</SUP>[<SPAN style="font-style: italic;">,float</SPAN><SUP>i</SUP>]<SUP>*<BR></SUP> Location: <SPAN style="font-style: italic;">BTool<BR></SPAN>
+    This command writes the floating point number(s) <SPAN style="font-style: italic;">float</SPAN> in
+    its internal format (six bytes) to <SPAN style="font-style: italic;">#ch</SPAN>, default is #1.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsF.html#FGETF">FGETF</A>, <A style="font-style: italic;" href="KeywordsP.html#PUT">PUT</A>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FPUTL" id="FPUTL"></A>FPUTL</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FPUTL</SPAN> [<SPAN style="font-style: italic;">#ch,</SPAN>] <SPAN style="font-style: italic;">longint</SPAN> <SUP>*</SUP>[<SPAN style="font-style: italic;">,longint</SPAN><SUP>i</SUP>]<SUP>*<BR></SUP> Location: <SPAN style="font-style: italic;">BTool<BR></SPAN>
+    This command writes the specified long integer(s) <SPAN style="font-style: italic;">longint<BR></SPAN> (-231..231-2) in internal format (four bytes) to <SPAN style="font-style: italic;">#ch</SPAN>, default
+    is #1.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsF.html#FGETL">FGETL</A>, <A style="font-style: italic;" href="KeywordsP.html#PUT">PUT</A>
+    
+<H3></H3>
+
+<P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FRACT" id="FRACT"></A>FRACT</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FRACT (x)<BR></SPAN> Location: <SPAN style="font-style: italic;">FRACT<BR></SPAN>
+    The function <SPAN style="font-style: italic;">FRACT</SPAN> separates the fractional part of any
+    floating point number <SPAN style="font-style: italic;">x</SPAN>. It could easily be rewritten in
+    SuperBASIC as the following:
+    <SPAN style="font-style: italic;">100 DEFine FuNction MYFRACT (x)
+    110 RETurn x - INT(x) - (x &lt; 0)
+    120 END DEFine MYFRACT<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsT.html#TRINT">TRINT</A> is complementary to <A style="font-style: italic;" href="KeywordsF.html#FRACT">FRACT</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FREAD" id="FREAD"></A>FREAD</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FREAD (#ch,address,bytes)<BR></SPAN> Location: <SPAN style="font-style: italic;">TinyToolkit<BR></SPAN>
+    The function <SPAN style="font-style: italic;">FREAD</SPAN> reads a number of bytes (bytes) from a
+    given channel into memory, starting at <SPAN style="font-style: italic;">address</SPAN>. The number
+    returned by FREAD gives the number of bytes it actually read.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    A BASIC Procedure <SPAN style="font-style: italic;">APPEND</SPAN> which adds a file (<SPAN style="font-style: italic;">file1$</SPAN>) to the end
+    
+    of a target file (<SPAN style="font-style: italic;">file2$</SPAN>). If the target file does not exist,
+    
+    it will be created. The first file will be erased (remove
+    
+    line 220 if you do not want this). The third parameter
+    
+    allows you to determine the working space of the procedure;
+    
+    the larger this space, the quicker the execution:
+    <SPAN style="font-style: italic;">100 DEFine PROCedure APPEND (file1$,file2$,bufsize)
+    110 LOCal length,buffer,file1,file2,part
+    120 file1=FOP_IN(file1$): length=FLEN(#file1)
+    130 buffer=ALCHP(length)
+    140 file2=FOPEN(file2$)
+    150 IF file2=-7 THEN file2=FOP_NEW(file2$)
+    160 GET#file2\1E9
+    170 FOR part=0 TO INT(length/bufsize)
+    180 bufsize=FREAD(#file1,buffer,bufsize)
+    190 FWRITE#file2,buffer,bufsize
+    200 END FOR part
+    210 CLOSE#file1,#file2: RECHP buffer
+    220 DELETE file1$
+    230 END DEFine APPEND<BR></SPAN>
+    eg. <SPAN style="font-style: italic;">APPEND "ram1_tumb_tmp" TO "flp2_tump_dat",20480<BR></SPAN>
+    
+<H3>NOTE:</H3>
+
+<P>
+    If the channel number supplied to <SPAN style="font-style: italic;">FREAD</SPAN> does not refer to a
+    file, then the error -15 (bad parameter) will be reported
+    <SPAN style="font-style: italic;">after</SPAN> it has done its work. This behaviour is pretty strange.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsF.html#FREAD$">FREAD$</A>, <A style="font-style: italic;" href="KeywordsF.html#FWRITE">FWRITE</A>, <A style="font-style: italic;" href="KeywordsL.html#LBYTES">LBYTES</A>, <A style="font-style: italic;" href="KeywordsS.html#SBYTES">SBYTES</A>, <A style="font-style: italic;" href="KeywordsG.html#GET">GET</A>, <A style="font-style: italic;" href="KeywordsP.html#PUT">PUT</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FREAD$" id="FREAD$"></A>FREAD$</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FREAD$ (</SPAN>[<SPAN style="font-style: italic;">#ch</SPAN>]<SPAN style="font-style: italic;">, length)<BR></SPAN> Location: <SPAN style="font-style: italic;">BTool<BR></SPAN>
+    The <SPAN style="font-style: italic;">FREAD$</SPAN> function is very similar to the <SPAN style="font-style: italic;">FREAD</SPAN> command: A
+    fixed number of characters is read from a channel (default #0)
+    and returned as a string. <SPAN style="font-style: italic;">FREAD$</SPAN> does not stop with an error if
+    the end of file is reached - you have to detect this by
+    testing if the length of the returned string is really <SPAN style="font-style: italic;">length</SPAN>.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">MYCOPY</SPAN> copies a file with flexible buffering up to 32k, eg.
+    
+    type:
+    
+    <SPAN style="font-style: italic;">MYCOPY "mycopy_bas" TO "ram2_whatever_dat", 1000<BR></SPAN>
+    to use a 1000 bytes buffer. The larger the buffer, the
+    
+    faster the file is copied; try a one byte buffer to see the
+    
+    difference! Ok, here is the listing:
+    <SPAN style="font-style: italic;">100 DEFine PROCedure MYCOPY (file1$, file2$, bufsiz%)
+    110 LOCal ch1, ch2, buffer$
+    120 ch1 = FOP_IN(file1$)
+    130 ch2 = FOP_NEW(file2$)
+    140 REPeat copying
+    150 buffer$ = FREAD$(#ch1, bufsiz%)
+    160 PRINT#ch2,buffer$;
+    170 IF LEN(buffer$) &lt; bufsiz% THEN EXIT copying
+    180 END REPeat copying
+    190 CLOSE#ch1, #ch2
+    200 END DEFine MYCOPY<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsI.html#INPUT$">INPUT$</A>, <A style="font-style: italic;" href="KeywordsF.html#FWRITE$">FWRITE$</A>, <A style="font-style: italic;" href="KeywordsC.html#COPY">COPY</A>, <A style="font-style: italic;" href="KeywordsG.html#GET_BYTE$">GET_BYTE$</A>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FREE" id="FREE"></A>FREE</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FREE<BR></SPAN> Location: <SPAN style="font-style: italic;">BTool<BR></SPAN>
+    This function returns the largest block of the available
+    free memory. This can be less than the actual free memory if
+    the heap has become fragmented (see <SPAN style="font-style: italic;">DEL_DEFB</SPAN>).
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See also <A style="font-style: italic;" href="KeywordsF.html#FREE_MEM">FREE_MEM</A>, <A style="font-style: italic;" href="KeywordsT.html#TPFree">TPFree</A> and <A style="font-style: italic;" href="KeywordsM.html#MT_FREE">MT_FREE</A>.
+    
+    <A style="font-style: italic;" href="Keywordsx.html#x=ALCHP(FREE)">x=ALCHP(FREE)</A> reserves the largest piece of memory available.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FREE_FAST" id="FREE_FAST"></A>FREE_FAST</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FREE_FAST<BR></SPAN> Location: <SPAN style="font-style: italic;">ATARI_REXT for QVME (v2.31+)<BR></SPAN>
+    The Atari TT recognises two types of RAM, standard ST RAM
+    (up to 10MB) and FastRAM (otherwise known as TT RAM) which is
+    specifically designed for the Atari TT and works about twice
+    as fast as the standard ST RAM.
+    
+    The QL emulator can use both types of RAM but will only
+    recognise and use a maximum 4MB of standard ST RAM. If
+    FastRAM is available, the Emulator places the device drivers
+    into this area in order to speed them up as well as freeing
+    additional standard ST RAM.
+    
+    However, if your programs are to access the FastRAM, they
+    need to use various new commands.
+    
+    <SPAN style="font-style: italic;">FREE_FAST</SPAN> is a function which returns the amount of available
+    FastRAM.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    The other commands to access FastRAM are <A style="font-style: italic;" href="KeywordsR.html#RESFAST">RESFAST</A>, and <A style="font-style: italic;" href="KeywordsL.html#LRESFAST.">LRESFAST.</A>
+    Compare<A style="font-style: italic;" href="KeywordsR.html#RESPR">RESPR</A>, <A style="font-style: italic;" href="KeywordsA.html#ALCHP">ALCHP</A> and <A style="font-style: italic;" href="KeywordsF.html#FREE_MEM">FREE_MEM</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FREE_MEM" id="FREE_MEM"></A>FREE_MEM</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FREE_MEM<BR></SPAN> Location: <SPAN style="font-style: italic;">Toolkit II, THOR XVI<BR></SPAN>
+    Exactly the same as <SPAN style="font-style: italic;">FREE</SPAN>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1>FREEZE</H1>
+    <HR style="width: 100%; height: 2px;">
+    
+<H3>FREEZE%</H3>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FREEZE switch</SPAN> <SPAN style="font-style: italic;">switch=ON</SPAN> or <SPAN style="font-style: italic;">OFF<BR></SPAN>
+    and <SPAN style="font-style: italic;">FREEZE%<BR></SPAN> Location: <SPAN style="font-style: italic;">BTool<BR></SPAN>
+    The keys &lt;CTRL&gt;&lt;F5&gt; cause the QL to stop working until any
+    further key (except &lt;CTRL&gt;, &lt;SHIFT&gt;, &lt;ALT&gt; and &lt;CAPSLOCK&gt;),
+    including &lt;CTRL&gt;&lt;F5&gt;, is pressed, which will reactivate the
+    QL. This keystroke is generated by some commands to give the
+    user a chance of reading the output, eg. <SPAN style="font-style: italic;">VIEW</SPAN>, <SPAN style="font-style: italic;">EXTRAS</SPAN>, <SPAN style="font-style: italic;">SXTRAS</SPAN>, <SPAN style="font-style: italic;">WDIR</SPAN>.
+    
+    <SPAN style="font-style: italic;">FREEZE OFF</SPAN> disables &lt;CTRL&gt;&lt;F5&gt;, <SPAN style="font-style: italic;">FREEZE ON</SPAN> reactivates it.
+    
+    <SPAN style="font-style: italic;">FREEZE%</SPAN> returns either 0 or 1 (for <SPAN style="font-style: italic;">OFF</SPAN> or <SPAN style="font-style: italic;">ON</SPAN> respectively) if
+    &lt;CTRL&gt;&lt;F5&gt; has been disabled by <SPAN style="font-style: italic;">FREEZE</SPAN> or not.
+    
+    
+<H3>Example:</H3>
+
+<P><SPAN style="font-style: italic;">FREEZE OFF
+    EXTRAS
+    FREEZE ON<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsO.html#ON">ON</A> and <A style="font-style: italic;" href="KeywordsO.html#OFF">OFF</A> are constant expressions for 1 and 0.
+    
+    <A style="font-style: italic;" href="KeywordsF.html#FREEZE%">FREEZE%</A> returns the current state.
+    
+    Compare <A style="font-style: italic;" href="KeywordsF.html#FREEZE">FREEZE</A> and <A style="font-style: italic;" href="KeywordsF.html#FREEZE%">FREEZE%</A> to <A style="font-style: italic;" href="KeywordsB.html#BREAK">BREAK</A> and <A style="font-style: italic;" href="KeywordsB.html#BREAK%">BREAK%</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FSERVE" id="FSERVE"></A>FSERVE</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FSERVE<BR></SPAN>
+    or <SPAN style="font-style: italic;">FSERVE</SPAN> [<SPAN style="font-style: italic;">device_name</SPAN>] <SPAN style="font-style: italic;">(THOR XVI - v6.41 only)<BR></SPAN>
+    Location: <SPAN style="font-style: italic;">Toolkit II (hardware version only or SMS),
+    
+    THOR XVI<BR></SPAN>
+    This command creates a small fileserver job named Server
+    which allows other network stations (slaves) to access all
+    devices on the machine where this fileserver is running (this
+    is the Master). The fileserver only works with the QNET
+    network system, which itself only works reliably if Toolkit II
+    is installed as firmware (ie. on ROM or on EPROM) (or if
+    Toolkit II is installed as part of SMS) on all machines
+    connected to the network.
+    
+    To access a device on the Master, a prefix has to be added
+    to the device name. This prefix specifies the other machine by
+    its network number (see <SPAN style="font-style: italic;">NET</SPAN>) which may range from 1 to 8. The
+    prefix consists of an <SPAN style="font-style: italic;">n</SPAN>, the number of the remote station and
+    an underscore, ie: <SPAN style="font-style: italic;">n1_</SPAN> .. <SPAN style="font-style: italic;">n8_</SPAN>.
+    
+    If an access fails for any reason, the sending machine will
+    not receive an acknowledgement from the receiving one. In such
+    cases, the network driver continues to try to get through for
+    about 20 seconds and then reports 'Network aborted' (in #0) if
+    it still cannot communicate with the specified machine.
+    
+    
+<H3>Examples:</H3>
+
+<P><SPAN style="font-style: italic;">OPEN#3,n3_scr: PRINT#3,"Bye.": FLUSH#3: CLOSE#3
+    WDIR n1_flp1_
+    FORMAT n7_win1_</SPAN> (be careful !)
+    <SPAN style="font-style: italic;">SAVE n2_ram1_PROGGY_bas<BR></SPAN>
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    All commands which use the SD.EXTOP or SD.FOUNT machine
+    code calls will not work across the network: <SPAN style="font-style: italic;">CHAR_USE</SPAN> for
+    example. This does not necessarily mean that these commands
+    report errors: <SPAN style="font-style: italic;">CHAR_USE</SPAN>, for instance, changes the character set
+    to a strange pattern.
+    
+    <SPAN style="font-style: italic;">FORMAT</SPAN> will also fail over the Network. <SPAN style="font-style: italic;">ED</SPAN> and <SPAN style="font-style: italic;">EDIT</SPAN> also
+    cannot be used to edit a program on a window opened over the
+    Network.
+    
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    Although windows (scr_ and con_ devices) are normally not
+    buffered, this will be the case if they are opened across the
+    network. This affects just text output, all other operations
+    (<SPAN style="font-style: italic;">BORDER</SPAN>, <SPAN style="font-style: italic;">INK</SPAN>, <SPAN style="font-style: italic;">CLS</SPAN>, <SPAN style="font-style: italic;">WINDOW</SPAN> etc.) are performed on the host QL when
+    issued. The buffer of 256 bytes is located in the sending QL
+    and flushed automatically if full. Otherwise a <SPAN style="font-style: italic;">CLOSE</SPAN> command
+    forces the buffer contents to be sent (the <SPAN style="font-style: italic;">FLUSH</SPAN> command will
+    not work to send the buffer contents). See the Drivers
+    section in the Appendix for further details on Networks.
+    
+    
+<H3>NOTE 3:</H3>
+
+<P>
+    If a channel was opened by a slave via the network and this
+    QL is later removed from the network - say by unplugging the
+    network lead or by resetting the machine, then the channel is
+    left open. As all such channels are owned by the Server job,
+    they can be flushed and closed by removing and restarting the
+    job:
+    <SPAN style="font-style: italic;">RJOB Server
+    FSERVE<BR></SPAN>
+    Take care that all operations being carried out by other
+    stations on the local machine (where the fileserver is to be
+    removed) have finished or have been suspended.
+    
+    
+<H3>NOTE 4:</H3>
+
+<P>
+    Due to checksum tests, data transmission across the network
+    is practically error free. There is still a very small
+    statistical possibility of transmission errors but really
+    extensive experiments (moving megabytes of data) did not even
+    produce one.
+    
+    
+<H3>NOTE 5:</H3>
+
+<P>
+    Although a normal file name can be of any length up to a
+    maximum of 41 characters (including the device name), if the
+    file is to be accessed across the network, this is reduced to
+    a maximum of 39 characters (including the network prefix). For
+    example:
+    <SPAN style="font-style: italic;">OPEN #3,flp1_Quill_letters_Minerva2_update_doc239
+    OPEN #3,n1_win1_Quill_letters_Minerva2b_updates<BR></SPAN>
+    will work, whereas the following two commands report 'Not
+    Found' without attempting to access the drives:-
+    <SPAN style="font-style: italic;">OPEN #4,flp1_Quill_letters_Minerva2_update_doc2392
+    OPEN #4,n1_win1_Quill_letters2_Minerva2b_updates<BR></SPAN>
+    
+<H3>NOTE 6:</H3>
+
+<P>
+    If you <SPAN style="font-style: italic;">OPEN</SPAN> a con_ device over the Network (onto a Master
+    machine's screen) and try to use <SPAN style="font-style: italic;">INPUT</SPAN> to read a variable
+    entered on that Master, there are problems here in that the
+    delete keys on the Master which is displaying (and editing)
+    the text displayed in the con_ device do not work properly,
+    leaving splodges on the screen.
+    
+    You can use <SPAN style="font-style: italic;">IO_TRAP</SPAN> and <SPAN style="font-style: italic;">QTRAP</SPAN> to call cursor positioning
+    routines on the Master and then print spaces to overwrite the
+    deleted characters, using <SPAN style="font-style: italic;">IO_TRAP</SPAN> or <SPAN style="font-style: italic;">QTRAP</SPAN> to move the cursor back
+    to the correct position and possibly pan the window to get rid
+    of excess characters. This technique was used to good effect
+    in the NetPal program in DIY Toolkit (Vol N).
+    
+    
+<H3>NOTE 7:</H3>
+
+<P>
+    If you try to use a Toolkit II command such as <SPAN style="font-style: italic;">DIR</SPAN> to direct
+    the output onto a window which has been <SPAN style="font-style: italic;">OPEN</SPAN>ed over the Network,
+    when it reaches the bottom of a page, the Toolkit II command
+    automatically generates a &lt;CTRL&gt;&lt;F5&gt; at the slave machine end
+    which can only be cleared by pressing a key on the slave
+    machine's keyboard.
+    
+    
+<H3>THOR XVI NOTE:</H3>
+
+<P>
+    The THOR XVI version of this command allows you to send,
+    for example, a continuous log of status messages to a file or
+    device, eg. <SPAN style="font-style: italic;">FSERVE scr_512x256a0x0</SPAN>. This is however really only useful
+    for debugging network programs or to analyse network traffic.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    The fileserver job can be removed with <A style="font-style: italic;" href="KeywordsR.html#RJOB">RJOB</A>, <A style="font-style: italic;" href="KeywordsK.html#KJOB">KJOB</A>, <A style="font-style: italic;" href="KeywordsK.html#KILL">KILL</A> etc. or
+    by using a desktop application (such as QPAC2).
+    
+    See <A style="font-style: italic;" href="KeywordsN.html#NET">NET</A> and <A style="font-style: italic;" href="KeywordsN.html#NFS_USE">NFS_USE</A> for further information on networking.
+    
+    Refer to the original documentation of Toolkit II and the
+    Device Drivers Appendix for technical details.
+    
+    <A style="font-style: italic;" href="KeywordsS.html#SERNET">SERNET</A> and <A style="font-style: italic;" href="KeywordsM.html#MIDINET">MIDINET</A> create fileservers for other Networks
+    supported by SMSQ/E and the Atari ST Emulators.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FSETH$" id="FSETH$"></A>FSETH$</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FSETH$</SPAN> [<SPAN style="font-style: italic;">#ch,</SPAN>] <SPAN style="font-style: italic;">header$<BR></SPAN> Location: <SPAN style="font-style: italic;">BTool<BR></SPAN>
+    <SPAN style="font-style: italic;">FSETH$</SPAN> is a command which is the counterpart of <SPAN style="font-style: italic;">FGETH$</SPAN>: it
+    accepts either a 14 or 64 bytes long string which contains a
+    file header (or at least the first part of that) and sends
+    that file header to the specified channel (default #3).
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsH.html#HEADS">HEADS</A> and <A style="font-style: italic;" href="KeywordsS.html#SetHEAD">SetHEAD</A>!
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FTEST" id="FTEST"></A>FTEST</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FTEST (name)<BR></SPAN> Location: <SPAN style="font-style: italic;">Toolkit II<BR></SPAN>
+    The function <SPAN style="font-style: italic;">FTEST</SPAN> is designed to allow you to test for the
+    status of a file with the specified <SPAN style="font-style: italic;">name</SPAN>. It will return a value
+    of 0 if the given name can be opened for input only. It may
+    however return a negative number representing an error code
+    which would result if you tried to <SPAN style="font-style: italic;">OPEN</SPAN> or <SPAN style="font-style: italic;">OPEN_IN</SPAN> that file.
+    
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    The return of -6 (channel not open) has a special meaning
+    in relation to this function, it means that the function could
+    not find any room in the channel table to try and access the
+    file.
+    
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    Due to the nature of the command, <SPAN style="font-style: italic;">name</SPAN> can be used to
+    represent any valid device, and could therefore, for example,
+    be used to check if a resolution of 768x280 pixels is
+    supported:
+    <SPAN style="font-style: italic;">100 a$='scr_768x280a0x0'
+    110 IF FTEST(a$)&lt;0
+    120 a$='scr_512x256a0x0'
+    130 END IF
+    140 OPEN #3,a$<BR></SPAN>
+    
+<H3>NOTE 3:</H3>
+
+<P>
+    On Level-2 and Level-3 devices, there is always a file with
+    the same name as the actual name of the device (eg. 'flp1_').
+    This therefore allows you to check if a medium is present in a
+    Level-2 device:
+    
+    <SPAN style="font-style: italic;">IF FTEST(flp1_)&lt;0 THEN PRINT 'Please insert disk'<BR></SPAN>
+    You must however be aware that on Level-1 devices, it is
+    unlikely that such a file will be present and that FTEST will
+    return -7 even if there is a disk present.
+    
+    
+<H3>NOTE 4:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">FTEST</SPAN> will not warn you if a disk is read only, which can
+    create problems.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsF.html#FOPEN">FOPEN</A> and <A style="font-style: italic;" href="KeywordsF.html#FOP_IN">FOP_IN</A> allow you to open files safely.
+    
+    <A style="font-style: italic;" href="KeywordsD.html#DMEDIUM_RDONLY">DMEDIUM_RDONLY</A> can be used to find out if a disk is write
+    protected.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FTYP" id="FTYP"></A>FTYP</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FTYP</SPAN> [<SPAN style="font-style: italic;">(#channel)</SPAN>]
+    
+    or <SPAN style="font-style: italic;">FTYP (\file)</SPAN> <SPAN style="font-style: italic;">(Toolkit II and THOR only)<BR></SPAN> Location: <SPAN style="font-style: italic;">Toolkit II, THOR XVI, BTool<BR></SPAN>
+    This function returns the file type of a file which is
+    already open as <SPAN style="font-style: italic;">#channel</SPAN> (the default channel is #3) or else the
+    second variant can be used (which supports the Toolkit II
+    default data device and sub-directories) to check a given
+    <SPAN style="font-style: italic;">file</SPAN>. The file type is one byte in the file header which by
+    convention represents the type of the file.
+    
+    There are only four standard types:
+    
+    <SPAN style="font-style: italic;">FTYP=1</SPAN>Executable jobs (normally suffixed _exe),
+    
+    <SPAN style="font-style: italic;">FTYP=2</SPAN>Sinclair Relocatable Object File (SROFF) modules
+    (normally suffixed _REL);
+    
+    <SPAN style="font-style: italic;">FTYP=255</SPAN>Sub-directories on level-2 and level-3 drivers;
+    and
+    
+    <SPAN style="font-style: italic;">FTYP=0</SPAN>Everything else.
+    
+    However, some programmers use their own file types for
+    their applications, for example:
+    
+    <SPAN style="font-style: italic;">FTYP=2</SPAN>may also signify sub-directory declaration files
+    used by Ralf Biedermann's flp utility and
+    Hirschbiegel drivers;
+    
+    <SPAN style="font-style: italic;">FTYP=3</SPAN>sub-directories on THOR computers.
+    
+    <SPAN style="font-style: italic;">FTYP=4</SPAN>represents font files used by the PAINTER,
+    
+    <SPAN style="font-style: italic;">FTYP=5</SPAN>are pattern files used by the PAINTER,
+    
+    <SPAN style="font-style: italic;">FTYP=6,11</SPAN>are compressed screens generated by the PAINTER,
+    
+    <SPAN style="font-style: italic;">FTYP=7</SPAN>0is used to represent separation files from
+    packages distributed by the Intergroup Freeware
+    Exchange.
+    
+    
+<H3>WARNING:</H3>
+
+<P>
+    Sometimes machine code files (Toolkits, for instance) which
+    should be loaded with <SPAN style="font-style: italic;">LBYTES</SPAN>, <SPAN style="font-style: italic;">LRESPR</SPAN> etc. have the file type 1.
+    Executing such a file will lead to a crash in most cases,
+    <SPAN style="font-style: italic;">UNJOB</SPAN> changes the file type back to 0. Authors with a lot of
+    skill write machine code which can be either executed as a job
+    or loaded as a resident command executing the job from memory
+    when called.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsH.html#HEADR">HEADR</A> for reading the whole file header and <A style="font-style: italic;" href="KeywordsE.html#EX">EX</A> for
+    executing jobs.
+    <A href="KeywordsF.html#FILE_TYP">FILE_TYP</A> does the same as <A style="font-style: italic;" href="KeywordsF.html#FTYP">FTYP</A> but has a slightly different
+    syntax.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FuNction" id="FuNction"></A>FuNction</H1>
+
+<P>
+    Syntax: ... <SPAN style="font-style: italic;">FuNction<BR></SPAN> Location: <SPAN style="font-style: italic;">QL ROM<BR></SPAN>
+    This keyword forms part of the structure <SPAN style="font-style: italic;">DEFine FuNction</SPAN>. As
+    such, it cannot be used on its own within a program - this
+    will cause a 'bad line' error.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    Please refer to the individual structure descriptions for
+    more details.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FUPDT" id="FUPDT"></A>FUPDT</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FUPDT</SPAN> [<SPAN style="font-style: italic;">(#channel)</SPAN>]
+    
+    or <SPAN style="font-style: italic;">FUPDT (\file)</SPAN> <SPAN style="font-style: italic;">(Toolkit II only)<BR></SPAN> Location: <SPAN style="font-style: italic;">Toolkit II, BTool<BR></SPAN>
+    This function returns the date on which a given file was
+    last amended. The value returned is the date in QDOS format,
+    ie. the number of seconds since Midnight 1st January 1961
+    {check this initial date with <SPAN style="font-style: italic;">PRINT DATE$(0)</SPAN>}. This update time is
+    altered whenever a file is created or amended. A file which
+    has overwritten a previous file or is a copy is regarded as a
+    new file and will therefore have a different update time to
+    the original. The default data device and sub-directories are
+    supported, default channel is #3.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    It could be interesting to list all files which have been
+    
+    created during a certain time period. On the next page is
+    
+    a simple prototype of a program which will do just that.
+    
+    If you want to check all files, then <SPAN style="font-style: italic;">dev$</SPAN> should contain no
+    
+    sub-directories or wild cards (just <SPAN style="font-style: italic;">FLP2_</SPAN>, <SPAN style="font-style: italic;">WIN1_</SPAN>) and <SPAN style="font-style: italic;">wild$</SPAN> an
+    
+    empty string.
+    
+    Such a program could be used to write an intelligent backup
+    
+    program.
+    
+    In order to run the program you will need TinyToolkit's
+    
+    <SPAN style="font-style: italic;">TCONNECT</SPAN> or DIY-TK's <SPAN style="font-style: italic;">QLINK</SPAN>. You could also use similar
+    
+    commands in the toolkits provided with Turbo or Qliberator.
+    <SPAN style="font-style: italic;">100 CLS: INPUT "Device:"!dev$ \"Wild card:"!wild$
+    110 INPUT "List from (dd mm yy):"!first$
+    120 INPUT TO 2;"to (&lt;ENTER&gt;=today):"!last$\\
+    130 day1=first$(1 TO 2):month1=first$(4 TO 5)
+    135 year1=19&amp;first$(7 TO 8)
+    140 IF LEN(last$) THEN
+    150 day2=last$(1 TO 2):month2=last$(4 TO 5)
+    155 year2=19&amp;last$(7 TO 8)
+    160 ELSE last=DATE
+    170 END IF
+    180 DATE_tmp=DATE
+    190 SDATE year1,month1,day1,0,0,0: first=DATE
+    200 IF LEN(last$): SDATE year2,month2,day2,23,59,58: last=DATE
+    210 ADATE DATE_tmp-DATE+2
+    220 :
+    230 OPEN#3,pipe_10000: OPEN#4,pipe_100
+    240 TCONNECT #3 TO #4: WDIR#3,dev$ &amp; wild$
+    250 yes=0: yesno=0
+    260 REPeat show_those
+    270 IF NOT PEND(#4) THEN EXIT show_those
+    280 INPUT#4,file$: this=FUPDT(\dev$ &amp; file$): yesno=yesno+1
+    290 IF first&lt;=this AND this&lt;=last THEN
+    300 PRINT file$;TO 20;"(";DATE$(this);")"
+    310 yes=yes+1
+    320 END IF
+    330 END REPeat show_those
+    340 PRINT\"(";yes;"/";yesno!"files)"
+    350 CLOSE#3,#4<BR></SPAN>
+    Minerva or SMS users can delete lines 180,190,200 and 210
+    
+    and use the following lines instead:
+    <SPAN style="font-style: italic;">190 first=DATE(year1,month1,day1,0,0,0)
+    200 IF LEN(last$): last=DATE(year2,month2,day2,23,59,58)<BR></SPAN>
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    The update time of a file will only be correct if the
+    system clock was set to the correct time when the file was
+    last written to, since it is the date contained within the
+    QL's clock which is written to the header of the file. If
+    your machine has a battery backed realtime clock, then this
+    presents no real problem; otherwise you will need to ensure
+    that you set the date and time after each startup.
+    
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    On some early versions of Toolkit II the machine code
+    FS.RENAME routine also alters the update time of a file!
+    
+    
+<H3>NOTE 3:</H3>
+
+<P>
+    There is no legitimate way to change the update time of a
+    file except with level-2 or level-3 drivers. It is of course
+    possible to set the system clock temporarily to the desired
+    time, amend the file and then set the clock back, but as the
+    time taken to change the cannot be estimated exactly, this
+    method will almost surely reset the system clock to the
+    incorrect time after carrying out such an operation a few
+    times. On level-2 and level-3 drivers, <SPAN style="font-style: italic;">SET_FUPDT</SPAN> can be used.
+    
+    
+<H3>NOTE 4:</H3>
+
+<P>
+    Minerva automatically updates the update dates of files on
+    microdrives. Other ROM versions will not do so without Toolkit
+    II.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsF.html#FBKDT">FBKDT</A>, <A style="font-style: italic;" href="KeywordsF.html#FLEN">FLEN</A>, <A style="font-style: italic;" href="KeywordsF.html#FTYP">FTYP</A>, <A style="font-style: italic;" href="KeywordsF.html#FDAT">FDAT</A>, <A style="font-style: italic;" href="KeywordsF.html#FXTRA">FXTRA</A>, <A style="font-style: italic;" href="KeywordsF.html#FILE_LEN">FILE_LEN</A>, <A style="font-style: italic;" href="KeywordsF.html#FILE_TYP">FILE_TYP</A>, <A style="font-style: italic;" href="KeywordsF.html#FVERS">FVERS</A> and <A style="font-style: italic;" href="KeywordsF.html#FNAME$">FNAME$</A> return
+    other information about a file.
+    
+    See <A style="font-style: italic;" href="KeywordsD.html#DATE">DATE</A> and <A style="font-style: italic;" href="KeywordsA.html#ADATE">ADATE</A> about handling the system clock and <A style="font-style: italic;" href="KeywordsS.html#SET_FUPDT">SET_FUPDT</A> on setting the time stamp of a file.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FVERS" id="FVERS"></A>FVERS</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FVERS</SPAN> [<SPAN style="font-style: italic;">(#channel)</SPAN>]
+    
+    or <SPAN style="font-style: italic;">FVERS (\file)<BR></SPAN> Location: <SPAN style="font-style: italic;">Level-2 Device Drivers<BR></SPAN>
+    This function reads the version number of the given file
+    (or of the file attached to the specified channel {default
+    #3} if the first variant is used). The version numbers can
+    range from 0 to 2<SUP>16</SUP>-1 (65535) and generally indicate how often
+    a file has been amended. If a file was created on a level-1
+    device driver system, its version number is zero (0), while
+    newly created files on level-2 device drivers will have the
+    version number 1 after they have been closed.
+    
+    <SPAN style="font-style: italic;">FVERS</SPAN> supports Toolkit II's default data device and
+    sub-directories. If the first variant is used, the default
+    channel is #3 if none is specified.
+    
+    Each time that a file is amended on level-2 and level-3
+    drivers, the version number is increased by one. If the
+    version reaches its limit of 65535, it will start at version 1
+    again. A file has to be re-opened to change its version by
+    more than one. After the file has been amended, the version
+    will only increase after a <SPAN style="font-style: italic;">FLUSH</SPAN> or <SPAN style="font-style: italic;">CLOSE</SPAN>.
+    
+    Unfortunately current versions of <SPAN style="font-style: italic;">SAVE</SPAN> and <SPAN style="font-style: italic;">SBYTES</SPAN> do not
+    increase the version number because they overwrite existing
+    files instead of truncating them.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">OPEN_OVER#3,test_tmp</SPAN>create the file
+    
+    <SPAN style="font-style: italic;">PRINT#3,"just a line"</SPAN>write a line to the file
+    
+    <SPAN style="font-style: italic;">PRINT FVERS(#3)</SPAN> 0, neither flushed nor
+    closed
+    
+    <SPAN style="font-style: italic;">CLOSE#3</SPAN> close file
+    
+    <SPAN style="font-style: italic;">PRINT FVERS(\test_tmp)</SPAN>1
+    
+    <SPAN style="font-style: italic;">OPEN#3,test_tmp</SPAN> re-open file
+    
+    <SPAN style="font-style: italic;">PRINT FVERS(#3)</SPAN> 1, nothing changed yet
+    
+    <SPAN style="font-style: italic;">PRINT#3,"replace the line"</SPAN> amend file
+    
+    <SPAN style="font-style: italic;">PRINT FVERS(#3)</SPAN> still 1 not yet flushed
+    
+    <SPAN style="font-style: italic;">FLUSH#3</SPAN>write slave blocks to file
+    
+    <SPAN style="font-style: italic;">PRINT FVERS(#3)</SPAN> now it's 2
+    
+    <SPAN style="font-style: italic;">FLUSH#3</SPAN> flush again
+    
+    <SPAN style="font-style: italic;">PRINT FVERS(#3)</SPAN> 2
+    
+    <SPAN style="font-style: italic;">PRINT#3,"next line"</SPAN> change file again
+    
+    <SPAN style="font-style: italic;">CLOSE#3</SPAN> close file
+    
+    <SPAN style="font-style: italic;">PRINT FVERS(\test_tmp)</SPAN> still 2
+    
+    
+<H3>NOTE:</H3>
+
+<P>
+    The file version number is not preserved if the file is
+    overwritten. However, if you make a copy of a file, this keeps
+    the same version number as the original, but not on Level-1
+    drivers.
+    
+    
+<H3>SMS NOTE:</H3>
+
+<P>
+    If you use the <SPAN style="font-style: italic;">SAVE</SPAN> command without a filename to save a
+    previously loaded SuperBASIC program, the file version number
+    will be increased by one.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsS.html#SET_FVERS">SET_FVERS</A> allows you to set the version number.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FWRITE" id="FWRITE"></A>FWRITE</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FWRITE #ch,address,bytes<BR></SPAN> Location: <SPAN style="font-style: italic;">TinyToolkit<BR></SPAN>
+    The command <SPAN style="font-style: italic;">FWRITE</SPAN> reads a given number of bytes (<SPAN style="font-style: italic;">bytes</SPAN>) from
+    memory (starting at <SPAN style="font-style: italic;">address</SPAN>) and writes them to the given
+    channel, which should point to a file.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    A procedure which adds a file to another already existing
+    
+    file - <SPAN style="font-style: italic;">CONCAT</SPAN> cannot do so. This is a rather primitive
+    
+    version which grabs as much memory as necessary and uses
+    
+    only TinyToolkit extensions. The program is very primitive
+    
+    (not in its use of these extensions), but because the
+    
+    memory management of the routine is simple (but fast) and
+    
+    as <SPAN style="font-style: italic;">FILE_LEN</SPAN> does not support default devices and
+    
+    sub-directories, full filenames have to be passed. See
+    
+    <SPAN style="font-style: italic;">FREAD</SPAN> for an enhanced version!
+    <SPAN style="font-style: italic;">100 DEFine PROCedure APPEND (file1$,file2$)
+    110 length=FILE_LEN(file1$)
+    120 buffer=GRAB(length)
+    130 LBYTES file1$,buffer
+    140 ch=FOPEN(file1$): FILE_PTRA#3,1E9
+    150 FWRITE #ch,buffer,length
+    160 CLOSE#ch: RELEASE buffer
+    170 END DEFine APPEND<BR></SPAN>
+    The procedure is called by <SPAN style="font-style: italic;">APPEND file1$ TO file2$</SPAN>, which will add
+    
+    the first file to the second file. First, a buffer of the
+    
+    size of the first file is reserved in RAM, then, this file
+    
+    is read into the buffer. Now the second file is opened, the
+    
+    file pointer moved to the end of it and the whole buffer is
+    
+    then appended to the end of the file. Finally, the channel
+    
+    is closed and the buffer <SPAN style="font-style: italic;">RELEASE</SPAN>d.
+    
+    
+<H3>NOTE:</H3>
+
+<P>
+    If the channel number does not refer to a file or even if
+    the channel has not yet been opened, <SPAN style="font-style: italic;">FWRITE</SPAN> will report error
+    -15 (bad parameter) after it has completed its work. This
+    behaviour is pretty strange.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsF.html#FREAD">FREAD</A>, <A style="font-style: italic;" href="KeywordsL.html#LBYTES">LBYTES</A>, <A style="font-style: italic;" href="KeywordsS.html#SBYTES">SBYTES</A>, <A style="font-style: italic;" href="KeywordsG.html#GET">GET</A>, <A style="font-style: italic;" href="KeywordsP.html#PUT">PUT</A>. If you intend to use <A style="font-style: italic;" href="KeywordsA.html#APPEND">APPEND</A>, please
+    see <A style="font-style: italic;" href="KeywordsF.html#FREAD">FREAD</A> for a better version.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FWRITE$" id="FWRITE$"></A>FWRITE$</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FWRITE$</SPAN> [<SPAN style="font-style: italic;">#ch,</SPAN>] <SPAN style="font-style: italic;">string$<BR></SPAN> Location: <SPAN style="font-style: italic;">BTool<BR></SPAN>
+    <SPAN style="font-style: italic;">FWRITE$</SPAN> is a command (not a function as the $ may suggest)
+    and writes <SPAN style="font-style: italic;">string$</SPAN> to <SPAN style="font-style: italic;">#ch</SPAN> (default #1). It's the same as
+    <SPAN style="font-style: italic;">PRINT#ch,string$;</SPAN>.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">FWRITE$ "Hello World"<BR></SPAN>
+    
+<H3>NOTE:</H3>
+
+<P>
+    The Line feed character {<SPAN style="font-style: italic;">CHR$(10)</SPAN>} is not printed at the end
+    of the text.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="FXTRA" id="FXTRA"></A>FXTRA</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">FXTRA</SPAN> [<SPAN style="font-style: italic;">(#ch)</SPAN>]
+    
+    or <SPAN style="font-style: italic;">FXTRA \file</SPAN> <SPAN style="font-style: italic;">(Toolkit II only)<BR></SPAN> Location: <SPAN style="font-style: italic;">Toolkit II, BTool<BR></SPAN>
+    This is a function which returns part of the file header
+    relating to the specified <SPAN style="font-style: italic;">file</SPAN> (or the file attached to the
+    specified channel {default #3} if the first variant is used).
+    See <SPAN style="font-style: italic;">FGETH$</SPAN> for what part of the file header <SPAN style="font-style: italic;">FXTRA</SPAN> returns.
+    
+    The Toolkit II default data device and sub-directories are
+    supported. If the first variant is used, the default channel
+    is #3.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsF.html#FDAT">FDAT</A>, <A style="font-style: italic;" href="KeywordsF.html#FBKDT">FBKDT</A>, <A style="font-style: italic;" href="KeywordsF.html#FUPDT">FUPDT</A> and <A style="font-style: italic;" href="KeywordsF.html#FTYP">FTYP</A> which return similar information.
+</BODY>
+</HTML>
