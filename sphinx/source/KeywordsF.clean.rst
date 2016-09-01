@@ -2275,10 +2275,10 @@ definitively lost. Be careful!
 The following standard devices can be
 formatted: 
 
-- MDV1\_ .. MDV8\_  microdrive cartridges 
-- FLP1\_ .. FLP8\_  floppy disks 
-- RAM1\_ .. RAM8\_  ramdisks 
-- WIN1\_ .. WIN8\_  hard disks 
+- MDV1\_ .. MDV8\_  - microdrive cartridges 
+- FLP1\_ .. FLP8\_  - floppy disks 
+- RAM1\_ .. RAM8\_  - ramdisks 
+- WIN1\_ .. WIN8\_  - hard disks 
 
 Depending on
 the type of medium, several additions to the pure medium name are
@@ -2678,8 +2678,9 @@ FPOS
 | Location |  Toolkit II, THOR XVI, BTool                                      |
 +----------+-------------------------------------------------------------------+
 
-|  This function returns the current position of the file pointer. The
-relevant file must already be open as #channel, default channel is #3. A
+This function returns the current position of the file pointer. 
+
+The relevant file must already be open as #channel, default channel is #3. A
 value of zero means that the file pointer is at the very beginning of a
 file, whereas a position equivalent to the file length means that it
 points to the very end. The file pointer is a means by which the QL can
@@ -2702,12 +2703,12 @@ FPOS\_A
 =======
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  FPOS\_A ([#ch,] pos) |                                           |
+| Syntax   |  FPOS\_A ([#ch,] pos)                                             |
 +----------+-------------------------------------------------------------------+
 | Location |  BTool                                                            |
 +----------+-------------------------------------------------------------------+
 
-|  This is the same as FILE\_PTRA !
+This is the same as `FILE\_PTRA <KeywordsF.clean.html#file-ptra>`__.
 
 --------------
 
@@ -2715,12 +2716,12 @@ FPOS\_R
 =======
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  FPOS\_R ([#ch,] offset) |                                        |
+| Syntax   |  FPOS\_R ([#ch,] offset)                                          |
 +----------+-------------------------------------------------------------------+
 | Location |  BTool                                                            |
 +----------+-------------------------------------------------------------------+
 
-|  This is the same as FILE\_PTRR !
+This is the same as `FILE\_PTRR <KeywordsF.clean.html#file-ptrr>`__.
 
 --------------
 
@@ -2728,20 +2729,23 @@ FPUT$
 =====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  FPUT$ [#ch,] string :sup:`\*`\ [,string\ :sup:`i`]\ :sup:`\* `   |
+| Syntax   |  FPUT$ [#ch,] string :sup:`\*`\ [,string\ :sup:`i`]\ :sup:`\*`    |
 +----------+-------------------------------------------------------------------+
 | Location |  BTool                                                            |
 +----------+-------------------------------------------------------------------+
 
-|  This command writes the given string(s) in internal format to #ch,
+This command writes the given string(s) in internal format to #ch,
 default is #1. The internal format of a string is a word (two bytes)
 giving the length of the string followed by the contents of the string
 itself.
 
 **Example**
 
-| FPUT$ 'Hello'
-|  will produce the equivalent of PRINT CHR$(0)&CHR$(5)&'Hello'
+::
+
+    FPUT$ 'Hello'
+
+will produce the equivalent of PRINT CHR$(0)&CHR$(5)&'Hello'.
 
 **CROSS-REFERENCE**
 
@@ -2753,12 +2757,12 @@ FPUT%
 =====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  FPUT% [#ch,] integer :sup:`\*`\ [,integer\ :sup:`i`]\ :sup:`\* ` |
+| Syntax   |  FPUT% [#ch,] integer :sup:`\*`\ [,integer\ :sup:`i`]\ :sup:`\*`  |
 +----------+-------------------------------------------------------------------+
 | Location |  BTool                                                            |
 +----------+-------------------------------------------------------------------+
 
-|  This command writes the specified integer(s) (range 0...32767) in its
+This command writes the specified integer(s) (range 0...32767) in its
 internal format to #ch, default is #1. An integer is stored internally
 as two bytes (one word).
 
@@ -2771,28 +2775,36 @@ as two bytes (one word).
 FPUTB
 =====
 
-+----------+-------------------------------------------------------------------+
-| Syntax   |  FPUTB [#ch,] {byte \| string$} :sup:`\*`\ [,{byte\ :sup:`i` \| string\ :sup:`i`\ $}]\ :sup:`\* ` |
-+----------+-------------------------------------------------------------------+
-| Location |  BTool                                                            |
-+----------+-------------------------------------------------------------------+
++----------+--------------------------------------------------------------------------------------------------+
+| Syntax   |  FPUTB [#ch,] {byte \| string$} :sup:`\*`\ [,{byte\ :sup:`i` \| string\ :sup:`i`\ $}]\ :sup:`\*` |
++----------+--------------------------------------------------------------------------------------------------+
+| Location |  BTool                                                                                           |
++----------+--------------------------------------------------------------------------------------------------+
 
-|  FPUTB is a command which writes single or multiple bytes to a channel
+FPUTB is a command which writes single or multiple bytes to a channel
 #ch (default #1). FPUTB can take any kind of parameters which must be
 either a numeric value byte in the range 0..255 for a single byte, in
 the range 256..32767 for two bytes or a string string$.
 
 **Example 1**
 
-| CLS: FPUTB "First line",10,"Second line" CLS: FPUTB "First
-line",2570,"Third line"
-|  (because CVI% (CHR$ (10) & CHR$ (10) )=2570)
+::
+
+    CLS: FPUTB "First line",10,"Second line" 
+    CLS: FPUTB "First line",2570,"Third line"
+
+because CVI% (CHR$ (10) & CHR$ (10) ) = 2570)  
+which is (10 * 256) + 10 in big-endian format, as the QL is.
 
 **Example 2**
 
-| FPUTB is very handy for controlling printers, OPEN#3,par
-FPUTB#3,27,"x",1 CLOSE#3
-|  will enable near letter quality (NLQ) on an EPSON compatible printer.
+FPUTB is very handy for controlling printers::
+
+    OPEN#3,par
+    FPUTB#3,27,"x",1 
+    CLOSE#3
+    
+will enable near letter quality (NLQ) on an EPSON compatible printer.
 
 **CROSS-REFERENCE**
 
@@ -2806,12 +2818,12 @@ FPUTF
 =====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  FPUTF [#ch,] float :sup:`\*`\ [,float\ :sup:`i`]\ :sup:`\* `     |
+| Syntax   |  FPUTF [#ch,] float :sup:`\*`\ [,float\ :sup:`i`]\ :sup:`\*`      |
 +----------+-------------------------------------------------------------------+
 | Location |  BTool                                                            |
 +----------+-------------------------------------------------------------------+
 
-|  This command writes the floating point number(s) float in its
+This command writes the floating point number(s) float in its
 internal format (six bytes) to #ch, default is #1.
 
 **CROSS-REFERENCE**
@@ -2824,13 +2836,13 @@ FPUTL
 =====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  FPUTL [#ch,] longint :sup:`\*`\ [,longint\ :sup:`i`]\ :sup:`\* ` |
+| Syntax   |  FPUTL [#ch,] longint :sup:`\*`\ [,longint\ :sup:`i`]\ :sup:`\*`  |
 +----------+-------------------------------------------------------------------+
 | Location |  BTool                                                            |
 +----------+-------------------------------------------------------------------+
 
-|  This command writes the specified long integer(s) longint
-|  (-231..231-2) in internal format (four bytes) to #ch, default is #1.
+This command writes the specified long integer(s) longint
+(-231..231-2) in internal format (four bytes) to #ch, default is #1.
 
 **CROSS-REFERENCE**
 
@@ -2842,15 +2854,18 @@ FRACT
 =====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  FRACT (x) |                                                      |
+| Syntax   |  FRACT (x)                                                        |
 +----------+-------------------------------------------------------------------+
 | Location |  FRACT                                                            |
 +----------+-------------------------------------------------------------------+
 
-|  The function FRACT separates the fractional part of any floating
+The function FRACT separates the fractional part of any floating
 point number x. It could easily be rewritten in SuperBASIC as the
-following: 100 DEFine FuNction MYFRACT (x) 110 RETurn x - INT(x) - (x <
-0) 120 END DEFine MYFRACT
+following::
+
+    100 DEFine FuNction MYFRACT (x) 
+    110   RETurn x - INT(x) - (x < 0) 
+    120 END DEFine MYFRACT
 
 **CROSS-REFERENCE**
 
@@ -2863,30 +2878,44 @@ FREAD
 =====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  FREAD (#ch,address,bytes) |                                      |
+| Syntax   |  FREAD (#ch,address,bytes)                                        |
 +----------+-------------------------------------------------------------------+
 | Location |  TinyToolkit                                                      |
 +----------+-------------------------------------------------------------------+
 
-|  The function FREAD reads a number of bytes (bytes) from a given
+The function FREAD reads a number of bytes (bytes) from a given
 channel into memory, starting at address. The number returned by FREAD
 gives the number of bytes it actually read.
 
 **Example**
 
-| A BASIC Procedure APPEND which adds a file (file1$) to the end of a
+A BASIC Procedure APPEND which adds a file (file1$) to the end of a
 target file (file2$). If the target file does not exist, it will be
-created. The first file will be erased (remove line 220 if you do not
+created. 
+
+The first file will be erased (remove line 220 if you do not
 want this). The third parameter allows you to determine the working
 space of the procedure; the larger this space, the quicker the
-execution: 100 DEFine PROCedure APPEND (file1$,file2$,bufsize) 110 LOCal
-length,buffer,file1,file2,part 120 file1=FOP\_IN(file1$):
-length=FLEN(#file1) 130 buffer=ALCHP(length) 140 file2=FOPEN(file2$) 150
-IF file2=-7 THEN file2=FOP\_NEW(file2$) 160 GET#file2\\1E9 170 FOR
-part=0 TO INT(length/bufsize) 180 bufsize=FREAD(#file1,buffer,bufsize)
-190 FWRITE#file2,buffer,bufsize 200 END FOR part 210 CLOSE#file1,#file2:
-RECHP buffer 220 DELETE file1$ 230 END DEFine APPEND
-|  eg. APPEND "ram1\_tumb\_tmp" TO "flp2\_tump\_dat",20480
+execution:: 
+
+    100 DEFine PROCedure APPEND (file1$,file2$,bufsize) 
+    110   LOCal length,buffer,file1,file2,part 
+    120   file1=FOP_IN(file1$): length=FLEN(#file1) 
+    130   buffer=ALCHP(length) 
+    140   file2=FOPEN(file2$) 
+    150   IF file2=-7 THEN file2=FOP_NEW(file2$) 
+    160   GET #file2 \1E9 
+    170   FOR part=0 TO INT(length/bufsize) 
+    180     bufsize=FREAD(#file1,buffer,bufsize)
+    190     FWRITE #file2,buffer,bufsize 
+    200   END FOR part 
+    210   CLOSE #file1, #file2: RECHP buffer 
+    220   DELETE file1$ 
+    230 END DEFine APPEND
+
+It can be called as follows::
+    
+    APPEND "ram1_tumb_tmp" TO "flp2_tump_dat",20480
 
 **NOTE**
 
@@ -2906,12 +2935,12 @@ FREAD$
 ======
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  FREAD$ ([#ch], length) |                                         |
+| Syntax   |  FREAD$ ([#ch], length)                                           |
 +----------+-------------------------------------------------------------------+
 | Location |  BTool                                                            |
 +----------+-------------------------------------------------------------------+
 
-|  The FREAD$ function is very similar to the FREAD command: A fixed
+The FREAD$ function is very similar to the FREAD command: A fixed
 number of characters is read from a channel (default #0) and returned as
 a string. FREAD$ does not stop with an error if the end of file is
 reached - you have to detect this by testing if the length of the
@@ -2919,15 +2948,25 @@ returned string is really length.
 
 **Example**
 
-| MYCOPY copies a file with flexible buffering up to 32k, eg. type:
-MYCOPY "mycopy\_bas" TO "ram2\_whatever\_dat", 1000
-|  to use a 1000 bytes buffer. The larger the buffer, the faster the
+MYCOPY copies a file with flexible buffering up to 32k, eg. type::
+
+    MYCOPY "mycopy_bas" TO "ram2_whatever_dat", 1000
+    
+to use a 1000 bytes buffer. The larger the buffer, the faster the
 file is copied; try a one byte buffer to see the difference! Ok, here is
-the listing: 100 DEFine PROCedure MYCOPY (file1$, file2$, bufsiz%) 110
-LOCal ch1, ch2, buffer$ 120 ch1 = FOP\_IN(file1$) 130 ch2 =
-FOP\_NEW(file2$) 140 REPeat copying 150 buffer$ = FREAD$(#ch1, bufsiz%)
-160 PRINT#ch2,buffer$; 170 IF LEN(buffer$) < bufsiz% THEN EXIT copying
-180 END REPeat copying 190 CLOSE#ch1, #ch2 200 END DEFine MYCOPY
+the listing::
+
+    100 DEFine PROCedure MYCOPY (file1$, file2$, bufsiz%) 
+    110   LOCal ch1, ch2, buffer$ 
+    120   ch1 = FOP_IN(file1$) 
+    130   ch2 = FOP_NEW(file2$) 
+    140   REPeat copying 
+    150     buffer$ = FREAD$(#ch1, bufsiz%)
+    160     PRINT#ch2,buffer$; 
+    170     IF LEN(buffer$) < bufsiz% THEN EXIT copying
+    180   END REPeat copying 
+    190   CLOSE #ch1, #ch2 
+    200 END DEFine MYCOPY
 
 **CROSS-REFERENCE**
 
@@ -2941,12 +2980,12 @@ FREE
 ====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  FREE |                                                           |
+| Syntax   |  FREE                                                             |
 +----------+-------------------------------------------------------------------+
 | Location |  BTool                                                            |
 +----------+-------------------------------------------------------------------+
 
-|  This function returns the largest block of the available free memory.
+This function returns the largest block of the available free memory.
 This can be less than the actual free memory if the heap has become
 fragmented (see DEL\_DEFB).
 
@@ -2955,8 +2994,12 @@ fragmented (see DEL\_DEFB).
 See also `FREE\_MEM <KeywordsF.clean.html#free-mem>`__,
 `TPFree <KeywordsT.clean.html#tpfree>`__ and
 `MT\_FREE <KeywordsM.clean.html#mt-free>`__.
-`x=ALCHP(FREE) <Keywordsx.clean.html#x=alchp(free)>`__ reserves the largest
-piece of memory available.
+
+::
+
+    x=ALCHP(FREE)
+    
+reserves the largest piece of memory available.
 
 --------------
 
@@ -2964,16 +3007,20 @@ FREE\_FAST
 ==========
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  FREE\_FAST |                                                     |
+| Syntax   |  FREE\_FAST                                                       |
 +----------+-------------------------------------------------------------------+
 | Location |  ATARI\_REXT for QVME (v2.31+)                                    |
 +----------+-------------------------------------------------------------------+
 
-|  The Atari TT recognises two types of RAM, standard ST RAM (up to
+The Atari TT recognises two types of RAM, standard ST RAM (up to
 10MB) and FastRAM (otherwise known as TT RAM) which is specifically
 designed for the Atari TT and works about twice as fast as the standard
-ST RAM. The QL emulator can use both types of RAM but will only
-recognise and use a maximum 4MB of standard ST RAM. If FastRAM is
+ST RAM. 
+
+The QL emulator can use both types of RAM but will only
+recognise and use a maximum 4MB of standard ST RAM. 
+
+If FastRAM is
 available, the Emulator places the device drivers into this area in
 order to speed them up as well as freeing additional standard ST RAM.
 However, if your programs are to access the FastRAM, they need to use
@@ -2985,7 +3032,7 @@ of available FastRAM.
 The other commands to access FastRAM are
 `RESFAST <KeywordsR.clean.html#resfast>`__, and
 `LRESFAST. <KeywordsL.clean.html#lresfast.>`__
-Compare\ `RESPR <KeywordsR.clean.html#respr>`__,
+Compare `RESPR <KeywordsR.clean.html#respr>`__,
 `ALCHP <KeywordsA.clean.html#alchp>`__ and
 `FREE\_MEM <KeywordsF.clean.html#free-mem>`__.
 
@@ -2995,41 +3042,63 @@ FREE\_MEM
 =========
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  FREE\_MEM |                                                      |
+| Syntax   |  FREE\_MEM                                                        |
 +----------+-------------------------------------------------------------------+
 | Location |  Toolkit II, THOR XVI                                             |
 +----------+-------------------------------------------------------------------+
 
-|  Exactly the same as FREE.
+Exactly the same as `FREE <KeywordsF.clean.html#free>`__.
 
 --------------
 
 FREEZE
 ======
 
---------------
-
-FREEZE%
-~~~~~~~
-
 +----------+-------------------------------------------------------------------+
-| Syntax   |  FREEZE switch switch=ON or OFF |  and FREEZE% |                  |
+| Syntax   |  FREEZE switch (switch=ON or OFF)                                 |
 +----------+-------------------------------------------------------------------+
 | Location |  BTool                                                            |
 +----------+-------------------------------------------------------------------+
 
-|  The keys <CTRL><F5> cause the QL to stop working until any further
+The keys <CTRL><F5> cause the QL to stop working until any further
 key (except <CTRL>, <SHIFT>, <ALT> and <CAPSLOCK>), including
-<CTRL><F5>, is pressed, which will reactivate the QL. This keystroke is
+<CTRL><F5>, is pressed, which will reactivate the QL. 
+
+This keystroke is
 generated by some commands to give the user a chance of reading the
-output, eg. VIEW, EXTRAS, SXTRAS, WDIR. FREEZE OFF disables <CTRL><F5>,
-FREEZE ON reactivates it. FREEZE% returns either 0 or 1 (for OFF or ON
+output, eg. VIEW, EXTRAS, SXTRAS, WDIR. 
+
+FREEZE OFF disables <CTRL><F5>, FREEZE ON reactivates it. 
+
+**Example**
+
+::
+
+    FREEZE OFF 
+    EXTRAS 
+    FREEZE ON
+
+--------------
+
+FREEZE%
+=======
+
++----------+-------------------------------------------------------------------+
+| Syntax   |  frozen = FREEZE%                                                 |
++----------+-------------------------------------------------------------------+
+| Location |  BTool                                                            |
++----------+-------------------------------------------------------------------+
+
+FREEZE% returns either 0 or 1 (for OFF or ON
 respectively) if <CTRL><F5> has been disabled by FREEZE or not.
 
 **Example**
 
-| FREEZE OFF EXTRAS FREEZE ON
+::
 
+    frozen = FREEZE%
+    IF frozen THEN do_stuff: END IF
+   
 **CROSS-REFERENCE**
 
 `ON <KeywordsO.clean.html#on>`__ and `OFF <KeywordsO.clean.html#off>`__ are constant
@@ -3044,22 +3113,29 @@ FSERVE
 ======
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  FSERVE |  or FSERVE [device\_name] (THOR XVI - v6.41 only) |     |
+| Syntax   || FSERVE or                                                        |
+|          || FSERVE [device\_name] (THOR XVI - v6.41 only)                    |
 +----------+-------------------------------------------------------------------+
-| Location |  Toolkit II (hardware version only or SMS), THOR XVI              |
+| Location || Toolkit II (hardware version only or SMS), THOR XVI              |
 +----------+-------------------------------------------------------------------+
 
-|  This command creates a small fileserver job named Server which allows
+This command creates a small fileserver job named Server which allows
 other network stations (slaves) to access all devices on the machine
-where this fileserver is running (this is the Master). The fileserver
+where this fileserver is running (this is the Master). 
+
+The fileserver
 only works with the QNET network system, which itself only works
 reliably if Toolkit II is installed as firmware (ie. on ROM or on EPROM)
 (or if Toolkit II is installed as part of SMS) on all machines connected
-to the network. To access a device on the Master, a prefix has to be
+to the network. 
+
+To access a device on the Master, a prefix has to be
 added to the device name. This prefix specifies the other machine by its
 network number (see NET) which may range from 1 to 8. The prefix
 consists of an n, the number of the remote station and an underscore,
-ie: n1\_ .. n8\_. If an access fails for any reason, the sending machine
+ie: n1\_ .. n8\_. 
+
+If an access fails for any reason, the sending machine
 will not receive an acknowledgement from the receiving one. In such
 cases, the network driver continues to try to get through for about 20
 seconds and then reports 'Network aborted' (in #0) if it still cannot
@@ -3067,8 +3143,20 @@ communicate with the specified machine.
 
 **Examples**
 
-| OPEN#3,n3\_scr: PRINT#3,"Bye.": FLUSH#3: CLOSE#3 WDIR n1\_flp1\_
-FORMAT n7\_win1\_ (be careful !) SAVE n2\_ram1\_PROGGY\_bas
+::
+
+    OPEN#3,n3_scr: PRINT#3,"Bye.": FLUSH#3: CLOSE#3 
+    WDIR n1_flp1_
+    
+::
+    
+    FORMAT n7_win1_
+
+Be careful with this sort of thing!
+
+::
+
+    SAVE n2_ram1_PROGGY_bas
 
 **NOTE 1**
 
@@ -3092,12 +3180,16 @@ Drivers section in the Appendix for further details on Networks.
 
 **NOTE 3**
 
-| If a channel was opened by a slave via the network and this QL is
+If a channel was opened by a slave via the network and this QL is
 later removed from the network - say by unplugging the network lead or
 by resetting the machine, then the channel is left open. As all such
 channels are owned by the Server job, they can be flushed and closed by
-removing and restarting the job: RJOB Server FSERVE
-|  Take care that all operations being carried out by other stations on
+removing and restarting the job::
+
+    RJOB Server 
+    FSERVE
+
+Take care that all operations being carried out by other stations on
 the local machine (where the fileserver is to be removed) have finished
 or have been suspended.
 
@@ -3110,16 +3202,19 @@ possibility of transmission errors but really extensive experiments
 
 **NOTE 5**
 
-| Although a normal file name can be of any length up to a maximum of 41
+Although a normal file name can be of any length up to a maximum of 41
 characters (including the device name), if the file is to be accessed
 across the network, this is reduced to a maximum of 39 characters
-(including the network prefix). For example: OPEN
-#3,flp1\_Quill\_letters\_Minerva2\_update\_doc239 OPEN
-#3,n1\_win1\_Quill\_letters\_Minerva2b\_updates
-|  will work, whereas the following two commands report 'Not Found'
-without attempting to access the drives:- OPEN
-#4,flp1\_Quill\_letters\_Minerva2\_update\_doc2392 OPEN
-#4,n1\_win1\_Quill\_letters2\_Minerva2b\_updates
+(including the network prefix). For example::
+
+    OPEN #3,flp1_Quill_letters_Minerva2_update_doc239 
+    OPEN #3,n1_win1_Quill_letters_Minerva2b_updates
+
+will work, whereas the following two commands report 'Not Found'
+without attempting to access the drives::
+
+    OPEN #4,flp1_Quill_letters_Minerva2_update_doc2392 
+    OPEN #4,n1_win1_Quill_letters2_Minerva2b_updates
 
 **NOTE 6**
 
@@ -3155,7 +3250,9 @@ The fileserver job can be removed with `RJOB <KeywordsR.clean.html#rjob>`__,
 `KJOB <KeywordsK.clean.html#kjob>`__, `KILL <KeywordsK.clean.html#kill>`__ etc. or
 by using a desktop application (such as QPAC2). See
 `NET <KeywordsN.clean.html#net>`__ and `NFS\_USE <KeywordsN.clean.html#nfs-use>`__
-for further information on networking. Refer to the original
+for further information on networking. 
+
+Refer to the original
 documentation of Toolkit II and the Device Drivers Appendix for
 technical details. `SERNET <KeywordsS.clean.html#sernet>`__ and
 `MIDINET <KeywordsM.clean.html#midinet>`__ create fileservers for other
@@ -3167,12 +3264,12 @@ FSETH$
 ======
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  FSETH$ [#ch,] header$ |                                          |
+| Syntax   |  FSETH$ [#ch,] header$                                            |
 +----------+-------------------------------------------------------------------+
 | Location |  BTool                                                            |
 +----------+-------------------------------------------------------------------+
 
-|  FSETH$ is a command which is the counterpart of FGETH$: it accepts
+FSETH$ is a command which is the counterpart of FGETH$: it accepts
 either a 14 or 64 bytes long string which contains a file header (or at
 least the first part of that) and sends that file header to the
 specified channel (default #3).
@@ -3188,12 +3285,12 @@ FTEST
 =====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  FTEST (name) |                                                   |
+| Syntax   |  FTEST (name)                                                     |
 +----------+-------------------------------------------------------------------+
 | Location |  Toolkit II                                                       |
 +----------+-------------------------------------------------------------------+
 
-|  The function FTEST is designed to allow you to test for the status of
+The function FTEST is designed to allow you to test for the status of
 a file with the specified name. It will return a value of 0 if the given
 name can be opened for input only. It may however return a negative
 number representing an error code which would result if you tried to
@@ -3207,18 +3304,25 @@ channel table to try and access the file.
 
 **NOTE 2**
 
-| Due to the nature of the command, name can be used to represent any
+Due to the nature of the command, name can be used to represent any
 valid device, and could therefore, for example, be used to check if a
-resolution of 768x280 pixels is supported: 100 a$='scr\_768x280a0x0' 110
-IF FTEST(a$)<0 120 a$='scr\_512x256a0x0' 130 END IF 140 OPEN #3,a$
+resolution of 768x280 pixels is supported::
+
+    100 a$='scr_768x280a0x0' 
+    110 IF FTEST(a$)<0 
+    120   a$='scr_512x256a0x0' 
+    130 END IF 
+    140 OPEN #3,a$
 
 **NOTE 3**
 
-| On Level-2 and Level-3 devices, there is always a file with the same
+On Level-2 and Level-3 devices, there is always a file with the same
 name as the actual name of the device (eg. 'flp1\_'). This therefore
-allows you to check if a medium is present in a Level-2 device: IF
-FTEST(flp1\_)<0 THEN PRINT 'Please insert disk'
-|  You must however be aware that on Level-1 devices, it is unlikely
+allows you to check if a medium is present in a Level-2 device::
+
+    IF FTEST(flp1\_)<0 THEN PRINT 'Please insert disk'
+    
+You must however be aware that on Level-1 devices, it is unlikely
 that such a file will be present and that FTEST will return -7 even if
 there is a disk present.
 
@@ -3240,27 +3344,35 @@ FTYP
 ====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  FTYP [(#channel)] or FTYP (\\file) (Toolkit II and THOR only) |  |
+| Syntax   || FTYP [(#channel)] or                                             |
+|          || FTYP (\\file) (Toolkit II and THOR only)                         |
 +----------+-------------------------------------------------------------------+
-| Location |  Toolkit II, THOR XVI, BTool                                      |
+| Location || Toolkit II, THOR XVI, BTool                                      |
 +----------+-------------------------------------------------------------------+
 
-|  This function returns the file type of a file which is already open
+This function returns the file type of a file which is already open
 as #channel (the default channel is #3) or else the second variant can
 be used (which supports the Toolkit II default data device and
-sub-directories) to check a given file. The file type is one byte in the
+sub-directories) to check a given file. 
+
+The file type is one byte in the
 file header which by convention represents the type of the file. There
-are only four standard types: FTYP=1Executable jobs (normally suffixed
-\_exe), FTYP=2Sinclair Relocatable Object File (SROFF) modules (normally
-suffixed \_REL); FTYP=255Sub-directories on level-2 and level-3 drivers;
-and FTYP=0Everything else. However, some programmers use their own file
-types for their applications, for example: FTYP=2may also signify
-sub-directory declaration files used by Ralf Biedermann's flp utility
-and Hirschbiegel drivers; FTYP=3sub-directories on THOR computers.
-FTYP=4represents font files used by the PAINTER, FTYP=5are pattern files
-used by the PAINTER, FTYP=6,11are compressed screens generated by the
-PAINTER, FTYP=70is used to represent separation files from packages
-distributed by the Intergroup Freeware Exchange.
+are only four standard types: 
+
+- FTYP = 1 are executable jobs (normally suffixed \_exe); 
+- FTYP = 2 are Sinclair Relocatable Object File (SROFF) modules (normally suffixed \_REL); 
+- FTYP = 255 are sub-directories on level-2 and level-3 drivers;
+- FTYP = 0 are everything else. 
+
+However, some programmers use their own file
+types for their applications, for example: 
+
+- FTYP = 2 may also signify sub-directory declaration files used by Ralf Biedermann's flp utility and Hirschbiegel drivers; 
+- FTYP = 3 are sub-directories on THOR computers.
+- FTYP = 4represents font files used by the PAINTER. 
+- FTYP = 5 are pattern files used by the PAINTER. 
+- FTYP = 6 or 11 are compressed screens generated by the PAINTER.
+- FTYP = 70 is used to represent separation files from packages distributed by the Intergroup Freeware Exchange.
 
 **WARNING**
 
@@ -3284,12 +3396,12 @@ FuNction
 ========
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  ... FuNction |                                                   |
+| Syntax   |  ... FuNction                                                     |
 +----------+-------------------------------------------------------------------+
 | Location |  QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
 
-|  This keyword forms part of the structure DEFine FuNction. As such, it
+This keyword forms part of the structure DEFine FuNction. As such, it
 cannot be used on its own within a program - this will cause a 'bad
 line' error.
 
@@ -3303,15 +3415,19 @@ FUPDT
 =====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  FUPDT [(#channel)] or FUPDT (\\file) (Toolkit II only) |         |
+| Syntax   || FUPDT [(#channel)] or                                            |
+|          || FUPDT (\\file) (Toolkit II only)                                 |
 +----------+-------------------------------------------------------------------+
-| Location |  Toolkit II, BTool                                                |
+| Location || Toolkit II, BTool                                                |
 +----------+-------------------------------------------------------------------+
 
-|  This function returns the date on which a given file was last
+This function returns the date on which a given file was last
 amended. The value returned is the date in QDOS format, ie. the number
-of seconds since Midnight 1st January 1961 {check this initial date with
-PRINT DATE$(0)}. This update time is altered whenever a file is created
+of seconds since Midnight 1st January 1961. You can check this initial date with::
+
+    PRINT DATE$(0)
+
+The update time is altered whenever a file is created
 or amended. A file which has overwritten a previous file or is a copy is
 regarded as a new file and will therefore have a different update time
 to the original. The default data device and sub-directories are
@@ -3319,30 +3435,55 @@ supported, default channel is #3.
 
 **Example**
 
-| It could be interesting to list all files which have been created
-during a certain time period. On the next page is a simple prototype of
-a program which will do just that. If you want to check all files, then
+It could be interesting to list all files which have been created
+during a certain time period. A simple prototype of
+a program which will do just that follows on below. 
+
+If you want to check all files, then
 dev$ should contain no sub-directories or wild cards (just FLP2\_,
 WIN1\_) and wild$ an empty string. Such a program could be used to write
-an intelligent backup program. In order to run the program you will need
+an intelligent backup program. 
+
+In order to run the program you will need
 TinyToolkit's TCONNECT or DIY-TK's QLINK. You could also use similar
-commands in the toolkits provided with Turbo or Qliberator. 100 CLS:
-INPUT "Device:"!dev$ \\"Wild card:"!wild$ 110 INPUT "List from (dd mm
-yy):"!first$ 120 INPUT TO 2;"to (<ENTER>=today):"!last$\\\\ 130
-day1=first$(1 TO 2):month1=first$(4 TO 5) 135 year1=19&first$(7 TO 8)
-140 IF LEN(last$) THEN 150 day2=last$(1 TO 2):month2=last$(4 TO 5) 155
-year2=19&last$(7 TO 8) 160 ELSE last=DATE 170 END IF 180 DATE\_tmp=DATE
-190 SDATE year1,month1,day1,0,0,0: first=DATE 200 IF LEN(last$): SDATE
-year2,month2,day2,23,59,58: last=DATE 210 ADATE DATE\_tmp-DATE+2 220 :
-230 OPEN#3,pipe\_10000: OPEN#4,pipe\_100 240 TCONNECT #3 TO #4:
-WDIR#3,dev$ & wild$ 250 yes=0: yesno=0 260 REPeat show\_those 270 IF NOT
-PEND(#4) THEN EXIT show\_those 280 INPUT#4,file$: this=FUPDT(\\dev$ &
-file$): yesno=yesno+1 290 IF first<=this AND this<=last THEN 300 PRINT
-file$;TO 20;"(";DATE$(this);")" 310 yes=yes+1 320 END IF 330 END REPeat
-show\_those 340 PRINT\\"(";yes;"/";yesno!"files)" 350 CLOSE#3,#4
-|  Minerva or SMS users can delete lines 180,190,200 and 210 and use the
-following lines instead: 190 first=DATE(year1,month1,day1,0,0,0) 200 IF
-LEN(last$): last=DATE(year2,month2,day2,23,59,58)
+commands in the toolkits provided with Turbo or Qliberator. 
+
+::
+
+    100 CLS: INPUT "Device:"!dev$ \"Wild card:"!wild$ 
+    110 INPUT "List from (dd mm yy):"!first$ 
+    120 INPUT TO 2;"to (<ENTER>=today):"!last$\ 
+    130 day1=first$(1 TO 2):month1=first$(4 TO 5) 
+    135 year1=19&first$(7 TO 8)
+    140 IF LEN(last$) THEN 
+    150   day2=last$(1 TO 2):month2=last$(4 TO 5) 
+    155   year2=19&last$(7 TO 8) 
+    160 ELSE last=DATE 
+    170 END IF 
+    180 DATE_tmp=DATE 
+    190 SDATE year1,month1,day1,0,0,0: first=DATE 
+    200 IF LEN(last$): SDATE year2,month2,day2,23,59,58: last=DATE 
+    210 ADATE DATE_tmp-DATE+2 
+    220 :
+    230 OPEN#3,pipe_10000: OPEN#4,pipe_100 
+    240 TCONNECT #3 TO #4: WDIR#3,dev$ & wild$ 
+    250 yes=0: yesno=0 
+    260 REPeat show_those 
+    270   IF NOT PEND(#4) THEN EXIT show_those 
+    280   INPUT#4,file$: this=FUPDT(\dev$ & file$): yesno=yesno+1 
+    290   IF first<=this AND this<=last THEN 
+    300     PRINT file$;TO 20;"(";DATE$(this);")" 
+    310     yes=yes+1 
+    320   END IF 
+    330 END REPeat show_those 
+    340 PRINT \"(";yes;"/";yesno!"files)" 
+    350 CLOSE#3,#4
+
+Minerva or SMS users can delete lines 180,190,200 and 210 and use the
+following lines instead::
+
+    190 first=DATE(year1,month1,day1,0,0,0) 
+    200 IF LEN(last$): last=DATE(year2,month2,day2,23,59,58)
 
 **NOTE 1**
 
@@ -3393,38 +3534,57 @@ FVERS
 =====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  FVERS [(#channel)] or FVERS (\\file) |                           |
+| Syntax   || FVERS [(#channel)] or                                            |
+|          || FVERS (\\file)                                                   |
 +----------+-------------------------------------------------------------------+
-| Location |  Level-2 Device Drivers                                           |
+| Location || Level-2 Device Drivers                                           |
 +----------+-------------------------------------------------------------------+
 
-|  This function reads the version number of the given file (or of the
+This function reads the version number of the given file (or of the
 file attached to the specified channel {default #3} if the first variant
-is used). The version numbers can range from 0 to 2\ :sup:`16`-1 (65535)
+is used). 
+
+The version numbers can range from 0 to 2\ :sup:`16`-1 (65535)
 and generally indicate how often a file has been amended. If a file was
 created on a level-1 device driver system, its version number is zero
 (0), while newly created files on level-2 device drivers will have the
 version number 1 after they have been closed. FVERS supports Toolkit
-II's default data device and sub-directories. If the first variant is
-used, the default channel is #3 if none is specified. Each time that a
+II's default data device and sub-directories. 
+
+If the first variant is
+used, the default channel is #3 if none is specified. 
+
+Each time that a
 file is amended on level-2 and level-3 drivers, the version number is
 increased by one. If the version reaches its limit of 65535, it will
 start at version 1 again. A file has to be re-opened to change its
 version by more than one. After the file has been amended, the version
-will only increase after a FLUSH or CLOSE. Unfortunately current
+will only increase after a FLUSH or CLOSE. 
+
+Unfortunately current
 versions of SAVE and SBYTES do not increase the version number because
 they overwrite existing files instead of truncating them.
 
 **Example**
 
-OPEN\_OVER#3,test\_tmpcreate the file PRINT#3,"just a line"write a line
-to the file PRINT FVERS(#3) 0, neither flushed nor closed CLOSE#3 close
-file PRINT FVERS(\\test\_tmp)1 OPEN#3,test\_tmp re-open file PRINT
-FVERS(#3) 1, nothing changed yet PRINT#3,"replace the line" amend file
-PRINT FVERS(#3) still 1 not yet flushed FLUSH#3write slave blocks to
-file PRINT FVERS(#3) now it's 2 FLUSH#3 flush again PRINT FVERS(#3) 2
-PRINT#3,"next line" change file again CLOSE#3 close file PRINT
-FVERS(\\test\_tmp) still 2
+::
+
+    OPEN_OVER#3,test_tmp: REMark create the file 
+    PRINT#3,"just a line": REMark write a line to the file 
+    PRINT FVERS(#3): REMark 0, neither flushed nor closed 
+    CLOSE#3: REMark close file 
+    PRINT FVERS(\test_tmp): REMark 1 
+    OPEN#3,test_tmp: REMark re-open file 
+    PRINT FVERS(#3): REMark 1, nothing changed yet 
+    PRINT#3,"replace the line": REMark amend file
+    PRINT FVERS(#3): REMark still 1 not yet flushed 
+    FLUSH#3: REMark write slave blocks to file 
+    PRINT FVERS(#3): REMark now it's 2 
+    FLUSH#3: REMark flush again 
+    PRINT FVERS(#3): REMark  2
+    PRINT#3,"next line": REMark change file again 
+    CLOSE#3: REMark close file 
+    PRINT FVERS(\test_tmp): REMark  still 2
 
 **NOTE**
 
@@ -3449,29 +3609,39 @@ FWRITE
 ======
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  FWRITE #ch,address,bytes |                                       |
+| Syntax   |  FWRITE #ch,address,bytes                                         |
 +----------+-------------------------------------------------------------------+
 | Location |  TinyToolkit                                                      |
 +----------+-------------------------------------------------------------------+
 
-|  The command FWRITE reads a given number of bytes (bytes) from memory
+The command FWRITE reads a given number of bytes (bytes) from memory
 (starting at address) and writes them to the given channel, which should
 point to a file.
 
 **Example**
 
-| A procedure which adds a file to another already existing file -
+A procedure which adds a file to another already existing file -
 CONCAT cannot do so. This is a rather primitive version which grabs as
 much memory as necessary and uses only TinyToolkit extensions. The
 program is very primitive (not in its use of these extensions), but
 because the memory management of the routine is simple (but fast) and as
 FILE\_LEN does not support default devices and sub-directories, full
-filenames have to be passed. See FREAD for an enhanced version! 100
-DEFine PROCedure APPEND (file1$,file2$) 110 length=FILE\_LEN(file1$) 120
-buffer=GRAB(length) 130 LBYTES file1$,buffer 140 ch=FOPEN(file1$):
-FILE\_PTRA#3,1E9 150 FWRITE #ch,buffer,length 160 CLOSE#ch: RELEASE
-buffer 170 END DEFine APPEND
-|  The procedure is called by APPEND file1$ TO file2$, which will add
+filenames have to be passed. 
+
+See `FREAD <KeywordsF.clean.html#fread>`__ for an enhanced version! 
+
+::
+
+    100 DEFine PROCedure APPEND (file1$,file2$) 
+    110   length=FILE_LEN(file1$) 
+    120   buffer=GRAB(length) 
+    130   LBYTES file1$,buffer 
+    140   ch=FOPEN(file1$): FILE_PTRA#3,1E9 
+    150   FWRITE #ch,buffer,length 
+    160   CLOSE#ch: RELEASE buffer 
+    170 END DEFine APPEND
+
+The procedure is called by APPEND file1$ TO file2$, which will add
 the first file to the second file. First, a buffer of the size of the
 first file is reserved in RAM, then, this file is read into the buffer.
 Now the second file is opened, the file pointer moved to the end of it
@@ -3498,21 +3668,23 @@ FWRITE$
 =======
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  FWRITE$ [#ch,] string$ |                                         |
+| Syntax   |  FWRITE$ [#ch,] string$                                           |
 +----------+-------------------------------------------------------------------+
 | Location |  BTool                                                            |
 +----------+-------------------------------------------------------------------+
 
-|  FWRITE$ is a command (not a function as the $ may suggest) and writes
+FWRITE$ is a command (not a function as the $ may suggest) and writes
 string$ to #ch (default #1). It's the same as PRINT#ch,string$;.
 
 **Example**
 
-| FWRITE$ "Hello World"
+::
+
+    FWRITE$ "Hello World"
 
 **NOTE**
 
-The Line feed character {CHR$(10)} is not printed at the end of the
+The Line feed character {CHR$(10)} is *not* printed at the end of the
 text.
 
 --------------
@@ -3521,12 +3693,13 @@ FXTRA
 =====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  FXTRA [(#ch)] or FXTRA \\file (Toolkit II only) |                |
+| Syntax   || FXTRA [(#ch)] or                                                 |
+|          || FXTRA \\file (Toolkit II only)                                   |
 +----------+-------------------------------------------------------------------+
-| Location |  Toolkit II, BTool                                                |
+| Location || Toolkit II, BTool                                                |
 +----------+-------------------------------------------------------------------+
 
-|  This is a function which returns part of the file header relating to
+This is a function which returns part of the file header relating to
 the specified file (or the file attached to the specified channel
 {default #3} if the first variant is used). See FGETH$ for what part of
 the file header FXTRA returns. The Toolkit II default data device and
