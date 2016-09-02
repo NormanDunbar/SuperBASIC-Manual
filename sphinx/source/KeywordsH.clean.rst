@@ -1,3 +1,15 @@
+==========
+Keywords H
+==========
+
+TODO
+====
+
+- HEX and HEX$ have the same URL.
+- HIS_USE and HIS_USE$ have the same URL.
+
+
+
 HEADR
 =====
 
@@ -7,7 +19,7 @@ HEADR
 | Location |  TinyToolkit                                                      |
 +----------+-------------------------------------------------------------------+
 
- This command reads the file header of the specified file and stores it
+This command reads the file header of the specified file and stores it
 at the specified address (adr) in memory. Note that file must be the
 full filename.
 
@@ -27,7 +39,7 @@ HEADS
 | Location |  TinyToolkit                                                      |
 +----------+-------------------------------------------------------------------+
 
- This command sets the file header of the specified file to the 64 bytes
+This command sets the file header of the specified file to the 64 bytes
 stored at adr.
 
 **CROSS-REFERENCE**
@@ -47,20 +59,32 @@ HEX
 | Location |  Toolkit II, THOR XVI                                             |
 +----------+-------------------------------------------------------------------+
 
- This function returns the decimal value of a hexadecimal number. The
+This function returns the decimal value of a hexadecimal number. The
 hexadecimal system of numbering is based upon base 16, which means that
 instead of each digit being in the range 0..9 (as in decimal), each
-digit can actually hold the value 0..15. Because a digit can only be one
+digit can actually hold the value 0..15. 
+
+Because a digit can only be one
 character, a system was devised for representing the value 10..15 -
 these values are represented by the letters A..F respectively. Any
-digits outside the range 0..F will cause an 'error in expression'. Hex$
-can be anything in the range $80000000 (which equates to -2^31) to
+digits outside the range 0..F will cause an 'error in expression'. 
+
+Hex$ can be anything in the range $80000000 (which equates to -2^31) to
 $79999999 (which equates to 2^31-1).
 
 **Examples**
 
-PRINT HEX('F') will print the value 15. PRINT HEX('10') will print the
-value 16.
+::
+
+    PRINT HEX('F') 
+
+will print the value 15. 
+
+::
+
+    PRINT HEX('10') 
+    
+will print the value 16.
 
 **CROSS-REFERENCE**
 
@@ -77,12 +101,13 @@ HEX$
 ====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  HEX$ (decimal,nibbles)  or HEX$ (decimal [,nibbles]) (THOR only)  |
+| Syntax   || HEX$ (decimal,nibbles)  or                                       |
+|          || HEX$ (decimal [,nibbles]) (THOR only)                            |
 +----------+-------------------------------------------------------------------+
-| Location |  Toolkit II, THOR XVI                                             |
+| Location || Toolkit II, THOR XVI                                             |
 +----------+-------------------------------------------------------------------+
 
- This function converts a signed integer decimal number to the
+This function converts a signed integer decimal number to the
 equivalent hexadecimal number to a specified number of nibbles (ranging
 from 1 to 32 - there are 4 nibbles in one digit). If nibbles is not
 divisible by four, it is rounded up to the next multiple of four.
@@ -91,17 +116,34 @@ to 32. The range of decimal is -2^31<decimal<2^31
 
 **Examples**
 
-HEX (HEX$ (x,4)) =x if x is any number between 0 and 15. PRINT HEX$
-(300,10) will return the value 12C. PRINT HEX$ (300,8) will return the
-value 2C.
+::
+
+    HEX (HEX$ (x,4)) 
+    
+Will = x if x is any number between 0 and 15. 
+
+::
+
+    PRINT HEX$ (300,10) 
+    
+will return the value 12C. 
+
+::
+
+    PRINT HEX$ (300,8) 
+    
+will return the value 2C.
 
 **THOR XVI NOTE**
 
 The THOR XVI version of this command will accept a value of zero for
 nibbles {or even the command in the form HEX$(decimal)}. In both of
 these cases the result is returned in the least number of Hexadecimal
-digits necessary to store the number, for example: PRINT HEX$(32)
- gives the result 20.
+digits necessary to store the number, for example:: 
+
+    PRINT HEX$(32) 
+
+gives the result 20.
 
 **THOR XVI WARNING**
 
@@ -124,13 +166,20 @@ HGET
 | Location |  SMSQ/E                                                           |
 +----------+-------------------------------------------------------------------+
 
- This command allows you to access the various parameters which are
+This command allows you to access the various parameters which are
 contained in the header of the file attached to the specified channel
 (default #3). The command will set the supplied parameters to the
-required information. If the specified channel is not open to a file,
-then an Invalid Parameter error is reported. The information returned is
-as follows: lengthLength of the File accessFile Access Key type File
-Type dataspaceDataspace for Executable Files extraExtra Information
+required information. 
+
+If the specified channel is not open to a file, then an Invalid Parameter error is reported. 
+
+The information returned is as follows: 
+
+- length = Length of the File 
+- access = File Access Key 
+- type   = File Type 
+- dataspace = Dataspace for Executable Files 
+- extra = Extra Information
 
 **NOTE**
 
@@ -155,30 +204,40 @@ HIS\_SET
 | Location |  History Device (Needs Pointer Environment)                       |
 +----------+-------------------------------------------------------------------+
 
- The History Device is an extension to the internal QDOS routine
+The History Device is an extension to the internal QDOS routine
 IO.EDLIN which reads editable text input from the keyboard; IO.EDLIN is
 used if, for example, you use INPUT on a window - even the interpreter
 uses IO.EDLIN to get its commands from #0. But let's see how the History
-Device alters keyboard input. The toolkit must be loaded into Resident
+Device alters keyboard input. 
+
+The toolkit must be loaded into Resident
 Procedure Memory (with RESPR) before any Jobs are started, but after the
 Pointer Environment and Lightning / Speedscreen (or any other drivers
 which alter the con\_ device driver) are installed (if either of these
-two packages are required). Often, if you respond to a set of questions
+two packages are required). 
+
+Often, if you respond to a set of questions
 asked by a program, the same answers crop up again and again. For
 example, take the SuperBASIC interpreter, if you have entered a command,
 it will carry it out and wait for the next command to be entered. You
 may find that you want to type in the same text - or something which you
-entered a few loops ago again. Toolkit II and the Hotkey System install
+entered a few loops ago again. 
+
+Toolkit II and the Hotkey System install
 a last line recall when the <ALT><ENTER> key combination is pressed (can
 be configured with the Hotkey System) - this is widely accepted (it's
 even supported by keyboard interfaces), but, has not proved to be very
 reliable or useful: recalling the last line typed generally works well,
 but for lines which were entered some time ago, things become easily
-messed up. The History Device sits on the afore-mentioned QDOS trap and
+messed up. 
+
+The History Device sits on the afore-mentioned QDOS trap and
 stores a specified number of entered lines for any console channel. If a
 program then requests input, previously entered lines can be recalled
-using the <> and <> keys - this is called a command line history (hence
-the name of the History Device). A history for a console channel must be
+using the <↑> and <↓> keys - this is called a command line history (hence
+the name of the History Device). 
+
+A history for a console channel must be
 explicitly installed, by using the HIS\_SET command. HIS\_SET can only
 accept channel numbers which point to a con\_ device, it breaks with
 'bad parameter' if that is not the case. Once the history is installed,
@@ -187,9 +246,10 @@ you will need to activate it by using the command HIS\_SIZE.
 **Example**
 
 To install a command line history for the SuperBASIC interpreter - these
-lines could be added to a BOOT program: HIS\_SET #0install a command
-line history for #0 HIS\_SIZE #0, 40activate history which stores 40
-lines
+lines could be added to a BOOT program::
+
+    HIS_SET #0: REMark Install a command line history for #0 
+    HIS_SIZE #0, 40: REMark Activate history which stores 40 lines
 
 **NOTE 1**
 
@@ -229,18 +289,23 @@ HIS\_SIZE
 | Location |  History Device                                                   |
 +----------+-------------------------------------------------------------------+
 
- A history which has been already been installed with HIS\_SET has its
+A history which has been already been installed with HIS\_SET has its
 size specified and is activated (or de-activated) with HIS\_SIZE. The
 different usages of the command are distinguished by the lines
-parameter. - Positive numbers for lines will activate a history for the
-given channel and tell it to store the next lines number of lines which
-are terminated by pressing <ENTER>. If a history had already been
-installed, then all stored lines are lost. - Negative numbers will have
-exactly the same effect except that if a history was already active, the
-absolute value of the given lines number is added to the memory capacity
-of the existing history. Exisiting stored lines are retained in memory.
-- Zero simply turns off a history and clears the tables which hold the
-entered lines. History can store a maximum of 32767 lines which should
+parameter. 
+
+- Positive numbers for lines will activate a history for the 
+  given channel and tell it to store the next lines number of lines which
+  are terminated by pressing <ENTER>. If a history had already been
+  installed, then all stored lines are lost. 
+
+- Negative numbers will have exactly the same effect except that if a history was already active, the
+  absolute value of the given lines number is added to the memory capacity
+  of the existing history. Exisiting stored lines are retained in memory.
+
+  - Zero simply turns off a history and clears the tables which hold the entered lines. 
+
+History can store a maximum of 32767 lines which should
 be more than sufficient. Memory is allocated dynamically, in four
 kilobytes chunks, so there is a small danger of heap fragmentation.
 
@@ -259,13 +324,15 @@ HIS\_UNSET
 | Location |  History Device                                                   |
 +----------+-------------------------------------------------------------------+
 
- This command removes a history from a channel, regardless of its state
+This command removes a history from a channel, regardless of its state
 of activity and the stored lines. HIS\_UNSET can only be used on
 channels where a history exists, otherwise an error will be reported.
 
 **Example**
 
-HIS\_UNSET #0
+::
+
+    HIS_UNSET #0
 
 **CROSS-REFERENCE**
 
@@ -283,10 +350,12 @@ HIS\_USE
 | Location |  History Device                                                   |
 +----------+-------------------------------------------------------------------+
 
- History's command line history is installed as a device driver to allow
+History's command line history is installed as a device driver to allow
 you to use it from languages other than SuperBASIC. The default device
 name is HIS and can be opened as an input pipe whenever a IO.EDLIN call
-is to be used. The HIS\_USE instruction allows you to rename this device
+is to be used. 
+
+The HIS\_USE instruction allows you to rename this device
 name to any other three letter code, passed as a string. The use of the
 HIS device is beyond the scope of this book because it's not necessary
 for SuperBASIC where the HIS\_SET, HIS\_SIZE and HIS\_UNSET commands are
@@ -314,8 +383,7 @@ HIS\_USE$
 | Location |  History Device                                                   |
 +----------+-------------------------------------------------------------------+
 
- This function returns the three letter device name which has been set
-with HIS\_USE.
+This function returns the three letter device name which has been set with HIS\_USE.
 
 **CROSS-REFERENCE**
 
