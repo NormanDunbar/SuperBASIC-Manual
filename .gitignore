@@ -2,8 +2,8 @@ tools/fixSyntax
 tools/fixHeadings
 tools/fixLinks
 tools/fixLinkComments
+tools/preHTMLTidy
 *.doctree
 *.pickle
 sphinx/build/*
-tools/fixLinks
-tools/preHTMLTidy
+tools/*.exe

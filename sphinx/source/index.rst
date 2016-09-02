@@ -24,6 +24,7 @@ Contents:
    Keywords D                                <KeywordsD.clean>
    Keywords E                                <KeywordsE.clean>
    Keywords F                                <KeywordsF.clean>
+   Keywords G                                <KeywordsG.clean>
 
    Appendices Introduction                   <AppendicesIntro.clean>
    A1. Minerva                               <Appendix01.clean>
