@@ -1,0 +1,480 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html xmlns:v="urn:schemas-microsoft-com:vml">
+  <head>
+    <meta http-equiv="content-type" content="text/html;
+      charset=ISO-8859-1">
+    <link rel="stylesheet" type="text/css" href="css/QLManualStyle.css" media="all" />
+    <title>Sinclair QL SuperBASIC/SBASIC Reference Manual - Keywords G</title>
+</head>
+<body>
+<div id="header">
+  SBASIC/SuperBASIC Reference Manual Online (c) RWAP Software
+  <br />
+  The Online Guide to programming the Sinclair QL Home Computer in SuperBASIC
+</div>
+<div id="sideBar">
+    <ul>
+        <li><a href="Foreword.html">Foreword</a></li>
+        <li><a href="Introduction.html">Introduction</a></li>
+        <li><a href="Credits.html">Credits</a></li>        
+        <li><a href="Structure.html">Structure</a></li>
+        <li><a href="WritingPrograms.html">Writing Programs</a></li>
+        <li><a href="KeywordsA.html">Keywords - A</a></li>
+        <li><a href="KeywordsB.html">Keywords - B</a></li>
+        <li><a href="KeywordsC.html">Keywords - C</a></li>
+        <li><a href="KeywordsD.html">Keywords - D</a></li>
+        <li><a href="KeywordsE.html">Keywords - E</a></li>
+        <li><a href="KeywordsF.html">Keywords - F</a></li>
+        <li><a href="KeywordsG.html">Keywords - G</a></li>
+        <li><a href="KeywordsH.html">Keywords - H</a></li>
+        <li><a href="KeywordsI.html">Keywords - I</a></li>
+        <li><a href="KeywordsJ.html">Keywords - J</a></li>
+        <li><a href="KeywordsK.html">Keywords - K</a></li>
+        <li><a href="KeywordsL.html">Keywords - L</a></li>
+        <li><a href="KeywordsM.html">Keywords - M</a></li>
+        <li><a href="KeywordsN.html">Keywords - N</a></li>
+        <li><a href="KeywordsO.html">Keywords - O</a></li>
+        <li><a href="KeywordsP.html">Keywords - P</a></li>
+        <li><a href="KeywordsQ.html">Keywords - Q</a></li>
+        <li><a href="KeywordsR.html">Keywords - R</a></li>
+        <li><a href="KeywordsS.html">Keywords - S</a></li>
+        <li><a href="KeywordsT.html">Keywords - T</a></li>
+        <li><a href="KeywordsU.html">Keywords - U</a></li>
+        <li><a href="KeywordsV.html">Keywords - V</a></li>
+        <li><a href="KeywordsW.html">Keywords - W</a></li>
+        <li><a href="KeywordsX.html">Keywords - X</a></li>
+        <li><a href="KeywordsY.html">Keywords - Y</a></li>
+        <li><a href="KeywordsZ.html">Keywords - Z</a></li>
+        <li><a href="Keywords_.html">Keywords - Other</a></li>
+        <li><a href="AppendicesIntro.html">Appendices Introduction</a></li>
+        <li><a href="Appendix01.html">Appendix 1 - Minerva</a></li>
+        <li><a href="Appendix02.html">Appendix 2 - SMSQE</a></li>
+        <li><a href="Appendix03.html">Appendix 3 - Emulators</a></li>
+        <li><a href="Appendix04.html">Appendix 4 - THOR Computers</a></li>
+        <li><a href="Appendix05.html">Appendix 5 - Expansion Boards</a></li>
+        <li><a href="Appendix06.html">Appendix 6 - Compatability</a></li>
+        <li><a href="Appendix07.html">Appendix 7 - Multiple BASICs</a></li>
+        <li><a href="Appendix08.html">Appendix 8 - Error Messages</a></li>
+        <li><a href="Appendix09.html">Appendix 9 - Character Set / Keyboard</a></li>
+        <li><a href="Appendix10.html">Appendix 10 - Fonts</a></li>
+        <li><a href="Appendix11.html">Appendix 11 - Mathematics</a></li>
+        <li><a href="Appendix12.html">Appendix 12 - Device Drivers</a></li>
+        <li><a href="Appendix13.html">Appendix 13 - Extended Pointer Environment</a></li>
+        <li><a href="Appendix14.html">Appendix 14 - Coercion</a></li>
+        <li><a href="Appendix15.html">Appendix 15 - Mouse Drivers</a></li>
+        <li><a href="Appendix16.html">Appendix 16 - The QL Display</a></li>
+        <li><a href="Appendix17.html">Appendix 17 - Networks</a></li>
+        <li><a href="Appendix18.html">Appendix 18 - Configuring Programs</a></li>
+    </ul>
+</div>
+<div id="mainText">
+<h1><a name="GCD"></a>GCD</h1><br>Syntax: <span style="font-style: italic;">GCD (x</span><sup>1</sup><span style="font-style: italic;">, x</span><sup>2</sup><span style="font-style: italic;"> </span><sup>*</sup>[<span style="font-style: italic;">,x</span><sup>i</sup>]<sup>*</sup><span style="font-style: italic;">)</span>    <span style="font-style: italic;">x</span><sup>i</sup><span style="font-style: italic;">=0..INTMAX
+<br></span>Location: <span style="font-style: italic;">Math Package
+<br></span><br>The function <span style="font-style: italic;">GCD</span> takes two or more positive integers and
+<br>finds their  greatest  common denominator,  ie.  the  largest
+<br>number by which all of the given parameters can be divided
+<br>without remainder.  There is always such a number because 1
+<br>(the smallest common denominator) divides every number without
+<br>remainder.  <span style="font-style: italic;">GCD</span> converts all passed values into integers by
+<br>removing any decimal places (as with <span style="font-style: italic;">INT</span>) before looking for
+<br>the denominator.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsL.html#LCM">LCM
+</a><hr style="width: 100%; height: 2px;"><h1><a name="GER_MSG"></a>GER_MSG</h1><br>Syntax: <span style="font-style: italic;">GER_MSG
+<br></span>Location: <span style="font-style: italic;">ST/QL
+<br></span><br>The file GER_TRA_rext is supplied with the ST/QL Emulator
+<br>which contains translation tables to allow the Emulator to use
+<br>German.
+<br><br>Once this file has been <span style="font-style: italic;">LRESPR</span>'d, this function can be used
+<br>to find the start of the message translation table to be used
+<br>with the <span style="font-style: italic;">TRA</span> command.
+<br><br>You can use:
+<br><br><span style="font-style: italic;">TRA GER_TRA,GER_MSG
+<br></span><br>to set up the printer and message translation tables for
+<br>Germany.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsN.html#NOR_MSG">NOR_MSG</a> and <a style="font-style: italic;" href="KeywordsG.html#GER_TRA">GER_TRA</a>.
+<br><br>Also see <a style="font-style: italic;" href="KeywordsT.html#TRA">TRA</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="GER_TRA"></a>GER_TRA</h1><br>Syntax: <span style="font-style: italic;">GER_TRA
+<br></span>Location: <span style="font-style: italic;">ST/QL
+<br></span><br>This is the complementary function to <span style="font-style: italic;">GER_MSG</span> and points to
+<br>the printer translation table for Germany contained in the
+<br>file GER_TRA_rext.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsG.html#GER_MSG">GER_MSG</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="GET"></a>GET</h1><br>Syntax: <span style="font-style: italic;">GET </span>[<span style="font-style: italic;">#channel\file_position,</span>] [<span style="font-style: italic;">var</span><sup>1</sup> <sup>*</sup>[<span style="font-style: italic;">,var</span><sup>i</sup>]<sup>*</sup> ...]
+<br><br>or <span style="font-style: italic;">GET </span>[<span style="font-style: italic;">#channel,</span>] [<span style="font-style: italic;">var</span><sup>1</sup> <sup>*</sup>[<span style="font-style: italic;">,var</span><sup>i</sup>]<sup>*</sup> ...]
+Location: <span style="font-style: italic;">Toolkit II, THOR XVI
+<br></span><br>This command, together with <span style="font-style: italic;">PUT</span>, helps to provide the QL
+<br>with a means of using a file as a store for variables. The QL
+<br>stores variables in one of four ways:
+<br><br>short%(range -128 to 127) is stored as 2 bytes. Short
+<br>integers are only available on Minerva ROMs, when
+<br>integer tokenisation is enabled.
+<br><br>integer%(range -32768 to 32767) is stored as 4 bytes.
+<br><br>float(eg. 1.23 or any numbers outside the  <span style="font-style: italic;">integer%
+<br></span>range) is stored as 6 bytes.
+<br><br>string$(eg. 'Hello') is stored as 2  bytes containing
+<br>the length of the string followed by the string
+<br>itself.
+<br><br><span style="font-style: italic;">GET</span> enables variables which have been stored in this manner
+<br>to be retrieved from a file opened to the given <span style="font-style: italic;">channel</span> (default
+<br>#3). The variable stored at the current position in the file
+<br>(or the file position given with the command, if the first
+<br>variant is used) is read directly into the variable name given
+<br>with the command.  If you provide more than one variable name
+<br>as the second, third parameter etc, then more variables will
+<br>be read from the file in one go.
+<br><br>If the first variant is used, the file position is always
+<br>calculated as an absolute distance from the start of the file.
+<br>However, to help you, if you supply a variable for the
+<br><span style="font-style: italic;">file_position</span> (eg. <span style="font-style: italic;">GET \pointer</span>), this variable will always be updated
+<br>to the current file pointer at the end of the command. Compare
+<br><span style="font-style: italic;">GET \pointer+3</span> which supplies an expression for the <span style="font-style: italic;">file_pointer</span> and
+<br>cannot therefore be updated automatically by the command.
+<br><br>If no variable is specified, the file pointer will be set
+<br>to the specified position if the first variant is used.  If
+<br>the second variant is used, this will have no effect.
+<br><br><h3>Example:
+<br></h3><br>A program to store three names on a file and then to
+<br><br>retrieve them (this would be useful in a database for
+<br><br>instance):
+<br><span style="font-style: italic;">100 RESTORE
+<br>110 DIM a$(3,20)
+<br>120 FOR i=1 TO 3: READ a$(i)
+<br>130 OPEN_NEW #3,ram1_storage
+<br>140 PUT #3,a$(1),a$(2),a$(3)
+<br>150 CLOSE #3
+<br>160 :
+<br>170 REPeat opt_loop
+<br>180   CLS: INPUT 'Which Number Name do you want?',no$
+<br></span><br><h3>
+<br></h3><span style="font-style: italic;">190   IF no$='':NEXT opt_loop
+<br>200   IF no$(1) INSTR '123': opt=no$(1): EXIT opt_loop
+<br>210 END REPeat opt_loop
+<br>220 OPEN_IN#3,ram1_storage
+<br>230 FOR i=1 TO opt:GET#3,retrieve$
+<br>240 PRINT retrieve$
+<br>250 CLOSE #3
+<br>260 DATA 'Fred Bloggs','Filthy Rich','Peter Rabbit'
+<br></span><br><h3>NOTE 1:
+<br></h3><br>The example works fine if only a few fields have to be
+<br>stored. Generally, it is better to move around a file using
+<br>file pointers in a file based database.
+<br><br><h3>NOTE 2:
+<br></h3><br>Current versions of the Turbo and Supercharge compilers are
+<br>not able to compile programs which use <span style="font-style: italic;">GET</span>.
+<br><br><h3>NOTE 3:
+<br></h3><br>Except under SMS v2.81+, this command can crash the system
+<br>if you try to <span style="font-style: italic;">GET</span> a string variable which has been dimensioned
+<br>{or even set with <span style="font-style: italic;">LOCal a$(512)</span> for example}. This can be avoided
+<br>by using <span style="font-style: italic;">a$=FILL$(' ',512)</span> to initialise the string instead.
+<br><br><h3>NOTE 4:
+<br></h3><br>Although it is possible to use this command with non-file
+<br>related channels, this is inadvisable, as each entry would
+<br>need to be typed in from the keyboard in its internal form,
+<br>which can be rather difficult.  If you do use the command on a
+<br>non-file related channel by accident, press the Break key to
+<br>escape.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsP.html#PUT">PUT</a>, <a style="font-style: italic;" href="KeywordsB.html#BPUT">BPUT</a>, <a style="font-style: italic;" href="KeywordsB.html#BGET">BGET</a>, <a style="font-style: italic;" href="KeywordsL.html#LGET">LGET</a>, <a style="font-style: italic;" href="KeywordsW.html#WGET">WGET</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="GET_BYTE$"></a>GET_BYTE$</h1><br>Syntax: <span style="font-style: italic;">GET_BYTE$ (#channel,bytes)
+<br></span>Location: <span style="font-style: italic;">TinyToolkit
+<br></span><br>This function will read a specific number of bytes from the
+<br>given channel and return the result as a string. If <span style="font-style: italic;">GET_BYTE$
+<br></span>cannot get the specified number of bytes from that channel, it
+<br>will wait until there are enough bytes present in the channel
+<br>or until it detects an End Of File character.  <span style="font-style: italic;">GET_BYTE$</span> does not
+<br>care which characters are read, so &lt;LF&gt; = <span style="font-style: italic;">CHR$(10)</span> will not cause
+<br>any problems unlike <span style="font-style: italic;">INPUT</span>.
+<br><br><h3>Example:
+<br></h3><br>A program to compare the contents of two files, both of
+<br><br>which are the same length. The greater the buffer size
+<br><br>(maximum 32767 bytes), the faster will be the execution,
+<br><br>but then again the greater the work space which will be
+<br><br>needed (maximum 64K). This is an example of the fundamental
+<br><br>link between available memory and operation speed:
+<br><span style="font-style: italic;">100 File1$="ram1_a"
+<br>110 File2$="ram1_b"
+<br>120 Buffer=10000
+<br>130 :
+<br>140 Pieces=FILE_LEN(File1$) DIV Buffer
+<br>150 Rest=FILE_LEN(File1$) MOD Buffer
+<br>160 OPEN#3,File1$: OPEN#4,File2$
+<br>170 FOR Blk=0 TO Pieces+1
+<br>180   IF Blk>Pieces THEN Buffer=Rest
+<br>190   One$=GET_BYTE$(#3,Buffer)
+<br>200   Two$=GET_BYTE$(#4,Buffer)
+<br>210   PRINT "Block"!Blk TO 12;
+<br>220   IF One$&lt;&gt;Two$ THEN
+<br>230     PRINT "Difference between"!Buffer*Blk!"and"! Buffer*(Blk+1)
+<br>240    ELSE
+<br>250     PRINT "OK"
+<br>260   END IF
+<br>270 END FOR Blk
+<br>280 CLOSE#3: CLOSE#4
+<br></span><br><h3>NOTE:
+<br></h3><br>Earlier  TinyToolkit  versions  (pre  v1.10)  called  this
+<br>function  <span style="font-style: italic;">GET$</span>,  which  unfortunately  caused  problems  with  a
+<br>similar function in the Turbo Toolkit and EASYPTR.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsI.html#INKEY$">INKEY$</a> reads just one byte from the given channel, which is
+<br>therefore much slower than <a style="font-style: italic;" href="KeywordsG.html#GET_BYTE$">GET_BYTE$</a> if blocks of bytes are to be
+<br>read. On the other hand, <a style="font-style: italic;" href="KeywordsI.html#INKEY$">INKEY$</a> allows you to specify a timeout.
+<br>The <a style="font-style: italic;" href="KeywordsI.html#INPUT">INPUT</a> command combines input/output and reads blocks, but a
+<br>block must end with &lt;LF&gt;.
+<br><br>The usage of the different keywords depends mainly on the
+<br>structure of the incoming data.  User input and lines in an
+<br>ASCII file normally terminate with Enter &lt;LF&gt;, while internal
+<br>data such as disk directory entries are stored as blocks with
+<br>a fixed length (see <a style="font-style: italic;" href="KeywordsF.html#FOP_DIR">FOP_DIR</a>). Have a look at <a style="font-style: italic;" href="KeywordsG.html#GET">GET</a>, <a style="font-style: italic;" href="KeywordsP.html#PUT">PUT</a>, <a style="font-style: italic;" href="KeywordsB.html#BGET">BGET</a> and <a style="font-style: italic;" href="KeywordsB.html#BPUT">BPUT</a>,
+<br>too. <a style="font-style: italic;" href="KeywordsF.html#FILE_PTRR">FILE_PTRR</a>, <a style="font-style: italic;" href="KeywordsF.html#FILE_POS">FILE_POS</a>, <a style="font-style: italic;" href="KeywordsF.html#FPOS">FPOS</a> can be used for movement.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="GET_STUFF$"></a>GET_STUFF$</h1><br>Syntax: <span style="font-style: italic;">GET_STUFF$
+<br></span>Location: <span style="font-style: italic;">GETSTUFF
+<br></span><br>The  Hotkey  System  II  uses  the  keys  &lt;ALT&gt;&lt;SPACE&gt;  and
+<br>&lt;ALT&gt;&lt;SHIFT&gt;&lt;SPACE&gt; to type into the current keyboard buffer
+<br>the contents of a certain piece of memory, known as the Hotkey
+<br>Stuffer Buffer.  The command <span style="font-style: italic;">HOT_STUFF text$</span> puts <span style="font-style: italic;">text$</span> into this
+<br>buffer.
+<br><br>The function <span style="font-style: italic;">GET_STUFF$</span> returns the contents of the hotkey
+<br>stuffer or "0" if it does not contain anything. If the FILES
+<br>Thing of QPAC2 is present, this will be started first, prior
+<br>to returning the stuffer contents.  This means that a program
+<br>can easily ask for a filename - just by calling <span style="font-style: italic;">GET_STUFF$</span>.
+<br><br><h3>NOTE:
+<br></h3><br><span style="font-style: italic;">GET_STUFF$</span> returns cryptic numbers in unusual circumstances,
+<br>for example:
+<br><br><span style="font-style: italic;">HOT_STUFF ""
+<br><br>PRINT GET_STUFF$
+<br></span><br><h3>WARNING:
+<br></h3><br>This function crashes SMSQ/E and Minerva when you Quit the
+<br>Files Menu of QPAC 2.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsH.html#HOT_STUFF">HOT_STUFF</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="GetHEAD"></a>GetHEAD</h1><br>Syntax: <span style="font-style: italic;">GetHEAD #ch, adr
+<br></span>Location: <span style="font-style: italic;">HEADER (DIY Toolkit)
+<br></span><br><span style="font-style: italic;">GetHEAD</span> loads the header of an opened file pointed to by the
+<br>channel <span style="font-style: italic;">#ch</span> into memory at <span style="font-style: italic;">adr</span>, which must point to at least 64
+<br>bytes of reserved memory.
+<br><br><h3>Example:
+<br></h3><br>If the file header of an executable file is lost then you
+<br><br>must modify it so that the file can be executed again.
+<br><br>Executable files need the file type set to 1 and the
+<br><br>dataspace to be specified, the latter must be large enough
+<br><br>to avoid a serious crash. <span style="font-style: italic;">MAKEJOB</span> does this with <span style="font-style: italic;">file$</span>,
+<br><br>demonstrating <span style="font-style: italic;">GetHEAD</span> and <span style="font-style: italic;">SetHEAD</span>:
+<br><span style="font-style: italic;">100 DEFine PROCedure MAKEJOB (file$, dataspace)
+<br>110  LOCal fp
+<br>120  fp=FOPEN(file$): IF fp<0 THEN STOP
+<br>130  adr=ALCHP(64): IF adr=0 THEN STOP
+<br>140  GetHEAD#fp,adr
+<br>150  POKE adr+5,1
+<br>160  POKE_L adr+6,dataspace
+<br>170  SetHEAD#fp,adr
+<br>180  CLOSE#fp: RECHP adr
+<br>190 END DEFine MAKEJOB
+<br></span><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsS.html#SetHEAD">SetHEAD</a> saves a file header.
+<br><br>See <a style="font-style: italic;" href="KeywordsF.html#FGETH$">FGETH$</a> for information about the file header.
+<br><br><a style="font-style: italic;" href="KeywordsH.html#HEADR">HEADR</a> is very similar to <a style="font-style: italic;" href="KeywordsG.html#GetHEAD">GetHEAD</a>.
+<br><br>See also <a style="font-style: italic;" href="KeywordsH.html#HGET">HGET</a> and <a style="font-style: italic;" href="KeywordsH.html#HPUT">HPUT</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="GETXY"></a>GETXY</h1><br>Syntax: <span style="font-style: italic;">GETXY x%, y%
+<br></span>Location: <span style="font-style: italic;">HCO
+<br></span><br>This command draws a haircross (with its centre at (x%,y%)
+<br>which can be moved with the cursor keys. Holding down &lt;SHIFT&gt;
+<br>while pressing a cursor key will speed up movement. Once the
+<br>haircross is placed in the correct position, press &lt;SPACE&gt; to
+<br>return to BASIC. The two parameters <span style="font-style: italic;">x%</span> and <span style="font-style: italic;">y%</span> will be updated to
+<br>the position of the centre of the cross.
+<br><br><h3>NOTE 1:
+<br></h3><br>It is obligatory to pass  integer variables to <span style="font-style: italic;">GETXY</span>.
+<br><br><h3>NOTE 2:
+<br></h3><br><span style="font-style: italic;">GETXY</span> returns a wrong value for <span style="font-style: italic;">y% </span>on Minerva ROMs, so it is
+<br>unusable.
+<br><br><h3>NOTE 3:
+<br></h3><br>Turbo  and  Supercharge  compilers  cannot  compile  this
+<br>command.
+<br><br><h3>WARNINGS:
+<br></h3><br>See <span style="font-style: italic;">SET</span>.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsI.html#INVXY
+">INVXY
+</a><br><h3>
+<br></h3><hr style="width: 100%; height: 2px;"><h1><a name="GO SUB"></a>GO SUB</h1><br>Syntax: <span style="font-style: italic;">GO SUB line_number</span> <span style="font-style: italic;">(GOSUB is expanded to GO SUB)
+<br></span>Location: <span style="font-style: italic;">QL ROM
+<br></span><br>The command <span style="font-style: italic;">GO SUB</span> was only implemented to make SuperBASIC
+<br>more compatible  with  other versions  of  BASIC.  SuperBASIC
+<br>offers much more elegant and powerful alternatives to this
+<br>command - 'structured programming'. Structured programs do not
+<br>have to be longer than the same program using <span style="font-style: italic;">GO SUB</span> commands.
+<br>It is  strongly recommended that you do not use <span style="font-style: italic;">GO SUB</span>s in
+<br>programs. A similar effect (and much more besides) can be
+<br>achieved by using <span style="font-style: italic;">DEFine PROCedure</span> and <span style="font-style: italic;">DEFine FuNction</span>.
+<br><br>The idea behind <span style="font-style: italic;">GO SUB</span> is that it jumps to a sub-routine
+<br>within a program which starts at the specified <span style="font-style: italic;">line_number</span>.
+<br>Program flow then continues through that sub-routine until a
+<br><span style="font-style: italic;">RETurn</span> statement is found, in which case, control is then
+<br>returned to the statement following the original <span style="font-style: italic;">GO SUB</span>.
+<br><br><h3>Example:
+<br></h3><br>A simple program which prints a title in shadow writing,
+<br><br>using <span style="font-style: italic;">GO SUB</span> to call up the shadow writing routine:
+<br><span style="font-style: italic;">100 MODE 8
+<br>110 WINDOW 448,200,32,16:PAPER 0:CLS
+<br>120 a$='Hello there World'
+<br>130 GO SUB 1000
+<br>140 PAUSE
+<br>150 CLS
+<br>160 :
+<br>999 STOP
+<br>1000 CSIZE 2,0
+<br>1010 AT 10,10:INK 4:PRINT a$
+<br>1020 CURSOR 42,56,10,10:INK 7:OVER 1:PRINT a$:OVER 0
+<br>1030 RETurn
+<br></span><br>This is actually much easier to read (and more flexible) if
+<br><br>re-written to use <span style="font-style: italic;">DEFine PROCedure</span> instead (note that there is
+<br><br>no longer any need for line 999).
+<br><span style="font-style: italic;">100 MODE 8
+<br>110 WINDOW 448,200,32,16:PAPER 0:CLS
+<br>130 SHADOW_PRINT "Hello there World'
+<br>140 PAUSE
+<br>150 CLS
+<br>160 :
+<br>1000 DEFine PROCedure SHADOW_PRINT(v$)
+<br>1010 CSIZE 2,0
+<br>1020 AT 10,10:INK 4:PRINT v$
+<br>1030 CURSOR 42,56,10,10:INK 7:OVER 1:PRINT a$:OVER 0
+<br>1040 END DEFine
+<br></span><br><h3>NOTE 1:
+<br></h3><br>It is not a crime to use <span style="font-style: italic;">GO SUB</span> in your programs, after all,
+<br>machines are built for human beings, so the machines should be
+<br>adapted to users, and users must all find the most comfortable
+<br>way for them to use their machines.
+<br><br><h3>NOTE 2:
+<br></h3><br>A calculated <span style="font-style: italic;">GO SUB</span> statement, eg. <span style="font-style: italic;">GO SUB 1000+x*100</span>, although
+<br>allowed  by  the  interpreter,  is  unlikely  to  be  compiled
+<br>successfully. Secondly, <span style="font-style: italic;">RENUM</span> is unable to change the line
+<br>number of such <span style="font-style: italic;">GO SUB</span>s.  There were also problems with using an
+<br>expression for <span style="font-style: italic;">GO SUB</span> in SMS pre v2.59.
+<br><br><h3>NOTE 3:
+<br></h3><br>Avoid using <span style="font-style: italic;">GO SUB</span> in an in-line <span style="font-style: italic;">FOR</span> loop - see Note 2 of <span style="font-style: italic;">FOR</span>.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>Try to use SuperBASIC's more powerful <a style="font-style: italic;" href="KeywordsR.html#REPeat">REPeat</a>, <a style="font-style: italic;" href="KeywordsF.html#FOR">FOR</a>, <a style="font-style: italic;" href="KeywordsD.html#DEFine PROCedure
+">DEFine PROCedure
+</a>and <a style="font-style: italic;" href="KeywordsD.html#DEFine FuNction">DEFine FuNction</a> structures instead!
+<br><hr style="width: 100%; height: 2px;"><h1><a name="GO TO"></a>GO TO</h1><br>Syntax: <span style="font-style: italic;">GO TO line_number(GOTO is expanded to GO TO)
+<br></span>Location: <span style="font-style: italic;">QL ROM
+<br></span><br>The command <span style="font-style: italic;">GO TO</span> behaves in a similar way to <span style="font-style: italic;">GO SUB</span> in that
+<br>it forces program flow to jump to a different part of the
+<br>program. It is not possible to <span style="font-style: italic;">RETurn</span> to the statement following
+<br><span style="font-style: italic;">GO TO</span>, unless you use another <span style="font-style: italic;">GO TO</span> command.
+<br><br>SuperBASIC allows much more elegant and powerful structures
+<br>which should be used.
+<br><br><h3>Example:
+<br></h3><br>An extremely simple password check:
+<br><span style="font-style: italic;">10 INPUT Password$
+<br>20 IF Password$=='QL lives' THEN GO TO 50
+<br>30 PRINT 'Access DENIED'
+<br>40 GO TO 10
+<br>50 PRINT 'Access Granted'
+<br></span><br>This would be much better if re-written:
+<br><span style="font-style: italic;">10 REPeat Pass_loop
+<br>20   INPUT Password$
+<br>30   IF Password$=='QL lives' THEN EXIT Pass_loop
+<br>40   PRINT 'Access DENIED'
+<br>50 END REPeat Pass_loop
+<br>60 PRINT 'Access Granted'
+<br></span><br><h3>CROSS-REFERENCE:<br></h3><br>Please read <a style="font-style: italic;" href="KeywordsG.html#GO SUB">GO SUB</a> before you dare to try <a style="font-style: italic;" href="KeywordsG.html#GO TO">GO TO</a>!
+<br><hr style="width: 100%; height: 2px;"><h1><a name="GPOINT"></a>GPOINT</h1><br>Syntax: <span style="font-style: italic;">GPOINT </span>[<span style="font-style: italic;">#ch,</span>] <span style="font-style: italic;">x,y</span> [<span style="font-style: italic;">,x</span><sup>2</sup><span style="font-style: italic;">,y</span><sup>2</sup> [<span style="font-style: italic;">,x</span><sup>3</sup><span style="font-style: italic;">,y</span><sup>3</sup>, ...] ]
+Location: <span style="font-style: italic;">GPOINT
+<br></span><br>This command is the same as <span style="font-style: italic;">POINT</span> but fixes the bug in MGx
+<br>ROMs.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="GRAB"></a>GRAB</h1><br>Syntax: <span style="font-style: italic;">GRAB (bytes)
+<br></span>Location: <span style="font-style: italic;">TinyToolkit
+<br></span><br><span style="font-style: italic;">GRAB</span> is a function which reserves a specified amount of
+<br>space in the common heap area of memory for use and returns
+<br>the start address of the allocated area.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>With <a style="font-style: italic;" href="KeywordsG.html#GRAB">GRAB</a> (unlike <a style="font-style: italic;" href="KeywordsA.html#ALCHP">ALCHP</a>), reserved memory can only be given
+<br>back to QDOS for other purposes with <a style="font-style: italic;" href="KeywordsR.html#RELEASE">RELEASE</a>. It is necessary to
+<br>know the start address returned by <a style="font-style: italic;" href="KeywordsG.html#GRAB">GRAB</a> to do this, so a formula
+<br>like <a style="font-style: italic;" href="KeywordsS.html#SCRBASE GRAB(32768)">SCRBASE GRAB(32768)</a> wastes 32k of RAM if <a style="font-style: italic;" href="KeywordsS.html#SCRBASE">SCRBASE</a> is used again.
+<br><br>Although <a style="font-style: italic;" href="KeywordsG.html#GRAB">GRAB</a> is comparable to <a style="font-style: italic;" href="KeywordsR.html#RESPR">RESPR</a> in this respect, it will
+<br>work with jobs in memory just like <a style="font-style: italic;" href="KeywordsA.html#ALCHP">ALCHP</a>. See also <a style="font-style: italic;" href="KeywordsR.html#RESERVE">RESERVE</a>.
+<br><br>The amount of available memory can be found by using <a style="font-style: italic;" href="KeywordsF.html#FREE">FREE</a>,
+<br><a style="font-style: italic;" href="KeywordsF.html#FREE_MEM">FREE_MEM</a> or <a style="font-style: italic;" href="KeywordsM.html#MT_FREE">MT_FREE</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="GREGOR"></a>GREGOR</h1><br>Syntax: <span style="font-style: italic;">GREGOR (day%, month%, year%)
+<br></span>Location: <span style="font-style: italic;">Math Package
+<br></span><br>The function <span style="font-style: italic;">GREGOR</span> takes three integers (others are rounded
+<br>to the nearest integer) to specify a date and returns the
+<br>weekday as a number from 1 to 7 where:
+<br><br>1 = Sunday,           ( See Note 1 !)
+<br><br>2 = Monday,
+<br><br>3 = Tuesday,
+<br><br>4 = Wednesday,
+<br><br>5 = Thursday,
+<br><br>6 = Friday, and
+<br><br>7 = Saturday.
+<br><br>As  the  name  of  the  function  suggests  <span style="font-style: italic;">GREGOR</span>  uses  the
+<br>Gregorian calender. This was introduced in 1583, so <span style="font-style: italic;">GREGOR</span> has
+<br>to refuse earlier years. Invalid parameters are not reported
+<br>by breaking with an error (unless one of the parameters is out
+<br>of integer range) but by returning zero.
+<br><br><h3>Example:
+<br></h3><br>Print your own calendar!
+<br><span style="font-style: italic;">100 CLS
+<br>110 REPeat getmonth
+<br>120   INPUT "Year:"!year;TO 12;"Month:"!month
+<br>130   firstday$ = GREGOR(1,month,year)
+<br>135   firstday=firstday$(1)
+<br>140   IF NOT firstday THEN
+<br>150     PRINT "Invalid input."
+<br>160     ELSE EXIT getmonth
+<br>170   END IF
+<br>180 END REPeat getmonth
+<br>190 FOR lastday = 28 TO 31
+<br>200   IF NOT GREGOR(lastday+1,month,year): EXIT lastday
+<br>210 END FOR lastday
+<br>220 :
+<br>230 PRINT \" Sun Mon Tue Wed Thu Fri Sat"
+<br>240 PRINT FILL$(" ",4*(firstday-1));
+<br>250 FOR day = 1 TO lastday
+<br>260   PRINT FILL$(" ",4-LEN(day));day;
+<br>265   xday$=GREGOR(day,month,year)
+<br>270   IF xday$(1) = 7 THEN PRINT
+<br>280 END FOR day
+<br></span><br><h3>NOTE 1:
+<br></h3><br><span style="font-style: italic;">GREGOR</span> was originally intended to return 1 for Monday, 2 for
+<br>Tuesday and so on. The current version (v2.05) follows the
+<br>Christian tradition where Sunday was regarded as the first day
+<br>of the week. The programming example above corrects this by
+<br>applying this interpretation and uses:
+<br><span style="font-style: italic;">230 PRINT \" Sun Mon Tue Wed Thu Fri Sat"
+<br></span><br>instead of:
+<br><span style="font-style: italic;">230 PRINT \" Mon Tue Wed Thu Fri Sat Sun".
+<br></span><br><h3>
+<br></h3><br><h3>NOTE 2:
+<br></h3><br>Current versions (v2.05) of this command include a bug
+<br>which mean that it will not work correctly on Minerva, SMSQ/E
+<br>and possibly other ROMs.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsE.html#EASTER">EASTER</a>, <a style="font-style: italic;" href="KeywordsD.html#DAY$
+">DAY$
+</a><hr style="width: 100%; height: 2px;"><h1><a name="GT$"></a>GT$</h1><br>Syntax: <span style="font-style: italic;">GT$ (type, string1$, string2$)
+<br></span>Location: <span style="font-style: italic;">Btool
+<br></span><br>This function allows you to compare two strings using the
+<br>comparison types supported by QDOS - it is therefore more
+<br>flexible than direct comparison using operators (see Appendix
+<br>11).
+<br><br>The function will always return 1 if string1$ is greater
+<br>than string2$ and is therefore similar to:
+<br><br><span style="font-style: italic;">PRINT string1$>string2$
+<br></span><br>However, you can specify one of four comparison types,
+<br>which will affect the outcome:
+<br><span style="font-style: italic;">TYPE</span>Effect
+<br>0Compare the two strings character by character
+<br>1Ignore the case of the letters
+<br>2If there is no difference in the characters, compare
+<br>the values of any embedded numbers.
+<br>3Ignore the case of the letters and still if there is no
+<br>difference in the characters, compare the values of any
+<br>embedded numbers.
+<br>The characters are compared by using the following order:
+<br>SPACE
+<br>!"#$%&'()*+,-/:;<=>?@[\]^_£{|}~©
+<br>01234567890
+<br>AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz
+<br>Foreign characters (in order of the character set)
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsI.html#INSTR">INSTR</a>.
+<br><br><a style="font-style: italic;" href="KeywordsG.html#GE$">GE$</a>, <a style="font-style: italic;" href="KeywordsL.html#LT$">LT$</a>, <a style="font-style: italic;" href="KeywordsL.html#LE$">LE$</a>, <a style="font-style: italic;" href="KeywordsE.html#EQ$">EQ$</a> and <a style="font-style: italic;" href="KeywordsN.html#NE$">NE$</a> are all similar facilities.
+<br></div>
+</body>
+</html>
