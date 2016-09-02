@@ -1,0 +1,1361 @@
+    
+<H1><A name="HEADR" id="HEADR"></A>HEADR</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">HEADR file, adr<BR></SPAN> Location: <SPAN style="font-style: italic;">TinyToolkit<BR></SPAN>
+    This command reads the file header of the specified <SPAN style="font-style: italic;">file</SPAN> and
+    stores it at the specified address (<SPAN style="font-style: italic;">adr</SPAN>) in memory. Note that
+    <SPAN style="font-style: italic;">file</SPAN> must be the full filename.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsG.html#GetHEAD">GetHEAD</A> (and <A style="font-style: italic;" href="KeywordsF.html#FGETH$">FGETH$</A>)!
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="HEADS" id="HEADS"></A>HEADS</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">HEADS file, adr<BR></SPAN> Location: <SPAN style="font-style: italic;">TinyToolkit<BR></SPAN>
+    This command sets the file header of the specified <SPAN style="font-style: italic;">file</SPAN> to
+    the 64 bytes stored at <SPAN style="font-style: italic;">adr</SPAN>.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsH.html#HEADR">HEADR</A> and <A style="font-style: italic;" href="KeywordsS.html#SetHEAD">SetHEAD</A> (and <A style="font-style: italic;" href="KeywordsF.html#FGETH$">FGETH$</A>)!
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="HEX" id="HEX"></A>HEX</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">HEX (hex$)<BR></SPAN> Location: <SPAN style="font-style: italic;">Toolkit II, THOR XVI<BR></SPAN>
+    This function returns the decimal value of a hexadecimal
+    number.
+    
+    The hexadecimal system of numbering is based upon base 16,
+    which means that instead of each digit being in the range
+    0..9 (as in decimal), each digit can actually hold the value
+    0..15. Because a digit can only be one character, a system was
+    devised for representing the value 10..15 - these values are
+    represented by the letters A..F respectively. Any digits
+    outside the range 0..F will cause an 'error in expression'.
+    
+    <SPAN style="font-style: italic;">Hex$</SPAN> can be anything in the range $80000000 (which equates
+    to -2^31) to $79999999 (which equates to 2^31-1).
+    
+    
+<H3>Examples:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">PRINT HEX('F')</SPAN> will print the value 15.
+    
+    <SPAN style="font-style: italic;">PRINT HEX('10')</SPAN> will print the value 16.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsH.html#HEX$">HEX$</A> works the other way around, converting decimal numbers
+    into their hexadecimal equivalent.
+    
+    See <A style="font-style: italic;" href="KeywordsB.html#BIN">BIN</A> and <A style="font-style: italic;" href="KeywordsB.html#BIN$">BIN$</A> for the binary versions.
+    
+    SMS users can achieve the same thing by using, for example
+    <A href="KeywordsP.html#PRINT%20$1AB">PRINT $1AB</A> instead of <A href="KeywordsP.html#PRINT%20HEX%20('1AB')">PRINT HEX ('1AB')</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="HEX$" id="HEX$"></A>HEX$</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">HEX$ (decimal,nibbles)<BR></SPAN>
+    or <SPAN style="font-style: italic;">HEX$ (decimal</SPAN> [<SPAN style="font-style: italic;">,nibbles</SPAN>]<SPAN style="font-style: italic;">)</SPAN> <SPAN style="font-style: italic;">(THOR only)<BR></SPAN> Location: <SPAN style="font-style: italic;">Toolkit II, THOR XVI<BR></SPAN>
+    This function converts a signed integer decimal number to
+    the equivalent hexadecimal number to a specified number of
+    <SPAN style="font-style: italic;">nibbles</SPAN> (ranging from 1 to 32 - there are 4 <SPAN style="font-style: italic;">nibbles</SPAN> in one digit).
+    If <SPAN style="font-style: italic;">nibbles</SPAN> is not divisible by four, it is rounded up to the next
+    multiple of four.
+    
+    Negative values are also handled correctly provided that
+    <SPAN style="font-style: italic;">nibbles</SPAN> is set to 32.
+    
+    The range of <SPAN style="font-style: italic;">decimal</SPAN> is <SPAN style="font-style: italic;">-2^31&lt;decimal&lt;2^31<BR></SPAN>
+    
+<H3>Examples:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">HEX (HEX$ (x,4)) =x</SPAN> if <SPAN style="font-style: italic;">x</SPAN> is any number between
+    <SPAN style="font-style: italic;">0</SPAN> and <SPAN style="font-style: italic;">15</SPAN>.
+    
+    <SPAN style="font-style: italic;">PRINT HEX$ (300,10)</SPAN> will return the value 12C.
+    
+    <SPAN style="font-style: italic;">PRINT HEX$ (300,8)</SPAN> will return the value 2C.
+    
+    
+<H3>THOR XVI NOTE:</H3>
+
+<P>
+    The THOR XVI version of this command will accept a value of
+    zero for <SPAN style="font-style: italic;">nibbles</SPAN> {or even the command in the form <SPAN style="font-style: italic;">HEX$(decimal)</SPAN>}. In
+    both of these cases the result is returned in the least number
+    of Hexadecimal digits necessary to store the number, for
+    example:
+    
+    <SPAN style="font-style: italic;">PRINT HEX$(32)<BR></SPAN>
+    gives the result 20.
+    
+    
+<H3>THOR XVI WARNING:</H3>
+
+<P>
+    A second parameter of zero may crash some versions of this
+    command except on v6.41 of the THOR XVI.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsH.html#HEX">HEX</A> and <A style="font-style: italic;" href="KeywordsB.html#BIN">BIN</A>, <A style="font-style: italic;" href="KeywordsB.html#BIN$">BIN$</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="HGET" id="HGET"></A>HGET</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">HGET [#ch] length [ , access [, type [, dataspace [, extra</SPAN> ]]]] Location: <SPAN style="font-style: italic;">SMSQ/E<BR></SPAN>
+    This command allows you to access the various parameters
+    which are contained in the header of the file attached to the
+    specified channel (default #3). The command will set the
+    supplied parameters to the required information.
+    
+    If the specified channel is not open to a file, then an
+    Invalid Parameter error is reported.
+    
+    The information returned is as follows:
+    
+    <SPAN style="font-style: italic;">length</SPAN>Length of the File
+    
+    <SPAN style="font-style: italic;">access</SPAN>File Access Key
+    
+    <SPAN style="font-style: italic;">type</SPAN> File Type
+    
+    <SPAN style="font-style: italic;">dataspace</SPAN>Dataspace for Executable Files
+    
+    <SPAN style="font-style: italic;">extra</SPAN>Extra Information
+    
+    
+<H3>NOTE:</H3>
+
+<P>
+    You will not be able to compile this command with Turbo or
+    SuperCharge due to the fact that it alters its own parameters.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsH.html#HPUT">HPUT</A> saves the file header information.
+    
+    See <A style="font-style: italic;" href="KeywordsF.html#FGETH$">FGETH$</A> for information about the file header.
+    
+    See also <A style="font-style: italic;" href="KeywordsH.html#HEADR">HEADR</A> and <A style="font-style: italic;" href="KeywordsG.html#GetHEAD">GetHEAD</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="HIS_SET" id="HIS_SET"></A>HIS_SET</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">HIS_SET #channel<BR></SPAN> Location: <SPAN style="font-style: italic;">History Device (Needs Pointer Environment)<BR></SPAN>
+    The <SPAN style="font-style: italic;">History Device</SPAN> is an extension to the internal QDOS routine
+    IO.EDLIN which reads editable text input from the keyboard;
+    IO.EDLIN is used if, for example, you use INPUT on a window -
+    even the interpreter uses IO.EDLIN to get its commands from
+    #0. But let's see how the History Device alters keyboard
+    input.
+    
+    The toolkit must be loaded into Resident Procedure Memory
+    (with <SPAN style="font-style: italic;">RESPR</SPAN>) before any Jobs are started, but after the Pointer
+    Environment and Lightning / Speedscreen (or any other drivers
+    which alter the con_ device driver) are installed (if either
+    of these two packages are required).
+    
+    Often, if you respond to a set of questions asked by a
+    program, the same answers crop up again and again. For
+    example, take the SuperBASIC interpreter, if you have entered
+    a command, it will carry it out and wait for the next command
+    to be entered. You may find that you want to type in the same
+    text - or something which you entered a few loops ago again.
+    Toolkit II and the Hotkey System install a last line recall
+    when the &lt;ALT&gt;&lt;ENTER&gt; key combination is pressed (can be
+    configured with the Hotkey System) - this is widely accepted
+    (it's even supported by keyboard interfaces), but, has not
+    proved to be very reliable or useful: recalling the last line
+    typed generally works well, but for lines which were entered
+    some time ago, things become easily messed up.
+    
+    The History Device sits on the afore-mentioned QDOS trap
+    and stores a specified number of entered lines for any console
+    channel. If a program then requests input, previously entered
+    lines can be recalled using the &lt;&gt; and &lt;&gt; keys - this is
+    called a command line history (hence the name of the History
+    Device).
+    
+    A history for a console channel must be explicitly
+    installed, by using the <SPAN style="font-style: italic;">HIS_SET</SPAN> command. <SPAN style="font-style: italic;">HIS_SET</SPAN> can only accept
+    channel numbers which point to a <SPAN style="font-style: italic;">con_</SPAN> device, it breaks with
+    'bad parameter' if that is not the case. Once the history is
+    installed, you will need to activate it by using the command
+    <SPAN style="font-style: italic;">HIS_SIZE</SPAN>.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    To install a command line history for the SuperBASIC
+    
+    interpreter - these lines could be added to a BOOT program:
+    <SPAN style="font-style: italic;">HIS_SET #0</SPAN>install a command line history for #0
+    <SPAN style="font-style: italic;">HIS_SIZE #0, 40</SPAN>activate history which stores 40 lines
+    
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    The History Device does not run on at least pre E.21
+    drivers of the ST/QL or STE/QL due to a bug in the IO.EDLIN
+    trap of these drivers. History is fine for Minerva up to
+    v1.93, although there are harmless problems with v1.96 in that
+    the current line is not displayed before the line is altered.
+    QView and Jochen Merz Software have been informed about these
+    difficulties, so these may already be fixed by now.
+    
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    You cannot redefine the keys used for last line recall!!
+    
+    
+<H3>SMS NOTE:</H3>
+
+<P>
+    The History device is built into SMSQ/E, although the
+    <SPAN style="font-style: italic;">HIS_</SPAN>... commands are not included with SMSQ/E, so in reality,
+    you can only use the <SPAN style="font-style: italic;">HISTORY</SPAN> device as a Last In First Out pipe
+    system - see Devices Appendix.
+    
+    In any event the <SPAN style="font-style: italic;">HIS_</SPAN>... commands do not appear to work on
+    SMS.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    A history is automatically removed when a channel is closed
+    but removal can also be forced with <A style="font-style: italic;" href="KeywordsH.html#HIS_UNSET">HIS_UNSET</A>.
+    
+    The QDOS/SMS Reference Manual contains full details of
+    IO.EDLIN
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="HIS_SIZE" id="HIS_SIZE"></A>HIS_SIZE</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">HIS_SIZE #channel, lines<BR></SPAN> Location: <SPAN style="font-style: italic;">History Device<BR></SPAN>
+    A history which has been already been installed with
+    <SPAN style="font-style: italic;">HIS_SET</SPAN> has its size specified and is activated (or de-activated)
+    with <SPAN style="font-style: italic;">HIS_SIZE</SPAN>. The different usages of the command are
+    distinguished by the lines parameter.
+    
+    - Positive numbers for <SPAN style="font-style: italic;">lines</SPAN> will activate a history for the
+    given channel and tell it to store the next <SPAN style="font-style: italic;">lines</SPAN> number of
+    lines which are terminated by pressing &lt;ENTER&gt;. If a history
+    had already been installed, then all stored lines are lost.
+    
+    - Negative numbers will have exactly the same effect except
+    that if a history was already active, the absolute value of
+    the given <SPAN style="font-style: italic;">lines</SPAN> number is added to the memory capacity of the
+    existing history. Exisiting stored lines are retained in
+    memory.
+    
+    - Zero simply turns off a history and clears the tables
+    which hold the entered lines.
+    
+    History can store a maximum of 32767 lines which should be
+    more than sufficient. Memory is allocated dynamically, in four
+    kilobytes chunks, so there is a small danger of heap
+    fragmentation.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsH.html#HIS_SET">HIS_SET</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="HIS_UNSET" id="HIS_UNSET"></A>HIS_UNSET</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">HIS_UNSET #channel<BR></SPAN> Location: <SPAN style="font-style: italic;">History Device<BR></SPAN>
+    This command removes a history from a <SPAN style="font-style: italic;">channel</SPAN>, regardless of
+    its state of activity and the stored lines. <SPAN style="font-style: italic;">HIS_UNSET</SPAN> can only
+    be used on channels where a history exists, otherwise an error
+    will be reported.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">HIS_UNSET #0<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsH.html#HIS_USE">HIS_USE</A>, <A style="font-style: italic;" href="KeywordsH.html#HIS_SIZE">HIS_SIZE</A>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="HIS_USE" id="HIS_USE"></A>HIS_USE</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">HIS_USE device$<BR></SPAN> Location: <SPAN style="font-style: italic;">History Device<BR></SPAN>
+    History's command line history is installed as a device
+    driver to allow you to use it from languages other than
+    SuperBASIC. The default device name is HIS and can be opened
+    as an input pipe whenever a IO.EDLIN call is to be used. The
+    <SPAN style="font-style: italic;">HIS_USE</SPAN> instruction allows you to rename this device name to any
+    other three letter code, passed as a string.
+    
+    The use of the HIS device is beyond the scope of this book
+    because it's not necessary for SuperBASIC where the <SPAN style="font-style: italic;">HIS_SET</SPAN>,
+    <SPAN style="font-style: italic;">HIS_SIZE</SPAN> and <SPAN style="font-style: italic;">HIS_UNSET</SPAN> commands are available to handle it. Please
+    refer to the original documentation!
+    
+    
+<H3>SMS NOTE:</H3>
+
+<P>
+    The History device built into SMSQ/E uses the device name
+    HISTORY and can therefore be used alongside this version of
+    the History Driver. You cannot rename SMSQ/E's version.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsH.html#HIS_USE$">HIS_USE$</A> and <A style="font-style: italic;" href="KeywordsH.html#HIS_SET">HIS_SET</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="HIS_USE$" id="HIS_USE$"></A>HIS_USE$</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">HIS_USE$<BR></SPAN> Location: <SPAN style="font-style: italic;">History Device<BR></SPAN>
+    This function returns the three letter device name which
+    has been set with <SPAN style="font-style: italic;">HIS_USE</SPAN>.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsH.html#HIS_USE">HIS_USE</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="HOT" id="HOT"></A>HOT</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">HOT key, executable_file<BR></SPAN> Location: <SPAN style="font-style: italic;">TinyToolkit<BR></SPAN>
+    This command will load the given executable job into memory
+    and start it running from memory each time that the specified
+    <SPAN style="font-style: italic;">key</SPAN> (together with &lt;ALT&gt;) is pressed, so there will not be any
+    need to access the drive, but the code has to be stored twice:
+    once as the code loaded by <SPAN style="font-style: italic;">HOT</SPAN>, and then the job created from
+    that code. Thus it is only practical to load small programs
+    such as system utilities with this command.
+    
+    
+<H3>Examples:</H3>
+
+<P><SPAN style="font-style: italic;">HOT c,FLP1_COLOURS_exe
+    HOT s,FLP1_tk2flp
+    HOT "4",FLP1_QED<BR></SPAN>
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    Any ALTKEY definitions which use the same hotkeys will be
+    ignored.
+    
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    Non-standard machine code cannot be used (Supercharged or
+    Turbo compiled SuperBASIC for instance): the code has to be
+    re-entrant, ie. when the job stops it should disappear. Jobs
+    which relocate themselves, redefine the trap table, change
+    their own code (ie. are not ROMable), or can only be started
+    one at a time, tend to produce system crashes and other
+    problems.
+    
+    
+<H3>WARNING:</H3>
+
+<P>
+    Memory used by HOT-loaded programs cannot always be freed
+    for use by SuperBASIC.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsC.html#CLEAR_HOT">CLEAR_HOT</A> clears a hotkey defined with <A style="font-style: italic;" href="KeywordsH.html#HOT">HOT</A> and (hopefully!)
+    returns the occupied memory to QDOS.
+    
+    Use the Hotkey System if you have this available!!
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="HOT_CHP" id="HOT_CHP"></A>HOT_CHP</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">HOT_CHP (key$,filename</SPAN> [<SPAN style="font-style: italic;">;cmd$</SPAN>] [<SPAN style="font-style: italic;">,JobName$</SPAN>] [<SPAN style="font-style: italic;">,options</SPAN>] <SPAN style="font-style: italic;">)<BR></SPAN> Location: <SPAN style="font-style: italic;">HOTKEY II<BR></SPAN>
+    The main idea behind the Hotkey System II is that you can
+    have access to any number of QL programs by pressing one
+    simple hotkey in order to access each program, rather than
+    having to use &lt;CTRL&gt;&lt;C&gt; to cycle through all of the programs
+    currently stored in the QL's memory.
+    
+    The function <SPAN style="font-style: italic;">HOT_CHP</SPAN> will load an executable file with the
+    specified filename into the common heap and make it into an
+    Executable Thing. Now, each time that you press &lt;ALT&gt; plus the
+    specified <SPAN style="font-style: italic;">key$</SPAN>, a new copy of the program will be started up in
+    memory (although the same code is used, meaning that very
+    little memory is used by each additional copy).
+    
+    As from v2.03 of Hotkey System II, if you use an upper case
+    <SPAN style="font-style: italic;">key$</SPAN>, then you will need to press the upper case character,
+    compare where you use a lower case <SPAN style="font-style: italic;">key$</SPAN>, which will recognise
+    both the uppper and lower case character (if the upper case
+    character has not been assigned to another hotkey).
+    
+    <SPAN style="font-style: italic;">HOT_CHP</SPAN> will support the current program default device if
+    Toolkit II is loaded, otherwise it will use its own default
+    device which can be configured by using the program CONFIG on
+    the file <SPAN style="font-style: italic;">HOT_REXT</SPAN>.
+    
+    When the program is loaded using this command, <SPAN style="font-style: italic;">HOT_CHP</SPAN> will
+    look to see whether the start of the program contains a Job
+    name, if not, then the program file name is used as the Job
+    name (unless an alternative is stipulated, using the <SPAN style="font-style: italic;">Jobname$<BR></SPAN> parameter).
+    
+    As with <SPAN style="font-style: italic;">EXEP</SPAN>, you can pass a command string to the program
+    which will be passed to each copy of the program as and when
+    they are started up. You can also supply a specific Job name
+    for the program and pass various options to the Pointer
+    Interface to tell it how to treat the program. As well as
+    those options supported by <SPAN style="font-style: italic;">EXEP</SPAN>, the following option is also
+    supported:
+    
+    I -This tells the Hotkey System that the program code is
+    'impure' (ie. it modifies its own code). This means
+    that code cannot be shared by every copy of the program
+    - this therefore means that each time that the program
+    is called, a copy of the original code is made from
+    which the program runs. For this reason, you should
+    consider using <SPAN style="font-style: italic;">HOT_LOAD</SPAN> for such programs. The most common
+    programs which fall within this category have been
+    written under BCPL or compiled with Supercharge or
+    Turbo.
+    
+    If the program is successfully loaded into memory and set
+    up as an executable Thing, <SPAN style="font-style: italic;">HOT_CHP</SPAN> will return 0, otherwise one
+    of the following error codes will be returned:
+    
+    -2Specified filename is not executable
+    
+    -3Not enough memory to load the file
+    
+    -7The specified filename cannot be found
+    
+    -9The specified hotkey has already been defined, or the
+    file is in use.
+    
+    -12The specified filename is not supported (bad filename).
+    
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    Any programs which are to be loaded into the Hotkey System
+    II should be re-entrant so that the same code can be shared by
+    any number of copies of the program, otherwise label them as
+    Impure.
+    
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    Versions of the Hotkey System pre v2.21 do not allow you to
+    pass a command string.
+    
+    
+<H3>WARNING:</H3>
+
+<P>
+    You should not specify a Job name for impure programs as
+    this may cause problems.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    If you do not intend to remove the program in the future,
+    use <A style="font-style: italic;" href="KeywordsH.html#HOT_RES">HOT_RES</A> or <A style="font-style: italic;" href="KeywordsH.html#HOT_RES1">HOT_RES1</A> as these will ensure that the program
+    starts up more quickly.
+    
+    <A style="font-style: italic;" href="KeywordsH.html#HOT_CHP1">HOT_CHP1</A>, <A style="font-style: italic;" href="KeywordsH.html#HOT_LOAD">HOT_LOAD</A>, <A style="font-style: italic;" href="KeywordsH.html#HOT_LOAD1">HOT_LOAD1</A> are similar.
+    
+    The hotkey will not be available until you enable the
+    Hotkey System with HOT_GO.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="HOT_CHP1" id="HOT_CHP1"></A>HOT_CHP1</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">HOT_CHP1 (key$,filename</SPAN> [<SPAN style="font-style: italic;">;cmd$</SPAN>] [<SPAN style="font-style: italic;">,Jobname$</SPAN>] [<SPAN style="font-style: italic;">,options</SPAN>] <SPAN style="font-style: italic;">)<BR></SPAN>
+    or <SPAN style="font-style: italic;">HOT_CHP1 (key$,filename</SPAN> [<SPAN style="font-style: italic;">;cmd$</SPAN>] <SPAN style="font-style: italic;">!Wakename$</SPAN> [<SPAN style="font-style: italic;">,options</SPAN>] <SPAN style="font-style: italic;">)<BR></SPAN> Location: <SPAN style="font-style: italic;">HOTKEY II<BR></SPAN>
+    The first variant of this function is very similar to
+    <SPAN style="font-style: italic;">HOT_CHP</SPAN> except that it will only start up a new copy of the
+    program when the specified hotkey is pressed if there is not
+    already a copy of the program being executed. If a copy of
+    the program is already being executed, then the hotkey will
+    merely move that copy of the program to the top of the pile so
+    that you can access it (it will <SPAN style="font-style: italic;">PICK</SPAN> the program and execute a
+    <SPAN style="font-style: italic;">WAKE</SPAN> event, if supported by the program {a Wake event is
+    normally used by a program to force it to update its tables}).
+    
+    The second variant of this command was introduced in v2.24
+    of the Hotkey System II and allows you to specify a name of a
+    job (<SPAN style="font-style: italic;">Wakename$</SPAN>) which is to be Woken up if there is already one
+    copy of the original program running in memory. Unfortunately
+    this variant acts differently from the first in one main way:
+    
+    -If the original program is already running, and
+    <SPAN style="font-style: italic;">Wakename$</SPAN> points to another program which is not yet
+    running, a second copy of the original program will be
+    started up.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    The following line will allow you to set up the &lt;ALT&gt;&lt;R&gt;
+    
+    key to do one of two things:
+    
+    (1)If a job called QR-Config is running already, this will
+    be Woken; otherwise
+    
+    (2)A copy of a program called flp1_Route_Obj will be
+    started up (even if one is already running).
+    <SPAN style="font-style: italic;">ERT HOT_CHP1 ('R','flp1_Route_obj';'flp1_\' ! 'QR-Config')<BR></SPAN>
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    On early versions of the Hotkey System II, <SPAN style="font-style: italic;">HOT_CHP1</SPAN> did not
+    create an Executable Thing.
+    
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    Versions of the Hotkey System pre v2.21 do not allow you to
+    pass a command string.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsH.html#HOT_CHP">HOT_CHP</A>.
+    
+    <A style="font-style: italic;" href="KeywordsH.html#HOT_PICK">HOT_PICK</A> allows you to set up hotkeys to PICK a program, and
+    <A style="font-style: italic;" href="KeywordsH.html#HOT_WAKE">HOT_WAKE</A> allows you to set up hotkeys to WAKE a program.
+    
+    <A style="font-style: italic;" href="KeywordsH.html#HOT_THING">HOT_THING</A> allows you to call an Executable Thing.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="HOT_CMD" id="HOT_CMD"></A>HOT_CMD</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">HOT_CMD (key$,command$</SPAN> <SUP>*</SUP>[<SPAN style="font-style: italic;">,command$</SPAN>]<SUP>*</SUP><SPAN style="font-style: italic;">)<BR></SPAN> Location: <SPAN style="font-style: italic;">HOTKEY II<BR></SPAN>
+    This function allows you to set up a specify a key, which,
+    when pressed with &lt;ALT&gt; will call up the SuperBasic task (Job
+    0), Picking it to the top of the pile, and then send each
+    specified command to the command console (normally #0)
+    followed by &lt;ENTER&gt; at the end of each string.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">ERT HOT_CMD ('d','INPUT "List Device: ";d$','DIR d$')<BR></SPAN>
+    will set up a hotkey whereby whenever you press &lt;ALT&gt;&lt;d&gt;,
+    
+    control will be returned to SuperBasic and the user asked
+    
+    to enter a device, after which, a directory of that device
+    
+    will be produced.
+    
+    
+<H3>NOTE:</H3>
+
+<P>
+    Although <SPAN style="font-style: italic;">HOT_CMD</SPAN> will quite happily allow you to redefine an
+    existing hotkey created with <SPAN style="font-style: italic;">HOT_CMD</SPAN> or <SPAN style="font-style: italic;">HOT_KEY</SPAN>, if any other
+    command has been used to set up the hotkey, error -9 (in use)
+    will be reported.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsH.html#HOT_KEY">HOT_KEY</A>.
+    
+    <A style="font-style: italic;" href="KeywordsH.html#HOT_GO">HOT_GO</A> is required in order to make hotkey definitions
+    operational.
+    
+    <A style="font-style: italic;" href="KeywordsF.html#FORCE_TYPE">FORCE_TYPE</A> is very similar.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="HOT_DO" id="HOT_DO"></A>HOT_DO</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">HOT_DO key$<BR></SPAN>
+    or <SPAN style="font-style: italic;">HOT_DO Thingname$<BR></SPAN> Location: <SPAN style="font-style: italic;">HOTKEY II<BR></SPAN>
+    Once a hotkey is operational (see <SPAN style="font-style: italic;">HOT_GO</SPAN>), you can call up
+    the program or action set up on that hotkey by using the
+    command <SPAN style="font-style: italic;">HOT_DO</SPAN>, which enables a program to emulate the user
+    pressing &lt;ALT&gt;&lt;key&gt;.
+    
+    The first variant expects you to supply the key which would
+    normally be used together with &lt;ALT&gt; to call up the facility.
+    You can however, also use the second variant to supply the
+    name of an Executable Thing to be called up.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    Take the following hotkey:
+    <SPAN style="font-style: italic;">100 ERT HOT_WAKE ('f',Files)
+    110 HOT_GO<BR></SPAN>
+    The following would all have the same effect:
+    
+    (1) pressing &lt;ALT&gt;&lt;f&gt;
+    
+    (2) <SPAN style="font-style: italic;">HOT_DO 'f'<BR></SPAN>
+    (3) <SPAN style="font-style: italic;">HOT_DO Files<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See the other <A style="font-style: italic;" href="KeywordsH.html#HOT_">HOT_</A>... commands about setting up hotkeys.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="HOT_GO" id="HOT_GO"></A>HOT_GO</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">HOT_GO<BR></SPAN> Location: <SPAN style="font-style: italic;">HOTKEY II<BR></SPAN>
+    The Hotkey System II is actually a Job (called <SPAN style="font-style: italic;">HOTKEY</SPAN>) which
+    sits in the background of the QL looking for the user to press
+    the previously defined hotkeys. As many users should be aware,
+    whenever a job is present in the QL's memory, you cannot
+    access the resident procedure memory (which should be used to
+    install SuperBasic extensions and device drivers for example -
+    see <SPAN style="font-style: italic;">RESPR</SPAN>). For this reason, the Hotkey System II was designed
+    so that the Hotkey Job would not actually be created until
+    such time as the user was ready - ie. when all of the hotkeys
+    had been defined and everything loaded into the resident
+    procedure memory.
+    
+    Users who have used Toolkit II's <SPAN style="font-style: italic;">ALTKEY</SPAN> system may have
+    noticed that although they have defined various hotkeys (with
+    <SPAN style="font-style: italic;">HOT_KEY</SPAN> for example), they do not work (or as soon as the Hotkey
+    System II has been loaded, the last line recall does not
+    work). This is because the Hotkey Job has to be started. This
+    is achieved simply by using the command:
+    
+    <SPAN style="font-style: italic;">HOT_GO<BR></SPAN>
+    This will start the Hotkey Job which will support all of
+    the currently defined hotkeys, including the Hotkey Stuffer
+    Buffer keys (which can be re-defined by using the program
+    CONFIG on the file HOT_REXT), and the last line recall.
+    
+    If you want to remove the Hotkey Job at any time, you can
+    do so by using the command <SPAN style="font-style: italic;">HOT_STOP</SPAN>, which has the same effect as
+    <SPAN style="font-style: italic;">RJOB 'Hotkey'</SPAN>. This will not destroy any of the Hotkey definitions
+    and when you enter the command <SPAN style="font-style: italic;">HOT_GO</SPAN> again, they will all be
+    available once again.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsR.html#RESPR">RESPR</A> allocates areas of the resident procedure memory.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="HOT_KEY" id="HOT_KEY"></A>HOT_KEY</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">HOT_KEY (key$,string$</SPAN> [<SPAN style="font-style: italic;">,string2$</SPAN> [<SPAN style="font-style: italic;">,string3$</SPAN>... ]]<SPAN style="font-style: italic;">)<BR></SPAN> Location: <SPAN style="font-style: italic;">HOTKEY II<BR></SPAN>
+    This function is very similar to the first variant of the
+    command <SPAN style="font-style: italic;">ALTKEY</SPAN> provided by Toolkit II, except that it operates
+    by virtue of the Hotkey Job, rather than a polled task, which
+    should make the hotkey a little more reliable than the Toolkit
+    II version (although this does mean than a hotkey set up under
+    the Hotkey System II cannot be accessed from within a program
+    running in Supervisor mode).
+    
+    As with <SPAN style="font-style: italic;">ALTKEY</SPAN>, this function creates a key macro which will
+    be typed into the current keyboard queue each time that you
+    press &lt;ALT&gt; and the specified &lt;<SPAN style="font-style: italic;">key$</SPAN>&gt; at the same time. Again, if
+    more than one string appears in the definition, an &lt;ENTER&gt;
+    (line feed) will be placed between each string. If you want a
+    line feed at the end of the final string, add a nul string to
+    the definition.
+    
+    
+<H3>NOTE:</H3>
+
+<P>
+    Although <SPAN style="font-style: italic;">HOT_KEY</SPAN> will quite happily allow you to redefine an
+    existing hotkey created with <SPAN style="font-style: italic;">HOT_CMD</SPAN> or <SPAN style="font-style: italic;">HOT_KEY</SPAN>, if any other
+    command has been used to set up the hotkey (eg. <SPAN style="font-style: italic;">ALTKEY</SPAN>), error
+    -9 (in use) will be reported.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    As with other Hotkey System II definitions, you will need
+    to use <A style="font-style: italic;" href="KeywordsH.html#HOT_GO">HOT_GO</A> before you can access this hotkey.
+    
+    See <A style="font-style: italic;" href="KeywordsA.html#ALTKEY">ALTKEY</A> for more information.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="HOT_LIST" id="HOT_LIST"></A>HOT_LIST</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">HOT_LIST</SPAN> [<SPAN style="font-style: italic;">#ch</SPAN>]
+    
+    or <SPAN style="font-style: italic;">HOT_LIST \filename<BR></SPAN> Location: <SPAN style="font-style: italic;">HOTKEY II<BR></SPAN>
+    This command will produce a list in the given channel
+    (default #1) of all of the currently set hotkeys recognised by
+    the Hotkey System II.
+    
+    If the second variant of the command is used, this will
+    create a file with the specified filename (default data device
+    supported), offering the option to overwrite any existing
+    file, and list the hotkeys in that file.
+    
+    Each hotkey will be listed in tabulated form, with the key
+    (which has to be pressed together with &lt;ALT&gt;) followed by the
+    operation or definition string. If you need to press &lt;SHIFT&gt;
+    along with the key, the key will be pre-fixed with 's'.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsH.html#HOT_NAME$">HOT_NAME$</A> returns the description or name for the hotkey.
+    
+    <A style="font-style: italic;" href="KeywordsH.html#HOT_TYPE">HOT_TYPE</A> returns the type of hotkey operation.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="HOT_LOAD" id="HOT_LOAD"></A>HOT_LOAD</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">HOT_LOAD (key$,filename</SPAN> [<SPAN style="font-style: italic;">;cmd$</SPAN>] [<SPAN style="font-style: italic;">,JobName$</SPAN>] [<SPAN style="font-style: italic;">,options</SPAN>] <SPAN style="font-style: italic;">)<BR></SPAN> Location: <SPAN style="font-style: italic;">HOTKEY II<BR></SPAN>
+    This function is similar to <SPAN style="font-style: italic;">HOT_CHP</SPAN> in the parameters which
+    it expects. By contrast, however, <SPAN style="font-style: italic;">HOT_LOAD</SPAN> does not store the
+    program in memory, but, instead, each time that the specified
+    hotkey is pressed, it will look for the specified filename and
+    then load the program at that stage (this is therefore really
+    designed for programs which are stored on Hard Disk, as it is
+    improbable that you will keep the same disk in a drive all of
+    the time).
+    
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    The I (Impure code) option is not needed with this
+    function.
+    
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">HOT_LOAD</SPAN> does not create an Executable Thing.
+    
+    
+<H3>NOTE 3:</H3>
+
+<P>
+    Versions of the Hotkey System pre v2.21 do not allow you to
+    pass a command string.
+    
+    
+<H3>WARNING:</H3>
+
+<P>
+    Versions of the Hotkey System II, earlier than v2.15 (or
+    Level B-08 of the ST/QL Drivers) contained serious bugs in
+    <SPAN style="font-style: italic;">HOT_LOAD</SPAN> which could either remove the Hotkey Job or crash the
+    computer.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsH.html#HOT_LOAD1">HOT_LOAD1</A> and <A style="font-style: italic;" href="KeywordsH.html#HOT_CHP">HOT_CHP</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="HOT_LOAD1" id="HOT_LOAD1"></A>HOT_LOAD1</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">HOT_LOAD1 (key$,filename</SPAN> [<SPAN style="font-style: italic;">;cmd$</SPAN>] [<SPAN style="font-style: italic;">,Jobname$</SPAN>] [<SPAN style="font-style: italic;">,options</SPAN>] <SPAN style="font-style: italic;">)<BR></SPAN>
+    or <SPAN style="font-style: italic;">HOT_LOAD1 (key$,filename</SPAN> [<SPAN style="font-style: italic;">;cmd$</SPAN>] <SPAN style="font-style: italic;">!Wakename$</SPAN> [<SPAN style="font-style: italic;">,options</SPAN>] <SPAN style="font-style: italic;">)<BR></SPAN> Location: <SPAN style="font-style: italic;">HOTKEY II<BR></SPAN>
+    This function bears the same relationship to <SPAN style="font-style: italic;">HOT_LOAD</SPAN> as
+    <SPAN style="font-style: italic;">HOT_CHP1</SPAN> does to <SPAN style="font-style: italic;">HOT_CHP</SPAN>. See <SPAN style="font-style: italic;">HOT_CHP1</SPAN>.
+    
+    
+<H3>NOTE:</H3>
+
+<P>
+    Versions of the Hotkey System pre v2.21 do not allow you to
+    pass a command string.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsH.html#HOT_LOAD">HOT_LOAD</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="HOT_NAME$" id="HOT_NAME$"></A>HOT_NAME$</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">HOT_NAME$ (key$)<BR></SPAN> Location: <SPAN style="font-style: italic;">HOTKEY II<BR></SPAN>
+    The function <SPAN style="font-style: italic;">HOT_NAME$</SPAN> returns the name of the Thing or the
+    string associated with the specified hotkey. A null string is
+    returned if the hotkey is not defined.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">ERT HOT_RES ('/',flp2_Qram):
+    
+    ERT HOT_KEY ('s','Yours Sincerely','')
+    
+    HOT_GO
+    
+    PRINT HOT_NAME$ ('/') , HOT_NAME$('s')<BR></SPAN>
+    will show the following:
+    
+    Qram Yours Sincerely
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsH.html#HOT_LIST">HOT_LIST</A> will list details about all currently defined
+    hotkeys, <A style="font-style: italic;" href="KeywordsH.html#HOT_TYPE">HOT_TYPE</A> allows you to verify the type of hotkey
+    defined.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="HOT_OFF" id="HOT_OFF"></A>HOT_OFF</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">HOT_OFF (key$)<BR></SPAN>
+    or <SPAN style="font-style: italic;">HOT_OFF (Thingname$)<BR></SPAN> Location: <SPAN style="font-style: italic;">HOTKEY II<BR></SPAN>
+    The <SPAN style="font-style: italic;">HOT_OFF</SPAN> function allows you to turn off an individual
+    hotkey by either specifying the hotkey itself, or the name of
+    the Thing accessed by using the hotkey, if the second variant
+    is used (if there are two hotkeys which access the same Thing,
+    the first hotkey alphabetically will be turned off). The
+    second variant even allows you to pass the string or command
+    used by <SPAN style="font-style: italic;">HOT_KEY</SPAN> or <SPAN style="font-style: italic;">HOT_CMD</SPAN>, although this is a somewhat dubious
+    method of doing this!!
+    
+    Even though the hotkey has been turned off, it will still
+    appear in the hotkey list (see <SPAN style="font-style: italic;">HOT_LIST</SPAN>), although pressing the
+    hotkey will have no effect.
+    
+    
+<H3>NOTE :</H3>
+
+<P>
+    If the hotkey or <SPAN style="font-style: italic;">Thingname</SPAN> cannot be found, the function will
+    return -7.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">HOT_OFF ('p')</SPAN> will turn off the &lt;ALT&gt;
+    
+<P>hotkey, eg. if this is
+    
+    used by a program as a command.
+    
+    <SPAN style="font-style: italic;">HOT_SET ('p')</SPAN> will turn it back on.
+    <BR></P>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsH.html#HOT_SET">HOT_SET</A> will turn the hotkey back on again.
+    
+    <A style="font-style: italic;" href="KeywordsH.html#HOT_REMV">HOT_REMV</A> will remove the hotkey definition for good.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="HOT_PICK" id="HOT_PICK"></A>HOT_PICK</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">HOT_PICK (key$, JobName$)<BR></SPAN> Location: <SPAN style="font-style: italic;">HOTKEY II<BR></SPAN>
+    The function <SPAN style="font-style: italic;">HOT_PICK</SPAN> is used to specify a hotkey to Pick a
+    job of a specified name whenever that <SPAN style="font-style: italic;">key</SPAN> is pressed together
+    with &lt;ALT&gt;. In effect, whenever the hotkey is pressed, the
+    specified program will be brought to the top of the pile,
+    allowing you to continue work on it.
+    
+    The Job Name given need only be the first word contained in
+    the name shown when you use the <SPAN style="font-style: italic;">JOBS</SPAN> command, therefore meaning
+    that Job names can be as descriptive as you like!
+    
+    If the specified Job is not present in memory when you
+    press the hotkey, a warning beep will be sounded.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">ERT HOT_PICK('p','Perfection')<BR></SPAN>
+    will set up a hotkey which will allow you to jump straight
+    
+    into Perfection from any other program (provided that
+    
+    Perfection is in memory), just by pressing &lt;ALT&gt;
+    
+<P>.
+    <BR></P>
+    
+<H3>NOTE:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">HOT_PICK</SPAN> up to v1.22 gave problems on the ST Emulators.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsE.html#EXEP">EXEP</A>, <A style="font-style: italic;" href="KeywordsH.html#HOT_LOAD">HOT_LOAD</A>, <A style="font-style: italic;" href="KeywordsH.html#HOT_CHP">HOT_CHP</A> and <A style="font-style: italic;" href="KeywordsH.html#HOT_RES">HOT_RES</A> all allow you to alter the Job
+    Name of a program as it is loaded.
+    
+    Compare <A style="font-style: italic;" href="KeywordsH.html#HOT_WAKE">HOT_WAKE</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="HOT_REMV" id="HOT_REMV"></A>HOT_REMV</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">HOT_REMV (key$)<BR></SPAN>
+    or <SPAN style="font-style: italic;">HOT_REMV (Thingname$)<BR></SPAN> Location: <SPAN style="font-style: italic;">HOTKEY II<BR></SPAN>
+    The <SPAN style="font-style: italic;">HOT_REMV</SPAN> function allows you to remove the hotkey
+    definition associated with the specified key or, if you
+    prefer, the hotkey associated with the specified Thing. If the
+    hotkey refers to a program which has been loaded into the
+    common heap (eg. with <SPAN style="font-style: italic;">HOT_CHP</SPAN>), then this area of the common heap
+    will also be released.
+    
+    
+<H3>NOTE:</H3>
+
+<P>
+    Prior to v2.26 of the Hotkey System 2, if <SPAN style="font-style: italic;">key$</SPAN> was an
+    uppercase letter, then any hotkey associated with the
+    lowercase letter would also be removed.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsH.html#HOT_OFF">HOT_OFF</A> for further details.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="HOT_RES" id="HOT_RES"></A>HOT_RES</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">HOT_RES (key$,filename</SPAN> [<SPAN style="font-style: italic;">;cmd$</SPAN>] [<SPAN style="font-style: italic;">,JobName$</SPAN>] [<SPAN style="font-style: italic;">,options</SPAN>] <SPAN style="font-style: italic;">)<BR></SPAN> Location: <SPAN style="font-style: italic;">HOTKEY II<BR></SPAN>
+    This function is the same as <SPAN style="font-style: italic;">HOT_CHP</SPAN> except that the program
+    is loaded into the resident procedure area, and cannot
+    therefore be removed in the future. If the resident procedure
+    area cannot be accessed (ie. if a task is already being
+    executed), this function will access the common heap.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsH.html#HOT_CHP">HOT_CHP</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="HOT_RES1" id="HOT_RES1"></A>HOT_RES1</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">HOT_RES1 (key$,filename</SPAN> [<SPAN style="font-style: italic;">;cmd$</SPAN>] [<SPAN style="font-style: italic;">,Jobname$</SPAN>] [<SPAN style="font-style: italic;">,options</SPAN>] <SPAN style="font-style: italic;">)<BR></SPAN>
+    or <SPAN style="font-style: italic;">HOT_RES1 (key$,filename</SPAN> [<SPAN style="font-style: italic;">;cmd$</SPAN>] <SPAN style="font-style: italic;">!Wakename$</SPAN> [<SPAN style="font-style: italic;">,options</SPAN>] <SPAN style="font-style: italic;">)<BR></SPAN> Location: <SPAN style="font-style: italic;">HOTKEY II<BR></SPAN>
+    <SPAN style="font-style: italic;">HOT_RES1</SPAN> is the same as <SPAN style="font-style: italic;">HOT_CHP1</SPAN> except that the program is
+    loaded into the resident procedure area. If this cannot be
+    accessed for any reason, the common heap will be used.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsH.html#HOT_RES">HOT_RES</A> and <A style="font-style: italic;" href="KeywordsH.html#HOT_CHP1">HOT_CHP1</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="HOT_SET" id="HOT_SET"></A>HOT_SET</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">HOT_SET (key$)<BR></SPAN>
+    or <SPAN style="font-style: italic;">HOT_SET (Thingname$)<BR></SPAN>
+    or <SPAN style="font-style: italic;">HOT_SET (newkey$,oldkey$)<BR></SPAN>
+    or <SPAN style="font-style: italic;">HOT_SET (newkey$,oldThingname$)<BR></SPAN> Location: <SPAN style="font-style: italic;">HOTKEY II<BR></SPAN>
+    The first two variants of this function are the opposite to
+    <SPAN style="font-style: italic;">HOT_OFF</SPAN> in that they re-activate the specified hotkey. If the
+    specified hotkey does not exist, the value -7 will be
+    returned.
+    
+    By contrast, the second two variants allow you to re-define
+    a hotkey by assigning a new key which is to replace the old
+    key press. If the specified new hotkey already exists, -9 will
+    be returned, and if the old hotkey cannot be found, the value
+    -7 will be returned.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">10 ERT HOT_CHP ('p','flp1_Perfection')
+    
+    20 HOT_GO
+    
+    30 ERT HOT_SET ('L','p')
+    
+    40 ERT HOT_WAKE ('p','Pick')<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsH.html#HOT_OFF">HOT_OFF</A> and <A style="font-style: italic;" href="KeywordsH.html#HOT_KEY">HOT_KEY</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="HOT_STOP" id="HOT_STOP"></A>HOT_STOP</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">HOT_STOP<BR></SPAN> Location: <SPAN style="font-style: italic;">HOTKEY II<BR></SPAN>
+    See <SPAN style="font-style: italic;">HOT_GO</SPAN>!
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="HOT_STUFF" id="HOT_STUFF"></A>HOT_STUFF</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">HOT_STUFF string$<BR></SPAN> Location: <SPAN style="font-style: italic;">HOTKEY II<BR></SPAN>
+    The Hotkey System II allows you to pass information to a
+    program by using an area of memory known as the Hotkey Stuffer
+    Buffer. The contents of this buffer can be placed into the
+    current keyboard queue by pressing &lt;ALT&gt;&lt;SPACE&gt; to read the
+    last item to have been placed into the Stuffer Buffer, or
+    &lt;ALT&gt;&lt;SHIFT&gt;&lt;SPACE&gt; to read the previous item to have been
+    placed in the Stuffer Buffer. The keys used to recall the
+    Stuffer Buffers can be configured by using the program CONFIG
+    on the file HOT_REXT.
+    
+    Each item can by default be a maximum of 512 characters
+    long (although this can be configured from between 128 and
+    16384 characters if you wish). Note that two of the characters
+    are used to store the length of the Stuffer Buffer and must
+    therefore be deducted from this setting.
+    
+    The command <SPAN style="font-style: italic;">HOT_STUFF</SPAN> allows you to place the specified
+    <SPAN style="font-style: italic;">string$</SPAN> into the Stuffer Buffer so that it may be read by other
+    programs. If the Stuffer Buffer was previously empty, both
+    &lt;ALT&gt;&lt;SPACE&gt; and &lt;ALT&gt;&lt;SHIFT&gt; &lt;SPACE&gt; will return the same,
+    however, if something was already in the Stuffer Buffer, this
+    will be read by &lt;ALT&gt;&lt;SHIFT&gt;&lt;SPACE&gt;, and the new entry as
+    &lt;ALT&gt;&lt;SPACE&gt;.
+    
+    
+<H3>Examples:</H3>
+
+<P>
+    (1) place an address in the Stuffer Buffer:
+    <SPAN style="font-style: italic;">HOT_STUFF '10 Hardacre Way'&amp;CHR$(10)&amp;'Hardacre'&amp;CHR$(10)&amp;'Newcastle'<BR></SPAN>
+    (2) presuming an empty Stuffer Buffer, after:
+    <SPAN style="font-style: italic;">HOT_STUFF 'DIR flp1_'<BR></SPAN>
+    the Stuffer Buffer would look like this:
+    
+    &lt;ALT&gt;&lt;SHIFT&gt;&lt;SPACE&gt; --- DIR flp1_
+    
+    &lt;ALT&gt;&lt;SPACE&gt; --- DIR flp1_
+    
+    If you then use:
+    <SPAN style="font-style: italic;">HOT_STUFF 'DIR flp2_'<BR></SPAN>
+    the Stuffer Buffer would look like this:
+    
+    &lt;ALT&gt;&lt;SHIFT&gt;&lt;SPACE&gt; --- DIR flp1_
+    
+    &lt;ALT&gt;&lt;SPACE&gt; --- DIR flp2_
+    
+    
+<H3>NOTE:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">HOT_STUFF ""</SPAN> caused various problems until SMS v2.73 - see
+    <SPAN style="font-style: italic;">GET_STUFF$</SPAN>. It could even crash compiled programs!!
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsG.html#GET_STUFF$">GET_STUFF$</A> allows a program to read the contents of the
+    Stuffer Buffer.
+    <A href="KeywordsH.html#HOT_LIST">HOT_LIST</A> will allow you to see the contents of the Stuffer
+    Buffer.
+    
+    <A style="font-style: italic;" href="KeywordsH.html#HOT_GO">HOT_GO</A> is required before &lt;ALT&gt;&lt;SPACE&gt; or &lt;ALT&gt;&lt;SHIFT&gt;
+    &lt;SPACE&gt; will work!
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="HOT_THING" id="HOT_THING"></A>HOT_THING</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">HOT_THING (key$,Thingname$</SPAN> [<SPAN style="font-style: italic;">;cmd$</SPAN>] [<SPAN style="font-style: italic;">,Jobname$</SPAN>] <SPAN style="font-style: italic;">)<BR></SPAN> Location: <SPAN style="font-style: italic;">HOTKEY II<BR></SPAN>
+    The function <SPAN style="font-style: italic;">HOT_THING</SPAN> allows you to define a hotkey which
+    will start up a new copy of an Executable Thing whenever the
+    hotkey is pressed (if the Thing is present at that stage). You
+    can pass a command string to the Executable Thing and even
+    change the name of the Job which will be created by passing
+    <SPAN style="font-style: italic;">Jobname$</SPAN>.
+    
+    More and more utilities are being written for QDOS which
+    are set-up as Executable Things (for example, most of the
+    menus provided by QPAC2 are in fact Executable Things), which
+    is a means of providing various resources which a program can
+    make use of (if they are present). Executable Things can be
+    seen as an executable program stored in memory, several copies
+    of which can be started up at any time, but the same piece of
+    machine code will be used by all of the copies, meaning that
+    very little memory is required for each additional copy.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">ERT HOT_CHP('p',flp1_Perfection,'Perfection WP')
+    
+    ERT HOT_THING('P','Perfection WP')<BR></SPAN>
+    Both &lt;ALT&gt;
+    
+<P>and &lt;ALT&gt;&lt;P&gt; will now have the same effect.
+    <BR></P>
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">Thingname$</SPAN> should contain the full name of the Thing,
+    otherwise it will not be recognised.
+    
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    Verions of the Hotkey System pre v2.21 do not allow you to
+    pass a command string. You also need v2.24+ to pass a job
+    name.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsH.html#HOT_CHP">HOT_CHP</A> and <A style="font-style: italic;" href="KeywordsH.html#HOT_RES">HOT_RES</A> turn a file into an Executable Thing. <A style="font-style: italic;" href="KeywordsT.html#THING">THING</A> allows you to test if a Thing is present.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="HOT_THING1" id="HOT_THING1"></A>HOT_THING1</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">HOT_THING1 (key$,Jobname$</SPAN> [<SPAN style="font-style: italic;">;cmd$</SPAN>] [<SPAN style="font-style: italic;">,Jobname$</SPAN>]<SPAN style="font-style: italic;">)<BR></SPAN>
+    or <SPAN style="font-style: italic;">HOT_THING1 (key$,Jobname$</SPAN> [<SPAN style="font-style: italic;">;cmd$</SPAN>] <SPAN style="font-style: italic;">!Wakename$)<BR></SPAN> Location: <SPAN style="font-style: italic;">SMSQ/E v2.50+<BR></SPAN>
+    This command is exactly the same as <SPAN style="font-style: italic;">HOT_WAKE</SPAN>.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See<A style="font-style: italic;" href="KeywordsH.html#HOT_WAKE!">HOT_WAKE!</A>
+    
+<H3></H3>
+
+<P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="HOT_TYPE" id="HOT_TYPE"></A>HOT_TYPE</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">HOT_TYPE (key$)<BR></SPAN> Location: <SPAN style="font-style: italic;">HOTKEY II<BR></SPAN>
+    This function is useful to find out the type of hotkey
+    associated with the specified keypress. The values returned by
+    <SPAN style="font-style: italic;">HOT_TYPE</SPAN> are as follows:
+    
+    -8Hotkey for Last line recall
+    
+    -6Hotkey for recall previous Stuffer Buffer
+    
+    -4Hotkey for recall current Stuffer Buffer
+    (<SPAN style="font-style: italic;">HOT_STUFF</SPAN>)
+    
+    -2Hotkey stuffs a defined string into the keyboard
+    queue (<SPAN style="font-style: italic;">HOT_KEY</SPAN>)
+    
+    0Hotkey PICKS SuperBasic and stuffs a command into
+    #0 (<SPAN style="font-style: italic;">HOT_CMD</SPAN>)
+    
+    2Hotkey DOES code
+    
+    4/5Hotkey executes a Thing (<SPAN style="font-style: italic;">HOT_THING</SPAN>,<SPAN style="font-style: italic;">HOT_RES</SPAN>,<SPAN style="font-style: italic;">HOT_CHP</SPAN>)
+    
+    6Hotkey executes a File (<SPAN style="font-style: italic;">HOT_LOAD</SPAN>)
+    
+    8Hotkey PICKS a Job (<SPAN style="font-style: italic;">HOT_PICK</SPAN>)
+    
+    10/11Hotkey WAKES or executes a Thing (<SPAN style="font-style: italic;">HOT_WAKE</SPAN>, <SPAN style="font-style: italic;">HOT_RES1</SPAN>,
+    <SPAN style="font-style: italic;">HOT_CHP1</SPAN>)
+    
+    12Hotkey WAKES or executes a File (<SPAN style="font-style: italic;">HOT_LOAD1</SPAN>)
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsH.html#HOT_NAME$">HOT_NAME$</A> returns the name of the Thing or the string being
+    accessed.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="HOT_WAKE" id="HOT_WAKE"></A>HOT_WAKE</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">HOT_WAKE (key$,Jobname$</SPAN> [<SPAN style="font-style: italic;">;cmd$</SPAN>] [<SPAN style="font-style: italic;">,Jobname$</SPAN>]<SPAN style="font-style: italic;">)<BR></SPAN>
+    or <SPAN style="font-style: italic;">HOT_WAKE (key$,Jobname$</SPAN> [<SPAN style="font-style: italic;">;cmd$</SPAN>] <SPAN style="font-style: italic;">!Wakename$)<BR></SPAN> Location: <SPAN style="font-style: italic;">HOTKEY II<BR></SPAN>
+    Many programs which have been written to use the Pointer
+    Environment will recognise what is known as a WAKE event -
+    this defines something that the program should do once control
+    is returned to the program, for example, updating its tables.
+    Whereas PICKing a job merely brings it to the top of the pile
+    ready for use, when you WAKE a job, not only is it brought to
+    the top of the pile, but also a WAKE event is executed (if
+    supported). You should therefore WAKE any program which
+    provides information on the current state of the computer or
+    SuperBasic program for example.
+    
+    The function <SPAN style="font-style: italic;">HOT_WAKE</SPAN> allows you to set up a hotkey which
+    will Wake the specified <SPAN style="font-style: italic;">Jobname$</SPAN> if a copy of the program is
+    already being executed. However, if there is not already a
+    copy of the specified Job being executed, the hotkey will then
+    look for an Executable Thing with the same name as <SPAN style="font-style: italic;">Jobname$<BR></SPAN> (which should therefore be specified in full), which, if
+    found, will be executed by the hotkey, creating a new copy of
+    the program.
+    
+    As with the other hotkey commands, a command string can be
+    passed to the program when it is executed (this will be
+    ignored if the program is merely woken).
+    
+    As with <SPAN style="font-style: italic;">HOT_CHP1</SPAN>, <SPAN style="font-style: italic;">HOT_RES1</SPAN> and <SPAN style="font-style: italic;">HOT_LOAD1</SPAN>, you can specify a
+    <SPAN style="font-style: italic;">Wakename$</SPAN> which allows you to use the Hotkey to access two jobs,
+    if at least the first Job (or Executable thing) exists then
+    the Hotkey will do one of two things:
+    
+    -If there is a current job called <SPAN style="font-style: italic;">Wakename$</SPAN>, then this will
+    be Woken.
+    
+    -Otherwise, the first Job (or Executable Thing) will be
+    Woken if it exists (or otherwise will be started up).
+    
+    <SPAN style="font-style: italic;">HOT_WAKE</SPAN> is ideally suited for programs where you would not
+    want more than one copy to be executed at any one time (eg. a
+    calendar program).
+    
+    
+<H3>Example:</H3>
+
+<P>
+    Some users prefer to be able to have a choice between
+    
+    either Waking an existing copy of a program (or executing
+    
+    the first copy) and loading another copy of the program at
+    
+    a later stage. This can be achieved, for example, with:
+    <SPAN style="font-style: italic;">ERT HOT_RES ('Q',flp1_QUILL,'QUILL')
+    ERT HOT_WAKE ('q','QUILL')<BR></SPAN>
+    
+<H3>NOTE:</H3>
+
+<P>
+    Verions of the Hotkey System pre v2.21 do not allow you to
+    pass a command string. You also need v2.24+ to pass a job
+    name.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsH.html#HOT_PICK">HOT_PICK</A> allows you to define a hotkey to PICK an existing
+    
+    Job.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="HPUT" id="HPUT"></A>HPUT</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">HPUT [#ch] length [ , access [, type [, dataspace [, extra</SPAN> ]]]] Location: <SPAN style="font-style: italic;">SMSQ/E<BR></SPAN>
+    This command allows you to set the various parameters which
+    are contained in the header of the file attached to the
+    specified channel (default #3). The command will use the
+    supplied parameters to set the required information.
+    
+    If the specified channel is not open to a file, then an
+    Invalid Parameter error is reported.
+    
+    The information which can be set is as per <SPAN style="font-style: italic;">HGET</SPAN>.
+    
+    
+<H3>NOTE:</H3>
+
+<P>
+    You will not be able to compile this command with Turbo or
+    SuperCharge due to the fact that it alters its own parameters.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsH.html#HGET">HGET</A> reads the file header information.
+    
+    See <A style="font-style: italic;" href="KeywordsF.html#FGETH$">FGETH$</A> for information about the file header.
+    
+    See also <A style="font-style: italic;" href="KeywordsH.html#HEADS">HEADS</A> and <A style="font-style: italic;" href="KeywordsS.html#SetHEAD">SetHEAD</A>.
+</BODY>
+</HTML>

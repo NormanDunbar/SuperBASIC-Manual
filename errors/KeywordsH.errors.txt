@@ -1,0 +1,49 @@
+line 22 column 13 - Warning: discarding unexpected </hr>
+line 50 column 13 - Warning: discarding unexpected </hr>
+line 123 column 113 - Warning: <decimal> attribute "2^31" lacks value
+line 123 column 113 - Warning: <decimal> missing '>' for end of tag
+line 123 column 113 - Error: <decimal> is not recognized!
+line 123 column 113 - Warning: discarding unexpected <decimal>
+line 263 column 123 - Warning: <a> discarding newline in URI reference
+line 447 column 75 - Error: <d> is not recognized!
+line 447 column 75 - Warning: discarding unexpected <d>
+line 468 column 25 - Error: <key> is not recognized!
+line 468 column 25 - Warning: discarding unexpected <key>
+line 478 column 33 - Error: <f> is not recognized!
+line 478 column 33 - Warning: discarding unexpected <f>
+line 750 column 66 - Warning: unescaped & or unknown entity "&CHR"
+line 750 column 75 - Warning: unescaped & which should be written as &amp;
+line 750 column 86 - Warning: unescaped & or unknown entity "&CHR"
+line 750 column 95 - Warning: unescaped & which should be written as &amp;
+line 800 column 230 - Warning: <a> discarding newline in URI reference
+line 809 column 45 - Warning: <a> discarding newline in URI reference
+line 110 column 5 - Warning: <a> escaping malformed URI reference
+line 110 column 95 - Warning: <a> escaping malformed URI reference
+line 2 column 1 - Warning: <html> proprietary attribute "xmlns:v"
+Info: Doctype given is "-//W3C//DTD HTML 4.0 Transitional//EN"
+Info: Document content looks like HTML 4.01 Strict
+Info: No system identifier in emitted doctype
+Tidy found 18 warnings and 4 errors!
+
+This document has errors that must be fixed before
+using HTML Tidy to generate a tidied up version.
+
+URIs must be properly escaped, they must not contain unescaped
+characters below U+0021 including the space character and not
+above U+007E. Tidy escapes the URI for you as recommended by
+HTML 4.01 section B.2.1 and XML 1.0 section 4.2.2. Some user agents
+use another algorithm to escape such URIs and some server-sided
+scripts depend on that. If you want to depend on that, you must
+escape the URI on your own. For more information please refer to
+http://www.w3.org/International/O-URL-and-ident.html
+
+About HTML Tidy: https://github.com/htacg/tidy-html5
+Bug reports and comments: https://github.com/htacg/tidy-html5/issues
+Official mailing list: https://lists.w3.org/Archives/Public/public-htacg/
+Latest HTML specification: http://dev.w3.org/html5/spec-author-view/
+Validate your HTML documents: http://validator.w3.org/nu/
+Lobby your company to join the W3C: http://www.w3.org/Consortium
+
+Do you speak a language other than English, or a different variant of 
+English? Consider helping us to localize HTML Tidy. For details please see 
+https://github.com/htacg/tidy-html5/blob/master/README/LOCALIZE.md
