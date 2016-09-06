@@ -1,0 +1,1255 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html xmlns:v="urn:schemas-microsoft-com:vml">
+  <head>
+    <meta http-equiv="content-type" content="text/html;
+      charset=ISO-8859-1">
+    <link rel="stylesheet" type="text/css" href="css/QLManualStyle.css" media="all" />
+    <title>Sinclair QL SuperBASIC/SBASIC Reference Manual - Keywords I</title>
+</head>
+<body>
+<div id="header">
+  SBASIC/SuperBASIC Reference Manual Online (c) RWAP Software
+  <br />
+  The Online Guide to programming the Sinclair QL Home Computer in SuperBASIC
+</div>
+<div id="sideBar">
+    <ul>
+        <li><a href="Foreword.html">Foreword</a></li>
+        <li><a href="Introduction.html">Introduction</a></li>
+        <li><a href="Credits.html">Credits</a></li>        
+        <li><a href="Structure.html">Structure</a></li>
+        <li><a href="WritingPrograms.html">Writing Programs</a></li>
+        <hr></hr>
+        <li><a href="KeywordsA.html">Keywords - A</a></li>
+        <li><a href="KeywordsB.html">Keywords - B</a></li>
+        <li><a href="KeywordsC.html">Keywords - C</a></li>
+        <li><a href="KeywordsD.html">Keywords - D</a></li>
+        <li><a href="KeywordsE.html">Keywords - E</a></li>
+        <li><a href="KeywordsF.html">Keywords - F</a></li>
+        <li><a href="KeywordsG.html">Keywords - G</a></li>
+        <li><a href="KeywordsH.html">Keywords - H</a></li>
+        <li><a href="KeywordsI.html">Keywords - I</a></li>
+        <li><a href="KeywordsJ.html">Keywords - J</a></li>
+        <li><a href="KeywordsK.html">Keywords - K</a></li>
+        <li><a href="KeywordsL.html">Keywords - L</a></li>
+        <li><a href="KeywordsM.html">Keywords - M</a></li>
+        <li><a href="KeywordsN.html">Keywords - N</a></li>
+        <li><a href="KeywordsO.html">Keywords - O</a></li>
+        <li><a href="KeywordsP.html">Keywords - P</a></li>
+        <li><a href="KeywordsQ.html">Keywords - Q</a></li>
+        <li><a href="KeywordsR.html">Keywords - R</a></li>
+        <li><a href="KeywordsS.html">Keywords - S</a></li>
+        <li><a href="KeywordsT.html">Keywords - T</a></li>
+        <li><a href="KeywordsU.html">Keywords - U</a></li>
+        <li><a href="KeywordsV.html">Keywords - V</a></li>
+        <li><a href="KeywordsW.html">Keywords - W</a></li>
+        <li><a href="KeywordsX.html">Keywords - X</a></li>
+        <li><a href="KeywordsY.html">Keywords - Y</a></li>
+        <li><a href="KeywordsZ.html">Keywords - Z</a></li>
+        <li><a href="Keywords_.html">Keywords - Other</a></li>
+        <hr></hr>
+        <li><a href="AppendicesIntro.html">Appendices Introduction</a></li>
+        <li><a href="Appendix01.html">Appendix 1 - Minerva</a></li>
+        <li><a href="Appendix02.html">Appendix 2 - SMSQE</a></li>
+        <li><a href="Appendix03.html">Appendix 3 - Emulators</a></li>
+        <li><a href="Appendix04.html">Appendix 4 - THOR Computers</a></li>
+        <li><a href="Appendix05.html">Appendix 5 - Expansion Boards</a></li>
+        <li><a href="Appendix06.html">Appendix 6 - Compatability</a></li>
+        <li><a href="Appendix07.html">Appendix 7 - Multiple BASICs</a></li>
+        <li><a href="Appendix08.html">Appendix 8 - Error Messages</a></li>
+        <li><a href="Appendix09.html">Appendix 9 - Character Set / Keyboard</a></li>
+        <li><a href="Appendix10.html">Appendix 10 - Fonts</a></li>
+        <li><a href="Appendix11.html">Appendix 11 - Mathematics</a></li>
+        <li><a href="Appendix12.html">Appendix 12 - Device Drivers</a></li>
+        <li><a href="Appendix13.html">Appendix 13 - Extended Pointer Environment</a></li>
+        <li><a href="Appendix14.html">Appendix 14 - Coercion</a></li>
+        <li><a href="Appendix15.html">Appendix 15 - Mouse Drivers</a></li>
+        <li><a href="Appendix16.html">Appendix 16 - The QL Display</a></li>
+        <li><a href="Appendix17.html">Appendix 17 - Networks</a></li>
+        <li><a href="Appendix18.html">Appendix 18 - Configuring Programs</a></li>
+    </ul>
+</div>
+<div id="mainText">
+<h1><a name="I2C_IO"></a>I2C_IO</h1><br>Syntax: <span style="font-style: italic;">I2C_IO (cmd$, res_len </span>[<span style="font-style: italic;">,device </span>[<span style="font-style: italic;">,param </span>]]<span style="font-style: italic;"> )
+<br></span>Location: <span style="font-style: italic;">Minerva extensions
+<br></span><br>The Minerva MKII operating system comes complete with a
+<br>battery backed clock and a small amount of on-board RAM (256
+<br>bytes) which can be used to store various details whilst a
+<br>machine is switched off, using some of those details to
+<br>dictate the state of the machine when it is first switched on
+<br>(or re-set).  An on-board serial bus is also included which
+<br>can be used to link add-on interfaces and can transfer data at
+<br>speeds up to 100kbits / second.  Interfaces currently exist to
+<br>allow the QL to drive motors (up to 4 amps), relay switches
+<br>(up to 3 amps) and an Analogue to Digital converter.
+<br><br>This function allows you to access the battery backed
+<br>clock, RAM and other interfaces provided by Minerva MKII,
+<br>through what is known as the I<sup>2</sup>C bus.  The results of the
+<br>function will be returned by way of a string.
+<br><br>The <span style="font-style: italic;">cmd$</span> should contain a series of bytes which are sent to
+<br>the I<sup>2</sup>C bus to be sent to the device pointed to by the other
+<br>parameters.  This is normally a byte which represents a
+<br>command, followed by the parameters for that command.
+<br><br>For the battery backed clock and RAM supplied with Minerva
+<br>MKII, there are only three commands which are required:
+<br><br>CHR$(164) -Write <span style="font-style: italic;">param</span> bytes to the specified <span style="font-style: italic;">device</span>.
+<br><br>The first byte to be written should in
+<br><br>fact be the memory address to write to.
+<br><span style="font-style: italic;"><br>param</span>  can  be  altered  by  preceding  the
+<br><br>command character in the <span style="font-style: italic;">cmd$</span> by the number
+<br><br>of      bytes      to      write      (eg.
+<br><span style="font-style: italic;"><br>CMD$=CHR$(6)&CHR$(164)&CHR$(36)&'HELLO'</span> will write the
+<br><br>string 'HELLO' to memory address 36 in the
+<br><br>RAM).
+<br><br>If you only use this to write one byte,
+<br><br>then  this  will  merely  set  the  memory
+<br><br>address for access by further Write or
+<br><br>Read commands.
+<br><br>CHR$(188) -Read  <span style="font-style: italic;">param</span>  bytes  from  the  specified
+<br><br><span style="font-style: italic;">device</span>.    Again,  you  can  precede  this
+<br><br>command character by the number of bytes
+<br><br>to be read if you wish.  The bytes which
+<br><br>are read will be returned as the resultant
+<br><br>string.
+<br><br>CHR$(255) -This signifies the end of the command
+<br><br>string.
+<br><br>The other parameters allowed by the function are:
+<br><br><span style="font-style: italic;">res_len</span> signifies the expected length of the return string ,
+<br>which must not be too short!!
+<br><br><span style="font-style: italic;">Device</span> signifies which device is to be accessed.  The value
+<br>80 is used to access the battery backed RAM.
+<br><br><span style="font-style: italic;">Param</span> depends upon the command being sent via <span style="font-style: italic;">cmd$</span>.
+<br><br>The on-board RAM is allocated as follows:
+<br><br><h3>BytesMeaning
+<br></h3><br>0-15Reserved for the clock and other things
+<br><br>set by the configuration program.
+<br><br>16-19QDOS version number (if this is different
+<br><br>to the string returned by <span style="font-style: italic;">VER$</span>, then the
+<br><br>rest of the configuration data stored in
+<br><br>the RAM will be ignored).
+<br><br>20-23Warm reset value (as per <span style="font-style: italic;">CALL 390</span>) to be used
+<br><br>when the QL is re-booted.
+<br><br>24-25year*2+month DIV 10 (do not amend!)
+<br><br>26-27copy of locations 22 and 23 - this is used
+<br><br>to reset the system if the the values in
+<br><br>locations 20-23 do not make any real sense
+<br><br>(do not amend)
+<br><br>28-29Each bit in these two locations can be set
+<br><br>to disable up to 16 plug-in ROMs linked to
+<br><br>the QL (bit 7 of location 28 represents
+<br><br>the ROM which appears at the top of the
+<br><br>F1...F2 screen when the QL is reset, bit 6
+<br><br>represents the second ROM and so on).
+<br><br>30NET station number
+<br><br>31System   Enhancements   (equivalent   to
+<br><br><span style="font-style: italic;">POKE !124!49,x</span>)
+<br><br>32SuperBasic  Enhancements  (equivalent  to
+<br><br><span style="font-style: italic;">POKE \\212,x</span>)
+<br><br>33-34(RESERVED)
+<br><br>35Length of boot string (0 to 128)
+<br><br>36-163Boot string or user area
+<br><br>164-251(RESERVED)
+<br><br>252SER1 device (see below)
+<br><br>253SER2 device (see below)
+<br><br>254PAR device (see below)
+<br><br>255(RESERVED)
+<br><br>The bytes contained in locations 252 - 254 are intended for
+<br>use by  programs  to  find  out if  printers  or  modems  are
+<br>connected and what type they are.  The values currently
+<br>supported are:-
+<br><br>0Nothing connected to this port
+<br><br>1-23Printer type (as per <span style="font-style: italic;">SDUMP</span> command)
+<br><br>253Tandata Modem
+<br><br>254Astracom 'Native' Modem
+<br><br>255Astracom Hayes-Compatible Modem
+<br><br><h3>Example:
+<br></h3><br>You can use this command to make the QL always start up by
+<br><br>loading a specified program:
+<br><span style="font-style: italic;">startup$=CHR$(232)&'LRUN win1_ROUTE_boot'&CHR$(10)
+<br>command$=CHR$(164) & CHR$(35) & CHR$ (LEN (startup$)) & startup$ & CHR$ (255)
+<br>PRINT IC2_IO (command$, 0, 80, LEN (startup$) +1)
+<br></span><br><h3>CROSS-REFERENCE:<br></h3><br>Some expansion boards have their own in-built battery
+<br>backed clock, which may need to be protected from programs
+<br>which re-set the system clock for their own purposes using
+<br><a style="font-style: italic;" href="KeywordsS.html#SDATE">SDATE</a>.  See <a style="font-style: italic;" href="KeywordsP.html#PROT_DATE">PROT_DATE</a>.
+<br><br>Because Minerva MKII's battery backed clock is read through
+<br>the I<sup>2</sup>C bus, it cannot be affected by programs, unless you
+<br>abuse the <a style="font-style: italic;" href="KeywordsI.html#IC2_IO">IC2_IO</a> function!!
+<br><hr style="width: 100%; height: 2px;"><h1><a name="IDEC$"></a>IDEC$</h1><br>Syntax: <span style="font-style: italic;">IDEC$ (value,length,ndp)
+<br></span>Location: <span style="font-style: italic;">Toolkit II, THOR XVI
+<br></span><br>This function is exactly the same as <span style="font-style: italic;">CDEC$</span> except that it
+<br><br>does not place commas between the characters to the left of
+<br><br>the decimal point.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsC.html#CDEC$">CDEC$</a>!
+<br><hr style="width: 100%; height: 2px;"><h1><a name="IF"></a>IF</h1><br>Syntax: <span style="font-style: italic;">IF condition</span> .....
+Location: <span style="font-style: italic;">QL ROM
+<br></span><br>This command is used to mark the start of yet another
+<br>powerful  SuperBASIC  structure  which  allows  a  program  to
+<br>perform various functions dependent upon the status of a
+<br><span style="font-style: italic;">condition</span>. The <span style="font-style: italic;">condition</span> will always be interpreted as having either
+<br>the value 1 (true) or 0 (false), using boolean logic if
+<br>necessary. Such conditions may be simple, such as x=2 or
+<br>complex, as in <span style="font-style: italic;">x=3 AND (y=1 OR y=2)</span>.
+<br><br>There are actually two forms of the SuperBASIC structure:
+<br><span style="font-style: italic;">IF condition </span>{<span style="font-style: italic;">THEN </span>|<span style="font-style: italic;"> :</span>}<span style="font-style: italic;"> statement </span><sup>*</sup>[<span style="font-style: italic;">:statement</span>]<sup>*</sup> [<span style="font-style: italic;">:ELSE statement  </span><sup>*</sup>[<span style="font-style: italic;">:statement</span>]<sup>*</sup>]
+<br><br>, or
+<br><br><span style="font-style: italic;">IF condition </span>[{<span style="font-style: italic;">THEN </span>|<span style="font-style: italic;"> :</span>}]
+<br><br><sup>*</sup>[<span style="font-style: italic;">:statement</span>]<sup>*
+<br></sup><br>...
+<br><br>[<span style="font-style: italic;">ELSE</span>]
+<br><br><sup>*</sup>[<span style="font-style: italic;">:statement</span>]<sup>*
+<br></sup><br>...
+<br><br><span style="font-style: italic;">END IF
+<br></span><br>The first syntax represents in-line code, and the keyword
+<br><span style="font-style: italic;">THEN</span> can either appear or be replaced by a colon (<span style="font-style: italic;">:</span>). If the
+<br>condition is true, the <span style="font-style: italic;">statement</span>s following <span style="font-style: italic;">THEN</span> are executed,
+<br>until the end of the line is reached. There is actually no
+<br>need for a colon after <span style="font-style: italic;">THEN</span>, for example the following are all
+<br>the same:
+<br><span style="font-style: italic;">IF x=1 : PRINT 'x is 1'
+<br>IF x=1 THEN PRINT 'x is 1'
+<br>IF x=1 THEN:PRINT 'x is 1'
+<br></span><br>If during processing of the statements following <span style="font-style: italic;">THEN</span>, a
+<br>corresponding <span style="font-style: italic;">ELSE</span> keyword is found, the interpreter will search
+<br>the line for the corresponding <span style="font-style: italic;">END IF</span>, in which case control
+<br>will jump to the statement following the <span style="font-style: italic;">END IF</span>. If however, the
+<br>line does not contain a corresponding <span style="font-style: italic;">END IF</span>, as with all other
+<br>types on in-line code, control will jump to the next program
+<br>line.
+<br><br>On  the  other  hand,  if  the  condition  is  false,  the
+<br>interpreter will search the line for the corresponding <span style="font-style: italic;">ELSE</span>,
+<br>which, if found, will force control to jump to the first
+<br>statement following <span style="font-style: italic;">ELSE</span>. Control then just continues along the
+<br>program line and to the next program line.
+<br><br>Note that a colon must appear before the word <span style="font-style: italic;">ELSE</span>, and
+<br>although not strictly necessary after the word <span style="font-style: italic;">ELSE</span>, it is
+<br>advisable to place a colon after the <span style="font-style: italic;">ELSE</span> keyword (see the Note
+<br>below). If <span style="font-style: italic;">ELSE</span> does not appear, control is passed to the
+<br>statement following the corresponding <span style="font-style: italic;">END IF</span>, or if not present,
+<br>the next program line.
+<br><br>The  second  syntax  represents  the  much  more  flexible
+<br>long-form  of  the  <span style="font-style: italic;">IF</span>..<span style="font-style: italic;">END  IF</span>  statement.  On  the  first  line
+<br>containing the <span style="font-style: italic;">IF</span> condition, the keyword <span style="font-style: italic;">THEN</span> may be replaced by
+<br>a colon, or even omitted altogether. If the condition is true,
+<br>control  is  passed  to  the  next  program  line.  If  during
+<br>interpretation, an <span style="font-style: italic;">ELSE</span> statement is found, the interpreter
+<br>searches for the corresponding <span style="font-style: italic;">END IF</span> and passes control to the
+<br>statement following this.
+<br><br>If the condition is false, the interpreter once again
+<br>searches for a corresponding <span style="font-style: italic;">ELSE</span>. If this is not present, then
+<br>control  is  passed  to  the  next  statement  after  the
+<br>corresponding <span style="font-style: italic;">END IF</span>. If on the other hand, <span style="font-style: italic;">ELSE</span> is present,
+<br>control passes to the statement following <span style="font-style: italic;">ELSE</span> (which may be on
+<br>the same line as the <span style="font-style: italic;">ELSE</span> keyword). There is no need to follow
+<br><span style="font-style: italic;">ELSE</span> by a colon in this long form.
+<br><br><h3>Example 1:
+<br></h3><br>A short program to move a cross around the screen, using
+<br><br>the keys &lt;N&gt;orth, &lt;S&gt;outh, &lt;E&gt;ast and &lt;W&gt;est, press &lt;ESC&gt;
+<br><br>to leave program:
+<br><span style="font-style: italic;">100 WINDOW 448,200,32,16:PAPER 0:CLS
+<br>110 x=224:y=100:OVER 0:INK 7
+<br>120 CURSOR x,y:PRINT 'X':OVER -1
+<br>130 REPeat loop
+<br>140   dir$=INKEY$(-1)
+<br>150   old_x=x:old_y=y
+<br>160   IF dir$ INSTR 'nesw'
+<br>170      IF dir$=='n':IF y>0:y=y-1
+<br>180      IF dir$=='s' AND y<200-10:y=y+1
+<br>190      IF dir$=='e':IF x<448-6:x=x+1
+<br>200      IF dir$=='w' AND x>0:x=x-1
+<br>210   ELSE IF dir$=CHR$(27):EXIT loop:ELSE NEXT loop
+<br>220   END IF
+<br>230   CURSOR old_x,old_y:PRINT 'X'
+<br>240   CURSOR x,y:PRINT 'X'
+<br>250 END REPeat loop
+<br>260 OVER 0
+<br></span><br>Notice the use of both <span style="font-style: italic;">AND</span> logic operators and second <span style="font-style: italic;">IF
+<br></span><br>statements (these can be swapped around). Placing the check
+<br><br>for the keys &lt;N&gt;, &lt;E&gt;, &lt;S&gt; and &lt;W&gt; within another <span style="font-style: italic;">IF
+<br></span><br>statement increases the speed of this routine, as the four
+<br><br>statements in lines 170 to 200 do not need to be processed
+<br><br>if another key is pressed.
+<br><br><h3>Example 2:
+<br></h3><br>The whole program can be simplified a little by using
+<br><br>boolean logic, by replacing lines 170 to 200 with the
+<br><br>following:-
+<br><span style="font-style: italic;">170      IF dir$=='n':y=y-(y>0)
+<br>180      IF dir$=='s':y=y+(y<200-10)
+<br>190      IF dir$=='e':x=x+(x<448-6)
+<br>200      IF dir$=='w':x=x-(x>0)
+<br></span><br>This is about 2.5% quicker than the first example.
+<br><br><h3>Example 3:
+<br></h3><br>On a Minerva ROM, the powerful and even quicker SELect ON
+<br><br>statement could be used to make things even easier to
+<br><br>understand, by replacing lines 160 to 220 with:
+<br><span style="font-style: italic;">160   SELect ON dir$
+<br>170     ='n':y=y-(y>0)
+<br>180     ='s':y=y+(y<200-10)
+<br>190     ='e':x=x+(x<448-6)
+<br>200     ='w':x=x-(x>0)
+<br>210     =CHR$(27):EXIT loop
+<br>215     =REMAINDER :NEXT loop
+<br>220   END SELect
+<br></span><br>This is about 22.5% quicker than the first example.
+<br><br>Don't worry that the 'X' disappears in a band across the
+<br><br>screen as it is being moved - as soon as you take your
+<br><br>finger off the button, you are okay! It is unknown why this
+<br><br>phenomenon occurs..
+<br><br><h3>NOTE 1:
+<br></h3><br>On ROM versions earlier than Minerva v1.92 (unless you have
+<br>SMS), when using multiple in-line <span style="font-style: italic;">IF</span> statements, you need to be
+<br>very careful over the use of <span style="font-style: italic;">ELSE</span> and the colon '<span style="font-style: italic;">:</span>'. Although
+<br>the following two lines have exactly the same effect,
+<br><span style="font-style: italic;">IF x=0 : PRINT 'HELLO' : ELSE PRINT 'Bye'
+<br>IF x=0 : PRINT 'HELLO' : ELSE :PRINT 'Bye'
+<br></span><br>the following gives the interpreter problems:
+<br><span style="font-style: italic;">10 x=0
+<br>20 PRINT x
+<br>30 IF x=0 : PRINT 'HELLO' : ELSE IF x=2 : PRINT 'GOODBYE' : END IF : x=x+1
+<br>40 x=x+2
+<br>50 PRINT x
+<br></span><br>this should make <span style="font-style: italic;">x=2</span> at line 40, but in fact <span style="font-style: italic;">x=3</span>. This is
+<br>because the interpreter does not look for an <span style="font-style: italic;">END IF</span> following
+<br>the <span style="font-style: italic;">ELSE IF</span> structure. Compare this with what happens if line 30
+<br>is made to read:
+<br><span style="font-style: italic;">30 IF x=0 : PRINT 'HELLO' : ELSE : IF x=2 : PRINT 'GOODBYE' : END IF : x=x+1
+<br></span><br>This is actually a bug in the interpreter rather than a
+<br>feature, as adding more <span style="font-style: italic;">IF</span> statements into line 30 would appear
+<br>to rectify it! The answer therefore is to ensure that a colon
+<br>appears after every <span style="font-style: italic;">ELSE</span> (or compile the program).
+<br><br><h3>NOTE 2:
+<br></h3><br>Another  problem  also  exists  with  in-line  <span style="font-style: italic;">IF...END  IF
+<br></span>statements - in the following program, line 100 is called
+<br>twice when <span style="font-style: italic;">d=1</span> and only once if <span style="font-style: italic;">d&lt;&gt;1</span>.
+<br><span style="font-style: italic;">2 IF d=1:PRINT'd is 1':ELSE :PRINT 'd is not 1':END IF :PRINT 'A simple test':GO SUB 100
+<br>3 STOP
+<br>100 PRINT "Now this is peculiar!!":RETurn
+<br></span><br><h3>
+<br></h3><br>The rule would appear to be that the first <span style="font-style: italic;">GOSUB/PROCedure</span> call
+<br>after the <span style="font-style: italic;">END IF</span> contained in an in-line <span style="font-style: italic;">IF...ELSE...END IF</span> structure
+<br>is called twice PROVIDED that the fist condition of the
+<br><span style="font-style: italic;">IF..ELSE..END IF</span> statement is true.
+<br><br>Both Minerva v1.93+ and SMS cure this.  Otherwise, set the
+<br><span style="font-style: italic;">IF..ELSE..END IF</span> statement out over several lines.
+<br><br><h3>SMS NOTES:
+<br></h3><br>The improved interpreter checks whether <span style="font-style: italic;">IF</span> statements are
+<br>valid constructs before <span style="font-style: italic;">RUN</span>ning or <span style="font-style: italic;">SAVE</span>ing a program and will
+<br>report one of the following errors if there is a problem:
+<br><br><h3>Incomplete IF clause
+<br></h3><br>Normally appears where <span style="font-style: italic;">END IF</span> has been omitted other than in
+<br>the in-line format.
+<br><br><h3>Misplaced END IF
+<br></h3><br>There is no matching <span style="font-style: italic;">IF</span> ... clause
+<br><br><h3>Misplaced ELSE
+<br></h3><br>This error is normally reported if an <span style="font-style: italic;">ELSE</span> statement has not
+<br>been placed inside an <span style="font-style: italic;">IF</span>...<span style="font-style: italic;">END IF</span> construct.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsS.html#SELect ON">SELect ON</a> provides a much quicker (although less flexible)
+<br>means of testing a variable.
+<br><br>Other SuperBASIC structures are <a style="font-style: italic;" href="KeywordsW.html#WHEN var">WHEN var</a>, <a style="font-style: italic;" href="KeywordsW.html#WHEN ERRor">WHEN ERRor</a>, <a style="font-style: italic;" href="KeywordsD.html#DEFine
+">DEFine
+<br href="KeywordsP.html#PROCedure">PROCedure</a>,  <a style="font-style: italic;" href="KeywordsD.html#DEFine FuNction">DEFine FuNction</a>,  <a style="font-style: italic;" href="KeywordsR.html#REPeat">REPeat</a> and <a style="font-style: italic;" href="KeywordsF.html#FOR">FOR</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="IFORMAT"></a>IFORMAT</h1><br>Syntax: <span style="font-style: italic;">IFORMAT device_</span>[<span style="font-style: italic;">name</span>]
+Location: <span style="font-style: italic;">ATARIDOS
+<br></span><br>This command formats the specified device in IBM PS/2 disk
+<br>format, giving it the specified name (if any).  The only
+<br>difference between this and <span style="font-style: italic;">AFORMAT</span> is the way in which the boot
+<br>sector is created.
+<br><br>As with <span style="font-style: italic;">FORMAT</span>, this will normally format a disk to the
+<br>highest possible density - however, you can force it to format
+<br>a disk as single-sided by making the last character of the
+<br>filename an asterisk (*).  However, some IBM compatible PC's
+<br>are unable to read single-sided disks.
+<br><br><h3>NOTE:
+<br></h3><br>Unfortunately, you cannot format 360K or 1.2M disks with
+<br>this command.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsF.html#FORMAT">FORMAT</a> and <a style="font-style: italic;" href="KeywordsA.html#AFORMAT">AFORMAT</a>.
+<br><br>Other commands added are <a style="font-style: italic;" href="KeywordsI.html#IQCONVERT">IQCONVERT</a>, <a style="font-style: italic;" href="KeywordsA.html#ADELETE">ADELETE</a> and <a style="font-style: italic;" href="KeywordsQ.html#QCOPY">QCOPY</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="INARRAY%"></a>INARRAY%</h1><br>Syntax: <span style="font-style: italic;">INARRAY% (array</span>[ {<span style="font-style: italic;"> $ </span>|<span style="font-style: italic;"> % </span>} ] [<span style="font-style: italic;"> ,first </span>]<span style="font-style: italic;"> ,tofind</span>[ { <span style="font-style: italic;">$ </span>|<span style="font-style: italic;"> % </span>} ] <span style="font-style: italic;">)
+<br></span>Location: <span style="font-style: italic;">INARRAY (DIY Toolkit - Vol Z)
+<br></span><br>This function searches a given <span style="font-style: italic;">array</span> for a specified value.
+<br><br>The <span style="font-style: italic;">array</span> can be of any type, a string (although this must
+<br>only be two-dimensional), a floating point or integer (these
+<br>latter two can be any number of dimensions, up to 15 !!).
+<br><br><span style="font-style: italic;">INARRAY%</span> will then search the specified <span style="font-style: italic;">array</span> for the given
+<br>value (<span style="font-style: italic;">tofind</span>) which must be a string, floating point or integer
+<br>value, although it does not have to be the same type as the
+<br>array itself provided that you could assign the value to the
+<br>array, for example:
+<br><span style="font-style: italic;">array%(10)='2020'</span> and <span style="font-style: italic;">PRINT INARRAY% (array%,'2020')
+<br></span><br>are okay, compare
+<br><span style="font-style: italic;">array%(10)='x'</span> and <span style="font-style: italic;">PRINT INARRAY%(array%,'x')
+<br></span><br>which both return an error.
+<br><br>The search is not case-sensitive and will also equate
+<br>embedded numbers so that the strings '020' and '20.00' are
+<br>seen as the same as '20'.
+<br><br>Like   the   function   <span style="font-style: italic;">SEARCH</span>,   the   search   is   very
+<br>fast.
+<br><br>The <span style="font-style: italic;">first</span> parameter can be specified, which allows you to
+<br>tell <span style="font-style: italic;">INARRAY%</span> from which element onwards it should look (remember
+<br>that the first element is indexed with 0).
+<br><br>The value returned by <span style="font-style: italic;">INARRAY%</span> will be -7 if the value is not
+<br>found in the specified <span style="font-style: italic;">array</span>.  An error will be generated if
+<br><span style="font-style: italic;">tofind</span> could not be coerced to the same type as the <span style="font-style: italic;">array</span>.  An
+<br>error will also be generated if the <span style="font-style: italic;">array</span> contains more than
+<br>32768 entries.
+<br><br>If the search is successful, <span style="font-style: italic;">INARRAY%</span> will return one value
+<br>which represents the index of the entry.  For strings and
+<br>single dimensional  arrays,  this  is easy  -  if  the  value
+<br>returned is <span style="font-style: italic;">srch</span>, then:
+<br><br><span style="font-style: italic;">PRINT array(srch)
+<br></span><br>will show the value you searched for.
+<br><br>However, where the array has more dimensions, you will need
+<br>a little work to find out the entry referred to.  For example,
+<br>take  a  three-dimensional  array  <span style="font-style: italic;">s%(10,20,30)</span>  -  this  contains
+<br>11*21*31 (7161) entries, with the first entry being index 0,
+<br>this being <span style="font-style: italic;">s%(0,0,0)</span> and the last entry being index 7160, this
+<br>being <span style="font-style: italic;">s%(10,20,30)</span>.
+<br><br>If <span style="font-style: italic;">INARRAY% (s%,300)</span> returned the value 32, this would be index
+<br>number 32, equivalent to <span style="font-style: italic;">s%(0,1,1)</span>.  This could be found out by
+<br>using the formula for <span style="font-style: italic;">s%</span>, where the value returned (<span style="font-style: italic;">index</span>) points
+<br>to <span style="font-style: italic;">s%(x,y,z)</span>, where:
+<br><br><span style="font-style: italic;">z=index MOD (31*21) MOD 31
+<br><br>y=index MOD (31*21) DIV 31
+<br><br>x=index DIV (31*21) MOD 31
+<br></span><br>It is important to work from right to left along the list
+<br>of array elements, alternating <span style="font-style: italic;">MOD</span> and <span style="font-style: italic;">DIV</span> for each entry.
+<br><br><h3>NOTE:
+<br></h3><br>This function will not work in a program compiled with
+<br>Turbo or SuperCharge.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>Use <a style="font-style: italic;" href="KeywordsI.html#INSTR">INSTR</a> to locate a sub-string in a string.
+<br><br>See <a style="font-style: italic;" href="KeywordsS.html#SEARCH">SEARCH</a> which is similar.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="INF"></a>INF</h1><br>Syntax: <span style="font-style: italic;">INF
+<br></span>Location: <span style="font-style: italic;">Math Package
+<br></span><br>The function <span style="font-style: italic;">INF</span> is a constant and holds the greatest number
+<br>which can be used in SuperBASIC. It is a floating point number
+<br>exactly equal to 2<sup>2047</sup>. If any value becomes greater than <span style="font-style: italic;">INF</span>,
+<br>an overflow will occur. The smallest possible value is <span style="font-style: italic;">-INF</span>.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsM.html#MAXIMUM">MAXIMUM</a> and <a style="font-style: italic;" href="KeywordsM.html#MINIMUM">MINIMUM</a> can also be used to return this value.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="INK"></a>INK</h1><br>Syntax: <span style="font-style: italic;">INK </span>[<span style="font-style: italic;">#ch,</span>]<span style="font-style: italic;"> colour
+<br></span><br>or <span style="font-style: italic;">INK </span>[<span style="font-style: italic;">#ch,</span>] <span style="font-style: italic;">colour1,colour2</span> [<span style="font-style: italic;">,pattern</span>]
+Location: <span style="font-style: italic;">QL ROM
+<br></span><br>This command sets the ink colour used inside the given
+<br>window <span style="font-style: italic;">ch</span> (default #1). Since the advent of the Extended Colour
+<br>Drivers under SMSQ/E v2.98+ the scope of colours accepted by
+<br>this command has been much enhanced and depends upon the
+<br>colour mode selected for the current program.
+<br><br>As a result, the ink colour can be either a solid colour if
+<br>the first syntax is used (in chich case <span style="font-style: italic;">colour</span> can be any
+<br>integer in the range 0..16777215) or a composite colour made
+<br>up of the three parameters supplied in the second syntax (<span style="font-style: italic;">colour1
+<br></span>and <span style="font-style: italic;">colour2</span> must both be in the range dictated by the current
+<br><span style="font-style: italic;">MODE</span>).  Luckily,  SMSQ/E  allows  you  to  include  binary  and
+<br>hexadecimal numbers directly in programs (eg <span style="font-style: italic;">INK $f800</span>) which may
+<br>make the non-standard QL colours easier to use.
+<br><br>The way in which colours are handled depends upon the
+<br>operating system.  On most systems, only the Standard QL
+<br>Colour Drivers are supported.  However, SMSQ/E v2.98+ can be
+<br>used to access further Extended Colour Drivers by configuring
+<br>SMSQ/E to start with them loaded, or using the start-up screen
+<br>on QPC.
+<br><br><h3>STANDARD COLOUR DRIVERS
+<br></h3><br><h3><span style="font-style: italic;">MODE 4 </span>and <span style="font-style: italic;">MODE 8
+<br></h3></span><br>This applies to standard QL operating systems, or can be
+<br>set under SMSQ/E v2.98+ with the command<span style="font-style: italic;"> DISP_COLOUR 0,800,600</span> or by
+<br>altering the configuration of the operating system. There are
+<br>eight solid colours which have the following values (although
+<br>only four of these colours are available in <span style="font-style: italic;">MODE 4</span>):
+<br><h3>value<span style="font-style: italic;">MODE 8</span> colour<span style="font-style: italic;">MODE 4</span> colour
+<br></h3>0blackblack
+<br>1blueblack (should be avoided)
+<br>2redred
+<br>3magentared (should be avoided)
+<br>4greengreen
+<br>5cyangreen (should be avoided)
+<br>6yellowwhite (should be avoided)
+<br>7whitewhite
+<br><br>The values in <span style="font-style: italic;">MODE 4</span> which are marked "should be avoided" can
+<br>be used on standard QLs, but lead to compatability problems
+<br>when run under the Enhanced Colour Drivers (see below).
+<br><br>Other integer values in the range 8 to 255 are allowed, but
+<br>these are generally 'composite' colours and repeats of other
+<br>values.
+<br><br><h3>EXTENDED COLOUR DRIVERS
+<br></h3><br>The following is a description of the various colour modes
+<br>available under the Extended Colour Drivers provided by SMSQ/E
+<br>v2.98+.  These are available once SMSQ/E is configured to use
+<br>the Extended Colour Drivers.
+<br><br><span style="font-style: italic;">DISP_COLOUR</span> can be used to switch between the standard and
+<br>extended colour drivers.
+<br><br><h3>QL Colour Mode
+<br></h3><br>This is selected with the command <span style="font-style: italic;">COLOUR_QL</span> and is the default
+<br>when a program is executed. For the purposes of <span style="font-style: italic;">INK</span>, <span style="font-style: italic;">PAPER</span>, <span style="font-style: italic;">STRIP
+<br></span>etc commands, it provides the same colours as under the
+<br>Standard QL Colour Mode (provided the standard <span style="font-style: italic;">colour=0</span> to <span style="font-style: italic;">colour=7
+<br></span>is used), except that <span style="font-style: italic;">MODE 4</span> programs can actually access all 8
+<br>colours not just the standard 4.
+<br><br>However,  the actual colours which represent each of the
+<br>different values can be amended by changing the palette (see
+<br><span style="font-style: italic;">PALETTE_QL</span>). This can be used, for example, to rectify programs
+<br>which display the wrong colours because they presume <span style="font-style: italic;">INK 3</span> would
+<br>always be the same as <span style="font-style: italic;">INK 2</span>.
+<br><br><h3>8 Bit Colour Mode
+<br></h3><br>This is supported on the Aurora motherboard (not yet
+<br>implemented) and QPC, QXL and the Q40/Q60.  It is selected
+<br>with <span style="font-style: italic;">COLOUR_PAL</span> and allows <span style="font-style: italic;">colour</span> to be in the range 0...255. This
+<br>is the PAL value and is hardware independent - refer to
+<br>Appendix 16 for a full list of the colours available.
+<br><br>The colours which represent each of the 256 values allowed
+<br>can be amended by changing the palette (see <span style="font-style: italic;">PALETTE_8</span>).
+<br><br>For this mode, the <span style="font-style: italic;">INK</span> parameter should be the PAL value
+<br>listed in the table.  If a stipple is required, the two
+<br>composite PAL colours will need to be specified explicitly -
+<br>see below.
+<br><br><h3>Native Colour Mode (8 or 16 bit colour)
+<br></h3><br>This should be supported on all implementations of SMSQ/E
+<br>v2.98+ and is selected with <span style="font-style: italic;">COLOUR_NATIVE</span>. The range supported by
+<br><span style="font-style: italic;">colour</span> and the effects all depend upon the display hardware
+<br>currently in use.
+<br><br>As a result, under Aurora, it is similar to <span style="font-style: italic;">COLOUR_PAL</span> in that
+<br>it only supports 8 bit colours, but the colour is specified by
+<br>the Native Colour Value instead of the PAL value.  On the QPC,
+<br>QXL and Q40/Q60, it supports 65536 colours as standard.
+<br><br>The value required for <span style="font-style: italic;">INK</span>, <span style="font-style: italic;">PAPER</span>, <span style="font-style: italic;">STRIP</span> etc. depends upon the
+<br>hardware in use - look at the tables in Appendix 16 for the
+<br>appropriate hardware and then the Native Colour Value to use.
+<br>It may be easier to use hexadecimal or binary to specify the
+<br>colour, for example <span style="font-style: italic;">INK $F81F</span> for magenta on QPC/QXL.
+<br><br><h3>24 Bit Colour Mode
+<br></h3><br>This is only supported on QPC (dependent on hardware). It
+<br>is selected with <span style="font-style: italic;">COLOUR_24</span> and allows <span style="font-style: italic;">colour</span> to be in the range
+<br>0..16777215.
+<br><br>Due the values possible in 24 bit colour mode, it is
+<br>essential  that  hexadecimal  is  used  to  describe  colours.
+<br>Colours are defined as a 3 byte value representing a value for
+<br>red, green and blue respectively.  For example, yellow would
+<br>be <span style="font-style: italic;">INK $FFFF00</span>.
+<br><br><h3>COMPOSITE COLOURS:
+<br></h3><br>These are colours made up of either two or three values,
+<br>for example
+<br><br><span style="font-style: italic;">INK 2,7
+<br></span><br>or
+<br><br><span style="font-style: italic;">INK 1,7,2
+<br></span><br>or
+<br><br><span style="font-style: italic;">INK $F800,$FDBF,1
+<br></span><br>Depending upon the combinations, they may not be displayed
+<br>correctly on a television.
+<br><br>(1) <span style="font-style: italic;">INK colour1,colour2
+<br></span><br>this creates a composite colour made up of the two given
+<br>colours in a checkerboard pattern (stipple 3).
+<br><br>(2) <span style="font-style: italic;">INK colour1,colour2,stipple
+<br></span><br>this creates a composite colour which is a mixture of the
+<br><br>two  given  colours,  and  displayed  in  the  given  <span style="font-style: italic;">stipple
+<br></span><br>pattern. The values for <span style="font-style: italic;">stipple</span> are:
+<br><br> 
+<br><br>valuepattern
+<br><br>0dots
+<br><br>1horizontal stripes
+<br><br>2vertical stripes
+<br><br>3checkerboard
+<br><br>If you wish to calculate the equivalent single parameter
+<br><br>for Standard QL Colour Mode, you will need to set various
+<br><br>bits of <span style="font-style: italic;">colour</span> by referring to the following table (note that
+<br><br>this cannot be used under the Extended Colour Drivers
+<br><br>except under <span style="font-style: italic;">COLOUR_QL</span>):
+<br><h3>BIT7  6    5  4  3    2  1  0
+<br>STIPPLE                               COLOUR
+<br></h3>Dots0  0|  0  0  0  |  0  0  0Black
+<br>Vertical lines0  1|  0  0  1  |  0  0  1Blue
+<br>Horizontal lines1  0|  0  1  0  |  0  1  0Red
+<br>Checkerboard1  1|  0  1  1  |  0  1  1Magenta
+<br>                |  1  0  0  |  1  0  0Green
+<br>                |  1  0  1  |  1  0  1Cyan
+<br>                |  1  1  0  |  1  1  0Yellow
+<br>                |  1  1  1  |  1  1  1White
+<br><h3>                     2nd COLOUR | 1st COLOUR
+<br></h3><br><h3>
+<br></h3><br><h3>NOTE:
+<br></h3><br>Turbo and Supercharge cannot compile the THOR's floating
+<br>point colours as they expect all parameters to be integers.
+<br>Use <span style="font-style: italic;">IO_TRAP</span> instead, for example:
+<br><br><span style="font-style: italic;">a=IO_TRAP(#ch,39,colour)</span>   Sets the <span style="font-style: italic;">PAPER</span> colour.
+<br><br><span style="font-style: italic;">a=IO_TRAP(#ch,40,colour)</span>   Sets the <span style="font-style: italic;">STRIP</span> colour.
+<br><br><span style="font-style: italic;">a=IO_TRAP(#ch,41,colour)</span>   Sets the <span style="font-style: italic;">INK</span> colour.
+<br><br>Unlike the <span style="font-style: italic;">PAPER</span> command, if you use <span style="font-style: italic;">IO_TRAP</span> here, you will
+<br>also need to set the <span style="font-style: italic;">STRIP</span> colour explicitly.
+<br><br><h3>THOR XVI NOTE:
+<br></h3><br>The THOR XVI allows a total of 16 colours in <span style="font-style: italic;">MODE 12</span> in the
+<br>range  0  to  7.5  (<span style="font-style: italic;">stipple</span>  will  actually  fall  in  the  range
+<br>0...1023). If you add .5 to the normal <span style="font-style: italic;">colour</span>, this switches on
+<br>the THOR's  intensity  bit,  meaning that  for  example,  the
+<br>resultant colour for <span style="font-style: italic;">INK 1.5</span> is somewhere between black and blue
+<br>(ie. a very dark blue). You can also add .25 to each colour,
+<br>which will result in a stipple mixture of colours (details
+<br>unknown at present).
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsP.html#PAPER">PAPER</a> and <a style="font-style: italic;" href="KeywordsS.html#STRIP">STRIP</a> also set colours within windows.
+<br><br><a style="font-style: italic;" href="KeywordsR.html#RMODE">RMODE</a> can be used to read the current colour mode.
+<br><br><a style="font-style: italic;" href="KeywordsC.html#COLOUR_QL">COLOUR_QL</a>, <a style="font-style: italic;" href="KeywordsC.html#COLOUR_PAL">COLOUR_PAL</a>, <a style="font-style: italic;" href="KeywordsC.html#COLOUR_NATIVE">COLOUR_NATIVE</a> and <a style="font-style: italic;" href="KeywordsC.html#COLOUR_24">COLOUR_24</a> will also affect the
+<br><br>colours produced.
+<br><br><a style="font-style: italic;" href="KeywordsP.html#PALETTE_QL">PALETTE_QL</a> and <a style="font-style: italic;" href="KeywordsP.html#PALETTE_8">PALETTE_8</a> can be used to change the palette of
+<br><br>colours available.
+<br><br><a style="font-style: italic;" href="KeywordsD.html#DISP_COLOUR">DISP_COLOUR</a> can be used to switch from Extended Colour Drivers
+<br><br>to Standard Colour Drivers.
+<br><br>Also refer to <a style="font-style: italic;" href="KeywordsI.html#INVERSE">INVERSE</a>.
+<br><br>Please also look at the QL Display appendix (Appendix 16).
+<br><hr style="width: 100%; height: 2px;"><h1><a name="INKEY$"></a>INKEY$</h1><br>Syntax: <span style="font-style: italic;">INKEY$ ( </span>[<span style="font-style: italic;">#chan,</span>][<span style="font-style: italic;">timeout</span>]<span style="font-style: italic;"> )
+<br></span>Location: <span style="font-style: italic;">QL ROM
+<br></span><br>This function fetches a single character from the specified
+<br>channel (default #0). If a <span style="font-style: italic;">timeout</span> is specified, <span style="font-style: italic;">INKEY$</span> will wait
+<br>for <span style="font-style: italic;">timeout</span> frames (there are 50 frames per second in the UK, 60
+<br>frames per second in most other countries). If a character is
+<br>read, the function will return straight away, otherwise, it
+<br>will wait for the specified number of frames and then return.
+<br><br><span style="font-style: italic;">Timeout</span> can be in the range <span style="font-style: italic;">-32768..32767</span>. If a negative <span style="font-style: italic;">timeout</span> is
+<br>specified, <span style="font-style: italic;">INKEY$</span> will wait forever until a character is read
+<br>from the specified channel. The default of <span style="font-style: italic;">timeout</span> is 0 which
+<br>means return immediately. A timeout is therefore not really
+<br>necessary if <span style="font-style: italic;">INKEY$</span> is being used to access a channel opened to
+<br>a file, as the data will either be there or not!
+<br><br>If <span style="font-style: italic;">#chan</span> is not an input channel (eg. <span style="font-style: italic;">scr_</span>), error -15 (bad
+<br>parameter) will be reported.
+<br><br><h3>NOTE 1:
+<br></h3><br>Using timeouts allows programs to run at the same speed on
+<br>all QL compatibles.
+<br><br><h3>NOTE 2:
+<br></h3><br>It may be useful to clear the input buffer before trying to
+<br>read a character from the keyboard (this prevents overrun on
+<br>keys) - you can do this by using something along the lines
+<br>of:-
+<br><br><span style="font-style: italic;">100 dummy=KEYROW(0)
+<br><br>110 key$=INKEY$(-1)
+<br></span><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsI.html#INKEY$">INKEY$</a> is channel based, which means that it can be used
+<br>safely in multi-tasking programs.
+<br><br><a style="font-style: italic;" href="KeywordsK.html#KEYROW">KEYROW</a> will read the keyboard even though the current Job is
+<br>not the one executing the <a style="font-style: italic;" href="KeywordsK.html#KEYROW">KEYROW</a> command (although see the
+<br>options available with <a style="font-style: italic;" href="KeywordsE.html#EXEP">EXEP</a>).
+<br><br><a style="font-style: italic;" href="KeywordsI.html#INPUT">INPUT</a> allows you to read a string of characters in one go.
+<br><br><a style="font-style: italic;" href="KeywordsP.html#PAUSE">PAUSE</a> halts program execution temporarily.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="INPUT"></a>INPUT</h1><br>Syntax: <span style="font-style: italic;">INPUT </span>[<span style="font-style: italic;">#chan,</span>] <sup>*</sup>[ [<span style="font-style: italic;">separator</span>] [<span style="font-style: italic;">prompt</span><sup>i</sup><span style="font-style: italic;">$ separator</span>] <span style="font-style: italic;">var</span><sup>i</sup>]<sup>*
+<br></sup><br>or <span style="font-style: italic;">INPUT </span><sup>*</sup>[ [<span style="font-style: italic;">#chan,</span>] [<span style="font-style: italic;">separator</span>] [<span style="font-style: italic;">prompt</span><sup>i</sup><span style="font-style: italic;">$ separator</span>] <span style="font-style: italic;">var</span><sup>i</sup>]<sup>*
+<br></sup><span style="font-style: italic;"><br>(THOR XVI and Minerva v1.97+ only)
+<br></span>Location: <span style="font-style: italic;">QL ROM
+<br></span><br>This command will read a string of bytes from the specified
+<br>channel (default #1), which must end in <span style="font-style: italic;">CHR$(10)</span> = &lt;ENTER&gt;. The
+<br>fetched string is then placed in the specified variable (<span style="font-style: italic;">var</span>),
+<br>which may be of any type.  Several sets of bytes may be read
+<br>at the same time by specifying more than one variable, for
+<br>example by:
+<br><br><span style="font-style: italic;">INPUT a$,x,b$
+<br></span><br>although each set of bytes must again be terminated by
+<br><span style="font-style: italic;">CHR$(10)</span>. If the channel is write-only (eg. <span style="font-style: italic;">scr</span>), error -15 (bad
+<br>parameter) will be reported.
+<br><br>If the specified channel is a console channel (<span style="font-style: italic;">con</span>), the
+<br>cursor will be activated and the user will be able to type in
+<br>a string of characters at the current text cursor position.
+<br>The characters typed will appear in the current <span style="font-style: italic;">INK</span> colour on
+<br>the current <span style="font-style: italic;">STRIP</span> colour, and will also be affected by the
+<br>settings of <span style="font-style: italic;">CSIZE</span>, <span style="font-style: italic;">UNDER</span>, <span style="font-style: italic;">FLASH</span> and <span style="font-style: italic;">OVER</span>.
+<br><br>If a channel is specified, this must be followed by a
+<br>comma. It  may  however  also  be followed  by  one  or  more
+<br>separators.  Each separator may be one of the following:
+<br><br><h3><span style="font-style: italic;">separator</span>     effect
+<br></h3><br><span style="font-style: italic;">!</span>If a character other than a space appears
+<br><br>immediately to the left of the current
+<br><br>text cursor position, print a space. If
+<br><br><span style="font-style: italic;">prompt$</span>  is  specified  after  this,  if
+<br><br><span style="font-style: italic;">prompt$</span> is too long to fit on the line
+<br><br>from the current text cursor position, it
+<br><br>will be placed at the start of the next
+<br><br>line. If nothing follows this <span style="font-style: italic;">separator</span>, then
+<br><br>the text cursor is not moved at the end of
+<br><br>the command.
+<br><br><span style="font-style: italic;">,</span>This forces the text cursor to be placed
+<br><br>on the next column which is a multiple of
+<br><br>8.
+<br><br>Note that anything which appears on screen
+<br><br>underneath the columns which are stepped
+<br><br>over will in fact be blanked out in the
+<br><br>current <span style="font-style: italic;">STRIP</span> colour.
+<br><br>If the next column which is a multiple of
+<br><br>8 is at the end of the current line, then
+<br><br>the comma will move the text cursor to the
+<br><br>start of the next line, not overwriting
+<br><br>any text on screen!
+<br><br><h3><span style="font-style: italic;">separator</span>effect
+<br></h3><br><span style="font-style: italic;">\</span>This forces the text cursor to be placed
+<br><br>at the start of the next line. If nothing
+<br><br>follows this separator this has no further
+<br><br>effect - the text cursor is automatically
+<br><br>placed at the start of the next line at
+<br><br>the end of <span style="font-style: italic;">INPUT</span> anyway (see below). This
+<br><br>has no effect unless nothing follows this
+<br><br>separator, in which case the text cursor
+<br><br>is left alone at the end of the command.
+<br><br>TO colThis  moves  the  text  cursor  to  the
+<br><br>specified column (<span style="font-style: italic;">col</span>). If however, the
+<br><br>text cursor is already at or beyond the
+<br><br>specified column, the text cursor is moved
+<br><br>one space to the right (unless you have a
+<br><br>THOR XVI - see <span style="font-style: italic;">TO</span>). This <span style="font-style: italic;">separator</span>  must
+<br><br>however  be  followed  by  yet  another
+<br><br><span style="font-style: italic;">separator</span>  (normally  ;  so  as  to  avoid
+<br><br>confusion).
+<br><br>If the specified column is further than
+<br><br>the  far  right  side  of  the  specified
+<br><br>channel, then <span style="font-style: italic;">TO</span> merely wraps around the
+<br><br>channel,  continuing  to  count  from  the
+<br><br>start of the next line.
+<br><br>Note that any text under the columns which
+<br><br>are jumped by <span style="font-style: italic;">TO</span> will be blanked out in the
+<br><br>current <span style="font-style: italic;">STRIP</span> colour.
+<br><br>At the end of the <span style="font-style: italic;">INPUT</span> command, the text cursor is placed
+<br>at the start of the next print line (unless an end separator
+<br>of '!',  '\' or ';' is used).
+<br><br>If <span style="font-style: italic;">prompt$</span> is specified, this will have no effect unless the
+<br>specified channel (<span style="font-style: italic;">#chan</span>) is a console channel. If this is the
+<br>case, the specified string is written to the console channel,
+<br>(as with <span style="font-style: italic;">PRINT</span>), followed by the specified <span style="font-style: italic;">separator</span>. The cursor on
+<br>the specified channel is then activated at the current print
+<br>position and input awaited as normal if required.
+<br><br>If you are wondering how to include a variable as part of
+<br><span style="font-style: italic;">prompt$</span>, this is achieved by placing the variable in brackets,
+<br>for example the following will prompt for 3 names to be
+<br>entered:
+<br><span style="font-style: italic;">100 DIM a$(3,10)
+<br>110 FOR i=1 TO 3
+<br>120   INPUT 'Enter name number'!(i)!a$(i) TO 40;'-- Thankyou'
+<br>130 END FOR i
+<br></span><br>Unfortunately, you cannot include the variable which has
+<br>been entered in that same <span style="font-style: italic;">INPUT</span> statement as a part of <span style="font-style: italic;">prompt$</span>. If
+<br>you do so, the <span style="font-style: italic;">prompt$</span> will include the variable at the value it
+<br>contained at the start of the <span style="font-style: italic;">INPUT</span> statement. For example, the
+<br>following will not work correctly, always saying <span style="font-style: italic;">x^2=1</span> no matter
+<br>what value you enter:
+<br><span style="font-style: italic;">x=1: INPUT #2 ; 'Enter Number to Square' ! x \ 'x^2=' ; (x^2)
+<br></span><br>This could be fixed by using the following:
+<br><span style="font-style: italic;">x=1: INPUT #2 ; 'Enter Number to Square' ! x: PRINT 'x^2=' ; (x^2)
+<br></span><br>The keys available for editing the string of characters as
+<br>you enter it (via a console window) are shown on the next
+<br>page.
+<br><br>Once the string has been entered, it is assigned to the
+<br>specified variable and the interpreter then looks at the <span style="font-style: italic;">INPUT
+<br></span>command to see if any further <span style="font-style: italic;">prompt$</span> need to be printed out, or
+<br>whether any further variables need to be entered; and if so,
+<br>will repeat the above steps.
+<br><br><h3>KEYS AVAILABLE FOR EDITING
+<br></h3><br>Once any <span style="font-style: italic;">prompt$</span> has been printed, whilst the user is
+<br>inputting a string, the following keys are available to the
+<br>user to edit the string being entered:
+<br><br>&lt;LEFT&gt;Move  cursor  left  one  character  (if
+<br><br>possible)
+<br><br>&lt;RIGHT&gt;Move  cursor  right  one  character  (if
+<br><br>possible)
+<br><br>&lt;ENTER&gt;Accept string input
+<br><br>&lt;UP&gt;ditto
+<br><br>&lt;DOWN&gt;ditto
+<br><br>&lt;CTRL&gt;&lt;LEFT&gt;Delete character to left of cursor
+<br><br>&lt;CTRL&gt;&lt;RIGHT&gt;Delete character under cursor
+<br><br>&lt;CTRL&gt;&lt;SPACE&gt;Break current command - return control to
+<br><br>#0
+<br><br><h3>Example 1:
+<br></h3><span style="font-style: italic;">INPUT #2, TO 10 ; x$ \ TO 10 ; y$ \ 'Name:' ! : INPUT #2, TO 10 ; a$
+<br></span><br><h3>Example 2:
+<br></h3><br>A function which will return a numeric variable safely.
+<br><br>This accepts leading and trailing spaces, and even spaces
+<br><br>before the E part of a number.  Unfortunately, there is no
+<br><br>way to prevent overflow errors, where the number is outside
+<br><br>the range 10E-616...10E616.  However, it will accept for
+<br><br>example: ' +1.32  E-20 ':
+<br><br>(This program appears on the next page).
+<br><span style="font-style: italic;">100 REMark Demonstration
+<br>110 AT 10,0:PRINT 'Enter number: ':no=INPUT_no(#1,10,13)
+<br>120 PRINT #0,lives
+<br>130 DEFine FuNction INPUT_no (chan,posx,posy)
+<br>140 LOCal var$,ix,loop,er,E_pos,dota,c
+<br>150 er=0
+<br>160 REPeat loop
+<br>170   IF er<0:BEEP 1000,10:er=0
+<br>180   dota=0
+<br>190   AT#chan,posx,posy:PRINT#chan,FILL$(' ',20)
+<br>200   AT#chan,posx,posy:INPUT#chan,var$
+<br>210   IF var$="":er=-1:NEXT loop
+<br>220   FOR ix=1 TO LEN(var$)
+<br>230     IF var$(ix)&lt;&gt;' ':var$=var$(ix TO):EXIT ix
+<br>240   END FOR ix
+<br>250   FOR ix=LEN(var$) TO 1 STEP -1
+<br>260     IF var$(ix)&lt;&gt;' ':var$=var$(1 TO ix):EXIT ix
+<br>270   END FOR ix
+<br>280   IF var$(1) INSTR '.1234567890-+'=0:er=-1:NEXT loop
+<br>290   IF var$(1)='.':dota=1
+<br>300   E_pos='E' INSTR var$
+<br>310   IF E_pos+1>LEN(var$):er=-1:NEXT loop
+<br>320   IF E_pos=0:E_pos=LEN(var$)+1
+<br>330   FOR ix=2 TO E_pos-1
+<br>340     c=CODE(var$(ix)):IF c=46:dota=dota+1
+<br>350     IF c&lt;&gt;46 AND (c<48 OR c>57) OR dota>1:er=-1:NEXT loop
+<br>360   END FOR ix
+<br>370   IF E_pos>LEN(var$):RETurn var$
+<br>380   FOR ix=E_pos+1 TO LEN(var$)
+<br>390     IF var$(ix)&lt;&gt;' ':E_pos=ix-1:EXIT ix
+<br>400   END FOR ix
+<br>410   IF var$(E_pos+1) INSTR '1234567890-+'=0:er=-1:NEXT loop
+<br>420   IF var$(E_pos+1) INSTR '-+':IF E_pos+2>LEN(var$):er=-1: NEXT loop
+<br>430   FOR ix=E_pos+2 TO LEN(var$)
+<br>440     c=CODE(var$(ix)):IF c<48 OR c>57:er=-17:NEXT loop
+<br>450   END FOR ix
+<br>460   RETurn var$
+<br>470 END FOR loop
+<br></span><br><h3>NOTE 1:
+<br></h3><br>If you try to <span style="font-style: italic;">INPUT</span> a string greater than 32766 characters,
+<br>this may crash the system. It is therefore important that when
+<br><span style="font-style: italic;">INPUT</span>ting from a file which is longer than 32766 characters, you
+<br>are certain that it contains a <span style="font-style: italic;">CHR$(10)</span>. If not, then use <span style="font-style: italic;">INKEY$</span>.
+<br><br><h3>NOTE 2:
+<br></h3><br>If no variable is specified, <span style="font-style: italic;">INPUT</span> will have the same effect
+<br>as <span style="font-style: italic;">PRINT</span>.
+<br><br>In particular, as from SMS v2.57, <span style="font-style: italic;">INPUT</span> on its own will
+<br>clear a pending newline, in the same way as <span style="font-style: italic;">PRINT</span> on its own.
+<br><br><h3>NOTE 3:
+<br></h3><br>Pre JS ROMs have a small input buffer, meaning that strings
+<br>over 128 characters long lead to a 'Buffer Full' (-5) error.
+<br>You can fix this for QLiberator with a compiler directive.
+<br><br><h3>NOTE 4:
+<br></h3><br><span style="font-style: italic;">INPUT a%</span> cannot accept -32768 (except on Minerva v1.76+ and
+<br>SMS).
+<br><br><h3>NOTE 5:
+<br></h3><br>If you try to <span style="font-style: italic;">INPUT</span> a value into a slice of an undimensioned
+<br>string, the value will not be stored and BASIC may stop
+<br>without a message. For example:
+<br><span style="font-style: italic;">100 a$='Hello World'
+<br>200 INPUT a$(7 TO)
+<br>210 PRINT a$
+<br></span><br>The above program will not even attempt to allow you to
+<br><span style="font-style: italic;">INPUT</span> the value. The cure on  all ROMs is to dimension the
+<br>string, or to <span style="font-style: italic;">INPUT</span> a temporary variable:
+<br><span style="font-style: italic;">100 a$='Hello World'
+<br>110 INPUT g$
+<br>120 a$(7 to)=g$
+<br>130 PRINT a$
+<br></span><br><h3>NOTE 6:
+<br></h3><br>If the specified channel is not a console channel, <span style="font-style: italic;">prompt$
+<br></span>and any separators are completely ignored. If there is no data
+<br>in the channel to be read, then the error 'End of File' (-10)
+<br>is reported.
+<br><br>Under SMS, the <span style="font-style: italic;">prompt$</span> is still printed out, but any attempt
+<br>to read a variable results in 'Invalid parameter'.
+<br><br><h3>NOTE 7:
+<br></h3><br>Except under Minerva v1.97+, if <span style="font-style: italic;">CURSOR</span> was used to specify
+<br>the position of the input line and the position specified
+<br>could not be set with the <span style="font-style: italic;">AT</span> comand, the display could become
+<br>messy if the cursor was moved off the initial row and then
+<br>returned to it.
+<br><br><h3>NOTE 8:
+<br></h3><br>Before SMS v2.59 if the &lt;BREAK&gt; key was pressed during an
+<br><span style="font-style: italic;">INPUT</span> command, the cursor could be left active.
+<br><br><h3>MINERVA NOTES:
+<br></h3><br>Minerva provides the following additional keys for use in
+<br>editing the string:
+<br><br>&lt;ALT&gt;&lt;LEFT&gt;move to start of current text
+<br><br>&lt;ALT&gt;&lt;RIGHT&gt;move to end of current text
+<br><br>&lt;TAB&gt;move along to x*8th character from start
+<br><br>of line (or end of data if nearer)
+<br><br>&lt;SHIFT&gt;&lt;TAB&gt;moves back in steps of 8 characters (or
+<br><br>start of data if nearer)
+<br><br>&lt;CTRL&gt;&lt;ALT&gt;&lt;LEFT&gt;  delete to start of current (visible)
+<br><br>line
+<br><br>&lt;CTRL&gt;&lt;ALT&gt;&lt;RIGHT&gt;  delete from current character to end of
+<br><br>line
+<br><br>&lt;ESC&gt;same as &lt;CTRL&gt;&lt;SPACE&gt; (Break key)
+<br><br>&lt;SHIFT&gt;&lt;ENTER&gt;same as &lt;ENTER&gt;
+<br><br>&lt;SHIFT&gt;&lt;SPACE&gt;same as &lt;SPACE&gt;
+<br><br>Minerva v1.93+ alters keys further, both to make editing
+<br>text easier and also to prevent some anomolies in earlier
+<br>versions:
+<br><br>&lt;UP&gt;where the input data consists of more than
+<br><br>one line, the up key moves up a line,
+<br><br>unless cursor on first line of data in
+<br><br>which case ends input. Any lines which
+<br><br>have scrolled up out of the window will be
+<br><br>re-shown if you press &lt;UP&gt; to move onto
+<br><br>those lines. On previous ROM versions, if
+<br><br>a line had disappeared off the screen, you
+<br><br>could not access it. The only downside to
+<br><br>this, is that any prompt which appeared
+<br><br>before the text being edited cannot be
+<br><br>re-shown - the prompt is simply 'blanked
+<br><br>out' in the current <span style="font-style: italic;">PAPER</span> colour.
+<br><br>&lt;DOWN&gt;where input data consists of more than one
+<br><br>line, the down key moves down a line,
+<br><br>unless cursor on last line of data in
+<br><br>which case it ends the input. This will
+<br><br>allow you to access data lines which have
+<br><br>scrolled down out of the window.
+<br><br>&lt;SHIFT&gt;&lt;RIGHT&gt;moves you right to the start of the next
+<br><br>word (or end of the data). The start of a
+<br><br>word is taken to be where the character to
+<br><br>left  of  the  cursor  is  space  and  the
+<br><br>character under the cursor is something
+<br><br>other than space.
+<br><br>&lt;SHIFT&gt;&lt;LEFT&gt;moves  you  left  to  the  start  of  the
+<br><br>previous word (or start of the data).
+<br><br>&lt;CTRL&gt; + any combination with &lt;LEFT&gt; or &lt;RIGHT&gt;
+<br><br>will delete the characters moved over.
+<br><br>Spaces to the right which are caused by deletions are
+<br><br>cleared in current <span style="font-style: italic;">PAPER</span> colour - all other versions clear
+<br><br>in current <span style="font-style: italic;">STRIP</span> colour.
+<br><br>Minerva v1.96+ (as with THOR XVI) will also allow:
+<br><br><span style="font-style: italic;">DIM x(4):INPUT x
+<br></span><br><h3>
+<br></h3><br>This will patiently ask you to input the five values of
+<br><br><span style="font-style: italic;">x(0)</span> to <span style="font-style: italic;">x(4)</span>.
+<br><br>Minerva v1.96+ (as per THOR XVI) also allows you to insert
+<br>channel numbers part way through an <span style="font-style: italic;">INPUT</span> statement, although
+<br>{unlike the THOR XVI implementation}, you still cannot use the
+<br>variable entered as part of the output.
+<br><br><h3>SMS NOTES:
+<br></h3><br>SMS provides the following additional keys for use in
+<br>editing the string:
+<br><br>&lt;ALT&gt;&lt;LEFT&gt;move to start of current text
+<br><br>&lt;ALT&gt;&lt;RIGHT&gt;move to end of current text
+<br><br>&lt;TAB&gt;move along to x*8th character from start
+<br><br>of line
+<br><br>&lt;SHIFT&gt;&lt;TAB&gt;moves back in steps of 8 characters
+<br><br>&lt;ALT&gt;&lt;LEFT&gt;move to start of current text
+<br><br>&lt;ALT&gt;&lt;RIGHT&gt;move to end of current text
+<br><br>&lt;TAB&gt;move along to x*8th character from start
+<br><br>of line
+<br><br>&lt;SHIFT&gt;&lt;TAB&gt;moves back in steps of 8 characters
+<br><br>&lt;CTRL&gt;&lt;DOWN&gt;Deletes the whole of the input line
+<br><br>&lt;SHIFT&gt;&lt;RIGHT&gt;moves you right to the start of the next
+<br><br>word (or end of the data). The start of a
+<br><br>word is taken to be where the character to
+<br><br>left  of  the  cursor  is  space  and  the
+<br><br>character under the cursor is something
+<br><br>other than space.
+<br><br>&lt;SHIFT&gt;&lt;LEFT&gt;moves  you  left  to  the  start  of  the
+<br><br>previous word (or start of the data).
+<br><br>&lt;CTRL&gt; + any combination with &lt;LEFT&gt; or &lt;RIGHT&gt;
+<br><br>will delete the characters moved over.
+<br><br>The following keyings have also been altered:
+<br><br>&lt;DOWN&gt;Has no effect!
+<br><br>&lt;UP&gt;Has no effect!
+<br><br><h3>THOR XVI NOTES:
+<br></h3><br>The THOR XVI (version 6.41) allows you to put channel
+<br>numbers part way through a statement, for example:
+<br><span style="font-style: italic;">INPUT 'Your name' ; #0 , name$ \ #1 ; ' is ' ; (name$)
+<br></span><br>instead of:
+<br><span style="font-style: italic;">PRINT 'Your name ' ; : INPUT #0,name$ : PRINT 'is ';name$
+<br></span><br>The THOR XVI also allows you to <span style="font-style: italic;">INPUT</span> arrays with one
+<br><br>statement. For example:
+<br><span style="font-style: italic;">DIM x(4): INPUT x
+<br></span><br>will wait around for five values to be entered. No other
+<br>implementation (other than Minerva v1.96+) currently allows
+<br>this.
+<br><br><h3>WARNING 1:
+<br></h3><br>There is no facility to check the characters entered using
+<br><span style="font-style: italic;">INPUT</span> and if someone tries to enter a non-numeric character when
+<br><span style="font-style: italic;">INPUT</span>ting a numeric variable an error will be caused. The second
+<br>example provides a means of ensuring numeric input is entered
+<br>safely. Also refer to <span style="font-style: italic;">CHECKF</span> and <span style="font-style: italic;">CHECK%</span>.
+<br><br><h3>WARNING 2:
+<br></h3><br>You can crash SMS if you try to omit unwanted data by using
+<br>the same variable more than once in the <span style="font-style: italic;">INPUT</span> statement.  For
+<br>example, consider opening a channel to a file which contains a
+<br>copy of a directory.  The first two lines contained in the
+<br>file are not needed, being the disk name and the number of
+<br>sectors.  You therefore may use a line similar to:
+<br><br><span style="font-style: italic;">100 OPEN_IN #3,ram1_direc
+<br></span><br><span style="font-style: italic;">110 INPUT #3,dummy$\dummy$
+<br></span><br>which would simply read these two lines.  Unfortunately, on
+<br>SMSQ/E (pre v2.88), this appears to corrupt the return stack
+<br>and may cause problems when you try to use other variables.
+<br>Minerva also exhibits some of the same traits, although it
+<br>manages to avoid a system crash.  Oddly, if you enter <span style="font-style: italic;">PRINT dummy$
+<br></span>following this command, will print either rubbish (on SMSQ/E
+<br>pre v2.88) or the first line of the file (on Minerva), whereas
+<br>it should in fact show the second line!!  Even more curiously,
+<br>if you <span style="font-style: italic;">RUN</span> the program a second time, <span style="font-style: italic;">INPUT</span> works correctly!
+<br>Later versions of SMSQ/E act in the same way as Minerva.  The
+<br>original QL ROMs get this one correct.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>The text cursor is positioned using commands such as <a style="font-style: italic;" href="KeywordsA.html#AT">AT</a> and
+<br><a style="font-style: italic;" href="KeywordsC.html#CURSOR">CURSOR</a>.
+<br><br>You may prefer to use <a style="font-style: italic;" href="KeywordsE.html#EDLINE$">EDLINE$</a> which allows you to provide a
+<br>default string for alteration, as well as specifying the
+<br>maximum number of characters that can be typed in.
+<br><br><a style="font-style: italic;" href="KeywordsP.html#PRINT">PRINT</a> has some similar characteristics.
+<br><br><a style="font-style: italic;" href="KeywordsH.html#HIS_SET">HIS_SET</a> allows you to set a history for a console channel.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="INPUT$"></a>INPUT$</h1><br>Syntax: <span style="font-style: italic;">INPUT$ (</span>[<span style="font-style: italic;">#ch</span>,]<span style="font-style: italic;"> length)
+<br></span>Location: <span style="font-style: italic;">BTool
+<br></span><br><span style="font-style: italic;">INPUT$</span> is identical to <span style="font-style: italic;">FREAD$</span> with the single difference that
+<br>the function also stops reading if a line feed character <span style="font-style: italic;">CHR$(10)
+<br></span>has been found.  So, <span style="font-style: italic;">INPUT$</span> is dedicated to read line based
+<br>text.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="INSTR"></a>INSTR</h1><br>Syntax: <span style="font-style: italic;">str1$ INSTR str2$
+<br></span>Location: <span style="font-style: italic;">QL ROM
+<br></span><br>This operator searches <span style="font-style: italic;">str2$</span> for <span style="font-style: italic;">str1$</span> and if found, it will
+<br>return the position of the first character of <span style="font-style: italic;">str1$</span> in  <span style="font-style: italic;">str2$</span>. The
+<br>search is not normally case-sensitive. If <span style="font-style: italic;">str1$</span> cannot be found,
+<br>the value 0 is returned.
+<br><br><h3>Examples:
+<br></h3><span style="font-style: italic;">s$='Hello World':PRINT 'world' INSTR s$ </span>will print 7.
+<br><span style="font-style: italic;">PRINT 'worlds' INSTR s$</span> will print 0.
+<br><br><h3>NOTE:
+<br></h3><br>If <span style="font-style: italic;">str1$</span> is a nul string, eg. <span style="font-style: italic;">str1$=""</span>, <span style="font-style: italic;">INSTR</span> will always return
+<br>the value 1.
+<br><br><h3>SMS NOTE:
+<br></h3><br>You can specify a case sensitive search using <span style="font-style: italic;">INSTR_CASE</span>.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsI.html#INSTR_CASE">INSTR_CASE</a>.
+<br><br><a style="font-style: italic;" href="KeywordsI.html#INARRAY%">INARRAY%</a> and <a style="font-style: italic;" href="KeywordsS.html#SEARCH">SEARCH</a> can be used to compare entries within
+<br>arrays.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="INSTR_CASE"></a>INSTR_CASE</h1><br>Syntax: <span style="font-style: italic;">INSTR_CASE flag
+<br></span>Location: <span style="font-style: italic;">SMSQ/E v2.58+
+<br></span><br>Normally the <span style="font-style: italic;">INSTR</span> operator carries out a non-case sensitive
+<br>search.
+<br><br>This command allows you to specify that the search should
+<br>be case sensitive (if <span style="font-style: italic;">flag=1</span>) or revert to the old system (if
+<br><span style="font-style: italic;">flag=0</span>).
+<br><br><h3>Example:
+<br></h3><span style="font-style: italic;">INSTR_CASE 1
+<br>PRINT 'Hello' INSTR 'HELLO'</span>will return 0
+<br><span style="font-style: italic;">INSTR_CASE 0
+<br>PRINT 'Hello' INSTR 'HELLO'</span>will return 1
+<br><br><h3>NOTE 1:
+<br></h3><br>This command does not seem to have any effect on the speed
+<br>of the <span style="font-style: italic;">INSTR</span> operator.
+<br><br><h3>NOTE 2:
+<br></h3><br>The setting of <span style="font-style: italic;">INSTR_CASE</span> is cleared (to non-case sensitive)
+<br>following <span style="font-style: italic;">NEW</span>, <span style="font-style: italic;">LOAD</span>, <span style="font-style: italic;">MERGE</span>, <span style="font-style: italic;">LRUN</span>, <span style="font-style: italic;">RUN</span>, <span style="font-style: italic;">MRUN</span>.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsI.html#INSTR">INSTR</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="INT"></a>INT</h1><br>Syntax: <span style="font-style: italic;">INT(x)
+<br></span>Location: <span style="font-style: italic;">QL ROM
+<br></span><br>This function returns the closest integer which is smaller
+<br>than or equal to <span style="font-style: italic;">x</span>. For positive parameters this means that the
+<br>non-integer part of the number is cut off, so <span style="font-style: italic;">INT(12.75)=12</span> and
+<br><span style="font-style: italic;">INT(5)=5</span>.
+<br><br>Note that for negative numbers this is not true: <span style="font-style: italic;">INT(-12.75) =
+<br>-13</span> because -13 < -12.75.
+<br><br><span style="font-style: italic;">INT</span> can handle any number in the range <span style="font-style: italic;">-2^31<=x<2^31</span>, except
+<br>under SMS where it can handle much larger numbers, in the
+<br>range <span style="font-style: italic;">-2^255<=x<=2^2047</span>.
+<br><br><h3>Example:
+<br></h3><br>A function Rond(x,d) to round a number x to d decimal
+<br><br>places:
+<br><span style="font-style: italic;">100 DEFine FuNction Rond(no,plac)
+<br>110   LOCal temp
+<br>120   temp=INT(no*10^(plac+1)+.5)/10^(plac+1)
+<br>130   RETurn INT(temp*10^plac+.5)/10^plac
+<br>140 END DEFine
+<br></span><br><span style="font-style: italic;">PRINT Rond (10.3226,2)</span>gives the result 10.32
+<br><br><h3>NOTE 1:
+<br></h3><br>The <span style="font-style: italic;">INT</span> function does not round to the nearest integer, use
+<br><span style="font-style: italic;">INT(x+.5)</span> instead.
+<br><br><h3>NOTE 2:
+<br></h3><br>On non-Minerva ROMs, unless you have SMS installed, <span style="font-style: italic;">INT</span> with
+<br><span style="font-style: italic;">x</span>>(2^31)-2 gives an overflow error.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsC.html#CEIL">CEIL</a> is complementary to <a style="font-style: italic;" href="KeywordsI.html#INT">INT</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="INTMAX"></a>INTMAX</h1><br>Syntax: <span style="font-style: italic;">INTMAX
+<br></span>Location: <span style="font-style: italic;">Math Package
+<br></span><br>The  function  <span style="font-style: italic;">INTMAX</span>  returns  the  constant  10737421823  =
+<br>2^30-1. Although  SuperBASIC's  integers can  only  handle  a
+<br>maximum of 16 bits (resulting in a range of 2<sup>16</sup> different
+<br>values: -32768 to 32767), the QL can internally, on a machine
+<br>code level, happily handle larger integers. Many keywords
+<br>listed in this book actually make use of this possibility and
+<br>that explains their valid parameter range.
+<br><br><h3>NOTE:
+<br></h3><br>An error in the Maths Package (up to v2.04) means that a
+<br>line such as <span style="font-style: italic;">PRINT 2^30-INTMAX</span> will report an out of memory error.
+<br>This is fixed in later versions of the package.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsE.html#EPS (x) = 1">EPS (x) = 1</a> if and only if <a style="font-style: italic;" href="KeywordsA.html#ABS (x) = 2 * INTMAX">ABS (x) = 2 * INTMAX</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="INVERSE"></a>INVERSE</h1><br>Syntax: <span style="font-style: italic;">INVERSE</span> [ <span style="font-style: italic;">#channel</span> ]
+Location: <span style="font-style: italic;">ALIAS (DIY Toolkit - Vol A)
+<br></span><br>This command provides the QL with a facility which is
+<br>available on most other implementations of BASIC - inverse
+<br>video.
+<br><br>What this command actually does is swap over the values
+<br>which have been set for the specified window channel (default
+<br>#1) for the <span style="font-style: italic;">STRIP</span> and <span style="font-style: italic;">INK</span> colours, thereby making any futher text
+<br>which is <span style="font-style: italic;">PRINT</span>ed to that window stand out.
+<br><br>This means that for example, if you set the <span style="font-style: italic;">INK</span> to 7 (white)
+<br>and the <span style="font-style: italic;">STRIP</span> (or <span style="font-style: italic;">PAPER</span> colour) to 2 (red), after <span style="font-style: italic;">INVERSE</span>, text will
+<br>be printed in red <span style="font-style: italic;">INK</span> on a white <span style="font-style: italic;">STRIP</span>.
+<br><br><h3>Example:
+<br></h3><span style="font-style: italic;">STRIP #2,7:INK #2,0:PRINT #2,'This text is normal';
+<br>INVERSE #2:PRINT #2!!'But this is in inverse video!!'
+<br></span><br><h3>CROSS-REFERENCE:<br></h3><br>See also <a style="font-style: italic;" href="KeywordsI.html#INK">INK</a> and <a style="font-style: italic;" href="KeywordsS.html#STRIP">STRIP</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="INVXY"></a>INVXY</h1><br>Syntax: <span style="font-style: italic;">INVXY x%, y%
+<br></span>Location: <span style="font-style: italic;">HCO
+<br></span><br>This is a simple command which draws a haircross on screen
+<br>with its centre at (<span style="font-style: italic;">x%</span>,<span style="font-style: italic;">y%</span>). It is drawn with <span style="font-style: italic;">OVER -1</span> and uses the
+<br>full screen.
+<br><br><h3>WARNING:
+<br></h3><br>Do not use this!
+<br><hr style="width: 100%; height: 2px;"><h1><a name="IO_PEND%"></a>IO_PEND%</h1><br>Syntax: <span style="font-style: italic;">IO_PEND% (#ch)
+<br></span>Location: <span style="font-style: italic;">BTool
+<br></span><br>This function is the same as <span style="font-style: italic;">NOT PEND</span>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="IO_PRIORITY"></a>IO_PRIORITY</h1><br>Syntax: <span style="font-style: italic;">IO_PRIORITY level</span><span style="font-style: italic;">level=1 to 1000
+<br></span>Location: <span style="font-style: italic;">SMS
+<br></span><br>This command is used to set the priority of the In / Out
+<br>retry operations.  This means that it affects the amount of
+<br>time  that  the  scheduler  will  spend  retrying  IN  /  OUT
+<br>operations (such as <span style="font-style: italic;">INKEY$</span> or <span style="font-style: italic;">PRINT</span>).
+<br><br>Due to the QL's multitasking abilities, it is possible that
+<br>a program can be running in the background whilst you are
+<br>doing something else.  If that program is trying to access a
+<br>file or the Network port for example, then it may find that
+<br>there is no information waiting to be read at the time and the
+<br>scheduler will keep trying to access the file or Network until
+<br>that information is received.  By using this command to set a
+<br>higher priority, the scheduler will allocate more time to
+<br>doing this and less time to running another job.
+<br><br><span style="font-style: italic;">IO_PRIORITY 1</span>is equivalent to the way in which the scheduler
+<br>worked on the original QL ROM.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="IO_TRAP"></a>IO_TRAP</h1><br>Syntax: <span style="font-style: italic;">IO_TRAP ( </span>[<span style="font-style: italic;">#ch</span>]<span style="font-style: italic;">, D0 </span>[<span style="font-style: italic;">,D1 </span>[<span style="font-style: italic;">,D2</span> [<span style="font-style: italic;">,A1</span> [<span style="font-style: italic;">,A2 </span>[<span style="font-style: italic;">,D3 </span>]]]]]<span style="font-style: italic;"> )
+<br></span>Location: <span style="font-style: italic;">THOR XVI
+<br></span><br>This function enables you to directly access QDOS's I/O
+<br>TRAP (TRAP #3) machine code utilities.
+<br><br>You need to supply the number of the TRAP call as the
+<br>parameter <span style="font-style: italic;">D0</span>, but you can also set certain of the other
+<br>internal machine code registers used by the trap call by
+<br>setting the other optional parameters.
+<br><br>The TRAP call will affect the specified channel (default
+<br>#1). Apart from parameter <span style="font-style: italic;">D3</span> (this defaults to -1), the purpose
+<br>of the other parameters depends upon the TRAP call being used.
+<br>Unless <span style="font-style: italic;">D3</span> is negative, 'Not Complete' errors will not be
+<br>reported, thus allowing programs to continue even though their
+<br>windows are buried under the THOR's windowing system and
+<br>therefore unusable.
+<br><br>The return parameter is the value returned in the machine
+<br>code register <span style="font-style: italic;">D0</span> by the call.
+<br><br><h3>Example 1:
+<br></h3><br>A short program to get the current window sizes and cursor
+<br><br>position in the variables <span style="font-style: italic;">Window_Width</span>, <span style="font-style: italic;">Window_Height</span>, <span style="font-style: italic;">Window_posx</span> and
+<br><br><span style="font-style: italic;">Window_posy</span> respectively:
+<br><span style="font-style: italic;">100 a = ALCHP (8)
+<br>110 dummy=IO_TRAP (11,0,0,a)   : REMark IOW.CHRQ TRAP
+<br>120 Window_Width = PEEK_W (a): Window_Height = PEEK_W (a+2)
+<br>130 Window_posx = PEEK_W (a+4): Window_posy = PEEK_W (a+6)
+<br>140 RECHP a
+<br></span><br><h3>Example 2:
+<br></h3><br>Switch on the cursor in #1 (call IOW.ECUR):
+<br><span style="font-style: italic;">t=IO_TRAP ( HEX ('E') )
+<br></span><br><h3>Example 3:
+<br></h3><br>Set cursor to column x in #3 (call IOW.SCOL):
+<br><span style="font-style: italic;">t=IO_TRAP (#3,HEX ('11') , x )
+<br></span><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsC.html#CLS">CLS</a>, <a style="font-style: italic;" href="KeywordsS.html#SCROLL">SCROLL</a> and <a style="font-style: italic;" href="KeywordsP.html#PAN">PAN</a> all allow you to access machine code trap
+<br>calls on different ROMs.
+<br><br><a style="font-style: italic;" href="KeywordsI.html#INK">INK</a> contains a good example of how to use <a style="font-style: italic;" href="KeywordsI.html#IO_TRAP">IO_TRAP</a>.
+<br><br><a style="font-style: italic;" href="KeywordsT.html#TTET3">TTET3</a>,<a style="font-style: italic;" href="KeywordsM.html#MTRAP">MTRAP</a>, <a style="font-style: italic;" href="KeywordsQ.html#QTRAP">QTRAP</a> and <a style="font-style: italic;" href="KeywordsB.html#BTRAP">BTRAP</a> are much better as they can be used
+<br>on all ROM versions.
+<br><br>The QDOS/SMS Reference Manual (Section 15) contains details
+<br>of the I/O Access Traps.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="IQCONVERT"></a>IQCONVERT</h1><br>Syntax: <span style="font-style: italic;">IQCONVERT filename
+<br></span>Location: <span style="font-style: italic;">ATARIDOS
+<br></span><br>This command takes a file which is stored on a QL Format
+<br>disk and presumes that it was originally an IBM format file.
+<br>It will then convert special characters in that file to QL
+<br>compatible characters as well as converting any occurence of a
+<br>Carriage  Return  character  (CR)  followed  by  a  Line  Feed
+<br>character (LF) to a single Line Feed character LF.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>Compare <a style="font-style: italic;" href="KeywordsA.html#AQCONVERT">AQCONVERT</a> and <a style="font-style: italic;" href="KeywordsQ.html#QICONVERT">QICONVERT</a>.
+<br><br>See also <a style="font-style: italic;" href="KeywordsI.html#IFORMAT">IFORMAT</a> and <a style="font-style: italic;" href="KeywordsQ.html#QCOPY">QCOPY</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="IS_BASIC"></a>IS_BASIC</h1><br>Syntax: <span style="font-style: italic;">IS_BASIC
+<br></span>Location: <span style="font-style: italic;">MULTI
+<br></span><br>The function <span style="font-style: italic;">IS_BASIC</span> allows you to find out whether the
+<br>SuperBASIC program which executes the command is running under
+<br>the  interpreter  or  has  been  compiled.  This  is  done  by
+<br>returning the sum of the jobnumber and the jobtag: the sum is
+<br>0 for the interpreter and a positive number for a compiled
+<br>job.  So <span style="font-style: italic;">NOT IS_BASIC</span> is 1 under the interpreter and 0 in a
+<br>compiled program (or a MultiBASIC on Minerva or Mutiple SBASIC
+<br>under SMS).
+<br><br><h3>Example:
+<br></h3><br>If a compiler is available, programs are normally compiled
+<br><br>for:
+<br><br>- faster loading
+<br><br>- faster execution
+<br><br>- possibly linking in Toolkits  (QLiberator only)
+<br><br>- easier multitasking
+<br><br>- operating system independent code(QLiberator only)
+<br><br>- shared code/hotkey execution  (QLiberator only)
+<br><br><span style="font-style: italic;">IS_BASIC</span> helps the programmer who uses the interpreter to
+<br><br>develop programs which distinguish between features which
+<br><br>are only available in compiled programs, for instance
+<br><br>passing a command string:
+<br><span style="font-style: italic;">100 IF NOT IS_BASIC THEN
+<br>110   CMD$="Test"
+<br>120 ELSE
+<br>130   INPUT CMD$
+<br>140 END IF
+<br></span><br><h3>NOTE:
+<br></h3><br><span style="font-style: italic;">IS_BASIC</span>  will  fail  to  spot  a  MultiBASIC  or  SBASIC
+<br>interpreter.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsP.html#PRIO">PRIO</a> sets the priority of the current job.
+<br><br>Under SMS or Minerva, you can use <a style="font-style: italic;" href="KeywordsJ.html#JOB_NAME$">JOB_NAME$</a> to look at the
+<br>name of the task which would normally be SBASIC or have its
+<br>first two letters as MB respectively for a Multiple SBASIC or
+<br>MultiBASIC interpreter, unless the name of the Interpreter has
+<br>been altered.  Refer to<a style="font-style: italic;" href="KeywordsJ.html#JOB_NAME">JOB_NAME</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="IS_PEON"></a>IS_PEON</h1><br>Syntax: <span style="font-style: italic;">IS_PEON </span>[{ <span style="font-style: italic;">#ch</span> | <span style="font-style: italic;">chan_ID</span> | <span style="font-style: italic;">job_name$</span> }]
+Location: <span style="font-style: italic;">PEX
+<br></span><br>This function takes the same parameter as <span style="font-style: italic;">PEON</span> and returns 0
+<br>if PEX is not activated for the specified window (or Job) and
+<br>returns a value not equal to 0 if PEX is active.
+<br><br>If no parameter is specified, then this function just
+<br>checks if PEX is active at all.
+<br><br>If a pre-JS ROM is installed, then this function will
+<br>return the value -19.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsP.html#PEON">PEON</a> and <a style="font-style: italic;" href="KeywordsI.html#IS_PTRAP">IS_PTRAP</a> for more details.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="IS_PTRAP"></a>IS_PTRAP</h1><br>Syntax: <span style="font-style: italic;">IS_PTRAP (trapno </span>[<span style="font-style: italic;">,status</span>] )
+Location: <span style="font-style: italic;">PEX
+<br></span><br>Not only does PEX allow you to enable background screen
+<br>access for specific Jobs or windows, but you can also dictate
+<br>how the various TRAP #3 machine code routines should be
+<br>treated (which has a knock on effect on programs, since these
+<br>routines are generally used to access the screen).
+<br><br>For each TRAP #3 routine, you can specify the following
+<br><span style="font-style: italic;">status</span>:
+<br>0 - if the window is buried, then halt the program when
+<br>this routine is called (this is the normal case under
+<br>the Pointer Environment)
+<br>1 -Enable background screen access for this routine (if
+<br>PEX is active - see <span style="font-style: italic;">PEON</span>).
+<br>2 -This only enables background screen access for this
+<br>routine if both PEX is active and <span style="font-style: italic;">PXON</span> has been used to
+<br>enable SD.EXTOP routine calls.
+<br>3 -If the window is buried, then just ignore this call and
+<br>allow the program to carry on.  This could be used for
+<br>example to allow a program which has a large amount of
+<br>calculation to do to carry on in the background,
+<br>printing a message to the screen only when its window
+<br>is not buried to inform the user of its progress.
+<br><br>On JS and MG ROMs, only values of 0 and 3 are recognised -
+<br><span style="font-style: italic;">PEON</span> activates all routines as having a <span style="font-style: italic;">status</span> of 3 on these
+<br>implementations.
+<br><br>On all other implementations using the defaults provided
+<br>with PEX, <span style="font-style: italic;">PEON</span> activates all of the following routines as having
+<br>a status of 1.
+<br><br>$05 iob.sbyt, $07 iob.smul, $09 iow.xtop to $0B iow.chrq
+<br><br>$0F iow.dcur to $36 iog.sgcr
+<br><br>$6C iop.flim, $72 iop.rpxl to $76 iop.spry
+<br><br>If you use <span style="font-style: italic;">PEX_SAVE</span>, <span style="font-style: italic;">PEON</span> will set the various routines as
+<br>specified by you previously.
+<br><br>Not all TRAP #3 machine code routines should be treated in
+<br>this way  -  the  following routines  should  be  avoided  if
+<br>possible:
+<br><br>$00 iob.test, $01 iob.fbyt, $04 iob.elin, $0C iow.defb, and
+<br><br>$0E iow.ecur
+<br><br>If you decide to use this function to fine-tune the
+<br>operation of PEX, then you can save the various settings using
+<br>the <span style="font-style: italic;">PEX_SAVE</span> command.
+<br><br>If <span style="font-style: italic;">status</span> is not specified, then the value returned will be
+<br>the status of that particular machine code routine.  If a
+<br>negative number is returned then you probably have a JS or MG
+<br>ROM (or earlier).
+<br><br>If you are writing a program which will is to run on all
+<br>QLs, then you may wish to use <span style="font-style: italic;">IS_PTRAP</span> to set all of the routines
+<br>to 0 if the QL ROM version is JS, MG or earlier.
+<br><br><h3>NOTE:
+<br></h3><br>You need a good book on the QL's operating system to be
+<br>able to use this feature.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsP.html#PEON">PEON</a> for more details.
+<br><br>The QDOS/SMS Reference Manual Section 15 contains details
+<br>of the various TRAP #3 calls.
+<br></div>
+</body>
+</html>
