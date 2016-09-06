@@ -1,3 +1,15 @@
+<<<<<<< HEAD
+=======
+==========
+Keywords H
+==========
+
+TODO
+====
+
+- HEX and HEX$ have the same URL.
+- HIS_USE and HIS_USE$ have the same URL.
+
 HEADR
 =====
 
@@ -7,7 +19,7 @@ HEADR
 | Location |  TinyToolkit                                                      |
 +----------+-------------------------------------------------------------------+
 
- This command reads the file header of the specified file and stores it
+This command reads the file header of the specified file and stores it
 at the specified address (adr) in memory. Note that file must be the
 full filename.
 
@@ -27,7 +39,7 @@ HEADS
 | Location |  TinyToolkit                                                      |
 +----------+-------------------------------------------------------------------+
 
- This command sets the file header of the specified file to the 64 bytes
+This command sets the file header of the specified file to the 64 bytes
 stored at adr.
 
 **CROSS-REFERENCE**
@@ -47,20 +59,32 @@ HEX
 | Location |  Toolkit II, THOR XVI                                             |
 +----------+-------------------------------------------------------------------+
 
- This function returns the decimal value of a hexadecimal number. The
+This function returns the decimal value of a hexadecimal number. The
 hexadecimal system of numbering is based upon base 16, which means that
 instead of each digit being in the range 0..9 (as in decimal), each
-digit can actually hold the value 0..15. Because a digit can only be one
+digit can actually hold the value 0..15. 
+
+Because a digit can only be one
 character, a system was devised for representing the value 10..15 -
 these values are represented by the letters A..F respectively. Any
-digits outside the range 0..F will cause an 'error in expression'. Hex$
-can be anything in the range $80000000 (which equates to -2^31) to
+digits outside the range 0..F will cause an 'error in expression'. 
+
+Hex$ can be anything in the range $80000000 (which equates to -2^31) to
 $79999999 (which equates to 2^31-1).
 
 **Examples**
 
-PRINT HEX('F') will print the value 15. PRINT HEX('10') will print the
-value 16.
+::
+
+    PRINT HEX('F') 
+
+will print the value 15. 
+
+::
+
+    PRINT HEX('10') 
+    
+will print the value 16.
 
 **CROSS-REFERENCE**
 
@@ -68,8 +92,13 @@ value 16.
 decimal numbers into their hexadecimal equivalent. See
 `BIN <KeywordsB.clean.html#bin>`__ and `BIN$ <KeywordsB.clean.html#bin>`__ for the
 binary versions. SMS users can achieve the same thing by using, for
-example `PRINT $1AB <KeywordsP.clean.html#print201ab>`__ instead of `PRINT
-HEX ('1AB') <KeywordsP.clean.html#print20hex20('1ab')>`__.
+example::
+
+    PRINT $1AB 
+    
+instead of::
+
+    PRINT HEX ('1AB').
 
 --------------
 
@@ -77,12 +106,13 @@ HEX$
 ====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  HEX$ (decimal,nibbles)  or HEX$ (decimal [,nibbles]) (THOR only)  |
+| Syntax   || HEX$ (decimal,nibbles)  or                                       |
+|          || HEX$ (decimal [,nibbles]) (THOR only)                            |
 +----------+-------------------------------------------------------------------+
-| Location |  Toolkit II, THOR XVI                                             |
+| Location || Toolkit II, THOR XVI                                             |
 +----------+-------------------------------------------------------------------+
 
- This function converts a signed integer decimal number to the
+This function converts a signed integer decimal number to the
 equivalent hexadecimal number to a specified number of nibbles (ranging
 from 1 to 32 - there are 4 nibbles in one digit). If nibbles is not
 divisible by four, it is rounded up to the next multiple of four.
@@ -91,17 +121,34 @@ to 32. The range of decimal is -2^31<decimal<2^31
 
 **Examples**
 
-HEX (HEX$ (x,4)) =x if x is any number between 0 and 15. PRINT HEX$
-(300,10) will return the value 12C. PRINT HEX$ (300,8) will return the
-value 2C.
+::
+
+    HEX (HEX$ (x,4)) 
+    
+Will = x if x is any number between 0 and 15. 
+
+::
+
+    PRINT HEX$ (300,10) 
+    
+will return the value 12C. 
+
+::
+
+    PRINT HEX$ (300,8) 
+    
+will return the value 2C.
 
 **THOR XVI NOTE**
 
 The THOR XVI version of this command will accept a value of zero for
 nibbles {or even the command in the form HEX$(decimal)}. In both of
 these cases the result is returned in the least number of Hexadecimal
-digits necessary to store the number, for example: PRINT HEX$(32)
- gives the result 20.
+digits necessary to store the number, for example:: 
+
+    PRINT HEX$(32) 
+
+gives the result 20.
 
 **THOR XVI WARNING**
 
@@ -124,13 +171,20 @@ HGET
 | Location |  SMSQ/E                                                           |
 +----------+-------------------------------------------------------------------+
 
- This command allows you to access the various parameters which are
+This command allows you to access the various parameters which are
 contained in the header of the file attached to the specified channel
 (default #3). The command will set the supplied parameters to the
-required information. If the specified channel is not open to a file,
-then an Invalid Parameter error is reported. The information returned is
-as follows: lengthLength of the File accessFile Access Key type File
-Type dataspaceDataspace for Executable Files extraExtra Information
+required information. 
+
+If the specified channel is not open to a file, then an Invalid Parameter error is reported. 
+
+The information returned is as follows: 
+
+- length = Length of the File 
+- access = File Access Key 
+- type   = File Type 
+- dataspace = Dataspace for Executable Files 
+- extra = Extra Information
 
 **NOTE**
 
@@ -155,30 +209,40 @@ HIS\_SET
 | Location |  History Device (Needs Pointer Environment)                       |
 +----------+-------------------------------------------------------------------+
 
- The History Device is an extension to the internal QDOS routine
+The History Device is an extension to the internal QDOS routine
 IO.EDLIN which reads editable text input from the keyboard; IO.EDLIN is
 used if, for example, you use INPUT on a window - even the interpreter
 uses IO.EDLIN to get its commands from #0. But let's see how the History
-Device alters keyboard input. The toolkit must be loaded into Resident
+Device alters keyboard input. 
+
+The toolkit must be loaded into Resident
 Procedure Memory (with RESPR) before any Jobs are started, but after the
 Pointer Environment and Lightning / Speedscreen (or any other drivers
 which alter the con\_ device driver) are installed (if either of these
-two packages are required). Often, if you respond to a set of questions
+two packages are required). 
+
+Often, if you respond to a set of questions
 asked by a program, the same answers crop up again and again. For
 example, take the SuperBASIC interpreter, if you have entered a command,
 it will carry it out and wait for the next command to be entered. You
 may find that you want to type in the same text - or something which you
-entered a few loops ago again. Toolkit II and the Hotkey System install
+entered a few loops ago again. 
+
+Toolkit II and the Hotkey System install
 a last line recall when the <ALT><ENTER> key combination is pressed (can
 be configured with the Hotkey System) - this is widely accepted (it's
 even supported by keyboard interfaces), but, has not proved to be very
 reliable or useful: recalling the last line typed generally works well,
 but for lines which were entered some time ago, things become easily
-messed up. The History Device sits on the afore-mentioned QDOS trap and
+messed up. 
+
+The History Device sits on the afore-mentioned QDOS trap and
 stores a specified number of entered lines for any console channel. If a
 program then requests input, previously entered lines can be recalled
-using the <> and <> keys - this is called a command line history (hence
-the name of the History Device). A history for a console channel must be
+using the <↑> and <↓> keys - this is called a command line history (hence
+the name of the History Device). 
+
+A history for a console channel must be
 explicitly installed, by using the HIS\_SET command. HIS\_SET can only
 accept channel numbers which point to a con\_ device, it breaks with
 'bad parameter' if that is not the case. Once the history is installed,
@@ -187,9 +251,10 @@ you will need to activate it by using the command HIS\_SIZE.
 **Example**
 
 To install a command line history for the SuperBASIC interpreter - these
-lines could be added to a BOOT program: HIS\_SET #0install a command
-line history for #0 HIS\_SIZE #0, 40activate history which stores 40
-lines
+lines could be added to a BOOT program::
+
+    HIS_SET #0: REMark Install a command line history for #0 
+    HIS_SIZE #0, 40: REMark Activate history which stores 40 lines
 
 **NOTE 1**
 
@@ -229,18 +294,23 @@ HIS\_SIZE
 | Location |  History Device                                                   |
 +----------+-------------------------------------------------------------------+
 
- A history which has been already been installed with HIS\_SET has its
+A history which has been already been installed with HIS\_SET has its
 size specified and is activated (or de-activated) with HIS\_SIZE. The
 different usages of the command are distinguished by the lines
-parameter. - Positive numbers for lines will activate a history for the
-given channel and tell it to store the next lines number of lines which
-are terminated by pressing <ENTER>. If a history had already been
-installed, then all stored lines are lost. - Negative numbers will have
-exactly the same effect except that if a history was already active, the
-absolute value of the given lines number is added to the memory capacity
-of the existing history. Exisiting stored lines are retained in memory.
-- Zero simply turns off a history and clears the tables which hold the
-entered lines. History can store a maximum of 32767 lines which should
+parameter. 
+
+- Positive numbers for lines will activate a history for the 
+  given channel and tell it to store the next lines number of lines which
+  are terminated by pressing <ENTER>. If a history had already been
+  installed, then all stored lines are lost. 
+
+- Negative numbers will have exactly the same effect except that if a history was already active, the
+  absolute value of the given lines number is added to the memory capacity
+  of the existing history. Exisiting stored lines are retained in memory.
+
+- Zero simply turns off a history and clears the tables which hold the entered lines. 
+
+History can store a maximum of 32767 lines which should
 be more than sufficient. Memory is allocated dynamically, in four
 kilobytes chunks, so there is a small danger of heap fragmentation.
 
@@ -259,13 +329,15 @@ HIS\_UNSET
 | Location |  History Device                                                   |
 +----------+-------------------------------------------------------------------+
 
- This command removes a history from a channel, regardless of its state
+This command removes a history from a channel, regardless of its state
 of activity and the stored lines. HIS\_UNSET can only be used on
 channels where a history exists, otherwise an error will be reported.
 
 **Example**
 
-HIS\_UNSET #0
+::
+
+    HIS_UNSET #0
 
 **CROSS-REFERENCE**
 
@@ -283,10 +355,12 @@ HIS\_USE
 | Location |  History Device                                                   |
 +----------+-------------------------------------------------------------------+
 
- History's command line history is installed as a device driver to allow
+History's command line history is installed as a device driver to allow
 you to use it from languages other than SuperBASIC. The default device
 name is HIS and can be opened as an input pipe whenever a IO.EDLIN call
-is to be used. The HIS\_USE instruction allows you to rename this device
+is to be used. 
+
+The HIS\_USE instruction allows you to rename this device
 name to any other three letter code, passed as a string. The use of the
 HIS device is beyond the scope of this book because it's not necessary
 for SuperBASIC where the HIS\_SET, HIS\_SIZE and HIS\_UNSET commands are
@@ -314,8 +388,7 @@ HIS\_USE$
 | Location |  History Device                                                   |
 +----------+-------------------------------------------------------------------+
 
- This function returns the three letter device name which has been set
-with HIS\_USE.
+This function returns the three letter device name which has been set with HIS\_USE.
 
 **CROSS-REFERENCE**
 
@@ -332,7 +405,7 @@ HOT
 | Location |  TinyToolkit                                                      |
 +----------+-------------------------------------------------------------------+
 
- This command will load the given executable job into memory and start
+This command will load the given executable job into memory and start
 it running from memory each time that the specified key (together with
 <ALT>) is pressed, so there will not be any need to access the drive,
 but the code has to be stored twice: once as the code loaded by HOT, and
@@ -341,7 +414,11 @@ small programs such as system utilities with this command.
 
 **Examples**
 
-HOT c,FLP1\_COLOURS\_exe HOT s,FLP1\_tk2flp HOT "4",FLP1\_QED
+::
+
+    HOT c,FLP1_COLOURS_exe 
+    HOT s,FLP1_tk2flp 
+    HOT "4",FLP1_QED
 
 **NOTE 1**
 
@@ -373,50 +450,62 @@ HOT\_CHP
 ========
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  HOT\_CHP (key$,filename [;cmd$] [,JobName$] [,options] )         |
+| Syntax   |  HOT\_CHP (key$,filename [;cmd$] [,JobName$] [,options])          |
 +----------+-------------------------------------------------------------------+
 | Location |  HOTKEY II                                                        |
 +----------+-------------------------------------------------------------------+
 
- The main idea behind the Hotkey System II is that you can have access
+The main idea behind the Hotkey System II is that you can have access
 to any number of QL programs by pressing one simple hotkey in order to
 access each program, rather than having to use <CTRL><C> to cycle
-through all of the programs currently stored in the QL's memory. The
-function HOT\_CHP will load an executable file with the specified
+through all of the programs currently stored in the QL's memory. 
+
+The function HOT\_CHP will load an executable file with the specified
 filename into the common heap and make it into an Executable Thing. Now,
 each time that you press <ALT> plus the specified key$, a new copy of
 the program will be started up in memory (although the same code is
 used, meaning that very little memory is used by each additional copy).
+
 As from v2.03 of Hotkey System II, if you use an upper case key$, then
 you will need to press the upper case character, compare where you use a
 lower case key$, which will recognise both the uppper and lower case
 character (if the upper case character has not been assigned to another
-hotkey). HOT\_CHP will support the current program default device if
+hotkey). 
+
+HOT\_CHP will support the current program default device if
 Toolkit II is loaded, otherwise it will use its own default device which
 can be configured by using the program CONFIG on the file HOT\_REXT.
+
 When the program is loaded using this command, HOT\_CHP will look to see
 whether the start of the program contains a Job name, if not, then the
 program file name is used as the Job name (unless an alternative is
-stipulated, using the Jobname$
- parameter). As with EXEP, you can pass a command string to the program
+stipulated, using the Jobname$  parameter). 
+
+As with EXEP, you can pass a command string to the program
 which will be passed to each copy of the program as and when they are
 started up. You can also supply a specific Job name for the program and
 pass various options to the Pointer Interface to tell it how to treat
 the program. As well as those options supported by EXEP, the following
-option is also supported: I -This tells the Hotkey System that the
-program code is 'impure' (ie. it modifies its own code). This means that
-code cannot be shared by every copy of the program - this therefore
-means that each time that the program is called, a copy of the original
-code is made from which the program runs. For this reason, you should
-consider using HOT\_LOAD for such programs. The most common programs
-which fall within this category have been written under BCPL or compiled
-with Supercharge or Turbo. If the program is successfully loaded into
+option is also supported: 
+
+- -I This tells the Hotkey System that the program code is 'impure' 
+  (ie. it modifies its own code). This means that
+  code cannot be shared by every copy of the program - this therefore
+  means that each time that the program is called, a copy of the original
+  code is made from which the program runs. For this reason, you should
+  consider using HOT\_LOAD for such programs. The most common programs
+  which fall within this category have been written under BCPL or compiled
+  with Supercharge or Turbo. 
+
+If the program is successfully loaded into
 memory and set up as an executable Thing, HOT\_CHP will return 0,
-otherwise one of the following error codes will be returned: -2Specified
-filename is not executable -3Not enough memory to load the file -7The
-specified filename cannot be found -9The specified hotkey has already
-been defined, or the file is in use. -12The specified filename is not
-supported (bad filename).
+otherwise one of the following error codes will be returned:
+
+- -2 Specified filename is not executable 
+- -3 Not enough memory to load the file 
+- -7 The specified filename cannot be found 
+- -9 The specified hotkey has already been defined, or the file is in use. 
+- -12 The specified filename is not supported (bad filename).
 
 **NOTE 1**
 
@@ -450,34 +539,42 @@ HOT\_CHP1
 =========
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  HOT\_CHP1 (key$,filename [;cmd$] [,Jobname$] [,options] )  or HOT\_CHP1 (key$,filename [;cmd$] !Wakename$ [,options] )  |
+| Syntax   || HOT\_CHP1 (key$,filename [;cmd$] [,Jobname$] [,options] )  or    |
+|          || HOT\_CHP1 (key$,filename [;cmd$] !Wakename$ [,options] )         |
 +----------+-------------------------------------------------------------------+
-| Location |  HOTKEY II                                                        |
+| Location ||  HOTKEY II                                                       |
 +----------+-------------------------------------------------------------------+
 
- The first variant of this function is very similar to HOT\_CHP except
+The first variant of this function is very similar to HOT\_CHP except
 that it will only start up a new copy of the program when the specified
 hotkey is pressed if there is not already a copy of the program being
 executed. If a copy of the program is already being executed, then the
 hotkey will merely move that copy of the program to the top of the pile
 so that you can access it (it will PICK the program and execute a WAKE
-event, if supported by the program {a Wake event is normally used by a
-program to force it to update its tables}). The second variant of this
-command was introduced in v2.24 of the Hotkey System II and allows you
-to specify a name of a job (Wakename$) which is to be Woken up if there
+event, if supported by the program - a Wake event is normally used by a
+program to force it to update its tables etc). 
+
+The second variant of this command was introduced in v2.24 of the Hotkey System II and allows you
+to specify a name of a job (Wakename$) which is to be woken up if there
 is already one copy of the original program running in memory.
 Unfortunately this variant acts differently from the first in one main
-way: -If the original program is already running, and Wakename$ points
-to another program which is not yet running, a second copy of the
-original program will be started up.
+way: 
+
+- If the original program is already running, and Wakename$ points
+  to another program which is not yet running, a second copy of the
+  original program will be started up.
 
 **Example**
 
 The following line will allow you to set up the <ALT><R> key to do one
-of two things: (1)If a job called QR-Config is running already, this
-will be Woken; otherwise (2)A copy of a program called flp1\_Route\_Obj
-will be started up (even if one is already running). ERT HOT\_CHP1
-('R','flp1\_Route\_obj';'flp1\_\\' ! 'QR-Config')
+of two things: 
+
+- If a job called QR-Config is running already, this will be Woken; otherwise; 
+- A copy of a program called flp1\_Route\_Obj will be started up (even if one is already running). 
+
+::
+
+    ERT HOT_CHP1 ('R','flp1_Route_obj';'flp1_\' ! 'QR-Config')
 
 **NOTE 1**
 
@@ -509,15 +606,18 @@ HOT\_CMD
 | Location |  HOTKEY II                                                        |
 +----------+-------------------------------------------------------------------+
 
- This function allows you to set up a specify a key, which, when pressed
+This function allows you to set up a specify a key, which, when pressed
 with <ALT> will call up the SuperBasic task (Job 0), Picking it to the
 top of the pile, and then send each specified command to the command
 console (normally #0) followed by <ENTER> at the end of each string.
 
 **Example**
 
-ERT HOT\_CMD ('d','INPUT "List Device: ";d$','DIR d$')
- will set up a hotkey whereby whenever you press <ALT><d>, control will
+::
+
+    ERT HOT_CMD ('d','INPUT "List Device: ";d$','DIR d$')
+    
+will set up a hotkey whereby whenever you press <ALT><d>, control will
 be returned to SuperBasic and the user asked to enter a device, after
 which, a directory of that device will be produced.
 
@@ -540,29 +640,37 @@ HOT\_DO
 =======
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  HOT\_DO key$  or HOT\_DO Thingname$                              |
+| Syntax   || HOT\_DO key$  or                                                 |
+|          || HOT\_DO Thingname$                                               |
 +----------+-------------------------------------------------------------------+
-| Location |  HOTKEY II                                                        |
+| Location || HOTKEY II                                                        |
 +----------+-------------------------------------------------------------------+
 
- Once a hotkey is operational (see HOT\_GO), you can call up the program
+Once a hotkey is operational (see HOT\_GO), you can call up the program
 or action set up on that hotkey by using the command HOT\_DO, which
-enables a program to emulate the user pressing <ALT><key>. The first
-variant expects you to supply the key which would normally be used
+enables a program to emulate the user pressing <ALT><key>. 
+
+The first variant expects you to supply the key which would normally be used
 together with <ALT> to call up the facility. You can however, also use
 the second variant to supply the name of an Executable Thing to be
 called up.
 
 **Example**
 
-Take the following hotkey: 100 ERT HOT\_WAKE ('f',Files) 110 HOT\_GO
- The following would all have the same effect: (1) pressing <ALT><f> (2)
-HOT\_DO 'f'
- (3) HOT\_DO Files
+Take the following hotkey:: 
+
+    100 ERT HOT_WAKE ('f',Files) 
+    110 HOT_GO
+    
+The following would all have the same effect:
+
+- Pressing <ALT><f> 
+- HOT\_DO 'f'
+- HOT\_DO Files
 
 **CROSS-REFERENCE**
 
-See the other `HOT\_ <KeywordsH.clean.html#hot->`__... commands about setting
+See the other `HOT <KeywordsH.clean.html#hot-chp>`__... commands about setting
 up hotkeys.
 
 --------------
@@ -576,12 +684,14 @@ HOT\_GO
 | Location |  HOTKEY II                                                        |
 +----------+-------------------------------------------------------------------+
 
- The Hotkey System II is actually a Job (called HOTKEY) which sits in
+The Hotkey System II is actually a Job (called HOTKEY) which sits in
 the background of the QL looking for the user to press the previously
 defined hotkeys. As many users should be aware, whenever a job is
 present in the QL's memory, you cannot access the resident procedure
 memory (which should be used to install SuperBasic extensions and device
-drivers for example - see RESPR). For this reason, the Hotkey System II
+drivers for example - see RESPR). 
+
+For this reason, the Hotkey System II
 was designed so that the Hotkey Job would not actually be created until
 such time as the user was ready - ie. when all of the hotkeys had been
 defined and everything loaded into the resident procedure memory. Users
@@ -589,8 +699,11 @@ who have used Toolkit II's ALTKEY system may have noticed that although
 they have defined various hotkeys (with HOT\_KEY for example), they do
 not work (or as soon as the Hotkey System II has been loaded, the last
 line recall does not work). This is because the Hotkey Job has to be
-started. This is achieved simply by using the command: HOT\_GO
- This will start the Hotkey Job which will support all of the currently
+started. This is achieved simply by using the command::
+
+    HOT_GO
+    
+This will start the Hotkey Job which will support all of the currently
 defined hotkeys, including the Hotkey Stuffer Buffer keys (which can be
 re-defined by using the program CONFIG on the file HOT\_REXT), and the
 last line recall. If you want to remove the Hotkey Job at any time, you
@@ -615,12 +728,14 @@ HOT\_KEY
 | Location |  HOTKEY II                                                        |
 +----------+-------------------------------------------------------------------+
 
- This function is very similar to the first variant of the command
+This function is very similar to the first variant of the command
 ALTKEY provided by Toolkit II, except that it operates by virtue of the
 Hotkey Job, rather than a polled task, which should make the hotkey a
 little more reliable than the Toolkit II version (although this does
 mean than a hotkey set up under the Hotkey System II cannot be accessed
-from within a program running in Supervisor mode). As with ALTKEY, this
+from within a program running in Supervisor mode). 
+
+As with ALTKEY, this
 function creates a key macro which will be typed into the current
 keyboard queue each time that you press <ALT> and the specified <key$>
 at the same time. Again, if more than one string appears in the
@@ -647,12 +762,13 @@ HOT\_LIST
 =========
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  HOT\_LIST [#ch] or HOT\_LIST \\filename                          |
+| Syntax   || HOT\_LIST [#ch] or                                               |
+|          || HOT\_LIST \\filename                                             |
 +----------+-------------------------------------------------------------------+
-| Location |  HOTKEY II                                                        |
+| Location || HOTKEY II                                                        |
 +----------+-------------------------------------------------------------------+
 
- This command will produce a list in the given channel (default #1) of
+This command will produce a list in the given channel (default #1) of
 all of the currently set hotkeys recognised by the Hotkey System II. If
 the second variant of the command is used, this will create a file with
 the specified filename (default data device supported), offering the
@@ -679,7 +795,7 @@ HOT\_LOAD
 | Location |  HOTKEY II                                                        |
 +----------+-------------------------------------------------------------------+
 
- This function is similar to HOT\_CHP in the parameters which it
+This function is similar to HOT\_CHP in the parameters which it
 expects. By contrast, however, HOT\_LOAD does not store the program in
 memory, but, instead, each time that the specified hotkey is pressed, it
 will look for the specified filename and then load the program at that
@@ -717,12 +833,13 @@ HOT\_LOAD1
 ==========
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  HOT\_LOAD1 (key$,filename [;cmd$] [,Jobname$] [,options] )  or HOT\_LOAD1 (key$,filename [;cmd$] !Wakename$ [,options] )  |
+| Syntax   || HOT\_LOAD1 (key$,filename [;cmd$] [,Jobname$] [,options] )  or   |
+|          || HOT\_LOAD1 (key$,filename [;cmd$] !Wakename$ [,options] )        |
 +----------+-------------------------------------------------------------------+
-| Location |  HOTKEY II                                                        |
+| Location || HOTKEY II                                                        |
 +----------+-------------------------------------------------------------------+
 
- This function bears the same relationship to HOT\_LOAD as HOT\_CHP1
+This function bears the same relationship to HOT\_LOAD as HOT\_CHP1
 does to HOT\_CHP. See HOT\_CHP1.
 
 **NOTE**
@@ -745,15 +862,20 @@ HOT\_NAME$
 | Location |  HOTKEY II                                                        |
 +----------+-------------------------------------------------------------------+
 
- The function HOT\_NAME$ returns the name of the Thing or the string
+The function HOT\_NAME$ returns the name of the Thing or the string
 associated with the specified hotkey. A null string is returned if the
 hotkey is not defined.
 
 **Example**
 
-ERT HOT\_RES ('/',flp2\_Qram): ERT HOT\_KEY ('s','Yours Sincerely','')
-HOT\_GO PRINT HOT\_NAME$ ('/') , HOT\_NAME$('s')
- will show the following: Qram Yours Sincerely
+::
+
+
+    ERT HOT_RES ('/',flp2_Qram): ERT HOT_KEY ('s','Yours Sincerely','')
+    HOT_GO 
+    PRINT HOT_NAME$ ('/') , HOT_NAME$('s')
+
+will show the following: Qram Yours Sincerely
 
 **CROSS-REFERENCE**
 
@@ -767,32 +889,43 @@ HOT\_OFF
 ========
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  HOT\_OFF (key$)  or HOT\_OFF (Thingname$)                        |
+| Syntax   || HOT\_OFF (key$)  or                                              |
+|          || HOT\_OFF (Thingname$)                                            |
 +----------+-------------------------------------------------------------------+
-| Location |  HOTKEY II                                                        |
+| Location || HOTKEY II                                                        |
 +----------+-------------------------------------------------------------------+
 
- The HOT\_OFF function allows you to turn off an individual hotkey by
+The HOT\_OFF function allows you to turn off an individual hotkey by
 either specifying the hotkey itself, or the name of the Thing accessed
 by using the hotkey, if the second variant is used (if there are two
 hotkeys which access the same Thing, the first hotkey alphabetically
-will be turned off). The second variant even allows you to pass the
+will be turned off). 
+
+The second variant even allows you to pass the
 string or command used by HOT\_KEY or HOT\_CMD, although this is a
-somewhat dubious method of doing this!! Even though the hotkey has been
+somewhat dubious method of doing this!! 
+
+Even though the hotkey has been
 turned off, it will still appear in the hotkey list (see HOT\_LIST),
 although pressing the hotkey will have no effect.
 
-NOTE :
-~~~~~~
+**NOTE**
 
 If the hotkey or Thingname cannot be found, the function will return -7.
 
 **Example**
 
-HOT\_OFF ('p') will turn off the <ALT>
+::
 
-| hotkey, eg. if this is used by a program as a command. HOT\_SET ('p')
-  will turn it back on.
+    HOT_OFF ('p') 
+    
+will turn off the <ALT><p> hotkey, eg. if this is used by a program as a command. 
+
+::
+
+    HOT_SET ('p')
+
+will turn it back on.
 
 **CROSS-REFERENCE**
 
@@ -811,7 +944,7 @@ HOT\_PICK
 | Location |  HOTKEY II                                                        |
 +----------+-------------------------------------------------------------------+
 
- The function HOT\_PICK is used to specify a hotkey to Pick a job of a
+The function HOT\_PICK is used to specify a hotkey to Pick a job of a
 specified name whenever that key is pressed together with <ALT>. In
 effect, whenever the hotkey is pressed, the specified program will be
 brought to the top of the pile, allowing you to continue work on it. The
@@ -822,12 +955,13 @@ memory when you press the hotkey, a warning beep will be sounded.
 
 **Example**
 
-ERT HOT\_PICK('p','Perfection')
- will set up a hotkey which will allow you to jump straight into
-Perfection from any other program (provided that Perfection is in
-memory), just by pressing <ALT>
+::
 
-| .
+    ERT HOT_PICK('p','Perfection')
+    
+will set up a hotkey which will allow you to jump straight into
+Perfection from any other program (provided that Perfection is in
+memory), just by pressing <ALT><p>.
 
 **NOTE**
 
@@ -847,12 +981,13 @@ HOT\_REMV
 =========
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  HOT\_REMV (key$)  or HOT\_REMV (Thingname$)                      |
+| Syntax   || HOT\_REMV (key$)  or                                             |
+|          || HOT\_REMV (Thingname$)                                           |
 +----------+-------------------------------------------------------------------+
-| Location |  HOTKEY II                                                        |
+| Location ||  HOTKEY II                                                       |
 +----------+-------------------------------------------------------------------+
 
- The HOT\_REMV function allows you to remove the hotkey definition
+The HOT\_REMV function allows you to remove the hotkey definition
 associated with the specified key or, if you prefer, the hotkey
 associated with the specified Thing. If the hotkey refers to a program
 which has been loaded into the common heap (eg. with HOT\_CHP), then
@@ -879,7 +1014,7 @@ HOT\_RES
 | Location |  HOTKEY II                                                        |
 +----------+-------------------------------------------------------------------+
 
- This function is the same as HOT\_CHP except that the program is loaded
+This function is the same as HOT\_CHP except that the program is loaded
 into the resident procedure area, and cannot therefore be removed in the
 future. If the resident procedure area cannot be accessed (ie. if a task
 is already being executed), this function will access the common heap.
@@ -894,12 +1029,13 @@ HOT\_RES1
 =========
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  HOT\_RES1 (key$,filename [;cmd$] [,Jobname$] [,options] )  or HOT\_RES1 (key$,filename [;cmd$] !Wakename$ [,options] )  |
+| Syntax   || HOT\_RES1 (key$,filename [;cmd$] [,Jobname$] [,options] )  or    |
+|          || HOT\_RES1 (key$,filename [;cmd$] !Wakename$ [,options] )         |
 +----------+-------------------------------------------------------------------+
-| Location |  HOTKEY II                                                        |
+| Location || HOTKEY II                                                        |
 +----------+-------------------------------------------------------------------+
 
- HOT\_RES1 is the same as HOT\_CHP1 except that the program is loaded
+HOT\_RES1 is the same as HOT\_CHP1 except that the program is loaded
 into the resident procedure area. If this cannot be accessed for any
 reason, the common heap will be used.
 
@@ -914,12 +1050,15 @@ HOT\_SET
 ========
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  HOT\_SET (key$)  or HOT\_SET (Thingname$)  or HOT\_SET (newkey$,oldkey$)  or HOT\_SET (newkey$,oldThingname$)  |
+| Syntax   || HOT\_SET (key$)  or                                              |
+|          || HOT\_SET (Thingname$)  or                                        |
+|          || HOT\_SET (newkey$,oldkey$)  or                                   |
+|          || HOT\_SET (newkey$,oldThingname$)                                 |
 +----------+-------------------------------------------------------------------+
-| Location |  HOTKEY II                                                        |
+| Location || HOTKEY II                                                        |
 +----------+-------------------------------------------------------------------+
 
- The first two variants of this function are the opposite to HOT\_OFF in
+The first two variants of this function are the opposite to HOT\_OFF in
 that they re-activate the specified hotkey. If the specified hotkey does
 not exist, the value -7 will be returned. By contrast, the second two
 variants allow you to re-define a hotkey by assigning a new key which is
@@ -929,8 +1068,12 @@ value -7 will be returned.
 
 **Example**
 
-10 ERT HOT\_CHP ('p','flp1\_Perfection') 20 HOT\_GO 30 ERT HOT\_SET
-('L','p') 40 ERT HOT\_WAKE ('p','Pick')
+::
+
+    10 ERT HOT_CHP ('p','flp1_Perfection') 
+    20 HOT_GO 
+    30 ERT HOT_SET ('L','p') 
+    40 ERT HOT_WAKE ('p','Pick')
 
 **CROSS-REFERENCE**
 
@@ -948,7 +1091,7 @@ HOT\_STOP
 | Location |  HOTKEY II                                                        |
 +----------+-------------------------------------------------------------------+
 
- See HOT\_GO!
+See `HOT\_GO <KeywordsH.clean.html#hot-go>`__\ !
 
 --------------
 
@@ -961,34 +1104,55 @@ HOT\_STUFF
 | Location |  HOTKEY II                                                        |
 +----------+-------------------------------------------------------------------+
 
- The Hotkey System II allows you to pass information to a program by
+The Hotkey System II allows you to pass information to a program by
 using an area of memory known as the Hotkey Stuffer Buffer. The contents
 of this buffer can be placed into the current keyboard queue by pressing
 <ALT><SPACE> to read the last item to have been placed into the Stuffer
 Buffer, or <ALT><SHIFT><SPACE> to read the previous item to have been
-placed in the Stuffer Buffer. The keys used to recall the Stuffer
+placed in the Stuffer Buffer. 
+
+The keys used to recall the Stuffer
 Buffers can be configured by using the program CONFIG on the file
-HOT\_REXT. Each item can by default be a maximum of 512 characters long
+HOT\_REXT. 
+
+Each item can by default be a maximum of 512 characters long
 (although this can be configured from between 128 and 16384 characters
 if you wish). Note that two of the characters are used to store the
 length of the Stuffer Buffer and must therefore be deducted from this
-setting. The command HOT\_STUFF allows you to place the specified
+setting. 
+
+The command HOT\_STUFF allows you to place the specified
 string$ into the Stuffer Buffer so that it may be read by other
 programs. If the Stuffer Buffer was previously empty, both <ALT><SPACE>
 and <ALT><SHIFT> <SPACE> will return the same, however, if something was
 already in the Stuffer Buffer, this will be read by <ALT><SHIFT><SPACE>,
 and the new entry as <ALT><SPACE>.
 
-**Examples**
+**Example 1**
 
-(1) place an address in the Stuffer Buffer: HOT\_STUFF '10 Hardacre
-Way'&CHR$(10)&'Hardacre'&CHR$(10)&'Newcastle'
- (2) presuming an empty Stuffer Buffer, after: HOT\_STUFF 'DIR flp1\_'
- the Stuffer Buffer would look like this: <ALT><SHIFT><SPACE> --- DIR
-flp1\_ <ALT><SPACE> --- DIR flp1\_ If you then use: HOT\_STUFF 'DIR
-flp2\_'
- the Stuffer Buffer would look like this: <ALT><SHIFT><SPACE> --- DIR
-flp1\_ <ALT><SPACE> --- DIR flp2\_
+Place an address in the Stuffer Buffer::
+
+    HOT_STUFF '10 Hardacre Way' & CHR$(10) & 'Hardacre' &CHR$(10) & 'Newcastle'
+    
+**Example 2**
+
+Presuming an empty Stuffer Buffer, after::
+
+    HOT_STUFF 'DIR flp1_'
+    
+the Stuffer Buffer would look like this::
+
+    <ALT><SHIFT><SPACE> --- DIR flp1_ 
+    <ALT><SPACE> --- DIR flp1_ 
+    
+If you then use::
+
+    HOT_STUFF 'DIR flp2_'
+    
+the Stuffer Buffer would look like this::
+
+    <ALT><SHIFT><SPACE> --- DIR flp1_ 
+    <ALT><SPACE> --- DIR flp2_
 
 **NOTE**
 
@@ -1014,26 +1178,31 @@ HOT\_THING
 | Location |  HOTKEY II                                                        |
 +----------+-------------------------------------------------------------------+
 
- The function HOT\_THING allows you to define a hotkey which will start
+The function HOT\_THING allows you to define a hotkey which will start
 up a new copy of an Executable Thing whenever the hotkey is pressed (if
 the Thing is present at that stage). You can pass a command string to
 the Executable Thing and even change the name of the Job which will be
-created by passing Jobname$. More and more utilities are being written
+created by passing Jobname$. 
+
+More and more utilities are being written
 for QDOS which are set-up as Executable Things (for example, most of the
 menus provided by QPAC2 are in fact Executable Things), which is a means
 of providing various resources which a program can make use of (if they
-are present). Executable Things can be seen as an executable program
+are present). 
+
+Executable Things can be seen as an executable program
 stored in memory, several copies of which can be started up at any time,
 but the same piece of machine code will be used by all of the copies,
 meaning that very little memory is required for each additional copy.
 
 **Example**
 
-ERT HOT\_CHP('p',flp1\_Perfection,'Perfection WP') ERT
-HOT\_THING('P','Perfection WP')
- Both <ALT>
+::
 
-| and <ALT><P> will now have the same effect.
+    ERT HOT_CHP('p',flp1_Perfection,'Perfection WP') 
+    ERT HOT_THING('P','Perfection WP')
+
+Both <ALT><p> and <ALT><P> will now have the same effect.
 
 **NOTE 1**
 
@@ -1058,16 +1227,17 @@ HOT\_THING1
 ===========
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  HOT\_THING1 (key$,Jobname$ [;cmd$] [,Jobname$])  or HOT\_THING1 (key$,Jobname$ [;cmd$] !Wakename$)  |
+| Syntax   || HOT\_THING1 (key$,Jobname$ [;cmd$] [,Jobname$])  or              |
+|          || HOT\_THING1 (key$,Jobname$ [;cmd$] !Wakename$)                   |
 +----------+-------------------------------------------------------------------+
-| Location |  SMSQ/E v2.50+                                                    |
+| Location || SMSQ/E v2.50+                                                    |
 +----------+-------------------------------------------------------------------+
 
- This command is exactly the same as HOT\_WAKE.
+This command is exactly the same as HOT\_WAKE.
 
 **CROSS-REFERENCE**
 
-See\ `HOT\_WAKE! <KeywordsH.clean.html#hot-wake!>`__
+See `HOT\_WAKE <KeywordsH.clean.html#hot-wake>`__\ .
 
 --------------
 
@@ -1080,16 +1250,20 @@ HOT\_TYPE
 | Location |  HOTKEY II                                                        |
 +----------+-------------------------------------------------------------------+
 
- This function is useful to find out the type of hotkey associated with
+This function is useful to find out the type of hotkey associated with
 the specified keypress. The values returned by HOT\_TYPE are as follows:
--8Hotkey for Last line recall -6Hotkey for recall previous Stuffer
-Buffer -4Hotkey for recall current Stuffer Buffer (HOT\_STUFF) -2Hotkey
-stuffs a defined string into the keyboard queue (HOT\_KEY) 0Hotkey PICKS
-SuperBasic and stuffs a command into #0 (HOT\_CMD) 2Hotkey DOES code
-4/5Hotkey executes a Thing (HOT\_THING,HOT\_RES,HOT\_CHP) 6Hotkey
-executes a File (HOT\_LOAD) 8Hotkey PICKS a Job (HOT\_PICK) 10/11Hotkey
-WAKES or executes a Thing (HOT\_WAKE, HOT\_RES1, HOT\_CHP1) 12Hotkey
-WAKES or executes a File (HOT\_LOAD1)
+
+- -8 Hotkey for Last line recall 
+- -6 Hotkey for recall previous Stuffer Buffer 
+- -4 Hotkey for recall current Stuffer Buffer (HOT\_STUFF) 
+- -2 Hotkey stuffs a defined string into the keyboard queue (HOT\_KEY) 
+- 0 Hotkey PICKS SuperBasic and stuffs a command into #0 (HOT\_CMD) 
+- 2 Hotkey DOES code 
+- 4/5 Hotkey executes a Thing (HOT\_THING,HOT\_RES,HOT\_CHP) 
+- 6 Hotkey executes a File (HOT\_LOAD) 
+- 8 Hotkey PICKS a Job (HOT\_PICK) 
+- 10/11 Hotkey WAKES or executes a Thing (HOT\_WAKE, HOT\_RES1, HOT\_CHP1) 
+- 12 Hotkey WAKES or executes a File (HOT\_LOAD1)
 
 **CROSS-REFERENCE**
 
@@ -1102,35 +1276,46 @@ HOT\_WAKE
 =========
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  HOT\_WAKE (key$,Jobname$ [;cmd$] [,Jobname$])  or HOT\_WAKE (key$,Jobname$ [;cmd$] !Wakename$)  |
+| Syntax   || HOT\_WAKE (key$,Jobname$ [;cmd$] [,Jobname$])  or                |
+|          || HOT\_WAKE (key$,Jobname$ [;cmd$] !Wakename$)                     |
 +----------+-------------------------------------------------------------------+
-| Location |  HOTKEY II                                                        |
+| Location || HOTKEY II                                                        |
 +----------+-------------------------------------------------------------------+
 
- Many programs which have been written to use the Pointer Environment
+Many programs which have been written to use the Pointer Environment
 will recognise what is known as a WAKE event - this defines something
 that the program should do once control is returned to the program, for
-example, updating its tables. Whereas PICKing a job merely brings it to
+example, updating its tables. 
+
+Whereas PICKing a job merely brings it to
 the top of the pile ready for use, when you WAKE a job, not only is it
 brought to the top of the pile, but also a WAKE event is executed (if
 supported). You should therefore WAKE any program which provides
 information on the current state of the computer or SuperBasic program
-for example. The function HOT\_WAKE allows you to set up a hotkey which
+for example. 
+
+The function HOT\_WAKE allows you to set up a hotkey which
 will Wake the specified Jobname$ if a copy of the program is already
 being executed. However, if there is not already a copy of the specified
 Job being executed, the hotkey will then look for an Executable Thing
 with the same name as Jobname$
- (which should therefore be specified in full), which, if found, will be
-executed by the hotkey, creating a new copy of the program. As with the
+(which should therefore be specified in full), which, if found, will be
+executed by the hotkey, creating a new copy of the program. 
+
+As with the
 other hotkey commands, a command string can be passed to the program
 when it is executed (this will be ignored if the program is merely
-woken). As with HOT\_CHP1, HOT\_RES1 and HOT\_LOAD1, you can specify a
+woken). 
+
+As with HOT\_CHP1, HOT\_RES1 and HOT\_LOAD1, you can specify a
 Wakename$ which allows you to use the Hotkey to access two jobs, if at
 least the first Job (or Executable thing) exists then the Hotkey will do
-one of two things: -If there is a current job called Wakename$, then
-this will be Woken. -Otherwise, the first Job (or Executable Thing) will
-be Woken if it exists (or otherwise will be started up). HOT\_WAKE is
-ideally suited for programs where you would not want more than one copy
+one of two things: 
+
+- If there is a current job called Wakename$, then this will be woken; otherwise;
+- The first Job (or Executable Thing) will be Woken if it exists (or otherwise will be started up). 
+
+HOT\_WAKE is ideally suited for programs where you would not want more than one copy
 to be executed at any one time (eg. a calendar program).
 
 **Example**
@@ -1138,8 +1323,10 @@ to be executed at any one time (eg. a calendar program).
 Some users prefer to be able to have a choice between either Waking an
 existing copy of a program (or executing the first copy) and loading
 another copy of the program at a later stage. This can be achieved, for
-example, with: ERT HOT\_RES ('Q',flp1\_QUILL,'QUILL') ERT HOT\_WAKE
-('q','QUILL')
+example, with::
+
+    ERT HOT_RES ('Q',flp1_QUILL,'QUILL') 
+    ERT HOT_WAKE ('q','QUILL')
 
 **NOTE**
 
@@ -1162,7 +1349,7 @@ HPUT
 | Location |  SMSQ/E                                                           |
 +----------+-------------------------------------------------------------------+
 
- This command allows you to set the various parameters which are
+This command allows you to set the various parameters which are
 contained in the header of the file attached to the specified channel
 (default #3). The command will use the supplied parameters to set the
 required information. If the specified channel is not open to a file,
