@@ -1,0 +1,295 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html xmlns:v="urn:schemas-microsoft-com:vml">
+  <head>
+    <meta http-equiv="content-type" content="text/html;
+      charset=ISO-8859-1">
+    <link rel="stylesheet" type="text/css" href="css/QLManualStyle.css" media="all" />
+    <title>Sinclair QL SuperBASIC/SBASIC Reference Manual - Keywords J</title>
+</head>
+<body>
+<div id="header">
+  SBASIC/SuperBASIC Reference Manual Online (c) RWAP Software
+  <br />
+  The Online Guide to programming the Sinclair QL Home Computer in SuperBASIC
+</div>
+<div id="sideBar">
+    <ul>
+        <li><a href="Foreword.html">Foreword</a></li>
+        <li><a href="Introduction.html">Introduction</a></li>
+        <li><a href="Credits.html">Credits</a></li>        
+        <li><a href="Structure.html">Structure</a></li>
+        <li><a href="WritingPrograms.html">Writing Programs</a></li>
+        <hr></hr>
+        <li><a href="KeywordsA.html">Keywords - A</a></li>
+        <li><a href="KeywordsB.html">Keywords - B</a></li>
+        <li><a href="KeywordsC.html">Keywords - C</a></li>
+        <li><a href="KeywordsD.html">Keywords - D</a></li>
+        <li><a href="KeywordsE.html">Keywords - E</a></li>
+        <li><a href="KeywordsF.html">Keywords - F</a></li>
+        <li><a href="KeywordsG.html">Keywords - G</a></li>
+        <li><a href="KeywordsH.html">Keywords - H</a></li>
+        <li><a href="KeywordsI.html">Keywords - I</a></li>
+        <li><a href="KeywordsJ.html">Keywords - J</a></li>
+        <li><a href="KeywordsK.html">Keywords - K</a></li>
+        <li><a href="KeywordsL.html">Keywords - L</a></li>
+        <li><a href="KeywordsM.html">Keywords - M</a></li>
+        <li><a href="KeywordsN.html">Keywords - N</a></li>
+        <li><a href="KeywordsO.html">Keywords - O</a></li>
+        <li><a href="KeywordsP.html">Keywords - P</a></li>
+        <li><a href="KeywordsQ.html">Keywords - Q</a></li>
+        <li><a href="KeywordsR.html">Keywords - R</a></li>
+        <li><a href="KeywordsS.html">Keywords - S</a></li>
+        <li><a href="KeywordsT.html">Keywords - T</a></li>
+        <li><a href="KeywordsU.html">Keywords - U</a></li>
+        <li><a href="KeywordsV.html">Keywords - V</a></li>
+        <li><a href="KeywordsW.html">Keywords - W</a></li>
+        <li><a href="KeywordsX.html">Keywords - X</a></li>
+        <li><a href="KeywordsY.html">Keywords - Y</a></li>
+        <li><a href="KeywordsZ.html">Keywords - Z</a></li>
+        <li><a href="Keywords_.html">Keywords - Other</a></li>
+        <hr></hr>
+        <li><a href="AppendicesIntro.html">Appendices Introduction</a></li>
+        <li><a href="Appendix01.html">Appendix 1 - Minerva</a></li>
+        <li><a href="Appendix02.html">Appendix 2 - SMSQE</a></li>
+        <li><a href="Appendix03.html">Appendix 3 - Emulators</a></li>
+        <li><a href="Appendix04.html">Appendix 4 - THOR Computers</a></li>
+        <li><a href="Appendix05.html">Appendix 5 - Expansion Boards</a></li>
+        <li><a href="Appendix06.html">Appendix 6 - Compatability</a></li>
+        <li><a href="Appendix07.html">Appendix 7 - Multiple BASICs</a></li>
+        <li><a href="Appendix08.html">Appendix 8 - Error Messages</a></li>
+        <li><a href="Appendix09.html">Appendix 9 - Character Set / Keyboard</a></li>
+        <li><a href="Appendix10.html">Appendix 10 - Fonts</a></li>
+        <li><a href="Appendix11.html">Appendix 11 - Mathematics</a></li>
+        <li><a href="Appendix12.html">Appendix 12 - Device Drivers</a></li>
+        <li><a href="Appendix13.html">Appendix 13 - Extended Pointer Environment</a></li>
+        <li><a href="Appendix14.html">Appendix 14 - Coercion</a></li>
+        <li><a href="Appendix15.html">Appendix 15 - Mouse Drivers</a></li>
+        <li><a href="Appendix16.html">Appendix 16 - The QL Display</a></li>
+        <li><a href="Appendix17.html">Appendix 17 - Networks</a></li>
+        <li><a href="Appendix18.html">Appendix 18 - Configuring Programs</a></li>
+    </ul>
+</div>
+<div id="mainText">
+<h1><a name="JBASE"></a>JBASE</h1><br>Syntax: <span style="font-style: italic;">JBASE (</span> {<span style="font-style: italic;">jobnr </span>|<span style="font-style: italic;"> jobname</span>}<span style="font-style: italic;"> )
+<br></span>Location: <span style="font-style: italic;">TinyToolkit
+<br></span><br>Each running job has a job header where information such as
+<br>the  job's  priority  is  stored.  Usually,  the  SuperBASIC
+<br>programmer should read these settings by using <span style="font-style: italic;">JOBS</span>, <span style="font-style: italic;">PJOB</span>, <span style="font-style: italic;">OJOB
+<br></span>etc, and change them with <span style="font-style: italic;">SPJOB</span>, <span style="font-style: italic;">AJOB</span> etc. However, for some
+<br>purposes it might be interesting to access a job header
+<br>directly - hence this function.
+<br><br>The function <span style="font-style: italic;">JBASE</span> takes either a job number or job name and
+<br>returns the start address of where its job header is stored.
+<br><span style="font-style: italic;">JBASE</span> breaks with error -2 (unknown job) if the parameter does
+<br>not point to a job.
+<br><br>The <span style="font-style: italic;">jobname</span> need not appear in quotes (unless it is also the
+<br>name of a SuperBASIC variable, procedure or function).
+<br><br>As from v1.11, the <span style="font-style: italic;">jobnr</span> can be -1 which will return the
+<br>base address of the current job.
+<br><br>The following parts of the job header are interesting from
+<br>the SuperBASIC aspect, but please see system documentation for
+<br>more details:
+<br><h3>offset  lengthmeaning
+<br></h3>0..34total length of job area
+<br>4..7    4job start address
+<br>8..114job ID of parent job (0 if none)
+<br>12..154address of job Released Flag (0 if Job
+<br>released)
+<br>16..172job tag
+<br>191priority   (Only on original QL ROMs
+<br>and Minerva and Thor XVI)
+<br>20..212job status (0 active, >0 timeout, -1
+<br>suspended, -2 waiting)
+<br>231wait flag (bit 7 set if another job is
+<br>waiting for this job) (not under SMS2)
+<br>24..274job ID of that waiting job
+<br><br><h3>Example:
+<br></h3><br>This program lists all running jobs by name, occupied
+<br><br>memory and status.
+<br><span style="font-style: italic;">100 CLEAR: CLS: id=0: UNDER 1
+<br>110 PRINT "Job";TO 20;"Size";TO 25;"Status"
+<br>120 UNDER 0
+<br>130 REPeat job_list
+<br>140   id = NXJOB(id,0)
+<br>150   IF NOT id THEN EXIT job_list
+<br>160   name$=JOB$(id)
+<br>170   IF name$="" THEN name$="&lt;anonymous&gt;"
+<br>180   nr=id-65536*INT(id/65536)
+<br>190   base=JBASE(nr*(nr=nr))
+<br>200   length=1+INT(CVL(PEEK$(base,4))/1024)
+<br>210   status=CVI%(PEEK$(base+20,2))
+<br></span><br><h3>
+<br></h3><span style="font-style: italic;">220   SELect ON status
+<br>230     =0 TO 32767: timeout=INT(20*status)
+<br>240          status$="inactive for "&timeout&" ms"
+<br>250     =-1: status$="suspended"
+<br>260     =-2: status$="waiting"
+<br>270     =REMAINDER : status$="undefined"
+<br>280   END SELect
+<br>290   PRINT name$;TO 20;length;"k";TO 25;status$
+<br>300 END REPeat job_list
+<br></span><br><h3>NOTE 1:
+<br></h3><br><span style="font-style: italic;">JBASE</span> returns an undefined value if the parameter used to be
+<br>a job number but that job has already been removed. For
+<br>example, create a job with <span style="font-style: italic;">CLOCK #1</span> and look up its number with
+<br><span style="font-style: italic;">JOBS</span>:
+<br>Jobtagownerpriority
+<br>0   0      0     32
+<br>4   8      0    s1   Clock
+<br><br>Enter the command: <span style="font-style: italic;">PRINT JBASE(4)</span> or <span style="font-style: italic;">PRINT JBASE('clock')</span> and see the
+<br>result. Now kill the job with <span style="font-style: italic;">KJOB 4</span> and check with <span style="font-style: italic;">JOBS</span> if it has
+<br>really gone:
+<br>Jobtagownerpriority
+<br>0   0      0     32
+<br><br>The job is dead but <span style="font-style: italic;">PRINT JBASE(4)</span> still returns something -
+<br>usually that number will be negative.
+<br><br><h3>NOTE 2:
+<br></h3><br><span style="font-style: italic;">JBASE</span> sometimes behaves oddly due to rounding errors.
+<br><br>Before v1.11, <span style="font-style: italic;">JBASE</span> would report an 'invalid job' error if
+<br>you used a variable to supply the job number (even if that
+<br>variable pointed to an existing job). The example above shows
+<br>how the problem can be easily circumvented: use <span style="font-style: italic;">JBASE (nr*(nr=nr))
+<br></span>instead of <span style="font-style: italic;">JBASE (nr)</span> - this converts the variable into an
+<br>expression.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsJ.html#JOBS">JOBS</a>, <a style="font-style: italic;" href="KeywordsS.html#SJOB">SJOB</a>, <a style="font-style: italic;" href="KeywordsA.html#AJOB">AJOB</a>, <a style="font-style: italic;" href="KeywordsN.html#NXJOB">NXJOB</a>.
+<br><br>See <a style="font-style: italic;" href="KeywordsJ.html#JobCBS">JobCBS</a> which corrects all of the problems associated with
+<br><a style="font-style: italic;" href="KeywordsJ.html#JBASE">JBASE</a>.
+<br><br>Details of Job Headers can be found in the QDOS/SMS
+<br>Reference Manual Section 18 p8.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="JobCBS"></a>JobCBS</h1><br>Syntax: <span style="font-style: italic;">JobCBS ( </span>{<span style="font-style: italic;">jobnr </span>|<span style="font-style: italic;"> jobname</span>}<span style="font-style: italic;"> )
+<br></span>Location: <span style="font-style: italic;">BTool
+<br></span><br>This function is identical to <span style="font-style: italic;">JBASE</span>, but the problems
+<br>mentioned in the notes above do not exist with <span style="font-style: italic;">JobCBS</span>.  Alas, it
+<br>will not accept a <span style="font-style: italic;">jobnr</span> of -1 in current versions.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="JOBS"></a>JOBS</h1><br>Syntax: <span style="font-style: italic;">JOBS </span>[<span style="font-style: italic;">#channel</span>]
+<br><br>or <span style="font-style: italic;">JOBS \file
+<br></span>Location: <span style="font-style: italic;">Toolkit II, THOR XVI
+<br></span><br>This command lists all jobs currently loaded into the QL to
+<br>the given channel (default #1). Five pieces of information are
+<br>given:
+<br><br>jobnumber (job), tag, owner, priority and jobname
+<br><br><h3>JobNumber / Tag
+<br></h3><br>The jobnumber and the jobtag are internally combined to
+<br>form the job-ID (jobnumber+tag*2^16) in order to identify
+<br>jobs.
+<br><br><h3>Owner
+<br></h3><br>The Owner of a job is not necessarily the job which started
+<br>it nor must it be connected with it. If a job is removed, all
+<br>jobs owned by it will disappear too.
+<br><br><h3>Priority
+<br></h3><br>The higher the Priority of a job, the more processor time
+<br>is given to it and therefore the faster it runs. An "s" in
+<br>front  of  the  priority  means  that  the  job  is  currently
+<br>suspended, so the priority does not matter.
+<br><br><h3>Jobname
+<br></h3><br>The jobname is another method of identifying the job, being
+<br>the name given to the job when it was programmed.
+<br><br><h3>NOTE 1:
+<br></h3><br>If the second syntax does not work, you should update your
+<br>Toolkit version.
+<br><br><h3>NOTE 2:
+<br></h3><br>Minerva users will be dismayed to learn that current
+<br>versions of this command do not display negative priorities.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>Commands like <a style="font-style: italic;" href="KeywordsR.html#RJOB">RJOB</a>, <a style="font-style: italic;" href="KeywordsS.html#SPJOB">SPJOB</a>, <a style="font-style: italic;" href="KeywordsR.html#REL_JOB">REL_JOB</a>, <a style="font-style: italic;" href="KeywordsJ.html#JOB_NAME ">JOB_NAME </a>and<a style="font-style: italic;" href="KeywordsS.html#SJOB">SJOB</a> change job
+<br>settings; <a style="font-style: italic;" href="KeywordsJ.html#JOB$">JOB$</a>, <a style="font-style: italic;" href="KeywordsO.html#OJOB">OJOB</a>, <a style="font-style: italic;" href="KeywordsN.html#NXJOB">NXJOB</a>, <a style="font-style: italic;" href="KeywordsP.html#PJOB">PJOB</a> return the same information as
+<br>appears on the <a style="font-style: italic;" href="KeywordsJ.html#JOBS">JOBS</a> list for single jobs.
+<br><br><a style="font-style: italic;" href="KeywordsL.html#LIST_TASKS">LIST_TASKS</a> is similar.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="JOB$"></a>JOB$</h1><br>Syntax: <span style="font-style: italic;">JOB$ (job_ID)
+<br></span><br>or <span style="font-style: italic;">JOB$ (jobnr,tag)
+<br></span><br>or <span style="font-style: italic;">JOB$ (jobname)
+<br></span>Location: <span style="font-style: italic;">Toolkit II
+<br></span><br>This function returns the name of a specified job, or an
+<br>empty string if it has no name or if the parameters do not
+<br>specify an existing job. The third format is somewhat curious
+<br>since you need to supply the very thing you are asking for
+<br>(ie. the jobname)! A negative <span style="font-style: italic;">job_ID</span> points to the calling job.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsO.html#OJOB">OJOB</a>, <a style="font-style: italic;" href="KeywordsP.html#PJOB">PJOB</a>, <a style="font-style: italic;" href="KeywordsJ.html#JOB_NAME">JOB_NAME</a> and <a style="font-style: italic;" href="KeywordsN.html#NXJOB">NXJOB</a> for more information on current
+<br>jobs.
+<br><br>Compilers normally include their own commands to set the
+<br>correct job name.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="JOB_NAME"></a>JOB_NAME</h1><br>Syntax: <span style="font-style: italic;">JOB_NAME title$
+<br></span>Location: <span style="font-style: italic;">SMS
+<br></span><br>Although most Jobs have a name given to them by the
+<br>programmer, there are three main exceptions to this rule:
+<br><br>1) Minerva MultiBASICs have a job name beginning with the
+<br>two letters 'SB' followed by a number.
+<br><br>2)  The  main  SuperBASIC  interpreter  has  a  job  name
+<br>equivalent to a null string ("") means that no name is shown
+<br>under the <span style="font-style: italic;">JOBS</span> command.  QPAC 2 changes this in its menus to
+<br>'SuperBASIC' to identify this Job.  You will also notice that
+<br>when you put Job 0 to sleep (using &lt;ALT&gt;&lt;SHIFT&gt;&lt;F1&gt; ), under
+<br>SMS the Button is given the name 'System'.
+<br><br>3) SMS's multiple SBASIC interpreters are all given the
+<br>name SBASIC and there is no way of distinguishing one copy
+<br>from another.
+<br><br>This command allows you to set the name of a multiple
+<br>SBASIC job under SMS to the specified <span style="font-style: italic;">title$</span>.  It has no effect
+<br>on a compiled program, or on the main Interpreter (Job 0).
+<br><br><h3>Example:
+<br></h3><br>It can be necessary to include code within a program which
+<br><br>caters for different situations depending on whether the
+<br><br>program is being run under an Interpreter or has been
+<br><br>compiled.  It is not sufficient to test the name of the
+<br><br>job, nor the job number, as this can be different on
+<br><br>various setups.
+<br><br>Luckily, both Minerva and SMS allow you to discover whether
+<br><br>a Job is an interpreter (other than Job 0).  Minerva sers
+<br><br>bit 6 in offset <span style="font-style: italic;">HEX('16')</span> of the Job's Header and SMS places
+<br><br>the four letters 'SBAS' at offset <span style="font-style: italic;">HEX('1E4')</span> of the Job's
+<br><br>header.
+<br><br>The following example uses these facts to decide what setup
+<br><br>the program is running on:
+<br><span style="font-style: italic;">100 vs$=VER$:prog_name$='TESTER'
+<br>110 IS_COMPILED=0:pass$=''
+<br>120 IF vs$&lt;&gt;'HBA' AND vs$&lt;&gt;'JSL1'
+<br>130   IF JOB$(-1)&lt;&gt;'':IS_COMPILED=1
+<br>140 ELSE
+<br>145   IF JOB$(-1)&lt;&gt;''
+<br>146     TJob=JBASE(-1)
+<br>147     IF vs$='HBA'
+<br>150       JOB_NAME prog_name$
+<br>160       IF PEEK$(TJob+HEX('1e4'),4)&lt;&gt;'SBAS': IS_COMPILED=1
+<br>165     ELSE
+<br>170       TByte=PEEK(TJob+HEX('16'))
+<br>180       IF NOT (TByte && 2^6): IS_COMPILED=1
+<br>182     END IF
+<br>185   END IF
+<br>190 END IF
+<br>200 IF IS_COMPILED
+<br>210   OPEN #1,con_448x200a32x16:PAPER 0:CLS
+<br>220   PRINT 'This program has been compiled'
+<br>230   pass$=cmd$
+<br>240 ELSE
+<br>250   IF JOB$(-1)&lt;&gt;''
+<br>260     OPEN #1,con_448x200a32x16
+<br>270   ELSE
+<br>280     WINDOW 448,200,32,16
+<br>290   END IF
+<br>300   PAPER 0:CLS:PRINT 'This program is running under an interpreter.'
+<br>310   IF JOB$(-1)=''
+<br>320     INPUT 'Enter Command String: ';pass$
+<br>330   ELSE
+<br>340     pass$=cmd$
+<br>345     IF pass$='':INPUT 'Enter Command String: ';pass$
+<br>350   END IF
+<br>360 END IF
+<br>370 IF pass$='':pass$='UNDEFINED'
+<br>380 PRINT 'Command String was ';pass$
+<br>390 PAUSE
+<br>400 IF IS_COMPILED=0:IF JOB$(-1)=prog_name$:QUIT
+<br>410 IF IS_COMPILED=0:IF JOB$(-1)&lt;&gt;'':CLOSE #1
+<br></span><br>Unfortunately, we do not know of any way of testing whether
+<br>a MultiBASIC or multiple SBASIC interpreter was started up
+<br>using the<span style="font-style: italic;"> EX </span>command or not (if not, then the <span style="font-style: italic;">CMD$</span> will need to
+<br>be entered).
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsS.html#SBASIC">SBASIC</a> and <a style="font-style: italic;" href="KeywordsM.html#MB">MB</a>, about the multiple interpreters provided
+<br>by Minerva and SMS.
+<br><br><a style="font-style: italic;" href="KeywordsJ.html#JOBS">JOBS</a> and <a style="font-style: italic;" href="KeywordsN.html#NXJOB">NXJOB</a> contain more information on current jobs.
+<br><br>Compilers normally include their own methods of setting the
+<br>correct job name.
+<br><br>You may want to use <a style="font-style: italic;" href="KeywordsD.html#DEVTYPE">DEVTYPE</a> to test if a channel is open if a
+<br>program is to run correctly under both Job 0 and a multiple
+<br>SBASIC.
+<br></div>
+</body>
+</html>
