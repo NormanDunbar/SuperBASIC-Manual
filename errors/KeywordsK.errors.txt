@@ -1,0 +1,44 @@
+line 22 column 13 - Warning: discarding unexpected </hr>
+line 50 column 13 - Warning: discarding unexpected </hr>
+line 196 column 60 - Warning: unescaped & or unknown entity "&CHR"
+line 255 column 56 - Warning: replacing invalid UTF-8 bytes (char. code U+00A3)
+line 300 column 16 - Warning: unescaped & which should be written as &amp;
+line 300 column 17 - Warning: unescaped & or unknown entity "&2:x"
+line 301 column 16 - Warning: unescaped & which should be written as &amp;
+line 301 column 17 - Warning: unescaped & or unknown entity "&16:x"
+line 302 column 16 - Warning: unescaped & which should be written as &amp;
+line 302 column 17 - Warning: unescaped & or unknown entity "&4:y"
+line 303 column 16 - Warning: unescaped & which should be written as &amp;
+line 303 column 17 - Warning: unescaped & or unknown entity "&128:y"
+line 304 column 16 - Warning: unescaped & which should be written as &amp;
+line 304 column 17 - Warning: unescaped & or unknown entity "&8:PRINT"
+line 456 column 24 - Warning: unescaped & which should be written as &amp;
+line 563 column 5 - Warning: discarding unexpected </div>
+line 562 column 16 - Warning: missing </h3> before </body>
+line 72 column 1 - Warning: missing </div>
+line 2 column 1 - Warning: <html> proprietary attribute "xmlns:v"
+Info: Doctype given is "-//W3C//DTD HTML 4.0 Transitional//EN"
+Info: Document content looks like HTML 4.01 Strict
+Info: No system identifier in emitted doctype
+Tidy found 19 warnings and 0 errors!
+
+Character codes for UTF-8 must be in the range: U+0000 to U+10FFFF.
+The definition of UTF-8 in Annex D of ISO/IEC 10646-1:2000 also
+allows for the use of five- and six-byte sequences to encode
+characters that are outside the range of the Unicode character set;
+those five- and six-byte sequences are illegal for the use of
+UTF-8 as a transformation of Unicode characters. ISO/IEC 10646
+does not allow mapping of unpaired surrogates, nor U+FFFE and U+FFFF
+(but it does allow other noncharacters). For more information please refer to
+http://www.unicode.org/ and http://www.cl.cam.ac.uk/~mgk25/unicode.html
+
+About HTML Tidy: https://github.com/htacg/tidy-html5
+Bug reports and comments: https://github.com/htacg/tidy-html5/issues
+Official mailing list: https://lists.w3.org/Archives/Public/public-htacg/
+Latest HTML specification: http://dev.w3.org/html5/spec-author-view/
+Validate your HTML documents: http://validator.w3.org/nu/
+Lobby your company to join the W3C: http://www.w3.org/Consortium
+
+Do you speak a language other than English, or a different variant of 
+English? Consider helping us to localize HTML Tidy. For details please see 
+https://github.com/htacg/tidy-html5/blob/master/README/LOCALIZE.md

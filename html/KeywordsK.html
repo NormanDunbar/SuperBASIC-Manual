@@ -1,0 +1,539 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html xmlns:v="urn:schemas-microsoft-com:vml">
+  <head>
+    <meta http-equiv="content-type" content="text/html;
+      charset=ISO-8859-1">
+    <link rel="stylesheet" type="text/css" href="css/QLManualStyle.css" media="all" />
+    <title>Sinclair QL SuperBASIC/SBASIC Reference Manual - Keywords K</title>
+</head>
+<body>
+<div id="header">
+  SBASIC/SuperBASIC Reference Manual Online (c) RWAP Software
+  <br />
+  The Online Guide to programming the Sinclair QL Home Computer in SuperBASIC
+</div>
+<div id="sideBar">
+    <ul>
+        <li><a href="Foreword.html">Foreword</a></li>
+        <li><a href="Introduction.html">Introduction</a></li>
+        <li><a href="Credits.html">Credits</a></li>        
+        <li><a href="Structure.html">Structure</a></li>
+        <li><a href="WritingPrograms.html">Writing Programs</a></li>
+        <hr></hr>
+        <li><a href="KeywordsA.html">Keywords - A</a></li>
+        <li><a href="KeywordsB.html">Keywords - B</a></li>
+        <li><a href="KeywordsC.html">Keywords - C</a></li>
+        <li><a href="KeywordsD.html">Keywords - D</a></li>
+        <li><a href="KeywordsE.html">Keywords - E</a></li>
+        <li><a href="KeywordsF.html">Keywords - F</a></li>
+        <li><a href="KeywordsG.html">Keywords - G</a></li>
+        <li><a href="KeywordsH.html">Keywords - H</a></li>
+        <li><a href="KeywordsI.html">Keywords - I</a></li>
+        <li><a href="KeywordsJ.html">Keywords - J</a></li>
+        <li><a href="KeywordsK.html">Keywords - K</a></li>
+        <li><a href="KeywordsL.html">Keywords - L</a></li>
+        <li><a href="KeywordsM.html">Keywords - M</a></li>
+        <li><a href="KeywordsN.html">Keywords - N</a></li>
+        <li><a href="KeywordsO.html">Keywords - O</a></li>
+        <li><a href="KeywordsP.html">Keywords - P</a></li>
+        <li><a href="KeywordsQ.html">Keywords - Q</a></li>
+        <li><a href="KeywordsR.html">Keywords - R</a></li>
+        <li><a href="KeywordsS.html">Keywords - S</a></li>
+        <li><a href="KeywordsT.html">Keywords - T</a></li>
+        <li><a href="KeywordsU.html">Keywords - U</a></li>
+        <li><a href="KeywordsV.html">Keywords - V</a></li>
+        <li><a href="KeywordsW.html">Keywords - W</a></li>
+        <li><a href="KeywordsX.html">Keywords - X</a></li>
+        <li><a href="KeywordsY.html">Keywords - Y</a></li>
+        <li><a href="KeywordsZ.html">Keywords - Z</a></li>
+        <li><a href="Keywords_.html">Keywords - Other</a></li>
+        <hr></hr>
+        <li><a href="AppendicesIntro.html">Appendices Introduction</a></li>
+        <li><a href="Appendix01.html">Appendix 1 - Minerva</a></li>
+        <li><a href="Appendix02.html">Appendix 2 - SMSQE</a></li>
+        <li><a href="Appendix03.html">Appendix 3 - Emulators</a></li>
+        <li><a href="Appendix04.html">Appendix 4 - THOR Computers</a></li>
+        <li><a href="Appendix05.html">Appendix 5 - Expansion Boards</a></li>
+        <li><a href="Appendix06.html">Appendix 6 - Compatability</a></li>
+        <li><a href="Appendix07.html">Appendix 7 - Multiple BASICs</a></li>
+        <li><a href="Appendix08.html">Appendix 8 - Error Messages</a></li>
+        <li><a href="Appendix09.html">Appendix 9 - Character Set / Keyboard</a></li>
+        <li><a href="Appendix10.html">Appendix 10 - Fonts</a></li>
+        <li><a href="Appendix11.html">Appendix 11 - Mathematics</a></li>
+        <li><a href="Appendix12.html">Appendix 12 - Device Drivers</a></li>
+        <li><a href="Appendix13.html">Appendix 13 - Extended Pointer Environment</a></li>
+        <li><a href="Appendix14.html">Appendix 14 - Coercion</a></li>
+        <li><a href="Appendix15.html">Appendix 15 - Mouse Drivers</a></li>
+        <li><a href="Appendix16.html">Appendix 16 - The QL Display</a></li>
+        <li><a href="Appendix17.html">Appendix 17 - Networks</a></li>
+        <li><a href="Appendix18.html">Appendix 18 - Configuring Programs</a></li>
+    </ul>
+</div>
+<div id="mainText">
+<h1><a name="KBD_RESET"></a>KBD_RESET</h1><br>Syntax: <span style="font-style: italic;">KBD_RESET
+<br></span>Location: <span style="font-style: italic;">ATARI_REXT
+<br></span><br>This is a command which should never be needed.
+<br><br>If you unplug the keyboard from the Atari whilst the
+<br>machine is switched on (this can ruin your machine), when you
+<br>plug it back in, you may find that the mouse buttons no longer
+<br>work.
+<br><br>This command re-initialises the keyboard driver so that the
+<br>mouse buttons will work again!
+<br><hr style="width: 100%; height: 2px;"><h1><a name="KBD_TABLE"></a>KBD_TABLE</h1><br>Syntax: <span style="font-style: italic;">KBD_TABLE num
+<br></span><br>or <span style="font-style: italic;">KBD_TABLE kcode</span><span style="font-style: italic;">(SMS only)
+<br></span>Location: <span style="font-style: italic;">ST/QL (Level C-17 Drivers onwards), SMS (v2.31+)
+<br></span><br>Various keyboards can be attached to a computer depending
+<br>on which  country  the  computer  is being  used  in.  It  is
+<br>therefore  necessary  to  tell  the  operating  system  which
+<br>keyboard layout is to be used so that it can recognise which
+<br>keys are being pressed.
+<br><br>The command <span style="font-style: italic;">KBD_TABLE</span> does just that.<span style="font-style: italic;">  num</span> will have one of six
+<br>possible values depending on the keyboard layout (under SMSQ/E
+<br>this equates to the international dialling code for that
+<br>country) or you can use the second variant to pass up to four
+<br>letters representing the Car Registration Letters for that
+<br>country (the fourth letter is used where that country has more
+<br>than one language):
+<br><h3><span style="font-style: italic;">num</span><span style="font-style: italic;">kcode</span>Language
+<br></h3>33FFrench
+<br>34ESpanish
+<br>44GBEnglish
+<br>45DKDanish
+<br>46SSwedish
+<br>47NNorwegian
+<br>49DGerman
+<br><br><span style="font-style: italic;">num</span> can also be used as a pointer to a user-defined keyboard
+<br>table for countries which are not covered. Details are beyond
+<br>the scope of this book.
+<br><br>A desription of how to create new keyboard tables and
+<br>languages appears in IQLR Volume 5 Issue 1 and 5.
+<br><br><h3>ST/QL NOTES:
+<br></h3><br>The values for <span style="font-style: italic;">num</span> must be one of the following values:
+<br><br>0       English
+<br><br>1       German
+<br><br>2       French
+<br><br>3       Norwegian
+<br><br>5       Danish
+<br><br>6       Spanish
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsS.html#SET_LANGUAGE$">SET_LANGUAGE$</a> is similar for the THOR XVI.
+<br><br><a style="font-style: italic;" href="KeywordsL.html#LANUGUAGE">LANUGUAGE</a> and <a style="font-style: italic;" href="KeywordsL.html#LANGUAGE$">LANGUAGE$</a> allow you to enquire about a language.
+<br><br><a style="font-style: italic;" href="KeywordsL.html#LANG_USE">LANG_USE</a> allows you to change the language used by the
+<br>system.
+<br><br><a style="font-style: italic;" href="KeywordsT.html#TRA">TRA</a> allows you to change the output to a printer.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="KBD_USE"></a>KBD_USE</h1><br>Syntax: <span style="font-style: italic;">KBD_USE</span> [<span style="font-style: italic;">ser_port</span>]
+Location: <span style="font-style: italic;">XKBD
+<br></span><br>This command ensures that any incoming data from the
+<br>specified serial port (1 for ser1, 2 for ser2) is transformed
+<br>into keystrokes.  Thus other computers or 8 bit keyboards can
+<br>be used as an additional external keyboard.  Using the command
+<br>without a parameter, or zero (eg. <span style="font-style: italic;">KBD_USE 0</span>) closes the ser
+<br>channel and stops this operation.
+<br><br><h3>NOTE:
+<br></h3><br>This task is carried out in the background of any other
+<br>programs, but does not actually create a job.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="KEY"></a>KEY</h1><br>Syntax: <span style="font-style: italic;">KEY keynr, string$
+<br></span><br>or <span style="font-style: italic;">KEY keynr</span>           (KEYMAN only)
+<br><br>or <span style="font-style: italic;">KEY</span>                 (KEYMAN only)
+Location: <span style="font-style: italic;">FKEY, KEYMAN
+<br></span><br>The <span style="font-style: italic;">KEY</span> command allows you to install keyboard short-cuts:
+<br>that means if a certain key (specified with <span style="font-style: italic;">keynr</span>) is pressed
+<br>the specified <span style="font-style: italic;">string$</span> will be typed into the current keyboard
+<br>queue. The actual implementation of the command under the two
+<br>Toolkits is different, in that the FKEY variant only allows
+<br><span style="font-style: italic;">keynr</span> to be in the range 1..5 representing the five function
+<br>keys (F1 to F5) (see table below).
+<br><br>The KEYMAN version allows <span style="font-style: italic;">keynr</span> to be in the range 1...60
+<br>which represents the following key presses:
+<br><br>1&lt;F1&gt; 31   &lt;CTRL&gt;&lt;K&gt;
+<br><br>2&lt;F2&gt;32   &lt;CTRL&gt;&lt;L&gt;
+<br><br>3&lt;F3&gt;               33   &lt;CTRL&gt;&lt;M&gt;
+<br><br>4&lt;F4&gt;                      34   &lt;CTRL&gt;&lt;N&gt;
+<br><br>5&lt;F5&gt;                       35   &lt;CTRL&gt;&lt;O&gt;
+<br><br>6&lt;SHIFT&gt;&lt;F1&gt;, &lt;F6&gt;       36   &lt;CTRL&gt;&lt;P&gt;
+<br><br>7&lt;SHIFT&gt;&lt;F2&gt;, &lt;F7&gt;      37   &lt;CTRL&gt;&lt;Q&gt;
+<br><br>8&lt;SHIFT&gt;&lt;F3&gt;, &lt;F8&gt;      38   &lt;CTRL&gt;&lt;R&gt;
+<br><br>9&lt;SHIFT&gt;&lt;F4&gt;, &lt;F9&gt;      39   &lt;CTRL&gt;&lt;S&gt;
+<br><br>10&lt;SHIFT&gt;&lt;F5&gt;, &lt;F10&gt;        40   &lt;CTRL&gt;&lt;T&gt;
+<br><br>11&lt;CTRL&gt;&lt;F1&gt;, &lt;F11&gt;*      41   &lt;CTRL&gt;&lt;U&gt;
+<br><br>12&lt;CTRL&gt;&lt;F2&gt;, &lt;F12&gt;*     42   &lt;CTRL&gt;&lt;V&gt;
+<br><br>13&lt;CTRL&gt;&lt;F3&gt;            43   &lt;CTRL&gt;&lt;W&gt;
+<br><br>14&lt;CTRL&gt;&lt;F4&gt;            44   &lt;CTRL&gt;&lt;X&gt;
+<br><br>15&lt;CTRL&gt;&lt;SHIFT&gt;&lt;ESC&gt;        45   &lt;CTRL&gt;&lt;Y&gt;
+<br><br>16&lt;CTRL&gt;&lt;SHIFT&gt;&lt;F1&gt;      46   &lt;CTRL&gt;&lt;Z&gt;
+<br><br>17&lt;CTRL&gt;&lt;SHIFT&gt;&lt;F2&gt;      47   &lt;CTRL&gt;&lt;SHIFT&gt;&lt;1&gt;
+<br><br>18&lt;CTRL&gt;&lt;SHIFT&gt;&lt;F3&gt;      48   &lt;CTRL&gt;&lt;SHIFT&gt;&lt;K&gt;
+<br><br>19&lt;CTRL&gt;&lt;SHIFT&gt;&lt;F4&gt;        49   &lt;CTRL&gt;&lt;SHIFT&gt;&lt;L&gt;
+<br><br>20&lt;CTRL&gt;&lt;SHIFT&gt;&lt;F5&gt;       50   &lt;CTRL&gt;&lt;SHIFT&gt;&lt;M&gt;
+<br><br>21&lt;CTRL&gt;&lt;A&gt;              51   &lt;CTRL&gt;&lt;SHIFT&gt;&lt;N&gt;
+<br><br>22&lt;CTRL&gt;&lt;B&gt;              52   &lt;CTRL&gt;&lt;SHIFT&gt;&lt;O&gt;
+<br><br>23 &lt;CTRL&gt;&lt;SHIFT&gt;&lt;C&gt;        53   &lt;CTRL&gt;&lt;SHIFT&gt;&lt;P&gt;
+<br><br>24 &lt;CTRL&gt;&lt;D&gt;             54   &lt;CTRL&gt;&lt;SHIFT&gt;&lt;Q&gt;
+<br><br>25 &lt;CTRL&gt;&lt;E&gt;             55   &lt;CTRL&gt;&lt;SHIFT&gt;&lt;R&gt;
+<br><br>26 &lt;CTRL&gt;&lt;F&gt;            56   &lt;CTRL&gt;&lt;SHIFT&gt;&lt;S&gt;
+<br><br>27 &lt;CTRL&gt;&lt;G&gt;             57   &lt;CTRL&gt;&lt;SHIFT&gt;&lt;T&gt;
+<br><br>28 &lt;CTRL&gt;&lt;H&gt;              58   &lt;CTRL&gt;&lt;SHIFT&gt;&lt;W&gt;
+<br><br>29 &lt;CTRL&gt;&lt;SHIFT&gt;&lt;I&gt;          59   &lt;CTRL&gt;&lt;SHIFT&gt;&lt;X&gt;
+<br><br>30 &lt;CTRL&gt;&lt;SHIFT&gt;&lt;J&gt;         60   &lt;CTRL&gt;&lt;SHIFT&gt;&lt;Y&gt;
+<br><br>Once initiated, each time that the specified keying is
+<br>pressed, the given string will be typed into the keyboard
+<br>queue, (note there is a maximum of 80 characters).
+<br><br>The KEYMAN variant allows the second syntax, <span style="font-style: italic;">KEY keynr</span>, which
+<br>allows you to check the current definition of <span style="font-style: italic;">keynr</span>, which is
+<br>then written to #0.
+<br><span style="font-style: italic;"><br>KEY</span> without any parameters activates the key translation if
+<br>necessary.
+<br><span style="font-style: italic;"><br>KEY keynr, ""</span> can be used to clear a definition with the KEYMAN
+<br>variant.
+<br><br><h3>Example:
+<br></h3><br><span style="font-style: italic;">KEY 5,"STAT"&CHR$(10)
+<br></span><br><h3>NOTE 1:
+<br></h3><br>In applications such as word-processors many of these key-
+<br>presses are already used for other purposes and this may cause
+<br>problems - if you do use <span style="font-style: italic;">KEY</span> to set a function key and then
+<br>load a program which uses those function keys, the program
+<br>will first of all register that the function key has been
+<br>pressed and will then receive a stream of other keypresses
+<br>(ie. the defined string).
+<br><br><h3>NOTE 2:
+<br></h3><br><span style="font-style: italic;">key</span> is quite a common variable name and so there is a large
+<br>danger of errors occurring if <span style="font-style: italic;">KEY</span> has been loaded into the
+<br>computer alongside a program which uses such a variable name -
+<br>for example, the statement:
+<br><br><span style="font-style: italic;">key=KEYROW(1)
+<br></span><br>will make the program stop with error -17, (Error in
+<br>expression).
+<br><br>Another problem would exist if <span style="font-style: italic;">key</span> was declared in a program
+<br>as a BASIC procedure or function, for example:
+<br><br><span style="font-style: italic;">DEFine PROCedure Key
+<br></span><br>in which case, this would overwrite the machine code
+<br>definition and even the command <span style="font-style: italic;">NEW</span> will not restore it,
+<br>however all stored <span style="font-style: italic;">KEY</span> definitions are kept active, and they
+<br>can no longer be altered because the keyword <span style="font-style: italic;">KEY</span> is no longer
+<br>recognised by the system.
+<br><br><h3>NOTE 3:
+<br></h3><br>Neither  of  these  Toolkits  should  be  linked  into  a
+<br>Qliberated job, otherwise it is possible that the code used
+<br>for <span style="font-style: italic;">KEY</span> will exist twice in memory, which would crash the
+<br>machine.  Also, the Toolkits should not be loaded into a
+<br>MultiBASIC or Multiple SBASIC unless you are certain that this
+<br>Interpreter will never disappear.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsN.html#NOKEY">NOKEY</a> under KEYMAN is equivalent to <a style="font-style: italic;" href="KeywordsK.html#KEY">KEY</a> without parameters.
+<br>See <a style="font-style: italic;" href="KeywordsA.html#ALTKEY">ALTKEY</a> for a concept similar to this one here.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="KEYROW"></a>KEYROW</h1><br>Syntax: <span style="font-style: italic;">KEYROW (row)
+<br></span>Location: <span style="font-style: italic;">QL ROM
+<br></span><br>This function is used to read the keyboard. It is not
+<br>linked with a channel which means that it can be used by a job
+<br>to read the keyboard whether or not that job has an active
+<br>cursor.  This is mainly only of use for programs which work in
+<br>the background unless a certain key is pressed to bring them
+<br>to life.  If you try to use this command in a program to
+<br>control the screen, then this will undoubtedly lead to screen
+<br>corruption as the active program may itself be accessing the
+<br>screen.
+<br><br>The main advantage which this function has when compared to
+<br><span style="font-style: italic;">INKEY$</span> is that it allows programs to recognise when the user is
+<br>pressing several keys at once, such as the left and up cursor
+<br>keys to move diagonally.
+<br><br>The function<span style="font-style: italic;"> KEYROW</span> is able to read several keys at once by
+<br>using a keyboard matrix, where each row is numbered and each
+<br>key is assigned to a certain row. If that key is pressed, then
+<br>a bit is set in the integer value of that row to represent
+<br>which key has been pressed.
+<br><br>For British QLs, the format of the matrix is:
+<br>Row 0  |<span style="font-style: italic;">74F5F3F25F1F4
+<br></span>Row 1  |<span style="font-style: italic;">SPACE\ESCENTER
+<br></span>Row 2  |<span style="font-style: italic;">"M£BC.Z]
+<br></span>Row 3  |<span style="font-style: italic;">;G=FSKCAPSLOCK[
+<br></span>Row 4  |<span style="font-style: italic;">JDPA1H3L
+<br></span>Row 5  |<span style="font-style: italic;">OY-RTABIW9
+<br></span>Row 6  |<span style="font-style: italic;">UT0EQ628
+<br></span>Row 7  |<span style="font-style: italic;">,N/VXALTCTRLSHIFT
+<br></span>------------------------------------------------------------
+<br><h3>bits76543210
+<br>(value)(128)(64)(32)(16)(8)(4)(2)(1)
+<br></h3><br>Please see the Characters Appendix!
+<br><br>The table reflects the keyboard layout and so may be
+<br>different on other languages.
+<br><br>Unfortunately, only one row at a time can be read with
+<br><span style="font-style: italic;">KEYROW</span> and so the keys are arranged into groups - for example,
+<br>all of the cursor keys appear on one row, as do all of the
+<br>function  keys.  When  the  function  is  used,  the  supplied
+<br>parameter <span style="font-style: italic;">row</span> specifies which row of the matrix is to be looked
+<br>at. The value returned will have bits set representing which
+<br>keys (if any) in that row were being pressed.
+<br><br>When <span style="font-style: italic;">KEYROW</span> is used, any characters in the type-ahead buffer
+<br>are cleared, therefore, if you wish to avoid accidental input
+<br>by the user of unwanted keys, you could use:
+<br><br><span style="font-style: italic;">dummy=KEYROW(0): Quit$=INKEY$(-1)
+<br></span><br><h3>
+<br></h3><br>This will clear the type-ahead buffer and then wait for a
+<br>new key to be pressed - this is essential where, for example,
+<br>you are asking for confirmation that a program should be quit.
+<br><br><h3>Example 1:
+<br></h3><br>If you were holding the &lt;SHIFT&gt; key down together with the
+<br><br>left and up cursor keys down, <span style="font-style: italic;">PRINT KEYROW(7)</span> would return the
+<br><br>value 1 and <span style="font-style: italic;">PRINT KEYROW(1)</span> would return the value 6.
+<br><br><h3>Example 2:
+<br></h3><br>The following program moves a cross about the screen, using
+<br><br>the cursor keys - diagonal movement is allowed:
+<br><span style="font-style: italic;">100 MODE 4
+<br>110 WINDOW 512,256,0,0:PAPER 0:CLS
+<br>120 WINDOW 448,200,32,16
+<br>130 INK 7:OVER -1
+<br>140 SCALE 150,-120,-75
+<br>150 x=0:y=0
+<br>160 LINE x-10,y TO x+10,y,x,y-10 TO x,y+10
+<br>170 REPeat loop
+<br>180   ax=KEYROW(1)
+<br>190   IF NOT ax:NEXT loop
+<br>200   LINE x-10,y TO x+10,y,x,y-10 TO x,y+10
+<br>210   IF ax&&2:x=x-(x>-120)
+<br>220   IF ax&&16:x=x+(x<128)
+<br>230   IF ax&&4:y=y+(y<75)
+<br>240   IF ax&&128:y=y-(y>-75)
+<br>250   IF ax&&8:PRINT 'Program Escaped':OVER 0:STOP
+<br>260   LINE x-10,y TO x+10,y,x,y-10 TO x,y+10
+<br>270 END REPeat loop
+<br></span><br><h3>NOTE 1:
+<br></h3><br>Except under SMS, if you are holding three keys down which
+<br>form three corners of a rectangle on the keyboard matrix, the
+<br><span style="font-style: italic;">KEYROW</span> function will return the same value as if the key which
+<br>appears in  the  fourth  corner of  the  rectangle  was  also
+<br>depressed. The QL Manual suggests this does not happen where
+<br>one of the keys is &lt;CTRL&gt;, &lt;ALT&gt; or &lt;SHIFT&gt;, but this still
+<br>happens on the QL, even with Hermes.
+<br><br><h3>NOTE 2:
+<br></h3><br>Some replacement full-sized keyboard interfaces will not
+<br>recognise where two letter keys, two function keys or two
+<br>numerical keys are held down at the same time.
+<br><br><h3>NOTE 3:
+<br></h3><br>It is just possible that if <span style="font-style: italic;">KEYROW</span> is being executed whilst a
+<br>task is being loaded or unloaded, the system will crash (the
+<br>command does not take place in supervisor mode). This has been
+<br>fixed on THORs v4.16 (or later) and Minerva.
+<br><br><h3>NOTE 4:
+<br></h3><br><span style="font-style: italic;">KEYROW</span> had various problems under SMS before v2.58.
+<br><br><h3>NOTE 5:
+<br></h3><br>This command is only partly implemented on THORs v4.16 (and
+<br>later), and does not work at all on earlier versions: the only
+<br>multiple keystrokes recognised are: &lt;SHIFT&gt;, &lt;CTRL&gt;, &lt;ALT&gt; and
+<br>one other key!  The corners of the numeric pad act as diagonal
+<br>cursor keys and the &lt;CAPSLOCK&gt; result is obtained by pressing
+<br>&lt;5&gt; on the numeric pad.  <span style="font-style: italic;">INKEY$</span> should be used instead.
+<br><br><h3>NOTE 6:
+<br></h3><br>It is highly recommended that <span style="font-style: italic;">KEYROW</span> is not used at all. It
+<br>reads the physical keyboard directly, so will conflict with
+<br>other jobs running in a multitasking environment. Another
+<br>problem is the differences between keyboards, for example, on
+<br>a German QL the &lt;Z&gt; and &lt;Y&gt; keys are swapped over compared to
+<br>a British QL - <span style="font-style: italic;">INKEY$</span> is much better!
+<br><br><h3>ST/QL NOTES:
+<br></h3><br>On the ST/QL Emulator, the <span style="font-style: italic;">KEYROW</span> table is much extended,
+<br>with the following rows being added, both to take account of
+<br>the additional keys available on an ST keyboard and also to
+<br>take account of the numeric keypad (hence the repetition of
+<br>various keys!):
+<br>Row 8 |<span style="font-style: italic;">F10F9F8F7F6BACKSPACE~
+<br></span>Row 9 |<span style="font-style: italic;">+-CLR/HOME
+<br></span>Row 10 |<span style="font-style: italic;">DELETEINSERT
+<br></span>Row 11 |<span style="font-style: italic;"><
+<br></span>Row 12 |<span style="font-style: italic;">87*/)(HELPUNDO
+<br></span>Row 13 |<span style="font-style: italic;">03216549
+<br></span>Row 14 |<span style="font-style: italic;">ENTER.
+<br></span>------------------------------------------------------------
+<br><h3>bits76543210
+<br>(value)(128)(64)(32)(16)(8)(4)(2)(1)
+<br></h3><br>The additional keys have the following meanings:
+<br>BACKSPACEDelete one character to left
+<br>(CTRL left).
+<br>SHIFT BACKSPACE Deletes a word to the left.
+<br>DELETEDelete character under cursor
+<br>(CTRL right).
+<br>SHIFT DELETEDeletes word under cursor.
+<br>UNDOUndo current operation
+<br>(CTRL ALT up).
+<br>SHIFT UNDOMega undo!
+<br>CLR/HOMEFreezes screen (CTRL F5)
+<br>INSERTHard space (SHIFT SPACE)
+<br>CTRL SHIFT ALT UNDOHard reset.
+<br><br>The keys on the numeric keypad have been redefined as
+<br>follows:
+<br><h3>KeyingResult
+<br></h3>SHIFT ([
+<br>SHIFT )]
+<br>SHIFT /\
+<br>SHIFT ENTER=
+<br>CTRL ({
+<br>CTRL )}
+<br>CTRL \|
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsI.html#INKEY$">INKEY$</a> and <a style="font-style: italic;" href="KeywordsI.html#INPUT">INPUT</a> allow user input from the keyboard whilst
+<br>retaining    compatibility    across    the    various    QDOS
+<br>implementations.  These commands are also job specific, and
+<br>hence much better for use in multitasking programs.
+<br><br>Some of the <a style="font-style: italic;" href="KeywordsH.html#HOT_">HOT_</a>... commands and <a style="font-style: italic;" href="KeywordsE.html#EXEP">EXEP</a> allow you to pass a U
+<br>option to the program to force the computer to freeze all
+<br>other programs whilst this one is running - this can be used
+<br>to ensure that a program which uses <a style="font-style: italic;" href="KeywordsK.html#KEYROW">KEYROW</a> does not carry on
+<br>reading the keyboard whilst you are using another program.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="KEYW"></a>KEYW</h1><br>Syntax: <span style="font-style: italic;">KEYW (keyword$)
+<br></span>Location: <span style="font-style: italic;">Fn
+<br></span><br>This is a function which can be used to find whether or not
+<br>a given keyword is linked into the interpreter. If the keyword
+<br>is known to the interpreter, <span style="font-style: italic;">KEYW</span> returns 0, otherwise -7.
+<br><br><h3>Example:
+<br></h3><br>The following function returns 1 on Gold Cards and 0 on
+<br><br>other systems (or some early Gold Cards if they do not
+<br><br>support the <span style="font-style: italic;">SLUG</span> command).  It will unfortunately always
+<br><br>return 1 under SMS which has the <span style="font-style: italic;">SLUG</span> command built-in.
+<br><span style="font-style: italic;">100 DEFine FuNction Gold_Card
+<br>110  RETurn NOT KEYW("FLP_DENSITY")+KEYW("SLUG")
+<br>120 END DEFine Gold_Card
+<br></span><br>A better way would be to use the <span style="font-style: italic;">MACHINE</span> function.
+<br><br><h3>NOTE:
+<br></h3><br>This will always access Job 0, therefore it cannot tell you
+<br>whether  or  not  a  keyword  is  linked  into  a  MultiBASIC
+<br>interpreter or a multiple SBASIC interpreter.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsE.html#ELIS">ELIS</a>, <a style="font-style: italic;" href="KeywordsD.html#DEFINED">DEFINED</a> and <a style="font-style: italic;" href="KeywordsK.html#KEY_ADD">KEY_ADD</a> are similar.
+<br><br>Compare <a style="font-style: italic;" href="KeywordsL.html#LOOKUP%">LOOKUP%</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="KEY_ADD"></a>KEY_ADD</h1><br>Syntax: <span style="font-style: italic;">KEY_ADD (keyword$)
+<br></span>Location: <span style="font-style: italic;">BeuleTools
+<br></span><br>This function returns the start address of where the
+<br>machine code routine for the given keyword is stored. If the
+<br>keyword is unrecognised by the system, 0 will be returned.
+<br>This command will work from MultiBASICs and Multiple SBASICs.
+<br><br><h3>Example 1:
+<br></h3><br>The file server functions of Toolkit II will only work if
+<br><br>the code is in ROM, on an EPROM cartridge, under SMS or on
+<br><br>a Trump Card for example. Nevertheless, the <span style="font-style: italic;">FSERVE</span> command is
+<br><br>also found in the configurable software version. You can
+<br><br>easily check what version of Toolkit II is present by
+<br><br>looking at the base address of <span style="font-style: italic;">TK2_EXT</span> and then adapt your
+<br><br>program to take account of the system configuration.
+<br><span style="font-style: italic;">100 TK2_location=KEY_ADD("TK2_EXT")
+<br>105 FILE_SERVER=0
+<br>110 SELect ON TK2_location
+<br>120   =48*1024 TO 64*1024: FILE_SERVER=1
+<br>130   =REMAINDER:IF VER$='HBA':FILE_SERVER=1
+<br>140 END SELect
+<br>150 :
+<br>160 IF FILE_SERVER THEN
+<br>170   FSERVE
+<br>180 ELSE PRINT "Sorry, no ROM based file server."
+<br>190 END IF
+<br></span><br><h3>Example 2:
+<br></h3><br><span style="font-style: italic;">KEY_ADD</span> does not produce an error (unlike <span style="font-style: italic;">ELIS</span>) when a keyword
+<br><br>is not found, and is therefore ideal to check if a certain
+<br><br>Toolkit, command or function is present. This can be used
+<br><br>within programs to adapt to available facilities.
+<br><br>In this example the internal date and time is saved as a
+<br><br>hexadecimal number (this is more precise) if the necessary
+<br><br>functions are present, otherwise it saves it as a floating
+<br><br>point number. The load routine then checks if the <span style="font-style: italic;">DATE</span> was
+<br><br>stored as a hexadecimal or decimal number, taking whatever
+<br><br>action is necessary.
+<br><span style="font-style: italic;">100 DateFile$="flp1_LastDATE_dat"
+<br>110 :
+<br>120 DEFine PROCedure WRITE_DATE
+<br>130  IF KEY_ADD("OPEN_OVER") THEN
+<br>140    OPEN_OVER#3,DateFile$
+<br>150    ELSE OPEN#3,DateFile$
+<br>160  END IF
+<br>170  IF KEY_ADD("HEX$") AND KEY_ADD("HEX") THEN
+<br>180    PRINT#3,"$" & HEX$(DATE,32)
+<br>190    ELSE PRINT#3,DATE
+<br>200  END IF
+<br>210  CLOSE#3
+<br>220 END DEFine WRITE_DATE
+<br>230 :
+<br></span><br><h3>
+<br></h3><span style="font-style: italic;">240 DEFine PROCedure READ_DATE
+<br>250  LOCal d$
+<br>260  OPEN_IN#3,DateFile$
+<br>270  INPUT#4,d$: CLOSE#3
+<br>280  IF d$(1)="$" THEN
+<br>290    IF NOT KEY_ADD("HEX") THEN RETurn
+<br>300    d$=HEX(d$(2 TO))
+<br>310  END IF
+<br>320  ADATE d$-DATE
+<br>330 END DEFine READ_DATE
+<br></span><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsE.html#ELIS">ELIS</a> differs from <a style="font-style: italic;" href="KeywordsK.html#KEY_ADD">KEY_ADD</a> in that it returns zero if the
+<br>keyword is not found, rather than an error message.
+<br><br>See also <a style="font-style: italic;" href="KeywordsK.html#KEYW">KEYW</a> and <a style="font-style: italic;" href="KeywordsL.html#LOOKUP%">LOOKUP%</a>.
+<br><br><a style="font-style: italic;" href="KeywordsF.html#FIND">FIND</a> and <a style="font-style: italic;" href="KeywordsF.html#FLIS">FLIS</a> are also useful.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="KEY_RMV"></a>KEY_RMV</h1><br>Syntax: <span style="font-style: italic;">KEY_RMV keyword$
+<br></span>Location: <span style="font-style: italic;">Beuletools
+<br></span><br>This is the same as <span style="font-style: italic;">ZAP</span> !
+<br><hr style="width: 100%; height: 2px;"><h1><a name="KILL"></a>KILL</h1><br>Syntax: <span style="font-style: italic;">KILL
+<br></span>Location: <span style="font-style: italic;">BeuleTools, KILL
+<br></span><br>This command will cause all current jobs, except the main
+<br>SuperBASIC interpreter (Job 0), to be stopped and removed from
+<br>memory.
+<br><br><h3>Example:
+<br></h3><br>The presence of jobs prevents the commands <span style="font-style: italic;">RESPR</span> / <span style="font-style: italic;">LRESPR</span> from
+<br><br>grabbing memory in the Resident Procedure Area (although
+<br><br>some implementations overcome this restriction, they do so
+<br><br>by by allocating space in the Common Heap) and because some
+<br><br>machine code programs cannot or should not be loaded into
+<br><br>the common heap, the command <span style="font-style: italic;">KILL</span> can be of assistance.
+<br><br><h3>WARNING:
+<br></h3><br>Be sure that no important data gets lost !
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsR.html#RJOB">RJOB</a> removes single jobs, <a style="font-style: italic;" href="KeywordsK.html#KJOBS">KJOBS</a> works in the same way as <a style="font-style: italic;" href="KeywordsK.html#KILL">KILL</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="KILLN"></a>KILLN</h1><br>Syntax: <span style="font-style: italic;">KILLN
+<br></span>Location: <span style="font-style: italic;">Beuletools
+<br></span><br>This command removes all current jobs and reactivates the
+<br>following jobs if the respective facilities are available:
+<br><br>HOTKEY         (Qjump's Hotkey System)
+<br><br>BLANK          (Blanks screen if no key
+<br>pressed)
+<br><br>Qmons Nix-Job  (see NIX)
+<br><br>Server         (see FSERVE)
+<br><br><h3>WARNING:
+<br></h3><br>Again, be careful !
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsK.html#KILL">KILL</a> removes all jobs as does <a style="font-style: italic;" href="KeywordsK.html#KJOBS">KJOBS</a>.
+<br><br><a style="font-style: italic;" href="KeywordsK.html#KILL_A">KILL_A</a> removes all jobs and clears the whole system for
+<br>SuperBASIC.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="KILL_A"></a>KILL_A</h1><br>Syntax: <span style="font-style: italic;">KILL_A
+<br></span>Location: <span style="font-style: italic;">Beuletools
+<br></span><br>This command forces everything which can be accessed from
+<br>SuperBASIC to  be  cleared,  killed or  removed:  Jobs,  file
+<br>definition  blocks  (except  if  Qjump's  Hotkey  System  is
+<br>present), variables, the <span style="font-style: italic;">DATA</span> pointer, the common heap and all
+<br>channels are closed. On an Atari QL-Emulator and under SMS,
+<br>the buffer for the serial and parallel port is also cleared.
+<br><br><h3>WARNING:
+<br></h3><br>Be  very  careful! All data will be lost. Avoid this
+<br>command if you can: it is more like a safe emergency break.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsK.html#KILL">KILL</a>, <a style="font-style: italic;" href="KeywordsK.html#KILLN">KILLN</a>, <a style="font-style: italic;" href="KeywordsK.html#KJOBS">KJOBS</a>, <a style="font-style: italic;" href="KeywordsD.html#DEL_DEFB">DEL_DEFB</a>, <a style="font-style: italic;" href="KeywordsC.html#CLCHP">CLCHP</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="KJOB"></a>KJOB</h1><br>Syntax: <span style="font-style: italic;">KJOB jobname     </span>   <span style="font-style: italic;">(TinyToolkit only)
+<br></span><br>or <span style="font-style: italic;">KJOB jobnr
+<br></span><br>or <span style="font-style: italic;">KJOB jobnr,tag</span>   <span style="font-style: italic;">(BTool only)
+<br></span>Location: <span style="font-style: italic;">TinyToolkit, BTool
+<br></span><br>This command kills the given job (causing it, together with
+<br>all of its owned jobs, channels and memory to be removed or
+<br>freed).
+<br><br><span style="font-style: italic;">Jobname</span> in the first variant can be passed as a string or as
+<br>just the name of the Job without quotes (so long as that name
+<br>is not defined as a variable or SuperBASIC <span style="font-style: italic;">PROCedure</span> or <span style="font-style: italic;">FuNction</span>).
+<br><br><span style="font-style: italic;">jobnr</span> is the Job number as listed by the <span style="font-style: italic;">JOBS</span> command.  If
+<br>this is -1, this will kill the current Job.
+<br><br>The last variant is surplus at present - it was intended
+<br>that it would pass the second parameter back to the owner of
+<br>the job, but due to an error in the code, this second
+<br>parameter is seen as the job tag.
+<br><br><h3>Examples:
+<br></h3><br><span style="font-style: italic;">KJOB 'Perfection v2.04'
+<br><br>KJOB 1
+<br></span><br><h3>NOTE:
+<br></h3><br>Before v1.11 of TinyToolkit, you could not pass <span style="font-style: italic;">jobnr</span> as -1
+<br>nor could you use a variable to pass the jobnr (see <span style="font-style: italic;">JBASE</span>).
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsR.html#RJOB">RJOB</a> has a slightly different syntax.
+<br><br><a style="font-style: italic;" href="KeywordsK.html#KILL">KILL</a> and <a style="font-style: italic;" href="KeywordsK.html#KJOBS">KJOBS</a> remove all jobs.
+<br><br><a style="font-style: italic;" href="KeywordsS.html#SPJOB">SPJOB</a>, <a style="font-style: italic;" href="KeywordsS.html#SJOB">SJOB</a>, <a style="font-style: italic;" href="KeywordsR.html#REL_JOB">REL_JOB</a>, <a style="font-style: italic;" href="KeywordsA.html#AJOB">AJOB</a> are other commands which handle jobs.
+<br><br>The function <a style="font-style: italic;" href="KeywordsJ.html#JOB$">JOB$</a> will return the name of the given job.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="KJOBS"></a>KJOBS</h1><br>Syntax: <span style="font-style: italic;">KJOBS
+<br></span>Location: <span style="font-style: italic;">TinyToolkit, BTool
+<br></span><br>This is the same as <span style="font-style: italic;">KILL
+<br></span><br><h3>
+<br></div>
+</body>
+</html>

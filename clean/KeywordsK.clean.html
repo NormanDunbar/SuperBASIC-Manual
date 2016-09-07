@@ -1,0 +1,763 @@
+    
+<H1><A name="KBD_RESET" id="KBD_RESET"></A>KBD_RESET</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">KBD_RESET<BR></SPAN> Location: <SPAN style="font-style: italic;">ATARI_REXT<BR></SPAN>
+    This is a command which should never be needed.
+    
+    If you unplug the keyboard from the Atari whilst the
+    machine is switched on (this can ruin your machine), when you
+    plug it back in, you may find that the mouse buttons no longer
+    work.
+    
+    This command re-initialises the keyboard driver so that the
+    mouse buttons will work again!
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="KBD_TABLE" id="KBD_TABLE"></A>KBD_TABLE</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">KBD_TABLE num<BR></SPAN>
+    or <SPAN style="font-style: italic;">KBD_TABLE kcode</SPAN><SPAN style="font-style: italic;">(SMS only)<BR></SPAN> Location: <SPAN style="font-style: italic;">ST/QL (Level C-17 Drivers onwards), SMS (v2.31+)<BR></SPAN>
+    Various keyboards can be attached to a computer depending
+    on which country the computer is being used in. It is
+    therefore necessary to tell the operating system which
+    keyboard layout is to be used so that it can recognise which
+    keys are being pressed.
+    
+    The command <SPAN style="font-style: italic;">KBD_TABLE</SPAN> does just that. <SPAN style="font-style: italic;">num</SPAN> will have one of six
+    possible values depending on the keyboard layout (under SMSQ/E
+    this equates to the international dialling code for that
+    country) or you can use the second variant to pass up to four
+    letters representing the Car Registration Letters for that
+    country (the fourth letter is used where that country has more
+    than one language):
+    
+<H3><SPAN style="font-style: italic;">num</SPAN><SPAN style="font-style: italic;">kcode</SPAN>Language</H3>
+
+<P>33FFrench
+    34ESpanish
+    44GBEnglish
+    45DKDanish
+    46SSwedish
+    47NNorwegian
+    49DGerman
+    
+    <SPAN style="font-style: italic;">num</SPAN> can also be used as a pointer to a user-defined keyboard
+    table for countries which are not covered. Details are beyond
+    the scope of this book.
+    
+    A desription of how to create new keyboard tables and
+    languages appears in IQLR Volume 5 Issue 1 and 5.
+    
+    
+<H3>ST/QL NOTES:</H3>
+
+<P>
+    The values for <SPAN style="font-style: italic;">num</SPAN> must be one of the following values:
+    
+    0 English
+    
+    1 German
+    
+    2 French
+    
+    3 Norwegian
+    
+    5 Danish
+    
+    6 Spanish
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsS.html#SET_LANGUAGE$">SET_LANGUAGE$</A> is similar for the THOR XVI.
+    
+    <A style="font-style: italic;" href="KeywordsL.html#LANUGUAGE">LANUGUAGE</A> and <A style="font-style: italic;" href="KeywordsL.html#LANGUAGE$">LANGUAGE$</A> allow you to enquire about a language.
+    
+    <A style="font-style: italic;" href="KeywordsL.html#LANG_USE">LANG_USE</A> allows you to change the language used by the
+    system.
+    
+    <A style="font-style: italic;" href="KeywordsT.html#TRA">TRA</A> allows you to change the output to a printer.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="KBD_USE" id="KBD_USE"></A>KBD_USE</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">KBD_USE</SPAN> [<SPAN style="font-style: italic;">ser_port</SPAN>] Location: <SPAN style="font-style: italic;">XKBD<BR></SPAN>
+    This command ensures that any incoming data from the
+    specified serial port (1 for ser1, 2 for ser2) is transformed
+    into keystrokes. Thus other computers or 8 bit keyboards can
+    be used as an additional external keyboard. Using the command
+    without a parameter, or zero (eg. <SPAN style="font-style: italic;">KBD_USE 0</SPAN>) closes the ser
+    channel and stops this operation.
+    
+    
+<H3>NOTE:</H3>
+
+<P>
+    This task is carried out in the background of any other
+    programs, but does not actually create a job.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="KEY" id="KEY"></A>KEY</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">KEY keynr, string$<BR></SPAN>
+    or <SPAN style="font-style: italic;">KEY keynr</SPAN> (KEYMAN only)
+    
+    or <SPAN style="font-style: italic;">KEY</SPAN> (KEYMAN only) Location: <SPAN style="font-style: italic;">FKEY, KEYMAN<BR></SPAN>
+    The <SPAN style="font-style: italic;">KEY</SPAN> command allows you to install keyboard short-cuts:
+    that means if a certain key (specified with <SPAN style="font-style: italic;">keynr</SPAN>) is pressed
+    the specified <SPAN style="font-style: italic;">string$</SPAN> will be typed into the current keyboard
+    queue. The actual implementation of the command under the two
+    Toolkits is different, in that the FKEY variant only allows
+    <SPAN style="font-style: italic;">keynr</SPAN> to be in the range 1..5 representing the five function
+    keys (F1 to F5) (see table below).
+    
+    The KEYMAN version allows <SPAN style="font-style: italic;">keynr</SPAN> to be in the range 1...60
+    which represents the following key presses:
+    
+    1&lt;F1&gt; 31 &lt;CTRL&gt;&lt;K&gt;
+    
+    2&lt;F2&gt;32 &lt;CTRL&gt;&lt;L&gt;
+    
+    3&lt;F3&gt; 33 &lt;CTRL&gt;&lt;M&gt;
+    
+    4&lt;F4&gt; 34 &lt;CTRL&gt;&lt;N&gt;
+    
+    5&lt;F5&gt; 35 &lt;CTRL&gt;&lt;O&gt;
+    
+    6&lt;SHIFT&gt;&lt;F1&gt;, &lt;F6&gt; 36 &lt;CTRL&gt;&lt;P&gt;
+    
+    7&lt;SHIFT&gt;&lt;F2&gt;, &lt;F7&gt; 37 &lt;CTRL&gt;&lt;Q&gt;
+    
+    8&lt;SHIFT&gt;&lt;F3&gt;, &lt;F8&gt; 38 &lt;CTRL&gt;&lt;R&gt;
+    
+    9&lt;SHIFT&gt;&lt;F4&gt;, &lt;F9&gt; 39 &lt;CTRL&gt;&lt;S&gt;
+    
+    10&lt;SHIFT&gt;&lt;F5&gt;, &lt;F10&gt; 40 &lt;CTRL&gt;&lt;T&gt;
+    
+    11&lt;CTRL&gt;&lt;F1&gt;, &lt;F11&gt;* 41 &lt;CTRL&gt;&lt;U&gt;
+    
+    12&lt;CTRL&gt;&lt;F2&gt;, &lt;F12&gt;* 42 &lt;CTRL&gt;&lt;V&gt;
+    
+    13&lt;CTRL&gt;&lt;F3&gt; 43 &lt;CTRL&gt;&lt;W&gt;
+    
+    14&lt;CTRL&gt;&lt;F4&gt; 44 &lt;CTRL&gt;&lt;X&gt;
+    
+    15&lt;CTRL&gt;&lt;SHIFT&gt;&lt;ESC&gt; 45 &lt;CTRL&gt;&lt;Y&gt;
+    
+    16&lt;CTRL&gt;&lt;SHIFT&gt;&lt;F1&gt; 46 &lt;CTRL&gt;&lt;Z&gt;
+    
+    17&lt;CTRL&gt;&lt;SHIFT&gt;&lt;F2&gt; 47 &lt;CTRL&gt;&lt;SHIFT&gt;&lt;1&gt;
+    
+    18&lt;CTRL&gt;&lt;SHIFT&gt;&lt;F3&gt; 48 &lt;CTRL&gt;&lt;SHIFT&gt;&lt;K&gt;
+    
+    19&lt;CTRL&gt;&lt;SHIFT&gt;&lt;F4&gt; 49 &lt;CTRL&gt;&lt;SHIFT&gt;&lt;L&gt;
+    
+    20&lt;CTRL&gt;&lt;SHIFT&gt;&lt;F5&gt; 50 &lt;CTRL&gt;&lt;SHIFT&gt;&lt;M&gt;
+    
+    21&lt;CTRL&gt;&lt;A&gt; 51 &lt;CTRL&gt;&lt;SHIFT&gt;&lt;N&gt;
+    
+    22&lt;CTRL&gt;&lt;B&gt; 52 &lt;CTRL&gt;&lt;SHIFT&gt;&lt;O&gt;
+    
+    23 &lt;CTRL&gt;&lt;SHIFT&gt;&lt;C&gt; 53 &lt;CTRL&gt;&lt;SHIFT&gt;&lt;P&gt;
+    
+    24 &lt;CTRL&gt;&lt;D&gt; 54 &lt;CTRL&gt;&lt;SHIFT&gt;&lt;Q&gt;
+    
+    25 &lt;CTRL&gt;&lt;E&gt; 55 &lt;CTRL&gt;&lt;SHIFT&gt;&lt;R&gt;
+    
+    26 &lt;CTRL&gt;&lt;F&gt; 56 &lt;CTRL&gt;&lt;SHIFT&gt;&lt;S&gt;
+    
+    27 &lt;CTRL&gt;&lt;G&gt; 57 &lt;CTRL&gt;&lt;SHIFT&gt;&lt;T&gt;
+    
+    28 &lt;CTRL&gt;&lt;H&gt; 58 &lt;CTRL&gt;&lt;SHIFT&gt;&lt;W&gt;
+    
+    29 &lt;CTRL&gt;&lt;SHIFT&gt;&lt;I&gt; 59 &lt;CTRL&gt;&lt;SHIFT&gt;&lt;X&gt;
+    
+    30 &lt;CTRL&gt;&lt;SHIFT&gt;&lt;J&gt; 60 &lt;CTRL&gt;&lt;SHIFT&gt;&lt;Y&gt;
+    
+    Once initiated, each time that the specified keying is
+    pressed, the given string will be typed into the keyboard
+    queue, (note there is a maximum of 80 characters).
+    
+    The KEYMAN variant allows the second syntax, <SPAN style="font-style: italic;">KEY keynr</SPAN>, which
+    allows you to check the current definition of <SPAN style="font-style: italic;">keynr</SPAN>, which is
+    then written to #0.
+    <SPAN style="font-style: italic;">
+    KEY</SPAN> without any parameters activates the key translation if
+    necessary.
+    <SPAN style="font-style: italic;">
+    KEY keynr, ""</SPAN> can be used to clear a definition with the KEYMAN
+    variant.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">KEY 5,"STAT"&amp;CHR$(10)<BR></SPAN>
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    In applications such as word-processors many of these key-
+    presses are already used for other purposes and this may cause
+    problems - if you do use <SPAN style="font-style: italic;">KEY</SPAN> to set a function key and then
+    load a program which uses those function keys, the program
+    will first of all register that the function key has been
+    pressed and will then receive a stream of other keypresses
+    (ie. the defined string).
+    
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">key</SPAN> is quite a common variable name and so there is a large
+    danger of errors occurring if <SPAN style="font-style: italic;">KEY</SPAN> has been loaded into the
+    computer alongside a program which uses such a variable name -
+    for example, the statement:
+    
+    <SPAN style="font-style: italic;">key=KEYROW(1)<BR></SPAN>
+    will make the program stop with error -17, (Error in
+    expression).
+    
+    Another problem would exist if <SPAN style="font-style: italic;">key</SPAN> was declared in a program
+    as a BASIC procedure or function, for example:
+    
+    <SPAN style="font-style: italic;">DEFine PROCedure Key<BR></SPAN>
+    in which case, this would overwrite the machine code
+    definition and even the command <SPAN style="font-style: italic;">NEW</SPAN> will not restore it,
+    however all stored <SPAN style="font-style: italic;">KEY</SPAN> definitions are kept active, and they
+    can no longer be altered because the keyword <SPAN style="font-style: italic;">KEY</SPAN> is no longer
+    recognised by the system.
+    
+    
+<H3>NOTE 3:</H3>
+
+<P>
+    Neither of these Toolkits should be linked into a
+    Qliberated job, otherwise it is possible that the code used
+    for <SPAN style="font-style: italic;">KEY</SPAN> will exist twice in memory, which would crash the
+    machine. Also, the Toolkits should not be loaded into a
+    MultiBASIC or Multiple SBASIC unless you are certain that this
+    Interpreter will never disappear.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsN.html#NOKEY">NOKEY</A> under KEYMAN is equivalent to <A style="font-style: italic;" href="KeywordsK.html#KEY">KEY</A> without parameters.
+    See <A style="font-style: italic;" href="KeywordsA.html#ALTKEY">ALTKEY</A> for a concept similar to this one here.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="KEYROW" id="KEYROW"></A>KEYROW</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">KEYROW (row)<BR></SPAN> Location: <SPAN style="font-style: italic;">QL ROM<BR></SPAN>
+    This function is used to read the keyboard. It is not
+    linked with a channel which means that it can be used by a job
+    to read the keyboard whether or not that job has an active
+    cursor. This is mainly only of use for programs which work in
+    the background unless a certain key is pressed to bring them
+    to life. If you try to use this command in a program to
+    control the screen, then this will undoubtedly lead to screen
+    corruption as the active program may itself be accessing the
+    screen.
+    
+    The main advantage which this function has when compared to
+    <SPAN style="font-style: italic;">INKEY$</SPAN> is that it allows programs to recognise when the user is
+    pressing several keys at once, such as the left and up cursor
+    keys to move diagonally.
+    
+    The function <SPAN style="font-style: italic;">KEYROW</SPAN> is able to read several keys at once by
+    using a keyboard matrix, where each row is numbered and each
+    key is assigned to a certain row. If that key is pressed, then
+    a bit is set in the integer value of that row to represent
+    which key has been pressed.
+    
+    For British QLs, the format of the matrix is:
+    Row 0 |<SPAN style="font-style: italic;">74F5F3F25F1F4<BR></SPAN> Row 1 |<SPAN style="font-style: italic;">SPACE\ESCENTER<BR></SPAN> Row 2 |<SPAN style="font-style: italic;">"M�BC.Z]<BR></SPAN> Row 3 |<SPAN style="font-style: italic;">;G=FSKCAPSLOCK[<BR></SPAN> Row 4 |<SPAN style="font-style: italic;">JDPA1H3L<BR></SPAN> Row 5 |<SPAN style="font-style: italic;">OY-RTABIW9<BR></SPAN> Row 6 |<SPAN style="font-style: italic;">UT0EQ628<BR></SPAN> Row 7 |<SPAN style="font-style: italic;">,N/VXALTCTRLSHIFT<BR></SPAN> ------------------------------------------------------------
+    
+<H3>bits76543210
+    (value)(128)(64)(32)(16)(8)(4)(2)(1)</H3>
+
+<P>
+    Please see the Characters Appendix!
+    
+    The table reflects the keyboard layout and so may be
+    different on other languages.
+    
+    Unfortunately, only one row at a time can be read with
+    <SPAN style="font-style: italic;">KEYROW</SPAN> and so the keys are arranged into groups - for example,
+    all of the cursor keys appear on one row, as do all of the
+    function keys. When the function is used, the supplied
+    parameter <SPAN style="font-style: italic;">row</SPAN> specifies which row of the matrix is to be looked
+    at. The value returned will have bits set representing which
+    keys (if any) in that row were being pressed.
+    
+    When <SPAN style="font-style: italic;">KEYROW</SPAN> is used, any characters in the type-ahead buffer
+    are cleared, therefore, if you wish to avoid accidental input
+    by the user of unwanted keys, you could use:
+    
+    <SPAN style="font-style: italic;">dummy=KEYROW(0): Quit$=INKEY$(-1)<BR></SPAN>
+    
+<H3></H3>
+
+<P>
+    This will clear the type-ahead buffer and then wait for a
+    new key to be pressed - this is essential where, for example,
+    you are asking for confirmation that a program should be quit.
+    
+    
+<H3>Example 1:</H3>
+
+<P>
+    If you were holding the &lt;SHIFT&gt; key down together with the
+    
+    left and up cursor keys down, <SPAN style="font-style: italic;">PRINT KEYROW(7)</SPAN> would return the
+    
+    value 1 and <SPAN style="font-style: italic;">PRINT KEYROW(1)</SPAN> would return the value 6.
+    
+    
+<H3>Example 2:</H3>
+
+<P>
+    The following program moves a cross about the screen, using
+    
+    the cursor keys - diagonal movement is allowed:
+    <SPAN style="font-style: italic;">100 MODE 4
+    110 WINDOW 512,256,0,0:PAPER 0:CLS
+    120 WINDOW 448,200,32,16
+    130 INK 7:OVER -1
+    140 SCALE 150,-120,-75
+    150 x=0:y=0
+    160 LINE x-10,y TO x+10,y,x,y-10 TO x,y+10
+    170 REPeat loop
+    180 ax=KEYROW(1)
+    190 IF NOT ax:NEXT loop
+    200 LINE x-10,y TO x+10,y,x,y-10 TO x,y+10
+    210 IF ax&amp;&amp;2:x=x-(x&gt;-120)
+    220 IF ax&amp;&amp;16:x=x+(x&lt;128)
+    230 IF ax&amp;&amp;4:y=y+(y&lt;75)
+    240 IF ax&amp;&amp;128:y=y-(y&gt;-75)
+    250 IF ax&amp;&amp;8:PRINT 'Program Escaped':OVER 0:STOP
+    260 LINE x-10,y TO x+10,y,x,y-10 TO x,y+10
+    270 END REPeat loop<BR></SPAN>
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    Except under SMS, if you are holding three keys down which
+    form three corners of a rectangle on the keyboard matrix, the
+    <SPAN style="font-style: italic;">KEYROW</SPAN> function will return the same value as if the key which
+    appears in the fourth corner of the rectangle was also
+    depressed. The QL Manual suggests this does not happen where
+    one of the keys is &lt;CTRL&gt;, &lt;ALT&gt; or &lt;SHIFT&gt;, but this still
+    happens on the QL, even with Hermes.
+    
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    Some replacement full-sized keyboard interfaces will not
+    recognise where two letter keys, two function keys or two
+    numerical keys are held down at the same time.
+    
+    
+<H3>NOTE 3:</H3>
+
+<P>
+    It is just possible that if <SPAN style="font-style: italic;">KEYROW</SPAN> is being executed whilst a
+    task is being loaded or unloaded, the system will crash (the
+    command does not take place in supervisor mode). This has been
+    fixed on THORs v4.16 (or later) and Minerva.
+    
+    
+<H3>NOTE 4:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">KEYROW</SPAN> had various problems under SMS before v2.58.
+    
+    
+<H3>NOTE 5:</H3>
+
+<P>
+    This command is only partly implemented on THORs v4.16 (and
+    later), and does not work at all on earlier versions: the only
+    multiple keystrokes recognised are: &lt;SHIFT&gt;, &lt;CTRL&gt;, &lt;ALT&gt; and
+    one other key! The corners of the numeric pad act as diagonal
+    cursor keys and the &lt;CAPSLOCK&gt; result is obtained by pressing
+    &lt;5&gt; on the numeric pad. <SPAN style="font-style: italic;">INKEY$</SPAN> should be used instead.
+    
+    
+<H3>NOTE 6:</H3>
+
+<P>
+    It is highly recommended that <SPAN style="font-style: italic;">KEYROW</SPAN> is not used at all. It
+    reads the physical keyboard directly, so will conflict with
+    other jobs running in a multitasking environment. Another
+    problem is the differences between keyboards, for example, on
+    a German QL the &lt;Z&gt; and &lt;Y&gt; keys are swapped over compared to
+    a British QL - <SPAN style="font-style: italic;">INKEY$</SPAN> is much better!
+    
+    
+<H3>ST/QL NOTES:</H3>
+
+<P>
+    On the ST/QL Emulator, the <SPAN style="font-style: italic;">KEYROW</SPAN> table is much extended,
+    with the following rows being added, both to take account of
+    the additional keys available on an ST keyboard and also to
+    take account of the numeric keypad (hence the repetition of
+    various keys!):
+    Row 8 |<SPAN style="font-style: italic;">F10F9F8F7F6BACKSPACE~<BR></SPAN> Row 9 |<SPAN style="font-style: italic;">+-CLR/HOME<BR></SPAN> Row 10 |<SPAN style="font-style: italic;">DELETEINSERT<BR></SPAN> Row 11 |<SPAN style="font-style: italic;">&lt;<BR></SPAN> Row 12 |<SPAN style="font-style: italic;">87*/)(HELPUNDO<BR></SPAN> Row 13 |<SPAN style="font-style: italic;">03216549<BR></SPAN> Row 14 |<SPAN style="font-style: italic;">ENTER.<BR></SPAN> ------------------------------------------------------------
+    
+<H3>bits76543210
+    (value)(128)(64)(32)(16)(8)(4)(2)(1)</H3>
+
+<P>
+    The additional keys have the following meanings:
+    BACKSPACEDelete one character to left
+    (CTRL left).
+    SHIFT BACKSPACE Deletes a word to the left.
+    DELETEDelete character under cursor
+    (CTRL right).
+    SHIFT DELETEDeletes word under cursor.
+    UNDOUndo current operation
+    (CTRL ALT up).
+    SHIFT UNDOMega undo!
+    CLR/HOMEFreezes screen (CTRL F5)
+    INSERTHard space (SHIFT SPACE)
+    CTRL SHIFT ALT UNDOHard reset.
+    
+    The keys on the numeric keypad have been redefined as
+    follows:
+    
+<H3>KeyingResult</H3>
+
+<P>SHIFT ([
+    SHIFT )]
+    SHIFT /\
+    SHIFT ENTER=
+    CTRL ({
+    CTRL )}
+    CTRL \|
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsI.html#INKEY$">INKEY$</A> and <A style="font-style: italic;" href="KeywordsI.html#INPUT">INPUT</A> allow user input from the keyboard whilst
+    retaining compatibility across the various QDOS
+    implementations. These commands are also job specific, and
+    hence much better for use in multitasking programs.
+    
+    Some of the <A style="font-style: italic;" href="KeywordsH.html#HOT_">HOT_</A>... commands and <A style="font-style: italic;" href="KeywordsE.html#EXEP">EXEP</A> allow you to pass a U
+    option to the program to force the computer to freeze all
+    other programs whilst this one is running - this can be used
+    to ensure that a program which uses <A style="font-style: italic;" href="KeywordsK.html#KEYROW">KEYROW</A> does not carry on
+    reading the keyboard whilst you are using another program.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="KEYW" id="KEYW"></A>KEYW</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">KEYW (keyword$)<BR></SPAN> Location: <SPAN style="font-style: italic;">Fn<BR></SPAN>
+    This is a function which can be used to find whether or not
+    a given keyword is linked into the interpreter. If the keyword
+    is known to the interpreter, <SPAN style="font-style: italic;">KEYW</SPAN> returns 0, otherwise -7.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    The following function returns 1 on Gold Cards and 0 on
+    
+    other systems (or some early Gold Cards if they do not
+    
+    support the <SPAN style="font-style: italic;">SLUG</SPAN> command). It will unfortunately always
+    
+    return 1 under SMS which has the <SPAN style="font-style: italic;">SLUG</SPAN> command built-in.
+    <SPAN style="font-style: italic;">100 DEFine FuNction Gold_Card
+    110 RETurn NOT KEYW("FLP_DENSITY")+KEYW("SLUG")
+    120 END DEFine Gold_Card<BR></SPAN>
+    A better way would be to use the <SPAN style="font-style: italic;">MACHINE</SPAN> function.
+    
+    
+<H3>NOTE:</H3>
+
+<P>
+    This will always access Job 0, therefore it cannot tell you
+    whether or not a keyword is linked into a MultiBASIC
+    interpreter or a multiple SBASIC interpreter.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsE.html#ELIS">ELIS</A>, <A style="font-style: italic;" href="KeywordsD.html#DEFINED">DEFINED</A> and <A style="font-style: italic;" href="KeywordsK.html#KEY_ADD">KEY_ADD</A> are similar.
+    
+    Compare <A style="font-style: italic;" href="KeywordsL.html#LOOKUP%">LOOKUP%</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="KEY_ADD" id="KEY_ADD"></A>KEY_ADD</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">KEY_ADD (keyword$)<BR></SPAN> Location: <SPAN style="font-style: italic;">BeuleTools<BR></SPAN>
+    This function returns the start address of where the
+    machine code routine for the given keyword is stored. If the
+    keyword is unrecognised by the system, 0 will be returned.
+    This command will work from MultiBASICs and Multiple SBASICs.
+    
+    
+<H3>Example 1:</H3>
+
+<P>
+    The file server functions of Toolkit II will only work if
+    
+    the code is in ROM, on an EPROM cartridge, under SMS or on
+    
+    a Trump Card for example. Nevertheless, the <SPAN style="font-style: italic;">FSERVE</SPAN> command is
+    
+    also found in the configurable software version. You can
+    
+    easily check what version of Toolkit II is present by
+    
+    looking at the base address of <SPAN style="font-style: italic;">TK2_EXT</SPAN> and then adapt your
+    
+    program to take account of the system configuration.
+    <SPAN style="font-style: italic;">100 TK2_location=KEY_ADD("TK2_EXT")
+    105 FILE_SERVER=0
+    110 SELect ON TK2_location
+    120 =48*1024 TO 64*1024: FILE_SERVER=1
+    130 =REMAINDER:IF VER$='HBA':FILE_SERVER=1
+    140 END SELect
+    150 :
+    160 IF FILE_SERVER THEN
+    170 FSERVE
+    180 ELSE PRINT "Sorry, no ROM based file server."
+    190 END IF<BR></SPAN>
+    
+<H3>Example 2:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">KEY_ADD</SPAN> does not produce an error (unlike <SPAN style="font-style: italic;">ELIS</SPAN>) when a keyword
+    
+    is not found, and is therefore ideal to check if a certain
+    
+    Toolkit, command or function is present. This can be used
+    
+    within programs to adapt to available facilities.
+    
+    In this example the internal date and time is saved as a
+    
+    hexadecimal number (this is more precise) if the necessary
+    
+    functions are present, otherwise it saves it as a floating
+    
+    point number. The load routine then checks if the <SPAN style="font-style: italic;">DATE</SPAN> was
+    
+    stored as a hexadecimal or decimal number, taking whatever
+    
+    action is necessary.
+    <SPAN style="font-style: italic;">100 DateFile$="flp1_LastDATE_dat"
+    110 :
+    120 DEFine PROCedure WRITE_DATE
+    130 IF KEY_ADD("OPEN_OVER") THEN
+    140 OPEN_OVER#3,DateFile$
+    150 ELSE OPEN#3,DateFile$
+    160 END IF
+    170 IF KEY_ADD("HEX$") AND KEY_ADD("HEX") THEN
+    180 PRINT#3,"$" &amp; HEX$(DATE,32)
+    190 ELSE PRINT#3,DATE
+    200 END IF
+    210 CLOSE#3
+    220 END DEFine WRITE_DATE
+    230 :<BR></SPAN>
+    
+<H3></H3>
+
+<P><SPAN style="font-style: italic;">240 DEFine PROCedure READ_DATE
+    250 LOCal d$
+    260 OPEN_IN#3,DateFile$
+    270 INPUT#4,d$: CLOSE#3
+    280 IF d$(1)="$" THEN
+    290 IF NOT KEY_ADD("HEX") THEN RETurn
+    300 d$=HEX(d$(2 TO))
+    310 END IF
+    320 ADATE d$-DATE
+    330 END DEFine READ_DATE<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsE.html#ELIS">ELIS</A> differs from <A style="font-style: italic;" href="KeywordsK.html#KEY_ADD">KEY_ADD</A> in that it returns zero if the
+    keyword is not found, rather than an error message.
+    
+    See also <A style="font-style: italic;" href="KeywordsK.html#KEYW">KEYW</A> and <A style="font-style: italic;" href="KeywordsL.html#LOOKUP%">LOOKUP%</A>.
+    
+    <A style="font-style: italic;" href="KeywordsF.html#FIND">FIND</A> and <A style="font-style: italic;" href="KeywordsF.html#FLIS">FLIS</A> are also useful.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="KEY_RMV" id="KEY_RMV"></A>KEY_RMV</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">KEY_RMV keyword$<BR></SPAN> Location: <SPAN style="font-style: italic;">Beuletools<BR></SPAN>
+    This is the same as <SPAN style="font-style: italic;">ZAP</SPAN> !
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="KILL" id="KILL"></A>KILL</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">KILL<BR></SPAN> Location: <SPAN style="font-style: italic;">BeuleTools, KILL<BR></SPAN>
+    This command will cause all current jobs, except the main
+    SuperBASIC interpreter (Job 0), to be stopped and removed from
+    memory.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    The presence of jobs prevents the commands <SPAN style="font-style: italic;">RESPR</SPAN> / <SPAN style="font-style: italic;">LRESPR</SPAN> from
+    
+    grabbing memory in the Resident Procedure Area (although
+    
+    some implementations overcome this restriction, they do so
+    
+    by by allocating space in the Common Heap) and because some
+    
+    machine code programs cannot or should not be loaded into
+    
+    the common heap, the command <SPAN style="font-style: italic;">KILL</SPAN> can be of assistance.
+    
+    
+<H3>WARNING:</H3>
+
+<P>
+    Be sure that no important data gets lost !
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsR.html#RJOB">RJOB</A> removes single jobs, <A style="font-style: italic;" href="KeywordsK.html#KJOBS">KJOBS</A> works in the same way as <A style="font-style: italic;" href="KeywordsK.html#KILL">KILL</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="KILLN" id="KILLN"></A>KILLN</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">KILLN<BR></SPAN> Location: <SPAN style="font-style: italic;">Beuletools<BR></SPAN>
+    This command removes all current jobs and reactivates the
+    following jobs if the respective facilities are available:
+    
+    HOTKEY (Qjump's Hotkey System)
+    
+    BLANK (Blanks screen if no key
+    pressed)
+    
+    Qmons Nix-Job (see NIX)
+    
+    Server (see FSERVE)
+    
+    
+<H3>WARNING:</H3>
+
+<P>
+    Again, be careful !
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsK.html#KILL">KILL</A> removes all jobs as does <A style="font-style: italic;" href="KeywordsK.html#KJOBS">KJOBS</A>.
+    
+    <A style="font-style: italic;" href="KeywordsK.html#KILL_A">KILL_A</A> removes all jobs and clears the whole system for
+    SuperBASIC.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="KILL_A" id="KILL_A"></A>KILL_A</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">KILL_A<BR></SPAN> Location: <SPAN style="font-style: italic;">Beuletools<BR></SPAN>
+    This command forces everything which can be accessed from
+    SuperBASIC to be cleared, killed or removed: Jobs, file
+    definition blocks (except if Qjump's Hotkey System is
+    present), variables, the <SPAN style="font-style: italic;">DATA</SPAN> pointer, the common heap and all
+    channels are closed. On an Atari QL-Emulator and under SMS,
+    the buffer for the serial and parallel port is also cleared.
+    
+    
+<H3>WARNING:</H3>
+
+<P>
+    Be very careful! All data will be lost. Avoid this
+    command if you can: it is more like a safe emergency break.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsK.html#KILL">KILL</A>, <A style="font-style: italic;" href="KeywordsK.html#KILLN">KILLN</A>, <A style="font-style: italic;" href="KeywordsK.html#KJOBS">KJOBS</A>, <A style="font-style: italic;" href="KeywordsD.html#DEL_DEFB">DEL_DEFB</A>, <A style="font-style: italic;" href="KeywordsC.html#CLCHP">CLCHP</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="KJOB" id="KJOB"></A>KJOB</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">KJOB jobname</SPAN> <SPAN style="font-style: italic;">(TinyToolkit only)<BR></SPAN>
+    or <SPAN style="font-style: italic;">KJOB jobnr<BR></SPAN>
+    or <SPAN style="font-style: italic;">KJOB jobnr,tag</SPAN> <SPAN style="font-style: italic;">(BTool only)<BR></SPAN> Location: <SPAN style="font-style: italic;">TinyToolkit, BTool<BR></SPAN>
+    This command kills the given job (causing it, together with
+    all of its owned jobs, channels and memory to be removed or
+    freed).
+    
+    <SPAN style="font-style: italic;">Jobname</SPAN> in the first variant can be passed as a string or as
+    just the name of the Job without quotes (so long as that name
+    is not defined as a variable or SuperBASIC <SPAN style="font-style: italic;">PROCedure</SPAN> or <SPAN style="font-style: italic;">FuNction</SPAN>).
+    
+    <SPAN style="font-style: italic;">jobnr</SPAN> is the Job number as listed by the <SPAN style="font-style: italic;">JOBS</SPAN> command. If
+    this is -1, this will kill the current Job.
+    
+    The last variant is surplus at present - it was intended
+    that it would pass the second parameter back to the owner of
+    the job, but due to an error in the code, this second
+    parameter is seen as the job tag.
+    
+    
+<H3>Examples:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">KJOB 'Perfection v2.04'
+    
+    KJOB 1<BR></SPAN>
+    
+<H3>NOTE:</H3>
+
+<P>
+    Before v1.11 of TinyToolkit, you could not pass <SPAN style="font-style: italic;">jobnr</SPAN> as -1
+    nor could you use a variable to pass the jobnr (see <SPAN style="font-style: italic;">JBASE</SPAN>).
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsR.html#RJOB">RJOB</A> has a slightly different syntax.
+    
+    <A style="font-style: italic;" href="KeywordsK.html#KILL">KILL</A> and <A style="font-style: italic;" href="KeywordsK.html#KJOBS">KJOBS</A> remove all jobs.
+    
+    <A style="font-style: italic;" href="KeywordsS.html#SPJOB">SPJOB</A>, <A style="font-style: italic;" href="KeywordsS.html#SJOB">SJOB</A>, <A style="font-style: italic;" href="KeywordsR.html#REL_JOB">REL_JOB</A>, <A style="font-style: italic;" href="KeywordsA.html#AJOB">AJOB</A> are other commands which handle jobs.
+    
+    The function <A style="font-style: italic;" href="KeywordsJ.html#JOB$">JOB$</A> will return the name of the given job.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="KJOBS" id="KJOBS"></A>KJOBS</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">KJOBS<BR></SPAN> Location: <SPAN style="font-style: italic;">TinyToolkit, BTool<BR></SPAN>
+    This is the same as <SPAN style="font-style: italic;">KILL<BR></SPAN>
+    
+<H3></H3>
+
+<P>
+</BODY>
+</HTML>
