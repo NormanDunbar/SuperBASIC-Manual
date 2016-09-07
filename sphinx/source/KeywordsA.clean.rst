@@ -901,8 +901,8 @@ and removed when the current job is removed.
 `DEALLOCATE <KeywordsD.clean.html#deallocate>`__ should be used to remove the
 allocated area.
 
-The `taskno% <Keywordst.clean.html#taskno%>`__ and
-`taskid% <Keywordst.clean.html#taskid%>`__ can be found using
+The `taskno% <Keywordst.clean.html#taskno>`__ and
+`taskid% <Keywordst.clean.html#taskid>`__ can be found using
 `JOBS <KeywordsJ.clean.html#jobs>`__ or
 `LIST\_TASKS <KeywordsL.clean.html#list-tasks>`__.
 

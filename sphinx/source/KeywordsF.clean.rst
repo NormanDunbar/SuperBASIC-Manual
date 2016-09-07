@@ -1820,7 +1820,7 @@ will only be reported if you try to write to the file!!
 **CROSS-REFERENCE**
 
 `ERNUM <KeywordsE.clean.html#ernum>`__ contains details of the various error
-messages. `WHEN ERRor <KeywordsW.clean.html#when20error>`__ allows you to
+messages. `WHEN ERRor <KeywordsW.clean.html#when-error>`__ allows you to
 error trap a complete program. Also see
 `FOP\_DIR <KeywordsF.clean.html#fop-dir>`__,
 `FOP\_IN <KeywordsF.clean.html#fop-in>`__,
