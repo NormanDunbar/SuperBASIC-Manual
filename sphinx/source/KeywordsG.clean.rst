@@ -538,8 +538,7 @@ With `GRAB <KeywordsG.clean.html#grab>`__ (unlike
 back to QDOS for other purposes with
 `RELEASE <KeywordsR.clean.html#release>`__. It is necessary to know the start
 address returned by `GRAB <KeywordsG.clean.html#grab>`__ to do this, so a
-formula like `SCRBASE
-GRAB(32768) <KeywordsS.clean.html#scrbase20grab(32768)>`__ wastes 32k of RAM
+formula like `SCRBASE <KeywordsS.clean.html#scrbase>`__ GRAB(32768) wastes 32k of RAM
 if `SCRBASE <KeywordsS.clean.html#scrbase>`__ is used again. Although
 `GRAB <KeywordsG.clean.html#grab>`__ is comparable to
 `RESPR <KeywordsR.clean.html#respr>`__ in this respect, it will work with jobs
