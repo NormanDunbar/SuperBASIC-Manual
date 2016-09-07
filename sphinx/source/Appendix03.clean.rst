@@ -268,7 +268,7 @@ really a competitor to the two products listed above and may be
 difficult to use if you've never seen a QL - it is however free and
 available from the Web on:
 
-http://www.inter.nl.net/hcc/A.Jaw.Venema
+http://www.inter.nl.net/hcc/A.Jaw.Venema (This link no lonegr works. NDunbar)
 
 A copy of the JS QDOS ROM is supplied as part of this emulator.
 
@@ -332,7 +332,7 @@ The TRA command is not supported.
 
 A copy of this Emulator and further details can be obtained from:
 
-http://www.geocities.com/SiliconValley/Heights/1296/winql.html
+http://www.geocities.com/SiliconValley/Heights/1296/winql.html (This link no lonegr works. NDunbar)
 
 A3.4 Atari Computers
 --------------------
@@ -610,7 +610,7 @@ Qubbesoft P/D.
 
 Details about the emulator are on the Web at:
 
-http://www.emulnews.com/aer/articles/af
+http://www.emulnews.com/aer/articles/af (This link no lonegr works. NDunbar)
 
 The program loads the operating system from disk and basically simulates
 a JS ROM QL with a few additions in later versions. Although a public

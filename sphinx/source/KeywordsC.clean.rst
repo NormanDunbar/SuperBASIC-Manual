@@ -414,7 +414,7 @@ will print '12,345.67'
 `PRINT\_USING <KeywordsP.clean.html#print_using>`__ is a general means of
 formatting output.
 
-`IDEC$ <KeywordsI.clean.html#idec$>`__ and `FDEC$ <KeywordsF.clean.html#fdec$>`__
+`IDEC$ <KeywordsI.clean.html#idec>`__ and `FDEC$ <KeywordsF.clean.html#fdec>`__
 are complementary functions.
 
 --------------
@@ -1307,7 +1307,7 @@ extent.
 
 **CROSS-REFERENCE**
 
-`CLOSE% <KeywordsC.clean.html#close%>`__, `JOBS <KeywordsJ.clean.html#jobs>`__ and
+`CLOSE% <KeywordsC.clean.html#close>`__, `JOBS <KeywordsJ.clean.html#jobs>`__ and
 `CHANID <KeywordsC.clean.html#chanid>`__
 
 --------------
@@ -1710,9 +1710,9 @@ example is more or less just an example of the syntax of CHBASE...
 
 `CBASE <KeywordsC.clean.html#cbase>`__.
 
-.. See also `CHAN\_B% <KeywordsC.html#CHAN_B%>`__ and related functions.
+.. See also `CHAN\_B% <KeywordsC.html#chan_b>`__ and related functions.
 
-See also `CHAN\_B% <KeywordsC.clean.html#chan_b%>`__ and related functions.
+See also `CHAN\_B% <KeywordsC.clean.html#chan_b>`__ and related functions.
 
 --------------
 
@@ -1784,10 +1784,10 @@ INPUT into a loop:
 **CROSS-REFERENCE**
 
 `CHECKF <KeywordsC.clean.html#checkf>`__ does the same as
-`CHECK% <KeywordsC.clean.html#check%>`__ but converts strings containing
+`CHECK% <KeywordsC.clean.html#check>`__ but converts strings containing
 floating point numbers.
 
-`WHEN ERRor <KeywordsW.clean.html#when%20error>`__ can trap the coercion
+`WHEN ERRor <KeywordsW.clean.html#when-error>`__ can trap the coercion
 failure.
 
 See the Coercion Appendix also.
@@ -1814,7 +1814,7 @@ signifies unacceptable strings.
 
 **CROSS-REFERENCE**
 
-`CHECK% <KeywordsC.clean.html#check%>`__ and `TTEFP <KeywordsT.clean.html#ttefp>`__
+`CHECK% <KeywordsC.clean.html#check>`__ and `TTEFP <KeywordsT.clean.html#ttefp>`__
 are worth a look.
 
 --------------
@@ -2273,9 +2273,9 @@ See the Fonts Appendix about changing QL fonts.
 `S\_FONT <KeywordsS.clean.html#s_font>`__ allows you to set the font used by a
 window.
 
-.. See also `CLIP$ <KeywordsC.html#CLIP$>`__.
+.. See also `CLIP$ <KeywordsC.html#clip>`__.
 
-See also `CLIP$ <KeywordsC.clean.html#clip$>`__.
+See also `CLIP$ <KeywordsC.clean.html#clip>`__.
 
 --------------
 
@@ -2301,9 +2301,9 @@ The same notes apply to this function as to CLIP%.
 
 **CROSS-REFERENCE**
 
-.. See `CLIP% <KeywordsC.html#CLIP%>`__.
+.. See `CLIP% <KeywordsC.html#clip>`__.
 
-See `CLIP% <KeywordsC.clean.html#clip%>`__.
+See `CLIP% <KeywordsC.clean.html#clip>`__.
 
 --------------
 
@@ -2526,7 +2526,7 @@ the MultiBASIC (or SBASIC) Job.
 **CROSS-REFERENCE**
 
 `OPEN <KeywordsO.clean.html#open>`__, `CHANNELS <KeywordsC.clean.html#channels>`__,
-`CLOSE% <KeywordsC.clean.html#close%>`__
+`CLOSE% <KeywordsC.clean.html#close>`__
 `SCR\_STORE <KeywordsS.clean.html#scr_store>`__ and related commands can be
 used to provide the QL with a windowing environment whereby the contents
 of the screen are restored when a window is
@@ -3105,10 +3105,7 @@ MODE commands have no effect under the Extended Colour Drivers.
 Refer to `COLOUR\_PAL <KeywordsC.clean.html#colour_pal>`__ for more details.
 
 `PALETTE\_QL <KeywordsP.clean.html#palette_ql>`__ includes a way of overcoming
-the incompatability problems with old `MODE
-.. 4 <KeywordsM.html#MODE%204>`__ programs.
-
-4 <KeywordsM.clean.html#mode%204>`__ programs.
+the incompatability problems with old `MODE <KeywordsM.html#mode>`__\ .. 4  programs.
 
 --------------
 
@@ -3379,7 +3376,7 @@ channels do not have to have a hash sign in front of them.
 **CROSS-REFERENCE**
 
 `TCONNECT <KeywordsT.clean.html#tconnect>`__
-.. and\ `QLINK <KeywordsQ.html#QLINK>`__
+.. and\ `QLINK <KeywordsQ.html#qlink>`__
 
 and\ `QLINK <KeywordsQ.clean.html#qlink>`__
 
@@ -3441,7 +3438,7 @@ altered; and the PROC/FN Cleared message has not appeared.
 .. See `RETRY <KeywordsR.html#RETRY>`__ and also
 
 See `RETRY <KeywordsR.clean.html#retry>`__ and also
-`WHEN%20ERRor <KeywordsW.clean.html#when%20error>`__.
+`WHEN%20ERRor <KeywordsW.clean.html#when-error>`__.
 
 --------------
 
@@ -3469,9 +3466,9 @@ letters, namely umlauts and accents.
 
 **CROSS-REFERENCE**
 
-`UPPER$ <KeywordsU.clean.html#upper$>`__, `LOWER$ <KeywordsL.clean.html#lower$>`__,
-`BIT% <KeywordsB.clean.html#bit%>`__, `CHR$ <KeywordsC.clean.html#chr$>`__,
-`UPC$ <KeywordsU.clean.html#upc$>`__, `LWC$ <KeywordsL.clean.html#lwc$>`__
+`UPPER$ <KeywordsU.clean.html#upper>`__, `LOWER$ <KeywordsL.clean.html#lower>`__,
+`BIT% <KeywordsB.clean.html#bit>`__, `CHR$ <KeywordsC.clean.html#chr>`__,
+`UPC$ <KeywordsU.clean.html#upc>`__, `LWC$ <KeywordsL.clean.html#lwc>`__
 
 --------------
 
@@ -3761,7 +3758,7 @@ See `COPY\_N <KeywordsC.clean.html#copy_n>`__.
 
 **CROSS-REFERENCE**
 
-`FGETH$ <KeywordsF.clean.html#fgeth$>`__
+`FGETH$ <KeywordsF.clean.html#fgeth>`__
 
 --------------
 
@@ -3838,7 +3835,7 @@ instead if the file header is not to be copied.
 
 `COPY\_H <KeywordsC.clean.html#copy_h>`__ forces the file header to be copied
 to the given destination (whether it is a serial port, a parallel port
-.. or not), and the syntax is identical to `COPY <KeywordsC.html#COPY>`__,
+.. or not), and the syntax is identical to `COPY <KeywordsC.html#copy>`__,
 
 or not), and the syntax is identical to `COPY <KeywordsC.clean.html#copy>`__,
 `COPY\_N <KeywordsC.clean.html#copy_n>`__ and
@@ -4211,9 +4208,9 @@ values give double height characters and even values give normal height.
 independently of character size.
 
 `MODE <KeywordsM.clean.html#mode>`__ will reset the character size to the
-.. default (ie. 2,0 in `MODE <KeywordsM.html#MODE%208>`__ 8 and 0,0 in
+.. default (ie. 2,0 in `MODE <KeywordsM.html#mode>`__ 8 and 0,0 in
 
-default (ie. 2,0 in `MODE <KeywordsM.clean.html#mode%208>`__ 8 and 0,0 in
+default (ie. 2,0 in `MODE <KeywordsM.clean.html#mode>`__ 8 and 0,0 in
 `MODE <KeywordsM.clean.html#mode>`__ 4).
 
 .. The command `AT <KeywordsA.html#AT>`__ is also affected by the current
@@ -4255,7 +4252,7 @@ not harm the system.
 
 **CROSS-REFERENCE**
 
-`ETAB$ <KeywordsE.clean.html#etab$>`__ expands the TAB marks.
+`ETAB$ <KeywordsE.clean.html#etab>`__ expands the TAB marks.
 
 --------------
 
@@ -4320,16 +4317,16 @@ INPUT will activate and de-activate the cursor itself.
 .. See `FORCE\_TYPE <KeywordsF.html#FORCE_TYPE>`__ concerning current input
 
 See `FORCE\_TYPE <KeywordsF.clean.html#force_type>`__ concerning current input
-.. queue activation, `INKEY$ <KeywordsI.html#INKEY$>`__,
+.. queue activation, `INKEY$ <KeywordsI.html#inkey>`__,
 
-queue activation, `INKEY$ <KeywordsI.clean.html#inkey$>`__,
+queue activation, `INKEY$ <KeywordsI.clean.html#inkey>`__,
 `INPUT <KeywordsI.clean.html#input>`__ and `KEYROW <KeywordsK.clean.html#keyrow>`__
 for general information.
 
 `CURSEN <KeywordsC.clean.html#cursen>`__ and
 `CURDIS <KeywordsC.clean.html#curdis>`__ are both combined by the
 `CUR <KeywordsC.clean.html#cur>`__ command.
-`CURSOR% <KeywordsC.clean.html#cursor%>`__.
+`CURSOR% <KeywordsC.clean.html#cursor>`__.
 
 --------------
 
@@ -4413,7 +4410,7 @@ cursors which are enabled, rather than just for the current Job.
 **CROSS-REFERENCE**
 
 `KEYROW <KeywordsK.clean.html#keyrow>`__ reads keys without an active cursor.
-.. See `CURDIS <KeywordsC.html#CURDIS>`__ also.
+.. See `CURDIS <KeywordsC.html#curdis>`__ also.
 
 See `CURDIS <KeywordsC.clean.html#curdis>`__ also.
 
@@ -4601,7 +4598,7 @@ directed). Add the exclamation mark to prevent this.
 
 See `CURSOR\_OFF <KeywordsC.clean.html#cursor_off>`__,
 `CURSEN <KeywordsC.clean.html#cursen>`__ and
-`CURSOR% <KeywordsC.clean.html#cursor%>`__ for more details.
+`CURSOR% <KeywordsC.clean.html#cursor>`__ for more details.
 
 --------------
 
@@ -4631,9 +4628,9 @@ MKF$ always returns a valid parameter for CVF which will not crash it.
 
 **CROSS-REFERENCE**
 
-`PEEK\_F <KeywordsP.clean.html#peek_f>`__, `MKF$ <KeywordsM.clean.html#mkf$>`__,
-`CVI$ <KeywordsC.clean.html#cvi$>`__, `CVL <KeywordsC.clean.html#cvl>`__,
-`CVS$ <KeywordsC.clean.html#cvs$>`__.
+`PEEK\_F <KeywordsP.clean.html#peek_f>`__, `MKF$ <KeywordsM.clean.html#mkf>`__,
+`CVI$ <KeywordsC.clean.html#cvi>`__, `CVL <KeywordsC.clean.html#cvl>`__,
+`CVS$ <KeywordsC.clean.html#cvs>`__.
 
 `FPUTF <KeywordsF.clean.html#fputf>`__ and `FGETF <KeywordsF.clean.html#fgetf>`__
 enable you to read and write floating point numbers in internal format
@@ -4666,10 +4663,10 @@ CVI%("QL")=20812
 
 **CROSS-REFERENCE**
 
-`MKI$ <KeywordsM.clean.html#mki$>`__, `CVL <KeywordsC.clean.html#cvl>`__,
-`CVF <KeywordsC.clean.html#cvf>`__, `CVS$ <KeywordsC.clean.html#cvs$>`__.
+`MKI$ <KeywordsM.clean.html#mki>`__, `CVL <KeywordsC.clean.html#cvl>`__,
+`CVF <KeywordsC.clean.html#cvf>`__, `CVS$ <KeywordsC.clean.html#cvs>`__.
 
-`FGET% <KeywordsF.clean.html#fget%>`__ and `FPUT% <KeywordsF.clean.html#fput%>`__
+`FGET% <KeywordsF.clean.html#fget>`__ and `FPUT% <KeywordsF.clean.html#fput>`__
 provide similar facilities for writing and reading integers in their
 internal format from files.
 
@@ -4700,9 +4697,9 @@ CVS$( CHR$(0) & CHR$(2) & "Test" ) = "Test"(1 TO 2) = "Te"
 
 **CROSS-REFERENCE**
 
-`MKS$ <KeywordsM.clean.html#mks$>`__, `CVI% <KeywordsC.clean.html#cvi%>`__,
+`MKS$ <KeywordsM.clean.html#mks>`__, `CVI% <KeywordsC.clean.html#cvi>`__,
 `CVL <KeywordsC.clean.html#cvl>`__, `CVF <KeywordsC.clean.html#cvf>`__.
-`FPUT$ <KeywordsF.clean.html#fput$>`__ and `FGET$ <KeywordsF.clean.html#fget$>`__
+`FPUT$ <KeywordsF.clean.html#fput>`__ and `FGET$ <KeywordsF.clean.html#fget>`__
 enable you to write strings to and read strings from files in their
 internal formats.
 
@@ -4731,8 +4728,8 @@ CVL( MKL$( 10010 ) = "10010"
 
 **CROSS-REFERENCE**
 
-`MKL$ <KeywordsM.clean.html#mkl$>`__, `CVI% <KeywordsC.clean.html#cvi%>`__,
-`CVF <KeywordsC.clean.html#cvf>`__, `CVS$ <KeywordsC.clean.html#cvs$>`__.
+`MKL$ <KeywordsM.clean.html#mkl>`__, `CVI% <KeywordsC.clean.html#cvi>`__,
+`CVF <KeywordsC.clean.html#cvf>`__, `CVS$ <KeywordsC.clean.html#cvs>`__.
 
 `FPUTL <KeywordsF.clean.html#fputl>`__ and `FGETL <KeywordsF.clean.html#fgetl>`__
 provide similar facilities to enable you to write and read long integers

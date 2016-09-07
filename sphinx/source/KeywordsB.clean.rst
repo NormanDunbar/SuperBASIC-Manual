@@ -1279,9 +1279,7 @@ decimal numbers into their binary equivalent. See
 `HEX <KeywordsH.clean.html#hex>`__ and `HEX$ <KeywordsH.clean.html#hex>`__ for the
 hexadecimal versions. `BIT% <KeywordsB.clean.html#bit>`__ is also useful.
 
-SMS users can achieve the same thing by using, for example `PRINT
-%1001 <KeywordsP.clean.html#print201001>`__ instead of `PRINT BIN
-('1001') <KeywordsP.clean.html#print20bin20('1001')>`__.
+SMS users can achieve the same thing by using, for example `PRINT <KeywordsP.clean.html#print>`__\ %1001 instead of `PRINT <KeywordsP.clean.html#print>`__\ BIN('1001').
 
 --------------
 
@@ -1479,8 +1477,8 @@ set.
 binary and `BIN <KeywordsB.clean.html#bin>`__ back again.
 `UPPER$ <KeywordsU.clean.html#upper>`__ returns a string in upper characters.
 
-The length of a number x in binary form is `INT (LOG2 (ABS
-(x))+1) <KeywordsI.clean.html#int20(log220(abs20(x))+1)>`__.
+The length of a number x in binary form is `INT <KeywordsI.clean.html#int>`__\ (LOG2 (ABS
+(x))+1) .
 
 --------------
 
