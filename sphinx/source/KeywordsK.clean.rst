@@ -1,3 +1,7 @@
+==========
+Keywords K
+==========
+
 KBD\_RESET
 ==========
 
@@ -7,7 +11,7 @@ KBD\_RESET
 | Location |  ATARI\_REXT                                                      |
 +----------+-------------------------------------------------------------------+
 
- This is a command which should never be needed. If you unplug the
+This is a command which should never be needed. If you unplug the
 keyboard from the Atari whilst the machine is switched on (this can ruin
 your machine), when you plug it back in, you may find that the mouse
 buttons no longer work. This command re-initialises the keyboard driver
@@ -19,26 +23,43 @@ KBD\_TABLE
 ==========
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  KBD\_TABLE num  or KBD\_TABLE kcode(SMS only)                    |
+| Syntax   || KBD\_TABLE num     or                                            |
+|          || KBD\_TABLE kcode  (SMS only)                                     |
 +----------+-------------------------------------------------------------------+
-| Location |  ST/QL (Level C-17 Drivers onwards), SMS (v2.31+)                 |
+| Location || ST/QL (Level C-17 Drivers onwards), SMS (v2.31+)                 |
 +----------+-------------------------------------------------------------------+
 
- Various keyboards can be attached to a computer depending on which
+Various keyboards can be attached to a computer depending on which
 country the computer is being used in. It is therefore necessary to tell
 the operating system which keyboard layout is to be used so that it can
-recognise which keys are being pressed. The command KBD\_TABLE does just
+recognise which keys are being pressed. 
+
+The command KBD\_TABLE does just
 that. num will have one of six possible values depending on the keyboard
 layout (under SMSQ/E this equates to the international dialling code for
 that country) or you can use the second variant to pass up to four
 letters representing the Car Registration Letters for that country (the
 fourth letter is used where that country has more than one language):
 
-numkcodeLanguage
-~~~~~~~~~~~~~~~~
++-----+-------+-------------+
+| Num | Kcode | Language    |
++=====+=======+=============+
+| 33  | F     | French      |
++-----+-------+-------------+
+| 34  | E     | Spanish     |
++-----+-------+-------------+
+| 44  | GB    | English     |
++-----+-------+-------------+
+| 45  | DK    | Danish      |
++-----+-------+-------------+
+| 46  | S     | Swedish     |
++-----+-------+-------------+
+| 47  | N     | Norwegian   |
++-----+-------+-------------+
+| 49  | D     | German      |
++-----+-------+-------------+
 
-33FFrench 34ESpanish 44GBEnglish 45DKDanish 46SSwedish 47NNorwegian
-49DGerman num can also be used as a pointer to a user-defined keyboard
+Num can also be used as a pointer to a user-defined keyboard
 table for countries which are not covered. Details are beyond the scope
 of this book. A desription of how to create new keyboard tables and
 languages appears in IQLR Volume 5 Issue 1 and 5.
@@ -68,7 +89,7 @@ KBD\_USE
 | Location |  XKBD                                                             |
 +----------+-------------------------------------------------------------------+
 
- This command ensures that any incoming data from the specified serial
+This command ensures that any incoming data from the specified serial
 port (1 for ser1, 2 for ser2) is transformed into keystrokes. Thus other
 computers or 8 bit keyboards can be used as an additional external
 keyboard. Using the command without a parameter, or zero (eg. KBD\_USE
@@ -85,43 +106,103 @@ KEY
 ===
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  KEY keynr, string$  or KEY keynr (KEYMAN only) or KEY (KEYMAN only) |
+| Syntax   || KEY keynr, string$  or                                           |
+|          || KEY keynr (KEYMAN only) or                                       |
+|          || KEY (KEYMAN only)                                                |
 +----------+-------------------------------------------------------------------+
-| Location |  FKEY, KEYMAN                                                     |
+| Location || FKEY, KEYMAN                                                     |
 +----------+-------------------------------------------------------------------+
 
- The KEY command allows you to install keyboard short-cuts: that means
+The KEY command allows you to install keyboard short-cuts: that means
 if a certain key (specified with keynr) is pressed the specified string$
 will be typed into the current keyboard queue. The actual implementation
 of the command under the two Toolkits is different, in that the FKEY
 variant only allows keynr to be in the range 1..5 representing the five
-function keys (F1 to F5) (see table below). The KEYMAN version allows
+function keys (F1 to F5) (see table below). 
+
+The KEYMAN version allows
 keynr to be in the range 1...60 which represents the following key
-presses: 1<F1> 31 <CTRL><K> 2<F2>32 <CTRL><L> 3<F3> 33 <CTRL><M> 4<F4>
-34 <CTRL><N> 5<F5> 35 <CTRL><O> 6<SHIFT><F1>, <F6> 36 <CTRL><P>
-7<SHIFT><F2>, <F7> 37 <CTRL><Q> 8<SHIFT><F3>, <F8> 38 <CTRL><R>
-9<SHIFT><F4>, <F9> 39 <CTRL><S> 10<SHIFT><F5>, <F10> 40 <CTRL><T>
-11<CTRL><F1>, <F11>\* 41 <CTRL><U> 12<CTRL><F2>, <F12>\* 42 <CTRL><V>
-13<CTRL><F3> 43 <CTRL><W> 14<CTRL><F4> 44 <CTRL><X> 15<CTRL><SHIFT><ESC>
-45 <CTRL><Y> 16<CTRL><SHIFT><F1> 46 <CTRL><Z> 17<CTRL><SHIFT><F2> 47
-<CTRL><SHIFT><1> 18<CTRL><SHIFT><F3> 48 <CTRL><SHIFT><K>
-19<CTRL><SHIFT><F4> 49 <CTRL><SHIFT><L> 20<CTRL><SHIFT><F5> 50
-<CTRL><SHIFT><M> 21<CTRL><A> 51 <CTRL><SHIFT><N> 22<CTRL><B> 52
-<CTRL><SHIFT><O> 23 <CTRL><SHIFT><C> 53 <CTRL><SHIFT><P> 24 <CTRL><D> 54
-<CTRL><SHIFT><Q> 25 <CTRL><E> 55 <CTRL><SHIFT><R> 26 <CTRL><F> 56
-<CTRL><SHIFT><S> 27 <CTRL><G> 57 <CTRL><SHIFT><T> 28 <CTRL><H> 58
-<CTRL><SHIFT><W> 29 <CTRL><SHIFT><I> 59 <CTRL><SHIFT><X> 30
-<CTRL><SHIFT><J> 60 <CTRL><SHIFT><Y> Once initiated, each time that the
+presses: 
+
++----------------------+----------------------+
+| Key Result           | Key Result           |
++======================+======================+
+| 1 <F1>               | 31 <CTRL><K>         | 
++----------------------+----------------------+
+| 2 <F2>               | 32 <CTRL><L>         | 
++----------------------+----------------------+
+| 3 <F3>               | 33 <CTRL><M>         |
++----------------------+----------------------+
+| 4<F4>                | 34 <CTRL><N>         |
++----------------------+----------------------+
+| 5<F5>                | 35 <CTRL><O>         |
++----------------------+----------------------+
+| 6<SHIFT><F1>,  <F6>  | 36 <CTRL><P>         |
++----------------------+----------------------+
+| 7<SHIFT><F2>,  <F7>  | 37 <CTRL><Q>         |
++----------------------+----------------------+
+| 8<SHIFT><F3>,  <F8>  | 38 <CTRL><R>         |
++----------------------+----------------------+
+| 9<SHIFT><F4>,  <F9>  | 39 <CTRL><S>         |
++----------------------+----------------------+
+| 10<SHIFT><F5>, <F10> | 40 <CTRL><T>         |
++----------------------+----------------------+
+| 11<CTRL><F1>,  <F11>\| 41 <CTRL><U>         |
++----------------------+----------------------+
+| 12<CTRL><F2>,  <F12>\| 42 <CTRL><V>         |
++----------------------+----------------------+
+| 13<CTRL><F3>         | 43 <CTRL><W>         |
++----------------------+----------------------+
+| 14<CTRL><F4>         | 44 <CTRL><X>         |
++----------------------+----------------------+
+| 15<CTRL><SHIFT><ESC> | 45 <CTRL><Y>         |
++----------------------+----------------------+
+| 16<CTRL><SHIFT><F1>  | 46 <CTRL><Z>         |
++----------------------+----------------------+
+| 17<CTRL><SHIFT><F2>  | 47 <CTRL><SHIFT><1>  |
++----------------------+----------------------+
+| 18<CTRL><SHIFT><F3>  | 48 <CTRL><SHIFT><K>  |
++----------------------+----------------------+
+| 19<CTRL><SHIFT><F4>  | 49 <CTRL><SHIFT><L>  |
++----------------------+----------------------+
+| 20<CTRL><SHIFT><F5>  | 50 <CTRL><SHIFT><M>  |
++----------------------+----------------------+
+| 21<CTRL><A>          | 51 <CTRL><SHIFT><N>  |
++----------------------+----------------------+
+| 22<CTRL><B>          | 52 <CTRL><SHIFT><O>  |
++----------------------+----------------------+
+| 23 <CTRL><SHIFT><C>  | 53 <CTRL><SHIFT><P>  |
++----------------------+----------------------+
+| 24 <CTRL><D>         | 54 <CTRL><SHIFT><Q>  |
++----------------------+----------------------+
+| 25 <CTRL><E>         | 55 <CTRL><SHIFT><R>  |
++----------------------+----------------------+
+| 26 <CTRL><F>         | 56 <CTRL><SHIFT><S>  |
++----------------------+----------------------+
+| 27 <CTRL><G>         | 57 <CTRL><SHIFT><T>  |
++----------------------+----------------------+
+| 28 <CTRL><H>         | 58 <CTRL><SHIFT><W>  |
++----------------------+----------------------+
+| 29 <CTRL><SHIFT><I>  | 59 <CTRL><SHIFT><X>  |
++----------------------+----------------------+
+| 30 <CTRL><SHIFT><J>  | 60 <CTRL><SHIFT><Y>  |
++----------------------+----------------------+
+
+
+Once initiated, each time that the
 specified keying is pressed, the given string will be typed into the
 keyboard queue, (note there is a maximum of 80 characters). The KEYMAN
 variant allows the second syntax, KEY keynr, which allows you to check
-the current definition of keynr, which is then written to #0. KEY
-without any parameters activates the key translation if necessary. KEY
+the current definition of keynr, which is then written to #0. 
+
+KEY without any parameters activates the key translation if necessary. KEY
 keynr, "" can be used to clear a definition with the KEYMAN variant.
 
 **Example**
 
-KEY 5,"STAT"&CHR$(10)
+::
+
+    KEY 5,"STAT"&CHR$(10)
 
 **NOTE 1**
 
@@ -134,14 +215,20 @@ key has been pressed and will then receive a stream of other keypresses
 
 **NOTE 2**
 
-key is quite a common variable name and so there is a large danger of
+Key is quite a common variable name and so there is a large danger of
 errors occurring if KEY has been loaded into the computer alongside a
-program which uses such a variable name - for example, the statement:
-key=KEYROW(1)
- will make the program stop with error -17, (Error in expression).
+program which uses such a variable name - for example, the statement::
+
+    key = KEYROW(1)  
+    
+will make the program stop with error -17, (Error in expression).
+
 Another problem would exist if key was declared in a program as a BASIC
-procedure or function, for example: DEFine PROCedure Key
- in which case, this would overwrite the machine code definition and
+procedure or function, for example:: 
+
+    DEFine PROCedure Key
+    
+in which case, this would overwrite the machine code definition and
 even the command NEW will not restore it, however all stored KEY
 definitions are kept active, and they can no longer be altered because
 the keyword KEY is no longer recognised by the system.
@@ -172,44 +259,59 @@ KEYROW
 | Location |  QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
 
- This function is used to read the keyboard. It is not linked with a
+This function is used to read the keyboard. It is not linked with a
 channel which means that it can be used by a job to read the keyboard
 whether or not that job has an active cursor. This is mainly only of use
 for programs which work in the background unless a certain key is
 pressed to bring them to life. If you try to use this command in a
 program to control the screen, then this will undoubtedly lead to screen
-corruption as the active program may itself be accessing the screen. The
-main advantage which this function has when compared to INKEY$ is that
+corruption as the active program may itself be accessing the screen. 
+
+The main advantage which this function has when compared to INKEY$ is that
 it allows programs to recognise when the user is pressing several keys
-at once, such as the left and up cursor keys to move diagonally. The
-function KEYROW is able to read several keys at once by using a keyboard
+at once, such as the left and up cursor keys to move diagonally. 
+
+The function KEYROW is able to read several keys at once by using a keyboard
 matrix, where each row is numbered and each key is assigned to a certain
 row. If that key is pressed, then a bit is set in the integer value of
-that row to represent which key has been pressed. For British QLs, the
-format of the matrix is: Row 0 \|74F5F3F25F1F4
- Row 1 \|SPACE\\ESCENTER
- Row 2 \|"M�BC.Z]
- Row 3 \|;G=FSKCAPSLOCK[
- Row 4 \|JDPA1H3L
- Row 5 \|OY-RTABIW9
- Row 6 \|UT0EQ628
- Row 7 \|,N/VXALTCTRLSHIFT
- ------------------------------------------------------------
+that row to represent which key has been pressed. 
 
-bits76543210 (value)(128)(64)(32)(16)(8)(4)(2)(1)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+For British QLs, the format of the matrix is::
 
-Please see the Characters Appendix! The table reflects the keyboard
-layout and so may be different on other languages. Unfortunately, only
-one row at a time can be read with KEYROW and so the keys are arranged
+    Row 0| 7 4 F5 F3 F2 5 F1 F4
+    Row 1| SPACE \ ESC ENTER
+    Row 2| " M £ B C . Z ]
+    Row 3| ; G = F S K CAPSLOCK [
+    Row 4| J D P A 1 H 3 L
+    Row 5| O Y - R TAB I W 9
+    Row 6| U T 0 E Q 6 2 8
+    Row 7| , N / V X ALT CTRL SHIFT
+
+
++-------+----+----+----+----+---+---+---+---+
+| Bit   |  7 |  6 |  5 |  4 | 3 | 2 | 1 | 0 |
++-------+----+----+----+----+---+---+---+---+
+| Value |128 | 64 | 32 | 16 | 8 | 4 | 2 | 1 |
++-------+----+----+----+----+---+---+---+---+
+
+Please see the `Characters Appendix <Appendix09.clean.html>`__\ ! 
+
+The table reflects the physical keyboard layout and so may be different 
+on other languages. 
+
+Unfortunately, only one row at a time can be read with KEYROW and so the keys are arranged
 into groups - for example, all of the cursor keys appear on one row, as
-do all of the function keys. When the function is used, the supplied
-parameter row specifies which row of the matrix is to be looked at. The
+do all of the function keys. 
+
+When the function is used, the supplied parameter row specifies which row of the matrix is to be looked at. The
 value returned will have bits set representing which keys (if any) in
-that row were being pressed. When KEYROW is used, any characters in the
+that row were being pressed. 
+
+When KEYROW is used, any characters in the
 type-ahead buffer are cleared, therefore, if you wish to avoid
-accidental input by the user of unwanted keys, you could use:
-dummy=KEYROW(0): Quit$=INKEY$(-1)
+accidental input by the user of unwanted keys, you could use::
+
+    dummy = KEYROW(0): Quit$ = INKEY$(-1)
 
 This will clear the type-ahead buffer and then wait for a new key to be
 pressed - this is essential where, for example, you are asking for
@@ -218,20 +320,39 @@ confirmation that a program should be quit.
 **Example 1**
 
 If you were holding the <SHIFT> key down together with the left and up
-cursor keys down, PRINT KEYROW(7) would return the value 1 and PRINT
-KEYROW(1) would return the value 6.
+cursor keys down:: 
+
+    PRINT KEYROW(7) 
+
+would return the value 1 and::
+
+    PRINT KEYROW(1)
+
+would return the value 6.
 
 **Example 2**
 
 The following program moves a cross about the screen, using the cursor
-keys - diagonal movement is allowed: 100 MODE 4 110 WINDOW
-512,256,0,0:PAPER 0:CLS 120 WINDOW 448,200,32,16 130 INK 7:OVER -1 140
-SCALE 150,-120,-75 150 x=0:y=0 160 LINE x-10,y TO x+10,y,x,y-10 TO
-x,y+10 170 REPeat loop 180 ax=KEYROW(1) 190 IF NOT ax:NEXT loop 200 LINE
-x-10,y TO x+10,y,x,y-10 TO x,y+10 210 IF ax&&2:x=x-(x>-120) 220 IF
-ax&&16:x=x+(x<128) 230 IF ax&&4:y=y+(y<75) 240 IF ax&&128:y=y-(y>-75)
-250 IF ax&&8:PRINT 'Program Escaped':OVER 0:STOP 260 LINE x-10,y TO
-x+10,y,x,y-10 TO x,y+10 270 END REPeat loop
+keys - diagonal movement is allowed::
+
+    100 MODE 4 
+    110 WINDOW 512,256,0,0:PAPER 0:CLS 
+    120 WINDOW 448,200,32,16 
+    130 INK 7:OVER -1 
+    140 SCALE 150,-120,-75 
+    150 x=0:y=0 
+    160 LINE x-10,y TO x+10,y,x,y-10 TO x,y+10 
+    170 REPeat loop 
+    180   ax=KEYROW(1) 
+    190   IF NOT ax:NEXT loop 
+    200   LINE x-10,y TO x+10,y,x,y-10 TO x,y+10 
+    210   IF ax&&2:x=x-(x>-120) 
+    220   IF ax&&16:x=x+(x<128) 
+    230   IF ax&&4:y=y+(y<75) 
+    240   IF ax&&128:y=y-(y>-75)
+    250   IF ax&&8:PRINT 'Program Escaped':OVER 0:STOP 
+    260   LINE x-10,y TO x+10,y,x,y-10 TO x,y+10 
+    270 END REPeat loop
 
 **NOTE 1**
 
@@ -270,9 +391,13 @@ instead.
 
 **NOTE 6**
 
-It is highly recommended that KEYROW is not used at all. It reads the
+It is highly recommended that KEYROW is *not used* at all. 
+
+It reads the
 physical keyboard directly, so will conflict with other jobs running in
-a multitasking environment. Another problem is the differences between
+a multitasking environment. 
+
+Another problem is the differences between
 keyboards, for example, on a German QL the <Z> and <Y> keys are swapped
 over compared to a British QL - INKEY$ is much better!
 
@@ -281,31 +406,54 @@ over compared to a British QL - INKEY$ is much better!
 On the ST/QL Emulator, the KEYROW table is much extended, with the
 following rows being added, both to take account of the additional keys
 available on an ST keyboard and also to take account of the numeric
-keypad (hence the repetition of various keys!): Row 8
-\|F10F9F8F7F6BACKSPACE~
- Row 9 \|+-CLR/HOME
- Row 10 \|DELETEINSERT
- Row 11 \|<
- Row 12 \|87\*/)(HELPUNDO
- Row 13 \|03216549
- Row 14 \|ENTER.
- ------------------------------------------------------------
+keypad (hence the repetition of various keys!):: 
 
-bits76543210 (value)(128)(64)(32)(16)(8)(4)(2)(1)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Row 8 | F10 F9 F8 F7 F6 BACKSPACE ~
+    Row 9 | + - CLR/HOME
+    Row 10| DELETE INSERT
+    Row 11| <
+    Row 12| 8 7 * / ) ( HELP UNDO
+    Row 13| 0 3 2 1 6 5 4 9
+    Row 14| ENTER .
 
-The additional keys have the following meanings: BACKSPACEDelete one
-character to left (CTRL left). SHIFT BACKSPACE Deletes a word to the
-left. DELETEDelete character under cursor (CTRL right). SHIFT
-DELETEDeletes word under cursor. UNDOUndo current operation (CTRL ALT
-up). SHIFT UNDOMega undo! CLR/HOMEFreezes screen (CTRL F5) INSERTHard
-space (SHIFT SPACE) CTRL SHIFT ALT UNDOHard reset. The keys on the
-numeric keypad have been redefined as follows:
++-------+----+----+----+----+---+---+---+---+
+| Bit   |  7 |  6 |  5 |  4 | 3 | 2 | 1 | 0 |
++-------+----+----+----+----+---+---+---+---+
+| Value |128 | 64 | 32 | 16 | 8 | 4 | 2 | 1 |
++-------+----+----+----+----+---+---+---+---+
 
-KeyingResult
-~~~~~~~~~~~~
 
-SHIFT ([ SHIFT )] SHIFT /\\ SHIFT ENTER= CTRL ({ CTRL )} CTRL \\\|
+The additional keys have the following meanings: 
+
+- BACKSPACE Delete one character to left (CTRL left). 
+- SHIFT BACKSPACE Deletes a word to the left. 
+- DELETE Delete character under cursor (CTRL right). 
+- SHIFT DELETE Deletes word under cursor. 
+- UNDO Undo current operation (CTRL ALT up). 
+- SHIFT UNDO Mega undo! 
+- CLR/HOME Freezes screen (CTRL F5) 
+- INSERT Hard space (SHIFT SPACE) 
+- CTRL SHIFT ALT UNDO Hard reset. 
+
+The keys on the numeric keypad have been redefined as follows:
+
++------------+--------+
+| Keying     | Result |
++============+========+
+| SHIFT (    | [      |
++------------+--------+
+| SHIFT )    | ]      |
++------------+--------+
+| SHIFT /    | \      |
++------------+--------+
+| SHIFT ENTER| =      |
++------------+--------+
+| CTRL (     | {      |
++------------+--------+
+| CTRL )     | }      |
++------------+--------+
+| CTRL \\    |  \|    |
++------------+--------+
 
 **CROSS-REFERENCE**
 
@@ -331,7 +479,7 @@ KEYW
 | Location |  Fn                                                               |
 +----------+-------------------------------------------------------------------+
 
- This is a function which can be used to find whether or not a given
+This is a function which can be used to find whether or not a given
 keyword is linked into the interpreter. If the keyword is known to the
 interpreter, KEYW returns 0, otherwise -7.
 
@@ -340,9 +488,15 @@ interpreter, KEYW returns 0, otherwise -7.
 The following function returns 1 on Gold Cards and 0 on other systems
 (or some early Gold Cards if they do not support the SLUG command). It
 will unfortunately always return 1 under SMS which has the SLUG command
-built-in. 100 DEFine FuNction Gold\_Card 110 RETurn NOT
-KEYW("FLP\_DENSITY")+KEYW("SLUG") 120 END DEFine Gold\_Card
- A better way would be to use the MACHINE function.
+built-in. 
+
+::
+
+    100 DEFine FuNction Gold_Card 
+    110   RETurn NOT KEYW("FLP_DENSITY") + KEYW("SLUG") 
+    120 END DEFine Gold_Card
+
+A better way would be to use the MACHINE function.
 
 **NOTE**
 
@@ -367,7 +521,7 @@ KEY\_ADD
 | Location |  BeuleTools                                                       |
 +----------+-------------------------------------------------------------------+
 
- This function returns the start address of where the machine code
+This function returns the start address of where the machine code
 routine for the given keyword is stored. If the keyword is unrecognised
 by the system, 0 will be returned. This command will work from
 MultiBASICs and Multiple SBASICs.
@@ -376,36 +530,66 @@ MultiBASICs and Multiple SBASICs.
 
 The file server functions of Toolkit II will only work if the code is in
 ROM, on an EPROM cartridge, under SMS or on a Trump Card for example.
+
 Nevertheless, the FSERVE command is also found in the configurable
 software version. You can easily check what version of Toolkit II is
 present by looking at the base address of TK2\_EXT and then adapt your
-program to take account of the system configuration. 100
-TK2\_location=KEY\_ADD("TK2\_EXT") 105 FILE\_SERVER=0 110 SELect ON
-TK2\_location 120 =48\*1024 TO 64\*1024: FILE\_SERVER=1 130
-=REMAINDER:IF VER$='HBA':FILE\_SERVER=1 140 END SELect 150 : 160 IF
-FILE\_SERVER THEN 170 FSERVE 180 ELSE PRINT "Sorry, no ROM based file
-server." 190 END IF
+program to take account of the system configuration. 
+
+::
+
+    100 TK2_location=KEY_ADD("TK2\_EXT") 
+    105 FILE_SERVER=0 
+    110 SELect ON TK2_location 
+    120   = 48*1024 TO 64*1024: FILE_SERVER=1 
+    130   = REMAINDER: IF VER$='HBA': FILE_SERVER=1 
+    140 END SELect 
+    150 : 
+    160 IF FILE_SERVER THEN 
+    170   FSERVE 
+    180 ELSE PRINT "Sorry, no ROM based file server." 
+    190 END IF
 
 **Example 2**
 
 KEY\_ADD does not produce an error (unlike ELIS) when a keyword is not
 found, and is therefore ideal to check if a certain Toolkit, command or
 function is present. This can be used within programs to adapt to
-available facilities. In this example the internal date and time is
+available facilities. 
+
+In this example the internal date and time is
 saved as a hexadecimal number (this is more precise) if the necessary
 functions are present, otherwise it saves it as a floating point number.
-The load routine then checks if the DATE was stored as a hexadecimal or
-decimal number, taking whatever action is necessary. 100
-DateFile$="flp1\_LastDATE\_dat" 110 : 120 DEFine PROCedure WRITE\_DATE
-130 IF KEY\_ADD("OPEN\_OVER") THEN 140 OPEN\_OVER#3,DateFile$ 150 ELSE
-OPEN#3,DateFile$ 160 END IF 170 IF KEY\_ADD("HEX$") AND KEY\_ADD("HEX")
-THEN 180 PRINT#3,"$" & HEX$(DATE,32) 190 ELSE PRINT#3,DATE 200 END IF
-210 CLOSE#3 220 END DEFine WRITE\_DATE 230 :
 
-240 DEFine PROCedure READ\_DATE 250 LOCal d$ 260 OPEN\_IN#3,DateFile$
-270 INPUT#4,d$: CLOSE#3 280 IF d$(1)="$" THEN 290 IF NOT KEY\_ADD("HEX")
-THEN RETurn 300 d$=HEX(d$(2 TO)) 310 END IF 320 ADATE d$-DATE 330 END
-DEFine READ\_DATE
+The load routine then checks if the DATE was stored as a hexadecimal or
+decimal number, taking whatever action is necessary. 
+
+::
+
+    100 DateFile$="flp1_LastDATE_dat" 
+    110 : 
+    120 DEFine PROCedure WRITE\_DATE
+    130   IF KEY_ADD("OPEN_OVER") THEN 
+    140   OPEN_OVER#3,DateFile$ 
+    150   ELSE OPEN#3,DateFile$ 
+    160   END IF 
+    170   IF KEY_ADD("HEX$") AND KEY_ADD("HEX") THEN 
+    180     PRINT#3,"$" & HEX$(DATE,32) 
+    190   ELSE PRINT#3,DATE 
+    200   END IF
+    210   CLOSE#3 
+    220 END DEFine WRITE_DATE 
+    230 :
+    240 DEFine PROCedure READ_DATE 
+    250   LOCal d$ 
+    260   OPEN_IN#3,DateFile$
+    270   INPUT#4,d$: CLOSE#3 
+    280   IF d$(1)="$" THEN 
+    290   IF NOT KEY_ADD("HEX") THEN RETurn 
+    300   d$=HEX(d$(2 TO)) 
+    310   END IF 
+    320   ADATE d$-DATE 
+    330 END DEFine READ_DATE
 
 **CROSS-REFERENCE**
 
@@ -427,7 +611,7 @@ KEY\_RMV
 | Location |  Beuletools                                                       |
 +----------+-------------------------------------------------------------------+
 
- This is the same as ZAP !
+This is the same as ZAP !
 
 --------------
 
@@ -440,7 +624,7 @@ KILL
 | Location |  BeuleTools, KILL                                                 |
 +----------+-------------------------------------------------------------------+
 
- This command will cause all current jobs, except the main SuperBASIC
+This command will cause all current jobs, except the main SuperBASIC
 interpreter (Job 0), to be stopped and removed from memory.
 
 **Example**
@@ -453,7 +637,7 @@ be loaded into the common heap, the command KILL can be of assistance.
 
 **WARNING**
 
-Be sure that no important data gets lost !
+Be sure that no important data gets lost!
 
 **CROSS-REFERENCE**
 
@@ -472,14 +656,14 @@ KILLN
 | Location |  Beuletools                                                       |
 +----------+-------------------------------------------------------------------+
 
- This command removes all current jobs and reactivates the following
+This command removes all current jobs and reactivates the following
 jobs if the respective facilities are available: HOTKEY (Qjump's Hotkey
 System) BLANK (Blanks screen if no key pressed) Qmons Nix-Job (see NIX)
 Server (see FSERVE)
 
 **WARNING**
 
-Again, be careful !
+Again, be careful!
 
 **CROSS-REFERENCE**
 
@@ -498,7 +682,7 @@ KILL\_A
 | Location |  Beuletools                                                       |
 +----------+-------------------------------------------------------------------+
 
- This command forces everything which can be accessed from SuperBASIC to
+This command forces everything which can be accessed from SuperBASIC to
 be cleared, killed or removed: Jobs, file definition blocks (except if
 Qjump's Hotkey System is present), variables, the DATA pointer, the
 common heap and all channels are closed. On an Atari QL-Emulator and
@@ -522,24 +706,30 @@ KJOB
 ====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  KJOB jobname (TinyToolkit only)  or KJOB jobnr  or KJOB jobnr,tag (BTool only)  |
+| Syntax   || KJOB jobname (TinyToolkit only)  or                              |
+|          || KJOB jobnr  or                                                   |
+|          || KJOB jobnr,tag (BTool only)                                      |
 +----------+-------------------------------------------------------------------+
-| Location |  TinyToolkit, BTool                                               |
+| Location || TinyToolkit, BTool                                               |
 +----------+-------------------------------------------------------------------+
 
- This command kills the given job (causing it, together with all of its
+This command kills the given job (causing it, together with all of its
 owned jobs, channels and memory to be removed or freed). Jobname in the
 first variant can be passed as a string or as just the name of the Job
 without quotes (so long as that name is not defined as a variable or
 SuperBASIC PROCedure or FuNction). jobnr is the Job number as listed by
-the JOBS command. If this is -1, this will kill the current Job. The
-last variant is surplus at present - it was intended that it would pass
+the JOBS command. If this is -1, this will kill the current Job. 
+
+The last variant is surplus at present - it was intended that it would pass
 the second parameter back to the owner of the job, but due to an error
 in the code, this second parameter is seen as the job tag.
 
 **Examples**
 
-KJOB 'Perfection v2.04' KJOB 1
+::
+
+    KJOB 'Perfection v2.04' 
+    KJOB 1
 
 **NOTE**
 
@@ -567,6 +757,6 @@ KJOBS
 | Location |  TinyToolkit, BTool                                               |
 +----------+-------------------------------------------------------------------+
 
- This is the same as KILL
+This is the same as KILL
 
 
