@@ -1,3 +1,11 @@
+==========
+Keywords M
+==========
+
+TODO
+====
+
+
 MACHINE
 =======
 
@@ -7,63 +15,140 @@ MACHINE
 | Location |  SMSQ/E                                                           |
 +----------+-------------------------------------------------------------------+
 
- This function returns a value corresponding to the type of system on
+This function returns a value corresponding to the type of system on
 which SuperBASIC is running. The values currently returned are:
 
-MACHINEMachine Type
-~~~~~~~~~~~~~~~~~~~
++---------+-------------------------------------------------------+
+| MACHINE | Machine Type                                          |
++=========+=======================================================+
+| 0       | ATARI ST / STM / STF / STFM                           |
++---------+-------------------------------------------------------+
+| 1       | ORDINARY STE (1040) - NOT SUPPORTED!!!                |
++---------+-------------------------------------------------------+
+| 2       | MEGA ST or ST / STM / STF / STFM with REAL-TIME CLOCK |
++---------+-------------------------------------------------------+
+| 4       | ATARI STACY                                           |
++---------+-------------------------------------------------------+
+| 6       | ATARI STE                                             |
++---------+-------------------------------------------------------+
+| 8       | MEGA STE                                              |
++---------+-------------------------------------------------------+
+|10       | GOLD CARD                                             |
++---------+-------------------------------------------------------+
+|12       | SUPER GOLD CARD                                       |
++---------+-------------------------------------------------------+
+|16       | FALCON                                                |
++---------+-------------------------------------------------------+
+|24       | ATARI TT 030                                          |
++---------+-------------------------------------------------------+
+|28       | QXL                                                   |
++---------+-------------------------------------------------------+
+|30       | QPC                                                   |
++---------+-------------------------------------------------------+
 
-0 ATARI ST / STM / STF / STFM 1ORDINARY STE (1040) - NOT SUPPORTED!!! 2
-MEGA ST or ST / STM / STF / STFM with REAL-TIME CLOCK 4 ATARI STACY 6
-ATARI STE 8 MEGA STE 10 GOLD CARD 12 SUPER GOLD CARD 16 FALCON 24 ATARI
-TT 030 28 QXL 30 QPC On Standard QLs, MACHINE returns the above value
-plus 1 if HERMES is fitted. On ATARI Computers, MACHINE returns the
-above value plus 1 is a BLITTER CHIP is fitted. Users without SMSQ/E can
-use the command: PRINT PEEK (SYS\_VARS+HEX('a7')) && BIN ('0011111')
- This should return the same values (except that 0 will also be returned
-on a standard QL without any expansion board or a THOR computer). You
-can test for a THOR by using: PRINT PEEK (SYS\_VARS+HEX('84'))
- which will be 0 on any other implementation. We do not know what it
+
+On Standard QLs, MACHINE returns the above value
+plus 1 if HERMES is fitted. 
+
+On ATARI Computers, MACHINE returns the
+above value plus 1 is a BLITTER CHIP is fitted. 
+
+Users without SMSQ/E can use the command:: 
+
+    PRINT PEEK (SYS_VARS+HEX('a7')) && BIN ('0011111')
+    
+    
+This should return the same values (except that 0 will also be returned
+on a standard QL without any expansion board or a THOR computer). 
+
+You can test for a THOR by using:: 
+
+    PRINT PEEK (SYS_VARS+HEX('84'))
+    
+which will be 0 on any other implementation. We do not know what it
 returns on the THOR range of computers.
 
 **Example**
 
 A program to test for the actual machine on which the program is
-running, as well as other interesting data: 100 v$=VER$:q$=QDOS$ 110
-processor$='00':FPU=0:em\_type=0 120 IF v$<>'HBA' 130
-m\_type=PEEK(SYS\_BASE+HEX('A7')) 140 em\_type=m\_type &&
-BIN('11100000') 150 m\_type=m\_type && BIN('00011111') 160 SELect ON
-em\_type 170 =1:em\_type=3 180 =2:em\_type=1 190 =4:em\_type=2 200 END
-SELect 210 IF v$='JSL1' 220 PRINT 'MINERVA FITTED'
+running, as well as other interesting data::
 
-230 m\_type=100 : processor$='08' 240 ELSE 250 IF m\_type=0 260 IF PEEK
-(SYS\_BASE+HEX('84'))<>0 270 IF q$(1)='4':PRINT 'THOR 1 Computer'; 280
-IF q$(1)='5':PRINT 'THOR 20 Computer'; 290 IF q$(1)='6':PRINT 'THOR XVI
-Computer'; 300 IF q$(1) INSTR '456'=0:PRINT 'UNKNOWN THOR Computer' 310
-PRINT ' v';q$:STOP 320 END IF 330 END IF 340 END IF 350 ELSE 360
-m\_type=MACHINE:processor$=PROCESSOR 370
-FPU=processor$(2):processor$=processor$(1)&'0' 380 em\_type=DISP\_TYPE
-390 END IF 400 extra\_chip=m\_type MOD 2 410 m\_type=(m\_type DIV 2)\*2
-420 SELect ON m\_type 430 =0: IF v$='HBA' 440 PRINT 'ATARI ST / STM /
-STF / STFM'; 450 ELSE :PRINT 'STANDARD QL - ROM VERSION ';v$ :
-processor$='08' 460 END IF 470 =2: PRINT 'MEGA ST or ST / STM / STF /
-STFM with REAL-TIME CLOCK'; 480 =4: PRINT 'ATARI STACY'; 490 =6: PRINT
-'ATARI STE'; 500 =8: PRINT 'MEGA STE'; 510 =10: PRINT 'GOLD CARD'; 520
-=12: PRINT 'SUPER GOLD CARD'; 530 =16: PRINT 'FALCON'; 540 =24: PRINT
-'ATARI TT 030'; 550 =28: PRINT 'QXL' 560 =30: PRINT 'QPC' 570 END SELect
-580 SELect ON extra\_chip 590 =0: PRINT 600 =1: 610 SELect ON m\_type
-620 =0,2,4,6,8,16,24:PRINT ' with BLITTER' 630 SELect ON em\_type 640
-=0: PRINT 'Original QL Emulator FITTED' 650 =1: PRINT 'Extended Mode 4
-Emulator FITTED' 660 =2: PRINT 'QVME Emulator FITTED' 670 =3: PRINT
-'Monochrome Display Only' 680 END SELect 690 =REMAINDER :PRINT ' with
-HERMES' 700 END SELect 710 END SELect 720 PRINT 'ROM VERSION - ';v$ 730
-PRINT 'OS VERSION - ';q$ 735 IF m\_type<>30 740 PRINT 'PROCESSOR -
-680';processor$; 745 ELSE 750 PRINT 'INTEL PROCESSOR'; 755 END IF 760
-SELect ON FPU 765 =0 : PRINT
-
-770 =1 : PRINT 'with Internal MMU' 780 =2 : PRINT 'with 68851 MMU' 790
-=4 : PRINT 'with Internal FPU' 800 =8 : PRINT 'with 68881 or 68882 FPU'
-810 END SELect
+    100 v$=VER$:q$=QDOS$ 
+    110 processor$='00':FPU=0:em_type=0 
+    120 IF v$<>'HBA' 
+    130   m_type=PEEK(SYS_BASE+HEX('A7')) 
+    140   em_type=m_type && BIN('11100000') 
+    150   m_type=m_type && BIN('00011111') 
+    160   SELect ON em_type 
+    170     =1:em_type=3 
+    180     =2:em_type=1 
+    190     =4:em_type=2 
+    200   END SELect 
+    210   IF v$='JSL1' 
+    220     PRINT 'MINERVA FITTED'
+    230     m_type=100 : processor$='08' 
+    240   ELSE 
+    250     IF m_type=0 
+    260       IF PEEK (SYS_BASE+HEX('84'))<>0 
+    270         IF q$(1)='4':PRINT 'THOR 1 Computer'; 
+    280         IF q$(1)='5':PRINT 'THOR 20 Computer'; 
+    290         IF q$(1)='6':PRINT 'THOR XVI Computer'; 
+    300         IF q$(1) INSTR '456'=0:PRINT 'UNKNOWN THOR Computer' 
+    310         PRINT ' v';q$:STOP 
+    320       END IF 
+    330     END IF 
+    340   END IF 
+    350 ELSE 
+    360   m_type=MACHINE:processor$=PROCESSOR 
+    370   FPU=processor$(2):processor$=processor$(1)&'0' 
+    380   em_type=DISP_TYPE
+    390 END IF 
+    400 extra_chip=m_type MOD 2 
+    410 m_type=(m_type DIV 2)*2
+    420 SELect ON m_type 
+    430   =0: IF v$='HBA' 
+    440         PRINT 'ATARI ST / STM / STF / STFM'; 
+    450         ELSE :PRINT 'STANDARD QL - ROM VERSION ';v$ : processor$='08' 
+    460       END IF 
+    470   =2: PRINT 'MEGA ST or ST / STM / STF / STFM with REAL-TIME CLOCK'; 
+    480   =4: PRINT 'ATARI STACY'; 
+    490   =6: PRINT 'ATARI STE'; 
+    500   =8: PRINT 'MEGA STE'; 
+    510   =10: PRINT 'GOLD CARD'; 
+    520   =12: PRINT 'SUPER GOLD CARD'; 
+    530   =16: PRINT 'FALCON'; 
+    540   =24: PRINT 'ATARI TT 030'; 
+    550   =28: PRINT 'QXL' 
+    560   =30: PRINT 'QPC' 
+    570 END SELect
+    580 SELect ON extra_chip 
+    590   =0: PRINT 
+    600   =1: 
+    610     SELect ON m_type
+    620       =0,2,4,6,8,16,24:PRINT ' with BLITTER' 
+    630         SELect ON em_type 
+    640           =0: PRINT 'Original QL Emulator FITTED' 
+    650           =1: PRINT 'Extended Mode 4 Emulator FITTED' 
+    660           =2: PRINT 'QVME Emulator FITTED' 
+    670           =3: PRINT 'Monochrome Display Only' 
+    680         END SELect 
+    690     =REMAINDER :PRINT ' with HERMES' 
+    700     END SELect 
+    710 END SELect 
+    720 PRINT 'ROM VERSION - ';v$ 
+    730 PRINT 'OS VERSION - ';q$ 
+    735 IF m_type<>30 
+    740   PRINT 'PROCESSOR - 680';processor$; 
+    745 ELSE 
+    750   PRINT 'INTEL PROCESSOR'; 
+    755 END IF 
+    760 SELect ON FPU 
+    765   =0 : PRINT
+    770   =1 : PRINT 'with Internal MMU' 
+    780   =2 : PRINT 'with 68851 MMU' 
+    790   =4 : PRINT 'with Internal FPU' 
+    800   =8 : PRINT 'with 68881 or 68882 FPU'
+    810 END SELect
 
 **NOTE 1**
 
@@ -95,44 +180,75 @@ MAKE\_DIR
 | Location |  Level-2 and Level-3 Drivers, THOR XVI                            |
 +----------+-------------------------------------------------------------------+
 
- The command MAKE\_DIR creates a sub-directory which allows a group of
+The command MAKE\_DIR creates a sub-directory which allows a group of
 files to be regarded as one unit when the contents of a medium are
 listed. Operations other than the standard DIR, WDIR, WSTAT and WDEL,
 are not affected. A file belongs to a sub-directory if the
 sub-directory's name appears as a prefix of the file, whether the file
-was created before or after the sub-directory. Sub-directories are only
+was created before or after the sub-directory. 
+
+Sub-directories are only
 supported on Level-2 (or higher) floppy disks, hard disks and ramdisks.
+
 A sub-directory name can be any name but any underscore at its end will
-be ignored by MAKE\_DIR. If there is no medium in the given device, or
+be ignored by MAKE\_DIR. 
+
+If there is no medium in the given device, or
 if you do not specify a device name, the current default data device
-will be used (see DATAD$). Sub-directories are identified by a "->" in
+will be used (see DATAD$). 
+
+Sub-directories are identified by a "->" in
 directory listings and programs can identify them by examining their
-file type (255). Empty sub-directories can be deleted as normal files,
+file type (255). 
+
+Empty sub-directories can be deleted as normal files,
 but a sub-directory which is not empty, cannot be deleted: error -9 (in
 use) will be reported. Actually, sub-directories are normal files which
 hold a list of the files which are contained within them. The list
 consists of the standard file headers of these files, each being 64
-bytes long. A sub-directory file never decreases in length if a file in
+bytes long. 
+
+A sub-directory file never decreases in length if a file in
 the sub-directory has been deleted, instead, the file header is just
-marked as deleted by setting the name to a zero string. All normal
+marked as deleted by setting the name to a zero string. 
+
+All normal
 operations are allowed on sub-directory files (except RENAME), and they
 can be accessed using OPEN\_DIR and FOP\_DIR.
 
 **Example**
 
 If FLP1\_ contains an empty disk and we then save the current SuperBASIC
-program as flp1\_my\_prog\_bas and a backup as flp1\_backup\_bas:
- SAVE flp1\_my\_prog\_bas SAVE flp1\_backup\_bas
- a directory of flp1\_, produced with WDIR flp1\_ (for example), shows
-the following contents: my\_prog\_bas backup\_bas Now, we create the
-sub-directory my (or my\_) with MAKE\_DIR flp1\_my\_
+program as flp1\_my\_prog\_bas and a backup as flp1\_backup\_bas::
 
-or MAKE\_DIR flp1\_my
- (both forms are equivalent) and look at the directory again: my ->
-backup\_bas MAKE\_DIR created a new file "my" (not "my ->") which is
+    SAVE flp1_my_prog_bas 
+    SAVE flp1_backup_bas
+
+a directory of flp1\_, produced with WDIR flp1\_ (for example), shows
+the following contents::
+
+    my_prog_bas 
+    backup_bas
+
+Now, we create the sub-directory my (or my\_) with::
+
+    MAKE_DIR flp1_my_
+
+or::
+
+    MAKE_DIR flp1_my
+    
+(both forms are equivalent) and look at the directory again::
+
+    my ->
+    backup_bas 
+    
+MAKE\_DIR created a new file "my" (not "my ->") which is
 marked as a sub-directory with the "->" sign by the DIR, WDIR
- and WSTAT commands. The file type of my is 255, PRINT FTYP(\\flp1\_my)
- will return that. But where is my\_prog\_bas? It was moved into the
+and WSTAT commands. The file type of my is 255, PRINT FTYP(\\flp1\_my)
+will return that. 
+
+But where is my\_prog\_bas? It was moved into the
 sub-directory my\_ and DIR flp1\_my\_ will show it again.
 
 **NOTE 1**
@@ -144,8 +260,8 @@ sub-directory.
 **NOTE 2**
 
 The level-2 device drivers introduced a new standard for subdirectories
-- other methods which were implemented in the past are not be recognised
-in this book.
+- other methods which were implemented in the past are not recognised
+in this (e)book.
 
 **NOTE 3**
 
@@ -164,7 +280,7 @@ Sub-directory names longer than 27 characters on Toolkit II may hang up
 the SuperBASIC interpreter. Since the system does not treat nested
 sub-directories differently, the above warning applies to long
 sub-directory prefixes as well. However, this lock up will only occur
-when creating sub- directories not when using them. This problem is
+when creating sub-directories not when using them. This problem is
 fixed on SMS v2.85.
 
 **NOTE 5**
@@ -178,22 +294,35 @@ than 36 characters, a 'not found' error will be returned.
 **WARNING 1**
 
 It is possible to create a sub-directory so that it cannot be removed
-any more (do not try this on a hard disk, you have been warned): SAVE
-test\_ MAKE\_DIR test
- The file test\_ has been moved into the test directory, but it cannot
+any more **(do not try this on a hard disk, you have been warned)**\ :: 
+
+    SAVE test_ 
+    MAKE_DIR test
+    
+The file test\_ (with an underscore) has been moved into the test directory, but it cannot
 be deleted to empty test. - This has been fixed in drivers later than
 version 2.28.
 
 **WARNING 2**
 
-MAKE\_DIR net\_, MAKE\_DIR "net" and similar commands lock-up the
-machine, so if you want you create a sub-directory called 'net' in the
-current directory, use MAKE\_DIR DATAD$ & "net".
+::
+
+    MAKE_DIR net_
+    MAKE_DIR "net" 
+    
+and similar commands lock-up the machine, so if you want you create a sub-directory called 'net' in the
+current directory, use::
+
+    MAKE_DIR DATAD$ & "net".
 
 **WARNING 3**
 
-MAKE\_DIR flp1\_\_, or MAKE\_DIR flp1\_\_\_ and similar commands could
-create recursive directories until this was fixed in SMS v2.77.
+::
+
+    MAKE_DIR flp1__
+    MAKE_DIR flp1___ 
+    
+and similar commands could create recursive directories until this was fixed in SMS v2.77.
 
 **CROSS-REFERENCE**
 
@@ -208,7 +337,7 @@ disks as well as sub-directories on level-2 drivers. The
 in a sub-directory tree. See `FOP\_DIR <KeywordsF.clean.html#fop-dir>`__ for a
 program which lists a sub-directory tree. To enable programs to read
 sub-directories which have not been written for that purpose, the
-`DEV\_ <KeywordsD.clean.html#dev->`__ device exists (see
+DEV\_ device exists (see
 `DEV\_USE <KeywordsD.clean.html#dev-use>`__). The only legal way of
 identifying a sub-directory is by examining its file type as returned by
 `FTYP <KeywordsF.clean.html#ftyp>`__ or
@@ -225,7 +354,7 @@ MATADD
 | Location |  Math package                                                     |
 +----------+-------------------------------------------------------------------+
 
- The command MATADD adds the two matrices contained in the arrays
+The command MATADD adds the two matrices contained in the arrays
 matrix1 and matrix2, setting the result in the array sum. The
 parameters, matrix1, matrix2 and sum, must all be arrays of the same
 dimensions, the same size and the same type. They can be of any number
@@ -239,14 +368,17 @@ and matrix2.
 
 **Example**
 
-100 DIM a%(10,10,80), b%(10,10,80), c%(10,10,80) 110 MATRND a%,-5 TO 5:
-MATSEQ b% 120 MATADD c%,a%,b%
+::
+
+    100 DIM a%(10,10,80), b%(10,10,80), c%(10,10,80) 
+    110 MATRND a%,-5 TO 5: MATSEQ b% 
+    120 MATADD c%,a%,b%
 
 **CROSS-REFERENCE**
 
 If you run this short example program (8000 internal loops!), you will
 notice the extraordinary speed of `MATADD <KeywordsM.clean.html#matadd>`__
-which is representative of the other `MAT <KeywordsM.clean.html#mat>`__...
+which is representative of the other MAT...
 functions; `MATSUB <KeywordsM.clean.html#matsub>`__ is almost equivalent to
 `MATADD <KeywordsM.clean.html#matadd>`__.
 
@@ -256,12 +388,13 @@ MATCOUNT
 ========
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  MATCOUNT (array, value)  or MATCOUNT (array1, array2)            |
+| Syntax   || MATCOUNT (array, value)  or                                      |
+|          || MATCOUNT (array1, array2)                                         |
 +----------+-------------------------------------------------------------------+
-| Location |  Math Package                                                     |
+| Location || Math Package                                                     |
 +----------+-------------------------------------------------------------------+
 
- MATCOUNT is a function which counts how often a certain value appears
+MATCOUNT is a function which counts how often a certain value appears
 in the given array where array and value can be of any type (even
 strings) as long as they are of the same type. The second syntax allows
 you to pass two arrays array1 and array2 of the same type and
@@ -271,8 +404,11 @@ number of different elements.
 **Example**
 
 The following programs compares two random integer arrays and will
-always print something around 33%: 100 DIM x%(1000), y%(1000) 110 MATRND
-x%,2: MATRND y%,2 120 PRINT MATCOUNT(x%,y%)/10;"%"
+always print something around 33%::
+
+    100 DIM x%(1000), y%(1000) 
+    110 MATRND x%,2: MATRND y%,2 
+    120 PRINT MATCOUNT(x%,y%)/10;"%"
 
 **CROSS-REFERENCE**
 
@@ -289,18 +425,19 @@ MATCOUNT1
 =========
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  MATCOUNT1 (array, value)  or MATCOUNT1 (array1, array2)          |
+| Syntax   || MATCOUNT1 (array, value)  or                                     |
+|          || MATCOUNT1 (array1, array2)                                       |
 +----------+-------------------------------------------------------------------+
-| Location |  Math Package                                                     |
+| Location || Math Package                                                     |
 +----------+-------------------------------------------------------------------+
 
- The function MATCOUNT1 is just a variation of MATCOUNT which performs
+The function MATCOUNT1 is just a variation of MATCOUNT which performs
 comparisons not as exact as MATCOUNT. Numbers must only be almost equal,
 the absolute difference must be smaller than the absolute of the second
-number divided by 107: ABS (a-b) < ABS (b / 1E7). This is the case if
+number divided by 1E7: ABS (a-b) < ABS (b / 1E7). This is the case if
 a==b. MATCOUNT1 is therefore the same as MATCOUNT if integers are being
 dealt with. Comparison of strings is not case-sensitive, again this is
-analogous to the == operator: "QL"=="Ql" is true while "QL"="Ql" is not.
+analogous to the == operator: "QDOS"=="Qdos" is true while "QDOS"="Qdos" is not.
 
 **CROSS-REFERENCE**
 
@@ -318,19 +455,26 @@ MATEQU
 | Location |  Math Package                                                     |
 +----------+-------------------------------------------------------------------+
 
- The command MATEQU sets up array1 in two different ways depending on
+The command MATEQU sets up array1 in two different ways depending on
 the type of the second parameter: (1) If another array array2 of the
 same dimensions is supplied then each element of array1 is set to the
 corresponding element of array2; or (2) If the second parameter is not
 an array but a constant, variable or expression then each element of
-array1 is set to the given value. array1, array2 and value can be of any
+array1 is set to the given value. Array1, array2 and value can be of any
 type: integer, floating point or string. array1 and array2 must however
 be of the same type and have the same number of dimensions.
 
 **Examples**
 
-DIM a$(4,8), a%(2,2,2,2,2), a(0), b$(4,8) MATEQU a$,"Hi there" MATEQU
-a%,6 MATEQU a%,-PI test$=9.5: MATEQU a%,test$ MATEQU a,9.5 MATEQU a$,b$
+::
+
+    DIM a$(4,8), a%(2,2,2,2,2), a(0), b$(4,8) 
+    MATEQU a$,"Hi there" 
+    MATEQU a%,6 
+    MATEQU a%,-PI 
+    test$=9.5: MATEQU a%,test$ 
+    MATEQU a,9.5 
+    MATEQU a$,b$
 
 **NOTE**
 
@@ -351,14 +495,22 @@ MATDEV
 | Location |  Math Package                                                     |
 +----------+-------------------------------------------------------------------+
 
- This function takes any numeric array and calculates a number from its
+This function takes any numeric array and calculates a number from its
 values which gives information about their standard deviation.
 
 **Example**
 
-10 DIM x(10) 20 PRINT MATDEV (x)
- gives 0 because all elements of x are equal. Add: 15 MATRND x,10
- and the result be be around 3.2.
+::
+
+    10 DIM x(10) 
+    20 PRINT MATDEV (x)
+
+gives 0 because all elements of x are equal and therefore, have no deviation. Add
+the line::
+
+    15 MATRND x,10
+
+and the result will be be around 3.2.
 
 **CROSS-REFERENCE**
 
@@ -375,11 +527,22 @@ MATIDN
 | Location |  Math Package                                                     |
 +----------+-------------------------------------------------------------------+
 
- This command forces the square numeric array matrix to be initialised
+This command forces the square numeric array matrix to be initialised
 so that the matrix is given the algebraic identity for matrices of that
-size. This gives the matrix the following format: 1 0 0 . . . 0 0 0 0 1
-0 . . . 0 0 0 0 0 1 . . . 0 0 0 . . . . . . . . . . . . . . . . . . 0 0
-0 . . . 1 0 0 0 0 0 . . . 0 1 0 0 0 0 . . . 0 0 1 All elements on the
+size. This gives the matrix the following format::
+
+    1 0 0 . . . 0 0 0
+    0 1 0 . . . 0 0 0
+    0 0 1 . . . 0 0 0
+    . . .       . . .
+    . . .       . . .
+    . . .       . . .
+    0 0 0 . . . 1 0 0
+    0 0 0 . . . 0 1 0
+    0 0 0 . . . 0 0 1
+
+
+All elements on the
 diagonal line from the top left corner to the bottom right corner are
 set to 1 and all other elements are set to 0. This forms the identity
 matrix, which means that when a matrix of the same size is multiplied by
@@ -401,7 +564,7 @@ MATINPUT
 | Location |  Math Package                                                     |
 +----------+-------------------------------------------------------------------+
 
- The command MATINPUT reads each element of an array in turn from #1, so
+The command MATINPUT reads each element of an array in turn from #1, so
 that you have to type them all in. The modifiers ';' and '!' place the
 cursor behind the last entry whilst ',' moves it to the next tab
 position. The default is '\\' which forces a new line between entries -
@@ -409,7 +572,10 @@ the '\\' can be omitted.
 
 **Example**
 
-100 DIM a(1,2) 110 MATINPUT a,
+::
+
+    100 DIM a(1,2) 
+    110 MATINPUT a,
 
 **CROSS-REFERENCE**
 
@@ -427,36 +593,66 @@ MATINV
 | Location |  Math Package                                                     |
 +----------+-------------------------------------------------------------------+
 
- The command MATINV takes the array matrix1, inverts it and stores the
-result in matrix2. Inverting is a mathematical term and produces a
+The command MATINV takes the array matrix1, inverts it and stores the
+result in matrix2. 
+
+Inverting is a mathematical term and produces a
 result from a matrix which is similar to finding the reciprocal of a
 number, namely, the relation is expressed by the fact that the product
 of a number and its reciprocal is one and the product of a matrix and
-its inverse matrix is the identity matrix: n=10: DIM A(n,n), B(n,n),
-C(n,n) MATRND A
- A is a random matrix MATINV A,B
- make B the inverted matrix of A
- MATMULT C,A,B
- multiply A with B and store the result in C
- C will be almost identical to the matrix ONE defined with: DIM
-ONE(n,n): MATIDN ONE
- C and ONE do not have exactly the same values because of the limited
+its inverse matrix is the identity matrix::
+
+    n=10: DIM A(n,n), B(n,n), C(n,n) 
+    MATRND A
+    
+A is a random matrix.
+
+::
+
+    MATINV A,B
+    
+makes B the inverted matrix of A.
+
+::
+
+    MATMULT C,A,B
+    
+Multiply A with B and store the result in C. C will be almost identical to the matrix ONE defined with:: 
+
+    DIM ONE(n,n): MATIDN ONE
+
+C and ONE do not have exactly the same values because of the limited
 precision of the QL maths package. Two conditions are absolutely
-necessary for MATINV to work: (a) DET (matrix1) <> 0
- (b) matrix1 and matrix2 must be square matrices
+necessary for MATINV to work:: 
+
+- DET (matrix1) <> 0
+- matrix1 and matrix2 must be square matrices
 
 **Example**
 
 A matrix A and an array b form a so-called "linear equation system"
 which has a solution x which is an array like b. This example will find
 the solutions x(i) of the system, for any positive value of n (the size
-of the matrix): 100 n=5 110 DIM A(n,n), AINV(n,n), b(n), x(n) 120 MATRND
-A: MATRND b 130 : 140 MATINV A,AINV 150 MATSCALM AINV,b TO x 160 PRINT
-"Solutions:"\\x 170 IF ABS(DET)<1E-6 THEN PRINT "(dubious results)" 180
-: 190 DEFine PROCedure MATSCALM (matrix,array1,array2) 200 LOCal i,j 210
-FOR i=0 TO DIMN(matrix,1) 220 array2(i)=0 230 FOR j=0 TO DIMN(matrix,2)
-240 array2(i)=array2(i)+array1(j)\*matrix(i,j) 250 END FOR j 260 END FOR
-i 270 END DEFine MATSCALM
+of the matrix)::
+
+    100 n=5 
+    110 DIM A(n,n), AINV(n,n), b(n), x(n) 
+    120 MATRND A: MATRND b 
+    130 : 
+    140 MATINV A,AINV 
+    150 MATSCALM AINV,b TO x 
+    160 PRINT "Solutions:"\x 
+    170 IF ABS(DET)<1E-6 THEN PRINT "(dubious results)" 
+    180 : 
+    190 DEFine PROCedure MATSCALM (matrix,array1,array2) 
+    200   LOCal i,j 
+    210   FOR i=0 TO DIMN(matrix,1) 
+    220     array2(i)=0 
+    230     FOR j=0 TO DIMN(matrix,2)
+    240       array2(i)=array2(i)+array1(j)\*matrix(i,j) 
+    250     END FOR j 
+    260   END FOR i 
+    270 END DEFine MATSCALM
 
 The method of solving a linear equation system by calculating the
 inverted matrix is known as Cramer's Rule. The advantage is that if the
@@ -475,25 +671,25 @@ cannot be stopped with <CTRL><SPACE> whilst number crunching.
 It is highly recommended to check if `DET <KeywordsD.clean.html#det>`__ is
 very close to zero after `MATINV <KeywordsM.clean.html#matinv>`__ has been
 executed, if this is the case, `MATINV <KeywordsM.clean.html#matinv>`__ may
-have found a result which does not exist: `IF
-ABS(DET) <KeywordsI.clean.html#if20abs(det)>`__ `IF ABS(DET) < 1E-6 THEN
-PRINT "dubious result" ">< 1E-6 THEN PRINT "dubious
-result" <KeywordsI.clean.html#if20abs(det)>`__ This works because
-`MATINV <KeywordsM.clean.html#matinv>`__ calls `DET <KeywordsD.clean.html#det>`__
+have found a result which does not exist::
+
+    IF ABS(DET) < 1E-6 THEN PRINT "dubious result" 
+
+This works because `MATINV <KeywordsM.clean.html#matinv>`__ calls `DET <KeywordsD.clean.html#det>`__
 internally.
 
 --------------
 
 MATMAX
 ======
-
+.. ****** YOU ARE HERE ******
 +----------+-------------------------------------------------------------------+
 | Syntax   |  MATMAX (array[%])                                                |
 +----------+-------------------------------------------------------------------+
 | Location |  Math Package                                                     |
 +----------+-------------------------------------------------------------------+
 
- This function finds the largest value contained in an integer or
+This function finds the largest value contained in an integer or
 floating point array.
 
 **NOTE**
@@ -521,7 +717,7 @@ MATMEAN
 | Location |  Math Package                                                     |
 +----------+-------------------------------------------------------------------+
 
- This function returns the average of the array's elements, calculated
+This function returns the average of the array's elements, calculated
 by the sum of the elements divided by the number of elements.
 
 **NOTE**
@@ -547,7 +743,7 @@ MATMIN
 | Location |  Math Package                                                     |
 +----------+-------------------------------------------------------------------+
 
- This function finds the smallest element in an integer or floating
+This function finds the smallest element in an integer or floating
 point array.
 
 **NOTE**
@@ -575,7 +771,7 @@ MATMULT
 | Location |  Math Package                                                     |
 +----------+-------------------------------------------------------------------+
 
- The command MATMULT performs multiplication on matrices of floating
+The command MATMULT performs multiplication on matrices of floating
 point type. The matrix1 is multiplied with matrix2 and the result stored
 in product. Since a n x m matrix represents a linear transformation
 which takes n-dimensional vectors and produces m-dimensional vectors
@@ -631,7 +827,7 @@ END DEFine POLYDRAW
 Normally the product of two matrices A\*B is not the same as B\*A,
 however, the matrices ROT and SQZ in the above example are an exception
 to this rule. Replace line 330 with: 330 MATMULT ROTSQZ,SQZ,ROT
- and nothing will change.
+and nothing will change.
 
 **CROSS-REFERENCE**
 
@@ -649,17 +845,17 @@ MATPLOT
 | Location |  Math Package                                                     |
 +----------+-------------------------------------------------------------------+
 
- This command takes a two-dimensional array and draws the points set out
+This command takes a two-dimensional array and draws the points set out
 by the array (the first dimension identifies the number of points and
 the second the co-ordinates) to the default window used by LINE
 (normally #1). The array must be declared in the following way (an array
 which does not fall into this category will cause an error): DIM array
 (points,1)
- points is the total number of points (less one) set out in the array,
+points is the total number of points (less one) set out in the array,
 with array(p,0) the x-coordinate and array(p,1) the y- coordinate of
 point number p-1. If a comma (,) appears after the name of the array
 MATPLOT
- will connect each point with its successor by a line. On the other
+will connect each point with its successor by a line. On the other
 hand, if a semicolon (;) appears after the name of the array, an
 additional line is drawn between the first point and the last point.
 These lines are drawn using the QDOS line drawing routine and therefore
@@ -684,7 +880,8 @@ iterations=10000 120 DIM pts(iterations-1,1): x=0: y=0 130 FOR loop=0 TO
 iterations-1 140 pts(loop,0)=x: pts(loop,1)=y 150 sy=0: IF x<0 THEN
 sy=-1: ELSE IF x THEN sy=1 160 xx=y-sy\*(ABS(x-.9))^.5: y=1.01-x: x=xx
 170 END FOR loop 180 INK 7: MATPLOT pts
- A nice modification of the above example would be to: (1) replace MODE
+
+A nice modification of the above example would be to: (1) replace MODE
 4 with MODE 8 in line 100; (2) delete line 180; and (3) add the block
 180 REPeat loop 190 FOR n=1 TO 7 200 INK n 210 MATPLOT pts 220 END FOR n
 230 END REPeat loop
@@ -717,7 +914,7 @@ MATPLOT\_R
 | Location |  Math Package                                                     |
 +----------+-------------------------------------------------------------------+
 
- This command is the same as MATPLOT except that the output is drawn
+This command is the same as MATPLOT except that the output is drawn
 relative to the graphic cursor.
 
 **CROSS-REFERENCE**
@@ -736,7 +933,7 @@ MATPROD
 | Location |  Math Package                                                     |
 +----------+-------------------------------------------------------------------+
 
- The function MATPROD returns the product of the array's values, so
+The function MATPROD returns the product of the array's values, so
 array is not allowed to be a string array.
 
 **Example**
@@ -767,7 +964,7 @@ MATREAD
 | Location |  Math Package                                                     |
 +----------+-------------------------------------------------------------------+
 
- The command MATREAD initialises the array (of any type) by reading each
+The command MATREAD initialises the array (of any type) by reading each
 element from DATA lines. Since MATREAD does the same as the following
 routine: FOR i1=0 TO DIMN(array,1) FOR i2=0 TO DIMN(array,2) ... READ
 array(i1, i2) ... END FOR i2 END FOR i1
@@ -789,12 +986,13 @@ MATRND
 ======
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  MATRND array  or MATRND array% [[ ,minval%] ,maxval%]            |
+| Syntax   || MATRND array  or                                                 |
+|          || MATRND array% [[ ,minval%] ,maxval%]                             |
 +----------+-------------------------------------------------------------------+
-| Location |  Math Package                                                     |
+| Location || Math Package                                                     |
 +----------+-------------------------------------------------------------------+
 
- This command initialises all of the elements of an integer or floating
+This command initialises all of the elements of an integer or floating
 point array with random numbers. Their default range depends on the type
 of array: for integer arrays, the values range from -32768 to 32767,
 whereas for floating point they range between 0 and 1. MATRND selects
@@ -836,7 +1034,7 @@ MATSEQ
 | Location |  Math Package                                                     |
 +----------+-------------------------------------------------------------------+
 
- The command MATSEQ initialises the array (which must be a numeric
+The command MATSEQ initialises the array (which must be a numeric
 array) with a constantly increasing set of integer numbers: 1 2 3 4 5
 6... There is not really much use for MATSEQ
  except for demonstration. array can be either a floating point or
@@ -867,7 +1065,7 @@ MATSUB
 | Location |  Math Package                                                     |
 +----------+-------------------------------------------------------------------+
 
- Provided that the parameters of the command MATSUB fulfil the same
+Provided that the parameters of the command MATSUB fulfil the same
 conditions as for MATADD, MATSUB will store the difference between
 matrix1 and matrix2 in difference {ie. difference(...) = matrix1(...) -
 matrix2(...)}. Two or all of the parameters can be identical, so: MATSUB
@@ -890,7 +1088,7 @@ MATSUM
 | Location |  Math Package                                                     |
 +----------+-------------------------------------------------------------------+
 
- This function calculates the sum of all of the elements of the supplied
+This function calculates the sum of all of the elements of the supplied
 array. array can be any floating point or integer array, but not a
 string array. The latter leads to error -15 (bad parameter). array can
 be any number of dimensions, although the following example uses just
@@ -913,7 +1111,8 @@ i\*dist: x2 = x1+dist 280 y1 = temp%(i) + yoff: y2 = temp%(i+1) + yoff
 290 LINE x1,y1 TO x2,y2 300 END FOR i 310 : 320 PRINT#0,"find medium..."
 330 tmed = MATSUM(temp%) / values% 340 INK 3: OVER -1 350 LINE
 0,tmed+yoff TO x2,tmed+yoff
- The important line is 330 where MATSUM is used. Lines 150 to 200
+
+The important line is 330 where MATSUM is used. Lines 150 to 200
 transform the random values to more realistic temperatures: you won't
 find any country where outside temperature jumps from -20 to +30 degrees
 Celsius in one day! The number of equalize loops can be freely chosen.
@@ -945,7 +1144,7 @@ MATTRN
 | Location |  Math Package                                                     |
 +----------+-------------------------------------------------------------------+
 
- The command MATTRN takes numeric arrays of two dimensions or string
+The command MATTRN takes numeric arrays of two dimensions or string
 arrays of three dimensions and reads each row of array2, placing it in
 the corresponding column of array1. It is obligatory that both arrays
 have the same type and are exactly DIMed to the needs of MATTRN. The
@@ -970,11 +1169,10 @@ MAX
 +----------+-------------------------------------------------------------------+
 | Syntax   |  MAX (x\ :sup:`1` :sup:`\*`\ [,x\ :sup:`i`]\ :sup:`\*`)           |
 +----------+-------------------------------------------------------------------+
-| Location |                                                                   |
+| Location |  Math Package, MINMAX2                                            |
 +----------+-------------------------------------------------------------------+
 
-Math Package, MINMAX2
- This function must be given at least one number as a parameter - it
+This function must be given at least one number as a parameter - it
 will then return the highest value out of the given list of parameters.
 
 **Example**
@@ -994,12 +1192,13 @@ MAXIMUM
 =======
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  MAXIMUM [ ( array ) ] or MAXIMUM ( :sup:`\*`\ [ value ]\ :sup:`\*` )  |
+| Syntax   || MAXIMUM [ ( array ) ] or                                         |
+|          || MAXIMUM ( :sup:`\*`\ [ value ]\ :sup:`\*` )                      |
 +----------+-------------------------------------------------------------------+
-| Location |  Minmax (DIY Toolkit - Vol Z)                                     |
+| Location || Minmax (DIY Toolkit - Vol Z)                                     |
 +----------+-------------------------------------------------------------------+
 
- The effect of this function depends on the parameter supplied. It is
+The effect of this function depends on the parameter supplied. It is
 however an extremely fast way of comparing values. If no parameter is
 supplied, then the greatest possible floating point number supported by
 the QL is returned - this is equivalent to 1.61585 e616. If a single
@@ -1038,12 +1237,13 @@ MAXIMUM%
 ========
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  MAXIMUM% [ ( array% ) ] or MAXIMUM% ( :sup:`\*`\ [ value ]\ :sup:`\*` )  |
+| Syntax   || MAXIMUM% [ ( array% ) ] or                                       |
+|          ||MAXIMUM% ( :sup:`\*`\ [ value ]\ :sup:`\*` )                      |
 +----------+-------------------------------------------------------------------+
-| Location |  Minmax (DIY Toolkit - Vol Z)                                     |
+| Location || Minmax (DIY Toolkit - Vol Z)                                     |
 +----------+-------------------------------------------------------------------+
 
- This function is exactly the same as MAXIMUM except that it only
+This function is exactly the same as MAXIMUM except that it only
 accepts integer parameters and is therefore able to work much more
 quickly. As with MAXIMUM, you can use this function to find the highest
 value in an array, provided that the first variant is used, and the
@@ -1081,7 +1281,7 @@ MB
 | Location |  Minerva                                                          |
 +----------+-------------------------------------------------------------------+
 
- Early versions of Minerva (pre v1.97) did not have built-in MultiBASICs
+Early versions of Minerva (pre v1.97) did not have built-in MultiBASICs
 and they had to be EXECuted from disk. However, you could make them
 resident by linking in the file Mulib\_rext with the LRESPR command and
 then this command, MB would be available to start up MultiBASIC
@@ -1111,8 +1311,8 @@ MD
 | Location |  Beuletools (Needs Level-2 Drivers)                               |
 +----------+-------------------------------------------------------------------+
 
- This command is just used as an abbreviation for the MAKE\_DIR
- command on Level-2 (and higher) floppy/ winchester/ ramdisk drivers.
+This command is just used as an abbreviation for the MAKE\_DIR
+command on Level-2 (and higher) floppy/ winchester/ ramdisk drivers.
 
 **CROSS-REFERENCE**
 
@@ -1127,12 +1327,13 @@ MERGE
 =====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  MERGE device\_filename  or MERGE [device\_]filename (Toolkit II)  |
+| Syntax   || MERGE device\_filename  or                                       |
+|          || MERGE [device\_]filename (Toolkit II)                            |
 +----------+-------------------------------------------------------------------+
-| Location |  QL ROM, Toolkit II                                               |
+| Location || QL ROM, Toolkit II                                               |
 +----------+-------------------------------------------------------------------+
 
- This command is similar to LOAD except that it does not clear the
+This command is similar to LOAD except that it does not clear the
 current program and variables out of memory prior to loading the given
 program file. Neither is the screen cleared, which enables loading
 pictures to be shown on screen whilst the main program loads. This means
@@ -1219,7 +1420,7 @@ MIDINET
 | Location |  SMSQ/E, ATARI Emulators                                          |
 +----------+-------------------------------------------------------------------+
 
- A file MIDINET\_rext is provided with SMSQ/E and the Emulators for the
+A file MIDINET\_rext is provided with SMSQ/E and the Emulators for the
 Atari computers which allows you to set up a Network using the MIDI
 ports provided on the Atari computers. Once the Network has been set up
 with the necessary leads, and MIDINET\_rext been loaded on all computers
@@ -1260,7 +1461,7 @@ MIN
 | Location |  Math Package, MINMAX2                                            |
 +----------+-------------------------------------------------------------------+
 
- This function must be given at least one number as a parameter - it
+This function must be given at least one number as a parameter - it
 will then return the lowest value out of the given list of parameters.
 
 **Example**
@@ -1280,12 +1481,13 @@ MINIMUM
 =======
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  MINIMUM [ ( array ) ] or MINIMUM ( :sup:`\*`\ [ value ]\ :sup:`\*` )  |
+| Syntax   || MINIMUM [ ( array ) ] or                                         |
+|          || MINIMUM ( :sup:`\*`\ [ value ]\ :sup:`\*` )                      |
 +----------+-------------------------------------------------------------------+
-| Location |  Minmax (DIY Toolkit - Vol Z)                                     |
+| Location || Minmax (DIY Toolkit - Vol Z)                                     |
 +----------+-------------------------------------------------------------------+
 
- The effect of this function depends on the parameter supplied. It is
+The effect of this function depends on the parameter supplied. It is
 however an extremely fast way of comparing values. If no parameter is
 supplied, then the smallest possible floating point number supported by
 the QL is returned - this is equivalent to -1e614. If a single parameter
@@ -1293,7 +1495,7 @@ is supplied which is a single dimensional floating point array, then
 MINIMUM will return the value of the smallest number stored within that
 array. If you want to compare the values of an integer array, then use
 MINIMUM%
- (a 'bad parameter' is generated with this function). If, however, you
+(a 'bad parameter' is generated with this function). If, however, you
 use the second variant to pass a list of values (either numbers or
 variables), then the smallest value out of those parameters will be
 returned. Please note that you cannot pass an array in this instance -
@@ -1322,12 +1524,13 @@ MINIMUM%
 ========
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  MINIMUM% [ ( array% ) ] or MINIMUM% ( :sup:`\*`\ [ value ]\ :sup:`\*` )  |
+| Syntax   || MINIMUM% [ ( array% ) ] or                                       |
+|          || MINIMUM% ( :sup:`\*`\ [ value ]\ :sup:`\*` )                     |
 +----------+-------------------------------------------------------------------+
-| Location |  Minmax (DIY Toolkit - Vol Z)                                     |
+| Location || Minmax (DIY Toolkit - Vol Z)                                     |
 +----------+-------------------------------------------------------------------+
 
- This function is exactly the same as MINIMUM except that it only
+This function is exactly the same as MINIMUM except that it only
 accepts integer parameters and is therefore able to work much more
 quickly. As with MINIMUM, you can use this function to find the smallest
 value in an array, provided that the first variant is used, and the
@@ -1357,10 +1560,10 @@ MISTake
 | Location |  QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
 
- MISTake is a keyword which will only rarely ever be found. It cannot be
+MISTake is a keyword which will only rarely ever be found. It cannot be
 inserted into a program from the keyboard. Instead, it is generated
 internally whenever LOAD, LRUN, MERGE or MRUN
- commands are used and a line in the file being loaded cannot be parsed
+commands are used and a line in the file being loaded cannot be parsed
 (ie. if it would generate a 'bad line' error if typed in at the
 keyboard). Rather than reporting an error and stopping the loading
 process, the word MISTake is inserted in the offending line after the
@@ -1394,7 +1597,7 @@ MKF$
 | Location |  BTool                                                            |
 +----------+-------------------------------------------------------------------+
 
- This function returns a string containing the internal representation
+This function returns a string containing the internal representation
 of a floating point number (which is stored as six bytes).
 
 **CROSS-REFERENCE**
@@ -1409,12 +1612,12 @@ MKI$
 ====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  MKI$ (integer%) integer%=-32768...32767                          |
+| Syntax   |  MKI$ (integer%) where integer% = -32768..32767                   |
 +----------+-------------------------------------------------------------------+
 | Location |  BTool                                                            |
 +----------+-------------------------------------------------------------------+
 
- The function MKI$ returns a string containing the internal
+The function MKI$ returns a string containing the internal
 representation of an integer number (which is stored as two bytes).
 
 **Example**
@@ -1434,12 +1637,12 @@ MKL$
 ====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  MKL$ (longint) longint=-2\*INTMAX-1...2\*INTMAX+1                |
+| Syntax   |  MKL$ (longint) where longint = -2\*INTMAX-1..2\*INTMAX+1         |
 +----------+-------------------------------------------------------------------+
 | Location |  BTool                                                            |
 +----------+-------------------------------------------------------------------+
 
- This function returns a string containing the internal format of a long
+This function returns a string containing the internal format of a long
 integer number (which is stored as four bytes).
 
 **CROSS-REFERENCE**
@@ -1459,7 +1662,7 @@ MKS$
 | Location |  BTool                                                            |
 +----------+-------------------------------------------------------------------+
 
- This function returns a string containing the internal format of a
+This function returns a string containing the internal format of a
 string {which is stored as two bytes indicating the length of the string
 (as returned by MKI$) and the string itself}.
 
@@ -1483,8 +1686,8 @@ MNET
 +----------+-------------------------------------------------------------------+
 | Location |  SMSQ/E, ATARI Emulators                                          |
 +----------+-------------------------------------------------------------------+
-
- This command is similar to the NET command in that it sets the Network
+ 
+This command is similar to the NET command in that it sets the Network
 Station number of the machine on which it is issued. The only difference
 is that here it sets the station number for the MIDINET Network (as
 opposed to QNET).
@@ -1508,7 +1711,7 @@ MNET%
 | Location |  SMSQ/E, ATARI Emulators                                          |
 +----------+-------------------------------------------------------------------+
 
- This function returns the current station number of the computer as set
+This function returns the current station number of the computer as set
 with MNET.
 
 **CROSS-REFERENCE**
@@ -1527,7 +1730,7 @@ MNET\_OFF
 | Location |  SMSQ/E, ATARI Emulators                                          |
 +----------+-------------------------------------------------------------------+
 
- This command turns the MIDINET driver off temporarily so that you can
+This command turns the MIDINET driver off temporarily so that you can
 use the MIDI ports independently.
 
 **CROSS-REFERENCE**
@@ -1545,7 +1748,7 @@ MNET\_ON
 | Location |  SMSQ/E, ATARI Emulators                                          |
 +----------+-------------------------------------------------------------------+
 
- This command switches the MIDINET driver back on after it has been
+This command switches the MIDINET driver back on after it has been
 disabled with MNET\_OFF.
 
 **CROSS-REFERENCE**
@@ -1564,7 +1767,7 @@ MNET\_S%
 | Location |  SMSQ/E, ATARI Emulators                                          |
 +----------+-------------------------------------------------------------------+
 
- This function enables you to check whether a machine with the specified
+This function enables you to check whether a machine with the specified
 station number is connected to the MIDINET. This can be useful to
 prevent the problem of the Network retrying several times before failing
 when asked to send or read data from a Network station which does not
@@ -1585,7 +1788,7 @@ MNET\_USE
 | Location |  SMSQ/E, ATARI Emulators                                          |
 +----------+-------------------------------------------------------------------+
 
- Due to the fact that MIDINET Networks can be run on computers alongside
+Due to the fact that MIDINET Networks can be run on computers alongside
 SERNET Networks and even QNET Networks, it may be necessary to alter the
 identification letter used to access facilties on other computers in the
 Network. The default letter id is n (as with FSERVE), but this can be
@@ -1616,7 +1819,7 @@ MOD
 | Location |  QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
 
- This operator returns the value of x to modulus y. This is defined as
+This operator returns the value of x to modulus y. This is defined as
 x-(x DIV y)\*y. If x or y is not an integer value, then it is rounded to
 the nearest integer (compare INT). On non-SMS implementations the answer
 and both parameters must lie within the range -32768...32767. On SMS,
@@ -1659,7 +1862,7 @@ MOD
 | Location |  Math Package                                                     |
 +----------+-------------------------------------------------------------------+
 
- The function MOD returns the value x-(DIV(x,y)\*y), ie. the value of x
+The function MOD returns the value x-(DIV(x,y)\*y), ie. the value of x
 to modulus y, in a similar fashion to the ROM based operator MOD.
 However, this version is not limited to a range of -32768 to 32767, but
 will accept parameters in the range -INTMAX to INTMAX. Because both
@@ -1688,13 +1891,15 @@ refuse to work!
 MODE
 ====
 
-+----------+-------------------------------------------------------------------+
-| Syntax   |  MODE mode%  or MODE screen\_mode [,display\_type] (Minerva, Q-Emulator, Amiga-QDOS v3.23+)  or MODE [screen\_mode [,display\_type]](PEX only)  |
-+----------+-------------------------------------------------------------------+
-| Location |  QL ROM, PEX                                                      |
-+----------+-------------------------------------------------------------------+
++----------+----------------------------------------------------------------------------------+
+| Syntax   || MODE mode%  or                                                                  |
+|          || MODE screen\_mode [,display\_type] (Minerva, Q-Emulator, Amiga-QDOS v3.23+)  or |
+|          || MODE [screen\_mode [,display\_type]](PEX only)                                  |
++----------+----------------------------------------------------------------------------------+
+| Location || QL ROM, PEX                                                                     |
++----------+----------------------------------------------------------------------------------+
 
- The original QDOS operating system will only recognise two display
+The original QDOS operating system will only recognise two display
 modes: Low resolution and High resolution. However, the following MODEs
 are currently set aside for use by QDOS compatible systems:
 
@@ -1828,7 +2033,7 @@ screen is also the Displayed Screen. Another plus to the altered MODE
 command is that there is no forced re-draw of all the current windows
 unless you specify that this must be carried out (or if you use the
 original MODE
- variants). In order to try and explain the new display\_mode
+variants). In order to try and explain the new display\_mode
 parameters, it is easier to split it into two sections: toggling current
 values and setting absolute values.
 
@@ -1952,7 +2157,7 @@ MORE
 | Location |  MORE (DIY Toolkit - Vol V)                                       |
 +----------+-------------------------------------------------------------------+
 
- This command adds quite a sophisticated file viewing facility to the QL
+This command adds quite a sophisticated file viewing facility to the QL
 which far surpasses the simple Toolkit II VIEW command. In its simplest
 form, MORE will open a channel to the specified filename (adding the
 data default directory if the file does not exist) and display it in the
@@ -2001,7 +2206,7 @@ MOVE
 | Location |  QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
 
- The QL supports a simplified means of drawing pictures known as turtle
+The QL supports a simplified means of drawing pictures known as turtle
 graphics. This was based upon an early educational tool, whereby simple
 commands could be entered into a computer to drive a small robot turtle
 which moved around the floor and held a pen. This pen could either be up
@@ -2045,12 +2250,13 @@ MRUN
 ====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  MRUN device\_filename  or MRUN [device\_]filename (Toolkit II)   |
+| Syntax   || MRUN device\_filename  or                                        |
+|          || MRUN [device\_]filename (Toolkit II)                             |
 +----------+-------------------------------------------------------------------+
-| Location |  QL ROM, Toolkit II                                               |
+| Location || QL ROM, Toolkit II                                               |
 +----------+-------------------------------------------------------------------+
 
- This command is similar to MERGE except that once the two programs have
+This command is similar to MERGE except that once the two programs have
 been merged, if MRUN was issued as a direct command, then the merged
 program is RUN from line 1. However, if MRUN was used from within the
 program, the statement following the MRUN statement is executed, thus
@@ -2071,7 +2277,7 @@ MSEARCH
 | Location |  MSEARCH (DIY Toolkit - Vol X)                                    |
 +----------+-------------------------------------------------------------------+
 
- This function is very similar to the Tiny Toolkit version of the SEARCH
+This function is very similar to the Tiny Toolkit version of the SEARCH
 function except that it performs an extremely fast case-independent
 search through memory (much more quickly than other implementations).
 
@@ -2093,7 +2299,7 @@ MT
 | Location |  Toolfin                                                          |
 +----------+-------------------------------------------------------------------+
 
- The function MT returns the value of (1+i):sup:`n` where i and n can be
+The function MT returns the value of (1+i):sup:`n` where i and n can be
 any floating point numbers. Instead of reporting an overflow error for
 values which cannot be computed (eg. i=-1, n=-1) MT returns 1. If the
 returned value would be too large, a modulated value is returned. It is
@@ -2125,12 +2331,13 @@ MTRAP
 =====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  MTRAP key [,d1 [,d2 [,d3 [,a0 [,a1 ]]]]] or MTRAP key\\jobnr [,d2 [,d3 [,a0 [,a1 ]]]]] |
+| Syntax   || MTRAP key [,d1 [,d2 [,d3 [,a0 [,a1 ]]]]] or                      |
+|          || MTRAP key\\jobnr [,d2 [,d3 [,a0 [,a1 ]]]]]                       |
 +----------+-------------------------------------------------------------------+
-| Location |  TRAPS (DIY Toolkit Vol T)                                        |
+| Location || TRAPS (DIY Toolkit Vol T)                                        |
 +----------+-------------------------------------------------------------------+
 
- This command is similar to QTRAP in that it allows you to access the
+This command is similar to QTRAP in that it allows you to access the
 machine code TRAP #1 system calls directly. Unless you are using the
 second variant, you will need to pass at least one parameter, the
 operation key to be carried out (this is equivalent to the value in D0
