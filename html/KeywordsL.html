@@ -1,0 +1,1018 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html xmlns:v="urn:schemas-microsoft-com:vml">
+  <head>
+    <meta http-equiv="content-type" content="text/html;
+      charset=ISO-8859-1">
+    <link rel="stylesheet" type="text/css" href="css/QLManualStyle.css" media="all" />
+    <title>Sinclair QL SuperBASIC/SBASIC Reference Manual - Keywords L</title>
+</head>
+<body>
+<div id="header">
+  SBASIC/SuperBASIC Reference Manual Online (c) RWAP Software
+  <br />
+  The Online Guide to programming the Sinclair QL Home Computer in SuperBASIC
+</div>
+<div id="sideBar">
+    <ul>
+        <li><a href="Foreword.html">Foreword</a></li>
+        <li><a href="Introduction.html">Introduction</a></li>
+        <li><a href="Credits.html">Credits</a></li>        
+        <li><a href="Structure.html">Structure</a></li>
+        <li><a href="WritingPrograms.html">Writing Programs</a></li>
+        <hr></hr>
+        <li><a href="KeywordsA.html">Keywords - A</a></li>
+        <li><a href="KeywordsB.html">Keywords - B</a></li>
+        <li><a href="KeywordsC.html">Keywords - C</a></li>
+        <li><a href="KeywordsD.html">Keywords - D</a></li>
+        <li><a href="KeywordsE.html">Keywords - E</a></li>
+        <li><a href="KeywordsF.html">Keywords - F</a></li>
+        <li><a href="KeywordsG.html">Keywords - G</a></li>
+        <li><a href="KeywordsH.html">Keywords - H</a></li>
+        <li><a href="KeywordsI.html">Keywords - I</a></li>
+        <li><a href="KeywordsJ.html">Keywords - J</a></li>
+        <li><a href="KeywordsK.html">Keywords - K</a></li>
+        <li><a href="KeywordsL.html">Keywords - L</a></li>
+        <li><a href="KeywordsM.html">Keywords - M</a></li>
+        <li><a href="KeywordsN.html">Keywords - N</a></li>
+        <li><a href="KeywordsO.html">Keywords - O</a></li>
+        <li><a href="KeywordsP.html">Keywords - P</a></li>
+        <li><a href="KeywordsQ.html">Keywords - Q</a></li>
+        <li><a href="KeywordsR.html">Keywords - R</a></li>
+        <li><a href="KeywordsS.html">Keywords - S</a></li>
+        <li><a href="KeywordsT.html">Keywords - T</a></li>
+        <li><a href="KeywordsU.html">Keywords - U</a></li>
+        <li><a href="KeywordsV.html">Keywords - V</a></li>
+        <li><a href="KeywordsW.html">Keywords - W</a></li>
+        <li><a href="KeywordsX.html">Keywords - X</a></li>
+        <li><a href="KeywordsY.html">Keywords - Y</a></li>
+        <li><a href="KeywordsZ.html">Keywords - Z</a></li>
+        <li><a href="Keywords_.html">Keywords - Other</a></li>
+        <hr></hr>
+        <li><a href="AppendicesIntro.html">Appendices Introduction</a></li>
+        <li><a href="Appendix01.html">Appendix 1 - Minerva</a></li>
+        <li><a href="Appendix02.html">Appendix 2 - SMSQE</a></li>
+        <li><a href="Appendix03.html">Appendix 3 - Emulators</a></li>
+        <li><a href="Appendix04.html">Appendix 4 - THOR Computers</a></li>
+        <li><a href="Appendix05.html">Appendix 5 - Expansion Boards</a></li>
+        <li><a href="Appendix06.html">Appendix 6 - Compatability</a></li>
+        <li><a href="Appendix07.html">Appendix 7 - Multiple BASICs</a></li>
+        <li><a href="Appendix08.html">Appendix 8 - Error Messages</a></li>
+        <li><a href="Appendix09.html">Appendix 9 - Character Set / Keyboard</a></li>
+        <li><a href="Appendix10.html">Appendix 10 - Fonts</a></li>
+        <li><a href="Appendix11.html">Appendix 11 - Mathematics</a></li>
+        <li><a href="Appendix12.html">Appendix 12 - Device Drivers</a></li>
+        <li><a href="Appendix13.html">Appendix 13 - Extended Pointer Environment</a></li>
+        <li><a href="Appendix14.html">Appendix 14 - Coercion</a></li>
+        <li><a href="Appendix15.html">Appendix 15 - Mouse Drivers</a></li>
+        <li><a href="Appendix16.html">Appendix 16 - The QL Display</a></li>
+        <li><a href="Appendix17.html">Appendix 17 - Networks</a></li>
+        <li><a href="Appendix18.html">Appendix 18 - Configuring Programs</a></li>
+    </ul>
+</div>
+<div id="mainText">
+<h1><a name="LANG_USE"></a>LANG_USE</h1><br>Syntax: <span style="font-style: italic;">LANG_USE num
+<br></span><br>or <span style="font-style: italic;">LANG_USE kcode
+<br></span>Location: <span style="font-style: italic;">SMS
+<br></span><br>This command sets the language to be used by SMS for its
+<br>message tables (this includes interpreter messages and error
+<br>messages).  The value of <span style="font-style: italic;">num</span> and <span style="font-style: italic;">kcode</span> can be the same as for the
+<br>SMS implementation of <span style="font-style: italic;">KBD_TABLE</span>.
+<br><br>A description of the message tables and how to link in new
+<br>message modules is contained in IQLR Volume 5 Issue 1 and
+<br>Issue 5.
+<br><br><h3>NOTE:
+<br></h3><br>If you set a different language to the version of the Psion
+<br>programs which you are using, then you may find that the <span style="font-style: italic;">DATE
+<br></span>function in Archive and Abacus fails.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsL.html#LANGUAGE ">LANGUAGE </a>and<a style="font-style: italic;" href="KeywordsL.html#LANUGUAGE$">LANUGUAGE$</a> allow you to find out about the current
+<br>language.
+<br><br><a style="font-style: italic;" href="KeywordsT.html#TRA">TRA</a> allows you to set the various message tables also.
+<br><br>See <a style="font-style: italic;" href="KeywordsK.html#KBD_TABLE">KBD_TABLE</a> and <a style="font-style: italic;" href="KeywordsS.html#SET_LANGUAGE">SET_LANGUAGE</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="LANGUAGE"></a>LANGUAGE</h1><br>Syntax: <span style="font-style: italic;">LANGUAGE</span> [<span style="font-style: italic;">(code)</span>]
+Location: <span style="font-style: italic;">SMS
+<br></span><br>This   function   returns   a   number   representing   the
+<br>international  dialling  code  for  the  current  language
+<br>implementation (if <span style="font-style: italic;">code</span> is not specified).
+<br><br>Otherwise it will return the dialling code of the language
+<br>which would be used if the language represented by <span style="font-style: italic;">code</span> was
+<br>installed using <span style="font-style: italic;">LANG_USE</span> (in which case <span style="font-style: italic;">code</span> can be either the
+<br>international dialling code or the car registration code).
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsL.html#LANGUAGE$">LANGUAGE$</a> returns the car registration code.
+<br><br><a style="font-style: italic;" href="KeywordsL.html#LANG_USE">LANG_USE</a> allows you to set the language for the messages.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="LANGUAGE$"></a>LANGUAGE$</h1><br>Syntax: <span style="font-style: italic;">LANGUAGE$
+<br></span><br>or <span style="font-style: italic;">LANGUAGE$ (code)(SMS only)
+<br></span>Location: <span style="font-style: italic;">THOR range of computers, SMS
+<br></span><br>This function returns a string representing the current
+<br>language layout of the keyboard which is linked into the QL.
+<br><br>Unfortunately, the string returned is different on THORs
+<br>and SMS's.  For a list of the strings returned on THOR
+<br>computers, see <span style="font-style: italic;">SET_LANGUAGE$</span>.
+<br><br>Under SMS the string returned is the international car
+<br>registration code for the language currently loaded (if <span style="font-style: italic;">code</span> is
+<br>not specified).
+<br><br>The second variant returns the car registration code of the
+<br>language which would be used if the language represented by <span style="font-style: italic;">code
+<br></span>was installed using <span style="font-style: italic;">LANG_USE</span> (in which case <span style="font-style: italic;">code</span> can be either the
+<br>international dialling code or the car registration code).
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsS.html#SET_LANGUAGE$">SET_LANGUAGE$</a> allows you to alter the current keyboard.
+<br><br>See also <a style="font-style: italic;" href="KeywordsL.html#LANGUAGE">LANGUAGE</a> and <a style="font-style: italic;" href="KeywordsL.html#LANG_USE">LANG_USE</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="LAR"></a>LAR</h1><br>Syntax: <span style="font-style: italic;">LAR file, array
+<br></span>Location: <span style="font-style: italic;">ARRAY
+<br></span><br><span style="font-style: italic;">LAR</span> loads a file which  must have been stored with <span style="font-style: italic;">SAR</span> or <span style="font-style: italic;">SARO
+<br></span>into a dimensioned array. The array must have been initialised
+<br>with <span style="font-style: italic;">DIM</span> to the same dimensions of the stored array, and of
+<br>course the type (float, integer, string) must be the same.
+<br><br>The default data device is supported.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsD.html#DATAD$">DATAD$</a> about the default data device.
+<br><br><a style="font-style: italic;" href="KeywordsS.html#SAR">SAR</a> and <a style="font-style: italic;" href="KeywordsS.html#SARO">SARO</a> are complementary commands.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="LBYTES"></a>LBYTES</h1><br>Syntax: <span style="font-style: italic;">LBYTES device_filename, start
+<br></span><br>or <span style="font-style: italic;">LBYTES </span>[<span style="font-style: italic;">device_</span>]<span style="font-style: italic;">filename</span>, <span style="font-style: italic;">start</span><span style="font-style: italic;">(Toolkit II only)
+<br></span><br>or <span style="font-style: italic;">LBYTES #channel, start</span><span style="font-style: italic;">(SMS only)
+<br></span>Location: <span style="font-style: italic;">QL ROM, Toolkit II
+<br></span><br>This command loads a chunk of machine code (or data) stored
+<br>on the given <span style="font-style: italic;">device</span> under the specified <span style="font-style: italic;">filename</span> and will report
+<br>the error 'Not Found' (-7) if either the <span style="font-style: italic;">device</span> or <span style="font-style: italic;">filename</span> does
+<br>not exist.  If Toolkit II is present, this command supports
+<br>the default data device (see <span style="font-style: italic;">DATAD$</span>).
+<br><br>If found, the chunk of machine code is loaded into the QL,
+<br>starting at the specified <span style="font-style: italic;">start</span> address. The code is loaded in
+<br>one huge block, which means that loading is very quick.
+<br>However, there is also no check on the type of file being
+<br>loaded and therefore you should make sure that you know what
+<br>you are doing.
+<br><br>Under SMS the third variant allows you to load the data
+<br>from the specified <span style="font-style: italic;">channel</span> which must be open to a file.  This
+<br>allows for more efficient programs, so that you can perform
+<br>various tests on the file beforehand (such as test its length
+<br>and file type), whilst only opening a channel to the file
+<br>once.
+<br><br><h3>Examples:
+<br></h3><br>One of the main uses of this command is to load in machine
+<br><br>code Toolkits and extensions. It is important to note that
+<br><br>if this command is used to do this, on pre JS ROMs, the
+<br><br>commands in the machine code Toolkit cannot be used in the
+<br><br>same program which links them in. A typical boot program
+<br><br>would therefore be:
+<br><span style="font-style: italic;">100 a=RESPR (1024) : LBYTES flp1_Toolkit_ext,a : CALL a
+<br>110 LRUN flp1_Main_bas
+<br></span><br>Another use of <span style="font-style: italic;">LBYTES</span> may be to load a screen which has been
+<br><br>designed in a drawing program. A normal QL screen is a
+<br><br>maximum of 32768 bytes long, however quite often screens
+<br><br>can be much larger, so it is important to ensure that you
+<br><br>check the length of the file before loading in what may be
+<br><br>a screen file. To load a screen under SMS, use:
+<br><span style="font-style: italic;">10 OPEN_IN #3,flp1_Loading_scr
+<br>20 scr_length=FLEN (#3)
+<br>30 scr_size=SCR_YLIM * SCR_LLEN
+<br>40 IF scr_size&ltl;scr_length
+<br>40   PRINT #0,'Screen resolution is too small for the saved file.':STOP
+<br>45 END IF
+<br>50 IF scr_size&gt;scr_length:PRINT #0,'Screen resolution is too big for the saved file.':STOP
+<br>60 LBYTES #3,SCR_BASE
+<br>70 CLOSE #3
+<br></span><br><h3>
+<br></h3><br><h3>WARNING:
+<br></h3><br>There is no check on the value of <span style="font-style: italic;">start</span>, so ensure that you
+<br>only try to <span style="font-style: italic;">LBYTES</span> machine code into RAM which has been set
+<br>aside with <span style="font-style: italic;">ALCHP</span> or <span style="font-style: italic;">RESPR</span>. Also ensure that the file is not too
+<br>long to fit in the area of RAM allocated.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>Normally code loaded with <a style="font-style: italic;" href="KeywordsL.html#LBYTES">LBYTES</a> has been saved using <a style="font-style: italic;" href="KeywordsS.html#SEXEC">SEXEC</a> or
+<br><a style="font-style: italic;" href="KeywordsS.html#SBYTES">SBYTES</a>. <a style="font-style: italic;" href="KeywordsF.html#FLEN">FLEN</a> allows you to find out the length of a file, <a style="font-style: italic;" href="KeywordsF.html#FTYP">FTYP</a> its
+<br>file type.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="LCM"></a>LCM</h1><br>Syntax: <span style="font-style: italic;">LCM (x</span><sup>1</sup><span style="font-style: italic;">, x</span><sup>2</sup><span style="font-style: italic;">, </span><sup>*</sup>[<span style="font-style: italic;">,x</span><sup>i</sup>]<sup>*</sup>)   <span style="font-style: italic;">x</span><sup>i</sup><span style="font-style: italic;">=0..INTMAX
+<br></span>Location: <span style="font-style: italic;">Math Package
+<br></span><br><span style="font-style: italic;">LCM</span> is a function which takes two or more numeric parameters
+<br>and finds their least common multiple, ie. the smallest number
+<br>which can be divided by all of the parameters without a
+<br>remainder.  The parameters should be positive integers.
+<br><br><h3>Example:
+<br></h3><br><span style="font-style: italic;">PRINT LCM (2,3,4)</span>returns 12
+<br><br>and indeed 12/2=6, 12/3=4
+<br>and 12/4=3.
+<br><br><h3>NOTE:
+<br></h3><br>If you are not looking for the least common multiple but
+<br>any common multiple then simply multiply all the numbers, eg.
+<br>2*3*4=24.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsG.html#GCD
+">GCD
+</a><hr style="width: 100%; height: 2px;"><h1><a name="LDRAW"></a>LDRAW</h1><br>Syntax: <span style="font-style: italic;">LDRAW x1,y1 TO x2,y2, col
+<br></span>Location: <span style="font-style: italic;">HCO
+<br></span><br>This command is similar to <span style="font-style: italic;">DRAW</span>, ie. it draws quite a thick
+<br>line on the screen, but <span style="font-style: italic;">LDRAW</span> is part of the same Toolkit as <span style="font-style: italic;">SET
+<br></span>and uses a different <span style="font-style: italic;">col</span> parameter to <span style="font-style: italic;">DRAW</span>, see <span style="font-style: italic;">SET</span> for that.
+<br><br><h3>Example:
+<br></h3><br>Well, the sample listing on the next two pages is a bit too
+<br><br>long for a simple demonstration of <span style="font-style: italic;">LDRAW</span>. And you know, we
+<br><br>do not want to waste space in this book, so please consider
+<br><br>the <span style="font-style: italic;">ROTATION</span> and <span style="font-style: italic;">MM_MOVE</span> procedures in detail.  <span style="font-style: italic;">rstep%</span> in line 110
+<br><br>determines via <span style="font-style: italic;">pics%</span> how much memory is required to run the
+<br><br>animation. Unless you have SMS or Minerva, you will have to
+<br><br>replace <span style="font-style: italic;">i%</span> and <span style="font-style: italic;">j% </span>by <span style="font-style: italic;">i</span> and <span style="font-style: italic;">j</span>.
+<br><span style="font-style: italic;">100 WINDOW 512,64,0,0: PAPER 0: INK 3: CLS
+<br>110 rstep% = 20
+<br>120 pics% = 360 / rstep%: DIM adr(pics%): i% = 0
+<br>130 FOR r = 0 TO 360-rstep% STEP rstep%
+<br>140   i%=i%+1: CLS: AT 0,0: PRINT "(";i%;")";TO 6;r;"ø"
+<br>150   PYRAMID 20, 256, 32, r, r, r, 3
+<br>160   adr(i%) = ALCHP(HEX("2000"))
+<br>170   IF NOT adr(i%) THEN CLCHP: STOP: REMark memory overflow
+<br>180   MM_MOVE HEX("20000"), adr(i%), HEX("2000")
+<br>190 END FOR r
+<br>200 REPeat Animation
+<br>210   FOR i% = 1 TO pics%
+<br>220     MM_MOVE adr(i%), HEX("20000"), HEX("2000")
+<br>230     IF KEYROW(1)&&8 THEN EXIT Animation
+<br>240   END FOR i%
+<br>250 END REPeat Animation
+<br>260 CLCHP: STOP
+<br>270 :
+<br>290 DEFine PROCedure PYRAMID (size, px%,py%, rotx,roty,rotz, c%)
+<br>300  LOCal i%, j%, p1(2), p2(2)
+<br>310  RESTORE 410
+<br>320  FOR i% = 1 TO 8
+<br>330    READ p1(0),p1(1),p1(2), p2(0),p2(1),p2(2)
+<br>340    ROTATION p1(0),p1(1),p1(2), rotx, roty, rotz
+<br>350    ROTATION p2(0),p2(1),p2(2), rotx, roty, rotz
+<br>360    FOR j%=0 TO 2: p1(j%)=size*p1(j%): p2(j%)=size*p2(j%)
+<br>370    LDRAW px%+p1(0),py%+p1(1) TO px%+p2(0),py%+p2(1), c%
+<br>380  END FOR i%
+<br>390  RETurn
+<br>400  :
+<br>410  REMark base square
+<br>420  DATA -1,-1, 0,   1,-1, 0
+<br>430  DATA  1,-1, 0,   1, 1, 0
+<br>440  DATA  1, 1, 0,  -1, 1, 0
+<br>450  DATA -1, 1, 0,  -1,-1, 0
+<br>460  REMark top
+<br>470  DATA -1,-1, 0,   0, 0, 2
+<br>480  DATA  1,-1, 0,   0, 0, 2
+<br>490  DATA  1, 1, 0,   0, 0, 2
+<br>500  DATA -1, 1, 0,   0, 0, 2
+<br>510 END DEFine PYRAMID
+<br>520 :
+<br>530 :
+<br>540 DEFine PROCedure ROTATION (x, y, z, wx, wy, wz)
+<br>550  REMark rotate point (x,y,z) by angles wx, wy and wz
+<br>560  REMark in degrees around point (0,0,0)
+<br>570  LOCal x1, y1, x2, z2
+<br>580  LOCal cx, cy, cz, sx, sy, sz
+<br>590  cx = COS(RAD(wx)): cy = COS(RAD(wy)): cz = COS(RAD(wz))
+<br>600  sx = SIN(RAD(wx)): sy = SIN(RAD(wy)): sz = SIN(RAD(wz))
+<br>610  x1 = x * cz -y * sz
+<br>620  y1 = x * sz + y * cz
+<br>630  x = x1 * cy - z * sy
+<br>640  z2 = x1 * sy + z * cy
+<br>650  y = y1 * cx + z2 * sx
+<br>660  z = -y1 * sx + z2 * cx
+<br>670 END DEFine ROTATION
+<br>680 :
+<br></span><br><h3>
+<br></h3><span style="font-style: italic;">700 DEFine PROCedure MM_MOVE (addr1, addr2, bytes)
+<br>710  REMark move memory
+<br>720  LOCal routine
+<br>730  IF VER$ = "JSL1" THEN
+<br>740    routine = PEEK_W(344) + 16384
+<br>750    CALL routine, bytes, 2, 3, 4, 5, 6, 7, addr2, addr1
+<br>760  ELSE
+<br>770    REMark with HCO:
+<br>780    BMOVE addr1, addr1+bytes TO addr2
+<br>790  END IF
+<br>800 END DEFine MM_MOVE
+<br></span><br><h3>NOTE 1:
+<br></h3><br><span style="font-style: italic;">LDRAW</span> assumes that the screen is in a resolution of 512x256
+<br>pixels and is located at $20000.
+<br><br><h3>NOTE 2:
+<br></h3><br><span style="font-style: italic;">LDRAW</span> only works correctly in <span style="font-style: italic;">MODE 4</span>.
+<br><br><h3>WARNINGS:
+<br></h3><br>See <span style="font-style: italic;">SET</span>.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsD.html#DRAW">DRAW</a>. Please use <a style="font-style: italic;" href="KeywordsL.html#LDRAW">LDRAW</a> only if you know what you are doing, do
+<br>not intend to write user-friendly programs, and especially if
+<br>you do not intend to show your program listing to someone
+<br>else!
+<br><br>You can always use <a style="font-style: italic;" href="KeywordsL.html#LINE">LINE</a> and <a style="font-style: italic;" href="KeywordsL.html#LINE_R">LINE_R</a>, ...
+<br><br>The <a style="font-style: italic;" href="KeywordsH.html#HCO">HCO</a> Toolkit contains other line drawing commands, <a style="font-style: italic;" href="KeywordsD.html#DOTLIN
+">DOTLIN
+</a>and <a style="font-style: italic;" href="KeywordsX.html#XDRAW">XDRAW</a>, which can draw dotted lines (<a style="font-style: italic;" href="KeywordsD.html#DOTLIN">DOTLIN</a>) or work in <a style="font-style: italic;" href="KeywordsX.html#XOR">XOR</a> mode
+<br>(<a style="font-style: italic;" href="KeywordsX.html#XDRAW">XDRAW</a>).
+<br><hr style="width: 100%; height: 2px;"><h1><a name="LEFT"></a>LEFT</h1><br>Syntax: <span style="font-style: italic;">LEFT</span> [ <span style="font-style: italic;">#channel</span> ]
+Location: <span style="font-style: italic;">QSOUND
+<br></span><br>This command will move the text cursor left one column in
+<br>the specified channel (default #1).  If there is a pending
+<br>newline on the specified channel (for example after a <span style="font-style: italic;">PRINT
+<br></span>command) this will be cleared, making it as if the last <span style="font-style: italic;">PRINT
+<br></span>(or <span style="font-style: italic;">INPUT</span>) statement ended with a comma - for example:
+<br><br><span style="font-style: italic;">100 PRINT 'Hello World'
+<br><br>110 PRINT 'THIS LINE IS PRINTED AFTER A PENDING NEWLINE'
+<br><br>120 LEFT
+<br><br>130 PRINT 'THIS OVERWRITES PART OF THE LAST TEXT'
+<br></span><br>'Out of Range' will be reported if you try to move the
+<br>cursor left past column zero.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsA.html#AT">AT</a> allows you to position the text cursor.
+<br><br><a style="font-style: italic;" href="KeywordsP.html#PRINT">PRINT</a>, <a style="font-style: italic;" href="KeywordsT.html#TO">TO</a>, <a style="font-style: italic;" href="KeywordsI.html#INPUT">INPUT</a> and <a style="font-style: italic;" href="KeywordsC.html#CURSOR">CURSOR</a> also affect the text cursor.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="LEN"></a>LEN</h1><br>Syntax: <span style="font-style: italic;">LEN (string$)
+<br></span>Location: <span style="font-style: italic;">QL ROM
+<br></span><br>The function <span style="font-style: italic;">LEN</span> returns the number of characters contained
+<br>in the given string expression. However, due to the QL's
+<br>native coercion routines, the expression passed as a parameter
+<br>need not be a string (!)
+<br><br><h3>Examples:
+<br></h3><span style="font-style: italic;">x=100: PRINT LEN(x)</span>  Returns 3
+<br><span style="font-style: italic;">PRINT LEN ('A string')</span>Returns 8.
+<br><span style="font-style: italic;">DIM x$(12):PRINT LEN (x$)</span>Returns 0, but add:
+<br><span style="font-style: italic;">x$='Hello':PRINT LEN (x$)</span>Returns 5, the same as <span style="font-style: italic;">PRINT x$(0)
+<br></span><br><h3>NOTE:
+<br></h3><br>On pre-JS ROMs, if you use<span style="font-style: italic;"> PRINT LEN(x$)</span>, an 'Out of Memory'
+<br>error will be reported if you have previously tried to make <span style="font-style: italic;">x$
+<br></span>longer than 32766 characters, for example with:
+<br><br><span style="font-style: italic;">x$=FILL$('x',32764)
+<br><br>x$=x$&'xxx'
+<br><br>PRINT LEN (x$)
+<br></span><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsF.html#FILL$">FILL$</a> returns a string of a specified length.
+<br><br><a style="font-style: italic;" href="KeywordsD.html#DIMN">DIMN</a> returns important information about arrays.
+<br><br>See also the Compatability Appendix for some important
+<br>information concerning string lengths.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="LET"></a>LET</h1><br>Syntax: [<span style="font-style: italic;">LET</span>] <span style="font-style: italic;">variable=expression
+<br></span>Location: <span style="font-style: italic;">QL ROM
+<br></span><br>The command <span style="font-style: italic;">LET</span> has only been implemented to make SuperBASIC
+<br>more compatible with other versions of BASIC. It assigns a
+<br>specific value to the specified <span style="font-style: italic;">variable</span>, which can be of any
+<br>type.  The command may actually be omitted altogether.
+<br><br>Normally any mistake in this command results in an 'Error
+<br>in Expression' report.
+<br><br><h3>Examples:
+<br></h3><br><span style="font-style: italic;">LET x=100+10*20</span>Assigns the value 300 to the variable <span style="font-style: italic;">x</span>.
+<br><br><span style="font-style: italic;">x=100+10*20</span>Exactly the same.
+<br><br><span style="font-style: italic;">LET a$='Hello '&x</span>This places the string 'Hello 300' into
+<br><br>the  variable  <span style="font-style: italic;">a$</span>.  The  value  of  <span style="font-style: italic;">x</span>  is
+<br><br>converted into a string and then appended.
+<br><br><span style="font-style: italic;">LET position(100)=1</span>0This  assigns the  value 10 to the 101st
+<br><br>element of the array <span style="font-style: italic;">position</span> (see <span style="font-style: italic;">DIM</span>).
+<br><br><h3>NOTE 1:
+<br></h3><br>On the AH ROM, you need to be careful of what is being
+<br>assigned to a numerical variable: <span style="font-style: italic;">LET X="."</span> did not produce an
+<br>error on this ROM. Compare this with <span style="font-style: italic;">LET X='0.12'</span> which in fact
+<br>assigns the value 0.12 to the variable <span style="font-style: italic;">x</span> due to coercion.
+<br><br><h3>NOTE 2:
+<br></h3><br>It may be useful to explain the error codes which may be
+<br>reported when trying to assign a value to a variable.  Under
+<br>SMS the  improved  interpreter will  report  more  meaningful
+<br>errors  if  you  try  to  use  this  command  incorrectly  and
+<br>therefore it is these errors which are highlighted.
+<br><br><h3>'Assignment can only be to a variable or array element'
+<br></h3><br>This is reported if you try to assign a value to a
+<br>Procedure or Function name, eg:
+<br><span style="font-style: italic;">PRINT = 100
+<br></span><br>On other versions this causes an <h3>'Error in Expression'</h3>.
+<br><br>When assigning values to arrays there are four possible
+<br>error reports:
+<br><br><h3>'Only arrays or strings may be indexed'
+<br></h3><br>This will be reported if you try to assign a value to an
+<br>undimensioned array, for example if you used the line:
+<br><span style="font-style: italic;">position (100)=10
+<br></span><br>without having used the line:
+<br><span style="font-style: italic;">DIM position (200)
+<br></span><br>beforehand.
+<br><br>On other implementations, this causes the error <h3>'Bad Name'</h3>.
+<br><br><h3>'Cannot assign to sub-array'
+<br></h3><br>We have not been able to find a situation when this error
+<br>occurs.
+<br><br><h3>'Unacceptable array index list'
+<br></h3><br>This is reported normally if you try to use too many
+<br>indices to reference an existing array, for example:
+<br><span style="font-style: italic;">DIM x(100) : PRINT x(10,10)
+<br></span><br>On other implementations this causes an <h3>'Out of Range'
+<br></h3>error.
+<br><br><h3>'Array index out of range'
+<br></h3><br>This is reported if you try to use an index which is
+<br>greater than that used when the array was dimensioned, for
+<br>example:
+<br><span style="font-style: italic;">DIM x(100) : x(101)=100
+<br></span><br>On other implementations this also causes an <h3>'Out of Range'
+<br></h3>error.
+<br><br><h3>WARNING:
+<br></h3><br>On SMS, you can easily crash SBASIC by missing out an index
+<br>on an assignment to a <span style="font-style: italic;">DIM</span>ensioned array, for example:
+<br><span style="font-style: italic;"><br>DIM x(100)
+<br><br>x (10, ) = 100 </span>Will report Not Complete
+<br><br><span style="font-style: italic;">x (10, , ) = 100</span>Will crash SBASIC
+<br><br>On Minerva (and possibly other ROM versions) both of these
+<br>merely report 'Error In Expression'.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsR.html#READ">READ</a> and <a style="font-style: italic;" href="KeywordsI.html#INPUT">INPUT</a> also allow you to assign a value to a variable.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="LGET"></a>LGET</h1><br>Syntax:<span style="font-style: italic;"> LGET</span> [<span style="font-style: italic;">#ch\position,</span>] [<span style="font-style: italic;">item </span><sup>*</sup>[<span style="font-style: italic;">,item</span><sup>i</sup>]<sup>*</sup> ..]
+<br><br>or<span style="font-style: italic;"> LGET</span> [<span style="font-style: italic;">#ch,</span>] [<span style="font-style: italic;">item</span><sup> *</sup>[<span style="font-style: italic;">,item</span><sup>i</sup>]<sup>*</sup> ..]
+Location: <span style="font-style: italic;">SMSQ/E
+<br></span><br>This command is very similar to <span style="font-style: italic;">BGET</span>, although this fetches
+<br>a longword (4 bytes) at a time (in the range 0..2^32-1) from
+<br>the given channel (default #3).
+<br><br><h3>NOTE:
+<br></h3><br><span style="font-style: italic;">LGET</span> is affected by <span style="font-style: italic;">TRA</span>.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsB.html#BGET">BGET</a>.
+<br><br><a style="font-style: italic;" href="KeywordsL.html#LPUT">LPUT</a> is complementary function.
+<br><br><a style="font-style: italic;" href="KeywordsW.html#WGET">WGET</a> allows you to fetch word values.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="LINE"></a>LINE</h1><br>Syntax: <span style="font-style: italic;">LINE </span>[<span style="font-style: italic;">#chan,</span>] [<span style="font-style: italic;">x,y</span>] [<span style="font-style: italic;">TO x</span><sup>1</sup>,<span style="font-style: italic;">y</span><sup>1</sup>] <sup>*</sup>[[<span style="font-style: italic;">;x</span><sup>i</sup><span style="font-style: italic;">,y</span><sup>i</sup>] [<span style="font-style: italic;">TO x</span><sup>j</sup><span style="font-style: italic;">,y</span><sup>j</sup>] ]<sup>*
+<br></sup>Location: <span style="font-style: italic;">QL ROM
+<br></span><br>This command is part of the QL's graphics repertoire and
+<br>allows you to draw a straight line in the specified channel
+<br>(default #1) in the current <span style="font-style: italic;">INK</span> colour between any two points.
+<br>As with all of the other graphics commands, the exact size and
+<br>position  of  the  line  depends  upon  the  current  <span style="font-style: italic;">SCALE</span>.
+<br>Unfortunately, there is no way of making the line any thicker,
+<br>other than by drawing parallel lines.  Although the above
+<br>syntax may seem rather complex, this can be explained as
+<br>follows:
+<br><br>If the separator <span style="font-style: italic;">TO</span> appears between any two sets of
+<br>co-ordinates, then a line will be drawn between those two
+<br>co-ordinates. If however the two sets of co-ordinates are the
+<br>same, nothing will be drawn, eg:
+<br><span style="font-style: italic;">LINE 10,10 TO 10,10
+<br></span><br>has no effect. If the start co-ordinates are not specified,
+<br>then the current graphics cursor is used as the one end of the
+<br>line, eg:
+<br><span style="font-style: italic;">LINE 10,10 TO 15,10 TO 20,20
+<br></span><br>will draw a line between the points (10,10) and (15,10) and
+<br>then a line between (15,10) and (20,20). The graphics cursor
+<br>is placed at the last set of co-ordinates.
+<br><br>If the separator <span style="font-style: italic;">TO</span> does not appear, then no line is drawn
+<br>and  the  graphics  cursor  is  moved  to  the  last  set  of
+<br>co-ordinates. For example:
+<br><span style="font-style: italic;"><br>LINE 10,10</span> and
+<br><span style="font-style: italic;"><br>LINE 20,20,10,10
+<br></span><br>have exactly the same effect - they both place the graphics
+<br>cursor at the point (10,10).
+<br><br>Any part of the lines which lie outside of the specified
+<br>channel will not be drawn, but no error will be reported.
+<br><br><h3>Example:
+<br></h3><br>A simple demonstration program:
+<br><span style="font-style: italic;">100 MODE 8
+<br>110 WINDOW 448,200,32,16:PAPER 0:CLS
+<br>120 SCALE 100,0,0
+<br>130 OVER -1
+<br>140 REPeat loop
+<br>150   xstep=RND
+<br>160   INK RND(7)
+<br>170   FOR i=1 TO 360 STEP xstep
+<br>180     ix=RAD(i)
+<br>190     LINE 50,50 TO 50+COS(ix)*50,50+SIN(ix)*50
+<br>200   END FOR i
+<br>210 END REPeat loop
+<br></span><br><h3>
+<br></h3><br><h3>NOTE:
+<br></h3><br>On a MG ROM, you may find that the last point is not always
+<br>plotted.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsL.html#LINE_R">LINE_R</a> is very similar.
+<br><br>See also <a style="font-style: italic;" href="KeywordsE.html#ELLIPSE">ELLIPSE</a>, <a style="font-style: italic;" href="KeywordsC.html#CIRCLE">CIRCLE</a>, <a style="font-style: italic;" href="KeywordsA.html#ARC">ARC</a>, <a style="font-style: italic;" href="KeywordsP.html#POINT">POINT</a> and <a style="font-style: italic;" href="KeywordsS.html#SCALE">SCALE</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="LINE_R"></a>LINE_R</h1><br>Syntax: <span style="font-style: italic;">LINE_R </span>[<span style="font-style: italic;">#chan,</span>] [<span style="font-style: italic;">x,y</span>] [<span style="font-style: italic;">TO x</span><sup>1</sup>,<span style="font-style: italic;">y</span><sup>1</sup>] <sup>*</sup>[[<span style="font-style: italic;">;x</span><sup>i</sup><span style="font-style: italic;">,y</span><sup>i</sup>] [<span style="font-style: italic;">TO x</span><sup>j</sup><span style="font-style: italic;">,y</span><sup>j</sup>] ]<sup>*
+<br></sup>Location: <span style="font-style: italic;">QL ROM
+<br></span><br>This command is very similar to <span style="font-style: italic;">LINE</span>, except that all
+<br>co-ordinates are taken to be relative to the current graphics
+<br>cursor.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>Please see <a style="font-style: italic;" href="KeywordsL.html#LINE">LINE</a>, <a style="font-style: italic;" href="KeywordsC.html#CIRCLE_R">CIRCLE_R</a>, <a style="font-style: italic;" href="KeywordsA.html#ARC_R">ARC_R</a>, <a style="font-style: italic;" href="KeywordsE.html#ELLIPSE_R">ELLIPSE_R</a> and <a style="font-style: italic;" href="KeywordsP.html#POINT_R">POINT_R</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="LINKUP"></a>LINKUP</h1><br>Syntax: <span style="font-style: italic;">LINKUP file$
+<br></span>Location: <span style="font-style: italic;">Memory Toolkit (DIY Toolkit Vol H)
+<br></span><br>This command is similar to <span style="font-style: italic;">LRESPR</span> except that it will work
+<br>even if jobs are running in the system.  Although it loads the
+<br>specified file into the common heap, it marks the area of
+<br>memory as permanent and therefore this memory will not be
+<br>removed by <span style="font-style: italic;">CLCHP</span> or <span style="font-style: italic;">NEW</span>.
+<br><br>This therefore provides a safe means of linking in new
+<br>toolkits and device drivers permanently even when Jobs are
+<br>have already been <span style="font-style: italic;">EXEC</span>uted.
+<br><br>Unlike <span style="font-style: italic;">LRESPR</span> the default data device is not supported and
+<br>the filename must be supplied in full as a string.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsR.html#RESERVE">RESERVE</a> and <a style="font-style: italic;" href="KeywordsD.html#DISCARD">DISCARD</a>.
+<br><br>Also see <a style="font-style: italic;" href="KeywordsL.html#LRESPR">LRESPR</a> and <a style="font-style: italic;" href="KeywordsA.html#ALCHP">ALCHP</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="LINT2"></a>LINT2</h1><br>Syntax: <span style="font-style: italic;">LINT2 </span>[<span style="font-style: italic;">#ch</span>]
+Location: <span style="font-style: italic;">Beuletools
+<br></span><br>This command lists all interrupt (level 2) service routines
+<br>and their link pointers to the given channel (default #1). To
+<br>understand this list, you will need to refer to documentation
+<br>on the operating system (QDOS).
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsL.html#LSCHD">LSCHD</a> and <a style="font-style: italic;" href="KeywordsL.html#LPOLL">LPOLL</a> list other information about the current
+<br>system interrupts.
+<br><br>Details of the external interrupt service list is contained
+<br>in the QDOS/SMS Reference Manual Section 6.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="LIST"></a>LIST</h1><br>Syntax: <span style="font-style: italic;">LIST </span>[<span style="font-style: italic;">#ch,</span>] [<span style="font-style: italic;">range </span><sup>*</sup>[<span style="font-style: italic;">,range</span><sup>i</sup>]<sup>*</sup> ]
+Location: <span style="font-style: italic;">QL ROM
+<br></span><br>This command lists (in ASCII form) the specified <span style="font-style: italic;">range</span> of
+<br>the currently  loaded  SuperBASIC program  to  the  specified
+<br>channel   (default   #2).   <span style="font-style: italic;">range</span>   must   be   in   the   form:
+<br>[[<span style="font-style: italic;">start_line</span>] <span style="font-style: italic;">TO </span>[<span style="font-style: italic;">end_line</span>]]
+<br><br>The default <span style="font-style: italic;">start_line</span> is 1 and the default <span style="font-style: italic;">end_line</span> is 32767,
+<br>therefore if no range is given, the <span style="font-style: italic;">LIST</span>ing range defaults to:
+<br><span style="font-style: italic;">1 TO 32767</span>.
+<br><br>Except under SMS, when the last line of the given range is
+<br>reached, a table is set up which stores the current list
+<br>range. This list range contains a list of the lines of the
+<br>program which are currently shown in #2 - if you alter one of
+<br>these lines (for example with <span style="font-style: italic;">EDIT</span> or <span style="font-style: italic;">DLINE</span>), then the listing in
+<br>#2 is re-drawn to reflect the change. Alterations to lines
+<br>outside the list range will have no effect.
+<br><br>Again, except under SMS, special note is also taken of the
+<br>program line just above the displayed listing, and the program
+<br>line just below the displayed listing - if either of these
+<br>lines is altered, then the display will scroll accordingly to
+<br>show the newly altered line on screen.
+<br><br><h3>Examples:
+<br></h3><span style="font-style: italic;">LIST #3</span>List the whole of the program
+<br>in #3
+<br><span style="font-style: italic;">LIST 1</span>List program line 1 in #2
+<br><span style="font-style: italic;">LIST 100,1000 TO</span>List lines 100 and from 1000
+<br>onwards in #2
+<br><span style="font-style: italic;">OPEN#3,SER1: LIST#3: CLOSE#3</span> will list the current program
+<br>to a printer connected to ser1.
+<br><br><h3>NOTE 1:
+<br></h3><br>Except under SMS, you may sometimes find a large chunk of
+<br>the program listing scrolling before your eyes if you alter a
+<br>line outside the range displayed in #2. This should not create
+<br>any problems and generally occurs when you press Break before
+<br>the List Range has been updated.
+<br><br><h3>NOTE 2:
+<br></h3><br>Version 2.13 (and later) of Toolkit II alters this command
+<br>so that if you are using <span style="font-style: italic;">LIST</span> to output to a file, any errors
+<br>will be reported (such as 'Device Full' or 'Not Complete').
+<br><br><h3>NOTE 3:
+<br></h3><br>Prior to SMS v2.67 <span style="font-style: italic;">LIST #ch</span> where <span style="font-style: italic;">#ch</span> does not exist would
+<br>attemp to <span style="font-style: italic;">SAVE</span> the file.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>When <a style="font-style: italic;" href="KeywordsL.html#LIST">LIST</a>ing to a file, this command is the same as <a style="font-style: italic;" href="KeywordsS.html#SAVE">SAVE</a>.
+<br><br><a style="font-style: italic;" href="KeywordsD.html#DLINE">DLINE</a>, <a style="font-style: italic;" href="KeywordsE.html#ED">ED</a>, <a style="font-style: italic;" href="KeywordsE.html#EDIT">EDIT</a>, and <a style="font-style: italic;" href="KeywordsR.html#RENUM">RENUM</a> are other commands for dealing with a
+<br>SuperBASIC program in memory.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="LIST_TASKS"></a>LIST_TASKS</h1><br>Syntax: <span style="font-style: italic;">LIST_TASKS</span> [<span style="font-style: italic;">#ch</span>]
+Location: <span style="font-style: italic;">TASKCMDS (DIY Toolkit Vol J)
+<br></span><br><span style="font-style: italic;">LIST_TASKS</span> is nearly the same as <span style="font-style: italic;">JOBS</span>, but the output is
+<br>slightly different. Each line written to the specified channel
+<br>(default #1) consists of the job name, job number, job tag and
+<br>priority.
+<br><br>A 'w' appended to the priority indicates that the job is
+<br>currently suspended.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsJ.html#JOBS">JOBS</a> is similar.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="LMAR"></a>LMAR</h1><br>Syntax: <span style="font-style: italic;">LMAR(n)</span> with <span style="font-style: italic;">n=0..255
+<br></span>Location: <span style="font-style: italic;">Beuletools
+<br></span><br>This function returns the control codes needed to set the
+<br>left margin to <span style="font-style: italic;">n</span> characters on EPSON compatible printers:
+<br><br><span style="font-style: italic;">PRINT LMAR (10)
+<br></span><br>is the same as
+<br><span style="font-style: italic;"><br>PRINT CHR$(27)&'l'&CHR$(10)
+<br></span><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsN.html#NORM">NORM</a>, <a style="font-style: italic;" href="KeywordsB.html#BLD">BLD</a>, <a style="font-style: italic;" href="KeywordsE.html#EL">EL</a>, <a style="font-style: italic;" href="KeywordsD.html#DBL">DBL</a>, <a style="font-style: italic;" href="KeywordsE.html#ENL">ENL</a>, <a style="font-style: italic;" href="KeywordsP.html#PRO">PRO</a>, <a style="font-style: italic;" href="KeywordsS.html#SI">SI</a>, <a style="font-style: italic;" href="KeywordsN.html#NRM">NRM</a>, <a style="font-style: italic;" href="KeywordsU.html#UNL">UNL</a>, <a style="font-style: italic;" href="KeywordsA.html#ALT">ALT</a>, <a style="font-style: italic;" href="KeywordsE.html#ESC">ESC</a>, <a style="font-style: italic;" href="KeywordsF.html#FF">FF</a>, <a style="font-style: italic;" href="KeywordsR.html#RMAR">RMAR</a>, <a style="font-style: italic;" href="KeywordsP.html#PAGDIS">PAGDIS</a>,
+<br><a style="font-style: italic;" href="KeywordsP.html#PAGLEN">PAGLEN</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="LN"></a>LN</h1><br>Syntax: <span style="font-style: italic;">LN (x)
+<br></span>Location: <span style="font-style: italic;">QL ROM
+<br></span><br>This function returns the natural logarithm of the given
+<br>value (in base <span style="font-style: italic;">e</span>), so that e^LN(x)=x. Due to the nature of
+<br>power numbers, the range of <span style="font-style: italic;">x</span> is <span style="font-style: italic;">0>x<=2^2046</span>.
+<br><br>Logarithms were first invented to make multiplication and
+<br>division easier, because whatever base you are working in,
+<br>multiplication  and  division  can  be  calculated  by  using
+<br>logarithms.
+<br><br>For  example,  <span style="font-style: italic;">x*y</span>  is  the  same  as  <span style="font-style: italic;">EXP(LN(x)+LN(y))</span>,  <span style="font-style: italic;">or
+<br>10^(LOG10(x)+LOG10(y))</span>;  and  <span style="font-style: italic;">x/y</span>  is  the  same  as  <span style="font-style: italic;">EXP(LN(x)-LN(y))</span>,  and
+<br><span style="font-style: italic;">10^(LOG10(x)-LOG10(y))</span>.
+<br><br>Another reason is that logarithms can make it easier to
+<br>calculate powers,  for  example, <span style="font-style: italic;">10^(p*LOG10(y))</span>  gives  the  same
+<br>answer as <span style="font-style: italic;">y^p</span>, for any value of <span style="font-style: italic;">y</span> or <span style="font-style: italic;">p</span>.
+<br><br>Another use for logarithms is to enable square roots to be
+<br>calculated. On the assumption that <span style="font-style: italic;">x*x=10^(2*LOG10(x))</span>, the square
+<br>root of a number <span style="font-style: italic;">y</span> can be calculated using the formula:
+<br><br><span style="font-style: italic;">10^ (LOG10 (y) / 2)</span>.
+<br><br>Natural  logarithms  (base  <span style="font-style: italic;">e</span>)  are  generally  used  in
+<br>theoretical  mathematics,   as   this  can   be   useful   in
+<br>differentiation, since if <span style="font-style: italic;">y=e^x</span>, d<span style="font-style: italic;">y</span>&lt;d<span style="font-style: italic;">x</span><<span style="font-style: italic;">y</span>.
+<br><br>Because  negative  values  of  <span style="font-style: italic;">x</span>  cannot  be  handled  by
+<br>logarithms (in any base - this is because <span style="font-style: italic;">x<sup>y</span></sup> must always be
+<br>greater than zero!), you will need to check for negative
+<br>values and zero values separately.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsE.html#EXP">EXP</a> converts natural logarithms to their true numbers in
+<br>base  10,  <a style="font-style: italic;" href="KeywordsL.html#LOG10">LOG10</a>  provides  logarithms  in  base  10  (common
+<br>logarithms), and <a style="font-style: italic;" href="KeywordsL.html#LOG2">LOG2</a> provides base 2 logarithms.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="LOAD"></a>LOAD</h1><br>Syntax: <span style="font-style: italic;">LOAD device_filename
+<br></span><br>or <span style="font-style: italic;">LOAD </span>[<span style="font-style: italic;">device_</span>]<span style="font-style: italic;">filename</span>  (Toolkit II)
+Location: <span style="font-style: italic;">QL ROM, Toolkit II
+<br></span><br>This command looks for a SuperBASIC program held on the
+<br>given device under the specified filename (a program file),
+<br>reporting the error 'not found' if either the device or the
+<br>filename does not exist. If found, it then clears any current
+<br>SuperBASIC program out of memory, closes all channels with a
+<br>channel number greater than #2, turns off any <span style="font-style: italic;">WHEN</span> processing,
+<br>and performs a <span style="font-style: italic;">CLS</span> on #0, #1 and #2. Each line of the program
+<br>file is loaded into memory and then parsed as if it had been
+<br>entered into the command line by the user. If any lines cannot
+<br>be parsed (ie. they would normally generate a 'bad line'
+<br>error), then the word <span style="font-style: italic;">MISTake</span> is inserted into the line after the
+<br>line number and the loading process continues.
+<br><br>Under SMS when the program has been loaded, if there have
+<br>been any errors in the program, the error 'MISTake in Program'
+<br>is reported, or any other Interpreter error, with the line
+<br>number listed.
+<br><br>Program files are stored on directory devices by the
+<br>computer as pure ASCII files, allowing them to be imported
+<br>into text editors for ease of editing (or even to be created
+<br>in separate editing programs), copied direct to a printer
+<br>(using the <span style="font-style: italic;">COPY_N</span> command), and <span style="font-style: italic;">VIEW</span>ed on screen. However, this
+<br>means that the program has to be parsed each time that it is
+<br>loaded, making  the  loading  process quite  slow.  This  can
+<br>however be circumvented by using a fast loading utility - we
+<br>highly  recommend  <span style="font-style: italic;">QLOAD</span>  from  Liberation  Software  for  this
+<br>purpose.
+<br><br>If the program file contains some lines in it which do not
+<br>have line numbers, then these are automatically executed as if
+<br>they had been typed direct into the keyboard. For example, one
+<br>method of software protection would be to turn off the Break
+<br>key on loading and then <span style="font-style: italic;">RUN</span> the program. This can be achieved
+<br>by entering the following as direct commands, with the desired
+<br>program in memory:
+<br><span style="font-style: italic;">OPEN_NEW #3,flp1_file
+<br>LIST #3
+<br>PRINT #3,'BREAK_OFF':RUN'
+<br>CLOSE #3
+<br></span><br>This actually opens a new file, and inserts as direct
+<br>commands <span style="font-style: italic;">BREAK_OFF</span> and <span style="font-style: italic;">RUN</span> after the body of the program (<span style="font-style: italic;">LIST</span> in
+<br>this instance is similar to <span style="font-style: italic;">SAVE</span> except that it allows you to
+<br>add further text to the end of the program file). These two
+<br>commands will be interpreted immediately that <span style="font-style: italic;">flp1_file</span> has been
+<br>loaded, thus preventing anyone from looking at the listing
+<br>(the break key is disabled and the program immediately <span style="font-style: italic;">RUN</span>).
+<br>Unfortunately though, this does not really work very well, as
+<br>you cannot stop the user from <span style="font-style: italic;">VIEW</span>ing the file on screen!!
+<br><br>If you have Toolkit II present, then if a device is not
+<br>specified, or <span style="font-style: italic;">LOAD</span> cannot find the specified file on the given
+<br>device, then Toolkit II will add the default data device to
+<br>the filename. If the file still cannot be found, then the
+<br>default program device is used instead.
+<br><br><h3>Example 1:
+<br></h3><br>To load a file Test1_bas on mdv1_ (the default data device
+<br><br>is flp1_ and the default program device is flp2_):
+<br><br><span style="font-style: italic;">LOAD mdv1_Test1_bas
+<br></span><br>If Toolkit II is present and Test1_bas is not on mdv1_ (or
+<br><br>there is not a microdrive cartridge in mdv1_), the default
+<br><br>data device is added, equivalent to:
+<br><br><span style="font-style: italic;">LOAD flp1_mdv1_Test1_bas
+<br></span><br>If the file is still not found, the default program device
+<br><br>is used, which is equivalent to:
+<br><br><span style="font-style: italic;">LOAD flp2_mdv1_Test1_bas
+<br></span><br><h3>Example 2:
+<br></h3><br>Some examples showing the capabilities of <span style="font-style: italic;">LOAD</span>:
+<br><br><span style="font-style: italic;">LOAD 'n'&station&'_flp1_'&file$
+<br></span><br>(Load the given file from flp1_ on the given network
+<br><br>station.)
+<br><br><span style="font-style: italic;">LOAD ser1c
+<br></span><br>(Load a file from the device attached to ser1.)
+<br><br><span style="font-style: italic;">LOAD neti_3
+<br></span><br>(Load a file which will be <span style="font-style: italic;">SAVE</span>d over the network by station
+<br><br>3.)
+<br><br><h3>NOTE 1:
+<br></h3><br><span style="font-style: italic;">LOAD</span> can leave error trapping enabled on JS and MG ROMs -
+<br>see <span style="font-style: italic;">WHEN ERRor</span> for details.
+<br><br><h3>NOTE 2:
+<br></h3><br>Minerva users will notice that in current versions, <span style="font-style: italic;">LOAD
+<br></span>clears both screens even if #0, #1 and #2 are all on the same
+<br>screen.
+<br><br><h3>NOTE 3:
+<br></h3><br><span style="font-style: italic;">LOAD</span> allows programs which have been created on Minerva
+<br>using integer tokenisation to be loaded into any other ROM
+<br>without any problems - any numbers in the program file are
+<br>automatically  converted  to  floating  point  tokens  (or
+<br>long/short integers if integer tokenisation is enabled), thus
+<br>preventing any problems.
+<br><br><h3>NOTE 4:
+<br></h3><br><span style="font-style: italic;">LOAD</span> cannot be used from within a <span style="font-style: italic;">PROCedure</span> or <span style="font-style: italic;">FuNction</span> unless you
+<br>have a JS ROM, MGx ROM, SMS or Minerva v1.83+. On other
+<br>implementations, this causes the error 'Not Implemented'.
+<br><br><h3>NOTE 5:
+<br></h3><br>Except under SMS, line numbers can be added to a numberless
+<br>program file using <span style="font-style: italic;">AUTO</span> - please refer to <span style="font-style: italic;">AUTO</span>.
+<br><br><h3>NOTE 6:
+<br></h3><br>On Minerva v1.86, <span style="font-style: italic;">LOAD</span> could become confused when used
+<br>inside a program.
+<br><br><h3>NOTE 7:
+<br></h3><br>Since Toolkit II v2.22 (and on Minerva), <span style="font-style: italic;">LOAD</span> will refuse to
+<br>try and load a file unless its file type is 0 (see <span style="font-style: italic;">FTYP</span>).
+<br><br><h3>NOTE 8:
+<br></h3><br>Any commands which appear on the same line as <span style="font-style: italic;">LOAD</span> (after
+<br>the <span style="font-style: italic;">LOAD</span> command) will be ignored.
+<br><br><h3>SMS NOTES:
+<br></h3><br><span style="font-style: italic;">LOAD</span> has been re-written so that it will also load files
+<br>saved with the QLOAD utility from Liberation Software (which
+<br>is now part of SMS).
+<br><br>If the specified filename does not end in _SAV or _BAS,
+<br>then if the specified filename does not exist, before trying
+<br>the default data device and the default program device (see
+<br>above), <span style="font-style: italic;">LOAD</span> will first of all try the filename with _BAS
+<br>appended and if still not found, will try the filename with
+<br>_SAV appended.
+<br><br>So if the default data device is flp1_ and the default
+<br>program device is flp2_, <span style="font-style: italic;">LOAD ram1_TEST</span> will look for the following
+<br>files:-
+<br><br>ram1_TEST
+<br><br>ram1_TEST_bas
+<br><br>ram1_TEST_sav
+<br><br>flp1_ram1_TEST
+<br><br>flp1_ram1_TEST_bas
+<br><br>flp1_ram1_TEST_sav
+<br><br>flp2_ram1_TEST
+<br><br>flp2_ram1_TEST_bas
+<br><br><span style="font-style: italic;">flp2_ram1_TEST_sav
+<br><br></span>Only if none of these filenames exist will it report a 'Not
+<br>Found' error.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsS.html#SAVE">SAVE</a> saves the current SuperBASIC program in memory.
+<br><br><a style="font-style: italic;" href="KeywordsL.html#LRUN">LRUN</a> automatically runs the program after loading.
+<br><br><a style="font-style: italic;" href="KeywordsM.html#MERGE">MERGE</a> and <a style="font-style: italic;" href="KeywordsM.html#MRUN">MRUN</a> are similar commands.  Also see <a style="font-style: italic;" href="KeywordsQ.html#QLOAD">QLOAD</a> and <a style="font-style: italic;" href="KeywordsR.html#RELOAD">RELOAD</a>.
+<br><br><a style="font-style: italic;" href="KeywordsE.html#EXEC">EXEC</a> allows you to load a multitasking program (normally a
+<br>machine code program or a compiled program).
+<br><br><a style="font-style: italic;" href="KeywordsL.html#LBYTES">LBYTES</a> allows you to load a section of memory.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="LOADPIC"></a>LOADPIC</h1><br>Syntax: <span style="font-style: italic;">LOADPIC file$
+<br></span>Location: <span style="font-style: italic;">PICEXT
+<br></span><br>This command will load an uncompressed 32K screen file and
+<br>display it on the main screen. - This works exactly the same
+<br>as <span style="font-style: italic;">LBYTES file$,131072</span>. Note that <span style="font-style: italic;">LOADPIC</span> needs the full filename to be
+<br>supplied as a string.
+<br><br><h3>Example:
+<br></h3><span style="font-style: italic;">LOADPIC "flp1_Example_scr"
+<br></span><br><h3>NOTE 1:
+<br></h3><br><span style="font-style: italic;">LOADPIC</span> assumes that the screen will be located at $20000 and
+<br>will therefore not work on Minerva's second screen.
+<br><br><h3>NOTE 2:
+<br></h3><br><span style="font-style: italic;">LOADPIC</span> will not work on high resolution screens as it
+<br>expects the screen to be 512x256 pixels.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsS.html#SAVEPIC">SAVEPIC</a>, <a style="font-style: italic;" href="KeywordsS.html#SBYTES">SBYTES</a>, <a style="font-style: italic;" href="KeywordsL.html#LBYTES">LBYTES</a>, <a style="font-style: italic;" href="KeywordsS.html#SCREEN">SCREEN</a>, <a style="font-style: italic;" href="KeywordsE.html#EXPAND">EXPAND</a>, <a style="font-style: italic;" href="KeywordsC.html#COMPRESS">COMPRESS</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="LOCal"></a>LOCal</h1><br>Syntax: <span style="font-style: italic;">LOCal var</span><sup>1</sup> <sup>*</sup>[<span style="font-style: italic;">, var</span><sup>x</sup> [<span style="font-style: italic;">(index</span><sup>1</sup> <sup>*</sup>[<span style="font-style: italic;">index</span><sup>i</sup>]<sup>*</sup><span style="font-style: italic;"> )</span>] ]<sup>*
+<br></sup>Location: <span style="font-style: italic;">QL ROM
+<br></span><br>This command must only be used as the first executable line
+<br>within either a <span style="font-style: italic;">PROCedure</span> or <span style="font-style: italic;">FuNction</span> definition block (ie. it can
+<br>only be preceded by <span style="font-style: italic;">REMark</span> lines) - if it is used elsewhere, it
+<br>will cause a 'bad line' error when the program is <span style="font-style: italic;">RUN</span>.  Under
+<br>SMS's improved interpreter the error 'Misplaced LOCal' will be
+<br>reported.
+<br><br><span style="font-style: italic;">LOCal</span> must be followed by a list of variables which are said
+<br>to be 'local' to that definition block. This means that
+<br>although a variable may already have been used within the main
+<br>body of the program, if it is local to that definition block,
+<br>on entry its value is stored and it is then made 'unset'
+<br>(without value), and can then be used for any means within
+<br>that  definition  block  (or  within  any  sub-procedure  or
+<br>sub-function  called  by  that  definition  block).  When  the
+<br>definition block is left (with <span style="font-style: italic;">END DEFine</span> or <span style="font-style: italic;">RETurn</span>), the variable
+<br>is restored to its original value.
+<br><br>Arrays can also be made <span style="font-style: italic;">LOCal</span> by placing an index after
+<br>their name, which is used to specify their size (as with <span style="font-style: italic;">DIM</span>).
+<br>Indeed this is the only way in which a simple variable can
+<br>also be used as an array.
+<br><br>In any event, the parameters contained in the definition
+<br>line are local to that definition block and can also be safely
+<br>used in the main program - these are in fact swapped with the
+<br>actual parameters passed for the duration of the definition
+<br>block (see <span style="font-style: italic;">DEFine PROCedure</span>).
+<br><br><h3>Example:
+<br></h3><br>This program shows the status of three variables at various
+<br><br>stages - note how <span style="font-style: italic;">x</span> can be used as an array in the main
+<br><br>program and a simple variable within the <span style="font-style: italic;">PROCedure</span> definition
+<br><br>block:
+<br><span style="font-style: italic;">100 DIM x(10)
+<br>110 test$='Wait'
+<br>120 moder=4:x(1)=10
+<br>130 PRINT moder,test$,x(1)
+<br>140 Change_vars
+<br>150 PRINT moder,test$,x(1)
+<br>160 DEFine PROCedure Change_vars
+<br>170   LOCal moder(2,10),x,test$
+<br>180   PRINT moder(1,5),test$,x
+<br>190   test$='Changed':moder(1,5)=10
+<br>200   x=5
+<br>210   PRINT moder(1,5),test$,x
+<br>220 END DEFine
+<br></span><br>This produces the following output:
+<br>4Wait    10line 130
+<br>0*       *line 180, local variables
+<br>10Changed 5line 210, local variables
+<br>4Wait    10line 150
+<br><br><h3>NOTE 1:
+<br></h3><br>On pre MG ROMs, any more than nine parameters may corrupt
+<br>the program, by replacing names with <span style="font-style: italic;">PRINT</span> towards the end of a
+<br>program. This can however be circumvented by increasing the
+<br>size of the Name Table by 8 bytes for each name (plus a little
+<br>more for luck), by using the line: <span style="font-style: italic;">CALL PEEK_W(282)+36,N
+<br></span><br>This bug is fixed on the ST/QL Emulator (with E-Init
+<br>software v1.27+), Minerva and SMS.
+<br><br><h3>NOTE 2:
+<br></h3><br>On most ROMs, you cannot <span style="font-style: italic;">LOCal</span> the names of the parameters
+<br>passed to the <span style="font-style: italic;">PROCedure</span> or <span style="font-style: italic;">FuNction</span>. ROMs which can cope with this
+<br>will simply set the passed value to undefined. Type in the
+<br>following small procedure <span style="font-style: italic;">test</span> and enter from the command line
+<br><span style="font-style: italic;">test 1,2</span>:
+<br><span style="font-style: italic;">100 DEFine PROCedure test(a,b)
+<br>110  LOCal a
+<br>120  PRINT a,b
+<br>130 END DEFine
+<br></span><br>If your interpreter behaves correctly then <span style="font-style: italic;">test 3,2</span> will
+<br>write:
+<br><br>*       2
+<br><br>SMS will print:
+<br><br>0       2
+<br><br>Any reference to <span style="font-style: italic;">a</span> in the procedure, eg. <span style="font-style: italic;">a=a+1</span>, will break
+<br>with an error in expression (-17) because the <span style="font-style: italic;">LOCal</span> declaration
+<br>of  <span style="font-style: italic;">a</span>  undefined  the  passed  parameter.  You  would  need  to
+<br>expressly set <span style="font-style: italic;">a</span> within the <span style="font-style: italic;">PROCedure</span> for this to work.
+<br><br>This works correctly on Minerva ROMs (ie. <span style="font-style: italic;">a</span> is unset by the
+<br><span style="font-style: italic;">LOCal</span> command).
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsD.html#DIM">DIM</a> sets up arrays normally.
+<br><br><a style="font-style: italic;" href="KeywordsD.html#DEFine PROCedure">DEFine PROCedure</a>, <a style="font-style: italic;" href="KeywordsD.html#DEFine FuNction">DEFine FuNction</a> and <a style="font-style: italic;" href="KeywordsE.html#END DEFine">END DEFine</a> are used to identify
+<br>definition blocks.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="LOCK"></a>LOCK</h1><br>Syntax: <span style="font-style: italic;">LOCK file,code$,code
+<br></span>Location: <span style="font-style: italic;">CRYPTAGE
+<br></span><br>This command encodes the given <span style="font-style: italic;">file</span> (the full filename must
+<br>be stated) using two codes, a string and a number, for
+<br>security.
+<br><span style="font-style: italic;"><br>Code$</span> can be any string and the <span style="font-style: italic;">code</span> number (an integer) must
+<br>range between 0 and 32767.
+<br><br>Decoding with <span style="font-style: italic;">UNLOCK</span> is only possible if both codes are
+<br>known, so do not forget them otherwise the file will be lost.
+<br><br><h3>Example:
+<br></h3><br><span style="font-style: italic;">LOCK ram1_secret_txt,"Phew",7241
+<br></span><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsU.html#UNLOCK">UNLOCK</a> has the same syntax as <a style="font-style: italic;" href="KeywordsL.html#LOCK">LOCK</a> but deciphers <a style="font-style: italic;" href="KeywordsL.html#LOCK">LOCK</a>ed files.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="LOG2"></a>LOG2</h1><br>Syntax: <span style="font-style: italic;">LOG2 (x)
+<br></span>Location: <span style="font-style: italic;">Math Package
+<br></span><br>This function returns the logarithm to the base 2 of the
+<br>given number, which is calculated as <span style="font-style: italic;">LN(x)/LN(2)</span>.
+<br><br><h3>Example:
+<br></h3><br>The greatest number which can be handled by SuperBASIC is
+<br><br>returned by <span style="font-style: italic;">INF</span> as 1.61585E616. This is exactly 2<sup>2047</sup>,
+<br><br>because <span style="font-style: italic;">LOG2(INF)=2047</span> (ie. <span style="font-style: italic;">x=2^LOG2(x)</span>).
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsL.html#LOG10">LOG10</a>, <a style="font-style: italic;" href="KeywordsL.html#LN">LN</a>, <a style="font-style: italic;" href="KeywordsI.html#INF">INF</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="LOG10"></a>LOG10</h1><br>Syntax: <span style="font-style: italic;">LOG10 (x)
+<br></span>Location: <span style="font-style: italic;">QL ROM
+<br></span><br>The function <span style="font-style: italic;">LOG10</span> calculates the logarithm to the base 10
+<br>of the given number. For the non-mathematicians out there:
+<br><span style="font-style: italic;">x=10^LOG10 (x)</span>.
+<br><br><h3>Examples:
+<br></h3><span style="font-style: italic;">100 INPUT "Integer Number:"!x
+<br>110 PRINT "This number has"!INT(1+LOG10(ABS(x)))!"digits."
+<br></span><br>The trivial function <span style="font-style: italic;">LOGN</span> finds the logarithm of <span style="font-style: italic;">x</span> to any
+<br><br>base <span style="font-style: italic;">b</span> which makes sense:
+<br><span style="font-style: italic;">10 DEFine FuNction LOGN (x,b)
+<br>20  RETurn LN(x)/LN(b)
+<br>30 END DEFine LOGN
+<br></span><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsL.html#LN">LN</a>, <a style="font-style: italic;" href="KeywordsL.html#LOG2">LOG2</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="LOOKUP%"></a>LOOKUP%</h1><br>Syntax: <span style="font-style: italic;">LOOKUP% (search$)
+<br></span>Location: <span style="font-style: italic;">Function (DIY Toolkit - Vol R)
+<br></span><br>This function expects you to pass a string parameter which
+<br>contains a name used by the SuperBASIC interpreter.  This name
+<br>can be a machine code Procedure or Functiom (such as are
+<br>described here in this manual), or a SuperBASIC variable,
+<br><span style="font-style: italic;">PROCedure</span> or <span style="font-style: italic;">FuNction</span>.
+<br><br>If the specified name is recognised then <span style="font-style: italic;">LOOKUP%</span> returns the
+<br>number of its entry in the name list.  If the name is not
+<br>recognised, then the value -7 is returned.
+<br><br><h3>Examples:
+<br></h3><span style="font-style: italic;">PRINT LOOKUP% ('PRINT')
+<br><br></span>will return 0 on most QL ROMs as this is normally the first
+<br>name in the name list.
+<br><span style="font-style: italic;">PRINT LOOKUP% ('FSERVE')
+<br><br></span>can be used to see if Toolkit II's fileserver is available.
+<br><br><h3>NOTE 1:
+<br></h3><br>This  function  will  only  look  at  the  name  list  for
+<br>SuperBASIC Job 0, so although it can be used from within a
+<br>compiled task to look at Job 0, it cannot be used to look at a
+<br>multiple BASIC interpreter!!
+<br><br><h3>NOTE 2:
+<br></h3><br>This function will only work correctly with machine code
+<br>Procedures and Functions on SMS.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See<a style="font-style: italic;" href="KeywordsE.html#ELIS, KEY_ADD">ELIS, KEY_ADD</a>.
+<br><br><a style="font-style: italic;" href="Keywords_.html#_NAME$">_NAME$</a> allows you to look at the name list.
+<br><br>See also <a style="font-style: italic;" href="KeywordsF.html#FLIS">FLIS</a> and <a style="font-style: italic;" href="KeywordsF.html#FIND">FIND</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="LOWER$"></a>LOWER$</h1><br>Syntax: <span style="font-style: italic;">LOWER$ (string$)
+<br></span>Location: <span style="font-style: italic;">Function (DIY Toolkit - Vol R)
+<br></span><br>This function takes the given string and converts any upper
+<br>case letters to lower case and then returns the whole string.
+<br>This will convert both UK and accented characters, although
+<br>you may have to modify the source code to enable it to work
+<br>with some international character sets.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>Compare <a style="font-style: italic;" href="KeywordsU.html#UPPER$">UPPER$</a>.
+<br><br>See also <a style="font-style: italic;" href="KeywordsC.html#CONVCASE">CONVCASE</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="LPOLL"></a>LPOLL</h1><br>Syntax: <span style="font-style: italic;">LPOLL </span>[<span style="font-style: italic;">#ch</span>]
+Location: <span style="font-style: italic;">Beuletools
+<br></span><br>This command lists all polling interrupts and their link
+<br>pointers to the given channel (default #1). While this text
+<br>was being written, <span style="font-style: italic;">LPOLL</span> produced the following list:
+<br><br>List of polled tasks:
+<br>linkpointerroutine
+<br>1. $0002B5D8$000C1434
+<br>2. $0002B8B8  $0009E0C2
+<br>3. $0002CAAA  $000BD056
+<br>4. $0002B840  $0009E988
+<br><br>To understand these numbers, a deep knowledge of assembly
+<br>language and the operating system is necessary. Generally,
+<br>each interrupt is a kind of background job which does not
+<br>appear in the job list. For further information, refer to
+<br>system documentation.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsL.html#LSCHD">LSCHD</a> and <a style="font-style: italic;" href="KeywordsL.html#LINT2">LINT2</a> list other internal routines which are running
+<br>in the interrupts. <a style="font-style: italic;" href="KeywordsJ.html#JOBS">JOBS</a> lists all jobs.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="LPR_USE"></a>LPR_USE</h1><br>Syntax: <span style="font-style: italic;">LPR_USE device
+<br></span>Location: <span style="font-style: italic;">Beuletools
+<br></span><br><span style="font-style: italic;">LPR_USE</span> sets the default output device for <span style="font-style: italic;">LPRINT</span> and <span style="font-style: italic;">LLIST</span>. This
+<br>can be any valid QDOS device name, provided it is not longer
+<br>than 24 characters. The definition can be found with <span style="font-style: italic;">LPRINT$</span>, the
+<br>default is SER1 (ie. if <span style="font-style: italic;">LPR_USE</span> has not yet been used).
+<br><br><h3>Examples:
+<br></h3><span style="font-style: italic;">LPR_USE par
+<br>LPR_USE ram1_print_dat
+<br>LPR_USE n2_ser1
+<br>LPR_USE con
+<br></span><br><h3>NOTE:
+<br></h3><br><span style="font-style: italic;">LPR_USE</span> does not check the validity of the given device,  so
+<br>even completely wrong parameters are accepted: <span style="font-style: italic;">LPR_USE #2</span> will set
+<br><span style="font-style: italic;">LPRINT$ to "2"</span>, <span style="font-style: italic;">LPRINT$</span> and <span style="font-style: italic;">LLIST</span> will report the error.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsL.html#LLIST">LLIST</a>, <a style="font-style: italic;" href="KeywordsL.html#LPRINT$">LPRINT$</a>, <a style="font-style: italic;" href="KeywordsL.html#LPRINT$">LPRINT$</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="LPUT"></a>LPUT</h1><br>Syntax:<span style="font-style: italic;"> LPUT</span> [<span style="font-style: italic;">#ch\position,</span>] [<span style="font-style: italic;">item </span><sup>*</sup>[<span style="font-style: italic;">,item</span><sup>i</sup>]<sup>*</sup> ..]
+<br><br>or<span style="font-style: italic;"> LPUT</span> [<span style="font-style: italic;">#ch,</span>] [<span style="font-style: italic;">item</span><sup> *</sup>[<span style="font-style: italic;">,item</span><sup>i</sup>]<sup>*</sup> ..]
+Location: <span style="font-style: italic;">SMSQ/E
+<br></span><br>This command is the complement to <span style="font-style: italic;">LGET</span>, in that it places
+<br>the longword value for each <span style="font-style: italic;">item</span> into the specified channel
+<br>(default #3) at the current file position (or the specified
+<br><span style="font-style: italic;">position</span> if the first variant is used).
+<br><br><h3>NOTE:
+<br></h3><br><span style="font-style: italic;">LPUT</span> is affected by <span style="font-style: italic;">TRA</span>.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsB.html#BPUT">BPUT</a> and <a style="font-style: italic;" href="KeywordsL.html#LGET">LGET</a>.
+<br><br><a style="font-style: italic;" href="KeywordsW.html#WPUT">WPUT</a> and <a style="font-style: italic;" href="KeywordsP.html#PUT">PUT</a> are also similar.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="LRESFAST"></a>LRESFAST</h1><br>Syntax: <span style="font-style: italic;">LRESFAST mc_file
+<br></span>Location: <span style="font-style: italic;">ATARI_REXT for QVME (v2.31+)
+<br></span><br>This command is the same as <span style="font-style: italic;">LRESPR</span> except that it will only
+<br>work on a file in RAM disk and loads that file into FastRAM on
+<br>the Atari TT.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsL.html#LRESPR">LRESPR</a> and also<a style="font-style: italic;" href="KeywordsR.html#RESFAST">RESFAST</a>, <a style="font-style: italic;" href="KeywordsF.html#FREE_FAST.
+">FREE_FAST.
+</a><br>Compare<a style="font-style: italic;" href="KeywordsR.html#RESPR">RESPR</a>, <a style="font-style: italic;" href="KeywordsA.html#ALCHP">ALCHP</a> and <a style="font-style: italic;" href="KeywordsF.html#FREE_MEM">FREE_MEM</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="LRESPR"></a>LRESPR</h1><br>Syntax: <span style="font-style: italic;">LRESPR mc_file
+<br></span>Location: <span style="font-style: italic;">Toolkit II, THOR XVI
+<br></span><br>This command is used as a quick way of loading and starting
+<br>machine code routines (mainly Toolkits). It will grab enough
+<br>memory from the Resident Procedure Area to hold the given
+<br>file, load the file into memory and then call it. Toolkit II
+<br>sub-directories and the default data device are supported.
+<br><br><span style="font-style: italic;">LRESPR</span>  could  be  re-written  as  the  following  SuperBASIC
+<br>procedure:
+<br><br><span style="font-style: italic;">100 DEFine PROCedure LRESPR (mc_file$)
+<br><br>110  LOCal length,adress
+<br><br>120  length=FLEN(\mc_file$)
+<br><br>130  adress=RESPR(length)
+<br><br>140  LBYTES mc_file,adress
+<br><br>150  CALL adress
+<br><br>160 END DEFine LRESPR
+<br></span><br><h3>Examples:
+<br></h3><span style="font-style: italic;">LRESPR BeuleTools_bin
+<br>LRESPR ram1_MyTool_obj
+<br></span><br><h3>NOTE 1:
+<br></h3><br>It is impossible to remove a program loaded with <span style="font-style: italic;">LRESPR</span> so
+<br>that the occupied memory can be given back for other purposes.
+<br><br><h3>NOTE 2:
+<br></h3><br>On version 2.23 (or later) of Toolkit II, <span style="font-style: italic;">LRESPR</span> works even
+<br>if a job is running because in this case, it will load the
+<br>file into the Common Heap.
+<br><br><span style="font-style: italic;">CLCHP</span>, <span style="font-style: italic;">NEW</span>, <span style="font-style: italic;">CLEAR</span> etc. do  not remove code loaded in this way,
+<br>so a crash is impossible.
+<br><br><h3>NOTE 3:
+<br></h3><br>When using <span style="font-style: italic;">LRESPR</span> (or any other means) to link in extensions
+<br>to SuperBASIC, bear in mind that pre JS ROMs needed the
+<br>command <span style="font-style: italic;">NEW</span> (or <span style="font-style: italic;">LOAD</span> /<span style="font-style: italic;"> LRUN</span>) before those commands will be
+<br>available. This happens on MG ROMs sometimes as well.
+<br><br><h3>NOTE 4:
+<br></h3><br>If this command is used to link a toolkit into a MultiBASIC
+<br>under Minerva or a multiple SBASIC under SMS, then that
+<br>toolkit will be local to that BASIC interpreter - when you
+<br>remove that BASIC, the toolkit will also disappear.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See the second example for <a style="font-style: italic;" href="KeywordsA.html#ALCHP">ALCHP</a>.
+<br><br>See also <a style="font-style: italic;" href="KeywordsL.html#LINKUP">LINKUP</a> and <a style="font-style: italic;" href="KeywordsL.html#LRESFAST">LRESFAST</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="LRUN"></a>LRUN</h1><br>Syntax: <span style="font-style: italic;">LRUN device_filename
+<br></span><br>or <span style="font-style: italic;">LRUN </span>[<span style="font-style: italic;">device_</span>]<span style="font-style: italic;">filename</span>    (Toolkit II)
+Location: <span style="font-style: italic;">QL ROM, Toolkit II
+<br></span><br>This command is exactly the same as <span style="font-style: italic;">LOAD</span> except for the fact
+<br>that the program is automatically <span style="font-style: italic;">RUN</span> as soon as loading is
+<br>complete.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsL.html#LOAD">LOAD</a>!
+<br><hr style="width: 100%; height: 2px;"><h1><a name="LSCHD"></a>LSCHD</h1><br>Syntax: <span style="font-style: italic;">LSCHD </span>[<span style="font-style: italic;">#ch</span>]
+Location: <span style="font-style: italic;">Beuletools
+<br></span><br>This command lists all scheduler loop tasks with their
+<br>linked pointers to the specified channel (default #1). While
+<br>this text was being written, the following list was produced:
+<br><br>List of scheduler loop tasks:
+<br>link pointer  routine
+<br>1. $0002B848  $0009E9C0
+<br>2. $0002D140  $000ACC2A
+<br>3. $0002C0F0  $000B685C
+<br>4. $0002B648  $000C1572
+<br>5. $000B3964  $000AFAEE
+<br>6. $000B5FDA  $000B50FE
+<br>7. $00001206  $0000120E
+<br>8. $00002D7C  $00002D90
+<br>9. $00003504  $0000350C
+<br><br>An in-depth knowledge of the operating system and machine
+<br>code is necessary to understand this list. Please refer to the
+<br>operating system documentation.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsL.html#LPOLL">LPOLL</a>, <a style="font-style: italic;" href="KeywordsL.html#LINT2">LINT2</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="LWC$"></a>LWC$</h1><br>Syntax: <span style="font-style: italic;">LWC$ (string$)
+<br></span>Location: <span style="font-style: italic;">LWCUPC
+<br></span><br>The function exchanges all upper case characters in the
+<br>given string to lower case characters and returns the result.
+<br>Only the standard alphabet is recognised - umlauts etc. are
+<br>ignored.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsU.html#UPC$">UPC$</a> and <a style="font-style: italic;" href="KeywordsU.html#UPPER$">UPPER$</a> return the string in upper case characters.
+<br></div>
+</body>
+</html>
