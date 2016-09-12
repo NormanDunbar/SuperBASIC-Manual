@@ -1,0 +1,37 @@
+line 22 column 13 - Warning: discarding unexpected </hr>
+line 50 column 13 - Warning: discarding unexpected </hr>
+line 94 column 255 - Warning: <a> discarding newline in URI reference
+line 119 column 257 - Warning: <a> discarding newline in URI reference
+line 446 column 26 - Warning: unescaped & which should be written as &amp;
+line 649 column 60 - Warning: unescaped & which should be written as &amp;
+line 649 column 61 - Warning: unescaped & or unknown entity "&10"
+line 790 column 35 - Warning: unescaped & which should be written as &amp;
+line 830 column 42 - Warning: unescaped & or unknown entity "&CHR"
+line 161 column 16 - Warning: <a> escaping malformed URI reference
+line 161 column 90 - Warning: <a> escaping malformed URI reference
+line 161 column 177 - Warning: <a> escaping malformed URI reference
+line 2 column 1 - Warning: <html> proprietary attribute "xmlns:v"
+Info: Doctype given is "-//W3C//DTD HTML 4.0 Transitional//EN"
+Info: Document content looks like HTML 4.01 Strict
+Info: No system identifier in emitted doctype
+Tidy found 13 warnings and 0 errors!
+
+URIs must be properly escaped, they must not contain unescaped
+characters below U+0021 including the space character and not
+above U+007E. Tidy escapes the URI for you as recommended by
+HTML 4.01 section B.2.1 and XML 1.0 section 4.2.2. Some user agents
+use another algorithm to escape such URIs and some server-sided
+scripts depend on that. If you want to depend on that, you must
+escape the URI on your own. For more information please refer to
+http://www.w3.org/International/O-URL-and-ident.html
+
+About HTML Tidy: https://github.com/htacg/tidy-html5
+Bug reports and comments: https://github.com/htacg/tidy-html5/issues
+Official mailing list: https://lists.w3.org/Archives/Public/public-htacg/
+Latest HTML specification: http://dev.w3.org/html5/spec-author-view/
+Validate your HTML documents: http://validator.w3.org/nu/
+Lobby your company to join the W3C: http://www.w3.org/Consortium
+
+Do you speak a language other than English, or a different variant of 
+English? Consider helping us to localize HTML Tidy. For details please see 
+https://github.com/htacg/tidy-html5/blob/master/README/LOCALIZE.md
