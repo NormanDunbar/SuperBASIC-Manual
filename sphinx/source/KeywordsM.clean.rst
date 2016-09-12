@@ -390,7 +390,7 @@ MATCOUNT
 
 +----------+-------------------------------------------------------------------+
 | Syntax   || MATCOUNT (array, value)  or                                      |
-|          || MATCOUNT (array1, array2)                                         |
+|          || MATCOUNT (array1, array2)                                        |
 +----------+-------------------------------------------------------------------+
 | Location || Math Package                                                     |
 +----------+-------------------------------------------------------------------+
@@ -2324,7 +2324,7 @@ Visible Screen:
 Blank Screen:
     The specified screen is invisible to the user (allows background work to be carried out). 
 
-::
+That's the definitions out of the way, and hopefully, they will provide a better understanding of what is to follow. The command::
     
     OPEN#3,scr_448x200a32x16
     
@@ -2351,7 +2351,6 @@ parameters, it is easier to split it into two sections: toggling current
 values and setting absolute values.
 
 **Toggling the Screen Parameters**
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This uses the format MODE 64+n,-1, where:
 
@@ -2432,24 +2431,50 @@ Changing the default screen will again take precedence to all other
 changes.
 
 **Dual Screen Examples**
-.. *********** YOU ARE HERE ************************
-MODE 4
- change the Default Screen to MODE 4 and re-draw all currently opened
-windows on the Default Screen. MODE 64+32,-1
- toggle current Default Screen. MODE 64+32+16,-1
- toggle current Default Screen and show to user. MODE-17791,-1
- blank out Other Screen and then force it into 4-colour mode, redrawing
-all windows: t = 1 + 4 m = 1\*1 + 0\*4 c = -16384 -17791 = -128 + m -
-256\*t + c
+
+::
+
+    MODE 4
+
+change the Default Screen to MODE 4 and re-draw all currently opened
+windows on the Default Screen. 
+
+::
+
+    MODE 64+32,-1
+
+toggle current Default Screen. 
+
+::
+
+    MODE 64+32+16,-1
+
+toggle current Default Screen and show to user. 
+
+::
+
+    MODE -17791,-1
+
+blank out Other Screen and then force it into 4-colour mode, redrawing
+all windows, Where does -17791 come from? The formula given above::
+
+    -128 + m - 256*t + c
+
+Into which we substitute the following::
+    
+    t = 1 + 4 
+    m = 1*1 + 0*4 
+    c = -16384
 
 Care must however be taken when opening channels if the two screens are
 in different modes - on versions of Minerva earlier than v1.97, if you
 open a channel on the non-Displayed Screen, it will have the
 characteristics of a window opened in the mode of the Displayed Screen
 (although sadly this does not mean that you can have a MODE 4 window in
-the middle of a MODE 8
- screen). To ensure that the current Default Screen is the current
-Displayed Screen, use: MODE -128 + DEFAULT\_SCR \* 16 - 256 \* 16, -1
+the middle of a MODE 8  screen). To ensure that the current Default 
+Screen is the current Displayed Screen, use:: 
+
+    MODE -128 + DEFAULT_SCR * 16 - 256 * 16, -1
 
 **Q-EMULATOR NOTE**
 
@@ -2501,43 +2526,71 @@ MORE
 | Location |  MORE (DIY Toolkit - Vol V)                                       |
 +----------+-------------------------------------------------------------------+
 
-This command adds quite a sophisticated file viewing facility to the QL
-which far surpasses the simple Toolkit II VIEW command. In its simplest
+This command adds a quite sophisticated file viewing facility to the QL
+which far surpasses the simple Toolkit II VIEW command. 
+
+In its simplest
 form, MORE will open a channel to the specified filename (adding the
 data default directory if the file does not exist) and display it in the
 specified window channel (default #1). If #ch does not refer to a window
 or is #0, then bad parameter will be reported. The file will then be
 displayed in the specified channel, one window full at a time. #0 is
 used by the command to display the length of the file in bytes and the
-number of the last byte displayed in the window. You can move around the
-file by using the following keys: <ENTER>Allows you to enter a file
-position to look at (this will be the first byte displayed in the
-window). <ALT><UP>This moves back up the file one page at a time.
-<ALT><DOWN>This moves down the file one page at a time. <DOWN>Move down
-the file one line <ESC>Leave MORE. MORE can however, also be used to
-look at the QL's memory (or that on a networked computer) by using the
+number of the last byte displayed in the window. 
+
+You can move around the
+file by using the following keys: 
+
+- <ENTER> - Allows you to enter a file position to look at (this will be the first byte displayed in the window). 
+- <ALT><UP> - This moves back up the file one page at a time.
+- <ALT><DOWN> - This moves down the file one page at a time. 
+- <DOWN> - Move down the file one line.
+- <ESC> - Leave MORE. 
+
+MORE can however, also be used to look at the QL's memory (or that on a networked computer) by using the
 MEM device. In this mode, only the address of the last byte on screen is
-shown in #0 - there is no file length. For example: MORE #2,MEM
- will allow you to use MORE to page through the whole of the QL's
-memory. MORE #2,n2\_MEM
- allows you to page through the whole of another computer's memory. OPEN
-#3,MEM7\_60p:PRINT #3,'Hello World':CLOSE #3
- creates a permanent buffer (MEM7) and stores two words in it. MORE
-#2,MEM7
- allows you to look at the contents of the buffer MEM7.
+shown in #0 - there is no file length. For example:: 
+
+    MORE #2,MEM
+    
+will allow you to use MORE to page through the whole of the QL's
+memory. 
+
+::
+
+    MORE #2,n2_MEM
+
+allows you to page through the whole of another computer's memory. 
+
+::
+
+    OPEN #3,MEM7_60p: PRINT #3,'Hello World': CLOSE #3
+
+creates a permanent buffer (MEM7) and stores two words in it. If you follow the above by::
+
+    MORE #2,MEM7
+
+then you will be able to look at the contents of the buffer MEM7.
 
 **NOTE**
 
 Trying to use MORE on anything other than files or MEM
- devices (for example on named pipes) will cause problems - press
+devices (for example on named pipes) will cause problems - press
 <CTRL><SPACE> a few times to escape from this.
 
 **CROSS-REFERENCE**
 
-Refer to the Devices Appendix for more details on
-`MEM <KeywordsM.clean.html#mem>`__. Compare `COPY flp1\_test\_bas to
-SCR <KeywordsC.clean.html#copy20flp1-test-bas20to20scr>`__ and
-`VIEW <KeywordsV.clean.html#view>`__.
+Refer to the Devices Appendix for more details on MEM. 
+
+Compare::
+
+    COPY flp1_test_bas to SCR
+
+and::
+
+
+    VIEW flp1_test_bas
+
 
 --------------
 
@@ -2555,11 +2608,16 @@ graphics. This was based upon an early educational tool, whereby simple
 commands could be entered into a computer to drive a small robot turtle
 which moved around the floor and held a pen. This pen could either be up
 in which case the turtle would just move around, or down in which case a
-line would be left by the turtle on the floor as it moved. When a window
+line would be left by the turtle on the floor as it moved. 
+
+When a window
 is first opened, an invisible turtle appears at the graphics origin
 (altered with SCALE) facing to the right, with its pen in the up
-position. The command MOVE forces the turtle in the specified window
+position. 
+
+The command MOVE forces the turtle in the specified window
 (default #1) to move in the current direction by the specified distance.
+
 The actual distance moved on screen depends on the current SCALE
 applicable to that window. If distance is negative, the turtle will move
 backwards. MOVE always works from the current graphics cursor position,
@@ -2570,10 +2628,18 @@ colour, FILL and also OVER, just like any other graphics command.
 **Example**
 
 A simple procedure to draw a shape of a set number of equal length
-sides: 100 DEFine PROCedure POLYGON (chan,sides,side\_length) 110 TURNTO
-#chan,0: PENDOWN #chan 120 FOR k=1 TO sides 130 MOVE #chan,side\_length
-140 TURN #chan,360/sides 150 END FOR k 155 PENUP #chan 160 END DEFine
- Try for example, POLYGON #2,5,10.
+sides::
+
+    100 DEFine PROCedure POLYGON (chan, sides, side_length) 
+    110   TURNTO #chan,0: PENDOWN #chan 
+    120   FOR k = 1 TO sides 
+    130     MOVE #chan, side_length
+    140     TURN #chan, 360 / sides 
+    150   END FOR k 
+    155   PENUP #chan 
+    160 END DEFine
+
+Try for example, POLYGON #2,5,10.
 
 **NOTE**
 
@@ -2643,7 +2709,7 @@ MT
 | Location |  Toolfin                                                          |
 +----------+-------------------------------------------------------------------+
 
-The function MT returns the value of (1+i):sup:`n` where i and n can be
+The function MT returns the value of (1+i)\ :sup:`n` where i and n can be
 any floating point numbers. Instead of reporting an overflow error for
 values which cannot be computed (eg. i=-1, n=-1) MT returns 1. If the
 returned value would be too large, a modulated value is returned. It is
@@ -2660,7 +2726,11 @@ ten years, you will gain 62.9% because: MT(0.05, 10) = 1.628895
 
 **Example 2**
 
-MT(1/n,n) approximates EXP(1) for large values of n.
+::
+
+    MT(1/n,n) 
+    
+approximates EXP(1) for large values of n.
 
 **CROSS-REFERENCE**
 
@@ -2686,12 +2756,15 @@ machine code TRAP #1 system calls directly. Unless you are using the
 second variant, you will need to pass at least one parameter, the
 operation key to be carried out (this is equivalent to the value in D0
 when TRAP #1 is performed). The other parameters allow you to pass the
-various register values which may be required by the system calls. The
+various register values which may be required by the system calls. 
+
+The
 second variant is useful for when you are using a TRAP #1 call which
 requires a job ID - you can merely pass the jobnr of the required job,
 obtained from the JOBS list (rather than having to set D1 to the Job
-ID). For example to force remove Job 12, use the command: MTRAP
-5\\12,0,0
+ID). For example to force remove Job 12, use the command:: 
+
+    MTRAP 5\12,0,0
 
 **WARNING**
 
