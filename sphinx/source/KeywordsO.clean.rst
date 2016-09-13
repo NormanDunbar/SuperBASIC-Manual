@@ -2,11 +2,6 @@
 Keywords O
 ==========
 
-TODO
-====
-
-
-
 ODD
 ===
 
@@ -106,10 +101,12 @@ This is a constant which returns 1.
 ON...GO TO
 ==========
 
+See `ON...GO SUB <KeywordsO.clean.html#on-go-sub>`__.
+
 --------------
 
 ON...GO SUB
-~~~~~~~~~~~
+===========
 
 +----------+-------------------------------------------------------------------------------+
 | Syntax   || ON condition GO TO line\ :sup:`1` :sup:`\*`\ [,line\ :sup:`i`]\ :sup:`\*` or |
@@ -135,17 +132,17 @@ following ON..GO SUB.
 A procedure to print out the locations in an adventure might look like
 this::
 
-100 no_of_locations=3 
-110 start=0 
-120 PRINT_LOC 2 
-130 DEFine PROCedure PRINT_LOC (xa) 
-140   IF xa=0 OR xa>no_of_locations THEN PRINT 'Undefined Location':RETurn 
-150   ON xa+start GO SUB 170,180,190 
-160   PRINT 'What now?':RETurn 
-170   PRINT 'This is location 1':RETurn 
-180   PRINT 'This is location 2':RETurn 
-190   PRINT 'This is location 3':RETurn 
-200 END DEFine
+    100 no_of_locations=3 
+    110 start=0 
+    120 PRINT_LOC 2 
+    130 DEFine PROCedure PRINT_LOC (xa) 
+    140   IF xa=0 OR xa>no_of_locations THEN PRINT 'Undefined Location':RETurn 
+    150   ON xa+start GO SUB 170,180,190 
+    160   PRINT 'What now?':RETurn 
+    170   PRINT 'This is location 1':RETurn 
+    180   PRINT 'This is location 2':RETurn 
+    190   PRINT 'This is location 3':RETurn 
+    200 END DEFine
 
 For a simpler (and clearer) way of writing this PROCedure, please refer
 to the example given for SELect ON.
@@ -211,8 +208,9 @@ serial devices:
   pieces. Another type of device is a screen device which is a defined
   section of the TV or Monitor display itself. 
 
-There are also mixtures
-between all of these types. The difference between the device types
+There are also mixtures between all of these types. 
+
+The difference between the device types
 becomes obvious when looking at the operations which can be performed on
 a device: the files on a drive can be listed in a directory and colours
 are only available for windows, just to give a few examples. Other
@@ -231,65 +229,65 @@ Basic details of the various standard devices
 supported by the QL follow (further details appear in the Drivers
 Appendix):
 
-+-----------------+---------+----------------------------------------------------------+
-| Device Type     | Name    | Typical uses                                             |
-+=================+=========+==========================================================+
-| Serial device   | ser     | Printers, communication with other computers or modems,  |
-|                 |         | control of processes, reading analogue data.             |
-+-----------------+---------+----------------------------------------------------------+
-|                 | par     | Output to printers via a centronics interface,           |
-+-----------------+---------+----------------------------------------------------------+
-|                 | nul     | A dummy device which simply receives incoming            |
-|                 |         | data and immediately forgets it, useful for debugging.   | 
-|                 |         | There are several variants available.                    |
-+-----------------+---------+----------------------------------------------------------+
-|                 | pipe    | Pipes are intended for communication between jobs, every |
-|                 |         | pipe has an input and output side - there are both       |
-|                 |         | standard pipes and named pipes. This is a First In First |
-|                 |         | Out device.                                              |
-+-----------------+---------+----------------------------------------------------------+
-|                 | history | Similar to a pipe, except that it is a Last In First     |
-|                 |         | Out device.                                              |
-+-----------------+---------+----------------------------------------------------------+
-|                 | net     | To send or receive data from another network station.    | 
-+-----------------+---------+----------------------------------------------------------+
-|                 | mem     | A device to read and write in memory, especially useful  |
-|                 |         | to directly access memory on remote network stations via |
-|                 |         | the fileserver.                                          |
-+-----------------+---------+----------------------------------------------------------+
-| Drives          | mdv     | Microdrives, the original drives on QLs - files are      |
-|                 |         | stored on cartridges.                                    |
-+-----------------+---------+----------------------------------------------------------+
-|                 | flp     | floppy disk drives are regarded as standard today -      |
-|                 |         | files are stored on disks, early drivers are called fdk. |
-+-----------------+---------+----------------------------------------------------------+
-|                 | win     | winchester drives, also called hard disks - files are    |
-|                 |         | stored on a permanently installed very large and fast    |
-|                 |         | disk.                                                    |
-+-----------------+---------+----------------------------------------------------------+
-|                 | ram     | ramdisks, virtual but extremely fast drives, the files   |
-|                 |         | are stored in RAM and are lost when the computer is      |
-|                 |         | switched off.                                            |
-+-----------------+---------+----------------------------------------------------------+
-|                 | dev     | A kind of universal device, see DEV\_USE for an          |
-|                 |         | introduction.                                            |
-+-----------------+---------+----------------------------------------------------------+
-|                 | pth     | Very similar to dev - see PTH\_ADD.                      |
-+-----------------+---------+----------------------------------------------------------+
-|                 | mos     | Permanent ramdisk, needs specific hardware.              |
-+-----------------+---------+----------------------------------------------------------+
-|                 | rom     | Also a permanent ramdisk.                                |
-+-----------------+---------+----------------------------------------------------------+
-| Windows         | con     | Interfaces to a console device (window) for input and    |
-|                 |         | output.                                                  |
-+-----------------+---------+----------------------------------------------------------+
-|                 | scr     | The same as con\_ but for output only.                   |
-+-----------------+---------+----------------------------------------------------------+
-| Other devices   | n       | The fileserver device which allows you to access any     |
-|                 |         | device on a remote network station.                      |
-+-----------------+---------+----------------------------------------------------------+
-|                 | sdump   | A device for a general window dump.                      |
-+-----------------+---------+----------------------------------------------------------+
++-----------------+---------+-----------------------------------------------------------+
+| Device Type     | Name    || Typical uses                                             |
++=================+=========+===========================================================+
+| Serial device   | ser     || Printers, communication with other computers or modems,  |
+|                 |         || control of processes, reading analogue data.             |
++-----------------+---------+-----------------------------------------------------------+
+|                 | par     || Output to printers via a centronics interface,           |
++-----------------+---------+-----------------------------------------------------------+
+|                 | nul     || A dummy device which simply receives incoming            |
+|                 |         || data and immediately forgets it, useful for debugging.   | 
+|                 |         || There are several variants available.                    |
++-----------------+---------+-----------------------------------------------------------+
+|                 | pipe    || Pipes are intended for communication between jobs, every |
+|                 |         || pipe has an input and output side - there are both       |
+|                 |         || standard pipes and named pipes. This is a First In First |
+|                 |         || Out device.                                              |
++-----------------+---------+-----------------------------------------------------------+
+|                 | history || Similar to a pipe, except that it is a Last In First     |
+|                 |         || Out device.                                              |
++-----------------+---------+-----------------------------------------------------------+
+|                 | net     || To send or receive data from another network station.    | 
++-----------------+---------+-----------------------------------------------------------+
+|                 | mem     || A device to read and write in memory, especially useful  |
+|                 |         || to directly access memory on remote network stations via |
+|                 |         || the fileserver.                                          |
++-----------------+---------+-----------------------------------------------------------+
+| Drives          | mdv     || Microdrives, the original drives on QLs - files are      |
+|                 |         || stored on cartridges.                                    |
++-----------------+---------+-----------------------------------------------------------+
+|                 | flp     || Floppy disk drives are regarded as standard today -      |
+|                 |         || files are stored on disks, early drivers are called fdk. |
++-----------------+---------+-----------------------------------------------------------+
+|                 | win     || Winchester drives, also called hard disks - files are    |
+|                 |         || stored on a permanently installed very large and fast    |
+|                 |         || disk.                                                    |
++-----------------+---------+-----------------------------------------------------------+
+|                 | ram     || Ramdisks, virtual but extremely fast drives, the files   |
+|                 |         || are stored in RAM and are lost when the computer is      |
+|                 |         || switched off.                                            |
++-----------------+---------+-----------------------------------------------------------+
+|                 | dev     || A kind of universal device, see DEV\_USE for an          |
+|                 |         || introduction.                                            |
++-----------------+---------+-----------------------------------------------------------+
+|                 | pth     || Very similar to dev - see PTH\_ADD.                      |
++-----------------+---------+-----------------------------------------------------------+
+|                 | mos     || Permanent ramdisk, needs specific hardware.              |
++-----------------+---------+-----------------------------------------------------------+
+|                 | rom     || Also a permanent ramdisk.                                |
++-----------------+---------+-----------------------------------------------------------+
+| Windows         | con     || Interfaces to a console device (window) for input and    |
+|                 |         || output.                                                  |
++-----------------+---------+-----------------------------------------------------------+
+|                 | scr     || The same as con\_ but for output only.                   |
++-----------------+---------+-----------------------------------------------------------+
+| Other devices   | n       || The fileserver device which allows you to access any     |
+|                 |         || device on a remote network station.                      |
++-----------------+---------+-----------------------------------------------------------+
+|                 | sdump   || A device for a general window dump.                      |
++-----------------+---------+-----------------------------------------------------------+
 
 Please refer to other parts of this book for more specific information on the 
 devices. A lot of examples are given throughout the book.
@@ -593,7 +591,7 @@ non-directory file is supplied.
 **NOTE 6**
 
 Except under SMS, if a channel has been opened with OPEN\_DIR
- to a main directory, no other channel can access that directory at the
+to a main directory, no other channel can access that directory at the
 same time. Several channels can however be open to the same
 sub-directory (a bug perhaps) or to a sub-directory further down the
 tree, which for example allows:: 
@@ -651,9 +649,12 @@ OPEN\_IN
 This command is a specialised version of OPEN which is aimed at
 allowing you to read data from files. This opens the specified channel
 (#channel must be an integer in the range 0...32767) for input only to
-the specified filename on the given device. Any number of channels may
+the specified filename on the given device. 
+
+Any number of channels may
 be linked to a file using OPEN\_IN, although if you try to use any other
 type of OPEN call to that filename, the error 'in use' will be reported.
+
 The Toolkit II variant of this command supports the default data device
 if necessary (see DATAD$), but in any case, if the file does not exist
 (either on the specified device or on the default data device), the
@@ -683,7 +684,7 @@ scr\_, OPEN\_IN has the same effect as OPEN.
 **MINERVA NOTES**
 
 On v1.80 and later, a third parameter is supported by OPEN\_IN
- as with OPEN. This means that this command (if the third parameter is
+as with OPEN. This means that this command (if the third parameter is
 used) has exactly the same effect as OPEN.
 
 **CROSS-REFERENCE**
@@ -711,24 +712,37 @@ OPEN\_NEW
 This command is yet another specialised version of OPEN. This time it
 is aimed at providing a means of creating a new filename on the
 specified device and opening a specified channel (#channel must be an
-integer in the range 0..32767) to that filename for output. If Toolkit
+integer in the range 0..32767) to that filename for output. 
+
+If Toolkit
 II is present, OPEN\_NEW supports the default data device (see DATAD$),
 however in any case if the device (or default data device) does not
 contain a formatted medium, the error 'not found' (-7) will be reported.
-An error will also be reported if the medium is read only. Without
+An error will also be reported if the medium is read only. 
+
+Without
 Toolkit II, if the filename already exists, then the error 'already
 exists' will be generated. On the other hand, Toolkit II will show the
-familiar 'OK to Overwrite?' prompt. Once the channel is open, any
+familiar 'OK to Overwrite?' prompt. 
+
+Once the channel is open, any
 attempt to open another channel to that same filename at the same time
 will report an error 'In use'.
 
 **Example**
 
-A simple interactive copying routine: 100 INPUT #0,'COPY
-:-'!in$!'=>'!out$ 110 OPEN\_IN #3,in$ 120 OPEN\_NEW #4,out$ 130 REPeat
-copy\_loop 140 IF EOF(#3):EXIT copy\_loop 150 a$=INKEY$(#3) 160 PRINT
-a$;:PRINT #4,a$; 170 END REPeat copy\_loop 180 CLOSE #4,#3 190 PRINT
-#0,'Copying complete'
+A simple interactive copying routine::
+
+    100 INPUT #0,'COPY :-'!in$!'=>'!out$ 
+    110 OPEN_IN #3,in$ 
+    120 OPEN_NEW #4,out$ 
+    130 REPeat copy_loop 
+    140   IF EOF(#3):EXIT copy_loop 
+    150   a$=INKEY$(#3) 
+    160   PRINT a$;:PRINT #4,a$; 
+    170 END REPeat copy_loop 
+    180 CLOSE #4,#3 
+    190 PRINT #0,'Copying complete'
 
 **NOTE 1**
 
@@ -805,21 +819,39 @@ OR
 
 This combination operator combines two condition tests together and
 will have the value 0 if both condition1 and condition2
- are false, or 1 if either condition1 or condition2 are true (or both
+are false, or 1 if either condition1 or condition2 are true (or both
 are true). Please note the difference between this and the bitwise OR
 operator: x\|\|y, which compares x and y bit by bit.
 
 **Example 1**
 
-PRINT 1 OR 0 Returns 1 PRINT 12 OR 10Returns 1 (compare PRINT 12&&10
-which returns 14).
+::
+
+    PRINT 1 OR 0 
+    
+Returns 1. 
+
+::
+
+    PRINT 12 OR 10
+
+Returns 1.
+
+Compare PRINT 12&&10 which returns 14).
 
 **Example 2**
 
-10 FOR x=1 TO 5 20 FOR y=1 TO 5 30 IF x=3 OR y>3:PRINT x;'=>';y, 40 END
-FOR y 50 END FOR x
- produces the following output: 1=>4 1=>5 2=>4 2=>5 3=>1 3=>2 3=>3 3=>4
-3=>5 4=>4 4=>5 5=>4 5=>5
+::
+
+    10 FOR x=1 TO 5 
+    20   FOR y=1 TO 5 
+    30     IF x=3 OR y>3:PRINT x;'=>';y, 
+    40   END FOR y 
+    50 END FOR x
+
+produces the following output:: 
+
+    1=>4 1=>5 2=>4 2=>5 3=>1 3=>2 3=>3 3=>4 3=>5 4=>4 4=>5 5=>4 5=>5
 
 **CROSS-REFERENCE**
 
@@ -837,12 +869,12 @@ OUTL
 | Location |  PEX                                                              |
 +----------+-------------------------------------------------------------------+
 
-This command is similar to OUTLN except for a few variations: (1) If
-chan is not preceded by # then it is taken to be a QDOS channel number
-(and this command can therefore be used to redefine an Outline for any
-Job). (2) You cannot specify a shadow. (3) If only the chan parameter is
-used (with or without a #), then the current maximum sizes of the Jobs
-windows are used (similar to OUTLN without any parameters).
+This command is similar to OUTLN except for a few variations: 
+
+#. If chan is not preceded by # then it is taken to be a QDOS channel number (and this command can therefore be used to redefine an Outline for any Job). 
+#. You cannot specify a shadow. 
+#. If only the chan parameter is used (with or without a #), then the current maximum sizes of the Jobs
+   windows are used (similar to OUTLN without any parameters).
 
 **CROSS-REFERENCE**
 
@@ -864,121 +896,177 @@ OUTLN
 
 This command is used within the Pointer Environment to signal that a
 specified window (default #0) which must already be open, is to be
-looked after by the Pointer Environment (managed). Because of the way in
+looked after by the Pointer Environment (managed). 
+
+Because of the way in
 which the Pointer Environment works, it is always a good idea to use
 OUTLN on the first window to be used for input/output by a program (this
 is known as the Primary Window), as this will ensure that all windows
 which are subsequently OPENed by the program will be what is known as
-Secondary Windows and also managed. Because of this, if a program is to
+Secondary Windows and also managed. 
+
+Because of this, if a program is to
 be run under the SuperBASIC interpreter, OUTLN
- should be used on #0, whereas in a compiled program, OUTLN needs to be
+should be used on #0, whereas in a compiled program, OUTLN needs to be
 used on the first channel which is OPENed (ensure that the program is
-compiled without any windows open). Hints on writing programs to run
+compiled without any windows open). 
+
+Hints on writing programs to run
 under the Pointer Environment appear below, showing how OUTLN should be
-used. If an OUTLN has been defined, any attempt to OPEN a window which
+used. 
+
+If an OUTLN has been defined, any attempt to OPEN a window which
 would fall outside of the managed Primary Window will cause an 'out of
 range' error. If you then use OUTLN on a Secondary window, the first
 time that OUTLN is encountered after the window is OPENed, the contents
 of the screen under that window will be stored. Then, if you again use
 OUTLN on the same window, the contents of the screen under the Secondary
-Window are restored (see the example). With the first syntax of the
+Window are restored (see the example). 
+
+With the first syntax of the
 command, the first five parameters supplied to OUTLN are exactly the
 same as with WINDOW, however, you can also add two further parameters,
 x\_shad and y\_shad to specify the width of a shadow which will appear
 to the right and bottom (respectively) of the window to make it stand
-out. They both default to zero (no shadow). SMSQ/E v2.53+ allows the
+out. They both default to zero (no shadow). 
+
+SMSQ/E v2.53+ allows the
 second syntax, which will allow you to use OUTLN without any parameters
 at all. In this case, the primary window will be outlined to the
 smallest area which can encompass all currently OPEN windows at the time
-that OUTLN
- is used.
+that OUTLN is used.
 
-Writing programs to use the Pointer Environment
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Writing programs to use the Pointer Environment**
 
 Some information concerning this appears in Section 4, however, when
 designing a program to use the Pointer Environment, it is useful to
-follow this procedure: (1) Open a main channel to define the maximum
-screen area available to the job, eg: OPEN #1,con\_
- This should be the first window OPENed by the program - if it is
-compiled, compile the program without Windows enabled. (2) Fetch the
-screen limits, eg: scr\_width%=QFLIM (#1,0) scr\_height%=QFLIM (#1,1)
- (3) Ensure that the screen is in the right mode: IF RMODE<>0: MODE 4
- (4) Outline #1 (the main channel) to the size of the program: OUTLN
-#1,450,210,0,0
- The program will then have a maximum screen area of 450x210 pixels
+follow this procedure:
+
+#. Open a main channel to define the maximum screen area available to the job, eg: OPEN #1,con\_
+   This should be the first window OPENed by the program - if it is compiled, compile the program without Windows enabled. 
+
+#. Fetch the screen limits, eg::
+
+     scr_width%=QFLIM (#1,0) 
+     scr_height%=QFLIM (#1,1)
+     
+#. Ensure that the screen is in the right mode:: 
+
+     IF RMODE<>0: MODE 4
+     
+#. Outline #1 (the main channel) to the size of the program::
+
+     OUTLN #1,450,210,0,0
+ 
+The program will then have a maximum screen area of 450x210 pixels
 available. When you wish to resize the program's display, you will need
 to mark the main channel (#1) as unmanaged and then use OUTLN to resize
 the main channel. For example, the following method was used (using
 commands from EasyPTR by Jochen Merz Software) to allow the user to re-
-size the program Q-Route (available from Q Branch): The procedure is
+size the program Q-Route (available from Q Branch): 
+
+The procedure is
 called when the user highlights the Resize Loose Item on the main menu
 (which is drawn on #1). In order for this to work, the main menu had to
 be loaded as a separate file into the common heap area pointed to by the
-variable m\_store
- (as there is no way in current versions of EasyPTR to allow you to find
+variable m\_store (as there is no way in current versions of EasyPTR to allow you to find
 the address of the original menu definition in an Appended definition
 file - this is not the working menu definition used by the Window
-Manager). For more general information on EasyPTR, you are directed to
+Manager). 
+
+For more general information on EasyPTR, you are directed to
 the EasyPTR tutorial contained in the Quanta magazine in 1994. The
 outline of a routine (excuse the pun) to re-size the main menu used by a
 program appears on the next page (note that this requires EasyPTR (c)
-Albin Hessler, and substantial additions to the code in order to work):
-9620 DEFine PROCedure RESIZE\_MAIN 9621 sel\_key%=0 9622 DIM result%(16)
-9630 PVAL #Main\_menu,result% 9635
-old\_x%=result%(14):old\_y%=result%(15) 9637 : REMark Fetch original
-pointer co-ordinates 9640 pxpos%=old\_x%:pypos%=old\_y% 9650 RDPT
-#Main\_menu,130,pxpos%,pypos% 9651 : REMark Draw and move re-size ICON
-9652 : REMark NOTE THIS CRASHES SUPERBASIC!! 9655 PVAL
-#Main\_menu,result% 9660 IF
-result%(6)=27:st%=MSTAT%(#Main\_menu,-3,0):RETurn: 9662 : REMark ESC
-pressed therefore ignore new setting 9665 Menu\_add=m\_store 9667 :
-REMark Look at where original Menu definition is stored. 9670
-pwidth=PEEK\_W(Menu\_add+28):pheight=PEEK\_W(Menu\_add+30) 9675 : REMark
-These offsets contain the size of the existing menu 9675
-px=prog\_x:py=prog\_y 9685 pwidth=pwidth-(pxpos%-old\_x%):IF pwidth MOD
-2:pwidth=pwidth+1 9690 pwidth=MAX(pwidth,450) 9695
-pwidth=MIN(pwidth,scr\_width%-12) 9700
-px=MIN(pxpos%-34,(scr\_width%-pwidth)-12) 9705 px=MAX(px,0) 9710
-pheight=MAX(pheight-(pypos%-old\_y%),210) 9715
-pheight=MIN(pheight,scr\_height%-10) 9720
-py=MIN(pypos%-5,(scr\_height%-pheight)-10) 9725 py=MAX(py,0) 9726 :
-REMark the lines 9675-9725 calculate the new width and height 9727 :
-REMark of the menu (minimum size 450x210) 9728 : REMark (maximum size
-scr\_width%-12 x scr\_height%-10) 9755 prog\_x=px:prog\_y=py 9760 MCLEAR
-#Main\_menu:CLPT #1 9762 : REMark Remove the old working menu definition
-9765 OUTL #1,pwidth,pheight,px,py 9770 : REMark Resize outline & main
-window dimensions 9775 POKE\_W Menu\_add+28,pwidth:POKE\_W
-Menu\_add+30,pheight 9780 POKE\_W Menu\_add+76,pwidth:POKE\_W
-Menu\_add+78,pheight 9782 : REMark Alter the menu sizes in the menu
-definition 9784 : 9785 : REMark You will now need to re-position various
-loose items as necessary 9787 : REMark There is no easy way to find the
-offsets of the definitions 9788 : REMark within the original menu
-definition. 9790 : REMark You will also need to re-size Information and
-Application Sub-Windows 9795 : REMark as necessary. 9795 : 9865 MDRAW
-#1,m\_store,px,py:Main\_menu=MWDEF(#1) 9866 : REMark Redraw the main
-menu, creating a new Working Menu Definition 9870 : REMark you will now
-need to redraw any information which is normally shown in the 9875 :
-REMark main menu but not contained in the menu when it was designed.
-9885 END DEFine
+Albin Hessler, and substantial additions to the code in order to work)::
+
+    9620 DEFine PROCedure RESIZE_MAIN 
+    9621   sel_key%=0 
+    9622   DIM result%(16)
+    9630   PVAL #Main_menu,result% 
+    9635   old_x%=result%(14):old_y%=result%(15) 
+    9637   : REMark Fetch original pointer co-ordinates 
+    9640   pxpos%=old_x%:pypos%=old_y% 
+    9650   RDPT #Main_menu,130,pxpos%,pypos% 
+    9651   : REMark Draw and move re-size ICON
+    9652   : REMark NOTE THIS CRASHES SUPERBASIC!! 
+    9655   PVAL #Main_menu,result% 
+    9660   IF result%(6)=27:st%=MSTAT%(#Main_menu,-3,0):RETurn: 
+    9662   : REMark ESC pressed therefore ignore new setting 
+    9665   Menu_add=m_store 
+    9667   : REMark Look at where original Menu definition is stored. 
+    9670   pwidth=PEEK_W(Menu_add+28):pheight=PEEK_W(Menu_add+30) 
+    9675   : REMark These offsets contain the size of the existing menu 
+    9675   px=prog_x:py=prog_y 
+    9685   pwidth=pwidth-(pxpos%-old_x%):IF pwidth MOD 2:pwidth=pwidth+1 
+    9690   pwidth=MAX(pwidth,450) 
+    9695   pwidth=MIN(pwidth,scr_width%-12) 
+    9700   px=MIN(pxpos%-34,(scr_width%-pwidth)-12) 
+    9705   px=MAX(px,0) 
+    9710   pheight=MAX(pheight-(pypos%-old_y%),210) 
+    9715   pheight=MIN(pheight,scr_height%-10) 
+    9720   py=MIN(pypos%-5,(scr_height%-pheight)-10) 
+    9725   py=MAX(py,0) 
+    9726   : REMark the lines 9675-9725 calculate the new width and height 
+    9727   : REMark of the menu (minimum size 450x210) 
+    9728   : REMark (maximum size scr_width%-12 x scr_height%-10) 
+    9755   prog_x=px:prog_y=py  
+    9760   MCLEAR #Main_menu:CLPT #1 
+    9762   : REMark Remove the old working menu definition
+    9765   OUTL #1,pwidth,pheight,px,py 
+    9770   : REMark Resize outline & main window dimensions 
+    9775   POKE_W Menu_add+28,pwidth:POKE_W Menu_add+30,pheight 
+    9780   POKE_W Menu_add+76,pwidth:POKE_W Menu_add+78,pheight 
+    9782   : REMark Alter the menu sizes in the menu definition 
+    9784   : 
+    9785   : REMark You will now need to re-position various loose items as necessary 
+    9787   : REMark There is no easy way to find the offsets of the definitions 
+    9788   : REMark within the original menu definition. 
+    9790   : REMark You will also need to re-size Information and Application Sub-Windows 
+    9795   : REMark as necessary. 
+    9795   : 
+    9865   MDRAW #1,m_store,px,py:Main_menu=MWDEF(#1) 
+    9866   : REMark Redraw the main menu, creating a new Working Menu Definition 
+    9870   : REMark you will now need to redraw any information which is normally shown in the 
+    9875   : REMark main menu but not contained in the menu when it was designed.
+    9885 END DEFine
 
 **Example**
 
 A short program which produces a graphical effect and then provides a
 pull-down menu on a secondary window, using OUTLN
- to restore the screen after you have used the menu. 100 OUTLN
-#0,512,256,0,0 110 PAPER #0,0:CLS#0 120 REMark Force #0 to Primary
-Window 130 WINDOW #0,448,40,32,216 140 WINDOW 448,200,32,16 150 PAPER
-2:INK 7:CLS 180 PRINT 'This is a Secondary Window' 190 REPeat loop 200
-INK RND(3 TO 7) 210 FOR i=0 TO 360 STEP RND(10 TO 30) 220 x=RAD(i):LINE
-50,50 TO 50-40\*SIN(x),50-40\*COS(x) 230 END FOR i 235 OPEN
-#3,scr\_400x100a56x20 236 PAPER #3,0:INK #3,7 240 OUTLN
-#3,400,100,56,20:CLS#3 250 PRINT #3,' MENU' 260 PRINT #3,'Press <ESC> to
-leave' 270 PRINT #3,'Press <SPACE> to continue' 280 REPeat keys 290
-x$=INKEY$(-1):IF x$ INSTR ' '&CHR$(27):EXIT keys 300 END REPeat keys 310
-OUTLN #3,400,100,56,20 315 CLOSE #3 320 IF x$=CHR$(27):EXIT loop 330 END
-REPeat loop
- Note the need to CLOSE #3 each time that it is removed from the screen.
+to restore the screen after you have used the menu. 
+
+::
+
+    100 OUTLN #0,512,256,0,0 
+    110 PAPER #0,0:CLS#0 
+    120 REMark Force #0 to Primary Window 
+    130 WINDOW #0,448,40,32,216 
+    140 WINDOW 448,200,32,16 
+    150 PAPER 2:INK 7:CLS 
+    180 PRINT 'This is a Secondary Window' 
+    190 REPeat loop 
+    200   INK RND(3 TO 7) 
+    210   FOR i=0 TO 360 STEP RND(10 TO 30) 
+    220     x=RAD(i):LINE 50,50 TO 50-40*SIN(x),50-40*COS(x) 
+    230   END FOR i 
+    235   OPEN #3,scr_400x100a56x20 
+    236   PAPER #3,0:INK #3,7 
+    240   OUTLN #3,400,100,56,20:CLS#3 
+    250   PRINT #3,' MENU' 
+    260   PRINT #3,'Press <ESC> to leave' 
+    270   PRINT #3,'Press <SPACE> to continue' 
+    280   REPeat keys 
+    290     x$=INKEY$(-1):IF x$ INSTR ' '&CHR$(27):EXIT keys 
+    300   END REPeat keys 
+    310   OUTLN #3,400,100,56,20 
+    315   CLOSE #3 
+    320   IF x$=CHR$(27):EXIT loop
+    330 END REPeat loop
+
+Note the need to CLOSE #3 each time that it is removed from the screen.
+
 If #3 was OPENed outside of the loop, OUTLN would only save the contents
 of the screen under #3 the first time that line 240 was encountered, and
 each subsequent time that it was used, will try to restore the contents
@@ -1022,25 +1110,30 @@ a specified window (default #1), whether by PRINT, LINE, BLOCK, or any
 other command which prints something on a window. If the supplied
 channel is not a window, then error -15 (bad parameter) will be
 generated, as will any value of switch outside of the range -1..1. When
-the QL is first initiated (or following a MODE
- command), OVER is set to 0 (see below). This can be altered by giving a
-different value for switch which will have the following effect:
+the QL is first initiated (or following a MODE  command), OVER is set to 0 (see 
+below). This can be altered by giving a different value for switch which 
+will have the following effect:
 
-switcheffect
-~~~~~~~~~~~~
++--------+----------------------------------------------------------------------------+
+| Switch || Effect                                                                    |
++--------+----------------------------------------------------------------------------+
+| -1     || Everything is PRINTed on a transparent strip. However, each pixel         |
+|        || which is drawn on that window in the current INK (or with BLOCK) is       |
+|        || actually xored with the colour of the existing background.                |
++--------+----------------------------------------------------------------------------+
+| 0      || This is the                                                               |
+|        || standard mode, where characters are PRINTed in the current INK and STRIP  |
+|        || and any pixels plotted on screen are also in the current INK.             |
++--------+----------------------------------------------------------------------------+
+| 1      || This PRINTs characters on a transparent STRIP but pixels are drawn in the |
+|        || current INK colour.  BLOCK is unaffected.                                 |
++--------+----------------------------------------------------------------------------+
 
--1Everything is PRINTed on a transparent strip. However, each pixel
-which is drawn on that window in the current INK (or with BLOCK) is
-actually xored with the colour of the existing background. 0This is the
-standard mode, where characters are PRINTed in the current INK and STRIP
-and any pixels plotted on screen are also in the current INK. 1This
-PRINTs characters on a transparent STRIP but pixels are drawn in the
-current INK colour. BLOCK
- is unaffected. When OVER -1 is used, it may be useful to calculate how
+When OVER -1 is used, it may be useful to calculate how
 different colours will appear on screen. This can be achieved by XORing
 the two colours in binary, with col1 ^^ col2, for example, a line drawn
 in blue on a white background with OVER -1
- will actually appear on screen to be INK 1^^7=6 (Yellow). A result of
+will actually appear on screen to be INK 1^^7=6 (Yellow). A result of
 OVER -1 is that if something is drawn twice in the same place in the
 same colour, the object is effectively removed from the screen, leaving
 the screen unaltered. This can be seen in the example program given for
@@ -1050,13 +1143,21 @@ IF.
 
 A simple demonstration which shows the effects of OVER on CIRCLE, PRINT
 and BLOCK. See how easy/difficult it is to calculate how the end display
-will look: The example program appears on the next page. 100 MODE
-8:WINDOW 448,200,32,16:PAPER 0:CLS 110 INK 2:SCALE 100,0,0 120 FILL
-1:CIRCLE 50,50,35 125 PAUSE 130 INK 7:OVER -1:FILL 1:CIRCLE 50,50,35 135
-PAUSE 140 FILL 0:OVER 0 150 PAPER 4:INK 7:PRINT"This is a simple circle"
-155 PAUSE 160 OVER 1:PRINT"This is another line of text" 165 PAUSE 170
-OVER -1:PRINT\\"This is yet another line" 175 PAUSE 180 BLOCK
-448,200,0,0,2
+will look::
+
+    100 MODE 8:WINDOW 448,200,32,16:PAPER 0:CLS 
+    110 INK 2:SCALE 100,0,0 
+    120 FILL 1:CIRCLE 50,50,35 
+    125 PAUSE 
+    130 INK 7:OVER -1:FILL 1:CIRCLE 50,50,35 
+    135 PAUSE 140 FILL 0:OVER 0 
+    150 PAPER 4:INK 7:PRINT"This is a simple circle" 
+    155 PAUSE 
+    160 OVER 1:PRINT"This is another line of text" 
+    165 PAUSE 
+    170 OVER -1:PRINT\"This is yet another line" 
+    175 PAUSE 
+    180 BLOCK 448,200,0,0,2
 
 **NOTE 1**
 
@@ -1065,13 +1166,19 @@ OVER 0 is set after a MODE command.
 **NOTE 2**
 
 The following appears to be a bug in Minerva (pre v1.96) and most other
-implementations: On Minerva pre v1.96, OVER#0 and OVER#1 are equivalent
+implementations: 
+
+On Minerva pre v1.96, OVER#0 and OVER#1 are equivalent
 to OVER#1,0 and OVER#1,1 respectively, OVER#2 gives bad parameter, as
-does OVER#-1. OVER is equivalent to OVER #1,0!! On all later versions of
-Minerva and SMS, the behaviour is more logical: The channel number
-defaults to #1 and the switch
- to 0, so OVER#0 is OVER#0,0, OVER#1 is OVER#1,0 (not OVER#1,1), OVER#2
-is OVER#2,0 and OVER#-1 naturally produces a 'channel not open' error.
+does OVER#-1. OVER is equivalent to OVER #1,0!! 
+
+On all later versions of
+Minerva and SMS, the behaviour is more logical: 
+
+The channel number
+defaults to #1 and the switch  to 0, so OVER#0 is OVER#0,0, OVER#1 
+is OVER#1,0 (not OVER#1,1), OVER#2 is OVER#2,0 and OVER#-1 naturally 
+produces a 'channel not open' error.
 
 **NOTE 3**
 
