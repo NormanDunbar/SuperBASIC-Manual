@@ -1,3 +1,12 @@
+==========
+Keywords O
+==========
+
+TODO
+====
+
+
+
 ODD
 ===
 
@@ -7,12 +16,15 @@ ODD
 | Location |  TinyToolkit, BTool                                               |
 +----------+-------------------------------------------------------------------+
 
- This function checks if the integer part of number can be divided by
+This function checks if the integer part of number can be divided by
 two without remainder, ie. whether it is an odd number or not. If the
 number is odd, the function will return 1, otherwise it will return 0.
 The ODD function could easily be duplicated in BASIC by the following
-function: 10 DEFine FuNction ODD (number%) 20 RETurn number% MOD 2 30
-END DEFine ODD
+function:: 
+
+    10 DEFine FuNction ODD (number%) 
+    20   RETurn number% MOD 2 
+    30 END DEFine ODD
 
 --------------
 
@@ -25,12 +37,14 @@ OFF
 | Location |  BTool                                                            |
 +----------+-------------------------------------------------------------------+
 
- This is a constant which returns 0. OFF and ON are intended to make
+This is a constant which returns 0. OFF and ON are intended to make
 listings more readable.
 
 **Example**
 
-FREEZE OFF
+::
+
+    FREEZE OFF
 
 **CROSS-REFERENCE**
 
@@ -43,12 +57,14 @@ OJOB
 ====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  OJOB (job\_ID)  or OJOB (jobnr, tag)  or OJOB (jobname)          |
+| Syntax   || OJOB (job\_ID)  or                                               |
+|          || OJOB (jobnr, tag)  or                                            |
+|          || OJOB (jobname)                                                   |
 +----------+-------------------------------------------------------------------+
-| Location |  Toolkit II                                                       |
+| Location || Toolkit II                                                       |
 +----------+-------------------------------------------------------------------+
 
- This function will return the job\_id of the 'owner' of the given job.
+This function will return the job\_id of the 'owner' of the given job.
 Normally the owner of a job is the job which initiated it. So, if job 1
 creates job 2 then job 1 is the owner of job 2. However, because jobs
 can execute other jobs without becoming their owner, generally the owner
@@ -72,11 +88,13 @@ ON
 | Location |  BTool                                                            |
 +----------+-------------------------------------------------------------------+
 
- This is a constant which returns 1.
+This is a constant which returns 1.
 
 **Example**
 
-FREEZE ON
+::
+
+    FREEZE ON
 
 **CROSS-REFERENCE**
 
@@ -93,13 +111,14 @@ ON...GO TO
 ON...GO SUB
 ~~~~~~~~~~~
 
-+----------+-------------------------------------------------------------------+
-| Syntax   |  ON condition GO TO line\ :sup:`1` :sup:`\*`\ [,line\ :sup:`i`]\ :sup:`\* ` or ON condition GO SUB line\ :sup:`1` :sup:`\*`\ [,line\ :sup:`i`]\ :sup:`\* ` |
-+----------+-------------------------------------------------------------------+
-| Location |  QL ROM                                                           |
-+----------+-------------------------------------------------------------------+
++----------+-------------------------------------------------------------------------------+
+| Syntax   || ON condition GO TO line\ :sup:`1` :sup:`\*`\ [,line\ :sup:`i`]\ :sup:`\*` or |
+|          || ON condition GO SUB line\ :sup:`1` :sup:`\*`\ [,line\ :sup:`i`]\ :sup:`\*`   |
++----------+-------------------------------------------------------------------------------+
+| Location || QL ROM                                                                       |
++----------+-------------------------------------------------------------------------------+
 
- The QL supports a structure which enables the program to jump to
+The QL supports a structure which enables the program to jump to
 specific lines depending upon the value of a variable. condition must be
 an integer expression which returns a value of one or more. After the
 command GO TO or GO SUB must appear a list of line numbers to jump to
@@ -114,25 +133,33 @@ following ON..GO SUB.
 **Example**
 
 A procedure to print out the locations in an adventure might look like
-this: 100 no\_of\_locations=3 110 start=0 120 PRINT\_LOC 2 130 DEFine
-PROCedure PRINT\_LOC (xa) 140 IF xa=0 OR xa>no\_of\_locations THEN PRINT
-'Undefined Location':RETurn 150 ON xa+start GO SUB 170,180,190 160 PRINT
-'What now?':RETurn 170 PRINT 'This is location 1':RETurn 180 PRINT 'This
-is location 2':RETurn 190 PRINT 'This is location 3':RETurn 200 END
-DEFine
- For a simpler (and clearer) way of writing this PROCedure, please refer
+this::
+
+100 no_of_locations=3 
+110 start=0 
+120 PRINT_LOC 2 
+130 DEFine PROCedure PRINT_LOC (xa) 
+140   IF xa=0 OR xa>no_of_locations THEN PRINT 'Undefined Location':RETurn 
+150   ON xa+start GO SUB 170,180,190 
+160   PRINT 'What now?':RETurn 
+170   PRINT 'This is location 1':RETurn 
+180   PRINT 'This is location 2':RETurn 
+190   PRINT 'This is location 3':RETurn 
+200 END DEFine
+
+For a simpler (and clearer) way of writing this PROCedure, please refer
 to the example given for SELect ON.
 
 **NOTE**
 
 ON can also be used with the SELect ON structure - please refer to
-SELect ON for further details.
+`SELect ON <KeywordsS.clean.html#select-on>`__ for further details.
 
 **CROSS-REFERENCE**
 
 These two commands can generally be replaced either by a calculated `GO
-SUB <KeywordsG.clean.html#go20sub>`__ or `GO TO <KeywordsG.clean.html#go20to>`__
-statement, or the `SELect ON <KeywordsS.clean.html#select20on>`__ structure.
+SUB <KeywordsG.clean.html#go-sub>`__ or `GO TO <KeywordsG.clean.html#go-to>`__
+statement, or the `SELect ON <KeywordsS.clean.html#select-on>`__ structure.
 
 --------------
 
@@ -140,95 +167,140 @@ OPEN
 ====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  OPEN #channel, device channel=0..32767  or OPEN #channel, device, type(Minerva v1.80+ only)  |
+| Syntax   || OPEN #channel, device channel=0..32767  or                       |
+|          || OPEN #channel, device, type    (Minerva v1.80+ only)             |
 +----------+-------------------------------------------------------------------+
-| Location |  QL ROM, Toolkit II                                               |
+| Location || QL ROM, Toolkit II                                               |
 +----------+-------------------------------------------------------------------+
 
- This is the general command used to open a channel to a device for
+This is the general command used to open a channel to a device for
 input and/or output, so that data can be read from and written to the
 specified device. The channel number can be any integer greater than or
 equal to zero and should be kept as small as possible because QDOS
 allocates roughly 40 bytes for each possible channel number below the
 highest one. So if you open channel #1000, 40K of memory would be lost -
-only badly written programs need a thousand channels. After the channel
+only badly written programs need a thousand channels. 
+
+After the channel
 has been OPENed, if a program needs to access that device in the future,
 it can do so by passing that channel number to the relevant keyword.
+
 Actually, a dozen channels should be sufficient and the Turbo compiler
 strictly limits the highest channel number to 15, while QLiberator
 allows you to configure this to the user's needs via a $$chan directive.
 The compilers allocate memory for all of the channels when a job is
 created so that the channel table of the job is independent of other
-jobs and cannot be extended or decreased. Under the interpreter, the
+jobs and cannot be extended or decreased. 
+
+Under the interpreter, the
 channel table can be freely extended but not decreased - only NEW and
-KILL\_A clear the channel tables. When talking about devices, it is
+KILL\_A clear the channel tables. 
+
+When talking about devices, it is
 necessary to note the difference between drives (file drivers) and
-serial devices: A drive is a medium where files can be stored (eg.
-floppy disks or microdrive cartridges). Since there can always be
-several drives of a given type, drive names contain a drive number from
-1 to 8. Data is always stored in a stream of bytes. Data can be read in
-any order and from any position. On the other hand, with a serial
-device, data has to be read as it comes in: byte by byte or in larger
-pieces. Another type of device is a screen device which is a defined
-section of the TV or Monitor display itself. There are also mixtures
+serial devices: 
+
+- A drive is a medium where files can be stored (eg.
+  floppy disks or microdrive cartridges). Since there can always be
+  several drives of a given type, drive names contain a drive number from
+  1 to 8. Data is always stored in a stream of bytes. Data can be read in
+  any order and from any position. 
+
+- On the other hand, with a serial
+  device, data has to be read as it comes in: byte by byte or in larger
+  pieces. Another type of device is a screen device which is a defined
+  section of the TV or Monitor display itself. 
+
+There are also mixtures
 between all of these types. The difference between the device types
 becomes obvious when looking at the operations which can be performed on
 a device: the files on a drive can be listed in a directory and colours
 are only available for windows, just to give a few examples. Other
 operations (especially basic read and write operations) are independent
-of the device, which is a characteristic of QDOS. This so-called device
+of the device, which is a characteristic of QDOS. 
+
+This so-called device
 independence makes it easy to re-direct basic input or output from a
 program because the program has no need to know specifics about the
 device other than its name and/or channel number. If you have Toolkit II
 installed OPEN supports sub-directories and default devices when used on
-drives. OPEN
- will look in the data directory (see DATAD$) for the given file if no
-device is specified. Basic details of the various standard devices
+drives. OPEN will look in the data directory (see DATAD$) for the given file if no
+device is specified. 
+
+Basic details of the various standard devices
 supported by the QL follow (further details appear in the Drivers
 Appendix):
 
-Device TypeNametypical uses
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
++-----------------+---------+----------------------------------------------------------+
+| Device Type     | Name    | Typical uses                                             |
++=================+=========+==========================================================+
+| Serial device   | ser     | Printers, communication with other computers or modems,  |
+|                 |         | control of processes, reading analogue data.             |
++-----------------+---------+----------------------------------------------------------+
+|                 | par     | Output to printers via a centronics interface,           |
++-----------------+---------+----------------------------------------------------------+
+|                 | nul     | A dummy device which simply receives incoming            |
+|                 |         | data and immediately forgets it, useful for debugging.   | 
+|                 |         | There are several variants available.                    |
++-----------------+---------+----------------------------------------------------------+
+|                 | pipe    | Pipes are intended for communication between jobs, every |
+|                 |         | pipe has an input and output side - there are both       |
+|                 |         | standard pipes and named pipes. This is a First In First |
+|                 |         | Out device.                                              |
++-----------------+---------+----------------------------------------------------------+
+|                 | history | Similar to a pipe, except that it is a Last In First     |
+|                 |         | Out device.                                              |
++-----------------+---------+----------------------------------------------------------+
+|                 | net     | To send or receive data from another network station.    | 
++-----------------+---------+----------------------------------------------------------+
+|                 | mem     | A device to read and write in memory, especially useful  |
+|                 |         | to directly access memory on remote network stations via |
+|                 |         | the fileserver.                                          |
++-----------------+---------+----------------------------------------------------------+
+| Drives          | mdv     | Microdrives, the original drives on QLs - files are      |
+|                 |         | stored on cartridges.                                    |
++-----------------+---------+----------------------------------------------------------+
+|                 | flp     | floppy disk drives are regarded as standard today -      |
+|                 |         | files are stored on disks, early drivers are called fdk. |
++-----------------+---------+----------------------------------------------------------+
+|                 | win     | winchester drives, also called hard disks - files are    |
+|                 |         | stored on a permanently installed very large and fast    |
+|                 |         | disk.                                                    |
++-----------------+---------+----------------------------------------------------------+
+|                 | ram     | ramdisks, virtual but extremely fast drives, the files   |
+|                 |         | are stored in RAM and are lost when the computer is      |
+|                 |         | switched off.                                            |
++-----------------+---------+----------------------------------------------------------+
+|                 | dev     | A kind of universal device, see DEV\_USE for an          |
+|                 |         | introduction.                                            |
++-----------------+---------+----------------------------------------------------------+
+|                 | pth     | Very similar to dev - see PTH\_ADD.                      |
++-----------------+---------+----------------------------------------------------------+
+|                 | mos     | Permanent ramdisk, needs specific hardware.              |
++-----------------+---------+----------------------------------------------------------+
+|                 | rom     | Also a permanent ramdisk.                                |
++-----------------+---------+----------------------------------------------------------+
+| Windows         | con     | Interfaces to a console device (window) for input and    |
+|                 |         | output.                                                  |
++-----------------+---------+----------------------------------------------------------+
+|                 | scr     | The same as con\_ but for output only.                   |
++-----------------+---------+----------------------------------------------------------+
+| Other devices   | n       | The fileserver device which allows you to access any     |
+|                 |         | device on a remote network station.                      |
++-----------------+---------+----------------------------------------------------------+
+|                 | sdump   | A device for a general window dump.                      |
++-----------------+---------+----------------------------------------------------------+
 
-Serial deviceserprinters, communication with other computers or modems,
-control of processes, reading analogue data. paroutput to printers via a
-centronics interface nula dummy device which simply receives incoming
-data and immediately forgets it, useful for debugging. There are several
-variants available. pipepipes are intended for communication between
-jobs, every pipe has an input and output side - there are both standard
-pipes and named pipes. This is a First In First Out device.
-
-Device TypeNametypical uses
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Serial DevicehistorySimilar to a pipe, except that it is a Last In First
-Out device. netto send or receive data from another network station mema
-device to read and write in memory, especially useful to directly access
-memory on remote network stations via the fileserver
-Drivesmdvmicrodrives, the original drives on QLs - files are stored on
-cartridges flpfloppy disk drives are regarded as standard today - files
-are stored on disks, early drivers are called fdk winwinchester drives,
-also called hard disks - files are stored on a permanently installed
-very large and fast disk ramramdisks, virtual but extremely fast drives,
-the files are stored in RAM and are lost when the computer is switched
-off deva kind of universal device, see DEV\_USE
- for an introduction pthvery similar to dev - see PTH\_ADD
- mospermanent ramdisk, needs specific hardware romalso a permanent
-ramdisk. Windowsconinterfaces to a console device (window) for input and
-output scrthe same as con\_ but for output only Other devicesnthe
-fileserver device which allows you to access any device on a remote
-network station sdumpa device for a general window dump Please refer to
-other parts of this book for more specific information on the devices. A
-lot of examples are given throughout the book.
+Please refer to other parts of this book for more specific information on the 
+devices. A lot of examples are given throughout the book.
 
 **NOTE 1**
 
 The OPEN command will close a channel which is already open with the
 same channel number prior to opening the new channel - do not try to
 OPEN #0 (except from within a compiled program) unless you have Minerva
-or SMS - even then, do not try to OPEN #0
- as anything other than a CON\_ device, except from within a MultiBASIC
-/ Multiple SBASIC.
+or SMS - even then, do not try to OPEN #0 as anything other than 
+a CON\_ device, except from within a MultiBASIC/Multiple SBASIC.
 
 **NOTE 2**
 
@@ -244,9 +316,11 @@ On QL ROMs (pre MG) there is a maximum of 32767 OPENs in a session.
 
 The pointer environment has a little bug in it which can lead to odd
 results when OPENing screen windows. Try, for a laugh (and beware that
-this will crash the QL eventually), the following: FOR I=1 TO 32768:
-OPEN #3,scr: PRINT#3,'Hello';i
- This is fixed under SMSQ/E and WMAN v1.52.
+this will crash the QL eventually), the following::
+
+    FOR I=1 TO 32768: OPEN #3,scr: PRINT#3,'Hello ';i
+
+This is fixed under SMSQ/E and WMAN v1.52.
 
 **NOTE 5**
 
@@ -265,7 +339,7 @@ more than one input channel to be opened to a serial port.
 **NOTE 7**
 
 On the QXL (pre v2.50 of SMS), an attempt to OPEN #ch,ser2
- would fail if ser1 was not available to the operating system for any
+would fail if ser1 was not available to the operating system for any
 reason.
 
 **MINERVA NOTES**
@@ -274,40 +348,52 @@ On v1.80 (and later), a third parameter is supported on this command
 which can be used to specify the 'open type'. This is only of any use on
 drives and pipes.
 
-Drives
-~~~~~~
+**Drives**
 
-Open typeEffect
-~~~~~~~~~~~~~~~
++-----------+------------------------------------------------------------------+
+| Open type | Effect                                                           |
++===========+==================================================================+
+| 0         | Open existing file for exclusive use (same as OPEN)              |
++-----------+------------------------------------------------------------------+
+| 1         | Open existing file for shared use (same as OPEN\_IN)             |
++-----------+------------------------------------------------------------------+
+| 2         | Open new file (same as OPEN\_NEW)                                |
++-----------+------------------------------------------------------------------+
+| 3         | Open file and overwrite if already exists (same as OPEN\_OVER)   |
++-----------+------------------------------------------------------------------+
+| 4         | Open directory file (same as OPEN\_DIR)                          |
++-----------+------------------------------------------------------------------+
 
-0 Open existing file for exclusive use (same as OPEN) 1 Open existing
-file for shared use (same as OPEN\_IN) 2 Open new file (same as
-OPEN\_NEW) 3 Open file and overwrite if already exists (same as
-OPEN\_OVER) 4 Open directory file (same as OPEN\_DIR) (Compare this list
-with the list at FILE\_OPEN!)
+(Compare this list with the list at FILE\_OPEN!)
 
 **Minerva Example**
 
-OPEN#3,ram1\_test\_device,3
- opens a new file called ram1\_test\_device whether or not it already
+::
+
+    OPEN#3,ram1_test_device,3
+    
+opens a new file called ram1\_test\_device whether or not it already
 exists.
 
-Pipes
-~~~~~
+**Pipes**
 
 The extra parameter supplies the QDOS channel number of the source end
 of the pipe. This is therefore only of use when opening the 'read' end
 of the pipe. This gets around the necessity for commands like QLINK. For
-example these two lines are the same: OPEN#4,'pipe\_4000': QLINK#4 TO #3
- OPEN#4, 'pipe\_4000': pipe\_id=PEEK\_W (\\48\\4\*40+2) : OPEN#3,
-'pipe\_', pipe\_id
- Unfortunately, Toolkit II replaces this variant of OPEN with its own,
+example these two lines are the same::
+
+    OPEN#4,'pipe_4000': QLINK#4 TO #3
+    OPEN#4, 'pipe_4000': pipe_id=PEEK_W (\48\4*40+2) : OPEN#3, 'pipe_', pipe_id
+
+Unfortunately, Toolkit II replaces this variant of OPEN with its own,
 but all of the above facilities (apart from pipe channel numbers) are
 provided by specific Toolkit II commands in any event. Due to Minerva's
 System Xtensions, the maximum number of permitted channels open at any
 one time has been reduced to 304 on an expanded machine (earlier ROMs
 allow 360). On an unexpanded machine, you can only open 112 under
-Minerva. In MultiBasics, both channel #0 and channel #1 can be
+Minerva. 
+
+In MultiBasics, both channel #0 and channel #1 can be
 inextricably linked. Due to the fact that the OPEN command closes an
 existing channel before setting up the new channel with the given
 parameters, OPEN #0 or OPEN #1 from within a MultiBasic will remove the
@@ -337,75 +423,129 @@ OPEN\_DIR
 =========
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  OPEN\_DIR #channel, device\_directory  or OPEN\_DIR #channel, [device\_]directory(Toolkit II only)  |
+| Syntax   || OPEN\_DIR #channel, device\_directory  or                        | 
+|          || OPEN\_DIR #channel, [device\_]directory(Toolkit II only)         |
 +----------+-------------------------------------------------------------------+
-| Location |  Toolkit II, THOR XVI                                             |
+| Location || Toolkit II, THOR XVI                                             |
 +----------+-------------------------------------------------------------------+
 
- This command is a specialised version of OPEN which is aimed at
+This command is a specialised version of OPEN which is aimed at
 allowing you to read directories of any given drive device. The
 directory of a drive contains a copy of every file header which has ever
-been created on that medium. When a file is deleted, its entry is
+been created on that medium. 
+
+When a file is deleted, its entry is
 blanked out (with zeros) in the directory, thus enabling recovery
 programs to actually still read the file (provided that nothing else has
 been written to the sectors where it was stored). It can therefore be
 very useful to access these directories, for example to provide the user
-with a selection of files to choose from. It is however important to
+with a selection of files to choose from. 
+
+It is however important to
 differentiate between directories and the output from the DIR
- command!! On Level-2 and Level-3 device drivers, it is quite easy to
+command! 
+
+On Level-2 and Level-3 device drivers, it is quite easy to
 access a directory as the directory is stored in a file. For example, on
-a floppy disk, try COPY flp1\_ TO scr
- this will show the directory file!. Sub-directories are similar in that
-after the command: MAKE\_DIR flp1\_Quill\_
- the file flp1\_Quill will be created which contains a copy of all of
-the file headers for the files within that sub-directory. Standard
+a floppy disk, try::
+
+    COPY flp1_ TO scr
+    
+this will show the directory file. 
+
+Sub-directories are similar in that after the command:: 
+
+    MAKE_DIR flp1_Quill_
+    
+the file flp1_Quill will be created which contains a copy of all of
+the file headers for the files within that sub-directory. 
+
+Standard
 device drivers on the other hand are another kettle of fish, in that
-they allow you to create a file without any name (eg. SAVE mdv1\_). If
-you then COPY mdv1\_ TO scr
- you will see that this is exactly the same as if you had used: SAVE
-mdv1\_boot
- (apart from the name of the file). Such files are not revealed by DIR
+they allow you to create a file without any name. For example::
+
+    SAVE mdv1_
+    
+If you then::
+
+    COPY mdv1_ TO scr
+    
+
+you will see that this is exactly the same as if you had used::
+
+    SAVE mdv1_boot
+
+(apart from the name of the file). 
+
+Such files are not revealed by DIR
 and can be used as a form of copy-protection by some programs. Because
-of this, you might suffer from a 'Not Found' (-7) error if you tried to
-COPY flp1\_ TO scr from a disk with a Level-1 device driver. A disk
+of this, you might suffer from a 'Not Found' (-7) error if you tried to::
+
+    COPY flp1_ TO scr 
+    
+from a disk with a Level-1 device driver. A disk
 created on a level-1 driver does not look different to a level-2 driver.
+
 If a file with a zero length name was created under a level-1 driver,
 then this file will only be accessible under the same driver level. To
 use the command OPEN\_DIR, you will need to supply the intended channel
 number which must be an integer in the range 0...32767. As with OPEN
 this must be kept as low as possible. After this, comes the name of the
 directory to be opened. This should generally be simply the name of the
-device to be accessed, such as: OPEN\_DIR #ch,mdv1\_
- (OPEN\_DIR works correctly with standard device drivers even if there
-is a file on the drive without a name, eg. mdv1\_. If you have Level-2
+device to be accessed, such as::
+
+    OPEN_DIR #ch,mdv1_
+
+OPEN\_DIR works correctly with standard device drivers even if there
+is a file on the drive without a name, eg. mdv1\_. 
+
+If you have Level-2
 device drivers, sub-directories may be accessed by providing the name of
-the drive plus the name of the sub-directory, for example: OPEN\_DIR
-#3,flp1\_Quill
- If Toolkit II is present, the default data device is supported (see
+the drive plus the name of the sub-directory, for example::
+
+    OPEN_DIR #3,flp1_Quill
+
+If Toolkit II is present, the default data device is supported (see
 DATAD$), although a directory will still need to be provided, therefore
-to simply access the default data directory, you will need to use:
-OPEN\_DIR #ch,''
- Having opened the directory, you can then examine the file header for
+to simply access the default data directory, you will need to use::
+
+    OPEN_DIR #ch,''
+    
+Having opened the directory, you can then examine the file header for
 each file which has been stored on that drive by fetching blocks of 64
 bytes from the channel at a time and examining each block per file.
 
 **Example**
 
 A short program which will provide a more detailed directory listing of
-any device: 100 WINDOW 448,200,32,16:PAPER 0:MODE 4:CLS 110 INK 7 120
-INPUT 'Read directory of which device? - ';dev$ 130 CLS:PRINT 'Directory
-of ';dev$ 140 PRINT 'Filename';TO 40;'File length';TO 54;'Update date'
-150 head\_start=0 160 INK 4 170 OPEN\_DIR #3,dev$:no\_files=FLEN(#3)/64
-180 FOR listing=1 TO no\_files 190 BGET
-#3\\head\_start+0,flen1,flen2,flen3,flen4,faccess,ftype 200
-flength=flen4+flen3\*2^8+flen2\*2^16+flen1\*2^24-64 210 IF flength>0 220
-GET #3\\head\_start+14,File$ 230 BGET
-#3\\head\_start+52,fdate1,fdate2,fdate3,fdate4 240
-fdate=fdate4+fdate3\*2^8+fdate2\*2^16+fdate1\*2^24 245 IF
-LEN(File$)=0:File$='<Un-named>' 250 IF ftype<255 260 PRINT File$;TO
-40;flength;TO 54;DATE$(fdate) 270 ELSE 280 PRINT File$&'->' 290 END IF
-300 END IF 310 head\_start=head\_start+64 320 END FOR listing 330 CLOSE
-#3 340 INK 7:PRINT 'End of Listing'
+any device:: 
+
+    100 WINDOW 448,200,32,16:PAPER 0:MODE 4:CLS 
+    110 INK 7 
+    120 INPUT 'Read directory of which device? - ';dev$ 
+    130 CLS:PRINT 'Directory of ';dev$ 
+    140 PRINT 'Filename';TO 40;'File length';TO 54;'Update date'
+    150 head_start=0 
+    160 INK 4 
+    170 OPEN_DIR #3,dev$:no_files=FLEN(#3)/64
+    180 FOR listing=1 TO no_files 
+    190   BGET #3\head_start+0,flen1,flen2,flen3,flen4,faccess,ftype 
+    200   flength=flen4+flen3*2^8+flen2*2^16+flen1*2^24-64 
+    210   IF flength>0 
+    220     GET #3\head_start+14, File$ 
+    230     BGET #3\head_start+52,fdate1,fdate2,fdate3,fdate4 
+    240     fdate=fdate4+fdate3*2^8+fdate2*2^16+fdate1*2^24 
+    245     IF LEN(File$)=0:File$='<Un-named>' 
+    250     IF ftype<255 
+    260       PRINT File$;TO 40;flength;TO 54;DATE$(fdate) 
+    270     ELSE 
+    280       PRINT File$&'->' 
+    290     END IF
+    300   END IF 
+    310   head_start=head_start+64 
+    320 END FOR listing 
+    330 CLOSE #3 
+    340 INK 7:PRINT 'End of Listing'
 
 **NOTE 1**
 
@@ -421,19 +561,25 @@ session.
 **NOTE 3**
 
 If you specify a device which is not actually used for the storage of
-files (for example OPEN\_DIR#3,scr or OPEN\_DIR#3,pipe\_1000), this
-command has exactly the same effect as the OPEN command.
+files (for example:: 
+
+    OPEN_DIR#3,scr 
+    OPEN_DIR#3,pipe_1000
+    
+then this command has exactly the same effect as the OPEN command.
 
 **NOTE 4**
 
 If the specified directory actually points to a non-directory file (or
 the file does not even exist), then OPEN\_DIR will actually open the
 directory in which that file is located, for example, if the directory
-flp1\_TK\_ contained the file flp1\_TK\_FN\_cde,
-OPEN\_DIR#3,flp1\_TK\_FN\_cde
- OPEN\_DIR#3,flp1\_TK\_FN
- and OPEN\_DIR#3,flp1\_TK
- would all have exactly the same effect.
+flp1\_TK\_ contained the file flp1\_TK\_FN\_cde::
+
+    OPEN_DIR#3,flp1_TK_FN_cde
+    OPEN_DIR#3,flp1_TK_FN
+    OPEN_DIR#3,flp1_TK
+
+would all have exactly the same effect.
 
 **NOTE 5**
 
@@ -450,9 +596,16 @@ Except under SMS, if a channel has been opened with OPEN\_DIR
  to a main directory, no other channel can access that directory at the
 same time. Several channels can however be open to the same
 sub-directory (a bug perhaps) or to a sub-directory further down the
-tree, which for example allows: 100 OPEN\_DIR #3,flp1\_ 110 OPEN\_DIR
-#4,flp1\_TK 120 OPEN\_DIR #5,flp1\_TK
- but not: 100 OPEN\_DIR #3,flp1\_TK 110 OPEN\_DIR #4,flp1\_
+tree, which for example allows:: 
+
+    100 OPEN_DIR #3,flp1_ 
+    110 OPEN_DIR #4,flp1_TK 
+    120 OPEN_DIR #5,flp1_TK
+
+but not:: 
+
+    100 OPEN_DIR #3,flp1_TK 
+    110 OPEN_DIR #4,flp1_
 
 This also has the result that whilst a channel which has been opened
 with OPEN\_DIR is open to a main directory, commands such as DIR, WDIR,
@@ -460,9 +613,13 @@ WDEL etc. will report 'in use' as they cannot access the directory
 themselves. The result of this (combined with the operation of the
 OPEN\_DIR command) makes it actually possible to have two channels open
 to the main directory, by ensuring that the filename passed to the
-OPEN\_DIR commands does not exist on the drive, for example: OPEN\_DIR
-#3,flp1\_test OPEN\_DIR #4,flp1\_test
- will leave both channels #3 and #4 open to the main directory (flp1\_).
+OPEN\_DIR commands does not exist on the drive, for example::
+
+    OPEN_DIR #3,flp1_test 
+    OPEN_DIR #4,flp1_test
+
+will leave both channels #3 and #4 open to the main directory (flp1\_).
+
 Under SMS you can have several channels open to the same directory
 thereby avoiding these problems.
 
@@ -484,12 +641,14 @@ OPEN\_IN
 ========
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  OPEN\_IN #channel, device\_filename  or OPEN\_IN #channel, [device\_]filename (Toolkit II only)  or OPEN\_IN #channel, device\_filename, type (Minerva v1.80+ only)  |
+| Syntax   || OPEN\_IN #channel, device\_filename  or                          |
+|          || OPEN\_IN #channel, [device\_]filename (Toolkit II only)  or      |
+|          || OPEN\_IN #channel, device\_filename, type (Minerva v1.80+ only)  |
 +----------+-------------------------------------------------------------------+
-| Location |  QL ROM, Toolkit II                                               |
+| Location || QL ROM, Toolkit II                                               |
 +----------+-------------------------------------------------------------------+
 
- This command is a specialised version of OPEN which is aimed at
+This command is a specialised version of OPEN which is aimed at
 allowing you to read data from files. This opens the specified channel
 (#channel must be an integer in the range 0...32767) for input only to
 the specified filename on the given device. Any number of channels may
@@ -542,12 +701,14 @@ OPEN\_NEW
 =========
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  OPEN\_NEW #channel, device\_filename  or OPEN\_NEW #channel, [device\_]filename(Toolkit II only)  or OPEN\_NEW #channel, device\_filename, type (Minerva v1.80+ only)  |
+| Syntax   || OPEN\_NEW #channel, device\_filename  or                         |
+|          || OPEN\_NEW #channel, [device\_]filename(Toolkit II only)  or      |
+|          || OPEN\_NEW #channel, device\_filename, type (Minerva v1.80+ only) |
 +----------+-------------------------------------------------------------------+
-| Location |  QL ROM, Toolkit II                                               |
+| Location || QL ROM, Toolkit II                                               |
 +----------+-------------------------------------------------------------------+
 
- This command is yet another specialised version of OPEN. This time it
+This command is yet another specialised version of OPEN. This time it
 is aimed at providing a means of creating a new filename on the
 specified device and opening a specified channel (#channel must be an
 integer in the range 0..32767) to that filename for output. If Toolkit
@@ -610,12 +771,13 @@ OPEN\_OVER
 ==========
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  OPEN\_OVER #channel, device\_filename  or OPEN\_OVER#channel, [device\_]filename(Toolkit II only)  |
+| Syntax   || OPEN\_OVER #channel, device\_filename  or                        |
+|          || OPEN\_OVER#channel, [device\_]filename(Toolkit II only)          |
 +----------+-------------------------------------------------------------------+
-| Location |  Toolkit II, THOR XVI                                             |
+| Location || Toolkit II, THOR XVI                                             |
 +----------+-------------------------------------------------------------------+
 
- This command is exactly the same as the Toolkit II version of OPEN\_NEW
+This command is exactly the same as the Toolkit II version of OPEN\_NEW
 except that if the specified filename already exists, the filename is
 automatically overwritten. Also, the THOR XVI version of this command
 does not support the default data device.
@@ -641,7 +803,7 @@ OR
 | Location |  QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
 
- This combination operator combines two condition tests together and
+This combination operator combines two condition tests together and
 will have the value 0 if both condition1 and condition2
  are false, or 1 if either condition1 or condition2 are true (or both
 are true). Please note the difference between this and the bitwise OR
@@ -675,7 +837,7 @@ OUTL
 | Location |  PEX                                                              |
 +----------+-------------------------------------------------------------------+
 
- This command is similar to OUTLN except for a few variations: (1) If
+This command is similar to OUTLN except for a few variations: (1) If
 chan is not preceded by # then it is taken to be a QDOS channel number
 (and this command can therefore be used to redefine an Outline for any
 Job). (2) You cannot specify a shadow. (3) If only the chan parameter is
@@ -694,12 +856,13 @@ OUTLN
 =====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  OUTLN [#chan,] width,height,x,y [,x\_shad,y\_shad] or OUTLN (SMSQ/E only)  |
+| Syntax   || OUTLN [#chan,] width,height,x,y [,x\_shad,y\_shad] or            |
+|          || OUTLN (SMSQ/E only)                                              |
 +----------+-------------------------------------------------------------------+
-| Location |  ATARI\_REXT (v2.12+), SMSQ/E                                     |
+| Location || ATARI\_REXT (v2.12+), SMSQ/E                                     |
 +----------+-------------------------------------------------------------------+
 
- This command is used within the Pointer Environment to signal that a
+This command is used within the Pointer Environment to signal that a
 specified window (default #0) which must already be open, is to be
 looked after by the Pointer Environment (managed). Because of the way in
 which the Pointer Environment works, it is always a good idea to use
@@ -854,7 +1017,7 @@ OVER
 | Location |  QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
 
- This command allows you to set the way in which anything is written to
+This command allows you to set the way in which anything is written to
 a specified window (default #1), whether by PRINT, LINE, BLOCK, or any
 other command which prints something on a window. If the supplied
 channel is not a window, then error -15 (bad parameter) will be
