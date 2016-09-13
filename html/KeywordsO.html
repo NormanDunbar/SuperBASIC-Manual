@@ -1,0 +1,902 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html xmlns:v="urn:schemas-microsoft-com:vml">
+  <head>
+    <meta http-equiv="content-type" content="text/html;
+      charset=ISO-8859-1">
+    <link rel="stylesheet" type="text/css" href="css/QLManualStyle.css" media="all" />
+    <title>Sinclair QL SuperBASIC/SBASIC Reference Manual - Keywords O</title>
+</head>
+<body>
+<div id="header">
+  SBASIC/SuperBASIC Reference Manual Online (c) RWAP Software
+  <br />
+  The Online Guide to programming the Sinclair QL Home Computer in SuperBASIC
+</div>
+<div id="sideBar">
+    <ul>
+        <li><a href="Foreword.html">Foreword</a></li>
+        <li><a href="Introduction.html">Introduction</a></li>
+        <li><a href="Credits.html">Credits</a></li>        
+        <li><a href="Structure.html">Structure</a></li>
+        <li><a href="WritingPrograms.html">Writing Programs</a></li>
+        <hr></hr>
+        <li><a href="KeywordsA.html">Keywords - A</a></li>
+        <li><a href="KeywordsB.html">Keywords - B</a></li>
+        <li><a href="KeywordsC.html">Keywords - C</a></li>
+        <li><a href="KeywordsD.html">Keywords - D</a></li>
+        <li><a href="KeywordsE.html">Keywords - E</a></li>
+        <li><a href="KeywordsF.html">Keywords - F</a></li>
+        <li><a href="KeywordsG.html">Keywords - G</a></li>
+        <li><a href="KeywordsH.html">Keywords - H</a></li>
+        <li><a href="KeywordsI.html">Keywords - I</a></li>
+        <li><a href="KeywordsJ.html">Keywords - J</a></li>
+        <li><a href="KeywordsK.html">Keywords - K</a></li>
+        <li><a href="KeywordsL.html">Keywords - L</a></li>
+        <li><a href="KeywordsM.html">Keywords - M</a></li>
+        <li><a href="KeywordsN.html">Keywords - N</a></li>
+        <li><a href="KeywordsO.html">Keywords - O</a></li>
+        <li><a href="KeywordsP.html">Keywords - P</a></li>
+        <li><a href="KeywordsQ.html">Keywords - Q</a></li>
+        <li><a href="KeywordsR.html">Keywords - R</a></li>
+        <li><a href="KeywordsS.html">Keywords - S</a></li>
+        <li><a href="KeywordsT.html">Keywords - T</a></li>
+        <li><a href="KeywordsU.html">Keywords - U</a></li>
+        <li><a href="KeywordsV.html">Keywords - V</a></li>
+        <li><a href="KeywordsW.html">Keywords - W</a></li>
+        <li><a href="KeywordsX.html">Keywords - X</a></li>
+        <li><a href="KeywordsY.html">Keywords - Y</a></li>
+        <li><a href="KeywordsZ.html">Keywords - Z</a></li>
+        <li><a href="Keywords_.html">Keywords - Other</a></li>
+        <hr></hr>
+        <li><a href="AppendicesIntro.html">Appendices Introduction</a></li>
+        <li><a href="Appendix01.html">Appendix 1 - Minerva</a></li>
+        <li><a href="Appendix02.html">Appendix 2 - SMSQE</a></li>
+        <li><a href="Appendix03.html">Appendix 3 - Emulators</a></li>
+        <li><a href="Appendix04.html">Appendix 4 - THOR Computers</a></li>
+        <li><a href="Appendix05.html">Appendix 5 - Expansion Boards</a></li>
+        <li><a href="Appendix06.html">Appendix 6 - Compatability</a></li>
+        <li><a href="Appendix07.html">Appendix 7 - Multiple BASICs</a></li>
+        <li><a href="Appendix08.html">Appendix 8 - Error Messages</a></li>
+        <li><a href="Appendix09.html">Appendix 9 - Character Set / Keyboard</a></li>
+        <li><a href="Appendix10.html">Appendix 10 - Fonts</a></li>
+        <li><a href="Appendix11.html">Appendix 11 - Mathematics</a></li>
+        <li><a href="Appendix12.html">Appendix 12 - Device Drivers</a></li>
+        <li><a href="Appendix13.html">Appendix 13 - Extended Pointer Environment</a></li>
+        <li><a href="Appendix14.html">Appendix 14 - Coercion</a></li>
+        <li><a href="Appendix15.html">Appendix 15 - Mouse Drivers</a></li>
+        <li><a href="Appendix16.html">Appendix 16 - The QL Display</a></li>
+        <li><a href="Appendix17.html">Appendix 17 - Networks</a></li>
+        <li><a href="Appendix18.html">Appendix 18 - Configuring Programs</a></li>
+    </ul>
+</div>
+<div id="mainText">
+<h1><a name="ODD"></a>ODD</h1><br>Syntax: <span style="font-style: italic;">ODD (number)
+<br></span>Location: <span style="font-style: italic;">TinyToolkit, BTool
+<br></span><br>This function checks if the integer part of number can be
+<br>divided by two without remainder, ie. whether it is an odd
+<br>number or not. If the number is odd, the function will return
+<br>1, otherwise it will return 0.
+<br><br>The <span style="font-style: italic;">ODD</span> function could easily be duplicated in BASIC by the
+<br>following function:
+<br><span style="font-style: italic;">10 DEFine FuNction ODD (number%)
+<br>20  RETurn number% MOD 2
+<br>30 END DEFine ODD
+<br></span><hr style="width: 100%; height: 2px;"><h1><a name="OFF"></a>OFF</h1><br>Syntax: <span style="font-style: italic;">OFF
+<br></span>Location: <span style="font-style: italic;">BTool
+<br></span><br>This is a constant which returns 0.
+<br><span style="font-style: italic;"><br>OFF</span> and <span style="font-style: italic;">ON</span> are intended to make listings more readable.
+<br><br><h3>Example:
+<br></h3><br><span style="font-style: italic;">FREEZE OFF
+<br></span><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsO.html#ON">ON</a>, <a style="font-style: italic;" href="KeywordsF.html#FALSE%">FALSE%</a>, <a style="font-style: italic;" href="KeywordsT.html#TRUE%">TRUE%</a>, <a style="font-style: italic;" href="KeywordsS.html#SET
+">SET
+</a><hr style="width: 100%; height: 2px;"><h1><a name="OJOB"></a>OJOB</h1><br>Syntax: <span style="font-style: italic;">OJOB (job_ID)
+<br></span><br>or <span style="font-style: italic;">OJOB (jobnr, tag)
+<br></span><br>or <span style="font-style: italic;">OJOB (jobname)
+<br></span>Location: <span style="font-style: italic;">Toolkit II
+<br></span><br>This function will return the <span style="font-style: italic;">job_id</span> of the 'owner' of the
+<br>given job. Normally the owner of a job is the job which
+<br>initiated it. So, if job 1 creates job 2 then job 1 is the
+<br>owner of job 2. However, because jobs can execute other jobs
+<br>without becoming their owner, generally the owner of a job is
+<br>the job that will kill that job when it itself is removed. A
+<br>negative <span style="font-style: italic;">job_ID</span> points to the job which calls <span style="font-style: italic;">OJOB</span>.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsJ.html#JOB$">JOB$</a>, <a style="font-style: italic;" href="KeywordsN.html#NXJOB">NXJOB</a> and <a style="font-style: italic;" href="KeywordsP.html#PJOB">PJOB</a> return other information about a job.
+<br><br><a style="font-style: italic;" href="KeywordsJ.html#JOBS">JOBS</a> lists all jobs.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="ON"></a>ON</h1><br><h3>
+<br></h3><br>Syntax: <span style="font-style: italic;">ON
+<br></span>Location: <span style="font-style: italic;">BTool
+<br></span><br>This is a constant which returns 1.
+<br><br><h3>Example:
+<br></h3><br><span style="font-style: italic;">FREEZE ON
+<br></span><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsO.html#OFF">OFF</a>, <a style="font-style: italic;" href="KeywordsF.html#FALSE%">FALSE%</a>, <a style="font-style: italic;" href="KeywordsT.html#TRUE%">TRUE%</a>, <a style="font-style: italic;" href="KeywordsS.html#SET
+">SET
+</a><br><h3>
+<br></h3><hr style="width: 100%; height: 2px;"><h1>ON...GO TO</h1><hr style="width: 100%; height: 2px;"><h3>ON...GO SUB
+<br></h3><br>Syntax: <span style="font-style: italic;">ON condition GO TO line</span><sup>1</sup> <sup>*</sup>[<span style="font-style: italic;">,line</span><sup>i</sup>]<sup>*
+<br></sup><br>or <span style="font-style: italic;">ON condition GO SUB line</span><sup>1</sup> <sup>*</sup>[<span style="font-style: italic;">,line</span><sup>i</sup>]<sup>*
+<br></sup>Location: <span style="font-style: italic;">QL ROM
+<br></span><br>The QL supports a structure which enables the program to
+<br>jump to specific lines depending upon the value of a variable.
+<br><br><span style="font-style: italic;">condition</span> must be an integer expression which returns a value
+<br>of one or more.
+<br><br>After the command <span style="font-style: italic;">GO TO</span> or <span style="font-style: italic;">GO SUB</span> must appear a list of line
+<br>numbers to jump to depending on the value of the <span style="font-style: italic;">condition</span>. The
+<br>value returned is then used to determine which of these line
+<br>numbers will be jumped to, by counting the different options.
+<br>If the result of the <span style="font-style: italic;">condition</span> is zero, or more than the number
+<br>of options, then the error 'Out of Range' will be returned.
+<br><br>If <span style="font-style: italic;">ON...GO SUB</span> is used, then when a <span style="font-style: italic;">RETurn</span> is executed from
+<br>within the sub-routine, the program will continue from the
+<br>statement following <span style="font-style: italic;">ON..GO SUB</span>.
+<br><br><h3>Example:
+<br></h3><br>A procedure to print out the locations in an adventure
+<br><br>might look like this:
+<br><span style="font-style: italic;">100 no_of_locations=3
+<br>110 start=0
+<br>120 PRINT_LOC 2
+<br>130 DEFine PROCedure PRINT_LOC (xa)
+<br>140   IF xa=0 OR xa>no_of_locations THEN PRINT 'Undefined Location':RETurn
+<br>150   ON xa+start GO SUB 170,180,190
+<br>160   PRINT 'What now?':RETurn
+<br>170     PRINT 'This is location 1':RETurn
+<br>180     PRINT 'This is location 2':RETurn
+<br>190     PRINT 'This is location 3':RETurn
+<br>200 END DEFine
+<br></span><br>For a simpler (and clearer) way of writing this <span style="font-style: italic;">PROCedure</span>,
+<br><br>please refer to the example given for <span style="font-style: italic;">SELect ON</span>.
+<br><br><h3>NOTE:
+<br></h3><br><span style="font-style: italic;">ON</span> can also be used with the <span style="font-style: italic;">SELect ON</span> structure - please
+<br>refer to <span style="font-style: italic;">SELect ON</span> for further details.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>These two commands can generally be replaced either by a
+<br>calculated <a style="font-style: italic;" href="KeywordsG.html#GO SUB">GO SUB</a> or <a style="font-style: italic;" href="KeywordsG.html#GO TO">GO TO</a> statement, or the <a style="font-style: italic;" href="KeywordsS.html#SELect ON">SELect ON</a> structure.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="OPEN"></a>OPEN</h1><br>Syntax: <span style="font-style: italic;">OPEN #channel, device</span> <span style="font-style: italic;">channel=0..32767
+<br></span><br>or <span style="font-style: italic;">OPEN #channel, device, type(Minerva v1.80+ only)
+<br></span>Location: <span style="font-style: italic;">QL ROM, Toolkit II
+<br></span><br>This is the general command used to open a <span style="font-style: italic;">channel</span> to a
+<br>device for input and/or output, so that data can be read from
+<br>and written to the specified device.
+<br><br>The channel number can be any integer greater than or equal
+<br>to zero and should be kept as small as possible because QDOS
+<br>allocates roughly 40 bytes for each possible channel number
+<br>below the highest one. So if you open <span style="font-style: italic;">channel #1000</span>, 40K of memory
+<br>would be lost - only badly written programs need a thousand
+<br>channels.  After the <span style="font-style: italic;">channel</span> has been <span style="font-style: italic;">OPEN</span>ed, if a program needs
+<br>to access that device in the future, it can do so by passing
+<br>that <span style="font-style: italic;">channel</span> number to the relevant keyword.
+<br><br>Actually, a dozen channels should be sufficient and the
+<br>Turbo compiler strictly limits the highest channel number to
+<br>15, while  QLiberator allows you to configure this to the
+<br>user's needs via a <span style="font-style: italic;">$$chan</span> directive. The compilers allocate
+<br>memory for all of the channels when a job is created so that
+<br>the channel table of the job is independent of other jobs and
+<br>cannot be extended or decreased.  Under the interpreter, the
+<br>channel table can be freely extended but not decreased - only
+<br><span style="font-style: italic;">NEW</span> and<span style="font-style: italic;"> KILL_A</span> clear the channel tables.
+<br><br>When talking about devices, it is necessary to note the
+<br>difference between drives (file drivers) and serial devices:
+<br><br>A drive is a medium where files can be stored (eg. floppy
+<br>disks or microdrive cartridges). Since there can always be
+<br>several drives of a given type, drive names contain a drive
+<br>number from 1 to 8. Data is always stored in a stream of
+<br>bytes. Data can be read in any order and from any position.
+<br><br>On the other hand, with a serial device, data has to be
+<br>read as it comes in: byte by byte or in larger pieces.
+<br><br>Another type of device is a screen device which is a
+<br>defined section of the TV or Monitor display itself.
+<br><br>There are also mixtures between all of these types.
+<br><br>The difference between the device types becomes obvious
+<br>when looking at the operations which can be performed on a
+<br>device: the files on a drive can be listed in a directory and
+<br>colours are only available for windows, just to give a few
+<br>examples.
+<br><br>Other  operations  (especially  basic  read  and  write
+<br>operations)  are  independent  of  the  device,  which  is  a
+<br>characteristic of QDOS. This so-called device independence
+<br>makes it easy to re-direct basic input or output from a
+<br>program because the program has no need to know specifics
+<br>about the device other than its name and/or channel number.
+<br><br>If   you   have   Toolkit   II   installed   <span style="font-style: italic;">OPEN</span>   supports
+<br>sub-directories and default devices when used on drives.  <span style="font-style: italic;">OPEN
+<br></span>will look in the data directory (see <span style="font-style: italic;">DATAD$</span>) for the given file
+<br>if no device is specified.
+<br><br>Basic details of the various standard devices supported by
+<br>the  QL  follow  (further  details  appear  in  the  Drivers
+<br>Appendix):
+<br><h3>Device TypeNametypical uses
+<br></h3>Serial deviceserprinters, communication with other
+<br>computers or modems, control of
+<br>processes, reading analogue data.
+<br>paroutput to printers via a centronics
+<br>interface
+<br>nula dummy device which simply receives
+<br>incoming data and immediately forgets
+<br>it, useful for debugging.  There are
+<br>several variants available.
+<br>pipepipes are intended for communication
+<br>between jobs, every pipe has an input
+<br>and output side - there are both
+<br>standard pipes and named pipes.  This
+<br>is a First In First Out device.
+<br><h3>Device TypeNametypical uses
+<br></h3>Serial DevicehistorySimilar to a pipe, except that it is a
+<br>Last In First Out device.
+<br>netto send or receive data from another
+<br>network station
+<br>mema device to read and write in memory,
+<br>especially useful to directly access
+<br>memory on remote network stations via
+<br>the fileserver  
+<br>Drivesmdvmicrodrives, the original drives on QLs
+<br>- files are stored on cartridges
+<br>flpfloppy disk drives are regarded as
+<br>standard today - files are stored on
+<br>disks, early drivers are called fdk
+<br>winwinchester drives, also called hard
+<br>disks - files are stored on a
+<br>permanently installed very large and
+<br>fast disk
+<br>ramramdisks, virtual but extremely fast
+<br>drives, the files are stored in RAM and
+<br>are lost when the computer is switched
+<br>off
+<br>deva kind of universal device, see <span style="font-style: italic;">DEV_USE
+<br></span>for an introduction
+<br>pthvery similar to dev - see <span style="font-style: italic;">PTH_ADD
+<br></span>mospermanent ramdisk, needs specific
+<br>hardware
+<br>romalso a permanent ramdisk.
+<br>Windowsconinterfaces to a console device (window)
+<br>for input and output
+<br>scrthe same as con_ but for output
+<br>only 
+<br>Other devicesnthe fileserver device which allows you
+<br>to access any device on a remote
+<br>network station
+<br>sdumpa device for a general window
+<br>dump
+<br><br>Please refer to other parts of this book for more specific
+<br>information on the devices. A lot of examples are given
+<br>throughout the book.
+<br><br><h3>NOTE 1:
+<br></h3><br>The <span style="font-style: italic;">OPEN</span> command will close a channel which is already open
+<br>with the same channel number prior to opening the new channel
+<br>- do not try to <span style="font-style: italic;">OPEN #0</span> (except from within a compiled program)
+<br>unless you have Minerva or SMS - even then, do not try to <span style="font-style: italic;">OPEN #0
+<br></span>as anything other than a CON_ device, except from within a
+<br>MultiBASIC / Multiple SBASIC.
+<br><br><h3>NOTE 2:
+<br></h3><br>On AH ROMs, if two tasks tried to read the same file at the
+<br>same time, the second task was likely to miss the start of the
+<br>file and read the directory header instead.
+<br><br><h3>NOTE 3:
+<br></h3><br>On QL ROMs (pre MG) there is a maximum of 32767 <span style="font-style: italic;">OPEN</span>s in a
+<br>session.
+<br><br><h3>NOTE 4:
+<br></h3><br>The pointer environment has a little bug in it which can
+<br>lead to odd results when <span style="font-style: italic;">OPEN</span>ing screen windows. Try, for a
+<br>laugh (and beware that this will crash the QL eventually), the
+<br>following:
+<br><br><span style="font-style: italic;">FOR I=1 TO 32768: OPEN #3,scr: PRINT#3,'Hello';i
+<br></span><br>This is fixed under SMSQ/E and WMAN v1.52.
+<br><br><h3>NOTE 5:
+<br></h3><br>The maximum number of channels which can be opened at the
+<br>same time depends on the amount of memory available, but in
+<br>current implementations, there is an overall maximum of 360
+<br>channels, unless you are using Minerva (see below).
+<br><br>SMS seems to allow a much larger number of channels to be
+<br>open at the same time.
+<br><br><h3>NOTE 6:
+<br></h3><br>Any attempt to open more than one channel to a serial port
+<br>will report the error 'in use', unless you are using the ST/QL
+<br>Emulator which allows more than one input channel to be opened
+<br>to a serial port.
+<br><br><h3>NOTE 7:
+<br></h3><br>On the QXL (pre v2.50 of SMS), an attempt to <span style="font-style: italic;">OPEN #ch,ser2
+<br></span>would fail if ser1 was not available to the operating system
+<br>for any reason.
+<br><br><h3>MINERVA NOTES:
+<br></h3><br>On v1.80 (and later), a third parameter is supported on
+<br>this command which can be used to specify the 'open type'.
+<br>This is only of any use on drives and pipes.
+<br><br><h3>Drives
+<br></h3><h3>Open typeEffect
+<br></h3>0       Open existing file for exclusive use (same as
+<br><span style="font-style: italic;">OPEN</span>)
+<br>1       Open existing file for shared use (same as
+<br><span style="font-style: italic;">OPEN_IN</span>)
+<br>2       Open new file (same as <span style="font-style: italic;">OPEN_NEW</span>)
+<br>3       Open file and overwrite if already exists (same
+<br>as <span style="font-style: italic;">OPEN_OVER</span>)
+<br>4       Open directory file (same as <span style="font-style: italic;">OPEN_DIR</span>)
+<br>(Compare this list with the list at <span style="font-style: italic;">FILE_OPEN</span>!)
+<br><h3><br>Minerva Example:
+<br></h3><span style="font-style: italic;">OPEN#3,ram1_test_device,3
+<br></span><br>opens a new file called ram1_test_device whether or not it
+<br>already exists. 
+<br><br><h3>Pipes
+<br></h3><br>The extra parameter supplies the QDOS channel number of the
+<br>source end of the <span style="font-style: italic;">pipe</span>. This is therefore only of use when
+<br>opening the 'read' end of the <span style="font-style: italic;">pipe</span>. This gets around the
+<br>necessity for commands like <span style="font-style: italic;">QLINK</span>. For example these two lines
+<br>are the same:
+<br><span style="font-style: italic;">OPEN#4,'pipe_4000': QLINK#4 TO #3
+<br></span><span style="font-style: italic;">OPEN#4, 'pipe_4000': pipe_id=PEEK_W (\48\4*40+2) : OPEN#3, 'pipe_', pipe_id
+<br></span><br>Unfortunately, Toolkit II replaces this variant of <span style="font-style: italic;">OPEN</span> with
+<br>its own, but all of the above facilities (apart from pipe
+<br>channel numbers) are provided by specific Toolkit II commands
+<br>in any event.
+<br><br>Due to Minerva's System Xtensions, the maximum number of
+<br>permitted channels open at any one time has been reduced to
+<br>304 on an expanded machine (earlier ROMs allow 360). On an
+<br>unexpanded machine, you can only open 112 under Minerva.
+<br><br>In MultiBasics, both channel #0 and channel #1 can be
+<br>inextricably linked. Due to the fact that the <span style="font-style: italic;">OPEN</span> command
+<br>closes an existing channel before setting up the new channel
+<br>with the given parameters, <span style="font-style: italic;">OPEN #0</span> or <span style="font-style: italic;">OPEN #1</span> from within a
+<br>MultiBasic will remove the MultiBasic in certain instances -
+<br>see MultiBasic appendix.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>Opened channels are closed with <a style="font-style: italic;" href="KeywordsC.html#CLOSE">CLOSE</a> and can be listed with
+<br><a style="font-style: italic;" href="KeywordsC.html#CHANNELS">CHANNELS</a>.
+<br><br><a style="font-style: italic;" href="KeywordsF.html#FOPEN">FOPEN</a> is the same as <a style="font-style: italic;" href="KeywordsO.html#OPEN">OPEN</a> except it works as a function and
+<br><a style="font-style: italic;" href="KeywordsO.html#OPEN_IN">OPEN_IN</a> / <a style="font-style: italic;" href="KeywordsF.html#FOP_IN">FOP_IN</a> open a device for input only.
+<br><br><a style="font-style: italic;" href="KeywordsO.html#OPEN_DIR">OPEN_DIR</a> (<a style="font-style: italic;" href="KeywordsF.html#FOP_DIR">FOP_DIR</a>) opens a directory (or a sub-directory on
+<br>level-2 drivers).
+<br><br>Also see <a style="font-style: italic;" href="KeywordsO.html#OPEN_NEW">OPEN_NEW</a>, <a style="font-style: italic;" href="KeywordsF.html#FOP_OVER">FOP_OVER</a>, <a style="font-style: italic;" href="KeywordsT.html#TTEOPEN">TTEOPEN</a> and <a style="font-style: italic;" href="KeywordsF.html#FILE_OPEN">FILE_OPEN</a>.
+<br><br><a style="font-style: italic;" href="KeywordsN.html#NEWCHAN%">NEWCHAN%</a> can be quite useful when <a style="font-style: italic;" href="KeywordsO.html#OPEN">OPEN</a>ing channels.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="OPEN_DIR"></a>OPEN_DIR</h1><br>Syntax: <span style="font-style: italic;">OPEN_DIR #channel, device_directory
+<br></span><br>or <span style="font-style: italic;">OPEN_DIR #channel, </span>[<span style="font-style: italic;">device_</span>]<span style="font-style: italic;">directory(Toolkit II only)
+<br></span>Location: <span style="font-style: italic;">Toolkit II, THOR XVI
+<br></span><br>This command is a specialised version of <span style="font-style: italic;">OPEN</span> which is aimed
+<br>at allowing you to read directories of any given drive <span style="font-style: italic;">device</span>.
+<br>The directory of a drive contains a copy of every file header
+<br>which has ever been created on that medium. When a file is
+<br>deleted,  its  entry  is  blanked  out  (with  zeros)  in  the
+<br>directory, thus enabling recovery programs to actually still
+<br>read the file (provided that nothing else has been written to
+<br>the sectors where it was stored).
+<br><br>It  can  therefore  be  very  useful  to  access  these
+<br>directories, for example to provide the user with a selection
+<br>of  files  to  choose  from.  It  is  however  important  to
+<br>differentiate between directories and the output from the <span style="font-style: italic;">DIR
+<br></span>command!!
+<br><br>On Level-2 and Level-3 device drivers, it is quite easy to
+<br>access a directory as the directory is stored in a file.  For
+<br>example, on a floppy disk, try
+<br><span style="font-style: italic;">COPY flp1_ TO scr
+<br></span><br>this will show the directory file!.
+<br><br>Sub-directories are similar in that after the command:
+<br><span style="font-style: italic;">MAKE_DIR flp1_Quill_
+<br></span><br>the file <span style="font-style: italic;">flp1_Quill</span> will be created which contains a copy of
+<br>all  of  the  file  headers  for  the  files  within  that
+<br>sub-directory.
+<br><br>Standard device drivers on the other hand are another
+<br>kettle of fish, in that they allow you to create a file
+<br>without any name (eg. <span style="font-style: italic;">SAVE mdv1_</span>). If you then
+<br><span style="font-style: italic;">COPY mdv1_ TO scr
+<br></span><br>you will see that this is exactly the same as if you had
+<br>used:
+<br><span style="font-style: italic;">SAVE mdv1_boot
+<br></span><br>(apart from the name of the file). Such files are not
+<br>revealed by <span style="font-style: italic;">DIR</span> and can be used as a form of copy-protection by
+<br>some programs. Because of this, you might suffer from a 'Not
+<br>Found' (-7) error if you tried to <span style="font-style: italic;">COPY flp1_ TO scr</span> from a disk with
+<br>a Level-1 device driver.
+<br><br>A disk created on a level-1 driver does not look different
+<br>to a level-2 driver. If a file with a zero length name was
+<br>created under a level-1 driver, then this file will only be
+<br>accessible under the same driver level.
+<br><br>To use the command <span style="font-style: italic;">OPEN_DIR</span>, you will need to supply the
+<br>intended channel number which must be an integer in the range
+<br>0...32767. As with <span style="font-style: italic;">OPEN</span> this must be kept as low as possible.
+<br><br>After this, comes the name of the directory to be opened.
+<br>This should generally be simply the name of the device to be
+<br>accessed, such as:
+<br><br><span style="font-style: italic;">OPEN_DIR #ch,mdv1_
+<br></span><br>(<span style="font-style: italic;">OPEN_DIR</span> works correctly with standard device drivers even
+<br>if there is a file on the drive without a name, eg. <span style="font-style: italic;">mdv1_</span>. If
+<br>you  have  Level-2  device  drivers,  sub-directories  may  be
+<br>accessed by providing the name of the drive plus the name of
+<br>the sub-directory, for example:
+<br><br><span style="font-style: italic;">OPEN_DIR #3,flp1_Quill
+<br></span><br>If Toolkit II is present, the default data device is
+<br>supported (see <span style="font-style: italic;">DATAD$</span>), although a <span style="font-style: italic;">directory</span> will still need to be
+<br>provided,  therefore  to  simply  access  the  default  data
+<br>directory, you will need to use:
+<br><br><span style="font-style: italic;">OPEN_DIR #ch,''
+<br></span><br>Having opened the directory, you can then examine the file
+<br>header for each file which has been stored on that drive by
+<br>fetching blocks of 64 bytes from the channel at a time and
+<br>examining each block per file.
+<br><br><h3>Example:
+<br></h3><br>A  short  program  which  will  provide  a  more  detailed
+<br><br>directory listing of any device:
+<br><span style="font-style: italic;">100 WINDOW 448,200,32,16:PAPER 0:MODE 4:CLS
+<br>110 INK 7
+<br>120 INPUT 'Read directory of which device? - ';dev$
+<br>130 CLS:PRINT 'Directory of ';dev$
+<br>140 PRINT 'Filename';TO 40;'File length';TO 54;'Update date'
+<br>150 head_start=0
+<br>160 INK 4
+<br>170 OPEN_DIR #3,dev$:no_files=FLEN(#3)/64
+<br>180 FOR listing=1 TO no_files
+<br>190   BGET #3\head_start+0,flen1,flen2,flen3,flen4,faccess,ftype
+<br>200   flength=flen4+flen3*2^8+flen2*2^16+flen1*2^24-64
+<br>210   IF flength>0
+<br>220     GET #3\head_start+14,File$
+<br>230     BGET #3\head_start+52,fdate1,fdate2,fdate3,fdate4
+<br>240     fdate=fdate4+fdate3*2^8+fdate2*2^16+fdate1*2^24
+<br>245     IF LEN(File$)=0:File$='&lt;Un-named&gt;'
+<br>250     IF ftype<255
+<br>260       PRINT File$;TO 40;flength;TO 54;DATE$(fdate)
+<br>270     ELSE
+<br>280       PRINT File$&'->'
+<br>290     END IF
+<br>300   END IF
+<br>310   head_start=head_start+64
+<br>320 END FOR listing
+<br>330 CLOSE #3
+<br>340 INK 7:PRINT 'End of Listing'
+<br></span><br><h3>
+<br></h3><br><h3>NOTE 1:
+<br></h3><br>The <span style="font-style: italic;">OPEN_DIR</span> command will close a channel which is already
+<br>open with the same channel number prior to opening the new
+<br>channel - do not try to <span style="font-style: italic;">OPEN_DIR #0</span> unless you have read the notes
+<br>to <span style="font-style: italic;">OPEN</span>!
+<br><br><h3>NOTE 2:
+<br></h3><br>On QL ROMs (pre MG) there is a maximum of 32767 <span style="font-style: italic;">OPEN</span>s (in
+<br>total) in a session.
+<br><br><h3>NOTE 3:
+<br></h3><br>If you specify a <span style="font-style: italic;">device</span> which is not actually used for the
+<br>storage of files (for example <span style="font-style: italic;">OPEN_DIR#3,scr</span> or <span style="font-style: italic;">OPEN_DIR#3,pipe_1000</span>),
+<br>this command has exactly the same effect as the <span style="font-style: italic;">OPEN</span> command.
+<br><br><h3>NOTE 4:
+<br></h3><br>If  the  specified  directory  actually  points  to  a
+<br>non-directory file (or the file does not even exist), then
+<br><span style="font-style: italic;">OPEN_DIR</span> will actually open the directory in which that file is
+<br>located, for example, if the directory <span style="font-style: italic;">flp1_TK_</span> contained the
+<br>file <span style="font-style: italic;">flp1_TK_FN_cde</span>,
+<br><br><span style="font-style: italic;">OPEN_DIR#3,flp1_TK_FN_cde
+<br></span><br><span style="font-style: italic;">OPEN_DIR#3,flp1_TK_FN
+<br></span><br>and
+<br><br><span style="font-style: italic;">OPEN_DIR#3,flp1_TK
+<br></span><br>would all have exactly the same effect.
+<br><br><h3>NOTE 5:
+<br></h3><br>Because of the way in which Level-2 and Level-3 device
+<br>drivers work, provided that you only use the name of an actual
+<br>directory (or  sub-directory)  as the  parameter,  you  could
+<br>actually use <span style="font-style: italic;">OPEN</span> or <span style="font-style: italic;">OPEN_IN</span> instead of <span style="font-style: italic;">OPEN_DIR</span>, but this has its
+<br>limits, in that it would be useless with standard device
+<br>drivers and creates havoc if the name of a non-directory file
+<br>is supplied.
+<br><br><h3>NOTE 6:
+<br></h3><br>Except under SMS, if a channel has been opened with <span style="font-style: italic;">OPEN_DIR
+<br></span>to a   main  directory,  no other  channel  can  access  that
+<br>directory at the same time.
+<br><br>Several  channels  can  however  be  open  to  the  same
+<br>sub-directory (a bug perhaps) or to a sub-directory further
+<br>down the tree, which for example allows:
+<br><span style="font-style: italic;">100 OPEN_DIR #3,flp1_
+<br>110 OPEN_DIR #4,flp1_TK
+<br>120 OPEN_DIR #5,flp1_TK
+<br></span><br>but not:
+<br><span style="font-style: italic;">100 OPEN_DIR #3,flp1_TK
+<br>110 OPEN_DIR #4,flp1_
+<br></span><br><h3>
+<br></h3><br>This also has the result that whilst a channel which has
+<br>been opened with <span style="font-style: italic;">OPEN_DIR</span> is open to a  main directory, commands
+<br>such as <span style="font-style: italic;">DIR</span>, <span style="font-style: italic;">WDIR</span>, <span style="font-style: italic;">WDEL</span> etc. will report 'in use' as they cannot
+<br>access the directory themselves.
+<br><br>The result of this (combined with the operation of the
+<br><span style="font-style: italic;">OPEN_DIR</span> command) makes it actually possible to have two channels
+<br>open to the main directory, by ensuring that the filename
+<br>passed to the <span style="font-style: italic;">OPEN_DIR</span> commands does not exist on the drive, for
+<br>example:
+<br><span style="font-style: italic;">OPEN_DIR #3,flp1_test
+<br>OPEN_DIR #4,flp1_test
+<br></span><br>will leave both channels #3 and #4 open to the main
+<br>directory (flp1_).
+<br><br>Under SMS you can have several channels open to the same
+<br>directory thereby avoiding these problems.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>Please see <a style="font-style: italic;" href="KeywordsO.html#OPEN">OPEN</a>.
+<br><br>Commands such as <a style="font-style: italic;" href="KeywordsF.html#FLEN">FLEN</a>, <a style="font-style: italic;" href="KeywordsF.html#FGETH$">FGETH$</a> and <a style="font-style: italic;" href="KeywordsH.html#HEADR">HEADR</a> allow you to examine
+<br>parts of each files header - see <a style="font-style: italic;" href="KeywordsF.html#FGETH$">FGETH$</a> for details of the file
+<br>header.
+<br><br><a style="font-style: italic;" href="KeywordsF.html#FOP_DIR">FOP_DIR</a> is an error trapped version of <a style="font-style: italic;" href="KeywordsO.html#OPEN_DIR">OPEN_DIR</a>.
+<br><br>The Minerva variant of <a style="font-style: italic;" href="KeywordsO.html#OPEN">OPEN</a>, <a style="font-style: italic;" href="KeywordsO.html#OPEN_IN">OPEN_IN</a> and <a style="font-style: italic;" href="KeywordsO.html#OPEN_NEW">OPEN_NEW</a> can all be made
+<br>to work in a similar way to <a style="font-style: italic;" href="KeywordsO.html#OPEN_DIR">OPEN_DIR</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="OPEN_IN"></a>OPEN_IN</h1><br>Syntax: <span style="font-style: italic;">OPEN_IN #channel, device_filename
+<br></span><br>or <span style="font-style: italic;">OPEN_IN #channel, </span>[<span style="font-style: italic;">device_</span>]<span style="font-style: italic;">filename</span> <span style="font-style: italic;">(Toolkit II only)
+<br></span><br>or <span style="font-style: italic;">OPEN_IN #channel, device_filename, type     (Minerva v1.80+ only)
+<br></span>Location: <span style="font-style: italic;">QL ROM, Toolkit II
+<br></span><br>This command is a specialised version of <span style="font-style: italic;">OPEN</span> which is aimed
+<br>at allowing you to read data from files. This opens the
+<br>specified channel (<span style="font-style: italic;">#channel</span> must be an integer in the range
+<br>0...32767) for input only to the specified <span style="font-style: italic;">filename</span> on the given
+<br>device.
+<br><br>Any number of channels may be linked to a file using <span style="font-style: italic;">OPEN_IN</span>,
+<br>although if you try to use any other type of <span style="font-style: italic;">OPEN</span> call to that
+<br>filename, the error 'in use' will be reported.
+<br><br>The Toolkit II variant of this command supports the default
+<br>data device if necessary (see <span style="font-style: italic;">DATAD$</span>), but in any case, if the
+<br>file does not exist (either on the specified device or on the
+<br>default data device), the error 'Not Found' (-7) will be
+<br>reported.
+<br><br><h3>NOTE 1:
+<br></h3><br><span style="font-style: italic;">OPEN_IN</span> will close a channel which is already open with the
+<br>same channel number prior to opening the new channel - do not
+<br>try to <span style="font-style: italic;">OPEN_IN #0</span> unless you have read the notes to <span style="font-style: italic;">OPEN</span>!
+<br><br><h3>NOTE 2:
+<br></h3><br>On AH ROMs, if two tasks tried to read the same file at the
+<br>same time, the second task was likely to miss the start of the
+<br>file and read the directory header instead.
+<br><br><h3>NOTE 3:
+<br></h3><br>On QL ROMs (pre MG) there is a maximum of 32767 <span style="font-style: italic;">OPEN</span>s in a
+<br>session.
+<br><br><h3>NOTE 4:
+<br></h3><br>If instead of <span style="font-style: italic;">device_filename</span>, another type of device is used,
+<br>such as scr_, <span style="font-style: italic;">OPEN_IN</span> has the same effect as <span style="font-style: italic;">OPEN</span>.
+<br><br><h3>MINERVA NOTES:
+<br></h3><br>On v1.80 and later, a third parameter is supported by <span style="font-style: italic;">OPEN_IN
+<br></span>as with <span style="font-style: italic;">OPEN</span>. This means that this command (if the third
+<br>parameter is used) has exactly the same effect as <span style="font-style: italic;">OPEN</span>.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsF.html#FOP_IN">FOP_IN</a> is an error trapped equivalent to this command.
+<br><br><a style="font-style: italic;" href="KeywordsO.html#OPEN_DIR">OPEN_DIR</a> allows you to access directories on drives.
+<br><br><a style="font-style: italic;" href="KeywordsO.html#OPEN">OPEN</a> contains a general description of all the open types.
+<br><br><a style="font-style: italic;" href="KeywordsO.html#OPEN_NEW">OPEN_NEW</a> and <a style="font-style: italic;" href="KeywordsO.html#OPEN_OVER">OPEN_OVER</a> are also linked with this.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="OPEN_NEW"></a>OPEN_NEW</h1><br>Syntax: <span style="font-style: italic;">OPEN_NEW #channel, device_filename
+<br></span><br>or <span style="font-style: italic;">OPEN_NEW #channel, </span>[<span style="font-style: italic;">device_</span>]<span style="font-style: italic;">filename(Toolkit II only)
+<br></span><br>or <span style="font-style: italic;">OPEN_NEW #channel, device_filename, type    (Minerva v1.80+ only)
+<br></span>Location: <span style="font-style: italic;">QL ROM, Toolkit II
+<br></span><br>This command is yet another specialised version of <span style="font-style: italic;">OPEN</span>.
+<br>This time it is aimed at providing a means of creating a new
+<br>filename on the specified device and opening a specified
+<br>channel (#channel must be an integer in the range 0..32767) to
+<br>that filename for output.
+<br><br>If Toolkit II is present, <span style="font-style: italic;">OPEN_NEW</span> supports the default data
+<br>device (see <span style="font-style: italic;">DATAD$</span>), however in any case if the device (or
+<br>default data device) does not contain a formatted medium, the
+<br>error 'not found' (-7) will be reported.
+<br><br>An error will also be reported if the medium is read only.
+<br><br>Without Toolkit II, if the filename already exists, then
+<br>the error 'already exists' will be generated. On the other
+<br>hand, Toolkit II will show the familiar 'OK to Overwrite?'
+<br>prompt.
+<br><br>Once the channel is open, any attempt to open another
+<br>channel to that same filename at the same time will report an
+<br>error 'In use'.
+<br><br><h3>Example:
+<br></h3><br>A simple interactive copying routine:
+<br><span style="font-style: italic;">100 INPUT #0,'COPY :-'!in$!'=>'!out$
+<br>110 OPEN_IN #3,in$
+<br>120 OPEN_NEW #4,out$
+<br>130 REPeat copy_loop
+<br>140   IF EOF(#3):EXIT copy_loop
+<br>150   a$=INKEY$(#3)
+<br>160   PRINT a$;:PRINT #4,a$;
+<br>170 END REPeat copy_loop
+<br>180 CLOSE #4,#3
+<br>190 PRINT #0,'Copying complete'
+<br></span><br><h3>NOTE 1:
+<br></h3><br>The <span style="font-style: italic;">OPEN_NEW</span> command will close a channel which is already
+<br>open with the same channel number prior to opening the new
+<br>channel - do not try to <span style="font-style: italic;">OPEN_NEW #0</span> unless you have read the notes
+<br>on <span style="font-style: italic;">OPEN</span>!
+<br><br><h3>NOTE 2:
+<br></h3><br>If instead of <span style="font-style: italic;">device_filename</span>, another type of device is used,
+<br>such as scr_,  <span style="font-style: italic;">OPEN_NEW</span> has the same effect as <span style="font-style: italic;">OPEN</span>.
+<br><br><h3>NOTE 3:
+<br></h3><br>In version 2.05 of Toolkit II, if the filename already
+<br>exists, the channel may be left open.
+<br><br><h3>NOTE 4:
+<br></h3><br>Similar problems exist with <span style="font-style: italic;">OPEN_NEW</span> to those encountered
+<br>with <span style="font-style: italic;">SAVE</span> when trying to write to a write-protected microdrive
+<br>cartridge.  Unfortunately however, the problem is made worse
+<br>by the fact that the problem is not revealed when the channel
+<br>is opened.  Instead 'bad or changed medium' is only displayed
+<br>when the file is written to (ie. when 512 characters have been
+<br>written to the channel, or the channel is <span style="font-style: italic;">CLOSE</span>d).
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsF.html#FOP_NEW">FOP_NEW</a> is an error trapped function which is equivalent to
+<br>this command.
+<br><br><a style="font-style: italic;" href="KeywordsO.html#OPEN_DIR">OPEN_DIR</a> allows you to access directories on drives.
+<br><br><a style="font-style: italic;" href="KeywordsO.html#OPEN">OPEN</a> contains a general description of all the open types.
+<br><br><a style="font-style: italic;" href="KeywordsO.html#OPEN_IN">OPEN_IN</a> and <a style="font-style: italic;" href="KeywordsO.html#OPEN_OVER">OPEN_OVER</a> are also linked with this.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="OPEN_OVER"></a>OPEN_OVER</h1><br>Syntax: <span style="font-style: italic;">OPEN_OVER #channel, device_filename
+<br></span><br>or <span style="font-style: italic;">OPEN_OVER#channel,</span> [<span style="font-style: italic;">device_</span>]<span style="font-style: italic;">filename(Toolkit II only)
+<br></span>Location: <span style="font-style: italic;">Toolkit II, THOR XVI
+<br></span><br>This command is exactly the same as the Toolkit II version
+<br>of <span style="font-style: italic;">OPEN_NEW</span> except that if the specified <span style="font-style: italic;">filename</span> already exists,
+<br>the <span style="font-style: italic;">filename</span> is automatically overwritten. Also, the THOR XVI
+<br>version of this command does not support the default data
+<br>device.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsO.html#OPEN_NEW">OPEN_NEW</a>!
+<br><br>The Minerva variant of <a style="font-style: italic;" href="KeywordsO.html#OPEN">OPEN</a>, <a style="font-style: italic;" href="KeywordsO.html#OPEN_IN">OPEN_IN</a> and <a style="font-style: italic;" href="KeywordsO.html#OPEN_NEW">OPEN_NEW</a> can all be made
+<br>to work in the same way as <a style="font-style: italic;" href="KeywordsO.html#OPEN_OVER">OPEN_OVER</a>.
+<br><br><a style="font-style: italic;" href="KeywordsF.html#FOP_OVER">FOP_OVER</a> is a function which operates like <a style="font-style: italic;" href="KeywordsO.html#OPEN_OVER">OPEN_OVER</a> except that
+<br>it allows any errors to be trapped.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="OR"></a>OR</h1><br>Syntax: <span style="font-style: italic;">condition1 OR condition2
+<br></span>Location: <span style="font-style: italic;">QL ROM
+<br></span><br>This combination operator combines two condition tests
+<br>together and will have the value 0 if both <span style="font-style: italic;">condition1</span> and <span style="font-style: italic;">condition2
+<br></span>are false, or 1 if either <span style="font-style: italic;">condition1</span> or <span style="font-style: italic;">condition2</span> are true (or both
+<br>are true).
+<br><br>Please note the difference between this and the bitwise OR
+<br>operator: <span style="font-style: italic;">x||y</span>, which compares <span style="font-style: italic;">x</span> and <span style="font-style: italic;">y</span> bit by bit.
+<br><br><h3>Example 1:
+<br></h3><br><span style="font-style: italic;">PRINT 1 OR 0</span>            Returns 1
+<br><br><span style="font-style: italic;">PRINT 12 OR 1</span>0Returns 1
+<br><br>(compare <span style="font-style: italic;">PRINT 12&&10</span> which returns 14).
+<br><br><h3>Example 2:
+<br></h3><span style="font-style: italic;">10 FOR x=1 TO 5
+<br>20   FOR y=1 TO 5
+<br>30     IF x=3 OR y>3:PRINT x;'=>';y,
+<br>40   END FOR y
+<br>50 END FOR x
+<br></span><br>produces the following output:
+<br><br>1=>4    1=>5    2=>4    2=>5    3=>1    3=>2    3=>3
+<br><br>3=>4    3=>5    4=>4    4=>5    5=>4    5=>5
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsA.html#AND">AND</a>, <a style="font-style: italic;" href="KeywordsN.html#NOT">NOT</a> and <a style="font-style: italic;" href="KeywordsX.html#XOR">XOR</a> are the other combination operators.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="OUTL"></a>OUTL</h1><br>Syntax: <span style="font-style: italic;">OUTL </span>[<span style="font-style: italic;">#</span>]<span style="font-style: italic;">chan </span>[<span style="font-style: italic;">,width,height,x,y</span>]
+Location: <span style="font-style: italic;">PEX
+<br></span><br>This  command  is  similar  to  <span style="font-style: italic;">OUTLN</span>  except  for  a  few
+<br>variations:
+<br><br>(1) If <span style="font-style: italic;">chan</span> is not preceded by # then it is taken to be a
+<br>QDOS channel number (and this command can therefore be used to
+<br>redefine an Outline for any Job).
+<br><br>(2) You cannot specify a shadow.
+<br><br>(3) If only the <span style="font-style: italic;">chan</span> parameter is used (with or without a
+<br>#), then the current maximum sizes of the Jobs windows are
+<br>used (similar to <span style="font-style: italic;">OUTLN</span> without any parameters).
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsO.html#OUTLN">OUTLN</a>.
+<br><br><a style="font-style: italic;" href="KeywordsC.html#CHANNELS">CHANNELS</a>  allows  you  to  find  out  about  QDOS  channel
+<br>numbers.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="OUTLN"></a>OUTLN</h1><br>Syntax: <span style="font-style: italic;">OUTLN </span>[<span style="font-style: italic;">#chan,</span>] <span style="font-style: italic;">width,height,x,y </span>[<span style="font-style: italic;">,x_shad,y_shad</span>]
+<br><br>or <span style="font-style: italic;">OUTLN</span> <span style="font-style: italic;">(SMSQ/E only)
+<br></span>Location: <span style="font-style: italic;">ATARI_REXT (v2.12+), SMSQ/E
+<br></span><br>This command is used within the Pointer Environment to
+<br>signal that a specified window (default #0) which must already
+<br>be open, is to be looked after by the Pointer Environment
+<br>(managed).
+<br><br>Because of the way in which the Pointer Environment works,
+<br>it is always a good idea to use <span style="font-style: italic;">OUTLN</span> on the first window to be
+<br>used for input/output by a program (this is known as the
+<br>Primary Window), as this will ensure that all windows which
+<br>are subsequently <span style="font-style: italic;">OPEN</span>ed by the program will be what is known as
+<br>Secondary Windows and also managed.  Because of this, if a
+<br>program is to be run under the SuperBASIC interpreter, <span style="font-style: italic;">OUTLN
+<br></span>should be used on #0, whereas in a compiled program, <span style="font-style: italic;">OUTLN</span> needs
+<br>to be used on the first channel which is <span style="font-style: italic;">OPEN</span>ed (ensure that the
+<br>program is compiled without any windows open).
+<br><br>Hints  on  writing  programs  to  run  under  the  Pointer
+<br>Environment appear below, showing how <span style="font-style: italic;">OUTLN</span> should be used.
+<br><br>If an <span style="font-style: italic;">OUTLN</span> has been defined, any attempt to <span style="font-style: italic;">OPEN</span> a window
+<br>which would fall outside of the managed Primary Window will
+<br>cause an 'out of range' error. If you then use <span style="font-style: italic;">OUTLN</span> on a
+<br>Secondary window, the first time that <span style="font-style: italic;">OUTLN</span> is encountered after
+<br>the window is <span style="font-style: italic;">OPEN</span>ed, the contents of the screen under that
+<br>window will be stored. Then, if you again use <span style="font-style: italic;">OUTLN</span> on the same
+<br>window, the contents of the screen under the Secondary Window
+<br>are restored (see the example).
+<br><br>With the first syntax of the command, the first five
+<br>parameters supplied to <span style="font-style: italic;">OUTLN</span> are exactly the same as with <span style="font-style: italic;">WINDOW</span>,
+<br>however, you can also add two further parameters, <span style="font-style: italic;">x_shad</span> and
+<br><span style="font-style: italic;">y_shad</span> to specify the width of a shadow which will appear to the
+<br>right and bottom (respectively) of the window to make it stand
+<br>out. They both default to zero (no shadow).
+<br><br>SMSQ/E v2.53+ allows the second syntax, which will allow
+<br>you to use <span style="font-style: italic;">OUTLN</span> without any parameters at all.  In this case,
+<br>the primary window will be outlined to the smallest area which
+<br>can encompass all currently <span style="font-style: italic;">OPEN</span> windows at the time that <span style="font-style: italic;">OUTLN
+<br></span>is used.
+<br><br><h3>Writing programs to use the Pointer Environment
+<br></h3><br>Some information concerning this appears in Section 4,
+<br>however,  when  designing  a  program  to  use  the  Pointer
+<br>Environment, it is useful to follow this procedure:
+<br><br>(1) Open a main channel to define the maximum screen area
+<br>available to the job, eg:
+<br><br><span style="font-style: italic;">OPEN #1,con_
+<br></span><br>This should be the first window <span style="font-style: italic;">OPEN</span>ed by the program - if
+<br>it is compiled, compile the program without Windows enabled.
+<br><br>(2) Fetch the screen limits, eg:
+<br><br><span style="font-style: italic;">scr_width%=QFLIM (#1,0)
+<br><br>scr_height%=QFLIM (#1,1)
+<br></span><br>(3) Ensure that the screen is in the right mode:
+<br><br><span style="font-style: italic;">IF RMODE&lt;&gt;0: MODE 4
+<br></span><br>(4) Outline #1 (the main channel) to the size of the
+<br>program:
+<br><br><span style="font-style: italic;">OUTLN #1,450,210,0,0
+<br></span><br>The program will then have a maximum screen area of 450x210
+<br>pixels available.
+<br><br>When you wish to resize the program's display, you will
+<br>need to mark the main channel (#1) as unmanaged and then use
+<br><span style="font-style: italic;">OUTLN</span> to resize the main channel.
+<br><br>For example, the following method was used (using commands
+<br>from EasyPTR by Jochen Merz Software) to allow the user to re-
+<br>size the program Q-Route (available from Q Branch):
+<br><br>The procedure is called when the user highlights the Resize
+<br>Loose Item on the main menu (which is drawn on #1).  In order
+<br>for this to work, the main menu had to be loaded as a separate
+<br>file into the common heap area pointed to by the variable <span style="font-style: italic;">m_store
+<br></span>(as there is no way in current versions of EasyPTR to allow
+<br>you to find the address of the original menu definition in an
+<br>Appended definition file - this is not the working menu
+<br>definition used by the Window Manager).
+<br><br>For more general information on EasyPTR, you are directed
+<br>to the EasyPTR tutorial contained in the Quanta magazine in
+<br>1994.
+<br><br>The outline of a routine (excuse the pun) to re-size the
+<br>main menu used by a  program appears on the next page (note
+<br>that this requires EasyPTR <span style="font-style: italic;">(c) Albin Hessler</span>, and substantial
+<br>additions to the code in order to work):
+<br><span style="font-style: italic;">9620 DEFine PROCedure RESIZE_MAIN
+<br>9621 sel_key%=0
+<br>9622 DIM result%(16)
+<br>9630 PVAL #Main_menu,result%
+<br>9635 old_x%=result%(14):old_y%=result%(15)
+<br>9637 :  REMark Fetch original pointer co-ordinates
+<br>9640 pxpos%=old_x%:pypos%=old_y%
+<br>9650 RDPT #Main_menu,130,pxpos%,pypos%
+<br>9651 :  REMark Draw and move re-size ICON
+<br>9652 :  REMark NOTE THIS CRASHES SUPERBASIC!!
+<br>9655 PVAL #Main_menu,result%
+<br>9660 IF result%(6)=27:st%=MSTAT%(#Main_menu,-3,0):RETurn:
+<br>9662 :  REMark ESC pressed therefore ignore new setting
+<br>9665 Menu_add=m_store
+<br>9667 :  REMark Look at where original Menu definition is stored.
+<br>9670 pwidth=PEEK_W(Menu_add+28):pheight=PEEK_W(Menu_add+30)
+<br>9675  :  REMark These offsets contain the size of the existing menu
+<br>9675 px=prog_x:py=prog_y
+<br>9685 pwidth=pwidth-(pxpos%-old_x%):IF pwidth MOD 2:pwidth=pwidth+1
+<br>9690 pwidth=MAX(pwidth,450)
+<br>9695 pwidth=MIN(pwidth,scr_width%-12)
+<br>9700 px=MIN(pxpos%-34,(scr_width%-pwidth)-12)
+<br>9705 px=MAX(px,0)
+<br>9710 pheight=MAX(pheight-(pypos%-old_y%),210)
+<br>9715 pheight=MIN(pheight,scr_height%-10)
+<br>9720 py=MIN(pypos%-5,(scr_height%-pheight)-10)
+<br>9725 py=MAX(py,0)
+<br>9726 :  REMark the lines 9675-9725 calculate the new width and height
+<br>9727 :  REMark of the menu (minimum size 450x210)
+<br>9728 :  REMark (maximum size scr_width%-12 x scr_height%-10)
+<br>9755 prog_x=px:prog_y=py
+<br>9760 MCLEAR #Main_menu:CLPT #1
+<br>9762 :  REMark Remove the old working menu definition
+<br>9765 OUTL #1,pwidth,pheight,px,py
+<br>9770 :  REMark Resize outline & main window dimensions
+<br>9775 POKE_W Menu_add+28,pwidth:POKE_W Menu_add+30,pheight
+<br>9780 POKE_W Menu_add+76,pwidth:POKE_W Menu_add+78,pheight
+<br>9782 :  REMark Alter the menu sizes in the menu definition
+<br>9784 :
+<br>9785 :  REMark You will now need to re-position various loose items as necessary
+<br>9787 :  REMark There is no easy way to find the offsets of the definitions
+<br>9788 :  REMark within the original menu definition.
+<br>9790 :  REMark You will also need to re-size Information and Application Sub-Windows
+<br>9795 :  REMark as necessary.
+<br>9795 :
+<br>9865 MDRAW #1,m_store,px,py:Main_menu=MWDEF(#1)
+<br>9866 :  REMark Redraw the main menu, creating a new Working Menu Definition
+<br>9870 :  REMark you will now need to redraw any information which is normally shown in the
+<br>9875 :  REMark main menu but not contained in the menu when it was designed.
+<br>9885 END DEFine
+<br></span><br><h3>
+<br></h3><br><h3>Example:
+<br></h3><br>A short program which produces a graphical effect and then
+<br><br>provides a pull-down menu on a secondary window, using <span style="font-style: italic;">OUTLN
+<br></span><br>to restore the screen after you have used the menu.
+<br><span style="font-style: italic;">100 OUTLN #0,512,256,0,0
+<br>110 PAPER #0,0:CLS#0
+<br>120 REMark Force #0 to Primary Window
+<br>130 WINDOW #0,448,40,32,216
+<br>140 WINDOW 448,200,32,16
+<br>150 PAPER 2:INK 7:CLS
+<br>180 PRINT 'This is a Secondary Window'
+<br>190 REPeat loop
+<br>200   INK RND(3 TO 7)
+<br>210   FOR i=0 TO 360 STEP RND(10 TO 30)
+<br>220     x=RAD(i):LINE 50,50 TO 50-40*SIN(x),50-40*COS(x)
+<br>230   END FOR i
+<br>235   OPEN #3,scr_400x100a56x20
+<br>236   PAPER #3,0:INK #3,7
+<br>240   OUTLN #3,400,100,56,20:CLS#3
+<br>250   PRINT #3,'        MENU'
+<br>260   PRINT #3,'Press &lt;ESC&gt; to leave'
+<br>270   PRINT #3,'Press &lt;SPACE&gt; to continue'
+<br>280   REPeat keys
+<br>290     x$=INKEY$(-1):IF x$ INSTR ' '&CHR$(27):EXIT keys
+<br>300   END REPeat keys
+<br>310   OUTLN #3,400,100,56,20
+<br>315   CLOSE #3
+<br>320   IF x$=CHR$(27):EXIT loop
+<br>330 END REPeat loop
+<br></span><br>Note the need to <span style="font-style: italic;">CLOSE #3</span> each time that it is removed from
+<br><br>the screen. If #3 was <span style="font-style: italic;">OPEN</span>ed outside of the loop, <span style="font-style: italic;">OUTLN</span> would
+<br><br>only save the contents of the screen under #3 the first
+<br><br>time that line 240 was encountered, and each subsequent
+<br><br>time that it was used, will try to restore the contents of
+<br><br>the screen!
+<br><br><h3>NOTE 1:
+<br></h3><br>If you use <span style="font-style: italic;">OUTLN</span> to reduce the area of a Primary Window, any
+<br>Secondary Windows which would contain an area outside of the
+<br>new Primary Window will be re-sized so that they have exactly
+<br>the same size and position as the new Primary Window. Any
+<br>saved contents will be lost.
+<br><br>This is also true of any windows which are <span style="font-style: italic;">OPEN</span>ed after an
+<br><span style="font-style: italic;">OUTLN</span> command - if they would fall outside of the area defined
+<br>by <span style="font-style: italic;">OUTLN</span>, then the newly <span style="font-style: italic;">OPEN</span>ed window will occupy the same area
+<br>as the <span style="font-style: italic;">OUTLN</span>.  Compare <span style="font-style: italic;">WINDOW</span> which will cause an error.
+<br><br><h3>NOTE 2:
+<br></h3><br>Before v2.58 of SMSQ/E, <span style="font-style: italic;">OUTLN</span> without any parameters did not
+<br>work if an <span style="font-style: italic;">OUTLN</span> was already set.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsQ.html#QFLIM">QFLIM</a>.
+<br><br><a style="font-style: italic;" href="KeywordsO.html#OUTL">OUTL</a> is similar.
+<br><br><a style="font-style: italic;" href="KeywordsW.html#WMON">WMON</a> and <a style="font-style: italic;" href="KeywordsW.html#WTV">WTV</a> also add an outline to a program.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="OVER"></a>OVER</h1><br>Syntax: <span style="font-style: italic;">OVER </span>[<span style="font-style: italic;">#channel,</span>] <span style="font-style: italic;">switch
+<br></span>Location: <span style="font-style: italic;">QL ROM
+<br></span><br>This command allows you to set the way in which anything is
+<br>written to a specified window (default #1), whether by <span style="font-style: italic;">PRINT</span>,
+<br><span style="font-style: italic;">LINE</span>, <span style="font-style: italic;">BLOCK</span>, or any other command which prints something on a
+<br>window.
+<br><br>If the supplied channel is not a window, then error -15
+<br>(bad parameter) will be generated, as will any value of switch
+<br>outside of the range -1..1.
+<br><br>When  the  QL  is  first  initiated  (or  following  a  <span style="font-style: italic;">MODE
+<br></span>command), <span style="font-style: italic;">OVER</span> is set to 0 (see below). This can be altered by
+<br>giving  a  different  value  for  <span style="font-style: italic;">switch</span>  which  will  have  the
+<br>following effect:
+<br><br><h3><span style="font-style: italic;">switch</span>effect
+<br></h3><br>-1Everything is <span style="font-style: italic;">PRINT</span>ed on a transparent strip.
+<br>However, each pixel which is drawn on that window
+<br>in the current <span style="font-style: italic;">INK</span> (or with <span style="font-style: italic;">BLOCK</span>) is actually
+<br>xored with the colour of the existing background.
+<br><br>0This is the standard mode, where characters are
+<br><span style="font-style: italic;">PRINT</span>ed in the current <span style="font-style: italic;">INK</span> and <span style="font-style: italic;">STRIP</span> and any pixels
+<br>plotted on screen are also in the current <span style="font-style: italic;">INK</span>.
+<br><br>1This<span style="font-style: italic;"> PRINT</span>s characters on a transparent <span style="font-style: italic;">STRIP</span> but
+<br>pixels are drawn in the current <span style="font-style: italic;">INK</span> colour. <span style="font-style: italic;">BLOCK
+<br></span>is unaffected.
+<br><br>When <span style="font-style: italic;">OVER -1</span> is used, it may be useful to calculate how
+<br>different colours will appear on screen. This can be achieved
+<br>by <span style="font-style: italic;">XOR</span>ing the two colours in binary, with <span style="font-style: italic;">col1 ^^ col2</span>, for
+<br>example, a line drawn in blue on a white background with <span style="font-style: italic;">OVER -1
+<br></span>will actually appear on screen to be <span style="font-style: italic;">INK 1^^7=6</span> (Yellow).
+<br><br>A result of <span style="font-style: italic;">OVER -1</span> is that if something is drawn twice in
+<br>the same place in the same colour, the object is effectively
+<br>removed from the screen, leaving the screen unaltered. This
+<br>can be seen in the example program given for <span style="font-style: italic;">IF</span>.
+<br><br><h3>Example:
+<br></h3><br>A simple demonstration which shows the effects of <span style="font-style: italic;">OVER</span> on
+<br><br><span style="font-style: italic;">CIRCLE</span>, <span style="font-style: italic;">PRINT</span> and <span style="font-style: italic;">BLOCK</span>. See how easy/difficult it is to
+<br><br>calculate how the end display will look:
+<br><br>The example program appears on the next page.
+<br><span style="font-style: italic;">100 MODE 8:WINDOW 448,200,32,16:PAPER 0:CLS
+<br>110 INK 2:SCALE 100,0,0
+<br>120 FILL 1:CIRCLE 50,50,35
+<br>125 PAUSE
+<br>130 INK 7:OVER -1:FILL 1:CIRCLE 50,50,35
+<br>135 PAUSE
+<br>140 FILL 0:OVER 0
+<br>150 PAPER 4:INK 7:PRINT"This is a simple circle"
+<br>155 PAUSE
+<br>160 OVER 1:PRINT"This is another line of text"
+<br>165 PAUSE
+<br>170 OVER -1:PRINT\"This is yet another line"
+<br>175 PAUSE
+<br>180 BLOCK 448,200,0,0,2
+<br></span><br><h3>NOTE 1:
+<br></h3><br><span style="font-style: italic;">OVER 0</span> is set after a <span style="font-style: italic;">MODE</span> command.
+<br><br><h3>NOTE 2:
+<br></h3><br>The following appears to be a bug in Minerva (pre v1.96)
+<br>and most other implementations:
+<br><br>On Minerva pre v1.96, <span style="font-style: italic;">OVER#0</span> and <span style="font-style: italic;">OVER#1</span> are equivalent to
+<br><span style="font-style: italic;">OVER#1,0</span> and <span style="font-style: italic;">OVER#1,1</span> respectively, <span style="font-style: italic;">OVER#2</span> gives bad parameter, as
+<br>does <span style="font-style: italic;">OVER#-1</span>. <span style="font-style: italic;">OVER</span> is equivalent to <span style="font-style: italic;">OVER #1,0</span>!!
+<br><br>On all later versions of Minerva and SMS, the behaviour is
+<br>more logical: The channel number defaults to #1 and the <span style="font-style: italic;">switch
+<br></span>to 0, so <span style="font-style: italic;">OVER#0</span> is <span style="font-style: italic;">OVER#0,0</span>, <span style="font-style: italic;">OVER#1</span> is <span style="font-style: italic;">OVER#1,0</span> (not <span style="font-style: italic;">OVER#1,1</span>), <span style="font-style: italic;">OVER#2</span> is
+<br><span style="font-style: italic;">OVER#2,0</span> and <span style="font-style: italic;">OVER#-1</span> naturally produces a 'channel not open' error.
+<br><br><h3>NOTE 3:
+<br></h3><br><span style="font-style: italic;">OVER -1</span> causes various problems with the <span style="font-style: italic;">FILL</span> command - see
+<br><span style="font-style: italic;">FILL</span>.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>Please look at <a style="font-style: italic;" href="KeywordsI.html#INK">INK</a> and <a style="font-style: italic;" href="KeywordsP.html#PRINT">PRINT</a>.
+<br></div>
+</body>
+</html>

@@ -13,6 +13,7 @@ HTML="${1}"
 CLEAN="${HTML%%html}clean.html"
 RST="${CLEAN%%html}rst"
 ERRORS="${HTML%%html}errors.txt"
+TMP="${HTML}".tmp
 
 HTMLTidy.sh ${HTML} && HTML2rst.sh ${CLEAN}
 CHECK=$?
@@ -23,6 +24,7 @@ then
     mv ${CLEAN} clean/
     mv ${ERRORS} errors/
     mv ${RST} sphinx/source/
+    rm ${TMP}
 fi
 
 
