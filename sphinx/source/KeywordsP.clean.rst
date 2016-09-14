@@ -1,3 +1,11 @@
+==========
+Keywords P
+==========
+
+TODO
+====
+
+
 PAGDIS
 ======
 
@@ -7,14 +15,22 @@ PAGDIS
 | Location |  Beuletools                                                       |
 +----------+-------------------------------------------------------------------+
 
- This function returns the printer control codes needed to set the
-length of the page header when sent to EPSON compatible printers. PRINT
-PAGDIS (lines) is equivalent to: PRINT CHR$(27) & CHR$(78) & CHR$(lines)
+This function returns the printer control codes needed to set the
+length of the page header when sent to EPSON compatible printers. 
+
+::
+
+    PRINT PAGDIS (lines) 
+    
+is equivalent to:: 
+
+    PRINT CHR$(27) & CHR$(78) & CHR$(lines)
 
 **Example**
 
-To set the header to three lines: OPEN #3,ser1:PRINT
-#3,PAGDIS(3):CLOSE#3
+To set the header to three lines:: 
+
+    OPEN #3,ser1:PRINT #3,PAGDIS(3):CLOSE#3
 
 **CROSS-REFERENCE**
 
@@ -32,10 +48,11 @@ PAGLEN
 | Location |  Beuletools                                                       |
 +----------+-------------------------------------------------------------------+
 
- This function returns the control codes needed to set the length of a
+This function returns the control codes needed to set the length of a
 page (in inches) when sent to EPSON compatible printers. This is
-normally 12". The function is equivalent to:
-CHR$(27)&'C'&CHR$(0)&CHR$(inches)
+normally 12". The function is equivalent to::
+
+    CHR$(27) & 'C' & CHR$(0) & CHR$(inches)
 
 **CROSS-REFERENCE**
 
@@ -53,10 +70,17 @@ PAGLIN
 | Location |  Beuletools                                                       |
 +----------+-------------------------------------------------------------------+
 
- This function returns the control codes needed to set the length of a
+This function returns the control codes needed to set the length of a
 page (in lines) when sent to EPSON or compatible printers. This is
-normally either 66 or 72 lines. PRINT PAGLIN (lines)
- is the same as: PRINT CHR$(27)&'C'&CHR$(lines)
+normally either 66 or 72 lines. 
+
+::
+
+    PRINT PAGLIN (lines)
+ 
+is the same as::
+ 
+    PRINT CHR$(27) & 'C' & CHR$(lines)
 
 **CROSS-REFERENCE**
 
@@ -74,8 +98,9 @@ PAINT
 | Location |  HCO                                                              |
 +----------+-------------------------------------------------------------------+
 
- The command PAINT addresses the screen directly and fills a closed
+The command PAINT addresses the screen directly and fills a closed
 figure with the colour col (which must be in the range 0..4, see SET).
+
 The command requires a buffer of at least 4K whose start address is
 passed to PAINT as bufadr and whose length as buflen (which must be a
 minimum of 4096 bytes). The larger the buffer, the better, but very
@@ -84,14 +109,25 @@ before it has finished - therefore keep the buffer below 32K.
 
 **Example 1**
 
-Random drawing: 100 WINDOW 512,256,0,0: BORDER 1,3: PAPER 0: CLS 110
-buflen = 10240 120 : 130 FOR i = 1 TO 15 140 LDRAW RND(511),RND(255) TO
-RND(511),RND(255), 3 150 END FOR i 160 : 170 buffer = ALCHP(buflen) 180
-PAINT RND(1 TO 510), RND(1 TO 255), 2, buffer, buflen 190 RECHP buffer
+Random drawing::
+
+    100 WINDOW 512,256,0,0: BORDER 1,3: PAPER 0: CLS 
+    110 buflen = 10240 
+    120 : 
+    130 FOR i = 1 TO 15 
+    140   LDRAW RND(511),RND(255) TO RND(511),RND(255), 3 
+    150 END FOR i 
+    160 : 
+    170 buffer = ALCHP(buflen) 
+    180 PAINT RND(1 TO 510), RND(1 TO 255), 2, buffer, buflen 
+    190 RECHP buffer
 
 **Example 2**
 
-A spectacular crash(!): PAINT 50,50,4,131072,32768
+A spectacular crash!
+:: 
+
+    PAINT 50,50,4,131072,32768
 
 **WARNING 1**
 
@@ -119,10 +155,12 @@ PALETTE\_QL
 | Location |  SMSQ/E v2.98+                                                    |
 +----------+-------------------------------------------------------------------+
 
- This command allows you to redefine the eight colours used by the
+This command allows you to redefine the eight colours used by the
 Extended Colour Drivers to display COLOUR\_QL. A valid window channel
 must be open, default #1 (or #0 on a SBASIC with only #0 open), although
-one may also be supplied as #ch. start is the number of the first colour
+one may also be supplied as #ch. 
+
+Start is the number of the first colour
 to change, followed by each of the new colours described in 24 Bit
 Colour Mode. On hardware with a true palette map (most PCs), this
 command will affect all programs, including information already
@@ -131,21 +169,32 @@ Q40 and Q60, existing information will remain unaffected.
 
 **Example 1**
 
-PALETTE\_QL 4,$FFB6DB makes the computer use PINK instead of GREEN when
-INK 4 (QL Colour Value) is used within a program. PALETTE\_QL
-5,$B6FFFF,$929200will change INK 5 to Light Blue (from Cyan) and INK 6
-to Mustard (from Yellow).
+::
+
+    PALETTE_QL 4,$FFB6DB 
+    
+makes the computer use PINK instead of GREEN when
+INK 4 (QL Colour Value) is used within a program. 
+
+::
+
+    PALETTE_QL 5,$B6FFFF,$929200
+    
+will change INK 5 to Light Blue (from Cyan) and INK 6 to Mustard (from Yellow).
 
 **Example 2**
 
 Many programs written with MODE 4 in mind, presume that INK 3
- is the same as INK 2 (for example). However, under COLOUR\_QL, even
+is the same as INK 2 (for example). However, under COLOUR\_QL, even
 MODE 4 programs can access the standard MODE 8 colours, therefore INK 3
-becomes MAGENTA. To overcome this problem, use the following routine:
-100 red=255\*65536+100:REMark $FF0064 - red and a bit of blue 110
-blue=255\*256+155:REMark $00FF9B - green and the rest of blue 120
-white=blue+red:REMark $FFFFFF 125 REMark - Now change all 8 colours,
-starting at INK 0 130 PALETTE\_QL 0,0,0,red,red,blue,blue,white,white
+becomes MAGENTA. To overcome this problem, use the following routine::
+
+
+    100 red=255*65536+100:REMark $FF0064 - red and a bit of blue 
+    110 blue=255*256+155: REMark $00FF9B - green and the rest of blue 
+    120 white=blue+red:   REMark $FFFFFF 
+    125 REMark - Now change all 8 colours, starting at INK 0 
+    130 PALETTE_QL 0,0,0,red,red,blue,blue,white,white
 
 **NOTE**
 
@@ -171,12 +220,16 @@ PALETTE\_8
 | Location |  SMSQ/E v2.98+                                                    |
 +----------+-------------------------------------------------------------------+
 
- This command is similar to PALETTE\_QL, except that it allows you to
-redefine all 256 colours available under COLOUR\_PAL. As with
+This command is similar to PALETTE\_QL, except that it allows you to
+redefine all 256 colours available under COLOUR\_PAL. 
+
+As with
 PALETTE\_QL, start is the number of the first colour to change, followed
 by each of the new colours described in 24 Bit Colour Mode. A valid
 window channel must also be open, default #1 (or #0 on a SBASIC with
-only #0 open), although one may also be supplied as #ch. On hardware
+only #0 open), although one may also be supplied as #ch. 
+
+On hardware
 with a true palette map (most PCs), this command will affect all
 programs, including information already displayed on screen. However, on
 all other hardware, most notably the Q40 and Q60, existing information
@@ -184,15 +237,24 @@ will remain unaffected.
 
 **Examples**
 
-PALETTE\_8 4,$FFB6DB makes the computer use PINK, instead of BLUE when
-INK 4 (PAL Colour Value) is used within a program. PALETTE\_8
-5,$B6FFFF$929200will change INK 5 to Light Blue (from Magenta) and INK 6
+::
+
+    PALETTE_8 4, $FFB6DB 
+
+makes the computer use PINK, instead of BLUE when
+INK 4 (PAL Colour Value) is used within a program. 
+
+::
+
+    PALETTE_8 5, $B6FFFF, $929200
+
+will change INK 5 to Light Blue (from Magenta) and INK 6
 to Mustard (from Yellow).
 
 **NOTE 1**
 
 This command will not have any effect on Aurora, which only provides 256
-colours to choose from. It may therefore not be implemented on the
+colours to choose from. It therefore *may not* be implemented on the
 Aurora version of SMSQ/E.
 
 **NOTE 2**
@@ -218,35 +280,50 @@ PAN
 | Location |  QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
 
- This command is very similar to SCROLL except that this enables you to
+This command is very similar to SCROLL except that this enables you to
 move a window left and right as opposed to up and down. In its most
 simple form, PAN allows you to move the specified window (default #1) a
 given number of pixels sideways. If a positive value for the distance is
 given, the window will move to the right, whereas a negative distance
 will move the window to the left. Again, as with SCROLL, the gap left
 behind from the move will be coloured in the current PAPER
- colour, and any contents of the window moved off the screen will be
+colour, and any contents of the window moved off the screen will be
 lost. The additional parameter allowed by PAN lets you specify an area
 of the given window to be moved. This can have one of the following
 values:
 
-areaEffect
-~~~~~~~~~~
-
-0This moves the whole window (this is the default). 3This moves the
-whole of the text cursor line. 4This moves everything on the text cursor
-line to the right of the cursor (including the character under the
-cursor).
++------+----------------------------------------------------------------+
+| Area || Effect                                                        |
++======+================================================================+
+| 0    || This moves the whole window (this is the default).            |
++------+----------------------------------------------------------------+
+| 3    || This moves the whole of the text cursor line.                 |
++------+----------------------------------------------------------------+
+| 4    || This moves everything on the text cursor line to the right of |
+|      || the cursor (including the character under the cursor).        |
++------+----------------------------------------------------------------+
 
 **Example**
 
-A short procedure to scroll a given text message across the screen: 100
-DEFine PROCedure SCROLL\_TEXT(line$) 110 LOCal l$,loop 120 l$=line$ 130
-OPEN #3,scr\_448x10a32x246 140 PAPER#3,2:INK#3,0:CSIZE#3,1,0:CLS#3 150
-AT #3,0,0:PRINT#3,'INCOMING MESSAGE:' 160 INK#3,7 170 REPeat loop 180 IF
-LEN(l$)=0:EXIT loop 190 AT #3,0,55:PRINT#3,l$(1) 200 BEEP 100,10 210 IF
-LEN(l$)<=1:EXIT loop 220 l$=l$(2 TO) 230 AT #3,0,18:PAN #3,-8,4 240
-PAUSE 30 250 END REPeat loop 260 END DEFine
+A short procedure to scroll a given text message across the screen::
+
+    100 DEFine PROCedure SCROLL_TEXT(line$) 
+    110   LOCal l$,loop 
+    120   l$=line$ 
+    130   OPEN #3,scr_448x10a32x246 
+    140   PAPER#3,2:INK#3,0:CSIZE#3,1,0:CLS#3 
+    150   AT #3,0,0:PRINT#3,'INCOMING MESSAGE:' 
+    160   INK#3,7 
+    170   REPeat loop 
+    180     IF LEN(l$)=0:EXIT loop 
+    190     AT #3,0,55:PRINT#3,l$(1) 
+    200     BEEP 100,10 
+    210     IF LEN(l$)<=1:EXIT loop 
+    220     l$=l$(2 TO) 
+    230     AT #3,0,18:PAN #3,-8,4 
+    240     PAUSE 30 
+    250   END REPeat loop 
+    260 END DEFine 
 
 **NOTE 1**
 
@@ -257,10 +334,14 @@ down to an even number of pixels.
 
 As with SCROLL, odd values for area and distance allow you to access
 machine code routines (unless you have a THOR XVI, SMS, or Minerva ROM
-(v1.63 or v1.64). To access these machine code routines, take the TRAP
-#3 value for D0 and deduct 27. If the figure is less than 27, then take
-the negative result and add to 128. For example, PAN 0,115 turns on
-cursor in #1 (TRAP #3,D0=$E). This is in fact more useful than SCROLL or
+(v1.63 or v1.64). To access these machine code routines:
+
+- Take the TRAP #3 value for D0 and deduct 27. 
+- If the figure is less than 27, then take the negative result and add to 128. 
+
+For example, PAN 0,115 turns on cursor in #1 (TRAP #3,D0=$E). 
+
+This is in fact more useful than SCROLL or
 CLS as area can be used to pass a parameter to D1, thus allowing you for
 example, to access IOF.POSR - use PAN #3,n%,40 - to move the file
 pointer.
@@ -294,20 +375,28 @@ PAPER
 =====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  PAPER [#window,] colour  or PAPER [#window,] colour1,colour2 [,pattern] |
+| Syntax   || PAPER [#window,] colour  or                                      |
+|          || PAPER [#window,] colour1,colour2 [,pattern]                      |
 +----------+-------------------------------------------------------------------+
-| Location |  QL ROM                                                           |
+| Location ||  QL ROM                                                          |
 +----------+-------------------------------------------------------------------+
 
- This command sets the background colour inside a window (default #1).
+This command sets the background colour inside a window (default #1).
 Characters printed to that window will be written with the PAPER colour
 as a background unless another colour has been specified with STRIP.
 
 **Example**
 
-100 OPEN#3,scr\_512x256a0x0 110 REPeat forever 120 FOR c=0 TO 7 130
-BORDER#3,RND(100) 140 PAPER#3,c 150 CLS#3 160 END FOR c 170 END REPeat
-forever
+::
+
+    100 OPEN#3,scr_512x256a0x0 
+    110 REPeat forever 
+    120   FOR c=0 TO 7 
+    130     BORDER#3,RND(100) 
+    140     PAPER#3,c 
+    150     CLS#3 
+    160   END FOR c 
+    170 END REPeat forever
 
 **NOTE**
 
@@ -331,36 +420,62 @@ PARHASH
 | Location |  PARAMS (DIY Toolkit - Vol P)                                     |
 +----------+-------------------------------------------------------------------+
 
- This is an addition to the normal PARUSE and PARNAM$ functions which
+This is an addition to the normal PARUSE and PARNAM$ functions which
 allows you to check whether a value passed as a parameter to a
 SuperBASIC PROCedure or FuNction was preceded by a hash or not.
 
 **Example**
 
 The following PROCedure allows you to create a CAT command which is
-similar to DIR, allowing you to use the syntax: CAT #channel [,device]
-or CAT [#channel,] [device] to read a directory. If device is not
+similar to DIR, allowing you to use the following syntaxes::
+
+    CAT #channel [,device]
+    CAT [#channel,] [device] 
+    
+to read a directory. 
+
+If device is not
 specified, then a directory of the default data device is produced. If a
 channel is not specified, then #1 will be used. The device can be in
-quotes or not if you prefer. The following can therefore all be used:
-CAT #2 CAT CAT flp1\_ CAT #3,'win1\_'
- 100 DEFine PROCedure CAT (ch,direct) 110 LOCal dir\_ch,sepa%,hash% 112
-hash%=PARHASH(ch): sepa%=PARSEPA(ch) 120 IF sepa%>0 130
-file$=PARSTR$(direct,2) 140 ELSE 150 IF hash% 160 file$=DATAD$ 170 ELSE
-180 file$=PARSTR$(ch,1):ch=1 185 IF file$='': file$=DATAD$ 187 END IF
-190 END IF 200 dir\_ch=FOP\_DIR(file$) 210 IF dir\_ch<0: PRINT
-#0,'CANNOT ACCESS DIRECTORY ON ';file$:RETurn 220 CLOSE #dir\_ch 230 DIR
-#ch,file$ 250 END DEFine
+quotes or not if you prefer. The following can therefore all be used::
+
+    CAT #2 
+    CAT CAT flp1_ 
+    CAT #3,'win1_'
+
+::
+
+    100 DEFine PROCedure CAT (ch,direct) 
+    110   LOCal dir_ch,sepa%,hash% 
+    112   hash%=PARHASH(ch): sepa%=PARSEPA(ch) 
+    120   IF sepa%>0 
+    130     file$=PARSTR$(direct,2) 
+    140   ELSE 
+    150     IF hash% 
+    160       file$=DATAD$ 
+    170     ELSE 
+    180       file$=PARSTR$(ch,1):ch=1 
+    185       IF file$='': file$=DATAD$ 
+    187     END IF 
+    190   END IF 
+    200   dir_ch=FOP\_DIR(file$) 
+    210   IF dir_ch<0: PRINT #0,'CANNOT ACCESS DIRECTORY ON ';file$:RETurn 
+    220   CLOSE #dir_ch 
+    230   DIR #ch,file$ 
+    250 END DEFine
 
 **NOTE 1**
 
 There is a problem with this function that prevents the above example
 from working under SMS - once either PARHASH or PARSEPA have been used
-once on a parameter, they will not work again!! For example, try adding
-the following lines to the above and compare the results: 116 PRINT
-PARHASH(ch), PARSEPA(direct), PARNAME$(2), PARTYP(ch), PARTYPE(direct)
-117 PRINT PARHASH(ch), PARSEPA(direct), PARNAME$(2), PARTYP(ch),
-PARTYPE(direct) 118 STOP
+once on a parameter, they will not work again!! 
+
+For example, try adding
+the following lines to the above and compare the results:: 
+
+    116 PRINT PARHASH(ch), PARSEPA(direct), PARNAME$(2), PARTYP(ch), PARTYPE(direct)
+    117 PRINT PARHASH(ch), PARSEPA(direct), PARNAME$(2), PARTYP(ch), PARTYPE(direct) 
+    118 STOP
 
 **NOTE 2**
 
@@ -383,7 +498,7 @@ PARNAM$
 | Location |  Toolkit II                                                       |
 +----------+-------------------------------------------------------------------+
 
- This function can be used to find the name of an actual parameter
+This function can be used to find the name of an actual parameter
 passed to a SuperBASIC PROCedure or FuNction. You merely need to supply
 the number of the parameter in the definition line which you wish to
 find. If the parameter was passed as a name (ie. by reference), then
@@ -393,13 +508,23 @@ nul string will be returned.
 **Example**
 
 A short procedure which prints the square of the parameter passed (and
-if possible squares the actual parameter!): 1000 DEFine PROCedure Square
-(x) 1010 LOCal param$,loop,key$ 1020 param$=PARNAM$(1) 1030 IF
-param$<>'' THEN 1040 PRINT #0,param$!'will be altered - is this okay?'
-1050 REPeat loop:key$=INKEY$(-1):IF key$ INSTR 'yn':EXIT loop 1060 IF
-key$=='n':RETurn 1070 END IF 1080 x=x^2:PRINT x 1090 END DEFine
- Compare the following: number=2:Square number(number is passed by
-reference) and number=2:Square (number) (number is passed by value)
+if possible squares the actual parameter!)::
+
+    1000 DEFine PROCedure Square (x) 
+    1010   LOCal param$,loop,key$ 
+    1020   param$=PARNAM$(1) 
+    1030   IF param$<>'' THEN 
+    1040     PRINT #0,param$!'will be altered - is this okay?' 
+    1050     REPeat loop:key$=INKEY$(-1):IF key$ INSTR 'yn':EXIT loop 
+    1060     IF key$=='n':RETurn 
+    1070   END IF 
+    1080   x=x^2:PRINT x 
+    1090 END DEFine
+
+Compare the following:: 
+
+    number=2:Square number: REMark number is passed by reference
+    number=2:Square (number): REMark number is passed by value
 
 **NOTE**
 
@@ -425,7 +550,7 @@ PARNAME$
 | Location |  PARAMS (DIY Toolkit - Vol P)                                     |
 +----------+-------------------------------------------------------------------+
 
- This is exactly the same as PARNAM$.
+This is exactly the same as PARNAM$.
 
 **CROSS-REFERENCE**
 
@@ -444,16 +569,25 @@ PARSEPA
 | Location |  PARAMS (DIY Toolkit - Vol P)                                     |
 +----------+-------------------------------------------------------------------+
 
- This function is a useful addition that allows you to check on the type
+This function is a useful addition that allows you to check on the type
 of separator which follows a value passed as a parameter to a SuperBASIC
 PROCedure or FuNction. The value returned by PARSEPA is:
 
-PARSEPAmeaning
-~~~~~~~~~~~~~~
-
-0 No separator follows - this is the end of the line. 1 A comma (,)
-follows 2 A semicolon (;) follows 3 A backslash (\\) follows 4An
-exclamation mark (!) follows 5The word TO follows.
++---------+-----------------------------------------------------+
+| PARSEPA | Meaning                                             |
++=========+=====================================================+
+| 0       | No separator follows - this is the end of the line. |
++---------+-----------------------------------------------------+
+| 1       | A comma (,) follows.                                |
++---------+-----------------------------------------------------+
+| 2       | A semicolon (;) follows.                            |
++---------+-----------------------------------------------------+
+| 3       | A backslash (\\) follows.                           |
++---------+-----------------------------------------------------+
+| 4       | An exclamation mark (!) follows.                    |
++---------+-----------------------------------------------------+
+| 5       | The word TO follows.                                |
++---------+-----------------------------------------------------+
 
 **NOTE**
 
@@ -475,30 +609,55 @@ PARSTR$
 | Location |  Toolkit II                                                       |
 +----------+-------------------------------------------------------------------+
 
- This function, together with its associated functions: PARTYP, PARUSE
+This function, together with its associated functions: PARTYP, PARUSE
 and PARNAM$ allows you to find out information about a parameter passed
-to a SuperBASIC PROCedure or FuNction. PARSTR$ is aimed for use in
+to a SuperBASIC PROCedure or FuNction. 
+
+PARSTR$ is aimed for use in
 PROCedures or FuNctions where a user might more naturally pass a
 parameter as a name rather than a string (for example, when passing a
-filename). Many users will have noted how many machine code procedures
+filename). 
+
+Many users will have noted how many machine code procedures
 and functions do not need filenames to be passed as a string, for
-example: SAVE flp1\_boot
- and wondered why when they write a PROCedure, it has to be passed as a
-string (for example, SSAVE 'flp1\_boot'). Well, PARSTR$
- allows you to do either!! The two parameters which need to be supplied
+example:: 
+
+    SAVE flp1_boot
+    
+and wondered why when they write a PROCedure, it has to be passed as a
+string, for example::
+
+    SSAVE 'flp1_boot'
+    
+Well, PARSTR$ allows you to do either!! 
+
+The two parameters which need to be supplied
 to PARSTR$ are the name of the parameter as listed in the definition
 line and the number of that parameter in the parameter list.
 
 **Example**
 
 A re-write of a SAVE routine to keep the current file version up to date
-(this could be used for example when developing a program): 100 DEFine
-PROCedure SSAVE(file) 110 LOCal version 120 file$=PARSTR$(file,1) 130
-version=FVERS(\\file$) 140 SAVE file$ 150 SET\_FVERS \\file$,version+1
-160 END DEFine
- To update the saved version of the program in memory, you can then use
-either SSAVE flp1\_program\_bas or SSAVE 'flp1\_program\_bas'. Note that
-SMS users can just use SAVE (without a filename) to achieve this.
+(this could be used for example when developing a program):: 
+
+    100 DEFine PROCedure SSAVE(file) 
+    110   LOCal version 
+    120   file$=PARSTR$(file,1) 
+    130   version=FVERS(\file$) 
+    140   SAVE file$ 
+    150   SET_FVERS \file$, version+1 
+    160 END DEFine
+
+To update the saved version of the program in memory, you can then use
+either::
+
+    SSAVE flp1_program_bas 
+    
+or 
+
+    SSAVE 'flp1_program_bas'. 
+    
+Note that SMS users can just use SAVE (without a filename) to achieve this.
 
 **NOTE 1**
 
@@ -506,9 +665,8 @@ If you try to assign the string returned by PARSTR$ back into the
 original parameter (eg. change the variable file in the example program
 to the variable file$), this will cause an 'error in expression'. You
 could try adding file$ to the LOCal
- definition, however although this will avoid the 'error in expression',
-file$ is set to a nul string by the LOCal
- definition!!
+definition, however although this will avoid the 'error in expression',
+file$ is set to a nul string by the LOCal definition!!
 
 **NOTE 2**
 
@@ -531,52 +689,88 @@ PARTYP
 | Location |  Toolkit II, THOR XVI                                             |
 +----------+-------------------------------------------------------------------+
 
- As disclosed in the description of DEFine FuNction, a parameter is
+As disclosed in the description of DEFine FuNction, a parameter is
 passed to a SuperBASIC PROCedure or FuNction by reference, meaning that
 the variable type listed in the definition line will actually be
 overriden by the type of variable which has been passed as a parameter.
+
 The function PARTYP returns the type of the actual parameter which has
 been passed, which can be used to error trap PROCedures and FuNctions.
 PARTYP expects only one parameter - the name of the parameter from the
 definition line to be looked at. PARTYP will then return one of the
 following values depending on the type of the actual parameter passed:
 
-PARTYPmeaning
-~~~~~~~~~~~~~
-
-0 a null string has been passed 1 a string has been passed 2 a floating
-point has been passed 3 an integer has been passed
++--------+------------------------------------+
+| PARTYP | Meaning                            |
++========+====================================+
+| 0      | A null string has been passed.     |
++--------+------------------------------------+
+| 1      | A string has been passed.          |
++--------+------------------------------------+
+| 2      | A floating point has been passed.  |
++--------+------------------------------------+
+| 3      | An integer has been passed.        |
++--------+------------------------------------+
 
 **Example**
 
 A PROCedure to swap any two variables (it can only handle simple strings
-and variables, not arrays): 100 a=1:b%=2 110 swap\_var a,b% 120 DEFine
-PROCedure swap\_var (x,y) 130 LOCal xa,xa$,param 140 IF PARUSE(x)=0 OR
-PARUSE(y)=0 150 PRINT 'A variable is unset!':RETurn 160 END IF 162 IF
-PARNAM$(1)="" OR PARNAM$(2)="" 164 PRINT 'Parameters are not both
-variables!':RETurn 165 END IF 170 IF PARUSE(x)=3 OR PARUSE(y)=3 180
-PRINT 'Arrays not handled':RETurn 190 END IF 200 param=PARTYP(x) 210 IF
-PARTYP(y)=1 AND param<>1 OR param=1 AND PARTYP(y)<>1 220 PRINT 'You
-cannot swap a string with a value!' 230 RETurn 240 END IF 250 SELect ON
-param 260 =0,1:xa$=y:y=x:x=xa$ 270 =2,3:xa=y:y=x:x=xa 280 END SELect 290
-END DEFine
+and variables, not arrays)::
+
+    100 a=1:b%=2 
+    110 swap_var a,b% 
+    115 :
+    120 DEFine PROCedure swap_var (x,y) 
+    130   LOCal xa,xa$,param 
+    140   IF PARUSE(x)=0 OR PARUSE(y)=0 
+    150     PRINT 'A variable is unset!':RETurn 
+    160   END IF 
+    162   IF PARNAM$(1)="" OR PARNAM$(2)="" 
+    164     PRINT 'Parameters are not both variables!':RETurn 
+    165   END IF 
+    170   IF PARUSE(x)=3 OR PARUSE(y)=3 
+    180     PRINT 'Arrays not handled':RETurn 
+    190   END IF 
+    200   param=PARTYP(x) 
+    210   IF PARTYP(y)=1 AND param<>1 OR param=1 AND PARTYP(y)<>1 
+    220     PRINT 'You cannot swap a string with a value!' 
+    230     RETurn 
+    240   END IF 
+    250   SELect ON param 
+    260     =0,1:xa$=y:y=x:x=xa$ 
+    270     =2,3:xa=y:y=x:x=xa 
+    280   END SELect 
+    290 END DEFine
 
 **NOTE 1**
 
 There is a difference in the way that PARTYP will report an omitted
 parameter, depending on whether you implicitly omit the parameter. Try
-the following using the above example: Implicit omission: swap\_var a$
- or even swap\_var a$, - PARTYP(y) returns the type of the notional
-parameter (here y is a floating point, so PARTYP (y) returns 2), and
-PARUSE(y) also reports 2. Compare explicit omission: swap\_var ,a$
- PARTYP(x) will return 0 as will PARUSE(x)
- If a program is Qliberated, PARTYP will return 0 whether parameters are
+the following using the above example:
+
+Implicit omission::
+
+    swap_var a$ 
+
+or even::
+
+    swap_var a$, 
+    
+PARTYP(y) returns the type of the notional parameter (here y is a floating point, so PARTYP (y) returns 2), and
+PARUSE(y) also reports 2. Compare explicit omission:: 
+
+    swap_var ,a$
+    
+PARTYP(x) will return 0 as will PARUSE(x) If a program is Qliberated, PARTYP will return 0 whether parameters are
 implicitly or explicitly omitted.
 
 **NOTE 2**
 
-If you pass a null string as a parameter, eg. swap\_var a$,'' in the
-above example, PARTYP will still return 1 (and not zero) as you may
+If you pass a null string as a parameter, eg::
+
+    swap_var a$,'' 
+    
+in the above example, PARTYP will still return 1 (and not zero) as you may
 think, hence the need to look at PARUSE also.
 
 **NOTE 3**
@@ -605,7 +799,7 @@ PARTYPE
 | Location |  PARAMS (DIY Toolkit - Vol P)                                     |
 +----------+-------------------------------------------------------------------+
 
- This function is exactly the same as PARTYP and suffers from the same
+This function is exactly the same as PARTYP and suffers from the same
 problems.
 
 **CROSS-REFERENCE**
@@ -625,16 +819,20 @@ PARUSE
 | Location |  Toolkit II, THOR XVI                                             |
 +----------+-------------------------------------------------------------------+
 
- PARUSE is a companion function to PARTYP. PARUSE also expects only one
+PARUSE is a companion function to PARTYP. PARUSE also expects only one
 parameter - the name of the parameter from the definition line to be
 looked at. PARUSE will then return one of the following values depending
 on the actual parameter passed:
 
-PARUSEmeaning
-~~~~~~~~~~~~~
-
-0 an unset variable has been passed 2 a variable (or value) has been
-passed 3 an array has been passed
++--------+-----------------------------------------+
+| PARUSE | Meaning                                 |
++========+=========================================+
+| 0      | An unset variable has been passed.      |
++--------+-----------------------------------------+
+| 2      | A variable (or value) has been passed.  |
++--------+-----------------------------------------+
+| 3      | An array has been passed.               |
++--------+-----------------------------------------+
 
 **NOTE 1**
 
@@ -662,12 +860,13 @@ PAR\_ABORT
 ==========
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  PAR\_ABORT or PAR\_ABORT port\_number(SMSQ/E only)               |
+| Syntax   || PAR\_ABORT or                                                    |
+|          || PAR\_ABORT port\_number(SMSQ/E only)                             |
 +----------+-------------------------------------------------------------------+
-| Location |  ST/QL, SMSQ/E                                                    |
+| Location || ST/QL, SMSQ/E                                                    |
 +----------+-------------------------------------------------------------------+
 
- This command clears out all of the closed PAR buffers and then sends an
+This command clears out all of the closed PAR buffers and then sends an
 'aborted' message, to the PAR device, thus effectively stopping the
 computer from sending any information still in the buffers through the
 PAR device. Any open channels connected to the port are unaffected.
@@ -693,26 +892,31 @@ PAR\_BUFF
 =========
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  PAR\_BUFF [size] or PAR\_BUFF port\_number, size(SMSQ/E only)    |
+| Syntax   || PAR\_BUFF [size] or                                              |
+|          || PAR\_BUFF port\_number, size(SMSQ/E only)                        |
 +----------+-------------------------------------------------------------------+
-| Location |  ST/QL, SMSQ/E                                                    |
+| Location || ST/QL, SMSQ/E                                                    |
 +----------+-------------------------------------------------------------------+
 
- Normally, SMSQ/E and the Emulator will use all available memory as a
+Normally, SMSQ/E and the Emulator will use all available memory as a
 buffer for its serial and parallel ports (this is known as a dynamic
 buffer). Although this enables control to be returned to programs very
 quickly after sending output to one of the ports, it can however mean
-that the whole of the memory can be filled up with printer output. The
-command PAR\_BUFF therefore allows you to specify a fixed size in bytes
-for the parallel buffer for each channel opened to it. If no size is
-specified, or a size of 0 bytes is set, then the parallel buffer becomes
-dynamic once again. Otherwise, size
- should be at least 5 bytes to ensure future compatability.
+that the whole of the memory can be filled up with printer output. 
+
+The command PAR\_BUFF therefore allows you to specify a fixed size in bytes
+for the parallel buffer for each channel opened to it. 
+
+If no size is specified, or a size of 0 bytes is set, then the parallel buffer becomes
+dynamic once again. Otherwise, size should be at least 5 bytes to ensure future compatability.
 
 **Example**
 
-PAR\_BUFF 10000
- sets the parallel buffer to 10000 bytes.
+::
+
+    PAR_BUFF 10000
+
+sets the parallel buffer to 10000 bytes.
 
 **NOTE**
 
@@ -732,12 +936,13 @@ PAR\_CLEAR
 ==========
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  PAR\_CLEAR  or PAR\_CLEAR port\_number(SMSQ/E only)              |
+| Syntax   || PAR\_CLEAR  or                                                   |
+|          || PAR\_CLEAR port\_number(SMSQ/E only)                             |
 +----------+-------------------------------------------------------------------+
-| Location |  ST/QL, SMSQ/E                                                    |
+| Location || ST/QL, SMSQ/E                                                    |
 +----------+-------------------------------------------------------------------+
 
- This clears out all currently closed PAR buffers, thus preventing any
+This clears out all currently closed PAR buffers, thus preventing any
 further output. Any channels which are open to the PAR port will be left
 unaffected.
 
@@ -764,7 +969,7 @@ PAR\_PULSE
 | Location |  ST/QL, SMSQ/E for the Atari                                      |
 +----------+-------------------------------------------------------------------+
 
- Some accelerator boards enhance the speed of the Atari ST and TT
+Some accelerator boards enhance the speed of the Atari ST and TT
 computers so much that the parallel printer port may be affected. This
 can be fixed by using PAR\_PULSE to increase the rate of the strobe
 pulse. This problem tends to be required if you have a printer which has
@@ -773,7 +978,9 @@ cable.
 
 **Example**
 
-PAR\_PULSE 80
+::
+
+    PAR_PULSE 80
 
 **NOTE**
 
@@ -787,11 +994,10 @@ PAR\_USE
 +----------+-------------------------------------------------------------------+
 | Syntax   |  PAR\_USE [device]                                                |
 +----------+-------------------------------------------------------------------+
-| Location |  ST/QL, SMSQ/E, SuperQBoard, PAR/SER                              |
+| Location |  ST/QL, SMSQ/E, SuperQBoard, PAR/SER Interfaces, Super Gold Card  |
 +----------+-------------------------------------------------------------------+
 
-Interfaces, Super Gold Card
- As with many other devices, such as RAM, FLP and WIN, it can be useful
+As with many other devices, such as RAM, FLP and WIN, it can be useful
 to alter the three letter description used to access the parallel
 printer port on the Atari ST. The command PAR\_USE allows you to replace
 the three letter description by any other three letters. If device is
@@ -799,8 +1005,11 @@ not specified, this changes the description back to PAR.
 
 **Example**
 
-PAR\_USE ser
- will divert any attempt to access the serial ports to the parallel
+::
+
+    PAR_USE ser
+
+will divert any attempt to access the serial ports to the parallel
 printer port.
 
 **CROSS-REFERENCE**
@@ -816,28 +1025,34 @@ printer port.
 PAUSE
 =====
 
-+----------+-------------------------------------------------------------------+
-| Syntax   |  PAUSE [timeout] or PAUSE [#chan,] [timeout](Minerva v1.80+, THORv6.41, SMS, ST/QL E-init v1.27+)  |
-+----------+-------------------------------------------------------------------+
-| Location |  QL ROM                                                           |
-+----------+-------------------------------------------------------------------+
++----------+---------------------------------------------------------------------------------+
+| Syntax   || PAUSE [timeout] or                                                             |
+|          || PAUSE [#chan,] [timeout](Minerva v1.80+, THORv6.41, SMS, ST/QL E-init v1.27+)  |
++----------+---------------------------------------------------------------------------------+
+| Location || QL ROM                                                                         |
++----------+---------------------------------------------------------------------------------+
 
- The command PAUSE halts execution of a program temporarily for the
+The command PAUSE halts execution of a program temporarily for the
 specified timeout number of frames (there are 50 frames per second in
 the UK and Europe, 60 frames per second in the US). If no timeout or a
 negative timeout is specified, the command will wait indefinitely. If a
 timeout of zero is specified, no actual PAUSE will take place. Execution
 will continue at the end of the timeout, or if a key is pressed. The key
 is read from channel #0 and therefore the command will report the error
-'channel not open' if #0 is not open. The second variant of this command
+'channel not open' if #0 is not open. 
+
+The second variant of this command
 allows you to specify a channel #chan (default #0) upon which the
 command should operate, thus allowing the command to be used in programs
 which do not have #0 open.
 
 **Example**
 
-PAUSE 100
- Pauses for approximately 2 seconds, unless a key is pressed in the
+::
+
+    PAUSE 100
+
+Pauses for approximately 2 seconds, unless a key is pressed in the
 meantime!
 
 **NOTE 1**
@@ -873,10 +1088,14 @@ been pressed, as well as halting program execution.
 PEEK
 ====
 
+See `PEEK\_L <KeywordsP.clean.html#peek-l>`__ below.
+
 --------------
 
 PEEK\_W
-~~~~~~~
+=======
+
+See `PEEK\_L <KeywordsP.clean.html#peek-l>`__ below.
 
 --------------
 
@@ -884,12 +1103,14 @@ PEEK\_L
 =======
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  PEEK (address)address=0,1,2,3,...  and PEEK\_W (address)address=0,2,4,6,...  and PEEK\_L (address)address=0,2,4,6,...  |
+| Syntax   || PEEK (address) where address=0,1,2,3,...  and                    |
+|          || PEEK\_W (address) where address=0,2,4,6,...  and                 |
+|          || PEEK\_L (address) where address=0,2,4,6,...                      |
 +----------+-------------------------------------------------------------------+
-| Location |  QL ROM                                                           |
+| Location || QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
 
- These three functions are complementary to POKE, POKE\_W and POKE\_L,
+These three functions are complementary to POKE, POKE\_W and POKE\_L,
 in that instead of setting a byte, word or longword in memory, these
 three functions return the value of the byte, word or longword stored at
 the given address.
@@ -897,8 +1118,8 @@ the given address.
 **NOTE 1**
 
 Due to the way in which values are stored in memory, it can be difficult
-to read negative values. However, although PEEK
- will return an unsigned byte in the range 0..255, PEEK\_W will return a
+to read negative values. However, although PEEK will return an unsigned 
+byte in the range 0..255, PEEK\_W will return a
 signed word in the range -32768...32767 and PEEK\_L a signed longword.
 
 **NOTE 2**
@@ -910,29 +1131,48 @@ will cause an error unless you are using Minerva (see below).
 
 As with the POKE commands, the PEEK functions on Minerva (version 1.77
 or later) are very much enhanced and different. Minerva allows you to
-use PEEK\_W and PEEK\_L on odd addresses, eg: PRINT PEEK\_W(131073)
- Minerva has also added to the usefulness of the PEEK, PEEK\_W
- and PEEK\_L functions by allowing them to access system variables,
+use PEEK\_W and PEEK\_L on odd addresses, eg:: 
+
+    PRINT PEEK_W(131073)
+    
+Minerva has also added to the usefulness of the PEEK, PEEK\_W
+and PEEK\_L functions by allowing them to access system variables,
 Minerva's System Xtensions and SuperBASIC variables. You will need a
 good book on QDOS (eg. QDOS/SMS Reference Manual) to find out what the
-possible values are. The syntax for these extra commands is:
+possible values are. 
 
-(1) Look at SuperBASIC variables.
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The syntax for these extra commands is:
 
-PEEK (\\\\SBvar) PEEK\_W (\\\\SBvar) PEEK\_L (\\\\SBvar) PEEK
-(\\SBvar\\Offset) PEEK\_W (\\SBvar\\Offset) PEEK\_L (\\SBvar\\Offset)
+**Look at SuperBASIC variables**
 
-(2) Look at System variables.
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+::
 
-PEEK (!!Sysvar) PEEK\_W (!!Sysvar) PEEK\_L (!!Sysvar) PEEK
-(!Sysvar!Offset) PEEK\_W (!Sysvar!Offset) PEEK\_L (!Sysvar!Offset)
+    PEEK (\\SBvar) 
+    PEEK_W (\\SBvar) 
+    PEEK_L (\\SBvar) 
 
-(3) Look at System Xtensions.
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    PEEK (\SBvar\Offset) 
+    PEEK_W (\SBvar\Offset) 
+    PEEK_L (\SBvar\Offset)
 
-sx\_base=PEEK\_L(VER$(-2) + 124) PEEK (sx\_base + offset)
+**Look at System variables**
+
+::
+
+    PEEK (!!Sysvar) 
+    PEEK_W (!!Sysvar) 
+    PEEK_L (!!Sysvar) 
+
+    PEEK (!Sysvar!Offset) 
+    PEEK_W (!Sysvar!Offset) 
+    PEEK_L (!Sysvar!Offset)
+
+**Look at System Xtensions**
+
+::
+
+    sx_base=PEEK_L(VER$(-2) + 124) 
+    PEEK (sx_base + offset)
 
 **SMS NOTES**
 
@@ -955,16 +1195,20 @@ are also worth a look.
 PEEKS
 =====
 
+See `PEEKS\_L <KeywordsP.clean.html#peeks-l>`__ below.
+
 --------------
 
 PEEKS\_W
-~~~~~~~~
+========
+
+See `PEEKS\_L <KeywordsP.clean.html#peeks-l>`__ below.
 
 --------------
 
 PEEKS\_L
-~~~~~~~~
-
+========
+.. ***** YOU ARE HERE *****
 +----------+-------------------------------------------------------------------+
 | Syntax   |  PEEKS(address) address=0,1,2,3,...  and PEEKS\_W(address) address=0,2,4,6,...  and PEEKS\_L(address) address=0,2,4,6,...  |
 +----------+-------------------------------------------------------------------+
