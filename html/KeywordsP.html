@@ -1,0 +1,2576 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html xmlns:v="urn:schemas-microsoft-com:vml">
+  <head>
+    <meta http-equiv="content-type" content="text/html;
+      charset=ISO-8859-1">
+    <link rel="stylesheet" type="text/css" href="css/QLManualStyle.css" media="all" />
+    <title>Sinclair QL SuperBASIC/SBASIC Reference Manual - Keywords P</title>
+</head>
+<body>
+<div id="header">
+  SBASIC/SuperBASIC Reference Manual Online (c) RWAP Software
+  <br />
+  The Online Guide to programming the Sinclair QL Home Computer in SuperBASIC
+</div>
+<div id="sideBar">
+    <ul>
+        <li><a href="Foreword.html">Foreword</a></li>
+        <li><a href="Introduction.html">Introduction</a></li>
+        <li><a href="Credits.html">Credits</a></li>        
+        <li><a href="Structure.html">Structure</a></li>
+        <li><a href="WritingPrograms.html">Writing Programs</a></li>
+        <hr></hr>
+        <li><a href="KeywordsA.html">Keywords - A</a></li>
+        <li><a href="KeywordsB.html">Keywords - B</a></li>
+        <li><a href="KeywordsC.html">Keywords - C</a></li>
+        <li><a href="KeywordsD.html">Keywords - D</a></li>
+        <li><a href="KeywordsE.html">Keywords - E</a></li>
+        <li><a href="KeywordsF.html">Keywords - F</a></li>
+        <li><a href="KeywordsG.html">Keywords - G</a></li>
+        <li><a href="KeywordsH.html">Keywords - H</a></li>
+        <li><a href="KeywordsI.html">Keywords - I</a></li>
+        <li><a href="KeywordsJ.html">Keywords - J</a></li>
+        <li><a href="KeywordsK.html">Keywords - K</a></li>
+        <li><a href="KeywordsL.html">Keywords - L</a></li>
+        <li><a href="KeywordsM.html">Keywords - M</a></li>
+        <li><a href="KeywordsN.html">Keywords - N</a></li>
+        <li><a href="KeywordsO.html">Keywords - O</a></li>
+        <li><a href="KeywordsP.html">Keywords - P</a></li>
+        <li><a href="KeywordsQ.html">Keywords - Q</a></li>
+        <li><a href="KeywordsR.html">Keywords - R</a></li>
+        <li><a href="KeywordsS.html">Keywords - S</a></li>
+        <li><a href="KeywordsT.html">Keywords - T</a></li>
+        <li><a href="KeywordsU.html">Keywords - U</a></li>
+        <li><a href="KeywordsV.html">Keywords - V</a></li>
+        <li><a href="KeywordsW.html">Keywords - W</a></li>
+        <li><a href="KeywordsX.html">Keywords - X</a></li>
+        <li><a href="KeywordsY.html">Keywords - Y</a></li>
+        <li><a href="KeywordsZ.html">Keywords - Z</a></li>
+        <li><a href="Keywords_.html">Keywords - Other</a></li>
+        <hr></hr>
+        <li><a href="AppendicesIntro.html">Appendices Introduction</a></li>
+        <li><a href="Appendix01.html">Appendix 1 - Minerva</a></li>
+        <li><a href="Appendix02.html">Appendix 2 - SMSQE</a></li>
+        <li><a href="Appendix03.html">Appendix 3 - Emulators</a></li>
+        <li><a href="Appendix04.html">Appendix 4 - THOR Computers</a></li>
+        <li><a href="Appendix05.html">Appendix 5 - Expansion Boards</a></li>
+        <li><a href="Appendix06.html">Appendix 6 - Compatability</a></li>
+        <li><a href="Appendix07.html">Appendix 7 - Multiple BASICs</a></li>
+        <li><a href="Appendix08.html">Appendix 8 - Error Messages</a></li>
+        <li><a href="Appendix09.html">Appendix 9 - Character Set / Keyboard</a></li>
+        <li><a href="Appendix10.html">Appendix 10 - Fonts</a></li>
+        <li><a href="Appendix11.html">Appendix 11 - Mathematics</a></li>
+        <li><a href="Appendix12.html">Appendix 12 - Device Drivers</a></li>
+        <li><a href="Appendix13.html">Appendix 13 - Extended Pointer Environment</a></li>
+        <li><a href="Appendix14.html">Appendix 14 - Coercion</a></li>
+        <li><a href="Appendix15.html">Appendix 15 - Mouse Drivers</a></li>
+        <li><a href="Appendix16.html">Appendix 16 - The QL Display</a></li>
+        <li><a href="Appendix17.html">Appendix 17 - Networks</a></li>
+        <li><a href="Appendix18.html">Appendix 18 - Configuring Programs</a></li>
+    </ul>
+</div>
+<div id="mainText">
+<h1><a name="PAGDIS"></a>PAGDIS</h1><br>Syntax: <span style="font-style: italic;">PAGDIS (lines)</span> <span style="font-style: italic;">lines=0..127
+<br></span>Location: <span style="font-style: italic;">Beuletools
+<br></span><br>This function returns the printer control codes needed to
+<br>set  the  length  of  the  page  header  when  sent  to  EPSON
+<br>compatible printers.  <span style="font-style: italic;">PRINT PAGDIS (lines)</span> is equivalent to:
+<br><br><span style="font-style: italic;">PRINT CHR$(27) & CHR$(78) & CHR$(lines)
+<br></span><br><h3>Example:
+<br></h3><br>To set the header to three lines:
+<br><br><span style="font-style: italic;">OPEN #3,ser1:PRINT #3,PAGDIS(3):CLOSE#3
+<br></span><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsP.html#PAGLIN">PAGLIN</a>, <a style="font-style: italic;" href="KeywordsP.html#PAGLEN">PAGLEN</a>, <a style="font-style: italic;" href="KeywordsL.html#LMAR">LMAR</a>, <a style="font-style: italic;" href="KeywordsR.html#RMAR">RMAR</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PAGLEN"></a>PAGLEN</h1><br>Syntax: <span style="font-style: italic;">PAGLEN (inches)</span> <span style="font-style: italic;">inches=0..22
+<br></span>Location: <span style="font-style: italic;">Beuletools
+<br></span><br>This function returns the control codes needed to set the
+<br>length of a page (in inches) when sent to EPSON compatible
+<br>printers. This is normally 12".  The function is equivalent
+<br>to:
+<br><br><span style="font-style: italic;">CHR$(27)&'C'&CHR$(0)&CHR$(inches)
+<br></span><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsP.html#PAGDIS">PAGDIS</a>, <a style="font-style: italic;" href="KeywordsP.html#PAGLIN">PAGLIN</a>, <a style="font-style: italic;" href="KeywordsL.html#LMAR">LMAR</a>, <a style="font-style: italic;" href="KeywordsR.html#RMAR">RMAR</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PAGLIN"></a>PAGLIN</h1><br>Syntax: <span style="font-style: italic;">PAGLIN (lines)</span> <span style="font-style: italic;">lines=0..127
+<br></span>Location: <span style="font-style: italic;">Beuletools
+<br></span><br>This function returns the control codes needed to set the
+<br>length of a page (in lines) when sent to EPSON or compatible
+<br>printers. This is normally either 66 or 72 lines.
+<br><br><span style="font-style: italic;">PRINT PAGLIN (lines)
+<br></span><br>is the same as:
+<br><br><span style="font-style: italic;">PRINT CHR$(27)&'C'&CHR$(lines)
+<br></span><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsP.html#PAGDIS">PAGDIS</a>, <a style="font-style: italic;" href="KeywordsP.html#PAGLEN">PAGLEN</a>, <a style="font-style: italic;" href="KeywordsL.html#LMAR">LMAR</a>, <a style="font-style: italic;" href="KeywordsR.html#RMAR">RMAR</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PAINT"></a>PAINT</h1><br>Syntax: <span style="font-style: italic;">PAINT x, y, col, bufadr, buflen
+<br></span>Location: <span style="font-style: italic;">HCO
+<br></span><br>The command <span style="font-style: italic;">PAINT</span> addresses the screen directly and fills a
+<br>closed figure with the colour <span style="font-style: italic;">col</span> (which must be in the range
+<br>0..4, see <span style="font-style: italic;">SET</span>). The command requires a buffer of at least 4K
+<br>whose start address is passed to <span style="font-style: italic;">PAINT</span> as <span style="font-style: italic;">bufadr</span> and whose length
+<br>as <span style="font-style: italic;">buflen</span> (which must be a minimum of 4096 bytes). The larger
+<br>the buffer, the better, but very large buffers (say, 100K)
+<br>seem to confuse <span style="font-style: italic;">PAINT</span> and will make it stop before it has
+<br>finished - therefore keep the buffer below 32K.
+<br><br><h3>Example 1:
+<br></h3><br>Random drawing:
+<br><span style="font-style: italic;">100 WINDOW 512,256,0,0: BORDER 1,3: PAPER 0: CLS
+<br>110 buflen = 10240
+<br>120 :
+<br>130 FOR i = 1 TO 15
+<br>140   LDRAW RND(511),RND(255) TO RND(511),RND(255), 3
+<br>150 END FOR i
+<br>160 :
+<br>170 buffer = ALCHP(buflen)
+<br>180 PAINT RND(1 TO 510), RND(1 TO 255), 2, buffer, buflen
+<br>190 RECHP buffer
+<br></span><br><h3>Example 2:
+<br></h3><br>A spectacular crash(!):
+<br><span style="font-style: italic;">PAINT 50,50,4,131072,32768
+<br></span><br><h3>WARNING 1:
+<br></h3><br>See those at <span style="font-style: italic;">SET</span>.
+<br><br><h3>WARNING 2:
+<br></h3><br><span style="font-style: italic;">PAINT</span> will crash the machine if it runs out of the screen,
+<br>so you have to ensure that the figure to be filled is closed.
+<br>Another means of protection is to use a <span style="font-style: italic;">BORDER</span>, as in the
+<br>example.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsF.html#FILL">FILL</a>, <a style="font-style: italic;" href="KeywordsS.html#SET">SET</a>, <a style="font-style: italic;" href="KeywordsL.html#LDRAW
+">LDRAW
+</a><br><h3>
+<br></h3><hr style="width: 100%; height: 2px;"><h1><a name="PALETTE_QL"></a>PALETTE_QL</h1><br>Syntax: <span style="font-style: italic;">PALETTE_QL </span>[<span style="font-style: italic;">#ch,</span>]<span style="font-style: italic;"> start, true_colour1 </span>*[<span style="font-style: italic;">,true_colourx</span>]*
+Location: <span style="font-style: italic;">SMSQ/E v2.98+
+<br></span><br>This command allows you to redefine the eight colours used
+<br>by the Extended Colour Drivers to display <span style="font-style: italic;">COLOUR_QL</span>.
+<br><br>A valid window channel must be open, default #1 (or #0 on a
+<br>SBASIC with only #0 open), although one may also be supplied
+<br>as <span style="font-style: italic;">#ch</span>.<span style="font-style: italic;"> start</span> is the number of the first colour to change,
+<br>followed by each of the new colours described in 24 Bit Colour
+<br>Mode.
+<br><br>On hardware with a true palette map (most PCs), this
+<br>command  will  affect  all  programs,  including  information
+<br>already displayed on screen.  However, on all other hardware,
+<br>most notably the Q40 and Q60, existing information will remain
+<br>unaffected.
+<br><br><h3>Example 1:
+<br></h3><span style="font-style: italic;">PALETTE_QL 4,$FFB6DB</span> makes the computer use PINK instead of
+<br>GREEN when <span style="font-style: italic;">INK 4</span> (QL Colour Value) is
+<br>used within a program.
+<br><span style="font-style: italic;">PALETTE_QL 5,$B6FFFF,$929200</span>will change <span style="font-style: italic;">INK 5</span> to Light Blue
+<br>(from Cyan) and <span style="font-style: italic;">INK 6</span> to Mustard (from
+<br>Yellow).
+<br><br><h3>Example 2:
+<br></h3><br>Many programs written with <span style="font-style: italic;">MODE 4</span> in mind, presume that <span style="font-style: italic;">INK 3
+<br></span>is the same as <span style="font-style: italic;">INK 2</span> (for example).  However, under <span style="font-style: italic;">COLOUR_QL</span>, even
+<br><span style="font-style: italic;">MODE 4</span> programs can access the standard <span style="font-style: italic;">MODE 8</span> colours, therefore
+<br><span style="font-style: italic;">INK 3</span> becomes MAGENTA.
+<br><br>To overcome this problem, use the following routine:
+<br><br><span style="font-style: italic;">100 red=255*65536+100:REMark $FF0064 - red and a bit of blue
+<br><br>110 blue=255*256+155:REMark $00FF9B - green and the rest of blue
+<br><br>120 white=blue+red:REMark $FFFFFF
+<br><br>125 REMark - Now change all 8 colours, starting at INK 0
+<br><br>130 PALETTE_QL 0,0,0,red,red,blue,blue,white,white
+<br><br></span><h3>NOTE:
+<br></h3><span style="font-style: italic;"><br></span>The problem with using 24 bit values is that they have to
+<br>be trimmed to fit into the native colour scheme on the
+<br>computer in use - as a result, although the same 24 bit colour
+<br>value is specified, the resultant colour will be slightly
+<br>different on QPC, Q40 and Aurora.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsC.html#COLOUR_QL">COLOUR_QL</a>, <a style="font-style: italic;" href="KeywordsI.html#INK">INK</a>, <a style="font-style: italic;" href="KeywordsP.html#PALETTE_8
+">PALETTE_8
+</a><br>Also refer to Appendix 16 which lists the first 256 24 Bit
+<br>Colours.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PALETTE_8"></a>PALETTE_8</h1><br>Syntax: <span style="font-style: italic;">PALETTE_8  </span>[<span style="font-style: italic;">#ch,</span>]<span style="font-style: italic;"> start, true_colour1 </span>*[<span style="font-style: italic;">,true_colourx</span>]*
+Location: <span style="font-style: italic;">SMSQ/E v2.98+
+<br></span><br>This command is similar to <span style="font-style: italic;">PALETTE_QL</span>, except that it allows
+<br>you to redefine all 256 colours available under <span style="font-style: italic;">COLOUR_PAL</span>.
+<br><br>As with <span style="font-style: italic;">PALETTE_QL</span>,<span style="font-style: italic;"> start</span> is the number of the first colour to
+<br>change, followed by each of the new colours described in 24
+<br>Bit Colour Mode. A valid window channel must also be open,
+<br>default #1 (or #0 on a SBASIC with only #0 open), although one
+<br>may also be supplied as <span style="font-style: italic;">#ch</span>.
+<br><br>On hardware with a true palette map (most PCs), this
+<br>command  will  affect  all  programs,  including  information
+<br>already displayed on screen.  However, on all other hardware,
+<br>most notably the Q40 and Q60, existing information will remain
+<br>unaffected.
+<br><br><h3>Examples:
+<br></h3><span style="font-style: italic;">PALETTE_8 4,$FFB6DB</span> makes the computer use PINK, instead of
+<br>BLUE when <span style="font-style: italic;">INK 4</span> (PAL Colour Value) is
+<br>used within a program.
+<br><span style="font-style: italic;">PALETTE_8 5,$B6FFFF$929200</span>will change <span style="font-style: italic;">INK 5</span> to Light Blue
+<br>(from Magenta) and <span style="font-style: italic;">INK 6</span> to Mustard (from
+<br>Yellow).
+<br><span style="font-style: italic;"><br></span><h3>NOTE 1:
+<br></h3><span style="font-style: italic;"><br></span>This command will not have any effect on Aurora, which
+<br>only provides 256 colours to choose from.  It may therefore
+<br>not be implemented on the Aurora version of SMSQ/E.
+<br><br><h3>NOTE 2:
+<br></h3><span style="font-style: italic;"><br></span>The problem with using 24 bit values is that they have to
+<br>be trimmed to fit into the native colour scheme on the
+<br>computer in use - as a result, although the same 24 bit colour
+<br>value is specified, the resultant colour will be slightly
+<br>different on QPC and Q40.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsP.html#PALETTE_QL">PALETTE_QL</a> and <a style="font-style: italic;" href="KeywordsC.html#COLOUR_PAL">COLOUR_PAL</a> for more details.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PAN"></a>PAN</h1><br>Syntax: <span style="font-style: italic;">PAN </span>[<span style="font-style: italic;">#ch,</span>]<span style="font-style: italic;"> distance </span>[<span style="font-style: italic;">,area</span>]
+Location: <span style="font-style: italic;">QL ROM
+<br></span><br>This command is very similar to <span style="font-style: italic;">SCROLL</span> except that this
+<br>enables you to move a window left and right as opposed to up
+<br>and down.
+<br><br>In its most simple form, <span style="font-style: italic;">PAN</span> allows you to move the
+<br>specified  window  (default  #1)  a  given  number  of  pixels
+<br>sideways. If a positive value for the <span style="font-style: italic;">distance</span> is given, the
+<br>window will move to the right, whereas a negative <span style="font-style: italic;">distance</span> will
+<br>move the window to the left. Again, as with <span style="font-style: italic;">SCROLL</span>, the gap left
+<br>behind from the move will be coloured in the current <span style="font-style: italic;">PAPER
+<br></span>colour, and any contents of the window moved off the screen
+<br>will be lost.
+<br><br>The additional parameter allowed by <span style="font-style: italic;">PAN</span> lets you specify an
+<br>area of the given window to be moved. This can have one of the
+<br>following values:
+<br><br><h3><span style="font-style: italic;">area</span>Effect
+<br></h3><br>0This moves the whole window (this is the default).
+<br><br>3This moves the whole of the text cursor line.
+<br><br>4This moves everything on the text cursor line to the
+<br>right of the cursor (including the character under the
+<br>cursor).
+<br><br><h3>Example:
+<br></h3><br>A short procedure to scroll a given text message across the
+<br><br>screen:
+<br><span style="font-style: italic;">100 DEFine PROCedure SCROLL_TEXT(line$)
+<br>110 LOCal l$,loop
+<br>120 l$=line$
+<br>130 OPEN #3,scr_448x10a32x246
+<br>140 PAPER#3,2:INK#3,0:CSIZE#3,1,0:CLS#3
+<br>150 AT #3,0,0:PRINT#3,'INCOMING MESSAGE:'
+<br>160 INK#3,7
+<br>170 REPeat loop
+<br>180   IF LEN(l$)=0:EXIT loop
+<br>190   AT #3,0,55:PRINT#3,l$(1)
+<br>200   BEEP 100,10
+<br>210   IF LEN(l$)<=1:EXIT loop
+<br>220   l$=l$(2 TO)
+<br>230   AT #3,0,18:PAN #3,-8,4
+<br>240   PAUSE 30
+<br>250 END REPeat loop
+<br>260 END DEFine
+<br></span><br><h3>NOTE 1:
+<br></h3><br>In low-resolution mode (8 or 12), the distance will always
+<br>be rounded down to an even number of pixels.
+<br><br><h3>NOTE 2:
+<br></h3><br>As with <span style="font-style: italic;">SCROLL</span>, odd values for area and distance allow you to
+<br>access machine code routines (unless you have a THOR XVI, SMS,
+<br>or Minerva ROM (v1.63 or v1.64).
+<br><br>To access these machine code routines, take the TRAP #3
+<br>value for D0 and deduct 27. If the figure is less than 27,
+<br>then take the negative result and add to 128. For example, <span style="font-style: italic;">PAN
+<br>0,115</span> turns on cursor in #1 (TRAP #3,D0=$E).
+<br><br>This is in fact more useful than <span style="font-style: italic;">SCROLL</span> or <span style="font-style: italic;">CLS</span> as <span style="font-style: italic;">area</span> can be
+<br>used to pass a parameter to D1, thus allowing you for example,
+<br>to access IOF.POSR - use <span style="font-style: italic;">PAN #3,n%,40</span> - to move the file pointer.
+<br><br><h3>NOTE 3:
+<br></h3><br>On pre MG ROMs, this command may fail if the window is
+<br>smaller than the cursor.
+<br><br><h3>NOTE 4:
+<br></h3><br>On SMSQ/E pre v2.88, <span style="font-style: italic;">PAN</span> in <span style="font-style: italic;">MODE 8</span> could ruin the screen
+<br>display if an odd parameter was specified, since SMSQ/E tried
+<br>to move the screen by an odd number of pixels (not supported
+<br>in <span style="font-style: italic;">MODE 8</span>).  Although annoying, this only had small effects.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>Also please see <a style="font-style: italic;" href="KeywordsS.html#SCROLL">SCROLL</a> and <a style="font-style: italic;" href="KeywordsP.html#PAPER">PAPER</a>.
+<br><br>THORs allow you to use <a style="font-style: italic;" href="KeywordsI.html#IO_TRAP">IO_TRAP</a> to access additional system
+<br>calls.
+<br><br>Most system calls can be accessed using Toolkit II in any
+<br>event.  Otherwise, see <a style="font-style: italic;" href="KeywordsB.html#BTRAP">BTRAP</a>, <a style="font-style: italic;" href="KeywordsQ.html#QTRAP">QTRAP</a>, <a style="font-style: italic;" href="KeywordsT.html#TTET3">TTET3</a> and <a style="font-style: italic;" href="KeywordsM.html#MTRAP">MTRAP</a>.
+<br><br>The QDOS/SMS Reference Manual Section 15 contains full
+<br>details of the TRAP #3 calls.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PAPER"></a>PAPER</h1><br>Syntax: <span style="font-style: italic;">PAPER </span>[<span style="font-style: italic;">#window,</span>]<span style="font-style: italic;"> colour
+<br></span><br>or <span style="font-style: italic;">PAPER </span>[<span style="font-style: italic;">#window,</span>]<span style="font-style: italic;"> colour1,colour2 </span>[<span style="font-style: italic;">,pattern</span>]
+Location: <span style="font-style: italic;">QL ROM
+<br></span><br>This command sets the background colour inside a window
+<br>(default #1).  Characters  printed  to that  window  will  be
+<br>written with the <span style="font-style: italic;">PAPER</span> <span style="font-style: italic;">colour</span> as a background unless another
+<br>colour has been specified with <span style="font-style: italic;">STRIP</span>.
+<br><br><h3>Example:
+<br></h3><span style="font-style: italic;">100 OPEN#3,scr_512x256a0x0
+<br>110 REPeat forever
+<br>120   FOR c=0 TO 7
+<br>130     BORDER#3,RND(100)
+<br>140     PAPER#3,c
+<br>150     CLS#3
+<br>160   END FOR c
+<br>170 END REPeat forever
+<br></span><br><h3>NOTE:
+<br></h3><br><span style="font-style: italic;">PAPER</span> also resets the <span style="font-style: italic;">STRIP</span> to the specified <span style="font-style: italic;">colour</span>.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsI.html#INK">INK</a> sets the foreground colour and <a style="font-style: italic;" href="KeywordsS.html#STRIP">STRIP</a> the background for
+<br>characters only.
+<br><br><a style="font-style: italic;" href="KeywordsC.html#CLS">CLS</a> clears a window in the current paper colour.
+<br><br>See <a style="font-style: italic;" href="KeywordsI.html#INK">INK</a> concerning colour in general.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PARHASH"></a>PARHASH</h1><br>Syntax: <span style="font-style: italic;">PARHASH (parameter)
+<br></span>Location: <span style="font-style: italic;">PARAMS (DIY Toolkit - Vol P)
+<br></span><br>This is an addition to the normal <span style="font-style: italic;">PARUSE</span> and <span style="font-style: italic;">PARNAM$</span> functions
+<br>which allows  you  to  check  whether a  value  passed  as  a
+<br>parameter to a SuperBASIC <span style="font-style: italic;">PROCedure</span> or <span style="font-style: italic;">FuNction</span> was preceded by a
+<br>hash or not.
+<br><br><h3>Example:
+<br></h3><br>The following <span style="font-style: italic;">PROCedure</span> allows you to create a CAT command
+<br>which is similar to <span style="font-style: italic;">DIR</span>, allowing you to use the syntax:
+<br><br><span style="font-style: italic;">CAT #channel </span>[<span style="font-style: italic;">,device</span>]
+<br><br>or
+<br><br><span style="font-style: italic;">CAT </span>[<span style="font-style: italic;">#channel,</span>] [<span style="font-style: italic;">device</span>]
+<br><br>to read a directory.  If <span style="font-style: italic;">device</span> is not specified, then a
+<br>directory of the default data device is produced.  If a
+<br>channel is not specified, then #1 will be used.  The <span style="font-style: italic;">device</span> can
+<br>be in quotes or not if you prefer.  The following can
+<br>therefore all be used:
+<br><br><span style="font-style: italic;">CAT #2
+<br><br>CAT
+<br><br>CAT flp1_
+<br><br>CAT #3,'win1_'
+<br></span><span style="font-style: italic;">100 DEFine PROCedure CAT (ch,direct)
+<br>110 LOCal dir_ch,sepa%,hash%
+<br>112 hash%=PARHASH(ch): sepa%=PARSEPA(ch)
+<br>120 IF sepa%>0
+<br>130   file$=PARSTR$(direct,2)
+<br>140 ELSE
+<br>150   IF hash%
+<br>160     file$=DATAD$
+<br>170   ELSE
+<br>180     file$=PARSTR$(ch,1):ch=1
+<br>185     IF file$='': file$=DATAD$
+<br>187   END IF
+<br>190 END IF
+<br>200 dir_ch=FOP_DIR(file$)
+<br>210 IF dir_ch<0: PRINT #0,'CANNOT ACCESS DIRECTORY ON ';file$:RETurn
+<br>220 CLOSE #dir_ch
+<br>230 DIR #ch,file$
+<br>250 END DEFine
+<br></span><br><h3>NOTE 1:
+<br></h3><br>There is a problem with this function that prevents the
+<br>above example from working under SMS - once either <span style="font-style: italic;">PARHASH</span> or
+<br><span style="font-style: italic;">PARSEPA</span> have been used once on a parameter, they will not work
+<br>again!!  For example, try adding the following lines to the
+<br>above and compare the results:
+<br><span style="font-style: italic;">116 PRINT PARHASH(ch), PARSEPA(direct), PARNAME$(2), PARTYP(ch), PARTYPE(direct)
+<br>117 PRINT PARHASH(ch), PARSEPA(direct), PARNAME$(2), PARTYP(ch), PARTYPE(direct)
+<br>118 STOP
+<br></span><br><h3>
+<br></h3><br><h3>NOTE 2:
+<br><br></h3>TURBO and SuperCHARGE cannot compile programs which use
+<br><span style="font-style: italic;">PARHASH</span>.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsP.html#PARTYP">PARTYP</a>E, <a style="font-style: italic;" href="KeywordsU.html#UNSET">UNSET</a> and <a style="font-style: italic;" href="KeywordsP.html#PARNAME$">PARNAME$</a> are also added by this toolkit.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PARNAM$"></a>PARNAM$</h1><br>Syntax: <span style="font-style: italic;">PARNAM$ (number)
+<br></span>Location: <span style="font-style: italic;">Toolkit II
+<br></span><br>This function can be used to find the name of an actual
+<br>parameter passed to a SuperBASIC <span style="font-style: italic;">PROCedure</span> or <span style="font-style: italic;">FuNction</span>. You merely
+<br>need to supply the <span style="font-style: italic;">number</span> of the parameter in the definition
+<br>line which you wish to find.
+<br><br>If the parameter was passed as a name (ie. by reference),
+<br>then this name will be returned by <span style="font-style: italic;">PARNAM$</span>, however, in all other
+<br>cases, a nul string will be returned.
+<br><br><h3>Example:
+<br></h3><br>A short procedure which prints the square of the parameter
+<br><br>passed (and if possible squares the actual parameter!):
+<br><span style="font-style: italic;">1000 DEFine PROCedure Square (x)
+<br>1010 LOCal param$,loop,key$
+<br>1020 param$=PARNAM$(1)
+<br>1030 IF param$&lt;&gt;'' THEN
+<br>1040   PRINT #0,param$!'will be altered - is this okay?'
+<br>1050   REPeat loop:key$=INKEY$(-1):IF key$ INSTR 'yn':EXIT loop
+<br>1060   IF key$=='n':RETurn
+<br>1070 END IF
+<br>1080 x=x^2:PRINT x
+<br>1090 END DEFine
+<br></span><br>Compare the following:
+<br><span style="font-style: italic;">number=2:Square number</span>(<span style="font-style: italic;">number</span> is passed by reference)
+<br><br>and
+<br><span style="font-style: italic;">number=2:Square (number)</span>    (<span style="font-style: italic;">number</span> is passed by value)
+<br><br><h3>NOTE:
+<br><br></h3>TURBO and SuperCHARGE cannot compile programs which use
+<br><span style="font-style: italic;">PARNAM$</span>.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsP.html#PARTYP">PARTYP</a>,  <a style="font-style: italic;" href="KeywordsP.html#PARUSE">PARUSE</a>  and  <a style="font-style: italic;" href="KeywordsP.html#PARSTR$">PARSTR$</a>  allow  you  to  find  out  other
+<br>information about parameters.
+<br><br>See also <a style="font-style: italic;" href="KeywordsD.html#DEFine FuNction">DEFine FuNction</a> and <a style="font-style: italic;" href="KeywordsD.html#DEFine PROCedure">DEFine PROCedure</a>.
+<br><br><a style="font-style: italic;" href="KeywordsP.html#PARNAME$">PARNAME$</a> is exactly the same.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PARNAME$"></a>PARNAME$</h1><br>Syntax: <span style="font-style: italic;">PARNAME$ (number)
+<br></span>Location: <span style="font-style: italic;">PARAMS (DIY Toolkit - Vol P)
+<br></span><br>This is exactly the same as <span style="font-style: italic;">PARNAM$</span>.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsP.html#PARTYP">PARTYP</a>E, <a style="font-style: italic;" href="KeywordsP.html#PARHASH">PARHASH</a> and <a style="font-style: italic;" href="KeywordsP.html#PARSEPA">PARSEPA</a> are also added by this toolkit.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PARSEPA"></a>PARSEPA</h1><br>Syntax: <span style="font-style: italic;">PARSEPA (name)
+<br></span>Location: <span style="font-style: italic;">PARAMS (DIY Toolkit - Vol P)
+<br></span><br>This function is a useful addition that allows you to check
+<br>on the type of separator which follows a value passed as a
+<br>parameter to a SuperBASIC <span style="font-style: italic;">PROCedure</span> or <span style="font-style: italic;">FuNction</span>.
+<br><br>The value returned by <span style="font-style: italic;">PARSEPA</span> is:
+<br><br><h3><span style="font-style: italic;">PARSEPA</span>meaning
+<br></h3><br>0 No separator follows - this is the end of the
+<br>line.
+<br><br>1 A comma (,) follows
+<br><br>2 A semicolon (;) follows
+<br><br>3 A backslash (\) follows
+<br><br>4An exclamation mark (!) follows
+<br><br>5The word <span style="font-style: italic;">TO</span> follows.
+<br><br><h3>NOTE:
+<br></h3><br>This function suffers from the same problems as <span style="font-style: italic;">PARHASH</span>.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See<a style="font-style: italic;" href="KeywordsP.html#PARHASH">PARHASH</a> in particular - this contains an example which
+<br>uses this function.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PARSTR$"></a>PARSTR$</h1><br>Syntax: <span style="font-style: italic;">PARSTR$ (name,number)
+<br></span>Location: <span style="font-style: italic;">Toolkit II
+<br></span><br>This function, together with its associated functions:
+<br><span style="font-style: italic;">PARTYP</span>, <span style="font-style: italic;">PARUSE</span> and <span style="font-style: italic;">PARNAM$</span> allows you to find out information about a
+<br>parameter passed to a SuperBASIC <span style="font-style: italic;">PROCedure</span> or <span style="font-style: italic;">FuNction</span>.
+<br><br><span style="font-style: italic;">PARSTR$</span> is aimed for use in <span style="font-style: italic;">PROCedures</span> or <span style="font-style: italic;">FuNctions</span> where a user
+<br>might more naturally pass a parameter as a name rather than a
+<br>string (for example, when passing a filename).  Many users
+<br>will have noted how many machine code procedures and functions
+<br>do not need filenames to be passed as a string, for example:
+<br><span style="font-style: italic;"><br>SAVE flp1_boot
+<br></span><br>and wondered why when they write a <span style="font-style: italic;">PROCedure</span>, it has to be
+<br>passed as a string (for example, <span style="font-style: italic;">SSAVE 'flp1_boot'</span>). Well, <span style="font-style: italic;">PARSTR$
+<br></span>allows you to do either!!
+<br><br>The two parameters which need to be supplied to <span style="font-style: italic;">PARSTR$</span> are
+<br>the <span style="font-style: italic;">name</span> of the parameter as listed in the definition line and
+<br>the <span style="font-style: italic;">number</span> of that parameter in the parameter list.
+<br><br><h3>Example:
+<br></h3><br>A re-write of a <span style="font-style: italic;">SAVE</span> routine to keep the current file
+<br><br>version up to date (this could be used for example when
+<br><br>developing a program):
+<br><span style="font-style: italic;">100 DEFine PROCedure SSAVE(file)
+<br>110   LOCal version
+<br>120   file$=PARSTR$(file,1)
+<br>130   version=FVERS(\file$)
+<br>140   SAVE file$
+<br>150   SET_FVERS \file$,version+1
+<br>160 END DEFine
+<br></span><br>To update the saved version of the program in memory, you
+<br><br>can then use either <span style="font-style: italic;">SSAVE flp1_program_bas</span> or <span style="font-style: italic;">SSAVE 'flp1_program_bas'</span>.
+<br><br>Note that SMS users can just use <span style="font-style: italic;">SAVE</span> (without a filename)
+<br><br>to achieve this.
+<br><br><h3>NOTE 1:
+<br></h3><br>If you try to assign the string returned by <span style="font-style: italic;">PARSTR$</span> back into
+<br>the original parameter (eg. change the variable file in the
+<br>example program to the variable <span style="font-style: italic;">file$</span>), this will cause an
+<br>'error in expression'. You could try adding <span style="font-style: italic;">file$</span> to the <span style="font-style: italic;">LOCal
+<br></span>definition, however although this will avoid the 'error in
+<br>expression',  file$  is  set  to  a  nul  string  by  the  <span style="font-style: italic;">LOCal
+<br></span>definition!!
+<br><br><h3>NOTE 2:
+<br><br></h3>TURBO and SuperCHARGE cannot compile programs which use
+<br><span style="font-style: italic;">PARSTR$</span>.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>Please also see <a style="font-style: italic;" href="KeywordsP.html#PARNAM$">PARNAM$</a>.
+<br><br href="KeywordsF.html#FBKDT">FBKDT</a> also contains a useful example of <a style="font-style: italic;" href="KeywordsP.html#PARSTR$">PARSTR$</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PARTYP"></a>PARTYP</h1><br>Syntax: <span style="font-style: italic;">PARTYP (name)
+<br></span>Location: <span style="font-style: italic;">Toolkit II, THOR XVI
+<br></span><br>As disclosed in the description of <span style="font-style: italic;">DEFine FuNction</span>, a parameter
+<br>is passed to a SuperBASIC <span style="font-style: italic;">PROCedure</span> or <span style="font-style: italic;">FuNction</span> by reference,
+<br>meaning that the variable type listed in the definition line
+<br>will actually be overriden by the type of variable which has
+<br>been passed as a parameter.
+<br><br>The function <span style="font-style: italic;">PARTYP</span> returns the type of the actual parameter
+<br>which has been passed, which can be used to error trap
+<br><span style="font-style: italic;">PROCedures</span> and <span style="font-style: italic;">FuNctions</span>.
+<br><br><span style="font-style: italic;">PARTYP</span> expects only one parameter - the name of the parameter
+<br>from the definition line to be looked at.  <span style="font-style: italic;">PARTYP</span> will then
+<br>return one of the following values depending on the type of
+<br>the actual parameter passed:
+<br><br><h3><span style="font-style: italic;">PARTYP</span>meaning
+<br></h3><br>0 a null string has been passed
+<br><br>1 a string has been passed
+<br><br>2 a floating point has been passed
+<br><br>3 an integer has been passed
+<br><br><h3>Example:
+<br></h3><br>A <span style="font-style: italic;">PROCedure</span> to swap any two variables (it can only handle
+<br><br>simple strings and variables, not arrays):
+<br><span style="font-style: italic;">100 a=1:b%=2
+<br>110 swap_var a,b%
+<br>120 DEFine PROCedure swap_var (x,y)
+<br>130 LOCal xa,xa$,param
+<br>140 IF PARUSE(x)=0 OR PARUSE(y)=0
+<br>150   PRINT 'A variable is unset!':RETurn
+<br>160 END IF
+<br>162 IF PARNAM$(1)="" OR PARNAM$(2)=""
+<br>164   PRINT 'Parameters are not both variables!':RETurn
+<br>165 END IF
+<br>170 IF PARUSE(x)=3 OR PARUSE(y)=3
+<br>180   PRINT 'Arrays not handled':RETurn
+<br>190 END IF
+<br>200 param=PARTYP(x)
+<br>210 IF PARTYP(y)=1 AND param&lt;&gt;1 OR param=1 AND PARTYP(y)&lt;&gt;1
+<br>220   PRINT 'You cannot swap a string with a value!'
+<br>230   RETurn
+<br>240 END IF
+<br>250 SELect ON param
+<br>260   =0,1:xa$=y:y=x:x=xa$
+<br>270   =2,3:xa=y:y=x:x=xa
+<br>280   END SELect
+<br>290 END DEFine
+<br></span><br><h3>NOTE 1:
+<br><br></h3>There is a difference in the way that <span style="font-style: italic;">PARTYP</span> will report an
+<br>omitted parameter, depending on whether you implicitly omit
+<br>the parameter.  Try the following using the above example:
+<br><br>Implicit omission:
+<br><br><span style="font-style: italic;">swap_var a$
+<br></span><br>or even
+<br><span style="font-style: italic;"><br>swap_var a$,
+<br><br>- PARTYP(y)</span> returns the type of the notional parameter (here y
+<br>is a floating point, so <span style="font-style: italic;">PARTYP (y)</span> returns 2), and <span style="font-style: italic;">PARUSE(y)</span> also
+<br>reports 2.
+<br><br>Compare explicit omission:
+<br><br><span style="font-style: italic;">swap_var ,a$
+<br></span><br><span style="font-style: italic;">PARTYP(x)</span> will return 0 as will <span style="font-style: italic;">PARUSE(x)
+<br></span><br>If a program is Qliberated, <span style="font-style: italic;">PARTYP</span> will return 0 whether
+<br>parameters are implicitly or explicitly omitted.
+<br><br><h3>NOTE 2:
+<br><br></h3>If you pass a null string as a parameter, eg. <span style="font-style: italic;">swap_var a$,''</span> in
+<br>the above example, <span style="font-style: italic;">PARTYP</span> will still return 1 (and not zero) as
+<br>you may think, hence the need to look at <span style="font-style: italic;">PARUSE</span> also.
+<br><br><h3>NOTE 3:
+<br><br></h3>TURBO and SuperCHARGE cannot compile programs which use
+<br><span style="font-style: italic;">PARUSE</span>.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsP.html#PARTYP">PARTYP</a> should be used alongside <a style="font-style: italic;" href="KeywordsP.html#PARUSE">PARUSE</a> to find out whether a
+<br>parameter was passed as a variable (ie. by reference) or as a
+<br>value.
+<br><br href="KeywordsP.html#PARTYPE">PARTYPE</a> is the same.
+<br><br href="KeywordsP.html#PARNAM$">PARNAM$</a>, <a style="font-style: italic;" href="KeywordsP.html#PARHASH">PARHASH</a>, <a style="font-style: italic;" href="KeywordsP.html#PARSEPA">PARSEPA</a> and <a style="font-style: italic;" href="KeywordsP.html#PARSTR$">PARSTR$</a> form companions to these
+<br>commands.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PARTYPE"></a>PARTYPE</h1><br>Syntax: <span style="font-style: italic;">PARTYPE (name)
+<br></span>Location: <span style="font-style: italic;">PARAMS (DIY Toolkit - Vol P)
+<br></span><br>This function is exactly the same as <span style="font-style: italic;">PARTYP</span> and suffers from
+<br>the same problems.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsP.html#PARHASH">PARHASH</a>, <a style="font-style: italic;" href="KeywordsU.html#UNSET">UNSET</a> and <a style="font-style: italic;" href="KeywordsP.html#PARNAME$">PARNAME$</a> are also added by this toolkit.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PARUSE"></a>PARUSE</h1><br>Syntax: <span style="font-style: italic;">PARUSE (name)
+<br></span>Location: <span style="font-style: italic;">Toolkit II, THOR XVI
+<br></span><br><span style="font-style: italic;">PARUSE</span> is a companion function to <span style="font-style: italic;">PARTYP</span>.  <span style="font-style: italic;">PARUSE</span> also expects
+<br>only one parameter - the <span style="font-style: italic;">name</span> of the parameter from the
+<br>definition line to be looked at.  <span style="font-style: italic;">PARUSE</span> will then return one of
+<br>the following values depending on the actual parameter passed:
+<br><br><h3><span style="font-style: italic;">PARUSE</span>meaning
+<br></h3><br>0     an unset variable has been passed
+<br><br>2     a variable (or value) has been passed
+<br><br>3     an array has been passed
+<br><br><h3>NOTE 1:
+<br></h3><br>The Toolkit II Manual gives incorrect values.
+<br><br><h3>NOTE 2:
+<br><br></h3>There is a difference in the way that <span style="font-style: italic;">PARUSE</span> will report an
+<br>omitted parameter, depending on whether you implicitly omit
+<br>the parameter or explicitly omit it - see Note 1 relating to
+<br><span style="font-style: italic;">PARTYP</span>.
+<br><br>Under current versions of Qliberator a program, <span style="font-style: italic;">PARUSE</span> will
+<br>always  return  2  whether  the  parameter  is  implicitly  or
+<br>explicitly omitted.
+<br><br><h3>NOTE 3:
+<br><br></h3>TURBO and SuperCHARGE cannot compile programs which use
+<br><span style="font-style: italic;">PARUSE</span>.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>Please see <a style="font-style: italic;" href="KeywordsP.html#PARTYP">PARTYP</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PAR_ABORT"></a>PAR_ABORT</h1><br>Syntax:<span style="font-style: italic;"> PAR_ABORT
+<br><br>or PAR_ABORT port_number(SMSQ/E only)
+<br></span>Location: <span style="font-style: italic;">ST/QL, SMSQ/E
+<br></span><br>This command clears out all of the closed <span style="font-style: italic;">PAR</span> buffers and
+<br>then sends an 'aborted' message, to the <span style="font-style: italic;">PAR</span> device, thus
+<br>effectively stopping the computer from sending any information
+<br>still in the buffers through the <span style="font-style: italic;">PAR</span> device.
+<br><br>Any open channels connected to the port are unaffected.
+<br><br><h3>NOTE:
+<br></h3><br>Although the SMSQ/E implementation allows a port to be
+<br>specified, there are currently no implementations of the QL
+<br>which have more than one parallel port, therefore trying to
+<br>pass a <span style="font-style: italic;">port_number</span> at present results in a bad parameter error.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsS.html#SER_ABORT">SER_ABORT</a> and <a style="font-style: italic;" href="KeywordsP.html#PRT_ABORT">PRT_ABORT</a> are very similar.
+<br><br><a style="font-style: italic;" href="KeywordsP.html#PAR_CLEAR">PAR_CLEAR</a> clears out the buffers but does not tell anyone.
+<br><br><a style="font-style: italic;" href="KeywordsP.html#PRT_ABT">PRT_ABT</a> is similar on the Trump Card and Gold Cards.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PAR_BUFF"></a>PAR_BUFF</h1><br>Syntax: <span style="font-style: italic;">PAR_BUFF </span>[<span style="font-style: italic;">size</span>]
+<br><br>or <span style="font-style: italic;">PAR_BUFF port_number, size(SMSQ/E only)
+<br></span>Location: <span style="font-style: italic;">ST/QL, SMSQ/E
+<br></span><br>Normally, SMSQ/E and the Emulator will use all available
+<br>memory as a buffer for its serial and parallel ports (this is
+<br>known as a dynamic buffer).  Although this enables control to
+<br>be returned to programs very quickly after sending output to
+<br>one of the ports, it can however mean that the whole of the
+<br>memory can be filled up with printer output.
+<br><br>The command <span style="font-style: italic;">PAR_BUFF</span> therefore allows you to specify a fixed
+<br><span style="font-style: italic;">size</span> in bytes for the parallel buffer for each channel opened to
+<br>it.
+<br><br>If no <span style="font-style: italic;">size</span> is specified, or a <span style="font-style: italic;">size</span> of 0 bytes is set, then
+<br>the parallel buffer becomes dynamic once again.  Otherwise, <span style="font-style: italic;">size
+<br></span>should be at least 5 bytes to ensure future compatability.
+<br><br><h3>Example:
+<br></h3><br><span style="font-style: italic;">PAR_BUFF 10000
+<br></span><br>sets the parallel buffer to 10000 bytes.
+<br><br><h3>NOTE:
+<br></h3><br>Although the SMSQ/E implementation allows a port to be
+<br>specified, there are currently no implementations of the QL
+<br>which have more than one parallel port, therefore trying to
+<br>pass a <span style="font-style: italic;">port_number</span> at present results in a bad parameter error.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsP.html#PRT_USE">PRT_USE</a> sets up a dynamic printer buffer except under SMSQ/E.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PAR_CLEAR"></a>PAR_CLEAR</h1><br>Syntax: <span style="font-style: italic;">PAR_CLEAR
+<br></span><br>or <span style="font-style: italic;">PAR_CLEAR port_number(SMSQ/E only)
+<br></span>Location: <span style="font-style: italic;">ST/QL, SMSQ/E
+<br></span><br>This clears out all currently closed <span style="font-style: italic;">PAR</span> buffers, thus
+<br>preventing any further output.  Any channels which are open to
+<br>the <span style="font-style: italic;">PAR</span> port will be left unaffected.
+<br><br><h3>NOTE:
+<br></h3><br>Although the SMSQ/E implementation allows a port to be
+<br>specified, there are currently no implementations of the QL
+<br>which have more than one parallel port, therefore trying to
+<br>pass a <span style="font-style: italic;">port_number</span> at present results in a bad parameter error.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsS.html#SER_CLEAR">SER_CLEAR</a> and <a style="font-style: italic;" href="KeywordsP.html#PRT_CLEAR">PRT_CLEAR</a> are similar.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PAR_PULSE"></a>PAR_PULSE</h1><br>Syntax: <span style="font-style: italic;">PAR_PULSE x
+<br></span>Location: <span style="font-style: italic;">ST/QL, SMSQ/E for the Atari
+<br></span><br>Some accelerator boards enhance the speed of the Atari ST
+<br>and TT computers so much that the parallel printer port may be
+<br>affected. This can be fixed by using <span style="font-style: italic;">PAR_PULSE</span> to increase the
+<br>rate of the strobe pulse.
+<br><br>This problem tends to be required if you have a printer
+<br>which has heavy drive requirements (notably a CANON) or if you
+<br>use a long printer cable.
+<br><br><h3>Example:
+<br></h3><br><span style="font-style: italic;">PAR_PULSE 80
+<br></span><br><h3>NOTE:
+<br></h3><br>On SMSQ/E running on non-Atari's, this command has no
+<br>effect.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PAR_USE"></a>PAR_USE</h1><br>Syntax: <span style="font-style: italic;">PAR_USE </span>[<span style="font-style: italic;">device</span>]
+Location: <span style="font-style: italic;">ST/QL, SMSQ/E, SuperQBoard, PAR/SER Interfaces,
+<br>Super Gold Card
+<br></span><br>As with many other devices, such as <span style="font-style: italic;">RAM</span>, <span style="font-style: italic;">FLP</span> and <span style="font-style: italic;">WIN</span>, it can
+<br>be useful to alter the three letter description used to access
+<br>the parallel printer port on the Atari ST.
+<br><br>The command <span style="font-style: italic;">PAR_USE</span> allows you to replace the three letter
+<br>description by  any  other  three letters.  If  <span style="font-style: italic;">device</span>  is  not
+<br>specified, this changes the description back to <span style="font-style: italic;">PAR</span>.
+<br><br><h3>Example:
+<br></h3><br><span style="font-style: italic;">PAR_USE ser
+<br></span><br>will divert any attempt to access the serial ports to the
+<br><br>parallel printer port.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsR.html#RAM_USE">RAM_USE</a>, <a style="font-style: italic;" href="KeywordsF.html#FLP_USE">FLP_USE</a>, <a style="font-style: italic;" href="KeywordsW.html#WIN_USE">WIN_USE</a>, <a style="font-style: italic;" href="KeywordsS.html#SER_USE">SER_USE</a> and <a style="font-style: italic;" href="KeywordsP.html#PRT_USE">PRT_USE</a> are all very similar.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PAUSE"></a>PAUSE</h1><br>Syntax: <span style="font-style: italic;">PAUSE </span>[<span style="font-style: italic;">timeout</span>]
+<br><br>or <span style="font-style: italic;">PAUSE </span>[<span style="font-style: italic;">#chan,</span>] [<span style="font-style: italic;">timeout</span>]<span style="font-style: italic;">(Minerva v1.80+, THORv6.41,
+<br> SMS, ST/QL E-init v1.27+)
+<br></span>Location: <span style="font-style: italic;">QL ROM
+<br></span><br>The command <span style="font-style: italic;">PAUSE</span> halts execution of a program temporarily
+<br>for the specified <span style="font-style: italic;">timeout</span> number of frames (there are 50 frames
+<br>per second in the UK and Europe, 60 frames per second in the
+<br>US).
+<br><br>If no <span style="font-style: italic;">timeout</span> or a negative <span style="font-style: italic;">timeout</span> is specified, the command
+<br>will wait indefinitely. If a <span style="font-style: italic;">timeout</span> of zero is specified, no
+<br>actual <span style="font-style: italic;">PAUSE</span> will take place.
+<br><br>Execution will continue at the end of the timeout, or if a
+<br>key is pressed. The key is read from channel #0 and therefore
+<br>the command will report the error 'channel not open' if #0 is
+<br>not open.
+<br><br>The second variant of this command allows you to specify a
+<br>channel  <span style="font-style: italic;">#chan</span>  (default  #0)  upon  which  the  command  should
+<br>operate, thus allowing the command to be used in programs
+<br>which do not have #0 open.
+<br><br><h3>Example:
+<br></h3><br><span style="font-style: italic;">PAUSE 100
+<br></span><br>Pauses for approximately 2 seconds, unless a key is pressed
+<br><br>in the meantime!
+<br><br><h3>NOTE 1:
+<br></h3><br>Using timeouts allows programs to run at the same speed on
+<br>all QL implementations.
+<br><br><h3>NOTE 2:
+<br></h3><br>Normally, if #0 or the specified channel (in the THOR
+<br>variant of this command) is not a console window (or not
+<br>open), an error will be generated, of either 'Bad Parameter'
+<br>or 'Channel not open' respectively.
+<br><br>However, the Minerva and SMS variants of this command do
+<br>not report any error messages and merely return straight away
+<br>(although see next note).
+<br><br><h3>NOTE 3:
+<br></h3><br>On Minerva (v1.90+), the second variant of this command
+<br>will also work on a screen (scr_) channel.
+<br><br><h3>NOTE 4:
+<br></h3><br>The second variant didn't really work on ST/QL Emulators
+<br>until v1.30 of E-Init).
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsI.html#INKEY$">INKEY$</a> allows you to read the key which has been pressed, as
+<br>well as halting program execution.
+<br><hr style="width: 100%; height: 2px;"><h1>PEEK</h1><hr style="width: 100%; height: 2px;"><h3>PEEK_W
+<br></h3><hr style="width: 100%; height: 2px;"><h1><a name="PEEK_L"></a>PEEK_L</h1><br>Syntax: <span style="font-style: italic;">PEEK (address)address=0,1,2,3,...
+<br></span><br>and <span style="font-style: italic;">PEEK_W (address)address=0,2,4,6,...
+<br></span><br>and <span style="font-style: italic;">PEEK_L (address)address=0,2,4,6,...
+<br></span>Location: <span style="font-style: italic;">QL ROM
+<br></span><br>These three functions are complementary to <span style="font-style: italic;">POKE</span>, <span style="font-style: italic;">POKE_W</span> and
+<br><span style="font-style: italic;">POKE_L</span>, in that instead of setting a byte, word or longword in
+<br>memory, these three functions return the value of the byte,
+<br>word or longword stored at the given <span style="font-style: italic;">address</span>.
+<br><br><h3>NOTE 1:
+<br></h3><br>Due to the way in which values are stored in memory, it can
+<br>be difficult to read negative values. However, although <span style="font-style: italic;">PEEK
+<br></span>will return an unsigned byte in the range 0..255, <span style="font-style: italic;">PEEK_W</span> will
+<br>return a signed word in the range -32768...32767 and <span style="font-style: italic;">PEEK_L</span> a
+<br>signed longword.
+<br><br><h3>NOTE 2:
+<br></h3><br>Do not try to <span style="font-style: italic;">PEEK_W</span> or <span style="font-style: italic;">PEEK_L</span> with an odd address (eg. 10001)
+<br>as this will cause an error unless you are using Minerva (see
+<br>below).
+<br><br><h3>MINERVA NOTES:
+<br></h3><br>As with the <span style="font-style: italic;">POKE</span> commands, the <span style="font-style: italic;">PEEK</span> functions on Minerva
+<br>(version 1.77 or later) are very much enhanced and different.
+<br><br>Minerva allows you to use <span style="font-style: italic;">PEEK_W</span> and <span style="font-style: italic;">PEEK_L</span> on odd addresses,
+<br>eg:
+<br><br><span style="font-style: italic;">PRINT PEEK_W(131073)
+<br></span><br>Minerva has also added to the usefulness of the <span style="font-style: italic;">PEEK</span>, <span style="font-style: italic;">PEEK_W
+<br></span>and  <span style="font-style: italic;">PEEK_L</span>  functions  by  allowing  them  to  access  system
+<br>variables,   Minerva's   System   Xtensions   and   SuperBASIC
+<br>variables. You will need a good book on QDOS (eg. QDOS/SMS
+<br>Reference Manual) to find out what the possible values are.
+<br>The syntax for these extra commands is:
+<br><br><h3>(1) Look at SuperBASIC variables.
+<br></h3><br><span style="font-style: italic;">PEEK (\\SBvar)
+<br><br>PEEK_W (\\SBvar)
+<br><br>PEEK_L (\\SBvar)
+<br><br>PEEK (\SBvar\Offset)
+<br><br>PEEK_W (\SBvar\Offset)
+<br><br>PEEK_L (\SBvar\Offset)
+<br></span><br><h3>(2) Look at System variables.
+<br></h3><br><span style="font-style: italic;">PEEK (!!Sysvar)
+<br><br>PEEK_W (!!Sysvar)
+<br><br>PEEK_L (!!Sysvar)
+<br><br>PEEK (!Sysvar!Offset)
+<br><br>PEEK_W (!Sysvar!Offset)
+<br><br>PEEK_L (!Sysvar!Offset)
+<br></span><br><h3>
+<br><br>(3) Look at System Xtensions.
+<br></h3><br><span style="font-style: italic;">sx_base=PEEK_L(VER$(-2) + 124)
+<br><br>PEEK (sx_base + offset)
+<br></span><br><h3>SMS NOTES:
+<br></h3><br>SMS has altered the <span style="font-style: italic;">PEEK</span> functions so that they are able to
+<br>access System variables and SuperBASIC variables, using the
+<br>same format as Minerva.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>Please see in particular <a style="font-style: italic;" href="KeywordsP.html#POKE">POKE</a>, <a style="font-style: italic;" href="KeywordsP.html#POKE_W">POKE_W</a>, and <a style="font-style: italic;" href="KeywordsP.html#POKE_L">POKE_L</a>.
+<br><br><a style="font-style: italic;" href="KeywordsP.html#PEEK$">PEEK$</a> reads a string stored in memory and contains some
+<br>examples of the new variants introduced on Minerva and SMS.
+<br><br href="KeywordsP.html#PEEK_F">PEEK_F</a> and <a style="font-style: italic;" href="KeywordsP.html#PEEKS">PEEKS</a> are also worth a look.
+<br><hr style="width: 100%; height: 2px;"><h1>PEEKS</h1><hr style="width: 100%; height: 2px;"><h3>PEEKS_W
+<br><hr style="width: 100%; height: 2px;">PEEKS_L<br></h3><br>Syntax: <span style="font-style: italic;">PEEKS(address)        address=0,1,2,3,...
+<br></span><br>and<span style="font-style: italic;"> PEEKS_W(address)      address=0,2,4,6,...
+<br></span><br>and<span style="font-style: italic;"> PEEKS_L(address)      address=0,2,4,6,...
+<br></span>Location: <span style="font-style: italic;">SMSQ/E and ATARI_REXT v2.17+
+<br></span><br>These three functions are only of any use on the Atari
+<br>series of computers.
+<br><br>They are the same as the normal forms of <span style="font-style: italic;">PEEK</span>, <span style="font-style: italic;">PEEK_W</span> and
+<br><span style="font-style: italic;">PEEK_L</span>, except that they operate in Supervisor Mode and can
+<br>therefore be used to read data direct from the Atari's IO
+<br>hardware.
+<br><br>On all other implementations they are the same as <span style="font-style: italic;">PEEK</span>,
+<br><span style="font-style: italic;">PEEK_W</span> and <span style="font-style: italic;">PEEK_L</span>.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsP.html#PEEK">PEEK</a>.
+<br><br><a style="font-style: italic;" href="KeywordsP.html#POKES">POKES</a> is the complementary command.
+<br><br>See <a style="font-style: italic;" href="KeywordsP.html#PROT_MEM">PROT_MEM</a> also.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PEEK$"></a>PEEK$</h1><br>Syntax: <span style="font-style: italic;">PEEK$ (start_address,bytes)
+<br></span><br>or <span style="font-style: italic;">PEEK$ (start_address </span>[<span style="font-style: italic;">,bytes</span>]<span style="font-style: italic;">)(BTool only)
+<br></span>Location: <span style="font-style: italic;">ATARI_REXT, SMS, TinyToolkit, BTool
+<br></span><br>This function will read a specified number of <span style="font-style: italic;">bytes</span> from
+<br><span style="font-style: italic;">start_address</span> in memory onwards and return the result as a string.
+<br><br>For BTool the second parameter is optional. If <span style="font-style: italic;">bytes</span> is not
+<br>specified then BTool's <span style="font-style: italic;">PEEK$</span> will try to read a string in QDOS
+<br>format (ie. two bytes specifying the length of the string
+<br>followed   by   the   string   itself)   from   the   location
+<br><span style="font-style: italic;">start_address</span>, just like <span style="font-style: italic;">CVS$</span> does. This string will then be
+<br>returned. Note that <span style="font-style: italic;">start_address</span> must always be if bytes is
+<br>omitted.
+<br><br><h3>Example:
+<br></h3><br>Do you know how many keywords, filenames, variables etc.
+<br><br>are currently known to the interpreter? This program lists
+<br><br>and counts them.
+<br><span style="font-style: italic;">100 adr=BASICP(32): num=0
+<br>110 REPeat all_names
+<br>120   length=PEEK(adr)
+<br>130   IF NOT length THEN EXIT all_names
+<br>140   name$=PEEK$(adr+1,length)
+<br>150   PRINT name$,
+<br>160   adr=adr+length+1: num=num+1
+<br>170 END REPeat all_names
+<br>180 PRINT\\num!"names"
+<br></span><br><h3>SMS NOTE:
+<br></h3><br><span style="font-style: italic;">PEEK$</span>  allows  you  to  access  the  System  Variables  and
+<br>SuperBASIC variables in the same way as <span style="font-style: italic;">PEEK</span> (etc.).  For
+<br>example, the above short program may be re-written as:
+<br><span style="font-style: italic;">100 adr=0: num=0
+<br>110 REPeat all_names
+<br>120   length=PEEK(\$20\adr)
+<br>130   IF NOT length THEN EXIT all_names
+<br>140   name$=PEEK$(\$20\adr+1,length)
+<br>150   PRINT name$,:PAUSE
+<br>160   adr=adr+length+1: num=num+1
+<br>170 END REPeat all_names
+<br>180 PRINT\\num!"names"
+<br></span><br><h3>WARNING:
+<br></h3><br>A string cannot be longer than 32766 characters and so an
+<br>expression such as <span style="font-style: italic;">a$=PEEK$(0,40000)</span> may lead to unpredictable
+<br>effects. Be careful!
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsP.html#POKE$">POKE$</a> is the complementary procedure to <a style="font-style: italic;" href="KeywordsP.html#PEEK$">PEEK$</a>.
+<br><br href="KeywordsP.html#PEEK">PEEK</a>, <a style="font-style: italic;" href="KeywordsP.html#PEEK_W">PEEK_W</a> and <a style="font-style: italic;" href="KeywordsP.html#PEEK_L">PEEK_L</a> read single bytes, words and long words
+<br>from memory.
+<br><br><a style="font-style: italic;" href="KeywordsT.html#TTPEEK$">TTPEEK$</a> is the same as this function.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PEEK_F"></a>PEEK_F</h1><br>Syntax: <span style="font-style: italic;">PEEK_F (address)
+<br></span>Location: <span style="font-style: italic;">BTool
+<br></span><br><span style="font-style: italic;">PEEK_F</span> is a function which reads six bytes from any position
+<br>in memory, which it assumes is the internal representation of
+<br>a SuperBASIC floating point number, and returns its value.
+<br><br><h3>WARNING:
+<br></h3><br><span style="font-style: italic;">PEEK_F</span> will lead to a crash if the six bytes at address did
+<br>not represent a valid floating point, compare this with <span style="font-style: italic;">CVF</span>.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsP.html#POKE_F">POKE_F</a>, <a style="font-style: italic;" href="KeywordsC.html#CVF">CVF</a>, <a style="font-style: italic;" href="KeywordsM.html#MKF$
+">MKF$
+</a><br>See also <a style="font-style: italic;" href="KeywordsP.html#PEEK$
+">PEEK$
+</a><br><h3>
+<br></h3><hr style="width: 100%; height: 2px;"><h1><a name="PEND"></a>PEND</h1><br>Syntax: <span style="font-style: italic;">PEND (#channel)
+<br></span>Location: <span style="font-style: italic;">TinyToolkit
+<br></span><br><span style="font-style: italic;">PEND</span> is a logical function and returns 1 if there is data
+<br>waiting in the specified channel to be read and 0 if not.
+<br><br><h3>Example 1:
+<br></h3><br>If the Window Manager is present, <span style="font-style: italic;">PEND</span> can be used to check
+<br><br>if a window is currently hidden, and therefore to decide
+<br><br>whether information should be printed to that channel or
+<br><br>not. Under the Pointer Environment, jobs which are trying
+<br><br>to output data to a window channel cannot do so until the
+<br><br>channel is activated (eg. by pressing &lt;CTRL&gt;&lt;C&gt;). - The
+<br><br>following program calculates a large sum and prints the
+<br><br>current  value  of  the  calculation  in  a  small  window,
+<br><br>however, the calculation itself will not stop if one
+<br><br>switches to another window, thus hiding this one.
+<br><span style="font-style: italic;">100 n=1546: sum=0
+<br>110 OPEN#3,"con_"&(6*LEN(n)+6)&"x12a0x0"
+<br>120 BORDER#3,1,3: INK#3,7: CLS#3
+<br>130 FOR i=1 TO n
+<br>140   sum=sum+i
+<br>150   IF PEND(#3) THEN PRINT#3;FILL$(" ",4-LEN(i));i
+<br>160 END FOR i
+<br>170 IF sum&lt;&gt;n*(n+1)/2 THEN BEEP 0,33,44,66,22,44
+<br>180 CLOSE#3
+<br></span><br><h3>Example 2:
+<br></h3><br>Pipes should be used for communication between jobs. It is
+<br><br>very bad practice to write information to a file and let
+<br><br>the other job read it because other tasks may be affected.
+<br><br>Here are two programs which have to be compiled and
+<br><br>executed to multitask. Both open a small window, the first
+<br><br>job inputs text and then sends it to the second job which
+<br><br>shows that text. Typing "end" will terminate both jobs.
+<br><br>The output job would work without <span style="font-style: italic;">PEND</span> but would not be able
+<br><br>to do something else whilst waiting for further input.
+<br><span style="font-style: italic;">100 REMark Input Job
+<br>110 :
+<br>120 OPEN#3,con_50x30a30x40: PAPER#3,3
+<br>130 INK#3,7: BORDER#3,1,4: CLS#3
+<br>140 OPEN#4,pipe_communication_200
+<br>150 REPeat input_loop
+<br>160   INPUT#3,text$
+<br>170   PRINT#4,text$
+<br>180   IF text$=="END" THEN EXIT input_loop
+<br>190 END REPeat input_loop
+<br>200 CLOSE#3: CLOSE#4
+<br></span><br><h3>
+<br></h3><span style="font-style: italic;">100 REMark Output Job
+<br>110 :
+<br>120 OPEN#3,scr_50x30a100x40: PAPER#3,3
+<br>130 INK#3,7: BORDER#3,1,4: CLS#3
+<br>140 OPEN#4,pipe_communication
+<br>150 REPeat output_loop
+<br>160   IF PEND(#4) THEN
+<br>170     INPUT#4,text$
+<br>180     IF text$=="END" THEN EXIT output_loop
+<br>190     PRINT#3,text$
+<br>200   END IF
+<br>210   IF NOT RND(200): d$=DATE$: PRINT#3,d$(16 TO)
+<br>220 END REPeat output_loop
+<br>230 CLOSE#3: CLOSE#4
+<br></span><br>By the way, in this case it is not very efficient to
+<br><br>separate the input and output jobs, but good terminal
+<br><br>Emulators do this. You will also notice that the programs
+<br><br>use named pipes which make it much easier for them to link
+<br><br>up with each other. These named pipes are present in the
+<br><br>latest version of the ST/QL Emulator as well as SMS.  They
+<br><br>are also provided by several public domain device drivers -
+<br><br>See the appendix on devices for further details.
+<br><br><h3>NOTE:
+<br></h3><br><span style="font-style: italic;">PEND</span> only works with channels which will accept input (not
+<br>scr_) and reports an "end of file" error (<span style="font-style: italic;">ERNUM=-10</span>, <span style="font-style: italic;">ERR_EF=1</span>) if a
+<br>connected output pipe has been closed.
+<br><br>Unfortunately, <span style="font-style: italic;">EOF</span> cannot be used to trap the end of a named
+<br>pipe early enough, so you have to ensure that the output pipe
+<br>tells the accompanying input pipe that it is about to be
+<br>closed.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsT.html#TCONNECT">TCONNECT</a> and <a style="font-style: italic;" href="KeywordsF.html#FILE_OPEN">FILE_OPEN</a> about connecting two unnamed pipes.
+<br><br href="KeywordsE.html#EOF">EOF</a> checks if a file is at its end.
+<br><br href="KeywordsI.html#IO_PEND%">IO_PEND%</a> and <a style="font-style: italic;" href="KeywordsN.html#NOT EOFW">NOT EOFW</a> are identical to <a style="font-style: italic;" href="KeywordsP.html#PEND">PEND</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PENDOWN"></a>PENDOWN</h1><br>Syntax: <span style="font-style: italic;">PENDOWN </span>[<span style="font-style: italic;">#ch</span>]
+Location: <span style="font-style: italic;">QL ROM
+<br></span><br>This command is part of the QL's turtle graphics set of
+<br>commands, and places the pen to the down position in the
+<br>specified window (default #1). When a window is first opened,
+<br>the pen is set to the up position.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsP.html#PENUP">PENUP</a> has the opposite effect to this command. Also see
+<br><a style="font-style: italic;" href="KeywordsM.html#MOVE">MOVE</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PENUP"></a>PENUP</h1><br>Syntax: <span style="font-style: italic;">PENUP </span>[<span style="font-style: italic;">#ch</span>]
+Location: <span style="font-style: italic;">QL ROM
+<br></span><br>This command places the turtle's pen to the up position in
+<br>the specified window (default #1), thus preventing any further
+<br>drawing.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsP.html#PENDOWN">PENDOWN</a> and <a style="font-style: italic;" href="KeywordsM.html#MOVE">MOVE</a> for more details.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PEOFF"></a>PEOFF</h1><br>Syntax: <span style="font-style: italic;">PEOFF </span>[{ <span style="font-style: italic;">#ch</span> | <span style="font-style: italic;">chan_ID</span> | <span style="font-style: italic;">job_name$</span> }]
+Location: <span style="font-style: italic;">PEX
+<br></span><br>This command is similar to <span style="font-style: italic;">PIE_OFF</span> except that it allows you
+<br>to disable background screen access for specific multitasking
+<br>jobs  if  you  wish  (reverting  to  the  original  Pointer
+<br>Environment method of managing windows).
+<br><br>The same parameters as for <span style="font-style: italic;">PEON</span> can be used to specify the
+<br>Jobs or windows to be affected.
+<br><br><h3>NOTE:
+<br></h3><br>PEX should not be used with PIE.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>Refer to <a style="font-style: italic;" href="KeywordsP.html#PEON">PEON</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PEON"></a>PEON</h1><br>Syntax: <span style="font-style: italic;">PEON </span>[{ <span style="font-style: italic;">#ch</span> | <span style="font-style: italic;">chan_ID</span> | <span style="font-style: italic;">job_name$</span> }]
+Location: <span style="font-style: italic;">PEX
+<br></span><br>PEX is similar to the PIE system extension (see <span style="font-style: italic;">PIE_ON</span> for
+<br>more details), in that it allows buried programs to access the
+<br>screen in the background.
+<br><br>However, PEX cannot be used with PIE and is completely
+<br>independent.
+<br><br>PEX should be loaded after the Pointer Environment (notably
+<br>the PTR_GEN file), and after any other code which redefines
+<br>the window handling of the QL (for example Lightning or
+<br>Speedscreen).  It must however be loaded before the History
+<br>device (except on SMSQ/E which has a built in History device).
+<br><br>People who use PEX or PIE may like to also use another
+<br>utility PICE which updates the QL screen at pre-defined time
+<br>intervals so that any part of a window which is not buried
+<br>will actually appear on screen (whether or not part of that
+<br>window is buried).  If you wish to use PICE, it is recommended
+<br>to set the PICE job to a priority of 1 so as not to slow the
+<br>system down too much.
+<br><br>The <span style="font-style: italic;">PEON</span> command allows you to select which windows and Jobs
+<br>should allow background screen access - this is important
+<br>since  the  more  programs  which  continue  to  run  in  the
+<br>background, the slower your QL will appear!!
+<br><br>If no parameter is specified, then background screen access
+<br>is enabled for all Jobs.  You can however pass any number of
+<br>parameters, which can be:
+<br><br>1) A SuperBASIC channel number for the current program
+<br><br>2) A QDOS channel number (see <span style="font-style: italic;">CHANNELS</span>) in which case PEX
+<br>will only affect that specific channel
+<br><br>3) The name of a Job (passed as a string - use a null
+<br>string ("") for SuperBASIC).  PEX will affect all windows used
+<br>by that specified Job.
+<br><br><h3>NOTE 1:
+<br></h3><br>PEX will not work on pre-JS ROMs.  On JS and MG ROMs, its
+<br>functionality is reduced in that it can only be used to allow
+<br>a few machine code calls which do not access the screen to
+<br>operate notwithstanding that the Pointer Environment would
+<br>normally stop them from working from within a buried program
+<br>(it is equivalent to:
+<br><br><span style="font-style: italic;">FOR i=0 TO 127:x=IS_PTRAP(i,3)
+<br></span><br><h3>NOTE 2:
+<br></h3><br>Some toolkits report errors when used alongside PEX and
+<br>some Qliberated programs refuse to work.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsP.html#PEOFF, PIE_ON">PEOFF, PIE_ON</a>, <a style="font-style: italic;" href="KeywordsP.html#PXON">PXON</a>, <a style="font-style: italic;" href="KeywordsP.html#PEX_INI">PEX_INI</a> and <a style="font-style: italic;" href="KeywordsI.html#IS_PEON">IS_PEON</a> for more details.<a style="font-style: italic;" href="KeywordsI.html#IS_PTRAP
+">IS_PTRAP
+</a>allows you to enable PEX for specific machine code routines.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PEX$"></a>PEX$</h1><br>Syntax: <span style="font-style: italic;">PEX$
+<br></span>Location: <span style="font-style: italic;">PEX
+<br></span><br>This function returns the date of assembly, version and
+<br>sub-version of the PEX file.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsP.html#PEX_SAVE">PEX_SAVE</a> alters the sub-version number.
+<br><br>See also <a style="font-style: italic;" href="KeywordsQ.html#QL_PEX">QL_PEX</a> and <a style="font-style: italic;" href="KeywordsP.html#PIF$">PIF$</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PEX_INI"></a>PEX_INI</h1><br>Syntax: <span style="font-style: italic;">PEX_INI
+<br></span>Location: <span style="font-style: italic;">PEX
+<br></span><br>This command initiates PEX and makes it take effect - it
+<br>may be useful for example to set up the various programs and
+<br>the windowing environment, using <span style="font-style: italic;">PEON</span> and <span style="font-style: italic;">IS_PTRAP</span> and then to
+<br>start PEX working at that stage, by using this command.
+<br><br><h3>NOTE:
+<br></h3><br>Some toolkits report errors when used alongside PEX and
+<br>some Qliberated programs refuse to work.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsP.html#PEON">PEON</a> for more general details.
+<br><br>You should also see <a style="font-style: italic;" href="KeywordsP.html#PEX_XTD">PEX_XTD</a> and <a style="font-style: italic;" href="KeywordsP.html#PX1ST">PX1ST</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PEX_SAVE"></a>PEX_SAVE</h1><br>Syntax: <span style="font-style: italic;">PEX_SAVE directory$
+<br></span>Location: <span style="font-style: italic;">PEX
+<br></span><br>This command stores the current settings of PEX in a file
+<br>called PEX19_byt (for version 19.30) in the specified <span style="font-style: italic;">directory
+<br></span>so that when you next load PEX (with <span style="font-style: italic;">LBYTES directory$&PEX_19_byt</span> for
+<br>example), you will not have to re-set all of the various
+<br>settings.
+<br><br>The sub-version number of PEX is increased by one.
+<br><br><h3>Example:
+<br></h3><br><span style="font-style: italic;">PEX_SAVE 'win1_start_'
+<br></span><br>will create the file win1_start_PEX19_byt
+<br><br><h3>NOTE:
+<br></h3><br>An underscore must appear at the end of <span style="font-style: italic;">directory$</span>.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsP.html#PEON">PEON</a> for more general details.
+<br><br>The settings which are saved are set with the command
+<br><a style="font-style: italic;" href="KeywordsI.html#IS_PTRAP">IS_PTRAP</a> and <a style="font-style: italic;" href="KeywordsI.html#IS_PX1ST">IS_PX1ST</a>.  <a style="font-style: italic;" href="KeywordsP.html#PEX$">PEX$</a> returns the sub-version number.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PEX_XTD"></a>PEX_XTD</h1><br>Syntax: <span style="font-style: italic;">PEX_XTD
+<br></span>Location: <span style="font-style: italic;">PEX
+<br></span><br>This command re-installs the keywords provided as part of
+<br>PEX and can help overcome the problem of other toolkits re-
+<br>defining PEX keywords.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsP.html#PEON">PEON</a> for more general details.
+<br><br>You should also see <a style="font-style: italic;" href="KeywordsP.html#PEX_INI">PEX_INI</a> and <a style="font-style: italic;" href="KeywordsP.html#PX1ST">PX1ST</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PHONEM"></a>PHONEM</h1><br>Syntax: <span style="font-style: italic;">PHONEM (string$)
+<br></span>Location: <span style="font-style: italic;">Ähnlichkeiten
+<br></span><br>This function returns a  string (even though the name does
+<br>not  end  with  $)  which  is  a  (more  germanic)  phonetical
+<br>transcription of the supplied string. If two words sound
+<br>similar or are even homophones, their <span style="font-style: italic;">PHONEM</span>'s are identical.
+<br>The function is not case-sensitive.
+<br><br><h3>Examples:
+<br></h3><span style="font-style: italic;">PHONEM ("Toolkit")="DOLCYD"
+<br>PHONEM ("DoolGid")="DOLCYD"
+<br>PHONEM ("DOLGYD")="DOLCYD"
+<br></span><br><h3>NOTE:
+<br></h3><br>An expression such as<span style="font-style: italic;">:
+<br><br>PRINT PHONEM (a$) INSTR PHONEM (b$)
+<br></span><br>will always return 0 on pre Minerva ROMs. Use temporary
+<br>variables to get around this problem:
+<br><span style="font-style: italic;"><br>t1$=PHONEM(a$)</span> : <span style="font-style: italic;">t2$=PHONEM(b$)
+<br></span><br><span style="font-style: italic;">PRINT t1$ INSTR t2$
+<br></span><br>will work properly.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsS.html#SOUNDEX">SOUNDEX</a>, <a style="font-style: italic;" href="KeywordsW.html#WLD">WLD</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PI"></a>PI</h1><br>Syntax: <span style="font-style: italic;">PI
+<br></span>Location: <span style="font-style: italic;">QL ROM
+<br></span><br>This function is a constant number which returns the value
+<br>of ã with an error of 10^(-29). You can test the precision of
+<br><span style="font-style: italic;">PI</span> with such a program:
+<br><span style="font-style: italic;">100 p=PI-3: PRINT "PI=3.";
+<br>110 FOR n=1 TO 35
+<br>120   p=p*10
+<br>130   PRINT INT(p);
+<br>140   p=p-INT(p)
+<br>150 END FOR n
+<br>160 PRINT
+<br></span><br><h3>CROSS-REFERENCE:<br></h3><br>The trigonometrical functions (<a style="font-style: italic;" href="KeywordsS.html#SIN">SIN</a>, <a style="font-style: italic;" href="KeywordsT.html#TAN">TAN</a>, <a style="font-style: italic;" href="KeywordsA.html#ACOS">ACOS</a> etc) expect
+<br>parameters in radians, so <a style="font-style: italic;" href="KeywordsP.html#PI">PI</a> must be used in most cases.
+<br>Another fundamental mathematical constant, e, can be obtained
+<br>with <a style="font-style: italic;" href="KeywordsE.html#EXP(1)">EXP(1)</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PICK$"></a>PICK$</h1><br>Syntax: <span style="font-style: italic;">PICK$ (n, slct</span><sup>1</sup><span style="font-style: italic;">$ </span><sup>*</sup>[<span style="font-style: italic;">,slct</span><sup>i</sup><span style="font-style: italic;">$</span>]<sup>*</sup><span style="font-style: italic;">)
+<br></span>Location: <span style="font-style: italic;">CONTROL (DIY Toolkit Vol E)
+<br></span><br>The function <span style="font-style: italic;">PICK$</span> takes one positive integer <span style="font-style: italic;">n</span> and one or
+<br>more other parameters <span style="font-style: italic;">slct1$</span>, <span style="font-style: italic;">slct2$</span>, etc. The function returns
+<br>the value of the <span style="font-style: italic;">n</span>th parameter, so <span style="font-style: italic;">n</span> must be smaller than or
+<br>equal to the number of supplied <span style="font-style: italic;">slctx$</span>. Don't forget, <span style="font-style: italic;">n</span> must be
+<br>greater than zero!
+<br><br><h3>Example:
+<br></h3><br><span style="font-style: italic;">PICK$</span> is intended to simplify expressions, here are some
+<br><br>silly examples:
+<br><span style="font-style: italic;">100 bool%=RND (0 TO 1)
+<br>110 IF bool% THEN PRINT "yes": ELSE PRINT "no"
+<br></span><br>becomes
+<br><span style="font-style: italic;">100 bool%=RND (0 TO 1)
+<br>110 PRINT PICK$ (bool%+1,"no","yes")
+<br></span><br>whereas
+<br><span style="font-style: italic;">100 members = RND (4)
+<br>110 PRINT "The team has ";
+<br>120 IF members>0: PRINT members;: ELSE PRINT "no";
+<br>130 PRINT " member";
+<br>140 IF members&lt;&gt;1 THEN PRINT "s": ELSE PRINT
+<br></span><br>becomes
+<br><span style="font-style: italic;">100 members = RND(4)
+<br>110 PRINT "The team has ";
+<br>120 PRINT PICK$ (1+(members&lt;&gt;0),"no",members);
+<br>130 PRINT " member";PICK$ (1+(members&lt;&gt;1),"","s")
+<br></span><br>The slightly more complex:
+<br><span style="font-style: italic;">100 DIM num$ (9,5)
+<br>110 RESTORE : FOR i=0 TO 9: READ num$(i)
+<br>120 DATA "zero","one","two","three","four"
+<br>130 DATA "five","six","seven","eight","nine","ten"
+<br>140 :
+<br>150 REPeat typing
+<br>160   key = CODE (INKEY$ (-1))-48
+<br>170   IF key<0 OR key>9 THEN EXIT typing
+<br>180   PRINT num$ (key)!!
+<br>190 END REPeat typing
+<br></span><br>becomes
+<br><span style="font-style: italic;">100 REPeat typing
+<br>110   key = CODE (INKEY$(-1))-48
+<br>120   IF key<0 OR key>9 THEN EXIT typing
+<br>130   PRINT PICK$ (key+1,"zero","one","two","three","four","five","six","seven","eight",
+<br>      "nine", "ten")
+<br>140 END REPeat typing
+<br></span><br><h3>CROSS-REFERENCE:<br></h3><br>Note that conditions have a numeric value, see <a style="font-style: italic;" href="KeywordsI.html#IF">IF</a>, <a style="font-style: italic;" href="KeywordsA.html#AND">AND</a> and <a style="font-style: italic;" href="KeywordsO.html#OR
+">OR
+</a>for details.
+<br><br><a style="font-style: italic;" href="KeywordsS.html#SELect ON..END SELect">SELect ON..END SELect</a> is a less restrictive alternative to <a style="font-style: italic;" href="KeywordsP.html#PICK$">PICK$</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PICK%"></a>PICK%</h1><br>Syntax: <span style="font-style: italic;">PICK% </span>[<span style="font-style: italic;">(JobID</span>]
+<br><br>or <span style="font-style: italic;">PICK% (JobID, action)
+<br></span>Location: <span style="font-style: italic;">PEX
+<br></span><br>This function can be used to perform various acts.
+<br><br>The first syntax is the more common and will bring the
+<br>specified Job (by reference to its QDOS Job id or its Job
+<br>Number as specified by <span style="font-style: italic;">JOBS</span>) to the top of the pile under the
+<br>Pointer Environment, making all of its windows appear on
+<br>screen as if it had been Picked from the Qpac 2 file menu.  If
+<br><span style="font-style: italic;">JobID</span> is -1 or omitted, then the Job which contains this command
+<br>is brought to the top of the pile.  This variant is therefore
+<br>similar to <span style="font-style: italic;">TOP_WINDOW</span>.
+<br><br>If <span style="font-style: italic;">JobID</span> is -2, then the next Job in the Job Table (see <span style="font-style: italic;">NXJOB</span>)
+<br>is brought to the top of the pile - this is therefore similar
+<br>to pressing &lt;CTRL&gt;&lt;C&gt;.
+<br><br>The second variant is more complex and depends upon the
+<br>values of <span style="font-style: italic;">JobID</span> and <span style="font-style: italic;">action</span>.
+<br><br>(1) If <span style="font-style: italic;">JobID</span> refers to an existing Job and <span style="font-style: italic;">action</span> is -4, then
+<br>the  screen  is  frozen  -  this  is  equivalent  to  pressing
+<br>&lt;CTRL&gt;&lt;F5&gt;.
+<br><br>(2) If <span style="font-style: italic;">JobID</span> equals -3 and <span style="font-style: italic;">action</span> is an existing QDOS channel
+<br>number (see <span style="font-style: italic;">CHANNELS</span>) or SuperBASIC channel number then that
+<br>particular channel is unfrozen, allowing input from / output
+<br>to that channel provided that the Job which owns that channel
+<br>is at the top of the pile or can use background screen access
+<br>under PEX.
+<br><br>(3) If <span style="font-style: italic;">JobID</span> equals -4 and <span style="font-style: italic;">action</span> is an existing QDOS channel
+<br>number (see <span style="font-style: italic;">CHANNELS</span>) or SuperBASIC channel number then that
+<br>particular channel is frozen again and any attempt by a
+<br>program to access that channel will (unless that program is
+<br>not buried) cause that program to halt temporarily.
+<br><br>The values returned by <span style="font-style: italic;">PICK%</span> are normally zero if the
+<br>function is  successful.  Otherwise errors  are  returned  as
+<br>follows:
+<br><br>-1 : Job is In Use (although we are not certain when this
+<br>will be reported).
+<br><br>-2 : Job does not exist
+<br><br>-6 : Specified QDOS channel number does not exist
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsO.html#OJOB">OJOB</a> and <a style="font-style: italic;" href="KeywordsN.html#NXJOB">NXJOB</a> allow you to find out details about a specified
+<br>Job.
+<br><br><a style="font-style: italic;" href="KeywordsP.html#PEON">PEON</a> allows background screen access.
+<br><br><h3><br><hr style="width: 100%; height: 2px;">PIE_EX_OFF<br></h3><br>Syntax: <span style="font-style: italic;">PIE_EX_OFF
+<br></span>Location: <span style="font-style: italic;">PIE
+<br></span><br><span style="font-style: italic;">PIE_ON</span> contains details about what PIE is used for and you
+<br>should first of all refer to that.
+<br><br>Presuming that PIE is enabled (with <span style="font-style: italic;">PIE_ON</span>), you may want to
+<br>treat any programs (or toolkits) which use SD.EXTOP machine
+<br>code calls to access the screen differently.  Normally, the
+<br>Window Manager halts any program which attempts to call the
+<br>SD.EXTOP machine code routine unless that program does not
+<br>have any buried windows.
+<br><br>However, <span style="font-style: italic;">PIE_ON</span> allows all buried programs to continue in the
+<br>background, storing the changes to the screen as necessary.
+<br>However, SD.EXTOP routines may be used for various purposes
+<br>including writing to the screen directly and for this reason,
+<br>if PIE is active, you may find that a program writes to the
+<br>screen using SD.EXTOP even though its windows are buried (thus
+<br>overwriting part of an existing program's display).
+<br><br><span style="font-style: italic;">PIE_EX_OFF</span> prevents this effect by still halting any program
+<br>which attempts to use SD.EXTOP.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsP.html#PIE_ON">PIE_ON</a> and <a style="font-style: italic;" href="KeywordsP.html#PIE_EX_ON">PIE_EX_ON</a>.
+<br><br>See also <a style="font-style: italic;" href="KeywordsP.html#PXOFF">PXOFF</a> which is similar.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PIE_EX_ON"></a>PIE_EX_ON</h1><br>Syntax: <span style="font-style: italic;">PIE_EX_ON
+<br></span>Location: <span style="font-style: italic;">PIE
+<br></span><br>This command re-enables PIE for SD.EXTOP system calls, so
+<br>that they are affected by the normal <span style="font-style: italic;">PIE_ON</span> and <span style="font-style: italic;">PIE_OFF</span> commands.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsP.html#PIE_ON">PIE_ON</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PIE_OFF"></a>PIE_OFF</h1><br>Syntax: <span style="font-style: italic;">PIE_OFF
+<br></span>Location: <span style="font-style: italic;">PIE
+<br></span><br>See <span style="font-style: italic;">PIE_ON</span> below.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PIE_ON"></a>PIE_ON</h1><br>Syntax: <span style="font-style: italic;">PIE_ON
+<br></span>Location: <span style="font-style: italic;">PIE
+<br></span><br>The Window Manager forms part of the Pointer Environment
+<br>and is a standard system extension: it allows you to multitask
+<br>all  kinds  of  programs  easily,  provides  non-destructible
+<br>windows and more.
+<br><br>One of the main problems with current versions of the
+<br>Window Manager is that if any part of the windows owned by a
+<br>given Job is buried under another Job's windows (ie. you
+<br>cannot see that part of the window on-screen because of
+<br>another program), then if that buried Job tries to access the
+<br>screen (with <span style="font-style: italic;">PRINT</span> for example), the Window Manager will pause
+<br>that Job until its window is no longer buried.
+<br><br>The Pointer Interface Extension (PIE) modifies the Pointer
+<br>Environment so that a program is  not halted when it tries to
+<br>send screen output while its window is fully or partially
+<br>buried by another job.  It does this by storing the changes to
+<br>the buried window in memory and then when the buried Job is
+<br>brought to the top of the pile (see <span style="font-style: italic;">PICK%</span>), then its window is
+<br>updated.
+<br><br><span style="font-style: italic;">PIE_ON</span> enables PIE, <span style="font-style: italic;">PIE_OFF</span> disables it. These commands on
+<br>their own cannot lead to any problems, you can switch PIE on
+<br>and off whenever you like.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsP.html#PIE_EX_ON">PIE_EX_ON</a> and <a style="font-style: italic;" href="KeywordsP.html#PIE_EX_OFF">PIE_EX_OFF</a>.
+<br><br>See  also  <a style="font-style: italic;" href="KeywordsP.html#PEON">PEON</a>  and  <a style="font-style: italic;" href="KeywordsP.html#PXON">PXON</a>  which  greatly  enhance  these
+<br>facilities.
+<br><br><a style="font-style: italic;" href="KeywordsP.html#PEND">PEND</a> can be used to check if a Job can send output to the
+<br>screen.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PIF$"></a>PIF$</h1><br>Syntax: <span style="font-style: italic;">PIF$
+<br></span>Location: <span style="font-style: italic;">PEX
+<br></span><br>This is the same as<span style="font-style: italic;"> QRAM$</span>!
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PINF$"></a>PINF$</h1><br>Syntax: <span style="font-style: italic;">PINF$
+<br></span>Location: <span style="font-style: italic;">Fn
+<br></span><br>This is the same as<span style="font-style: italic;"> QRAM$</span> and <span style="font-style: italic;">PIF$</span>!
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PIXEL%"></a>PIXEL%</h1><br>Syntax: <span style="font-style: italic;">PIXEL% ( </span>[<span style="font-style: italic;">#ch,</span>]<span style="font-style: italic;"> x1,y1</span> )
+Location: <span style="font-style: italic;">PIXEL (DIY Toolkit - Vol G)
+<br></span><br>This function can be used to read the colour of a point in
+<br>absolute co-ordinates on the screen with reference to the
+<br>specified window channel (if any - default #1).
+<br><br>This function will work in <span style="font-style: italic;">MODE 4</span>, <span style="font-style: italic;">8</span> and <span style="font-style: italic;">12</span> (on the THOR XVI,
+<br>if you have v0.9+).
+<br><br>The main limitation on this function is that the point must
+<br>appear within the specified window, so <span style="font-style: italic;">x1</span> and <span style="font-style: italic;">y1</span> cannot exceed
+<br>the width or height of the specified window (in pixels), or be
+<br>less than zero.
+<br><br><h3>NOTE:
+<br></h3><br>Although<span style="font-style: italic;">  PIXEL%</span>  will  work  wherever  the  screen  base  is
+<br>located, prior to v1.0, it assumed that a line of pixels takes
+<br>128 bytes - early versions will not therefore work on higher
+<br>resolutions.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsP.html#PLOT">PLOT</a> and <a style="font-style: italic;" href="KeywordsD.html#DRAW">DRAW</a> allow you to draw points and lines on the
+<br>screen.
+<br><br><a style="font-style: italic;" href="KeywordsI.html#INK">INK</a> gives details about the various colour values which may
+<br>be returned (this will be in the range 0...16).
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PJOB"></a>PJOB</h1><br>Syntax: <span style="font-style: italic;">PJOB (job_ID)
+<br></span><br>or <span style="font-style: italic;">PJOB (jobnr,tag)
+<br></span><br>or <span style="font-style: italic;">PJOB (jobname)
+<br></span>Location: <span style="font-style: italic;">Toolkit II
+<br></span><br>Each job has a priority - the function <span style="font-style: italic;">PJOB</span> finds it and
+<br>returns 0 if the given job does not exist, otherwise it
+<br>returns the priority of the specified job. You can calculate
+<br>the <span style="font-style: italic;">job_ID</span> with the formula <span style="font-style: italic;">job_id=jobnr+tag*2^16</span>, a negative <span style="font-style: italic;">job_ID
+<br></span>(preferably -1) identifies the job calling <span style="font-style: italic;">PJOB</span>. The higher the
+<br>priority,  the  more  working  time  a  job  draws  from  the
+<br>processor, and therefore the faster the execution.
+<br><br><h3>Example:
+<br></h3><br>The priority of the main SuperBASIC interpreter can be seen
+<br><br>with:
+<br><span style="font-style: italic;"><br>PRINT PJOB(0)</span>.
+<br><br><h3>MINERVA NOTE:
+<br></h3><br>The maximum priority for a job on a standard QL is 255,
+<br>however, on a Minerva ROM, the acceptable priority range is
+<br>altered to -128...127. If <span style="font-style: italic;">PJOB</span> returns a value over 127, then
+<br>deduct the difference between this and 256 from zero to get
+<br>the priority on a Minerva machine - see <span style="font-style: italic;">SPJOB</span> for further
+<br>details.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsJ.html#JOB$">JOB$</a>, <a style="font-style: italic;" href="KeywordsO.html#OJOB">OJOB</a> and <a style="font-style: italic;" href="KeywordsN.html#NXJOB">NXJOB</a> return other information about a job.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PLAY"></a>PLAY</h1><br>Syntax: <span style="font-style: italic;">PLAY nr, music$
+<br></span>Location: <span style="font-style: italic;">ST/QL, QSound
+<br></span><br>The command <span style="font-style: italic;">PLAY</span> will store the sequence <span style="font-style: italic;">music$</span> under the
+<br>sequence number <span style="font-style: italic;">nr</span>. The sequences are numbered 1, 2, 3, etc. No
+<br>details are available for the limits of <span style="font-style: italic;">nr</span> and the structure of
+<br><span style="font-style: italic;">music$</span>.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsR.html#RELEASE nr">RELEASE nr</a> plays a sequence.
+<br><br><a style="font-style: italic;" href="KeywordsS.html#SND_EXT">SND_EXT</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PLOT"></a>PLOT</h1><br>Syntax: <span style="font-style: italic;">PLOT x,y,colour
+<br></span>Location: <span style="font-style: italic;">Fast PLOT/DRAW Toolkit
+<br></span><br>This command forces a pixel to be set at the absolute
+<br>screen position <span style="font-style: italic;">x,y</span>. The origin (0,0) is the upper left corner
+<br>of the full QL screen, the opposite corner (diagonally) is
+<br>(511,255). Two neighbouring points do not have any space
+<br>between them.
+<br><br>Co-ordinates greater than 511 (x) or 255 (y) or smaller
+<br>than 0 are modulated (eg. <span style="font-style: italic;">x MOD 511</span>). The base address of the
+<br>screen used by <span style="font-style: italic;">PLOT</span> is defined with <span style="font-style: italic;">SCRBASE</span>.
+<br><span style="font-style: italic;"><br>PLOT</span> works in MODE 4 only.
+<br><br><h3>Example:
+<br></h3><br>The following procedure plots a point given in polar
+<br><br>co-ordinates. A simple approach to draw a line in a polar
+<br><br>system is listed at <span style="font-style: italic;">DRAW</span>. A sensible range for the radius is
+<br><br>0<=r<=127.
+<br><span style="font-style: italic;">100 DEFine PROCedure POLAR_PLOT (r,phi,col)
+<br>110  LOCal x,y
+<br>120  x=1.35*r*SIN(phi+PI/2)+255
+<br>130  y=r*COS(phi+PI/2)+127
+<br>140  PLOT x,y,col
+<br>150 END DEFine POLAR_PLOT
+<br></span><br><h3>NOTE 1:
+<br></h3><br><span style="font-style: italic;">PLOT</span> writes directly into screen memory and will work on
+<br>512x256 resolutions only, it assumes by default that the
+<br>screen starts at $20000 (redefine with <span style="font-style: italic;">SCRBASE</span>) and works in <span style="font-style: italic;">MODE 4
+<br></span>only.
+<br><br><h3>NOTE 2:
+<br></h3><br>Minerva users can <span style="font-style: italic;">SCRBASE SCREEN(#3)</span> to allow <span style="font-style: italic;">PLOT</span> to draw on the
+<br>screen on which channel #3 is located.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsD.html#DRAW">DRAW</a> draws a line, <a style="font-style: italic;" href="KeywordsS.html#SCLR">SCLR</a> clears the screen, and <a style="font-style: italic;" href="KeywordsR.html#REFRESH">REFRESH</a> makes the
+<br>screen defined by <a style="font-style: italic;" href="KeywordsS.html#SCRBASE">SCRBASE</a> visible.
+<br><br>Compare the other implementation of <a style="font-style: italic;" href="KeywordsP.html#PLOT">PLOT</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PLOT"></a>PLOT</h1><br>Syntax: <span style="font-style: italic;">PLOT </span>[<span style="font-style: italic;">#ch,</span>]<span style="font-style: italic;"> x1,y1
+<br></span>Location: <span style="font-style: italic;">DRAW (DIY Toolkit - Vol G)
+<br></span><br>This command plots a point in absolute co-ordinates on the
+<br>screen with reference to the specified window channel (if any
+<br>- default #1).
+<br><br>This is also used to specify the start point of a line to
+<br>be drawn with the <span style="font-style: italic;">DRAW</span> command from the same toolkit.
+<br><br>This is quicker than using the SuperBASIC <span style="font-style: italic;">POINT</span> command and
+<br>unlike other similar commands, it will support the current <span style="font-style: italic;">INK
+<br></span>colour and <span style="font-style: italic;">OVER</span> mode.  &lt;CTRL&gt;&lt;F5&gt; will pause the point drawing
+<br>and it will even work in <span style="font-style: italic;">MODE 4</span>, <span style="font-style: italic;">8</span> and <span style="font-style: italic;">12</span> (on the THOR XVI, if
+<br>you have v1.6+).
+<br><br>The main limitation on this command is that the point must
+<br>appear within the specified window, so <span style="font-style: italic;">x1</span> and <span style="font-style: italic;">y1</span> cannot exceed
+<br>the width or height of the specified window (in pixels), or be
+<br>less than zero.
+<br><br><h3>NOTE:
+<br></h3><br>Although<span style="font-style: italic;"> PLOT</span> will work wherever the screen base is located,
+<br>it assumes that a line of pixels takes 128 bytes - it will not
+<br>therefore work on higher resolutions.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See the other variant of<a style="font-style: italic;" href="KeywordsP.html#PLOT">PLOT</a>.
+<br><br>See also <a style="font-style: italic;" href="KeywordsD.html#DRAW">DRAW</a>.
+<br><br>Compare <a style="font-style: italic;" href="KeywordsP.html#POINT">POINT</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="POINT"></a>POINT</h1><br>Syntax: <span style="font-style: italic;">POINT </span>[<span style="font-style: italic;">#ch,</span>] <span style="font-style: italic;">x,y </span><sup>*</sup>[<span style="font-style: italic;">;x</span><sup>i</sup><span style="font-style: italic;">,y</span><sup>i</sup>]<sup>*
+<br></sup>Location: <span style="font-style: italic;">QL ROM, GPOINT
+<br></span><br>This command draws one or more specified points in the
+<br>given window (default #1). The co-ordinates are floating point
+<br>numbers, which means that two <span style="font-style: italic;">POINT</span>s drawn with:
+<br><br><span style="font-style: italic;">POINT 20,20: POINT 21,20
+<br></span><br>(or <span style="font-style: italic;">POINT 20,20;21,20</span>)
+<br><br>for example, are not normally neighbours. If a point lies
+<br>outside a window, it is simply not drawn, ie. overflow errors
+<br>do not occur.
+<br><br>The graphics cursor is updated to the last point to be
+<br>plotted.
+<br><br><h3>Examples:
+<br></h3><span style="font-style: italic;">POINT 50,50
+<br>POINT 50,50;60,60
+<br>POINT#2,20,50
+<br>POINT #2,20,50;50,20;20,20;50,50
+<br></span><br><h3>NOTE:
+<br></h3><br>On MGx ROMs, there is a well-known <span style="font-style: italic;">POINT</span> bug which makes
+<br><span style="font-style: italic;">POINT</span> draw two points instead of one. This is fixed by some
+<br>versions of Toolkit II, the ST/QL Emulator, SMS, Gold Card,
+<br>other ROMs (especially Minerva) and small patches like GPOINT.
+<br><br>GPOINT includes two commands: a replacement <span style="font-style: italic;">POINT</span> and <span style="font-style: italic;">GPOINT
+<br></span>which is just another name for the same thing.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>The relation between the supplied co-ordinates and their
+<br>position in the window is defined with <a style="font-style: italic;" href="KeywordsS.html#SCALE">SCALE</a>. The colour of the
+<br>point(s) is set with <a style="font-style: italic;" href="KeywordsI.html#INK">INK</a>. The window can be resized with <a style="font-style: italic;" href="KeywordsW.html#WINDOW">WINDOW</a>.
+<br><br href="KeywordsL.html#LINE">LINE</a> draws a line.
+<br><br>The <a style="font-style: italic;" href="KeywordsG.html#GPOINT">GPOINT</a> command is fully identical to <a style="font-style: italic;" href="KeywordsP.html#POINT">POINT</a> except that it
+<br>fixes the MGx ROM bug.
+<br><br>Check the ROM version with <a style="font-style: italic;" href="KeywordsV.html#VER$">VER$</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="POINT_R"></a>POINT_R</h1><br>Syntax: <span style="font-style: italic;">POINT_R </span>[<span style="font-style: italic;">#ch,</span>] <span style="font-style: italic;">x,y </span><sup>*</sup>[<span style="font-style: italic;">;x</span><sup>i</sup><span style="font-style: italic;">,y</span><sup>i</sup>]<sup>*
+<br></sup>Location: <span style="font-style: italic;">QL ROM
+<br></span><br>This  command  is  similar  to  <span style="font-style: italic;">POINT</span>  except  that  all
+<br>co-ordinates  given  are  relative  to  the  current  graphics
+<br>pointer.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsP.html#POINT">POINT</a>!
+<br><br>Also see <a style="font-style: italic;" href="KeywordsL.html#LINE_R">LINE_R</a> and <a style="font-style: italic;" href="KeywordsC.html#CIRCLE_R">CIRCLE_R</a>.
+<br><hr style="width: 100%; height: 2px;"><h1>POKE</h1><hr style="width: 100%; height: 2px;"><h3>POKE_W
+<br><hr style="width: 100%; height: 2px;">POKE_L<br></h3><br>Syntax: <span style="font-style: italic;">POKE address,valueaddress=0,1,2,3,...value=0..255
+<br></span><br>or <span style="font-style: italic;">POKE address, value</span><sup>1</sup> <sup>*</sup>[<span style="font-style: italic;">,value</span><sup>i</sup>]<sup>*</sup><span style="font-style: italic;">(Minerva and SMS only)
+<br></span><br>or <span style="font-style: italic;">POKE address, </span>{<span style="font-style: italic;">value</span><sup>1</sup> |<span style="font-style: italic;"> value</span><sup>1</sup><span style="font-style: italic;">$</span>} <sup>*</sup>{<span style="font-style: italic;">,value</span><sup>i</sup> |<span style="font-style: italic;"> value</span><sup>i</sup><span style="font-style: italic;">$</span>}<sup>*
+<br></sup><span style="font-style: italic;"><br>(SMS only)
+<br></span><br>and <span style="font-style: italic;">POKE_W address,value  address=0,2,4,6,...value=-32768..32767
+<br></span><br>or <span style="font-style: italic;">POKE_W address, value</span><sup>1</sup> <sup>*</sup>[<span style="font-style: italic;">,value</span><sup>i</sup>]<sup>*</sup><span style="font-style: italic;">(Minerva and SMS only)
+<br></span><br>and <span style="font-style: italic;">POKE_L address,valueaddress=0,2,4,6,...
+<br><br>value=-655362/2..655362/2-2
+<br></span><br>or <span style="font-style: italic;">POKE_L address, value</span><sup>1</sup><span style="font-style: italic;"> </span><sup>*</sup>[<span style="font-style: italic;">,value</span><sup>i</sup>]<sup>*</sup><span style="font-style: italic;">(Minerva and SMS only)
+<br></span>Location: <span style="font-style: italic;">QL ROM
+<br></span><br>Both kinds of internal memory (RAM and ROM) are organised
+<br>as a stream of values. The basic unit for memory is a bit (a
+<br>value of 0 or 1 relating to false or true), which relates to
+<br>the binary system of counting. Eight bits are combined to form
+<br>a byte (0 to 255), sixteen bits make a word, and thirty-two a
+<br>longword. Words and longwords are signed whilst bytes are
+<br>unsigned.
+<br><br>The <span style="font-style: italic;">POKE</span> commands allow you to set values in memory. It is
+<br>however unwise to <span style="font-style: italic;">POKE</span> just anywhere, because there could be
+<br>important code present in that part of memory which will be
+<br>disrupted by <span style="font-style: italic;">POKE</span>s and could crash your computer. You would
+<br>generally have already set aside a part of memory for use by
+<br>your own programs, by using <span style="font-style: italic;">RESPR</span> or <span style="font-style: italic;">ALCHP</span> and then you would <span style="font-style: italic;">POKE
+<br></span>different values in that part of memory, eg. for storing data.
+<br><br>This is a representation of the relationship betwen bits,
+<br>bytes, words and longwords:
+<br><br><span style="font-style: italic;">     10011000 10001000 11011111 10111000 01110110 11000111 01100000 00000011
+<br><br>     \      / \      / \      / \      / \      / \      / \      / \      /
+<br><br> byte  152      136      223      184      118      199      96        3
+<br><br>       \         /        \        /        \        /        \        /
+<br><br>words    39048              57272             30407             24579
+<br><br>           \                    /              \                    /
+<br><br>longwords       -1.73586E9                          1.992778E9
+<br></span><br><h3>NOTE 1:
+<br></h3><br>Negative values can also be stored in memory. However, they
+<br>are stored by deducting the number from the maximum number
+<br>which can be stored in a byte plus one.
+<br><span style="font-style: italic;"><br>POKE 131072,255</span> and <span style="font-style: italic;">POKE</span> <span style="font-style: italic;">131072,-1</span> have the same effect!
+<br><br><h3>NOTE 2:
+<br></h3><br>Do not try to <span style="font-style: italic;">POKE_W</span> or <span style="font-style: italic;">POKE_L</span> to an odd address (eg. 10001) as
+<br>this will cause an error unless you are using Minerva (see
+<br>below).
+<br><br><h3><br><br>NOTE 3:
+<br></h3><br>If you try to poke a <span style="font-style: italic;">value</span> which is too big to fit into the
+<br>given space, eg. <span style="font-style: italic;">POKE 131072,-32768</span> then only the least significant
+<br>byte is used (with <span style="font-style: italic;">POKE</span>) and the low word is used (with <span style="font-style: italic;">POKE_W</span>).
+<br><br><h3>NOTE 4:
+<br></h3><br>The  THOR  XVI  limits  <span style="font-style: italic;">value</span>  to  the  following  ranges:
+<br><span style="font-style: italic;">POKE: -128..255</span>; <span style="font-style: italic;">POKE_W: -32768..65535
+<br></span><br><h3>MINERVA NOTES:
+<br></h3><br>The <span style="font-style: italic;">POKE</span>, <span style="font-style: italic;">POKE_W</span> and <span style="font-style: italic;">POKE_L</span> commands on Minerva (version 1.77 or
+<br>later) are very much enhanced and different.
+<br><br>Minerva allows you to <span style="font-style: italic;">POKE_W</span> and <span style="font-style: italic;">POKE_L</span> to  odd addresses (eg.
+<br><span style="font-style: italic;">POKE_W 131073,100100
+<br></span><br>Minerva has also added to the usefulness of the <span style="font-style: italic;">POKE</span>, <span style="font-style: italic;">POKE_W
+<br></span>and <span style="font-style: italic;">POKE_L</span> commands by allowing them to store a list of numbers
+<br>in one go. As an example the following two program lines have
+<br>exactly the same effect, although only line 100 will run on a
+<br>non-Minerva QL.
+<br><br><span style="font-style: italic;">100 POKE_W start,10:POKE_W start+2,125:POKE_W start+4,10322
+<br></span><br><span style="font-style: italic;">110 POKE_W start,10,125,10322
+<br></span><br>Minerva also allows the BASIC programmer to access the QL's
+<br>SuperBASIC  variables,  system  variables  and  Minerva's  own
+<br>System Xtensions (although the extended <span style="font-style: italic;">PEEK</span>s should be of more
+<br>use). You  will  need  a  good book  on  QDOS  (eg.  QDOS/SMS
+<br>Reference Manual) to find out what the possible values are.
+<br><br>The syntax for these extra commands is:
+<br><br><h3>(1) Alter SuperBASIC variables.
+<br></h3><br><span style="font-style: italic;">POKE \\SBvar,value    SBvar=0...256
+<br><br>POKE_W \\SBvar,value
+<br><br>POKE_L \\SBvar,value
+<br><br>POKE \SBvar\Offset,value
+<br><br>POKE_W \SBvar\Offset,value
+<br><br>POKE_L \SBvar\Offset,value
+<br></span><br><h3>(2) Alter System variables.
+<br></h3><br><span style="font-style: italic;">POKE !!Sysvar,value   Sysvar=0...1152
+<br><br>POKE_W !!Sysvar,value
+<br><br>POKE_L !!Sysvar,value
+<br><br>POKE !Sysvar!Offset,value
+<br><br>POKE_W !Sysvar!Offset,value
+<br><br>POKE_L !Sysvar!Offset,value
+<br></span><br><span style="font-style: italic;">POKE \\SBvar,value
+<br></span><br>will alter the SuperBASIC variable pointed to by <span style="font-style: italic;">Sysvar</span>, such
+<br>as the current line number. The most useful of these are
+<br>variables $68 onwards.
+<br><br><span style="font-style: italic;">POKE \SBvar\Offset,value
+<br></span><br>allows you to alter the different SuperBASIC tables used by
+<br>the QL (eg. the channel table). The start addresses of the
+<br>different tables are contained in the SuperBASIC variables $0
+<br>to $64.
+<br><br><span style="font-style: italic;">SBvar</span> must contain the relevant SuperBASIC variable (the
+<br>pointer to the required table), then the <span style="font-style: italic;">Offset</span> is the required
+<br>address within the table.
+<br><br><span style="font-style: italic;">POKE !!Sysvar,value
+<br></span><br>allows  you  to  alter  the  different  system  variables
+<br>(normally stored at $28000 on a QL, but they  can move!).
+<br>These are useful for accessing the current network number,
+<br>finding  free  space,  accessing  device  drivers,  forcing
+<br>&lt;CAPSLOCK&gt;.....   <span style="font-style: italic;">Sysvar</span>  merely  contains the  number  of  the
+<br>required system variable.
+<br><br><span style="font-style: italic;">POKE !Sysvar!Offset,value
+<br></span><br>takes  the  address  contained  within  the  given  system
+<br>variable, adds the <span style="font-style: italic;">Offset</span> to that address and then pokes it with
+<br>the given <span style="font-style: italic;">value</span>.
+<br><br>On a Minerva machine the system variable stored at $7C
+<br>(124) (SV.CHTOP) contains the address of the Minerva System
+<br>Xtensions, therefore to alter these:
+<br><br><span style="font-style: italic;">SysX=PEEK_L (ver$(-2) + 124)
+<br><br>POKE SysX+offset,value
+<br><br>POKE_W SysX+offset,value
+<br><br>POKE_L SysX+offset,value
+<br></span><br>Minerva's System Xtensions provide such things as the
+<br>addresses for translation tables, the attributes for the size
+<br>type and colour of a cursor, the fonts for all subsequently
+<br>opened windows and much more... (see Minerva manual for list).
+<br><br><h3>Minerva Example 1:
+<br></h3><br>It is sometimes useful to alter the key repeat delay and
+<br><br>frequency to make allowances for when a different keyboard
+<br><br>is attached to the QL, so that you can type more quickly
+<br><br>without having the problem that you are waiting around for
+<br><br>auto-repeat to take effect.
+<br><br>These two values can now simply be altered using:
+<br><span style="font-style: italic;">POKE_W !!140,key_delay
+<br>POKE_W !!142,key_frequency
+<br></span><br><h3>Minerva Example 2:
+<br></h3><br>Want to attach a new font to  all channels which will be
+<br><br>opened in the future?
+<br><span style="font-style: italic;">100 a=RESPR(2000)
+<br>110 LBYTES flp1_new_font,a
+<br>120 POKE_L !124!40,a
+<br></span><h3><br>Minerva Example 3:
+<br></h3><br>It might be useful in an error trapping routine to find the
+<br><br>current <span style="font-style: italic;">DATA</span> position (eg. if there is an error when reading
+<br><br>data into a variable), so that the position may be returned
+<br><br>to later once the error has been overcome. You may even
+<br><br>wish to miss out the problem <span style="font-style: italic;">DATA</span> line. This program is an
+<br><br>'intelligent' data-loader:
+<br><span style="font-style: italic;">100 WHEN ERRor
+<br>110   data_line=PEEK_W(\\148)
+<br>115   PRINT 'ERROR IN DATA LINE'!data_line!';statement'! PEEK(\\151)-1
+<br>120   INPUT 'Go to next data line (y/n)'!a$
+<br>130   IF a$=='y': POKE_W\\148,data_line+1: POKE\\150,1:POKE\\151,1: RETRY
+<br>140   IF a$=='n' THEN
+<br>145     data_store=PEEK_W(\\148)*65536+(PEEK(\\150)-1)*256+PEEK(\\151)-1
+<br>147     PRINT"Alter offending line then enter re_run":STOP
+<br>149   END IF
+<br>150 END WHEN
+<br>155 :
+<br>160 RESTORE
+<br>170 ax=RESPR(100):i=0
+<br>180 REPeat data_load
+<br>190   IF EOF: EXIT data_load
+<br>200   READ b
+<br>210   PRINT b,i:POKE ax+i,b
+<br>220   i=i+1
+<br>230 END REPeat data_load
+<br>240 DATA 10,10,2,3,3a,10
+<br>250 DATA 10,2,2,3,3,2
+<br>255 :
+<br>260 DEFine PROCedure RE_run
+<br>270  POKE_L \\148,data_store: GO TO 170
+<br>280 END DEFine
+<br></span><br><h3>SMS NOTE:
+<br></h3><br><span style="font-style: italic;">POKE</span>, <span style="font-style: italic;">POKE_W</span> and <span style="font-style: italic;">POKE_L</span> have been made the same as on Minerva
+<br>except that <span style="font-style: italic;">POKE_W</span> and <span style="font-style: italic;">POKE_L</span> cannot address odd addresses.
+<br><br>SMS does not possess Minerva's System Xtensions.  Please
+<br>also note that SMS's improved interpreter won't allow you to
+<br>enter line 240 in the Minerva Example 1.
+<br><br>One extra addition to SMS is that the <span style="font-style: italic;">POKE</span> command can
+<br>actually accept a string as a value to be poked into memory.
+<br>If a string is passed as a parameter, each character of the
+<br>string is converted to its character code and then that byte
+<br>poked into memory, for example:
+<br><br><span style="font-style: italic;">POKE base,0,5,'WIN1_'
+<br></span><br>will  store  '<span style="font-style: italic;">WIN1_</span>'  as  a  standard  QL  string  (a  word
+<br>containing its length followed by the string itself) at the
+<br>address in memory pointed to by base.
+<br><br>Note that if you pass an empty string, this will have no
+<br>effect.
+<br><br><h3>WARNING:
+<br></h3><br>If you are <span style="font-style: italic;">POKE</span>ing around in memory then make sure that you
+<br>know what you are doing. On every QDOS machine, even RAM areas
+<br>which have not been set aside for program use are used by the
+<br>operating system, eg. for buffering purposes.
+<br><br>On Emulators and QLs fitted with a Gold Card, the operating
+<br>system itself is no longer in ROM but is moved into RAM.
+<br><span style="font-style: italic;">POKE</span>ing in this area will almost surely lead to crashes. Even
+<br>advanced users who know which parts of memory are used by QDOS
+<br>should avoid amending QDOS directly. There are more elegant
+<br>and safer methods how to do this which  will run on every QDOS
+<br>compatible computer.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsP.html#PEEK">PEEK</a>, <a style="font-style: italic;" href="KeywordsP.html#PEEK_W">PEEK_W</a>, <a style="font-style: italic;" href="KeywordsP.html#PEEK_L">PEEK_L</a> and <a style="font-style: italic;" href="KeywordsP.html#PEEK$">PEEK$</a> read memory values and <a style="font-style: italic;" href="KeywordsP.html#POKE$">POKE$</a> is
+<br>another command to set them.
+<br><br><a style="font-style: italic;" href="KeywordsC.html#CHAR_DEF">CHAR_DEF</a> allows you to attach a font to all channels <a style="font-style: italic;" href="KeywordsO.html#OPEN">OPEN</a>ed
+<br>after the command.
+<br><br><a style="font-style: italic;" href="KeywordsP.html#POKES">POKES</a> allows you to <a style="font-style: italic;" href="KeywordsP.html#POKE">POKE</a> memory in Supervisor mode.
+<br><hr style="width: 100%; height: 2px;"><h1>POKES</h1><hr style="width: 100%; height: 2px;"><h3>POKES_W
+<br><hr style="width: 100%; height: 2px;">POKES_L<br></h3><br>Syntax: <span style="font-style: italic;">POKES address, </span>{<span style="font-style: italic;">value</span><sup>1</sup> |<span style="font-style: italic;"> value</span><sup>1</sup>$} <sup>*</sup>{<span style="font-style: italic;">,value</span><sup>i</sup> |<span style="font-style: italic;"> ,value</span><sup>i</sup><span style="font-style: italic;">$</span>}<sup>*
+<br></sup><span style="font-style: italic;"><br>address=0,1,2,3,...
+<br><br> value=0...255
+<br></span><br>and <span style="font-style: italic;">POKES_W address, value</span><sup>1</sup><span style="font-style: italic;"> </span><sup>*</sup>[<span style="font-style: italic;">,value</span><sup>i</sup>]<sup>*</sup><span style="font-style: italic;">address=0,2,4,6,...
+<br>value=-32768..32767
+<br></span><br>and <span style="font-style: italic;">POKES_L address, value</span><sup>1</sup><span style="font-style: italic;"> </span><sup>*</sup>[<span style="font-style: italic;">,value</span><sup>i</sup>]<sup>*</sup><span style="font-style: italic;">address=0,2,4,6,...
+<br>value=-655362/2..655362/2-2
+<br></span>Location: <span style="font-style: italic;">SMSQ/E and ATARI_REXT v2.17+
+<br></span><br>These three commands are only of any use on the Atari
+<br>series of computers.
+<br><br>They are the same as the simple forms of <span style="font-style: italic;">POKE</span>, <span style="font-style: italic;">POKE_W</span> and
+<br><span style="font-style: italic;">POKE_L</span>, except that they operate in Supervisor Mode and can
+<br>therefore be used to write data direct into the Atari's IO
+<br>hardware.
+<br><br>On all other implementations they are the same as <span style="font-style: italic;">POKE</span>, <span style="font-style: italic;">POKE_W
+<br></span>and <span style="font-style: italic;">POKE_L</span>.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsP.html#POKE">POKE</a> and <a style="font-style: italic;" href="KeywordsP.html#PEEKS">PEEKS</a>.
+<br><br>Also see <a style="font-style: italic;" href="KeywordsP.html#PROT_MEM">PROT_MEM</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="POKE$"></a>POKE$</h1><br>Syntax: <span style="font-style: italic;">POKE$ address,string$
+<br></span>Location: <span style="font-style: italic;">ATARI_REXT, TinyToolkit, BTool, SMS
+<br></span><br>The standard version of this command pokes the code of each
+<br>of the given string's characters to memory from <span style="font-style: italic;">address</span> onwards.
+<br>In SuperBASIC, the procedure might look similar to:
+<br><span style="font-style: italic;">100 DEFine PROCedure POKE$ (address,string$)
+<br>110  LOCal i
+<br>120  FOR i=1 TO LEN(string$)
+<br>130    POKE address+i-1,CODE(string$(i))
+<br>140  END FOR i
+<br>150 END DEFine POKE$
+<br></span><br>The BTool version writes the string in QDOS internal
+<br>format: the string's contents are preceded by two additional
+<br>bytes (one word) indicating the length of the string. address
+<br>must be even.
+<br><br>If you pass an empty string, all versions of this command
+<br>will not do anything.
+<br><br><h3>SMS NOTE:
+<br></h3><br>This command is now very similar to <span style="font-style: italic;">POKE</span> in that <span style="font-style: italic;">POKE</span> allows
+<br>you to pass a string as a parameter.
+<br><br><span style="font-style: italic;">POKE$</span>  can  also  now  access  the  System  Variables  and
+<br>SuperBASIC variables directly as with <span style="font-style: italic;">POKE</span>.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsP.html#PEEK$">PEEK$</a> reads strings from memory.
+<br><br href="KeywordsM.html#MKS$">MKS$</a> returns the internal format of a given string.
+<br><br><a style="font-style: italic;" href="KeywordsT.html#TTPOKE$">TTPOKE$</a> is the same as this command.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="POKE_F"></a>POKE_F</h1><br>Syntax: <span style="font-style: italic;">POKE_F address,float
+<br></span>Location: <span style="font-style: italic;">BTool
+<br></span><br>Floating point numbers are internally stored as six bytes.
+<br><span style="font-style: italic;">POKE_F</span>  will  store  any  float  at  address  in  memory  where
+<br><span style="font-style: italic;">ODD(address)=0</span>.
+<br><br><h3>Example:
+<br></h3><br>Floating point numbers can be stored in internal format in
+<br><br>a file with <span style="font-style: italic;">PUT</span>. The disadvantage of that method is low disk
+<br><br>access speed if you need to store a large number of values.
+<br><br>Compare the following two programs which store the same
+<br><br>amount of data at different speeds:
+<br><br>(a) slow but minimal memory usage:
+<br><span style="font-style: italic;">100 n=1000: file$="flp1_test_dat"
+<br>120 fp=FOP_NEW(file$)
+<br>130 FOR i=1 TO n: PUT#fp,RND
+<br>140 CLOSE#fp
+<br></span><br>(b) fast but 6K buffer required:
+<br><span style="font-style: italic;">100 n=1000: file$="flp1_test_dat"
+<br>120 a=ALCHP(6*(n+1))
+<br>130 FOR i=0 TO n: POKE_F a+i*6,RND
+<br>140 SBYTES file$,a,6*(n+1)
+<br>150 RECHP a
+<br></span><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsP.html#POKE">POKE</a>, <a style="font-style: italic;" href="KeywordsP.html#POKE_W">POKE_W</a> and <a style="font-style: italic;" href="KeywordsP.html#POKE_L">POKE_L</a> store different ranges of integer
+<br>numbers.
+<br><br href="KeywordsM.html#MKF$">MKF$</a> returns the internal representation of a floating point
+<br>number as a string.
+<br><br href="KeywordsG.html#GET">GET</a> and <a style="font-style: italic;" href="KeywordsP.html#PUT">PUT</a> write all kinds of data types in their internal
+<br>format to a channel, <a style="font-style: italic;" href="KeywordsF.html#FPUTF">FPUTF</a> and <a style="font-style: italic;" href="KeywordsF.html#FGETF">FGETF</a> are specialised variants for
+<br>floats only.
+<br><br>See also <a style="font-style: italic;" href="KeywordsP.html#PEEK_F">PEEK_F</a>!
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PRINT"></a>PRINT</h1><br>Syntax: <span style="font-style: italic;">PRINT </span>[<span style="font-style: italic;">#chan,</span>] <sup>*</sup>[ [<span style="font-style: italic;">separator</span>] [<span style="font-style: italic;">strg</span><sup>i</sup><span style="font-style: italic;">$ separator</span>] <span style="font-style: italic;">var</span><sup>i</sup>]<sup>*
+<br></sup><br>or <span style="font-style: italic;">PRINT</span><sup> *</sup>[ [<span style="font-style: italic;">#chan,</span>] [<span style="font-style: italic;">separator</span>] [<span style="font-style: italic;">strg</span><sup>i</sup><span style="font-style: italic;">$ separator</span>] <span style="font-style: italic;">var</span><sup>i</sup>]<sup>*
+<br></sup><br><span style="font-style: italic;">(THOR XVI & Minerva v1.97+ only)
+<br></span>Location: <span style="font-style: italic;">QL ROM
+<br></span><br>This command will send a string of bytes to the specified
+<br>channel (default #1). If any variables (<span style="font-style: italic;">var</span>) are specified, the
+<br>contents  of  those  variables  are  <span style="font-style: italic;">PRINT</span>ed  in  the  specified
+<br>channel.  If the channel is a window, the characters printed
+<br>appear at the current text cursor position, in the current <span style="font-style: italic;">INK
+<br></span>colour on the current <span style="font-style: italic;">STRIP</span> colour, and will also be affected by
+<br>the settings of <span style="font-style: italic;">CSIZE</span>, <span style="font-style: italic;">UNDER</span>, <span style="font-style: italic;">FLASH</span> and <span style="font-style: italic;">OVER</span>.
+<br><br>If you tell <span style="font-style: italic;">PRINT</span> to use an unset variable, an asterisk
+<br>('*') will be <span style="font-style: italic;">PRINT</span>ed on screen rather than an error being
+<br>reported (except on SMS where an unset variable is given the
+<br>value 0 (if a numeric variable) or '' for a string).
+<br><br>Beware, however that if you try to use an unset variable in
+<br>a  calculation  inside  the  <span style="font-style: italic;">PRINT</span>  statement,  an  'Error  in
+<br>Expression' error will be generated, for example:
+<br><br><span style="font-style: italic;">1 a=10 : PRINT 'A is :'! a ,'B is :'! b : PRINT 'A*B is :' !a*b
+<br></span><br>If a channel is specified, this must be followed by a
+<br>comma. It  may  however  also  be followed  by  one  or  more
+<br>separators, as with <span style="font-style: italic;">INPUT</span>. At the end of the <span style="font-style: italic;">PRINT</span> command, the
+<br>text cursor is placed at the start of the next print line
+<br>(unless an end <span style="font-style: italic;">separator</span> of '!', '\' or ';' is used).
+<br><br>When using a <span style="font-style: italic;">separator</span> of '!', TO or ',' on a non-window
+<br>channel, the <span style="font-style: italic;">PRINT</span> statement will always assume the end of each
+<br>line to be the number of characters specified with the <span style="font-style: italic;">WIDTH
+<br></span>command, thus allowing you to format your output on a printer,
+<br>for example.
+<br><br><h3>Example:
+<br></h3><br>The following procedure allows you to print text to a given
+<br><br>channel without splitting words when the text wraps onto
+<br><br>the next line:
+<br><span style="font-style: italic;">100 DEFine PROCedure PRINT_TEXT(ch,txt$)
+<br>110 LOCal print_loop
+<br>120 REPeat print_loop%
+<br>130   IF LEN(txt$)=0:PRINT #ch:RETurn
+<br>140   I%=' ' INSTR txt$
+<br>150   IF I%=0:PRINT #ch!!txt$:RETurn
+<br>160   PRINT #ch!!txt$(1 TO I%-1)!
+<br>170   IF I%&lt;LEN(txt$):txt$=txt$(I%+1 TO):ELSE txt$=''
+<br>180 END REPeat print_loop%
+<br>190 END DEFine
+<br></span><br>Try:
+<br><span style="font-style: italic;">WINDOW #1,50,100,32,16:PRINT_TEXT #1,'This is a test line'
+<br></span><br>Compare:
+<br><span style="font-style: italic;">PRINT #1,'This is a test line'
+<br></span><br><h3>
+<br></h3><br><h3>NOTE 1:
+<br></h3><br>Version 6.40 of the THOR XVI ROM can crash if you try to
+<br>use <span style="font-style: italic;">PRINT</span> with the '<span style="font-style: italic;">!</span>' separator in a non-window channel.
+<br><br><h3>NOTE 2:
+<br></h3><br>The THOR XVI (all versions) and non-Minerva ROMs (unless
+<br>SMS is installed) have problems with the concatenation of
+<br>values which should produce an 'Overflow Error'. For example,
+<br><span style="font-style: italic;"><br>PRINT 'hello'&(1/0)
+<br></span><br>may crash the computer rather than producing an overflow
+<br>error.
+<br><br><h3>NOTE 3:
+<br></h3><br><span style="font-style: italic;">PRINT</span> can only show a maximum of six integer digits. If a
+<br>number is larger than this, it will be represented by the E
+<br>function (eg. 1E2 is the same as 100). If on the other hand,
+<br>the figure is a floating point, then the QL can cope with
+<br>seven digits excluding the decimal point, eg. 123.4567. Any
+<br>more digits will cause the number to be rounded up or down as
+<br>appropriate.
+<br><br><h3>MINERVA NOTE:
+<br></h3><br>v1.97+ allows different channels part way through statement
+<br>as per THOR XVI.
+<br><br><h3>THOR XVI NOTE:
+<br></h3><br>Version 6.41 of the THOR XVI allows you to put channel
+<br>numbers part way through a statement, for example:
+<br><span style="font-style: italic;">PRINT 'Name:'!name$ \#0; 'Address:' !address$
+<br></span><br>instead of:
+<br><span style="font-style: italic;">PRINT 'Name '!name$ : PRINT #0;'Address:'!address$
+<br></span><br><h3>CROSS-REFERENCE:<br></h3><br>See also <a style="font-style: italic;" href="KeywordsI.html#INPUT">INPUT</a> which contains a description of the different
+<br>types of separators.
+<br><br>Please also see <a style="font-style: italic;" href="KeywordsW.html#WIDTH">WIDTH</a>.
+<br><br><a style="font-style: italic;" href="KeywordsT.html#TO">TO</a> has other meanings - see <a style="font-style: italic;" href="KeywordsT.html#TO">TO</a>.
+<br><br><a style="font-style: italic;" href="KeywordsV.html#VG_PRINT">VG_PRINT</a> allows you to print using scaleable fonts on screen.
+<br><br><a style="font-style: italic;" href="KeywordsC.html#CHAR_USE">CHAR_USE</a> and <a style="font-style: italic;" href="KeywordsC.html#CHAR_DEF">CHAR_DEF</a> allow you to alter the fonts used for
+<br>printing characters on screen.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PRINT_USING"></a>PRINT_USING</h1><br>Syntax: <span style="font-style: italic;">PRINT_USING </span>[<span style="font-style: italic;">#ch,</span>] <span style="font-style: italic;">format$, </span><sup>*</sup>[<span style="font-style: italic;">item</span><sup>i</sup>]<sup>*
+<br></sup>Location: <span style="font-style: italic;">Toolkit II
+<br></span><br>This command allows you to send output to the specified
+<br>channel (default #1) in a particular format. This for example,
+<br>allows you to print neat columns of figures easily, all lined
+<br>up on the decimal point.
+<br><br>The <span style="font-style: italic;">format$</span> is made up of a mixture of special characters,
+<br>text and fields. Basically, <span style="font-style: italic;">PRINT_USING</span> will print out <span style="font-style: italic;">format$</span> as
+<br>normal, until one of these special characters is met. The
+<br>special characters currently supported are:
+<br><br><span style="font-style: italic;">©</span> (copyright) <span style="font-style: italic;">+ - ( # * , . ! \ ' "</span> and <span style="font-style: italic;">$</span>.
+<br><br>These have the following effects:
+<br><br><h3>CharacterEffect
+<br></h3><br><span style="font-style: italic;">©</span>This  forces  <span style="font-style: italic;">PRINT_USING</span>  to  print  out  the  next
+<br>character in <span style="font-style: italic;">format$</span> even if it is a special
+<br>character.  If  you  want  to  print  some  text
+<br>including one of the special characters, this
+<br>must be used.
+<br><br><span style="font-style: italic;">+</span>This is used to either prefix or postfix a
+<br>decimal field. If present, then the sign of the
+<br>decimal number is written out in this position.
+<br><br><span style="font-style: italic;">-</span>This is used to either prefix or postfix a
+<br>decimal field. The sign of the decimal number
+<br>will only be written in this position if the
+<br>number is negative.
+<br><br><span style="font-style: italic;">(</span>This and the closing bracket can be used to
+<br>surround a decimal field, in which case if the
+<br>number is negative, it will appear in brackets.
+<br><br><span style="font-style: italic;">#</span>This is used to mark a type of field (see below).
+<br><br><span style="font-style: italic;">*</span>This is also used to mark a type of field (see
+<br>below).
+<br><br><span style="font-style: italic;">\</span>This will force a newline to take place. Unlike
+<br><span style="font-style: italic;">PRINT</span>, <span style="font-style: italic;">PRINT_USING</span> does not automatically carry out a
+<br>newline after finishing its work.
+<br><br><span style="font-style: italic;">"</span> and <span style="font-style: italic;">'</span>Anything  between  either  single  or  double
+<br>quotation  marks  will  be  printed  out  without
+<br>looking for special characters.
+<br><br><span style="font-style: italic;">$</span>This is used to signify the start of a currency
+<br>field. Any characters between this sign and the
+<br>next '<span style="font-style: italic;">#</span>' symbol are taken to be the name of the
+<br>currency and are pushed right to line up with the
+<br>actual amount.
+<br><br>The fields in the <span style="font-style: italic;">format$</span> allow you to print text and/or
+<br>figures in specific formats. Each item following <span style="font-style: italic;">format$</span> is then
+<br>read and inserted in place of each field. If however, a
+<br>numeric field is not long enough to hold the specified figure,
+<br>then the field appears as just '<span style="font-style: italic;">#</span>' marks on screen. Text fields
+<br>will just truncate the text supplied to fit. The fields which
+<br>are recognised are:
+<br><br><h3>FieldMeaning
+<br></h3><br><span style="font-style: italic;">####</span>If <span style="font-style: italic;">item</span> is text, write it left justified and
+<br>truncate to fit size of field if necessary. If
+<br><span style="font-style: italic;">item</span> is a number, write the integer part of the
+<br>number right justified (eg. <span style="font-style: italic;">PRINT_USING  '###','Hello'
+<br></span>will print Hel).
+<br><br><span style="font-style: italic;">****</span>This is the same as <span style="font-style: italic;">####</span> except that any unused
+<br>part of the field to the left of the characters
+<br>is filled with '<span style="font-style: italic;">*</span>' (eg. <span style="font-style: italic;">PRINT_USING '****',1.234</span> will
+<br>print ***1).
+<br><br><span style="font-style: italic;">###.##</span>Print  a  fixed  decimal  point  number  right
+<br>justified to a set number of decimal places. (eg.
+<br><span style="font-style: italic;">PRINT_USING '##.#',1.26</span> will print 1.3).
+<br><br><span style="font-style: italic;">***.**</span>The same as <span style="font-style: italic;">###.##</span> except that any unused part of
+<br>the field is filled with '<span style="font-style: italic;">*</span>'.
+<br><br><span style="font-style: italic;">#,###.##</span>This is the same as <span style="font-style: italic;">###.##</span> except that a comma will
+<br>be used to separate thousands.
+<br><br><span style="font-style: italic;">*,***.**</span>This is similar to <span style="font-style: italic;">#,###.##</span> except that any unused
+<br>part of the field will be filled with '<span style="font-style: italic;">*</span>'.
+<br><br><span style="font-style: italic;">-#.###!!!!</span>This is used for an exponential field with the
+<br>sign only being shown if the figure is negative
+<br>(eg. <span style="font-style: italic;">PRINT_USING '-#.##!!!!',3120</span> will print 3.12E+03). An
+<br>exponential field must always begin with a sign
+<br>followed by one # mark and a decimal point, and
+<br>always end with four ! marks.
+<br><br><span style="font-style: italic;">+#.###!!!!</span>This is the same as <span style="font-style: italic;">-#.###!!!!</span> except that the sign
+<br>of the number is always shown.
+<br><br><span style="font-style: italic;">###.>></span>This is introduced by SMSQ/E v2.73+ and is the
+<br>same as<span style="font-style: italic;"> ###.##</span> except that it is for fixed point
+<br>decimal figures, scaled accordingly.  This allows
+<br>you, for example, to convert a calculation from
+<br>pennies into pounds (eg. <span style="font-style: italic;">PRINT_USING '###.>>',312.01</span> will
+<br>print 3.12).  You can add more > characters after
+<br>the decimal point if you need to convert to three
+<br>decimal places.
+<br><br><span style="font-style: italic;">***.>></span>This is introduced by SMSQ/E v2.73+ and is the
+<br>same as<span style="font-style: italic;"> ###.>></span> except that any unused part of the
+<br>field is filled with '<span style="font-style: italic;">*</span>'.
+<br><br><h3>Example:
+<br></h3><br>A program which prints out a stocklist, which might be
+<br><br>useful for a small business:
+<br><span style="font-style: italic;">100 RESTORE
+<br>110 MODE 4
+<br>120 WINDOW 448,200,32,16:PAPER 0:INK 7:CLS
+<br>130 CSIZE 2,0:AT 1,10:UNDER 1:PRINT 'STOCK LIST'
+<br>140 CSIZE 1,0:AT 5,0
+<br>150 PRINT 'NO     ITEM            IND. PRICE       TOTAL'
+<br>160 UNDER 0
+<br>170 total=0:Lines=6
+<br>180 REPeat loop
+<br>190   IF EOF:EXIT loop
+<br>200   READ equipment$,items,ind_price
+<br>210   price=ind_price*items
+<br>220   total=total+price:Lines=Lines+1
+<br>230   PRINT_USING '#,###.  ##############',items,equipment$
+<br>240   PRINT_USING '     $##.##  $##,###.##\',ind_price,price
+<br>250 END REPeat loop
+<br>260 OVER 1:AT Lines-1,0:UNDER 1
+<br>270 PRINT FILL$(' ',45):UNDER 0
+<br>280 IF INT(total)&lt;&gt;total:total=total*100
+<br>290 PRINT TO 23;'Total Stock £';CDEC$(total,9,2)
+<br>1000 DATA 'Minerva',110,40,'Minerva MKII',205,65.61
+<br>1010 DATA 'Hermes',100,25,'68008 CPU',1230,8.7
+<br></span><br><h3>NOTE 1:
+<br></h3><br>On Toolkit II versions before v2.08, this command could
+<br>cause problems if an empty string was passed to it.
+<br><br><h3>NOTE 2:
+<br></h3><br>Some versions of the Toolkit II manual get the copyright
+<br>symbol ('<span style="font-style: italic;">©</span>') mixed up with the address symbol ('@'). The latter
+<br>has no special meaning.
+<br><br><h3>NOTE 3:
+<br></h3><br>Because of variations in the way in which numbers are
+<br>represented in different countries, either a comma or full
+<br>stop is recognised as a decimal point by <span style="font-style: italic;">PRINT_USING</span>. If a field
+<br>only contains one comma or full stop, that is taken to be the
+<br>decimal point, however, if more than one comma and/or full
+<br>stop appears in the field, the last one is taken to be the
+<br>decimal point,  the  others  being assumed  to  be  thousands
+<br>separators. If you want numbers to be printed with thousands
+<br>separators but no decimal point, use a comma or full stop as
+<br>the last character of the field.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See also <a style="font-style: italic;" href="KeywordsF.html#FDEC$">FDEC$</a>, <a style="font-style: italic;" href="KeywordsI.html#IDEC$">IDEC$</a> and <a style="font-style: italic;" href="KeywordsC.html#CDEC$">CDEC$</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PRIO"></a>PRIO</h1><br>Syntax: <span style="font-style: italic;">PRIO priority
+<br></span>Location: <span style="font-style: italic;">PRIO
+<br></span><br>This command sets the priority of the current job to the
+<br>given priority. <span style="font-style: italic;">Priority</span> must range from 0 to 127.
+<br><br><h3>Example:
+<br></h3><br>Multitasking jobs waiting for a keypress or anything else
+<br><br>to be activated slow down the whole system although they
+<br><br>are actually doing nothing. A job which is waiting (perhaps
+<br><br>for a certain amount of time) for input could set its own
+<br><br>priority to one, and then when it is able to continue,
+<br><br>reset to a higher priority value.
+<br><br><h3>NOTE:
+<br></h3><br>If a job has priority 0 it will not be able to run. Other
+<br>tasks may however set that job's priority (eg. with <span style="font-style: italic;">SPJOB</span> and
+<br>allow it to continue).
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsS.html#SPJOB">SPJOB</a>, <a style="font-style: italic;" href="KeywordsS.html#SP_JOB">SP_JOB</a>, and <a style="font-style: italic;" href="KeywordsP.html#PJOB">PJOB</a> also deal with job priorities.
+<br><br href="KeywordsS.html#SPJOB -1">SPJOB -1</a>, <a style="font-style: italic;" href="Keywordsp.html#priority">priority</a> is exactly the same as <a style="font-style: italic;" href="KeywordsP.html#PRIO priority">PRIO priority</a> or <a style="font-style: italic;" href="KeywordsP.html#PRIORITISE
+">PRIORITISE
+<br href="Keywordsp.html#priority">priority</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PRIORITISE"></a>PRIORITISE</h1><br>Syntax: <span style="font-style: italic;">PRIORITISE </span>[<span style="font-style: italic;">jobnr, jobtag,</span>]<span style="font-style: italic;"> priority
+<br></span>Location: <span style="font-style: italic;">TASKCMDS (DIY Toolkit Vol J)
+<br></span><br><span style="font-style: italic;">PRIORITISE</span> is a command which takes either one or three
+<br>parameters and sets the priority of the current job (if only
+<br>one parameter is used) or the job specified by <span style="font-style: italic;">jobnr</span> and <span style="font-style: italic;">jobtag</span> to
+<br><span style="font-style: italic;">priority</span>.
+<br><br><h3>Example:
+<br></h3><br><span style="font-style: italic;">PRIORITISE 127</span> gives the current job the maximum amount of
+<br><br>processor time available when multitasking.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>A one parameter variant of <a style="font-style: italic;" href="KeywordsP.html#PRIORITISE">PRIORITISE</a> is <a style="font-style: italic;" href="KeywordsP.html#PRIO">PRIO</a>.
+<br><br>Refer to <a style="font-style: italic;" href="KeywordsS.html#SPJOB">SPJOB</a> and connected keywords for more information
+<br>on jobs and priorities.
+<br><br><a style="font-style: italic;" href="KeywordsJ.html#JOBS">JOBS</a> will give details of job numbers and job tags.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PRO"></a>PRO</h1><br>Syntax: <span style="font-style: italic;">PRO
+<br></span>Location: <span style="font-style: italic;">Beuletools
+<br></span><br>This function returns the codes needed to switch on the
+<br>proportional font on an EPSON compatible printer:
+<br><br><span style="font-style: italic;">PRINT PRO
+<br></span><br>is the same as
+<br><br><span style="font-style: italic;">PRINT CHR$ (27) &"p" &CHR$ (1)
+<br></span><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsN.html#NORM">NORM</a>, <a style="font-style: italic;" href="KeywordsB.html#BLD">BLD</a>, <a style="font-style: italic;" href="KeywordsE.html#EL">EL</a>, <a style="font-style: italic;" href="KeywordsD.html#DBL">DBL</a>, <a style="font-style: italic;" href="KeywordsE.html#ENL">ENL</a>, <a style="font-style: italic;" href="KeywordsS.html#SI">SI</a>, <a style="font-style: italic;" href="KeywordsN.html#NRM">NRM</a>, <a style="font-style: italic;" href="KeywordsU.html#UNL">UNL</a>, <a style="font-style: italic;" href="KeywordsA.html#ALT">ALT</a>, <a style="font-style: italic;" href="KeywordsE.html#ESC">ESC</a>, <a style="font-style: italic;" href="KeywordsF.html#FF">FF</a>, <a style="font-style: italic;" href="KeywordsL.html#LMAR">LMAR</a>, <a style="font-style: italic;" href="KeywordsR.html#RMAR">RMAR</a>, <a style="font-style: italic;" href="KeywordsP.html#PAGDIS">PAGDIS</a>,
+<br><a style="font-style: italic;" href="KeywordsP.html#PAGLEN">PAGLEN</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PROCESSOR"></a>PROCESSOR</h1><br>Syntax: <span style="font-style: italic;">PROCESSOR
+<br></span>Location: <span style="font-style: italic;">SMSQ/E
+<br></span><br>This function returns a value which can be used to find the
+<br>type of Processor on which SuperBASIC is running (normally a
+<br>member of the Motorola 680xx family).
+<br><br>The values returned are:
+<br><br><h3><span style="font-style: italic;">PROCESSOR</span>Chip Type
+<br></h3><br>0x68000 or 68008
+<br><br>1x68010 or an INTEL chip (if QPC is running)
+<br><br>2x68020
+<br><br>3x68030
+<br><br>4x68040
+<br><br>6x68060
+<br><br>(x is replaced by a value between 0 and 8 to indicate if a
+<br>maths co-processor is installed).  You can also test if a
+<br>maths co-processor is installed, by using:
+<br><br><span style="font-style: italic;">coprocessor%=PEEK(!!$A1) && BIN('1111')
+<br></span><br>The following values may be returned:
+<br><h3><span style="font-style: italic;">coprocessor%</span>Meaning
+<br></h3>0No FPU fitted
+<br>1An Internal MMU is fitted.
+<br>2A 68851 MMU is fitted
+<br>4An internal FPU is fitted.
+<br>8EIther a 68881 or 68882 FPU is fitted
+<br><br><h3>NOTE:
+<br></h3><br>The processor type was not stored before Level E-20 of the
+<br>ST/QL Drivers.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsM.html#MACHINE">MACHINE</a>, <a style="font-style: italic;" href="KeywordsQ.html#QDOS$">QDOS$</a> and <a style="font-style: italic;" href="KeywordsV.html#VER$
+">VER$
+</a><hr style="width: 100%; height: 2px;"><h1><a name="... PROCedure"></a>... PROCedure</h1><br>Syntax: ... <span style="font-style: italic;">PROCedure
+<br></span>Location: <span style="font-style: italic;">QL ROM
+<br></span><br>This keyword forms part of the structure <span style="font-style: italic;">DEFine PROCedure</span>. As
+<br>such, it cannot be used on its own within a program - this
+<br>will cause a 'bad line' error.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>Please refer to the individual structure descriptions for
+<br>more details.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PROGD$"></a>PROGD$</h1><br>Syntax: <span style="font-style: italic;">PROGD$
+<br></span>Location: <span style="font-style: italic;">Toolkit II
+<br></span><br>This function returns the default program device as set by
+<br><span style="font-style: italic;">PROG_USE</span>, see below.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsP.html#PROG_USE">PROG_USE</a>, <a style="font-style: italic;" href="KeywordsD.html#DLIST">DLIST</a>, <a style="font-style: italic;" href="KeywordsD.html#DATAD$">DATAD$</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PROG_USE"></a>PROG_USE</h1><br>Syntax: <span style="font-style: italic;">PROG_USE default_device
+<br></span>Location: <span style="font-style: italic;">Toolkit II, THOR XVI
+<br></span><br>The command <span style="font-style: italic;">PROG_USE</span> and dependent commands behave in the
+<br>same way as <span style="font-style: italic;">DATA_USE</span> with a few differences:
+<br><br>The program device set with <span style="font-style: italic;">PROG_USE</span> is used by the <span style="font-style: italic;">EX</span> (<span style="font-style: italic;">EXEC</span>),
+<br><span style="font-style: italic;">EW</span> (<span style="font-style: italic;">EXEC_W</span>) and (exceptionally <span style="font-style: italic;">SEXEC</span>) commands as the default
+<br>device.
+<br><br>Whereas some commands which use the data device (eg. <span style="font-style: italic;">MERGE</span>,
+<br><span style="font-style: italic;">LOAD</span>) check the program device if they do not find a given file
+<br>on the data device, the above commands which use the program
+<br>device will  not look at the data device should they fail on
+<br>the program device.
+<br><br><h3>NOTE:
+<br></h3><br>The default devices cannot exceed 32 characters (plus a
+<br>final underscore) - any attempt to assign a longer string will
+<br>result in the error 'Bad Parameter' (error -15).
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsP.html#PROGD$">PROGD$</a> returns the program device setting. See <a style="font-style: italic;" href="KeywordsD.html#DATA_USE">DATA_USE</a> for
+<br>more information.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PROT_DATE"></a>PROT_DATE</h1><br>Syntax: <span style="font-style: italic;">PROT_DATE flag
+<br></span>Location: <span style="font-style: italic;">SMS, Gold Card
+<br></span><br>Many systems which can run SMS (including QXL, the Gold
+<br>Card and Super Gold Card) include a battery backed clock (also
+<br>known as a real-time clock).  In this case, there are actually
+<br> two clocks running: One is run by the operating system (the
+<br>QL internal clock) which is found on each QL implementation.
+<br>The internal  clock  forgets  the time  if  the  computer  is
+<br>switched off and has to be set each time the machine is
+<br>powered up.  The other clock is the battery backed clock which
+<br>keeps the time even when the QL is switched off (until the
+<br>battery runs flat) and this normally sets the Internal Clock
+<br>each time the QL is reset (or switched on).
+<br><br>It may be necessary to adjust the QL's internal clock
+<br>whilst the QL is being used, without wishing to disrupt the
+<br>battery backed clock - some software alters the QL's internal
+<br>clock when there is no need, the internal clock can also be
+<br>affected by crashes during program development.  Some battery
+<br>backed clocks may alter their time when the QL's internal
+<br>clock is altered and therefore some form of protection is
+<br>needed - you will normally need to enable the protection by
+<br>using the command:<span style="font-style: italic;"> PROT_DATE 1</span>.
+<br><span style="font-style: italic;"><br>PROT_DATE 0 </span>will disable the protection.
+<br><br><h3>NOTE 1:
+<br></h3><br>This has no effect on the battery backed clock provided by
+<br>Minerva MKII which has to be altered using the configuration
+<br>program.
+<br><br><h3>NOTE 2:
+<br></h3><br>If you reset the Gold Card or Super Gold Card to 128K,
+<br><span style="font-style: italic;">PROT_DATE 1</span> is executed.
+<br><br><h3>NOTE 3:
+<br></h3><br>Serious crashes and some old games may disturb the battery
+<br>backed clock even in protected mode.
+<br><br><h3>NOTE 4:
+<br></h3><br>On some conbinations of AURORA and Super Gold Card, if you
+<br>use <span style="font-style: italic;">PROT_DATE 1</span>, the QL's internal clock will run too quickly (see
+<br>also the notes on <span style="font-style: italic;">DISP_SIZE</span>).
+<br><br><h3>WARNING:
+<br></h3><br>SMS, the Gold Card and Super Gold Card do not automatically
+<br>protect the battery backed clock. It is therefore advisable to
+<br>include the line:
+<br><br><span style="font-style: italic;">PROT_DATE 1
+<br></span><br>in your boot program.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsS.html#SDATE">SDATE</a> and <a style="font-style: italic;" href="KeywordsA.html#ADATE">ADATE</a> alter the QL's internal clock.<a style="font-style: italic;" href="KeywordsD.html#DATE$">DATE$</a> and <a style="font-style: italic;" href="KeywordsD.html#DAY$">DAY$</a> can
+<br>be used to read the time on the QL's internal clock.
+<br><br><h3><br><hr style="width: 100%; height: 2px;">PROT_MEM<br></h3><br>Syntax: <span style="font-style: italic;">PROT_MEM level
+<br></span>Location: <span style="font-style: italic;">SMSQ/E
+<br></span><br>The command <span style="font-style: italic;">PROT_MEM</span> can be used to set the level of memory
+<br>protection which is afforded on Atari ST and TT computers, to
+<br>try and stop the user from altering essential areas of the
+<br>operating system by mistake.
+<br><br>There  are  five  levels  of  memory  protection  currently
+<br>available:
+<br><br><h3><span style="font-style: italic;">Level</span>Protection
+<br></h3><br>0Memory access faults are not reported.
+<br><br>1Write memory access faults are trapped from all
+<br>jobs except from Job 0.  Read operations from a
+<br>protected area read 0.
+<br><br>2Read memory access faults are trapped from all
+<br>jobs except Job 0.  Any Write operations to a
+<br>protected area are ignored.
+<br><br>3Both Read and Write memory access faults are
+<br>trapped from all jobs except Job 0.
+<br><br>7Both Read and Write memory access faults are
+<br>trapped from all jobs.
+<br><br>The default level is 3.  We would recommend that Level 0 is
+<br>avoided if at all possible.
+<br><br>Memory access faults tend to occur when the user (or a
+<br>program) tries to access memory which does not exist or can
+<br>only be accessed in Supervisor Mode (the vector area, the TOS
+<br>system variables and the IO hardware).  However, under SMSQ/E,
+<br>if there is an attempt to read an address which actually forms
+<br>part of the legitimate QL vector area, this will not cause a
+<br>fault.
+<br><br>If a memory access fault is trapped, the Job which has
+<br>caused the fault is paused and the program counter is placed
+<br>on the stack (all registers are preserved).  An advanced user
+<br>may then use a debugger to examine the Job to find out what
+<br>has caused the fault.
+<br><br><h3>NOTE:
+<br></h3><br>Unfortunately, on other implementations, this command has
+<br>no effect, and it is therefore still possible to overwrite the
+<br>operating system on QL Emulators (non-Atari based), Gold and
+<br>Super Gold Cards.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsP.html#POKES">POKES</a> and <a style="font-style: italic;" href="KeywordsP.html#PEEKS">PEEKS</a>.
+<br><br><a style="font-style: italic;" href="KeywordsP.html#PROT_DATE">PROT_DATE</a> protects a battery backed clock.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PROUND"></a>PROUND</h1><br>Syntax: <span style="font-style: italic;">PROUND (p, x)
+<br></span>Location: <span style="font-style: italic;">TRIPRODRO
+<br></span><br><span style="font-style: italic;">PROUND</span> is a function which rounds the given floating pointer
+<br>number <span style="font-style: italic;">x</span> to the precision of <span style="font-style: italic;">10</span><sup>p</sup>. It looks at the next digit to
+<br>decide whether to round upwards or downwards and ignores any
+<br>others.
+<br><br><h3>Example:
+<br></h3><br>Print ten random number with three digits after the decimal
+<br><br>point:
+<br><span style="font-style: italic;">100 RANDOMISE
+<br>110 FOR i = 1 TO 10
+<br>120   PRINT PROUND(-3, 10*RND)
+<br>130 END FOR i
+<br></span><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsD.html#DROUND
+">DROUND
+</a><hr style="width: 100%; height: 2px;"><h1><a name="PRT_ABORT"></a>PRT_ABORT</h1><br>Syntax: <span style="font-style: italic;">PRT_ABORT
+<br></span>Location: <span style="font-style: italic;">ST/QL, SMSQ/E
+<br></span><br>This is the same as <span style="font-style: italic;">PAR_ABORT</span> or <span style="font-style: italic;">SER_ABORT</span>, depending on which
+<br>device <span style="font-style: italic;">PRT</span> is linked to.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsS.html#SER_ABORT">SER_ABORT</a> and <a style="font-style: italic;" href="KeywordsP.html#PAR_ABORT">PAR_ABORT</a>.
+<br><br><a style="font-style: italic;" href="KeywordsP.html#PRT_USE">PRT_USE</a> allows you to specify which port <a style="font-style: italic;" href="KeywordsP.html#PRT">PRT</a> emulates.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PRT_ABT"></a>PRT_ABT</h1><br>Syntax: <span style="font-style: italic;">PRT_ABT
+<br></span>Location: <span style="font-style: italic;">Trump Card, Gold Card, QXL
+<br></span><br>Because all output sent to the Trump Card, Gold Card and
+<br>Super Gold Card's built in <span style="font-style: italic;">PRT</span> device is buffered (except if
+<br>you are running SMSQ/E which uses its own <span style="font-style: italic;">PRT</span> device), it can
+<br>be useful to stop the port from outputting any further data.
+<br><br><span style="font-style: italic;">PRT_ABT</span>  will  prevent  any  further  output  and  clear  the
+<br>contents. The message
+<br><span style="font-style: italic;"><br>****** ABORTED ******
+<br></span><br>will then be sent to the port.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsP.html#PRT_USE">PRT_USE</a> allows you to specify the type of output to be
+<br>buffered.
+<br><br>The ST/QL Emulator and SMSQ/E support a similar function
+<br>with <a style="font-style: italic;" href="KeywordsP.html#PRT_ABORT">PRT_ABORT</a>, <a style="font-style: italic;" href="KeywordsP.html#PAR_ABORT">PAR_ABORT</a> and <a style="font-style: italic;" href="KeywordsS.html#SER_ABORT">SER_ABORT</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PRT_BUFF"></a>PRT_BUFF</h1><br>Syntax: <span style="font-style: italic;">PRT_BUFF </span>[<span style="font-style: italic;">size</span>]
+Location: <span style="font-style: italic;">ST/QL, SMSQ/E
+<br></span><br>This is exactly the same as <span style="font-style: italic;">PAR_BUFF</span> except that it creates
+<br>buffered output on whichever port is attached to the <span style="font-style: italic;">PRT
+<br></span>device.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsP.html#PAR_BUFF">PAR_BUFF</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PRT_CLEAR"></a>PRT_CLEAR</h1><br>Syntax: <span style="font-style: italic;">PRT_CLEAR
+<br></span>Location: <span style="font-style: italic;">ST/QL, SMSQ/E
+<br></span><br>This clears out all currently closed <span style="font-style: italic;">PRT</span> buffers, thus
+<br>preventing any further output, in the same way as <span style="font-style: italic;">PAR_CLEAR</span>.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsP.html#PAR_CLEAR">PAR_CLEAR</a> and <a style="font-style: italic;" href="KeywordsS.html#SER_CLEAR">SER_CLEAR</a> are similar.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PRT_USE"></a>PRT_USE</h1><br>Syntax: <span style="font-style: italic;">PRT_USE device
+<br></span>Location: <span style="font-style: italic;">ST/QL, SMSQ/E
+<br></span><br>The ST/QL Emulator and SMSQ/E allow you to set up the <span style="font-style: italic;">PRT
+<br></span>device so that it mimics the <span style="font-style: italic;">SER</span>, <span style="font-style: italic;">STX</span> or <span style="font-style: italic;">PAR</span> device. This means
+<br>that programs can be written which merely send their output to
+<br>the <span style="font-style: italic;">PRT</span> device and it is then up to the user to set the port
+<br>and options required by the device attached to either the
+<br>serial or parallel port.
+<br><br>The command<span style="font-style: italic;"> PRT_USE</span> allows you to specify both the port and
+<br>options to be associated with <span style="font-style: italic;">PRT</span>. It will ignore <span style="font-style: italic;">SER_USE</span> and
+<br><span style="font-style: italic;">PAR_USE</span> settings and therefore expects <span style="font-style: italic;">device</span> to be in one of the
+<br>following forms:-
+<br><br><span style="font-style: italic;">PAR</span><<span style="font-style: italic;">port</span>><<span style="font-style: italic;">translate</span>><<span style="font-style: italic;">convert</span>><<span style="font-style: italic;">eof</span>>
+<br><br><span style="font-style: italic;">SER</span><<span style="font-style: italic;">port</span>><<span style="font-style: italic;">parity</span>><<span style="font-style: italic;">handshake</span>><<span style="font-style: italic;">translate</span>><<span style="font-style: italic;">convert</span>><<span style="font-style: italic;">eof</span>>
+<br><br><span style="font-style: italic;">STX</span><<span style="font-style: italic;">port</span>><<span style="font-style: italic;">parity</span>><<span style="font-style: italic;">handshake</span>><<span style="font-style: italic;">translate</span>><<span style="font-style: italic;">convert</span>><<span style="font-style: italic;">eof</span>>
+<br><br>See the Appendix on drivers for further details.
+<br><br><h3>Example:
+<br></h3><br><span style="font-style: italic;">PRT_USE ser1etf
+<br></span><br>will cause all attempts to access the <span style="font-style: italic;">PRT</span> device to be
+<br><br>re-directed to serial port 1 with Even parity, translation
+<br><br>enabled and a form feed being printed at the end of the
+<br><br>file.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsR.html#RAM_USE">RAM_USE</a>, <a style="font-style: italic;" href="KeywordsF.html#FLP_USE">FLP_USE</a>, <a style="font-style: italic;" href="KeywordsW.html#WIN_USE">WIN_USE</a>, <a style="font-style: italic;" href="KeywordsS.html#SER_USE">SER_USE</a> and <a style="font-style: italic;" href="KeywordsP.html#PAR_USE">PAR_USE</a> are all very similar.
+<br><br>See the other version of this command.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PRT_USE"></a>PRT_USE</h1><br>Syntax: <span style="font-style: italic;">PRT_USE usage,device
+<br></span>Location: <span style="font-style: italic;">Qjump RAMPRT, Trump Card, Gold Card, QXL Card
+<br></span><br>Unlike the ST/QL Emulator and SMSQ/E implementations of
+<br>this command, this version of this command is used to enable
+<br>you to set up dynamic buffering on serial and parallel ports.
+<br><br>The command <span style="font-style: italic;">PRT_USE</span> enables you to connect a buffer to a
+<br>specified <span style="font-style: italic;">device</span>, altering the description (<span style="font-style: italic;">usage</span>) used to access
+<br>that buffered <span style="font-style: italic;">device</span>.
+<br><br>Initially, the default <span style="font-style: italic;">usage</span> is <span style="font-style: italic;">PRT</span> and the default <span style="font-style: italic;">device</span> is
+<br><span style="font-style: italic;">SER</span> which means that any attempt to send output to the <span style="font-style: italic;">PRT
+<br></span>device will actually access <span style="font-style: italic;">ser1</span>, using the whole of the
+<br>available memory as a buffer.
+<br><br><span style="font-style: italic;">PRT_USE</span>  will  actually  recognise  the  full  device  name,
+<br>allowing it to have a similar effect as the alternative
+<br>version of this command. For example, the following are both
+<br>equivalent:-
+<br><br><span style="font-style: italic;">PRT_USE prt,ser1c</span>            (On the Gold Card)
+<br><br><span style="font-style: italic;">PRT_BUFF 0:PRT_USE ser1c</span>     (Under SMSQ/E)
+<br><br>The <span style="font-style: italic;">PRT</span> device will also allow the same options as the
+<br><span style="font-style: italic;">device</span> which it is emulating, for example, the following are
+<br>both the same (except the latter uses buffered output):
+<br><br><span style="font-style: italic;">OPEN #3,ser1c
+<br><br>PRT_USE prt,ser:OPEN #3,prt1c
+<br></span><br>If you wish to buffer output on a given<span style="font-style: italic;"> device</span>, then you
+<br>merely need to specify the <span style="font-style: italic;">usage</span> to be the same as the device.
+<br>For example,
+<br><br><span style="font-style: italic;">PRT_USE ser,ser
+<br></span><br>will create buffered output to the serial ports whenever
+<br>ser is used.
+<br><br><span style="font-style: italic;">PRT_USE</span> will also allow you to specify the <span style="font-style: italic;">device</span> to be
+<br>buffered at run-time. This is achieved by leaving the <span style="font-style: italic;">device
+<br></span>parameter as an empty string. For example:
+<br><br><span style="font-style: italic;">PRT_USE buff_,</span>""
+<br><br>allows you to use the device name <span style="font-style: italic;">buff_ser1</span> to access <span style="font-style: italic;">ser1</span>,
+<br><span style="font-style: italic;">buff_par</span> to access the parallel port etc. and all with buffered
+<br>output.
+<br><br><h3>NOTE 1:
+<br></h3><br><span style="font-style: italic;">PRT_USE prt,ser</span> will return the QL to the normal state after
+<br>being switched on (ie. only buffered output will occur if the
+<br>device <span style="font-style: italic;">PRT</span> is used).
+<br><br><h3>NOTE 2:
+<br></h3><br>If PRT_USE is used to allow background printing, then some
+<br>characters may be lost (especially if you are using an old
+<br>serial to parallel convertor), if you use a command which
+<br>stops the QL multitasking (for example <span style="font-style: italic;">FORMAT</span>, <span style="font-style: italic;">LOAD</span>, <span style="font-style: italic;">LBYTES</span>, <span style="font-style: italic;">SBYTES
+<br></span>and <span style="font-style: italic;">SAVE</span>).  You can tell when this happens as the printer will
+<br>stop while the command is being carried out.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See also <a style="font-style: italic;" href="KeywordsP.html#PRT_ABT">PRT_ABT</a>.
+<br><br>See the other version of this command.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PRT_USE$"></a>PRT_USE$</h1><br>Syntax: <span style="font-style: italic;">PRT_USE$
+<br></span>Location: <span style="font-style: italic;">ST/QL, SMSQ/E
+<br></span><br>This function returns a string representing the current
+<br>port emulated by the <span style="font-style: italic;">PRT</span> device, thus allowing you to check
+<br>whether or not you need to alter the device set with <span style="font-style: italic;">PRT_USE</span>.
+<br><br><h3>Example:
+<br></h3><br><span style="font-style: italic;">PRT_USE ser1etf
+<br></span><br><span style="font-style: italic;">PRINT PRT_USE$
+<br></span><br>will return 'ser1etf'.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsP.html#PRT_USE">PRT_USE</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PTH_ADD"></a>PTH_ADD</h1><br>Syntax: <span style="font-style: italic;">PTH_ADD </span>[<span style="font-style: italic;">n,</span>]<span style="font-style: italic;"> directory
+<br></span>Location: <span style="font-style: italic;">Path device
+<br></span><br>First we need to explain the <span style="font-style: italic;">PTH</span> device before you can
+<br>understand what the command <span style="font-style: italic;">PTH_ADD</span> and its related commands/
+<br>functions do.
+<br><br>Using sub-directories helps to clean up disk storage - even
+<br>if you know on which disk a file is kept, if you are using a
+<br>large storage media like HD/ED disks or even hard disks, you
+<br>will soon find yourself searching through the whole directory
+<br>tree with a desktop or <span style="font-style: italic;">WDIR</span>.
+<br><br>That's why <span style="font-style: italic;">PTH</span> was created. This virtual device interfaces
+<br>with any  kind  of  drive  and searches  through  a  list  of
+<br>directories when a file is to be opened. For instance, instead
+<br>of being forced to type:
+<br><br><span style="font-style: italic;">VIEW win1_games_defender_manual_txt
+<br></span><br>a short
+<br><br><span style="font-style: italic;">VIEW pth1_manual_txt
+<br></span><br>would be enough to show the <span style="font-style: italic;">manual_txt</span> if the directory
+<br><span style="font-style: italic;">win1_games_defender_</span> is in the path list.
+<br><br>The size of the search list is only limited by memory
+<br>available; a list of 30000 entries has been tested, 900k was
+<br>necessary  to  store  it  -  but  this  is  not  a  realistic
+<br>limitation. Who works with several thousand directories?
+<br><br><span style="font-style: italic;">PTH_ADD</span> modifies that list which can have as many entries as
+<br>necessary. <span style="font-style: italic;">PTH_ADD</span> (the name says it already) adds a directory to
+<br>the path  list,  it  can be   inserted  (you  cannot  replace
+<br>pathnames!) at a certain position by directly specifying the
+<br>position <span style="font-style: italic;">n</span> (a non-negative integer) in the list. If <span style="font-style: italic;">n</span> is not
+<br>specified, the new directory is merely added to the end of the
+<br>list. The example will clarify this.
+<br><br><h3>Example:
+<br></h3><br>We assume the path list is empty.
+<br><span style="font-style: italic;">PTH_ADD flp1_
+<br></span><br>will add flp1_ to the list which will now look like this
+<br><br>(the list can be obtained with <span style="font-style: italic;">PTH_LIST</span>):
+<br><br><span style="font-style: italic;">0     flp1_
+<br></span><br>The first column is the number of the entry, programmers
+<br><br>tend to start counting with zero, that's why the first
+<br><br>entry has the number 0.
+<br><br>If you type, for example,
+<br><span style="font-style: italic;">SPL pth1_pth_bin,#1
+<br></span><br><h3>
+<br></h3><br>the binary file <span style="font-style: italic;">pth_bin</span> in <span style="font-style: italic;">flp1_</span> will be spooled to channel #1
+<br><br>(usually a window under the interpreter). Now let's add a
+<br><br>few more entries to exploit the power of the path device:
+<br><span style="font-style: italic;">PTH_ADD flp1_basic_
+<br>PTH_ADD flp2_
+<br>PTH_ADD ram1_
+<br></span><br>The list is:
+<br><br><span style="font-style: italic;">0     flp1_
+<br><br>1     flp1_basic_
+<br><br>2     flp2_
+<br><br>3     ram1_
+<br></span><br>Assume the file myprog_bas is in ram1_.
+<br><span style="font-style: italic;">LOAD pth1_myprog_bas
+<br></span><br>tries to load the following files one by one and skips to
+<br><br>the next one in case of failure:
+<br><br><span style="font-style: italic;">flp1_myprog_bas
+<br><br>flp1_basic_myprog_bas
+<br><br>flp2_myprog_bas
+<br><br>ram1_myprog_bas
+<br></span><br>If myprog_bas does not appear in any of the directories,
+<br><br>the usual 'Not Found' error would appear.
+<br><br><h3>NOTE 1:
+<br></h3><br>The name of the path device can be freely configured with
+<br>the  Qjump   standard   configuration  program   Config   (or
+<br>MenuConfig). We use the default in this manual, which is <span style="font-style: italic;">PTH</span>.
+<br>The name can be changed temporarily with <span style="font-style: italic;">PTH_USE</span>.
+<br><br><h3>NOTE 2:
+<br></h3><br><span style="font-style: italic;">PTH</span> suffers from the same problem as the <span style="font-style: italic;">DEV</span> device, see the
+<br>note at <span style="font-style: italic;">DEV_USE</span>.
+<br><br><h3>NOTE 3:
+<br></h3><br>An underscore is added to the directory if it's missing. On
+<br>this point <span style="font-style: italic;">PTH_ADD</span> behaves differently from <span style="font-style: italic;">DEV_USE</span>.
+<br><br><h3>WARNING:
+<br></h3><br>Some applications do not co-operate happily with <span style="font-style: italic;">PTH</span> so that
+<br>a file may get spread over all directories if you save it from
+<br>some editors etc. There are no crashes, do not worry, but this
+<br>strange behaviour could lead to a loss of data if you are not
+<br>aware of the strange phenomenon.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>The path device is very similar to the <a style="font-style: italic;" href="KeywordsD.html#DEV">DEV</a> device, please
+<br>read through <a style="font-style: italic;" href="KeywordsD.html#DEV_USE">DEV_USE</a> to understand the idea behind both devices.
+<br>It's pretty useful to set the Toolkit II <a style="font-style: italic;" href="KeywordsD.html#DATAD$">DATAD$</a> and <a style="font-style: italic;" href="KeywordsP.html#PROGD$">PROGD$</a> to <a style="font-style: italic;" href="Keywordsp.html#pth1_">pth1_</a>:
+<br><a style="font-style: italic;" href="KeywordsD.html#DATA_USE pth1_
+">DATA_USE pth1_
+<br href="KeywordsP.html#PROG_USE pth1_
+">PROG_USE pth1_
+</a><br>Do this preferably in your BOOT program. - Look at the
+<br>other <a style="font-style: italic;" href="KeywordsP.html#PTH_">PTH_</a>.. style keywords!
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PTH_LIST"></a>PTH_LIST</h1><br>Syntax: <span style="font-style: italic;">PTH_LIST </span>[<span style="font-style: italic;">#ch</span>]
+Location: <span style="font-style: italic;">Path device
+<br></span><br>The command <span style="font-style: italic;">PTH_LIST</span> prints a list of the search paths
+<br>available to the <span style="font-style: italic;">PTH</span> device.
+<br><br><h3>Examples:
+<br></h3><span style="font-style: italic;">PTH_LIST
+<br>PTH_LIST#2
+<br></span><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsP.html#PTH$">PTH$</a> is an alternative way to get the path list.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PTH_RMV"></a>PTH_RMV</h1><br>Syntax: <span style="font-style: italic;">PTH_RMV n
+<br></span>Location: <span style="font-style: italic;">Path device
+<br></span><br>This command removes a search path from the search list and
+<br>all directories below the removed entry are moved up in the
+<br>list by one position to fill the gap. The number <span style="font-style: italic;">n</span> corresponds
+<br>to the number in the list produced by<span style="font-style: italic;"> PTH_LIST</span>.
+<br><br><h3>Example:
+<br></h3><br>Assume the following search list:
+<br><br><span style="font-style: italic;">0     flp1_
+<br><br>1     flp1_basic_
+<br><br>2     flp2_   <- to be removed
+<br><br>3     ram1_
+<br></span><span style="font-style: italic;">PTH_RMV 2
+<br></span><br>will remove entry 2 (flp2_), entry 3 will become entry 2 so
+<br><br>that the new list will be:
+<br><br><span style="font-style: italic;">0     flp1_
+<br><br>1     flp1_basic_
+<br><br>2     ram1_
+<br></span><br>The  search  list  can  be  totally  cleaned  up  with  the
+<br><br>following little procedure <span style="font-style: italic;">PTH_CLEAR</span>:
+<br><span style="font-style: italic;">10 DEFine PROCedure PTH_CLEAR
+<br>20  REPeat clean_up
+<br>30    IF PTH$(0)="" THEN EXIT clean_up
+<br>40    PTH_RMV 0
+<br>50  END REPeat clean_up
+<br>60 END DEFine PTH_CLEAR
+<br></span><br><h3>CROSS-REFERENCE:<br></h3><br>The other <a style="font-style: italic;" href="KeywordsP.html#PTH_">PTH_</a>... keywords
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PTH_USE"></a>PTH_USE</h1><br>Syntax: <span style="font-style: italic;">PTH_USE </span>[<span style="font-style: italic;">path_name</span>]
+Location: <span style="font-style: italic;">Path device
+<br></span><br>The default name used for the path device is <span style="font-style: italic;">PTH</span>. If you
+<br>don't like that, you can change it with <span style="font-style: italic;">PTH_USE</span> to any other
+<br>combination of  three letters, including existing drive names.
+<br>If no parameter is used, the default name is restored.
+<br><br><h3>Examples:
+<br></h3><span style="font-style: italic;">PTH_USE huh
+<br>PTH_USE flp
+<br>PTH_USE
+<br></span><br><h3>NOTE:
+<br></h3><br>The default name can be permanently configured with Qjump's
+<br>Config program.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsP.html#PTH_USE$">PTH_USE$</a> returns the current setting.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PTH_USE$"></a>PTH_USE$</h1><br>Syntax: <span style="font-style: italic;">PTH_USE$
+<br></span>Location: <span style="font-style: italic;">Path device
+<br></span><br>As mentioned above, the function <span style="font-style: italic;">PTH_USE$</span> gives you the name
+<br>which is used for the path device.
+<br><br><h3>Example:
+<br></h3><br><span style="font-style: italic;">PRINT PTH_USE$
+<br></span><br><h3>
+<br></h3><hr style="width: 100%; height: 2px;"><h1><a name="PTH$"></a>PTH$</h1><br>Syntax: <span style="font-style: italic;">PTH$ (n)
+<br></span>Location: <span style="font-style: italic;">Path device
+<br></span><br>The function <span style="font-style: italic;">PTH$</span> returns the <span style="font-style: italic;">n</span>th directory in the search
+<br>list of the path device.
+<br><br><h3>Examples:
+<br></h3><br>The procedure <span style="font-style: italic;">PTH_INFO</span> prints all of the current settings
+<br><br>concerning the the pth device to #1.  The function <span style="font-style: italic;">PTH_ENTRIES%
+<br></span><br>returns the number of directories in the path list.
+<br><span style="font-style: italic;">100 DEFine PROCedure PTH_INFO
+<br>110  LOCal n: n=0
+<br>120  PRINT "Path device:"!PTH_USE$
+<br>130  PRINT\"Search paths";
+<br>140  REPeat list_them
+<br>150    IF PTH$(n)="" THEN EXIT list_them
+<br>160    IF NOT n THEN PRINT
+<br>170    PRINT FILL$(" ",3-LEN(n));n;TO 5,PTH$(n)
+<br>180    n=n+1
+<br>190  END REPeat list_them
+<br>200  IF NOT n THEN PRINT " no entries"
+<br>210 END DEFine PTH_INFO
+<br>220 :
+<br>240 DEFine FuNction PTH_ENTRIES%
+<br>250  LOCal n
+<br>260  FOR n=0 TO 32767: IF PTH$(n)="" THEN EXIT n
+<br>270  RETurn n
+<br>280 END DEFine PTH_ENTRIES%
+<br></span><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsP.html#PTH_ADD">PTH_ADD</a>, <a style="font-style: italic;" href="KeywordsP.html#PTH_LIST
+">PTH_LIST
+</a><br><h3>
+<br></h3><hr style="width: 100%; height: 2px;"><h1><a name="PTR_FN%"></a>PTR_FN%</h1><br>Syntax: <span style="font-style: italic;">PTR_FN% (offset)
+<br></span>Location: <span style="font-style: italic;">KMOUSE, MOUSE (DIY Toolkit - Vol I - v2.8+)
+<br></span><br>The DIY Toolkit includes code which allows you to link a
+<br>serial mouse to the QL, similar to the commercial SERMouse
+<br>package which is packaged with SMSQ/E for the Gold Card.
+<br>Refer to the Appendix on Mice for more details.
+<br><br>The mouse is enabled with <span style="font-style: italic;">PTR_ON</span>.
+<br><br>This function can be used to read various values used by
+<br>the DIY mouse driver and which can be altered using other
+<br>commands from this toolkit.
+<br><br>The value of offset should be in the range 0...13 and
+<br>returns the following:
+<br><br>0Latest X position(Read with <span style="font-style: italic;">X_PTR%</span>)
+<br><br>1Latest Y position(Read with <span style="font-style: italic;">Y_PTR%</span>)
+<br><br>2Maximum X co-ordinate(Set with <span style="font-style: italic;">PTR_MAX</span>)
+<br><br>3Maximum Y co-ordinate(Set with <span style="font-style: italic;">PTR_MAX</span>)
+<br><br>4Step X(Set with <span style="font-style: italic;">PTR_INC</span>)
+<br><br>5Step Y(Set with <span style="font-style: italic;">PTR_INC</span>)
+<br><br>6Details of buttons pressed(Read with <span style="font-style: italic;">BUTTON%</span>)
+<br><br>7Synchronisation counter(Read with <span style="font-style: italic;">SYNCH%</span>)
+<br><br>8+9Zero, or serial channel ID
+<br><br>10Accumulated X drift
+<br><br>11Accumulated Y drift
+<br><br>12Set = cursor key emulation(Set with <span style="font-style: italic;">PTR_KEY</span>)
+<br><br>13Set = Pointer Wrap(Set with <span style="font-style: italic;">PTR_KEY</span>)
+<br><br>The Accumulated X and Y drift are counters, used by the
+<br>serial mouse driver to judge how far off the horizontal /
+<br>vertical the mouse has moved and whether to continue moving
+<br>the pointer in a straight line or to take this into account.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>For  more  details,  refer  to  the  individual  commands/
+<br>functions.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PTR_INC"></a>PTR_INC</h1><br>Syntax: <span style="font-style: italic;">PTR_INC x_step, y_step
+<br></span>Location: <span style="font-style: italic;">KMOUSE (DIY Toolkit - Vol I)
+<br></span><br>This command is only really of any use when the Cursor Key
+<br>emulation is enabled (see <span style="font-style: italic;">PTR_KEY</span>).  It allows you to set the
+<br>number of mouse pulses which are taken to correspond to moving
+<br>the cursor 1 character either in an x direction or a y
+<br>direction.
+<br><br>The two values given are normally set to 12 and 24
+<br>respectively for <span style="font-style: italic;">MODE 4</span> operation, although if this proves too
+<br>quick (especially in <span style="font-style: italic;">MODE 8</span>), you could try <span style="font-style: italic;">PTR_INC 24,24</span>.
+<br><br>The higher the values, the slower the cursor will move as
+<br>you push the mouse about the table.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsP.html#PTR_KEY">PTR_KEY</a> and also compare <a style="font-style: italic;" href="KeywordsS.html#SERMSPEED">SERMSPEED</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PTR_KEY"></a>PTR_KEY</h1><br>Syntax: <span style="font-style: italic;">PTR_KEY cursor, edge
+<br></span>Location: <span style="font-style: italic;">KMOUSE (DIY Toolkit - Vol I)
+<br></span><br>Normally DIY Toolkit's mouse driver will enable you to
+<br>control the mouse pointer on screen.  This mouse pointer is
+<br>however,  not  the  one  used  by  the  Pointer  Environment
+<br>(therefore the  mouse  cannot  be used  to  control  programs
+<br>written specifically for the Pointer Environment except in
+<br>cursor emulation mode) and you need a separate program to run
+<br>in the background which will display a symbol to show the
+<br>position of the mouse on screen.
+<br><br>However, this command allows you to specify whether the
+<br>serial mouse driver should emulate the cursor keys (instead of
+<br>the pointer), which allows it to operate software such as word
+<br>processors.  To emulate the cursor keys, <span style="font-style: italic;">cursor</span> should be 1 - to
+<br>emulate the pointer again, set <span style="font-style: italic;">cursor</span> to 0.
+<br><br>The DIY Toolkit mouse driver is actually better than the
+<br>SERMouse driver in this respect in that the mouse does not
+<br>automatically switch back into Pointer Mode when you leave the
+<br>program (see <span style="font-style: italic;">SERMCUR</span>).  Then again, you cannot switch between the
+<br>two  modes  using  the  mouse  buttons,  or  control  Pointer
+<br>Environment programs...
+<br><br>The second parameter expected by this command is used to
+<br>specify what should happen to the cursor (or pointer) at the
+<br>edge of the screen - if <span style="font-style: italic;">edge=1</span>, moving the cursor or pointer
+<br>over the edge of the screen will make it re-emerge on the
+<br>opposite edge (a wrapping effect).  <span style="font-style: italic;">edge=0</span> disables this.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsP.html#PTR_INC">PTR_INC</a> also.
+<br><br>Also see <a style="font-style: italic;" href="KeywordsP.html#PTR_ON">PTR_ON</a> and <a style="font-style: italic;" href="KeywordsS.html#SERMPTR
+">SERMPTR
+</a><br><h3>
+<br></h3><hr style="width: 100%; height: 2px;"><h1><a name="PTR_LIMITS"></a>PTR_LIMITS</h1><br>Syntax: <span style="font-style: italic;">PTR_LIMITS minx, miny, maxx, maxy
+<br></span>Location: <span style="font-style: italic;">KMOUSE, MOUSE (DIY Toolkit - Vol I), Amiga QDOS
+<br>(v3.20+)
+<br></span><br>This command is used to set the limits of the screen over
+<br>which the mouse pointer can be moved using the mouse.  The
+<br>command expects four parameters, the minimum x and y co-
+<br>ordinates and the maximum x and y co-ordinates.
+<br><br>For a standard QL, you would normally set these values
+<br>with:
+<br><br><span style="font-style: italic;">PTR_LIMITS 0,0,511,255
+<br></span><br>However, on larger resolution displays, larger limits will
+<br>be needed.
+<br><br>On the DIY Toolkit variant, the first two limits are
+<br>ignored (they are always taken to be zero).  The maximum co-
+<br>ordinates should be in pixel sizes and can be any positive
+<br>number up to 32767.
+<br><br>On Amiga QDOS, negative numbers can be used, but to retain
+<br>compatability, the first two parameters should be zero.
+<br><br>Having set these parameters, once the mouse pointer has
+<br>reached this position on screen then what happens depends on
+<br>whether the wrap-around display mode has been enabled with
+<br><span style="font-style: italic;">PTR_KEY 0,1</span> or <span style="font-style: italic;">PTR_KEY 1,1</span> (or not).  If it has been disabled, then
+<br>the mouse pointer will move no further.  If it has been
+<br>enabled, then the mouse pointer will appear at the other
+<br>extreme limit.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsP.html#PTR_POS">PTR_POS</a> can be used to dictate where the mouse pointer should
+<br>appear on screen.
+<br><br>This command only calls <a style="font-style: italic;" href="KeywordsP.html#PTR_MAX">PTR_MAX</a> on the DIY implementation.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PTR_MAX"></a>PTR_MAX</h1><br>Syntax: <span style="font-style: italic;">PTR_MAX maxx, maxy
+<br></span>Location: <span style="font-style: italic;">KMOUSE, MOUSE (DIY Toolkit - Vol I), Amiga QDOS
+<br>v3.20+
+<br></span><br>This command is the same as:
+<br><br><span style="font-style: italic;">PTR_LIMITS 0,0,maxx,maxy
+<br></span><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsP.html#PTR_LIMITS">PTR_LIMITS</a>!
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PTR_OFF"></a>PTR_OFF</h1><br>Syntax: <span style="font-style: italic;">PTR_OFF
+<br></span>Location: <span style="font-style: italic;">KMOUSE, MOUSE (DIY Toolkit - Vol I), Amiga QDOS
+<br>v3.20+
+<br></span><br>This command switches off the mouse driver, releasing
+<br>memory which is used by it for temporary shortage.
+<br><br><span style="font-style: italic;">PTR_ON</span> switches the driver back on.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>This is similar to <a style="font-style: italic;" href="KeywordsS.html#SERMOFF">SERMOFF</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PTR_ON"></a>PTR_ON</h1><br>Syntax: <span style="font-style: italic;">PTR_ON
+<br></span>Location: <span style="font-style: italic;">KMOUSE, MOUSE (DIY Toolkit - Vol I), Amiga QDOS
+<br>v3.20+
+<br></span><br>This command enables the mouse driver after it has been
+<br>loaded or after it has been disabled with <span style="font-style: italic;">PTR_OFF</span>.
+<br><br>All of the mouse settings are reset to the defaults (set
+<br>when the files were originally assembled) and the pointer is
+<br>positioned in the top left corner of the screen (position
+<br>0,0).
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>You can re-position the mouse with <a style="font-style: italic;" href="KeywordsP.html#PTR_POS">PTR_POS</a>.
+<br><br>See <a style="font-style: italic;" href="KeywordsS.html#SERMON">SERMON</a> and <a style="font-style: italic;" href="KeywordsP.html#PTR_OFF">PTR_OFF</a>.
+<br><br><a style="font-style: italic;" href="KeywordsP.html#PTR_INC">PTR_INC</a>, <a style="font-style: italic;" href="KeywordsP.html#PTR_KEY">PTR_KEY</a> and <a style="font-style: italic;" href="KeywordsP.html#PTR_MAX">PTR_MAX</a> are also needed to set various
+<br>parameters on start-up.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PTR_POS"></a>PTR_POS</h1><br>Syntax: <span style="font-style: italic;">PTR_POS x,y
+<br></span>Location: <span style="font-style: italic;">KMOUSE, MOUSE (DIY Toolkit - Vol I), Amiga QDOS
+<br>v3.20+
+<br></span><br>This command can be used to set the initial position of the
+<br>mouse pointer on screen - it is normally located at 0,0 (the
+<br>top left hand corner of the screen).  You can however use this
+<br>command  to  set  it  to  the  specified  absolute  pixel  co-
+<br>ordinates, which must be within the area defined with the
+<br><span style="font-style: italic;">PTR_LIMITS</span> command.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsP.html#PTR_LIMITS">PTR_LIMITS</a> and <a style="font-style: italic;" href="KeywordsP.html#PTR_ON">PTR_ON</a>.
+<br><br>The pointer position can be read with <a style="font-style: italic;" href="KeywordsX.html#X_PTR%">X_PTR%</a>, <a style="font-style: italic;" href="KeywordsY.html#Y_PTR%">Y_PTR%</a> and <a style="font-style: italic;" href="KeywordsP.html#PTR_FN%.
+">PTR_FN%.
+</a><hr style="width: 100%; height: 2px;"><h1><a name="PTR_X"></a>PTR_X</h1><br>Syntax: <span style="font-style: italic;">PTR_X (argument, module)
+<br></span>Location: <span style="font-style: italic;">PTRRTP
+<br></span><br>The function <span style="font-style: italic;">PTR_X</span> transforms a point (described in polar
+<br>co-ordinates) into the rectangular co-ordinates and returns
+<br>the real part of the latter.  <span style="font-style: italic;">argument</span> is an angle in radians,
+<br><span style="font-style: italic;">module</span> a radius.
+<br><br><h3>Example:
+<br></h3><br>A line in rectangular co-ordinates transformed to polar co-
+<br><br>ordinates looks like a circle when plotted on screen.
+<br><br>However, if you were to look at this line using polar
+<br><br>co-ordinates, it would appear as straight line again.
+<br><br>Confused?
+<br><span style="font-style: italic;">100 SCALE 10,-5,-5: PAPER 0: CLS
+<br>110 FOR a = 0 TO 2*PI STEP PI/128
+<br>120   POINT PTR_X(a,2), PTR_Y(a,2)
+<br>130 END FOR a
+<br></span><br><h3>CROSS-REFERENCE:<br></h3><br>The other rectangular co-ordinate is found with <a style="font-style: italic;" href="KeywordsP.html#PTR_Y">PTR_Y</a> below.
+<br><br>Also see <a style="font-style: italic;" href="KeywordsR.html#RTP_R">RTP_R</a> and <a style="font-style: italic;" href="KeywordsR.html#RTP_T
+">RTP_T
+</a><hr style="width: 100%; height: 2px;"><h1><a name="PTR_Y"></a>PTR_Y</h1><br>Syntax: <span style="font-style: italic;">PTR_Y (argument, module)
+<br></span>Location: <span style="font-style: italic;">PTRRTP
+<br></span><br>This function is very similar to <span style="font-style: italic;">PTR_X</span> but this time the
+<br>imaginary part is returned.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PURGE"></a>PURGE</h1><br>Syntax: <span style="font-style: italic;">PURGE
+<br></span>Location: <span style="font-style: italic;">CONTROL (DIY Toolkit Vol E)
+<br></span><br>The command <span style="font-style: italic;">PURGE</span> has the same (fatal) effect as <span style="font-style: italic;">KILL</span> or <span style="font-style: italic;">KJOBS</span>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PUT"></a>PUT</h1><br>Syntax: <span style="font-style: italic;">PUT </span>[<span style="font-style: italic;">#channel</span>\<span style="font-style: italic;">file_position,</span>] [<span style="font-style: italic;">item</span><sup>1</sup> <sup>*</sup>[<span style="font-style: italic;">,item</span><sup>i</sup>]<sup>*</sup> ...]
+<br><br>or <span style="font-style: italic;">PUT </span>[<span style="font-style: italic;">#channel,</span>] [<span style="font-style: italic;">item</span><sup>1</sup> <sup>*</sup>[<span style="font-style: italic;">,item</span><sup>i</sup>]<sup>*</sup> ...]
+Location: <span style="font-style: italic;">Toolkit II, THOR XVI
+<br></span><br>This command forms the complement to <span style="font-style: italic;">GET</span> and allows you to
+<br>store variables in the specified channel (default #3) in the
+<br>QL's internal format. The variables are stored at the current
+<br>position in the file (or the <span style="font-style: italic;">file_position</span> given with the command,
+<br>if the first variant is used). If you provide more than one
+<br>variable name as the second, third parameter etc, then several
+<br>variables will be stored in the file in one go.
+<br><br>If no variable is specified, the file pointer will be set
+<br>to the specified position if the first variant is used. If the
+<br>second variant is used, this will have no effect.
+<br><br>If a variable is given as the file pointer, then this
+<br>variable will be updated with the current file position once
+<br><span style="font-style: italic;">PUT</span> has finished its work.
+<br><br><span style="font-style: italic;">PUT</span> can actually be used to store variables in a different
+<br>type to their current use (this might, for example, be useful
+<br>if storing part of a string), by adding the following suffixes
+<br>to each item:
+<br><br>...+0Force floating point type (see note 2 below!)
+<br><br>...&''Force string type
+<br><br>...||0Force integer type
+<br><br><h3>Example:
+<br></h3><span style="font-style: italic;">a$='Entry 123':PUT #3,a$,a$(7 TO) || 0
+<br></span><br>will store in channel #3 two bytes giving the length of the
+<br><br>string a$, followed by the characters of the string itself,
+<br><br>followed by two bytes representing the integer value 123
+<br><br>(ie. 0*256+123).
+<br><br><h3>NOTE 1:
+<br></h3><br>On version 2.09 (or earlier) of Toolkit II, <span style="font-style: italic;">PUT</span> could cause
+<br>problems when used on a channel opened over the network.
+<br><br><h3>NOTE 2:
+<br></h3><br>Although <span style="font-style: italic;">PUT</span> can convert variable types as above, if integer
+<br>tokenisation is enabled on Minerva, then <span style="font-style: italic;">PUT x%+0</span> will not work.
+<br>You need to use something such as <span style="font-style: italic;">PUT x%+1e-555</span> instead.
+<br><br><h3>NOTE 3:
+<br></h3><br>Whenever storing data on disk, it is always preferable to
+<br>store it in its internal format (unless it is to be read on
+<br>other systems as well). Internal storage is  faster because
+<br>conversion between internal and readable format is no longer
+<br>necessary. It also produces  shorter files since the internal
+<br>format needs less space and for floating point numbers, the
+<br>internal format gives the greatest possible accuracy.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsP.html#PUT">PUT</a>, <a style="font-style: italic;" href="KeywordsB.html#BPUT">BPUT</a>, <a style="font-style: italic;" href="KeywordsW.html#WPUT">WPUT</a>, <a style="font-style: italic;" href="KeywordsL.html#LPUT">LPUT</a>, <a style="font-style: italic;" href="KeywordsU.html#UPUT">UPUT</a> and <a style="font-style: italic;" href="KeywordsG.html#GET">GET</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PXOFF"></a>PXOFF</h1><br>Syntax: <span style="font-style: italic;">PXOFF
+<br></span>Location: <span style="font-style: italic;">PEX
+<br></span><br>This command is the same as <span style="font-style: italic;">PIE_EX_OFF</span> except for the PEX
+<br>system extension - it disables PEX for SD.EXTOP system calls,
+<br>so that they are trapped by the Pointer Environment.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsP.html#PXON ">PXON </a>and<a style="font-style: italic;" href="KeywordsP.html#PEON">PEON</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PXON"></a>PXON</h1><br>Syntax: <span style="font-style: italic;">PXON
+<br></span>Location: <span style="font-style: italic;">PEX
+<br></span><br>This command is the same as <span style="font-style: italic;">PIE_EX_ON</span> except for the PEX
+<br>system extension - it enables PEX for SD.EXTOP system calls,
+<br>so that they can work in the background.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsP.html#PXOFF ">PXOFF </a>and<a style="font-style: italic;" href="KeywordsP.html#PEON">PEON</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="PX1ST"></a>PX1ST</h1><br>Syntax: <span style="font-style: italic;">PX1ST </span>[{ <span style="font-style: italic;">flag</span> }]
+Location: <span style="font-style: italic;">PEX
+<br></span><br>This function can be used to determine whether <span style="font-style: italic;">IS_PTRAP</span> has
+<br>been used to dictate that any screen operations should just be
+<br>ignored (this is the default under PEX on JS and MG ROMs).  If
+<br>the value returned is 0, then (providing that you do not have
+<br>a JS or MG ROM), PEX may be allowing background screen access.
+<br>If the value is not 0, then screen operations are merely
+<br>ignored by the operating system (and therefore the display is
+<br>not affected).
+<br><br>If you use this function to pass a parameter, then if the
+<br>parameter is 0, then screen operations will not be ignored and
+<br>whether they cause a Buried program to halt will depend on
+<br>whether PEX is active.  If you pass a non-zero parameter, then
+<br>any screen operations will be ignored.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsP.html#PEON">PEON</a> and in particular, refer to <a style="font-style: italic;" href="KeywordsI.html#IS_PTRAP">IS_PTRAP</a> for more details.
+<br>See also <a style="font-style: italic;" href="KeywordsI.html#IS_PEON">IS_PEON</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="P_ENV"></a>P_ENV</h1><br>Syntax: <span style="font-style: italic;">P_ENV (#ch)
+<br></span>Location: <span style="font-style: italic;">MULTI
+<br></span><br>This function detects whether the given channel is running
+<br>under the Pointer Environment and returns:
+<br><br>0if the Pointer Environment is not connected to
+<br>that channel, or no parameter was used, or <span style="font-style: italic;">#ch</span> is
+<br>not a screen channel; or
+<br><br>1if the Pointer Interface (ptr_gen) is active in
+<br>that channel; or
+<br><br>2if the Pointer Interface and the Window Manager
+<br>(wman) are present for that channel.
+<br><br><h3>Example:
+<br></h3><br>All programs which need the Pointer Environment to work,
+<br><br>should check to see if it is present. This short program
+<br><br>does so:
+<br><span style="font-style: italic;">100 ch=FOPEN(con_2x2a0x0): p=P_ENV(#ch): CLOSE#ch
+<br>110 IF p<2 THEN
+<br>120   PRINT "This program does not run without the P.E.,"
+<br>130   PRINT "so program execution has to stop here."
+<br>140   PRINT "  Press any key...": PAUSE 400
+<br>150   STOP
+<br>160 END IF
+<br></span><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsW.html#WMAN$">WMAN$</a> finds the version of the Window Manager and <a style="font-style: italic;" href="KeywordsQ.html#QRAM$">QRAM$</a> the
+<br>version of the Pointer Interface. These functions can also be
+<br>used  to  detect  the  presence  of  the  Pointer  Environment
+<br>(=Window Manager & Pointer Interface).
+<br></div>
+</body>
+</html>

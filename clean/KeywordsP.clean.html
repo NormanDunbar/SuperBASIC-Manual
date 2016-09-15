@@ -1,0 +1,4324 @@
+    
+<H1><A name="PAGDIS" id="PAGDIS"></A>PAGDIS</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PAGDIS (lines)</SPAN> <SPAN style="font-style: italic;">lines=0..127<BR></SPAN> Location: <SPAN style="font-style: italic;">Beuletools<BR></SPAN>
+    This function returns the printer control codes needed to
+    set the length of the page header when sent to EPSON
+    compatible printers. <SPAN style="font-style: italic;">PRINT PAGDIS (lines)</SPAN> is equivalent to:
+    
+    <SPAN style="font-style: italic;">PRINT CHR$(27) &amp; CHR$(78) &amp; CHR$(lines)<BR></SPAN>
+    
+<H3>Example:</H3>
+
+<P>
+    To set the header to three lines:
+    
+    <SPAN style="font-style: italic;">OPEN #3,ser1:PRINT #3,PAGDIS(3):CLOSE#3<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsP.html#PAGLIN">PAGLIN</A>, <A style="font-style: italic;" href="KeywordsP.html#PAGLEN">PAGLEN</A>, <A style="font-style: italic;" href="KeywordsL.html#LMAR">LMAR</A>, <A style="font-style: italic;" href="KeywordsR.html#RMAR">RMAR</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PAGLEN" id="PAGLEN"></A>PAGLEN</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PAGLEN (inches)</SPAN> <SPAN style="font-style: italic;">inches=0..22<BR></SPAN> Location: <SPAN style="font-style: italic;">Beuletools<BR></SPAN>
+    This function returns the control codes needed to set the
+    length of a page (in inches) when sent to EPSON compatible
+    printers. This is normally 12". The function is equivalent
+    to:
+    
+    <SPAN style="font-style: italic;">CHR$(27)&amp;'C'&amp;CHR$(0)&amp;CHR$(inches)<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsP.html#PAGDIS">PAGDIS</A>, <A style="font-style: italic;" href="KeywordsP.html#PAGLIN">PAGLIN</A>, <A style="font-style: italic;" href="KeywordsL.html#LMAR">LMAR</A>, <A style="font-style: italic;" href="KeywordsR.html#RMAR">RMAR</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PAGLIN" id="PAGLIN"></A>PAGLIN</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PAGLIN (lines)</SPAN> <SPAN style="font-style: italic;">lines=0..127<BR></SPAN> Location: <SPAN style="font-style: italic;">Beuletools<BR></SPAN>
+    This function returns the control codes needed to set the
+    length of a page (in lines) when sent to EPSON or compatible
+    printers. This is normally either 66 or 72 lines.
+    
+    <SPAN style="font-style: italic;">PRINT PAGLIN (lines)<BR></SPAN>
+    is the same as:
+    
+    <SPAN style="font-style: italic;">PRINT CHR$(27)&amp;'C'&amp;CHR$(lines)<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsP.html#PAGDIS">PAGDIS</A>, <A style="font-style: italic;" href="KeywordsP.html#PAGLEN">PAGLEN</A>, <A style="font-style: italic;" href="KeywordsL.html#LMAR">LMAR</A>, <A style="font-style: italic;" href="KeywordsR.html#RMAR">RMAR</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PAINT" id="PAINT"></A>PAINT</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PAINT x, y, col, bufadr, buflen<BR></SPAN> Location: <SPAN style="font-style: italic;">HCO<BR></SPAN>
+    The command <SPAN style="font-style: italic;">PAINT</SPAN> addresses the screen directly and fills a
+    closed figure with the colour <SPAN style="font-style: italic;">col</SPAN> (which must be in the range
+    0..4, see <SPAN style="font-style: italic;">SET</SPAN>). The command requires a buffer of at least 4K
+    whose start address is passed to <SPAN style="font-style: italic;">PAINT</SPAN> as <SPAN style="font-style: italic;">bufadr</SPAN> and whose length
+    as <SPAN style="font-style: italic;">buflen</SPAN> (which must be a minimum of 4096 bytes). The larger
+    the buffer, the better, but very large buffers (say, 100K)
+    seem to confuse <SPAN style="font-style: italic;">PAINT</SPAN> and will make it stop before it has
+    finished - therefore keep the buffer below 32K.
+    
+    
+<H3>Example 1:</H3>
+
+<P>
+    Random drawing:
+    <SPAN style="font-style: italic;">100 WINDOW 512,256,0,0: BORDER 1,3: PAPER 0: CLS
+    110 buflen = 10240
+    120 :
+    130 FOR i = 1 TO 15
+    140 LDRAW RND(511),RND(255) TO RND(511),RND(255), 3
+    150 END FOR i
+    160 :
+    170 buffer = ALCHP(buflen)
+    180 PAINT RND(1 TO 510), RND(1 TO 255), 2, buffer, buflen
+    190 RECHP buffer<BR></SPAN>
+    
+<H3>Example 2:</H3>
+
+<P>
+    A spectacular crash(!):
+    <SPAN style="font-style: italic;">PAINT 50,50,4,131072,32768<BR></SPAN>
+    
+<H3>WARNING 1:</H3>
+
+<P>
+    See those at <SPAN style="font-style: italic;">SET</SPAN>.
+    
+    
+<H3>WARNING 2:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">PAINT</SPAN> will crash the machine if it runs out of the screen,
+    so you have to ensure that the figure to be filled is closed.
+    Another means of protection is to use a <SPAN style="font-style: italic;">BORDER</SPAN>, as in the
+    example.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsF.html#FILL">FILL</A>, <A style="font-style: italic;" href="KeywordsS.html#SET">SET</A>, <A style="font-style: italic;" href="KeywordsL.html#LDRAW">LDRAW</A>
+    
+<H3></H3>
+
+<P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PALETTE_QL" id="PALETTE_QL"></A>PALETTE_QL</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PALETTE_QL</SPAN> [<SPAN style="font-style: italic;">#ch,</SPAN>] <SPAN style="font-style: italic;">start, true_colour1</SPAN> *[<SPAN style="font-style: italic;">,true_colourx</SPAN>]* Location: <SPAN style="font-style: italic;">SMSQ/E v2.98+<BR></SPAN>
+    This command allows you to redefine the eight colours used
+    by the Extended Colour Drivers to display <SPAN style="font-style: italic;">COLOUR_QL</SPAN>.
+    
+    A valid window channel must be open, default #1 (or #0 on a
+    SBASIC with only #0 open), although one may also be supplied
+    as <SPAN style="font-style: italic;">#ch</SPAN>. <SPAN style="font-style: italic;">start</SPAN> is the number of the first colour to change,
+    followed by each of the new colours described in 24 Bit Colour
+    Mode.
+    
+    On hardware with a true palette map (most PCs), this
+    command will affect all programs, including information
+    already displayed on screen. However, on all other hardware,
+    most notably the Q40 and Q60, existing information will remain
+    unaffected.
+    
+    
+<H3>Example 1:</H3>
+
+<P><SPAN style="font-style: italic;">PALETTE_QL 4,$FFB6DB</SPAN> makes the computer use PINK instead of
+    GREEN when <SPAN style="font-style: italic;">INK 4</SPAN> (QL Colour Value) is
+    used within a program.
+    <SPAN style="font-style: italic;">PALETTE_QL 5,$B6FFFF,$929200</SPAN>will change <SPAN style="font-style: italic;">INK 5</SPAN> to Light Blue
+    (from Cyan) and <SPAN style="font-style: italic;">INK 6</SPAN> to Mustard (from
+    Yellow).
+    
+    
+<H3>Example 2:</H3>
+
+<P>
+    Many programs written with <SPAN style="font-style: italic;">MODE 4</SPAN> in mind, presume that <SPAN style="font-style: italic;">INK 3<BR></SPAN> is the same as <SPAN style="font-style: italic;">INK 2</SPAN> (for example). However, under <SPAN style="font-style: italic;">COLOUR_QL</SPAN>, even
+    <SPAN style="font-style: italic;">MODE 4</SPAN> programs can access the standard <SPAN style="font-style: italic;">MODE 8</SPAN> colours, therefore
+    <SPAN style="font-style: italic;">INK 3</SPAN> becomes MAGENTA.
+    
+    To overcome this problem, use the following routine:
+    
+    <SPAN style="font-style: italic;">100 red=255*65536+100:REMark $FF0064 - red and a bit of blue
+    
+    110 blue=255*256+155:REMark $00FF9B - green and the rest of blue
+    
+    120 white=blue+red:REMark $FFFFFF
+    
+    125 REMark - Now change all 8 colours, starting at INK 0
+    
+    130 PALETTE_QL 0,0,0,red,red,blue,blue,white,white
+    <BR></SPAN>
+    
+<H3>NOTE:</H3>
+
+<P><SPAN style="font-style: italic;"><BR></SPAN>The problem with using 24 bit values is that they have to
+    be trimmed to fit into the native colour scheme on the
+    computer in use - as a result, although the same 24 bit colour
+    value is specified, the resultant colour will be slightly
+    different on QPC, Q40 and Aurora.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsC.html#COLOUR_QL">COLOUR_QL</A>, <A style="font-style: italic;" href="KeywordsI.html#INK">INK</A>, <A style="font-style: italic;" href="KeywordsP.html#PALETTE_8">PALETTE_8</A>
+    Also refer to Appendix 16 which lists the first 256 24 Bit
+    Colours.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PALETTE_8" id="PALETTE_8"></A>PALETTE_8</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PALETTE_8</SPAN> [<SPAN style="font-style: italic;">#ch,</SPAN>] <SPAN style="font-style: italic;">start, true_colour1</SPAN> *[<SPAN style="font-style: italic;">,true_colourx</SPAN>]* Location: <SPAN style="font-style: italic;">SMSQ/E v2.98+<BR></SPAN>
+    This command is similar to <SPAN style="font-style: italic;">PALETTE_QL</SPAN>, except that it allows
+    you to redefine all 256 colours available under <SPAN style="font-style: italic;">COLOUR_PAL</SPAN>.
+    
+    As with <SPAN style="font-style: italic;">PALETTE_QL</SPAN>, <SPAN style="font-style: italic;">start</SPAN> is the number of the first colour to
+    change, followed by each of the new colours described in 24
+    Bit Colour Mode. A valid window channel must also be open,
+    default #1 (or #0 on a SBASIC with only #0 open), although one
+    may also be supplied as <SPAN style="font-style: italic;">#ch</SPAN>.
+    
+    On hardware with a true palette map (most PCs), this
+    command will affect all programs, including information
+    already displayed on screen. However, on all other hardware,
+    most notably the Q40 and Q60, existing information will remain
+    unaffected.
+    
+    
+<H3>Examples:</H3>
+
+<P><SPAN style="font-style: italic;">PALETTE_8 4,$FFB6DB</SPAN> makes the computer use PINK, instead of
+    BLUE when <SPAN style="font-style: italic;">INK 4</SPAN> (PAL Colour Value) is
+    used within a program.
+    <SPAN style="font-style: italic;">PALETTE_8 5,$B6FFFF$929200</SPAN>will change <SPAN style="font-style: italic;">INK 5</SPAN> to Light Blue
+    (from Magenta) and <SPAN style="font-style: italic;">INK 6</SPAN> to Mustard (from
+    Yellow).
+    <SPAN style="font-style: italic;"><BR></SPAN>
+    
+<H3>NOTE 1:</H3>
+
+<P><SPAN style="font-style: italic;"><BR></SPAN>This command will not have any effect on Aurora, which
+    only provides 256 colours to choose from. It may therefore
+    not be implemented on the Aurora version of SMSQ/E.
+    
+    
+<H3>NOTE 2:</H3>
+
+<P><SPAN style="font-style: italic;"><BR></SPAN>The problem with using 24 bit values is that they have to
+    be trimmed to fit into the native colour scheme on the
+    computer in use - as a result, although the same 24 bit colour
+    value is specified, the resultant colour will be slightly
+    different on QPC and Q40.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsP.html#PALETTE_QL">PALETTE_QL</A> and <A style="font-style: italic;" href="KeywordsC.html#COLOUR_PAL">COLOUR_PAL</A> for more details.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PAN" id="PAN"></A>PAN</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PAN</SPAN> [<SPAN style="font-style: italic;">#ch,</SPAN>] <SPAN style="font-style: italic;">distance</SPAN> [<SPAN style="font-style: italic;">,area</SPAN>] Location: <SPAN style="font-style: italic;">QL ROM<BR></SPAN>
+    This command is very similar to <SPAN style="font-style: italic;">SCROLL</SPAN> except that this
+    enables you to move a window left and right as opposed to up
+    and down.
+    
+    In its most simple form, <SPAN style="font-style: italic;">PAN</SPAN> allows you to move the
+    specified window (default #1) a given number of pixels
+    sideways. If a positive value for the <SPAN style="font-style: italic;">distance</SPAN> is given, the
+    window will move to the right, whereas a negative <SPAN style="font-style: italic;">distance</SPAN> will
+    move the window to the left. Again, as with <SPAN style="font-style: italic;">SCROLL</SPAN>, the gap left
+    behind from the move will be coloured in the current <SPAN style="font-style: italic;">PAPER<BR></SPAN> colour, and any contents of the window moved off the screen
+    will be lost.
+    
+    The additional parameter allowed by <SPAN style="font-style: italic;">PAN</SPAN> lets you specify an
+    area of the given window to be moved. This can have one of the
+    following values:
+    
+    
+<H3><SPAN style="font-style: italic;">area</SPAN>Effect</H3>
+
+<P>
+    0This moves the whole window (this is the default).
+    
+    3This moves the whole of the text cursor line.
+    
+    4This moves everything on the text cursor line to the
+    right of the cursor (including the character under the
+    cursor).
+    
+    
+<H3>Example:</H3>
+
+<P>
+    A short procedure to scroll a given text message across the
+    
+    screen:
+    <SPAN style="font-style: italic;">100 DEFine PROCedure SCROLL_TEXT(line$)
+    110 LOCal l$,loop
+    120 l$=line$
+    130 OPEN #3,scr_448x10a32x246
+    140 PAPER#3,2:INK#3,0:CSIZE#3,1,0:CLS#3
+    150 AT #3,0,0:PRINT#3,'INCOMING MESSAGE:'
+    160 INK#3,7
+    170 REPeat loop
+    180 IF LEN(l$)=0:EXIT loop
+    190 AT #3,0,55:PRINT#3,l$(1)
+    200 BEEP 100,10
+    210 IF LEN(l$)&lt;=1:EXIT loop
+    220 l$=l$(2 TO)
+    230 AT #3,0,18:PAN #3,-8,4
+    240 PAUSE 30
+    250 END REPeat loop
+    260 END DEFine<BR></SPAN>
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    In low-resolution mode (8 or 12), the distance will always
+    be rounded down to an even number of pixels.
+    
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    As with <SPAN style="font-style: italic;">SCROLL</SPAN>, odd values for area and distance allow you to
+    access machine code routines (unless you have a THOR XVI, SMS,
+    or Minerva ROM (v1.63 or v1.64).
+    
+    To access these machine code routines, take the TRAP #3
+    value for D0 and deduct 27. If the figure is less than 27,
+    then take the negative result and add to 128. For example, <SPAN style="font-style: italic;">PAN
+    0,115</SPAN> turns on cursor in #1 (TRAP #3,D0=$E).
+    
+    This is in fact more useful than <SPAN style="font-style: italic;">SCROLL</SPAN> or <SPAN style="font-style: italic;">CLS</SPAN> as <SPAN style="font-style: italic;">area</SPAN> can be
+    used to pass a parameter to D1, thus allowing you for example,
+    to access IOF.POSR - use <SPAN style="font-style: italic;">PAN #3,n%,40</SPAN> - to move the file pointer.
+    
+    
+<H3>NOTE 3:</H3>
+
+<P>
+    On pre MG ROMs, this command may fail if the window is
+    smaller than the cursor.
+    
+    
+<H3>NOTE 4:</H3>
+
+<P>
+    On SMSQ/E pre v2.88, <SPAN style="font-style: italic;">PAN</SPAN> in <SPAN style="font-style: italic;">MODE 8</SPAN> could ruin the screen
+    display if an odd parameter was specified, since SMSQ/E tried
+    to move the screen by an odd number of pixels (not supported
+    in <SPAN style="font-style: italic;">MODE 8</SPAN>). Although annoying, this only had small effects.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    Also please see <A style="font-style: italic;" href="KeywordsS.html#SCROLL">SCROLL</A> and <A style="font-style: italic;" href="KeywordsP.html#PAPER">PAPER</A>.
+    
+    THORs allow you to use <A style="font-style: italic;" href="KeywordsI.html#IO_TRAP">IO_TRAP</A> to access additional system
+    calls.
+    
+    Most system calls can be accessed using Toolkit II in any
+    event. Otherwise, see <A style="font-style: italic;" href="KeywordsB.html#BTRAP">BTRAP</A>, <A style="font-style: italic;" href="KeywordsQ.html#QTRAP">QTRAP</A>, <A style="font-style: italic;" href="KeywordsT.html#TTET3">TTET3</A> and <A style="font-style: italic;" href="KeywordsM.html#MTRAP">MTRAP</A>.
+    
+    The QDOS/SMS Reference Manual Section 15 contains full
+    details of the TRAP #3 calls.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PAPER" id="PAPER"></A>PAPER</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PAPER</SPAN> [<SPAN style="font-style: italic;">#window,</SPAN>] <SPAN style="font-style: italic;">colour<BR></SPAN>
+    or <SPAN style="font-style: italic;">PAPER</SPAN> [<SPAN style="font-style: italic;">#window,</SPAN>] <SPAN style="font-style: italic;">colour1,colour2</SPAN> [<SPAN style="font-style: italic;">,pattern</SPAN>] Location: <SPAN style="font-style: italic;">QL ROM<BR></SPAN>
+    This command sets the background colour inside a window
+    (default #1). Characters printed to that window will be
+    written with the <SPAN style="font-style: italic;">PAPER</SPAN> <SPAN style="font-style: italic;">colour</SPAN> as a background unless another
+    colour has been specified with <SPAN style="font-style: italic;">STRIP</SPAN>.
+    
+    
+<H3>Example:</H3>
+
+<P><SPAN style="font-style: italic;">100 OPEN#3,scr_512x256a0x0
+    110 REPeat forever
+    120 FOR c=0 TO 7
+    130 BORDER#3,RND(100)
+    140 PAPER#3,c
+    150 CLS#3
+    160 END FOR c
+    170 END REPeat forever<BR></SPAN>
+    
+<H3>NOTE:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">PAPER</SPAN> also resets the <SPAN style="font-style: italic;">STRIP</SPAN> to the specified <SPAN style="font-style: italic;">colour</SPAN>.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsI.html#INK">INK</A> sets the foreground colour and <A style="font-style: italic;" href="KeywordsS.html#STRIP">STRIP</A> the background for
+    characters only.
+    
+    <A style="font-style: italic;" href="KeywordsC.html#CLS">CLS</A> clears a window in the current paper colour.
+    
+    See <A style="font-style: italic;" href="KeywordsI.html#INK">INK</A> concerning colour in general.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PARHASH" id="PARHASH"></A>PARHASH</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PARHASH (parameter)<BR></SPAN> Location: <SPAN style="font-style: italic;">PARAMS (DIY Toolkit - Vol P)<BR></SPAN>
+    This is an addition to the normal <SPAN style="font-style: italic;">PARUSE</SPAN> and <SPAN style="font-style: italic;">PARNAM$</SPAN> functions
+    which allows you to check whether a value passed as a
+    parameter to a SuperBASIC <SPAN style="font-style: italic;">PROCedure</SPAN> or <SPAN style="font-style: italic;">FuNction</SPAN> was preceded by a
+    hash or not.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    The following <SPAN style="font-style: italic;">PROCedure</SPAN> allows you to create a CAT command
+    which is similar to <SPAN style="font-style: italic;">DIR</SPAN>, allowing you to use the syntax:
+    
+    <SPAN style="font-style: italic;">CAT #channel</SPAN> [<SPAN style="font-style: italic;">,device</SPAN>]
+    
+    or
+    
+    <SPAN style="font-style: italic;">CAT</SPAN> [<SPAN style="font-style: italic;">#channel,</SPAN>] [<SPAN style="font-style: italic;">device</SPAN>]
+    
+    to read a directory. If <SPAN style="font-style: italic;">device</SPAN> is not specified, then a
+    directory of the default data device is produced. If a
+    channel is not specified, then #1 will be used. The <SPAN style="font-style: italic;">device</SPAN> can
+    be in quotes or not if you prefer. The following can
+    therefore all be used:
+    
+    <SPAN style="font-style: italic;">CAT #2
+    
+    CAT
+    
+    CAT flp1_
+    
+    CAT #3,'win1_'<BR></SPAN> <SPAN style="font-style: italic;">100 DEFine PROCedure CAT (ch,direct)
+    110 LOCal dir_ch,sepa%,hash%
+    112 hash%=PARHASH(ch): sepa%=PARSEPA(ch)
+    120 IF sepa%&gt;0
+    130 file$=PARSTR$(direct,2)
+    140 ELSE
+    150 IF hash%
+    160 file$=DATAD$
+    170 ELSE
+    180 file$=PARSTR$(ch,1):ch=1
+    185 IF file$='': file$=DATAD$
+    187 END IF
+    190 END IF
+    200 dir_ch=FOP_DIR(file$)
+    210 IF dir_ch&lt;0: PRINT #0,'CANNOT ACCESS DIRECTORY ON ';file$:RETurn
+    220 CLOSE #dir_ch
+    230 DIR #ch,file$
+    250 END DEFine<BR></SPAN>
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    There is a problem with this function that prevents the
+    above example from working under SMS - once either <SPAN style="font-style: italic;">PARHASH</SPAN> or
+    <SPAN style="font-style: italic;">PARSEPA</SPAN> have been used once on a parameter, they will not work
+    again!! For example, try adding the following lines to the
+    above and compare the results:
+    <SPAN style="font-style: italic;">116 PRINT PARHASH(ch), PARSEPA(direct), PARNAME$(2), PARTYP(ch), PARTYPE(direct)
+    117 PRINT PARHASH(ch), PARSEPA(direct), PARNAME$(2), PARTYP(ch), PARTYPE(direct)
+    118 STOP<BR></SPAN>
+    
+<H3></H3>
+
+<P>
+    
+<H3>NOTE 2:
+    </H3>
+
+<P>TURBO and SuperCHARGE cannot compile programs which use
+    <SPAN style="font-style: italic;">PARHASH</SPAN>.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsP.html#PARTYP">PARTYP</A>E, <A style="font-style: italic;" href="KeywordsU.html#UNSET">UNSET</A> and <A style="font-style: italic;" href="KeywordsP.html#PARNAME$">PARNAME$</A> are also added by this toolkit.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PARNAM$" id="PARNAM$"></A>PARNAM$</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PARNAM$ (number)<BR></SPAN> Location: <SPAN style="font-style: italic;">Toolkit II<BR></SPAN>
+    This function can be used to find the name of an actual
+    parameter passed to a SuperBASIC <SPAN style="font-style: italic;">PROCedure</SPAN> or <SPAN style="font-style: italic;">FuNction</SPAN>. You merely
+    need to supply the <SPAN style="font-style: italic;">number</SPAN> of the parameter in the definition
+    line which you wish to find.
+    
+    If the parameter was passed as a name (ie. by reference),
+    then this name will be returned by <SPAN style="font-style: italic;">PARNAM$</SPAN>, however, in all other
+    cases, a nul string will be returned.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    A short procedure which prints the square of the parameter
+    
+    passed (and if possible squares the actual parameter!):
+    <SPAN style="font-style: italic;">1000 DEFine PROCedure Square (x)
+    1010 LOCal param$,loop,key$
+    1020 param$=PARNAM$(1)
+    1030 IF param$&lt;&gt;'' THEN
+    1040 PRINT #0,param$!'will be altered - is this okay?'
+    1050 REPeat loop:key$=INKEY$(-1):IF key$ INSTR 'yn':EXIT loop
+    1060 IF key$=='n':RETurn
+    1070 END IF
+    1080 x=x^2:PRINT x
+    1090 END DEFine<BR></SPAN>
+    Compare the following:
+    <SPAN style="font-style: italic;">number=2:Square number</SPAN>(<SPAN style="font-style: italic;">number</SPAN> is passed by reference)
+    
+    and
+    <SPAN style="font-style: italic;">number=2:Square (number)</SPAN> (<SPAN style="font-style: italic;">number</SPAN> is passed by value)
+    
+    
+<H3>NOTE:
+    </H3>
+
+<P>TURBO and SuperCHARGE cannot compile programs which use
+    <SPAN style="font-style: italic;">PARNAM$</SPAN>.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsP.html#PARTYP">PARTYP</A>, <A style="font-style: italic;" href="KeywordsP.html#PARUSE">PARUSE</A> and <A style="font-style: italic;" href="KeywordsP.html#PARSTR$">PARSTR$</A> allow you to find out other
+    information about parameters.
+    
+    See also <A style="font-style: italic;" href="KeywordsD.html#DEFine%20FuNction">DEFine FuNction</A> and <A style="font-style: italic;" href="KeywordsD.html#DEFine%20PROCedure">DEFine PROCedure</A>.
+    
+    <A style="font-style: italic;" href="KeywordsP.html#PARNAME$">PARNAME$</A> is exactly the same.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PARNAME$" id="PARNAME$"></A>PARNAME$</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PARNAME$ (number)<BR></SPAN> Location: <SPAN style="font-style: italic;">PARAMS (DIY Toolkit - Vol P)<BR></SPAN>
+    This is exactly the same as <SPAN style="font-style: italic;">PARNAM$</SPAN>.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsP.html#PARTYP">PARTYP</A>E, <A style="font-style: italic;" href="KeywordsP.html#PARHASH">PARHASH</A> and <A style="font-style: italic;" href="KeywordsP.html#PARSEPA">PARSEPA</A> are also added by this toolkit.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PARSEPA" id="PARSEPA"></A>PARSEPA</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PARSEPA (name)<BR></SPAN> Location: <SPAN style="font-style: italic;">PARAMS (DIY Toolkit - Vol P)<BR></SPAN>
+    This function is a useful addition that allows you to check
+    on the type of separator which follows a value passed as a
+    parameter to a SuperBASIC <SPAN style="font-style: italic;">PROCedure</SPAN> or <SPAN style="font-style: italic;">FuNction</SPAN>.
+    
+    The value returned by <SPAN style="font-style: italic;">PARSEPA</SPAN> is:
+    
+    
+<H3><SPAN style="font-style: italic;">PARSEPA</SPAN>meaning</H3>
+
+<P>
+    0 No separator follows - this is the end of the
+    line.
+    
+    1 A comma (,) follows
+    
+    2 A semicolon (;) follows
+    
+    3 A backslash (\) follows
+    
+    4An exclamation mark (!) follows
+    
+    5The word <SPAN style="font-style: italic;">TO</SPAN> follows.
+    
+    
+<H3>NOTE:</H3>
+
+<P>
+    This function suffers from the same problems as <SPAN style="font-style: italic;">PARHASH</SPAN>.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See<A style="font-style: italic;" href="KeywordsP.html#PARHASH">PARHASH</A> in particular - this contains an example which
+    uses this function.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PARSTR$" id="PARSTR$"></A>PARSTR$</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PARSTR$ (name,number)<BR></SPAN> Location: <SPAN style="font-style: italic;">Toolkit II<BR></SPAN>
+    This function, together with its associated functions:
+    <SPAN style="font-style: italic;">PARTYP</SPAN>, <SPAN style="font-style: italic;">PARUSE</SPAN> and <SPAN style="font-style: italic;">PARNAM$</SPAN> allows you to find out information about a
+    parameter passed to a SuperBASIC <SPAN style="font-style: italic;">PROCedure</SPAN> or <SPAN style="font-style: italic;">FuNction</SPAN>.
+    
+    <SPAN style="font-style: italic;">PARSTR$</SPAN> is aimed for use in <SPAN style="font-style: italic;">PROCedures</SPAN> or <SPAN style="font-style: italic;">FuNctions</SPAN> where a user
+    might more naturally pass a parameter as a name rather than a
+    string (for example, when passing a filename). Many users
+    will have noted how many machine code procedures and functions
+    do not need filenames to be passed as a string, for example:
+    <SPAN style="font-style: italic;">
+    SAVE flp1_boot<BR></SPAN>
+    and wondered why when they write a <SPAN style="font-style: italic;">PROCedure</SPAN>, it has to be
+    passed as a string (for example, <SPAN style="font-style: italic;">SSAVE 'flp1_boot'</SPAN>). Well, <SPAN style="font-style: italic;">PARSTR$<BR></SPAN> allows you to do either!!
+    
+    The two parameters which need to be supplied to <SPAN style="font-style: italic;">PARSTR$</SPAN> are
+    the <SPAN style="font-style: italic;">name</SPAN> of the parameter as listed in the definition line and
+    the <SPAN style="font-style: italic;">number</SPAN> of that parameter in the parameter list.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    A re-write of a <SPAN style="font-style: italic;">SAVE</SPAN> routine to keep the current file
+    
+    version up to date (this could be used for example when
+    
+    developing a program):
+    <SPAN style="font-style: italic;">100 DEFine PROCedure SSAVE(file)
+    110 LOCal version
+    120 file$=PARSTR$(file,1)
+    130 version=FVERS(\file$)
+    140 SAVE file$
+    150 SET_FVERS \file$,version+1
+    160 END DEFine<BR></SPAN>
+    To update the saved version of the program in memory, you
+    
+    can then use either <SPAN style="font-style: italic;">SSAVE flp1_program_bas</SPAN> or <SPAN style="font-style: italic;">SSAVE 'flp1_program_bas'</SPAN>.
+    
+    Note that SMS users can just use <SPAN style="font-style: italic;">SAVE</SPAN> (without a filename)
+    
+    to achieve this.
+    
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    If you try to assign the string returned by <SPAN style="font-style: italic;">PARSTR$</SPAN> back into
+    the original parameter (eg. change the variable file in the
+    example program to the variable <SPAN style="font-style: italic;">file$</SPAN>), this will cause an
+    'error in expression'. You could try adding <SPAN style="font-style: italic;">file$</SPAN> to the <SPAN style="font-style: italic;">LOCal<BR></SPAN> definition, however although this will avoid the 'error in
+    expression', file$ is set to a nul string by the <SPAN style="font-style: italic;">LOCal<BR></SPAN> definition!!
+    
+    
+<H3>NOTE 2:
+    </H3>
+
+<P>TURBO and SuperCHARGE cannot compile programs which use
+    <SPAN style="font-style: italic;">PARSTR$</SPAN>.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    Please also see <A style="font-style: italic;" href="KeywordsP.html#PARNAM$">PARNAM$</A>.
+    <A href="KeywordsF.html#FBKDT">FBKDT</A> also contains a useful example of <A style="font-style: italic;" href="KeywordsP.html#PARSTR$">PARSTR$</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PARTYP" id="PARTYP"></A>PARTYP</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PARTYP (name)<BR></SPAN> Location: <SPAN style="font-style: italic;">Toolkit II, THOR XVI<BR></SPAN>
+    As disclosed in the description of <SPAN style="font-style: italic;">DEFine FuNction</SPAN>, a parameter
+    is passed to a SuperBASIC <SPAN style="font-style: italic;">PROCedure</SPAN> or <SPAN style="font-style: italic;">FuNction</SPAN> by reference,
+    meaning that the variable type listed in the definition line
+    will actually be overriden by the type of variable which has
+    been passed as a parameter.
+    
+    The function <SPAN style="font-style: italic;">PARTYP</SPAN> returns the type of the actual parameter
+    which has been passed, which can be used to error trap
+    <SPAN style="font-style: italic;">PROCedures</SPAN> and <SPAN style="font-style: italic;">FuNctions</SPAN>.
+    
+    <SPAN style="font-style: italic;">PARTYP</SPAN> expects only one parameter - the name of the parameter
+    from the definition line to be looked at. <SPAN style="font-style: italic;">PARTYP</SPAN> will then
+    return one of the following values depending on the type of
+    the actual parameter passed:
+    
+    
+<H3><SPAN style="font-style: italic;">PARTYP</SPAN>meaning</H3>
+
+<P>
+    0 a null string has been passed
+    
+    1 a string has been passed
+    
+    2 a floating point has been passed
+    
+    3 an integer has been passed
+    
+    
+<H3>Example:</H3>
+
+<P>
+    A <SPAN style="font-style: italic;">PROCedure</SPAN> to swap any two variables (it can only handle
+    
+    simple strings and variables, not arrays):
+    <SPAN style="font-style: italic;">100 a=1:b%=2
+    110 swap_var a,b%
+    120 DEFine PROCedure swap_var (x,y)
+    130 LOCal xa,xa$,param
+    140 IF PARUSE(x)=0 OR PARUSE(y)=0
+    150 PRINT 'A variable is unset!':RETurn
+    160 END IF
+    162 IF PARNAM$(1)="" OR PARNAM$(2)=""
+    164 PRINT 'Parameters are not both variables!':RETurn
+    165 END IF
+    170 IF PARUSE(x)=3 OR PARUSE(y)=3
+    180 PRINT 'Arrays not handled':RETurn
+    190 END IF
+    200 param=PARTYP(x)
+    210 IF PARTYP(y)=1 AND param&lt;&gt;1 OR param=1 AND PARTYP(y)&lt;&gt;1
+    220 PRINT 'You cannot swap a string with a value!'
+    230 RETurn
+    240 END IF
+    250 SELect ON param
+    260 =0,1:xa$=y:y=x:x=xa$
+    270 =2,3:xa=y:y=x:x=xa
+    280 END SELect
+    290 END DEFine<BR></SPAN>
+    
+<H3>NOTE 1:
+    </H3>
+
+<P>There is a difference in the way that <SPAN style="font-style: italic;">PARTYP</SPAN> will report an
+    omitted parameter, depending on whether you implicitly omit
+    the parameter. Try the following using the above example:
+    
+    Implicit omission:
+    
+    <SPAN style="font-style: italic;">swap_var a$<BR></SPAN>
+    or even
+    <SPAN style="font-style: italic;">
+    swap_var a$,
+    
+    - PARTYP(y)</SPAN> returns the type of the notional parameter (here y
+    is a floating point, so <SPAN style="font-style: italic;">PARTYP (y)</SPAN> returns 2), and <SPAN style="font-style: italic;">PARUSE(y)</SPAN> also
+    reports 2.
+    
+    Compare explicit omission:
+    
+    <SPAN style="font-style: italic;">swap_var ,a$<BR></SPAN>
+    <SPAN style="font-style: italic;">PARTYP(x)</SPAN> will return 0 as will <SPAN style="font-style: italic;">PARUSE(x)<BR></SPAN>
+    If a program is Qliberated, <SPAN style="font-style: italic;">PARTYP</SPAN> will return 0 whether
+    parameters are implicitly or explicitly omitted.
+    
+    
+<H3>NOTE 2:
+    </H3>
+
+<P>If you pass a null string as a parameter, eg. <SPAN style="font-style: italic;">swap_var a$,''</SPAN> in
+    the above example, <SPAN style="font-style: italic;">PARTYP</SPAN> will still return 1 (and not zero) as
+    you may think, hence the need to look at <SPAN style="font-style: italic;">PARUSE</SPAN> also.
+    
+    
+<H3>NOTE 3:
+    </H3>
+
+<P>TURBO and SuperCHARGE cannot compile programs which use
+    <SPAN style="font-style: italic;">PARUSE</SPAN>.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsP.html#PARTYP">PARTYP</A> should be used alongside <A style="font-style: italic;" href="KeywordsP.html#PARUSE">PARUSE</A> to find out whether a
+    parameter was passed as a variable (ie. by reference) or as a
+    value.
+    <A href="KeywordsP.html#PARTYPE">PARTYPE</A> is the same.
+    <A href="KeywordsP.html#PARNAM$">PARNAM$</A>, <A style="font-style: italic;" href="KeywordsP.html#PARHASH">PARHASH</A>, <A style="font-style: italic;" href="KeywordsP.html#PARSEPA">PARSEPA</A> and <A style="font-style: italic;" href="KeywordsP.html#PARSTR$">PARSTR$</A> form companions to these
+    commands.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PARTYPE" id="PARTYPE"></A>PARTYPE</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PARTYPE (name)<BR></SPAN> Location: <SPAN style="font-style: italic;">PARAMS (DIY Toolkit - Vol P)<BR></SPAN>
+    This function is exactly the same as <SPAN style="font-style: italic;">PARTYP</SPAN> and suffers from
+    the same problems.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsP.html#PARHASH">PARHASH</A>, <A style="font-style: italic;" href="KeywordsU.html#UNSET">UNSET</A> and <A style="font-style: italic;" href="KeywordsP.html#PARNAME$">PARNAME$</A> are also added by this toolkit.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PARUSE" id="PARUSE"></A>PARUSE</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PARUSE (name)<BR></SPAN> Location: <SPAN style="font-style: italic;">Toolkit II, THOR XVI<BR></SPAN>
+    <SPAN style="font-style: italic;">PARUSE</SPAN> is a companion function to <SPAN style="font-style: italic;">PARTYP</SPAN>. <SPAN style="font-style: italic;">PARUSE</SPAN> also expects
+    only one parameter - the <SPAN style="font-style: italic;">name</SPAN> of the parameter from the
+    definition line to be looked at. <SPAN style="font-style: italic;">PARUSE</SPAN> will then return one of
+    the following values depending on the actual parameter passed:
+    
+    
+<H3><SPAN style="font-style: italic;">PARUSE</SPAN>meaning</H3>
+
+<P>
+    0 an unset variable has been passed
+    
+    2 a variable (or value) has been passed
+    
+    3 an array has been passed
+    
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    The Toolkit II Manual gives incorrect values.
+    
+    
+<H3>NOTE 2:
+    </H3>
+
+<P>There is a difference in the way that <SPAN style="font-style: italic;">PARUSE</SPAN> will report an
+    omitted parameter, depending on whether you implicitly omit
+    the parameter or explicitly omit it - see Note 1 relating to
+    <SPAN style="font-style: italic;">PARTYP</SPAN>.
+    
+    Under current versions of Qliberator a program, <SPAN style="font-style: italic;">PARUSE</SPAN> will
+    always return 2 whether the parameter is implicitly or
+    explicitly omitted.
+    
+    
+<H3>NOTE 3:
+    </H3>
+
+<P>TURBO and SuperCHARGE cannot compile programs which use
+    <SPAN style="font-style: italic;">PARUSE</SPAN>.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    Please see <A style="font-style: italic;" href="KeywordsP.html#PARTYP">PARTYP</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PAR_ABORT" id="PAR_ABORT"></A>PAR_ABORT</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PAR_ABORT
+    
+    or PAR_ABORT port_number(SMSQ/E only)<BR></SPAN> Location: <SPAN style="font-style: italic;">ST/QL, SMSQ/E<BR></SPAN>
+    This command clears out all of the closed <SPAN style="font-style: italic;">PAR</SPAN> buffers and
+    then sends an 'aborted' message, to the <SPAN style="font-style: italic;">PAR</SPAN> device, thus
+    effectively stopping the computer from sending any information
+    still in the buffers through the <SPAN style="font-style: italic;">PAR</SPAN> device.
+    
+    Any open channels connected to the port are unaffected.
+    
+    
+<H3>NOTE:</H3>
+
+<P>
+    Although the SMSQ/E implementation allows a port to be
+    specified, there are currently no implementations of the QL
+    which have more than one parallel port, therefore trying to
+    pass a <SPAN style="font-style: italic;">port_number</SPAN> at present results in a bad parameter error.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsS.html#SER_ABORT">SER_ABORT</A> and <A style="font-style: italic;" href="KeywordsP.html#PRT_ABORT">PRT_ABORT</A> are very similar.
+    
+    <A style="font-style: italic;" href="KeywordsP.html#PAR_CLEAR">PAR_CLEAR</A> clears out the buffers but does not tell anyone.
+    
+    <A style="font-style: italic;" href="KeywordsP.html#PRT_ABT">PRT_ABT</A> is similar on the Trump Card and Gold Cards.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PAR_BUFF" id="PAR_BUFF"></A>PAR_BUFF</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PAR_BUFF</SPAN> [<SPAN style="font-style: italic;">size</SPAN>]
+    
+    or <SPAN style="font-style: italic;">PAR_BUFF port_number, size(SMSQ/E only)<BR></SPAN> Location: <SPAN style="font-style: italic;">ST/QL, SMSQ/E<BR></SPAN>
+    Normally, SMSQ/E and the Emulator will use all available
+    memory as a buffer for its serial and parallel ports (this is
+    known as a dynamic buffer). Although this enables control to
+    be returned to programs very quickly after sending output to
+    one of the ports, it can however mean that the whole of the
+    memory can be filled up with printer output.
+    
+    The command <SPAN style="font-style: italic;">PAR_BUFF</SPAN> therefore allows you to specify a fixed
+    <SPAN style="font-style: italic;">size</SPAN> in bytes for the parallel buffer for each channel opened to
+    it.
+    
+    If no <SPAN style="font-style: italic;">size</SPAN> is specified, or a <SPAN style="font-style: italic;">size</SPAN> of 0 bytes is set, then
+    the parallel buffer becomes dynamic once again. Otherwise, <SPAN style="font-style: italic;">size<BR></SPAN> should be at least 5 bytes to ensure future compatability.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">PAR_BUFF 10000<BR></SPAN>
+    sets the parallel buffer to 10000 bytes.
+    
+    
+<H3>NOTE:</H3>
+
+<P>
+    Although the SMSQ/E implementation allows a port to be
+    specified, there are currently no implementations of the QL
+    which have more than one parallel port, therefore trying to
+    pass a <SPAN style="font-style: italic;">port_number</SPAN> at present results in a bad parameter error.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsP.html#PRT_USE">PRT_USE</A> sets up a dynamic printer buffer except under SMSQ/E.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PAR_CLEAR" id="PAR_CLEAR"></A>PAR_CLEAR</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PAR_CLEAR<BR></SPAN>
+    or <SPAN style="font-style: italic;">PAR_CLEAR port_number(SMSQ/E only)<BR></SPAN> Location: <SPAN style="font-style: italic;">ST/QL, SMSQ/E<BR></SPAN>
+    This clears out all currently closed <SPAN style="font-style: italic;">PAR</SPAN> buffers, thus
+    preventing any further output. Any channels which are open to
+    the <SPAN style="font-style: italic;">PAR</SPAN> port will be left unaffected.
+    
+    
+<H3>NOTE:</H3>
+
+<P>
+    Although the SMSQ/E implementation allows a port to be
+    specified, there are currently no implementations of the QL
+    which have more than one parallel port, therefore trying to
+    pass a <SPAN style="font-style: italic;">port_number</SPAN> at present results in a bad parameter error.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsS.html#SER_CLEAR">SER_CLEAR</A> and <A style="font-style: italic;" href="KeywordsP.html#PRT_CLEAR">PRT_CLEAR</A> are similar.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PAR_PULSE" id="PAR_PULSE"></A>PAR_PULSE</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PAR_PULSE x<BR></SPAN> Location: <SPAN style="font-style: italic;">ST/QL, SMSQ/E for the Atari<BR></SPAN>
+    Some accelerator boards enhance the speed of the Atari ST
+    and TT computers so much that the parallel printer port may be
+    affected. This can be fixed by using <SPAN style="font-style: italic;">PAR_PULSE</SPAN> to increase the
+    rate of the strobe pulse.
+    
+    This problem tends to be required if you have a printer
+    which has heavy drive requirements (notably a CANON) or if you
+    use a long printer cable.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">PAR_PULSE 80<BR></SPAN>
+    
+<H3>NOTE:</H3>
+
+<P>
+    On SMSQ/E running on non-Atari's, this command has no
+    effect.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PAR_USE" id="PAR_USE"></A>PAR_USE</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PAR_USE</SPAN> [<SPAN style="font-style: italic;">device</SPAN>] Location: <SPAN style="font-style: italic;">ST/QL, SMSQ/E, SuperQBoard, PAR/SER Interfaces,
+    Super Gold Card<BR></SPAN>
+    As with many other devices, such as <SPAN style="font-style: italic;">RAM</SPAN>, <SPAN style="font-style: italic;">FLP</SPAN> and <SPAN style="font-style: italic;">WIN</SPAN>, it can
+    be useful to alter the three letter description used to access
+    the parallel printer port on the Atari ST.
+    
+    The command <SPAN style="font-style: italic;">PAR_USE</SPAN> allows you to replace the three letter
+    description by any other three letters. If <SPAN style="font-style: italic;">device</SPAN> is not
+    specified, this changes the description back to <SPAN style="font-style: italic;">PAR</SPAN>.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">PAR_USE ser<BR></SPAN>
+    will divert any attempt to access the serial ports to the
+    
+    parallel printer port.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsR.html#RAM_USE">RAM_USE</A>, <A style="font-style: italic;" href="KeywordsF.html#FLP_USE">FLP_USE</A>, <A style="font-style: italic;" href="KeywordsW.html#WIN_USE">WIN_USE</A>, <A style="font-style: italic;" href="KeywordsS.html#SER_USE">SER_USE</A> and <A style="font-style: italic;" href="KeywordsP.html#PRT_USE">PRT_USE</A> are all very similar.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PAUSE" id="PAUSE"></A>PAUSE</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PAUSE</SPAN> [<SPAN style="font-style: italic;">timeout</SPAN>]
+    
+    or <SPAN style="font-style: italic;">PAUSE</SPAN> [<SPAN style="font-style: italic;">#chan,</SPAN>] [<SPAN style="font-style: italic;">timeout</SPAN>]<SPAN style="font-style: italic;">(Minerva v1.80+, THORv6.41,
+    SMS, ST/QL E-init v1.27+)<BR></SPAN> Location: <SPAN style="font-style: italic;">QL ROM<BR></SPAN>
+    The command <SPAN style="font-style: italic;">PAUSE</SPAN> halts execution of a program temporarily
+    for the specified <SPAN style="font-style: italic;">timeout</SPAN> number of frames (there are 50 frames
+    per second in the UK and Europe, 60 frames per second in the
+    US).
+    
+    If no <SPAN style="font-style: italic;">timeout</SPAN> or a negative <SPAN style="font-style: italic;">timeout</SPAN> is specified, the command
+    will wait indefinitely. If a <SPAN style="font-style: italic;">timeout</SPAN> of zero is specified, no
+    actual <SPAN style="font-style: italic;">PAUSE</SPAN> will take place.
+    
+    Execution will continue at the end of the timeout, or if a
+    key is pressed. The key is read from channel #0 and therefore
+    the command will report the error 'channel not open' if #0 is
+    not open.
+    
+    The second variant of this command allows you to specify a
+    channel <SPAN style="font-style: italic;">#chan</SPAN> (default #0) upon which the command should
+    operate, thus allowing the command to be used in programs
+    which do not have #0 open.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">PAUSE 100<BR></SPAN>
+    Pauses for approximately 2 seconds, unless a key is pressed
+    
+    in the meantime!
+    
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    Using timeouts allows programs to run at the same speed on
+    all QL implementations.
+    
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    Normally, if #0 or the specified channel (in the THOR
+    variant of this command) is not a console window (or not
+    open), an error will be generated, of either 'Bad Parameter'
+    or 'Channel not open' respectively.
+    
+    However, the Minerva and SMS variants of this command do
+    not report any error messages and merely return straight away
+    (although see next note).
+    
+    
+<H3>NOTE 3:</H3>
+
+<P>
+    On Minerva (v1.90+), the second variant of this command
+    will also work on a screen (scr_) channel.
+    
+    
+<H3>NOTE 4:</H3>
+
+<P>
+    The second variant didn't really work on ST/QL Emulators
+    until v1.30 of E-Init).
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsI.html#INKEY$">INKEY$</A> allows you to read the key which has been pressed, as
+    well as halting program execution.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1>PEEK</H1>
+    <HR style="width: 100%; height: 2px;">
+    
+<H3>PEEK_W</H3>
+
+<P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PEEK_L" id="PEEK_L"></A>PEEK_L</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PEEK (address)address=0,1,2,3,...<BR></SPAN>
+    and <SPAN style="font-style: italic;">PEEK_W (address)address=0,2,4,6,...<BR></SPAN>
+    and <SPAN style="font-style: italic;">PEEK_L (address)address=0,2,4,6,...<BR></SPAN> Location: <SPAN style="font-style: italic;">QL ROM<BR></SPAN>
+    These three functions are complementary to <SPAN style="font-style: italic;">POKE</SPAN>, <SPAN style="font-style: italic;">POKE_W</SPAN> and
+    <SPAN style="font-style: italic;">POKE_L</SPAN>, in that instead of setting a byte, word or longword in
+    memory, these three functions return the value of the byte,
+    word or longword stored at the given <SPAN style="font-style: italic;">address</SPAN>.
+    
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    Due to the way in which values are stored in memory, it can
+    be difficult to read negative values. However, although <SPAN style="font-style: italic;">PEEK<BR></SPAN> will return an unsigned byte in the range 0..255, <SPAN style="font-style: italic;">PEEK_W</SPAN> will
+    return a signed word in the range -32768...32767 and <SPAN style="font-style: italic;">PEEK_L</SPAN> a
+    signed longword.
+    
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    Do not try to <SPAN style="font-style: italic;">PEEK_W</SPAN> or <SPAN style="font-style: italic;">PEEK_L</SPAN> with an odd address (eg. 10001)
+    as this will cause an error unless you are using Minerva (see
+    below).
+    
+    
+<H3>MINERVA NOTES:</H3>
+
+<P>
+    As with the <SPAN style="font-style: italic;">POKE</SPAN> commands, the <SPAN style="font-style: italic;">PEEK</SPAN> functions on Minerva
+    (version 1.77 or later) are very much enhanced and different.
+    
+    Minerva allows you to use <SPAN style="font-style: italic;">PEEK_W</SPAN> and <SPAN style="font-style: italic;">PEEK_L</SPAN> on odd addresses,
+    eg:
+    
+    <SPAN style="font-style: italic;">PRINT PEEK_W(131073)<BR></SPAN>
+    Minerva has also added to the usefulness of the <SPAN style="font-style: italic;">PEEK</SPAN>, <SPAN style="font-style: italic;">PEEK_W<BR></SPAN> and <SPAN style="font-style: italic;">PEEK_L</SPAN> functions by allowing them to access system
+    variables, Minerva's System Xtensions and SuperBASIC
+    variables. You will need a good book on QDOS (eg. QDOS/SMS
+    Reference Manual) to find out what the possible values are.
+    The syntax for these extra commands is:
+    
+    
+<H3>(1) Look at SuperBASIC variables.</H3>
+
+<P>
+    <SPAN style="font-style: italic;">PEEK (\\SBvar)
+    
+    PEEK_W (\\SBvar)
+    
+    PEEK_L (\\SBvar)
+    
+    PEEK (\SBvar\Offset)
+    
+    PEEK_W (\SBvar\Offset)
+    
+    PEEK_L (\SBvar\Offset)<BR></SPAN>
+    
+<H3>(2) Look at System variables.</H3>
+
+<P>
+    <SPAN style="font-style: italic;">PEEK (!!Sysvar)
+    
+    PEEK_W (!!Sysvar)
+    
+    PEEK_L (!!Sysvar)
+    
+    PEEK (!Sysvar!Offset)
+    
+    PEEK_W (!Sysvar!Offset)
+    
+    PEEK_L (!Sysvar!Offset)<BR></SPAN>
+    
+<H3>
+    
+    (3) Look at System Xtensions.</H3>
+
+<P>
+    <SPAN style="font-style: italic;">sx_base=PEEK_L(VER$(-2) + 124)
+    
+    PEEK (sx_base + offset)<BR></SPAN>
+    
+<H3>SMS NOTES:</H3>
+
+<P>
+    SMS has altered the <SPAN style="font-style: italic;">PEEK</SPAN> functions so that they are able to
+    access System variables and SuperBASIC variables, using the
+    same format as Minerva.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    Please see in particular <A style="font-style: italic;" href="KeywordsP.html#POKE">POKE</A>, <A style="font-style: italic;" href="KeywordsP.html#POKE_W">POKE_W</A>, and <A style="font-style: italic;" href="KeywordsP.html#POKE_L">POKE_L</A>.
+    
+    <A style="font-style: italic;" href="KeywordsP.html#PEEK$">PEEK$</A> reads a string stored in memory and contains some
+    examples of the new variants introduced on Minerva and SMS.
+    <A href="KeywordsP.html#PEEK_F">PEEK_F</A> and <A style="font-style: italic;" href="KeywordsP.html#PEEKS">PEEKS</A> are also worth a look.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1>PEEKS</H1>
+    <HR style="width: 100%; height: 2px;">
+    
+<H3>PEEKS_W</H3>
+
+<P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H3>PEEKS_L</H3>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PEEKS(address) address=0,1,2,3,...<BR></SPAN>
+    and <SPAN style="font-style: italic;">PEEKS_W(address) address=0,2,4,6,...<BR></SPAN>
+    and <SPAN style="font-style: italic;">PEEKS_L(address) address=0,2,4,6,...<BR></SPAN> Location: <SPAN style="font-style: italic;">SMSQ/E and ATARI_REXT v2.17+<BR></SPAN>
+    These three functions are only of any use on the Atari
+    series of computers.
+    
+    They are the same as the normal forms of <SPAN style="font-style: italic;">PEEK</SPAN>, <SPAN style="font-style: italic;">PEEK_W</SPAN> and
+    <SPAN style="font-style: italic;">PEEK_L</SPAN>, except that they operate in Supervisor Mode and can
+    therefore be used to read data direct from the Atari's IO
+    hardware.
+    
+    On all other implementations they are the same as <SPAN style="font-style: italic;">PEEK</SPAN>,
+    <SPAN style="font-style: italic;">PEEK_W</SPAN> and <SPAN style="font-style: italic;">PEEK_L</SPAN>.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsP.html#PEEK">PEEK</A>.
+    
+    <A style="font-style: italic;" href="KeywordsP.html#POKES">POKES</A> is the complementary command.
+    
+    See <A style="font-style: italic;" href="KeywordsP.html#PROT_MEM">PROT_MEM</A> also.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PEEK$" id="PEEK$"></A>PEEK$</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PEEK$ (start_address,bytes)<BR></SPAN>
+    or <SPAN style="font-style: italic;">PEEK$ (start_address</SPAN> [<SPAN style="font-style: italic;">,bytes</SPAN>]<SPAN style="font-style: italic;">)(BTool only)<BR></SPAN> Location: <SPAN style="font-style: italic;">ATARI_REXT, SMS, TinyToolkit, BTool<BR></SPAN>
+    This function will read a specified number of <SPAN style="font-style: italic;">bytes</SPAN> from
+    <SPAN style="font-style: italic;">start_address</SPAN> in memory onwards and return the result as a string.
+    
+    For BTool the second parameter is optional. If <SPAN style="font-style: italic;">bytes</SPAN> is not
+    specified then BTool's <SPAN style="font-style: italic;">PEEK$</SPAN> will try to read a string in QDOS
+    format (ie. two bytes specifying the length of the string
+    followed by the string itself) from the location
+    <SPAN style="font-style: italic;">start_address</SPAN>, just like <SPAN style="font-style: italic;">CVS$</SPAN> does. This string will then be
+    returned. Note that <SPAN style="font-style: italic;">start_address</SPAN> must always be if bytes is
+    omitted.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    Do you know how many keywords, filenames, variables etc.
+    
+    are currently known to the interpreter? This program lists
+    
+    and counts them.
+    <SPAN style="font-style: italic;">100 adr=BASICP(32): num=0
+    110 REPeat all_names
+    120 length=PEEK(adr)
+    130 IF NOT length THEN EXIT all_names
+    140 name$=PEEK$(adr+1,length)
+    150 PRINT name$,
+    160 adr=adr+length+1: num=num+1
+    170 END REPeat all_names
+    180 PRINT\\num!"names"<BR></SPAN>
+    
+<H3>SMS NOTE:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">PEEK$</SPAN> allows you to access the System Variables and
+    SuperBASIC variables in the same way as <SPAN style="font-style: italic;">PEEK</SPAN> (etc.). For
+    example, the above short program may be re-written as:
+    <SPAN style="font-style: italic;">100 adr=0: num=0
+    110 REPeat all_names
+    120 length=PEEK(\$20\adr)
+    130 IF NOT length THEN EXIT all_names
+    140 name$=PEEK$(\$20\adr+1,length)
+    150 PRINT name$,:PAUSE
+    160 adr=adr+length+1: num=num+1
+    170 END REPeat all_names
+    180 PRINT\\num!"names"<BR></SPAN>
+    
+<H3>WARNING:</H3>
+
+<P>
+    A string cannot be longer than 32766 characters and so an
+    expression such as <SPAN style="font-style: italic;">a$=PEEK$(0,40000)</SPAN> may lead to unpredictable
+    effects. Be careful!
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsP.html#POKE$">POKE$</A> is the complementary procedure to <A style="font-style: italic;" href="KeywordsP.html#PEEK$">PEEK$</A>.
+    <A href="KeywordsP.html#PEEK">PEEK</A>, <A style="font-style: italic;" href="KeywordsP.html#PEEK_W">PEEK_W</A> and <A style="font-style: italic;" href="KeywordsP.html#PEEK_L">PEEK_L</A> read single bytes, words and long words
+    from memory.
+    
+    <A style="font-style: italic;" href="KeywordsT.html#TTPEEK$">TTPEEK$</A> is the same as this function.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PEEK_F" id="PEEK_F"></A>PEEK_F</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PEEK_F (address)<BR></SPAN> Location: <SPAN style="font-style: italic;">BTool<BR></SPAN>
+    <SPAN style="font-style: italic;">PEEK_F</SPAN> is a function which reads six bytes from any position
+    in memory, which it assumes is the internal representation of
+    a SuperBASIC floating point number, and returns its value.
+    
+    
+<H3>WARNING:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">PEEK_F</SPAN> will lead to a crash if the six bytes at address did
+    not represent a valid floating point, compare this with <SPAN style="font-style: italic;">CVF</SPAN>.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsP.html#POKE_F">POKE_F</A>, <A style="font-style: italic;" href="KeywordsC.html#CVF">CVF</A>, <A style="font-style: italic;" href="KeywordsM.html#MKF$">MKF$</A>
+    See also <A style="font-style: italic;" href="KeywordsP.html#PEEK$">PEEK$</A>
+    
+<H3></H3>
+
+<P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PEND" id="PEND"></A>PEND</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PEND (#channel)<BR></SPAN> Location: <SPAN style="font-style: italic;">TinyToolkit<BR></SPAN>
+    <SPAN style="font-style: italic;">PEND</SPAN> is a logical function and returns 1 if there is data
+    waiting in the specified channel to be read and 0 if not.
+    
+    
+<H3>Example 1:</H3>
+
+<P>
+    If the Window Manager is present, <SPAN style="font-style: italic;">PEND</SPAN> can be used to check
+    
+    if a window is currently hidden, and therefore to decide
+    
+    whether information should be printed to that channel or
+    
+    not. Under the Pointer Environment, jobs which are trying
+    
+    to output data to a window channel cannot do so until the
+    
+    channel is activated (eg. by pressing &lt;CTRL&gt;&lt;C&gt;). - The
+    
+    following program calculates a large sum and prints the
+    
+    current value of the calculation in a small window,
+    
+    however, the calculation itself will not stop if one
+    
+    switches to another window, thus hiding this one.
+    <SPAN style="font-style: italic;">100 n=1546: sum=0
+    110 OPEN#3,"con_"&amp;(6*LEN(n)+6)&amp;"x12a0x0"
+    120 BORDER#3,1,3: INK#3,7: CLS#3
+    130 FOR i=1 TO n
+    140 sum=sum+i
+    150 IF PEND(#3) THEN PRINT#3;FILL$(" ",4-LEN(i));i
+    160 END FOR i
+    170 IF sum&lt;&gt;n*(n+1)/2 THEN BEEP 0,33,44,66,22,44
+    180 CLOSE#3<BR></SPAN>
+    
+<H3>Example 2:</H3>
+
+<P>
+    Pipes should be used for communication between jobs. It is
+    
+    very bad practice to write information to a file and let
+    
+    the other job read it because other tasks may be affected.
+    
+    Here are two programs which have to be compiled and
+    
+    executed to multitask. Both open a small window, the first
+    
+    job inputs text and then sends it to the second job which
+    
+    shows that text. Typing "end" will terminate both jobs.
+    
+    The output job would work without <SPAN style="font-style: italic;">PEND</SPAN> but would not be able
+    
+    to do something else whilst waiting for further input.
+    <SPAN style="font-style: italic;">100 REMark Input Job
+    110 :
+    120 OPEN#3,con_50x30a30x40: PAPER#3,3
+    130 INK#3,7: BORDER#3,1,4: CLS#3
+    140 OPEN#4,pipe_communication_200
+    150 REPeat input_loop
+    160 INPUT#3,text$
+    170 PRINT#4,text$
+    180 IF text$=="END" THEN EXIT input_loop
+    190 END REPeat input_loop
+    200 CLOSE#3: CLOSE#4<BR></SPAN>
+    
+<H3></H3>
+
+<P><SPAN style="font-style: italic;">100 REMark Output Job
+    110 :
+    120 OPEN#3,scr_50x30a100x40: PAPER#3,3
+    130 INK#3,7: BORDER#3,1,4: CLS#3
+    140 OPEN#4,pipe_communication
+    150 REPeat output_loop
+    160 IF PEND(#4) THEN
+    170 INPUT#4,text$
+    180 IF text$=="END" THEN EXIT output_loop
+    190 PRINT#3,text$
+    200 END IF
+    210 IF NOT RND(200): d$=DATE$: PRINT#3,d$(16 TO)
+    220 END REPeat output_loop
+    230 CLOSE#3: CLOSE#4<BR></SPAN>
+    By the way, in this case it is not very efficient to
+    
+    separate the input and output jobs, but good terminal
+    
+    Emulators do this. You will also notice that the programs
+    
+    use named pipes which make it much easier for them to link
+    
+    up with each other. These named pipes are present in the
+    
+    latest version of the ST/QL Emulator as well as SMS. They
+    
+    are also provided by several public domain device drivers -
+    
+    See the appendix on devices for further details.
+    
+    
+<H3>NOTE:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">PEND</SPAN> only works with channels which will accept input (not
+    scr_) and reports an "end of file" error (<SPAN style="font-style: italic;">ERNUM=-10</SPAN>, <SPAN style="font-style: italic;">ERR_EF=1</SPAN>) if a
+    connected output pipe has been closed.
+    
+    Unfortunately, <SPAN style="font-style: italic;">EOF</SPAN> cannot be used to trap the end of a named
+    pipe early enough, so you have to ensure that the output pipe
+    tells the accompanying input pipe that it is about to be
+    closed.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsT.html#TCONNECT">TCONNECT</A> and <A style="font-style: italic;" href="KeywordsF.html#FILE_OPEN">FILE_OPEN</A> about connecting two unnamed pipes.
+    <A href="KeywordsE.html#EOF">EOF</A> checks if a file is at its end.
+    <A href="KeywordsI.html#IO_PEND%">IO_PEND%</A> and <A style="font-style: italic;" href="KeywordsN.html#NOT%20EOFW">NOT EOFW</A> are identical to <A style="font-style: italic;" href="KeywordsP.html#PEND">PEND</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PENDOWN" id="PENDOWN"></A>PENDOWN</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PENDOWN</SPAN> [<SPAN style="font-style: italic;">#ch</SPAN>] Location: <SPAN style="font-style: italic;">QL ROM<BR></SPAN>
+    This command is part of the QL's turtle graphics set of
+    commands, and places the pen to the down position in the
+    specified window (default #1). When a window is first opened,
+    the pen is set to the up position.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsP.html#PENUP">PENUP</A> has the opposite effect to this command. Also see
+    <A style="font-style: italic;" href="KeywordsM.html#MOVE">MOVE</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PENUP" id="PENUP"></A>PENUP</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PENUP</SPAN> [<SPAN style="font-style: italic;">#ch</SPAN>] Location: <SPAN style="font-style: italic;">QL ROM<BR></SPAN>
+    This command places the turtle's pen to the up position in
+    the specified window (default #1), thus preventing any further
+    drawing.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsP.html#PENDOWN">PENDOWN</A> and <A style="font-style: italic;" href="KeywordsM.html#MOVE">MOVE</A> for more details.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PEOFF" id="PEOFF"></A>PEOFF</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PEOFF</SPAN> [{ <SPAN style="font-style: italic;">#ch</SPAN> | <SPAN style="font-style: italic;">chan_ID</SPAN> | <SPAN style="font-style: italic;">job_name$</SPAN> }] Location: <SPAN style="font-style: italic;">PEX<BR></SPAN>
+    This command is similar to <SPAN style="font-style: italic;">PIE_OFF</SPAN> except that it allows you
+    to disable background screen access for specific multitasking
+    jobs if you wish (reverting to the original Pointer
+    Environment method of managing windows).
+    
+    The same parameters as for <SPAN style="font-style: italic;">PEON</SPAN> can be used to specify the
+    Jobs or windows to be affected.
+    
+    
+<H3>NOTE:</H3>
+
+<P>
+    PEX should not be used with PIE.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    Refer to <A style="font-style: italic;" href="KeywordsP.html#PEON">PEON</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PEON" id="PEON"></A>PEON</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PEON</SPAN> [{ <SPAN style="font-style: italic;">#ch</SPAN> | <SPAN style="font-style: italic;">chan_ID</SPAN> | <SPAN style="font-style: italic;">job_name$</SPAN> }] Location: <SPAN style="font-style: italic;">PEX<BR></SPAN>
+    PEX is similar to the PIE system extension (see <SPAN style="font-style: italic;">PIE_ON</SPAN> for
+    more details), in that it allows buried programs to access the
+    screen in the background.
+    
+    However, PEX cannot be used with PIE and is completely
+    independent.
+    
+    PEX should be loaded after the Pointer Environment (notably
+    the PTR_GEN file), and after any other code which redefines
+    the window handling of the QL (for example Lightning or
+    Speedscreen). It must however be loaded before the History
+    device (except on SMSQ/E which has a built in History device).
+    
+    People who use PEX or PIE may like to also use another
+    utility PICE which updates the QL screen at pre-defined time
+    intervals so that any part of a window which is not buried
+    will actually appear on screen (whether or not part of that
+    window is buried). If you wish to use PICE, it is recommended
+    to set the PICE job to a priority of 1 so as not to slow the
+    system down too much.
+    
+    The <SPAN style="font-style: italic;">PEON</SPAN> command allows you to select which windows and Jobs
+    should allow background screen access - this is important
+    since the more programs which continue to run in the
+    background, the slower your QL will appear!!
+    
+    If no parameter is specified, then background screen access
+    is enabled for all Jobs. You can however pass any number of
+    parameters, which can be:
+    
+    1) A SuperBASIC channel number for the current program
+    
+    2) A QDOS channel number (see <SPAN style="font-style: italic;">CHANNELS</SPAN>) in which case PEX
+    will only affect that specific channel
+    
+    3) The name of a Job (passed as a string - use a null
+    string ("") for SuperBASIC). PEX will affect all windows used
+    by that specified Job.
+    
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    PEX will not work on pre-JS ROMs. On JS and MG ROMs, its
+    functionality is reduced in that it can only be used to allow
+    a few machine code calls which do not access the screen to
+    operate notwithstanding that the Pointer Environment would
+    normally stop them from working from within a buried program
+    (it is equivalent to:
+    
+    <SPAN style="font-style: italic;">FOR i=0 TO 127:x=IS_PTRAP(i,3)<BR></SPAN>
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    Some toolkits report errors when used alongside PEX and
+    some Qliberated programs refuse to work.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsP.html#PEOFF,%20PIE_ON">PEOFF, PIE_ON</A>, <A style="font-style: italic;" href="KeywordsP.html#PXON">PXON</A>, <A style="font-style: italic;" href="KeywordsP.html#PEX_INI">PEX_INI</A> and <A style="font-style: italic;" href="KeywordsI.html#IS_PEON">IS_PEON</A> for more details.<A style="font-style: italic;" href="KeywordsI.html#IS_PTRAP">IS_PTRAP</A> allows you to enable PEX for specific machine code routines.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PEX$" id="PEX$"></A>PEX$</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PEX$<BR></SPAN> Location: <SPAN style="font-style: italic;">PEX<BR></SPAN>
+    This function returns the date of assembly, version and
+    sub-version of the PEX file.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsP.html#PEX_SAVE">PEX_SAVE</A> alters the sub-version number.
+    
+    See also <A style="font-style: italic;" href="KeywordsQ.html#QL_PEX">QL_PEX</A> and <A style="font-style: italic;" href="KeywordsP.html#PIF$">PIF$</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PEX_INI" id="PEX_INI"></A>PEX_INI</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PEX_INI<BR></SPAN> Location: <SPAN style="font-style: italic;">PEX<BR></SPAN>
+    This command initiates PEX and makes it take effect - it
+    may be useful for example to set up the various programs and
+    the windowing environment, using <SPAN style="font-style: italic;">PEON</SPAN> and <SPAN style="font-style: italic;">IS_PTRAP</SPAN> and then to
+    start PEX working at that stage, by using this command.
+    
+    
+<H3>NOTE:</H3>
+
+<P>
+    Some toolkits report errors when used alongside PEX and
+    some Qliberated programs refuse to work.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsP.html#PEON">PEON</A> for more general details.
+    
+    You should also see <A style="font-style: italic;" href="KeywordsP.html#PEX_XTD">PEX_XTD</A> and <A style="font-style: italic;" href="KeywordsP.html#PX1ST">PX1ST</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PEX_SAVE" id="PEX_SAVE"></A>PEX_SAVE</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PEX_SAVE directory$<BR></SPAN> Location: <SPAN style="font-style: italic;">PEX<BR></SPAN>
+    This command stores the current settings of PEX in a file
+    called PEX19_byt (for version 19.30) in the specified <SPAN style="font-style: italic;">directory<BR></SPAN> so that when you next load PEX (with <SPAN style="font-style: italic;">LBYTES directory$&amp;PEX_19_byt</SPAN> for
+    example), you will not have to re-set all of the various
+    settings.
+    
+    The sub-version number of PEX is increased by one.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">PEX_SAVE 'win1_start_'<BR></SPAN>
+    will create the file win1_start_PEX19_byt
+    
+    
+<H3>NOTE:</H3>
+
+<P>
+    An underscore must appear at the end of <SPAN style="font-style: italic;">directory$</SPAN>.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsP.html#PEON">PEON</A> for more general details.
+    
+    The settings which are saved are set with the command
+    <A style="font-style: italic;" href="KeywordsI.html#IS_PTRAP">IS_PTRAP</A> and <A style="font-style: italic;" href="KeywordsI.html#IS_PX1ST">IS_PX1ST</A>. <A style="font-style: italic;" href="KeywordsP.html#PEX$">PEX$</A> returns the sub-version number.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PEX_XTD" id="PEX_XTD"></A>PEX_XTD</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PEX_XTD<BR></SPAN> Location: <SPAN style="font-style: italic;">PEX<BR></SPAN>
+    This command re-installs the keywords provided as part of
+    PEX and can help overcome the problem of other toolkits re-
+    defining PEX keywords.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsP.html#PEON">PEON</A> for more general details.
+    
+    You should also see <A style="font-style: italic;" href="KeywordsP.html#PEX_INI">PEX_INI</A> and <A style="font-style: italic;" href="KeywordsP.html#PX1ST">PX1ST</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PHONEM" id="PHONEM"></A>PHONEM</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PHONEM (string$)<BR></SPAN> Location: <SPAN style="font-style: italic;">�hnlichkeiten<BR></SPAN>
+    This function returns a string (even though the name does
+    not end with $) which is a (more germanic) phonetical
+    transcription of the supplied string. If two words sound
+    similar or are even homophones, their <SPAN style="font-style: italic;">PHONEM</SPAN>'s are identical.
+    The function is not case-sensitive.
+    
+    
+<H3>Examples:</H3>
+
+<P><SPAN style="font-style: italic;">PHONEM ("Toolkit")="DOLCYD"
+    PHONEM ("DoolGid")="DOLCYD"
+    PHONEM ("DOLGYD")="DOLCYD"<BR></SPAN>
+    
+<H3>NOTE:</H3>
+
+<P>
+    An expression such as<SPAN style="font-style: italic;">:
+    
+    PRINT PHONEM (a$) INSTR PHONEM (b$)<BR></SPAN>
+    will always return 0 on pre Minerva ROMs. Use temporary
+    variables to get around this problem:
+    <SPAN style="font-style: italic;">
+    t1$=PHONEM(a$)</SPAN> : <SPAN style="font-style: italic;">t2$=PHONEM(b$)<BR></SPAN>
+    <SPAN style="font-style: italic;">PRINT t1$ INSTR t2$<BR></SPAN>
+    will work properly.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsS.html#SOUNDEX">SOUNDEX</A>, <A style="font-style: italic;" href="KeywordsW.html#WLD">WLD</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PI" id="PI"></A>PI</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PI<BR></SPAN> Location: <SPAN style="font-style: italic;">QL ROM<BR></SPAN>
+    This function is a constant number which returns the value
+    of � with an error of 10^(-29). You can test the precision of
+    <SPAN style="font-style: italic;">PI</SPAN> with such a program:
+    <SPAN style="font-style: italic;">100 p=PI-3: PRINT "PI=3.";
+    110 FOR n=1 TO 35
+    120 p=p*10
+    130 PRINT INT(p);
+    140 p=p-INT(p)
+    150 END FOR n
+    160 PRINT<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    The trigonometrical functions (<A style="font-style: italic;" href="KeywordsS.html#SIN">SIN</A>, <A style="font-style: italic;" href="KeywordsT.html#TAN">TAN</A>, <A style="font-style: italic;" href="KeywordsA.html#ACOS">ACOS</A> etc) expect
+    parameters in radians, so <A style="font-style: italic;" href="KeywordsP.html#PI">PI</A> must be used in most cases.
+    Another fundamental mathematical constant, e, can be obtained
+    with <A style="font-style: italic;" href="KeywordsE.html#EXP(1)">EXP(1)</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PICK$" id="PICK$"></A>PICK$</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PICK$ (n, slct</SPAN><SUP>1</SUP><SPAN style="font-style: italic;">$</SPAN> <SUP>*</SUP>[<SPAN style="font-style: italic;">,slct</SPAN><SUP>i</SUP><SPAN style="font-style: italic;">$</SPAN>]<SUP>*</SUP><SPAN style="font-style: italic;">)<BR></SPAN> Location: <SPAN style="font-style: italic;">CONTROL (DIY Toolkit Vol E)<BR></SPAN>
+    The function <SPAN style="font-style: italic;">PICK$</SPAN> takes one positive integer <SPAN style="font-style: italic;">n</SPAN> and one or
+    more other parameters <SPAN style="font-style: italic;">slct1$</SPAN>, <SPAN style="font-style: italic;">slct2$</SPAN>, etc. The function returns
+    the value of the <SPAN style="font-style: italic;">n</SPAN>th parameter, so <SPAN style="font-style: italic;">n</SPAN> must be smaller than or
+    equal to the number of supplied <SPAN style="font-style: italic;">slctx$</SPAN>. Don't forget, <SPAN style="font-style: italic;">n</SPAN> must be
+    greater than zero!
+    
+    
+<H3>Example:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">PICK$</SPAN> is intended to simplify expressions, here are some
+    
+    silly examples:
+    <SPAN style="font-style: italic;">100 bool%=RND (0 TO 1)
+    110 IF bool% THEN PRINT "yes": ELSE PRINT "no"<BR></SPAN>
+    becomes
+    <SPAN style="font-style: italic;">100 bool%=RND (0 TO 1)
+    110 PRINT PICK$ (bool%+1,"no","yes")<BR></SPAN>
+    whereas
+    <SPAN style="font-style: italic;">100 members = RND (4)
+    110 PRINT "The team has ";
+    120 IF members&gt;0: PRINT members;: ELSE PRINT "no";
+    130 PRINT " member";
+    140 IF members&lt;&gt;1 THEN PRINT "s": ELSE PRINT<BR></SPAN>
+    becomes
+    <SPAN style="font-style: italic;">100 members = RND(4)
+    110 PRINT "The team has ";
+    120 PRINT PICK$ (1+(members&lt;&gt;0),"no",members);
+    130 PRINT " member";PICK$ (1+(members&lt;&gt;1),"","s")<BR></SPAN>
+    The slightly more complex:
+    <SPAN style="font-style: italic;">100 DIM num$ (9,5)
+    110 RESTORE : FOR i=0 TO 9: READ num$(i)
+    120 DATA "zero","one","two","three","four"
+    130 DATA "five","six","seven","eight","nine","ten"
+    140 :
+    150 REPeat typing
+    160 key = CODE (INKEY$ (-1))-48
+    170 IF key&lt;0 OR key&gt;9 THEN EXIT typing
+    180 PRINT num$ (key)!!
+    190 END REPeat typing<BR></SPAN>
+    becomes
+    <SPAN style="font-style: italic;">100 REPeat typing
+    110 key = CODE (INKEY$(-1))-48
+    120 IF key&lt;0 OR key&gt;9 THEN EXIT typing
+    130 PRINT PICK$ (key+1,"zero","one","two","three","four","five","six","seven","eight",
+    "nine", "ten")
+    140 END REPeat typing<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    Note that conditions have a numeric value, see <A style="font-style: italic;" href="KeywordsI.html#IF">IF</A>, <A style="font-style: italic;" href="KeywordsA.html#AND">AND</A> and <A style="font-style: italic;" href="KeywordsO.html#OR">OR</A> for details.
+    
+    <A style="font-style: italic;" href="KeywordsS.html#SELect%20ON..END%20SELect">SELect ON..END SELect</A> is a less restrictive alternative to <A style="font-style: italic;" href="KeywordsP.html#PICK$">PICK$</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PICK%" id="PICK%"></A>PICK%</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PICK%</SPAN> [<SPAN style="font-style: italic;">(JobID</SPAN>]
+    
+    or <SPAN style="font-style: italic;">PICK% (JobID, action)<BR></SPAN> Location: <SPAN style="font-style: italic;">PEX<BR></SPAN>
+    This function can be used to perform various acts.
+    
+    The first syntax is the more common and will bring the
+    specified Job (by reference to its QDOS Job id or its Job
+    Number as specified by <SPAN style="font-style: italic;">JOBS</SPAN>) to the top of the pile under the
+    Pointer Environment, making all of its windows appear on
+    screen as if it had been Picked from the Qpac 2 file menu. If
+    <SPAN style="font-style: italic;">JobID</SPAN> is -1 or omitted, then the Job which contains this command
+    is brought to the top of the pile. This variant is therefore
+    similar to <SPAN style="font-style: italic;">TOP_WINDOW</SPAN>.
+    
+    If <SPAN style="font-style: italic;">JobID</SPAN> is -2, then the next Job in the Job Table (see <SPAN style="font-style: italic;">NXJOB</SPAN>)
+    is brought to the top of the pile - this is therefore similar
+    to pressing &lt;CTRL&gt;&lt;C&gt;.
+    
+    The second variant is more complex and depends upon the
+    values of <SPAN style="font-style: italic;">JobID</SPAN> and <SPAN style="font-style: italic;">action</SPAN>.
+    
+    (1) If <SPAN style="font-style: italic;">JobID</SPAN> refers to an existing Job and <SPAN style="font-style: italic;">action</SPAN> is -4, then
+    the screen is frozen - this is equivalent to pressing
+    &lt;CTRL&gt;&lt;F5&gt;.
+    
+    (2) If <SPAN style="font-style: italic;">JobID</SPAN> equals -3 and <SPAN style="font-style: italic;">action</SPAN> is an existing QDOS channel
+    number (see <SPAN style="font-style: italic;">CHANNELS</SPAN>) or SuperBASIC channel number then that
+    particular channel is unfrozen, allowing input from / output
+    to that channel provided that the Job which owns that channel
+    is at the top of the pile or can use background screen access
+    under PEX.
+    
+    (3) If <SPAN style="font-style: italic;">JobID</SPAN> equals -4 and <SPAN style="font-style: italic;">action</SPAN> is an existing QDOS channel
+    number (see <SPAN style="font-style: italic;">CHANNELS</SPAN>) or SuperBASIC channel number then that
+    particular channel is frozen again and any attempt by a
+    program to access that channel will (unless that program is
+    not buried) cause that program to halt temporarily.
+    
+    The values returned by <SPAN style="font-style: italic;">PICK%</SPAN> are normally zero if the
+    function is successful. Otherwise errors are returned as
+    follows:
+    
+    -1 : Job is In Use (although we are not certain when this
+    will be reported).
+    
+    -2 : Job does not exist
+    
+    -6 : Specified QDOS channel number does not exist
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsO.html#OJOB">OJOB</A> and <A style="font-style: italic;" href="KeywordsN.html#NXJOB">NXJOB</A> allow you to find out details about a specified
+    Job.
+    
+    <A style="font-style: italic;" href="KeywordsP.html#PEON">PEON</A> allows background screen access.
+    
+    
+<H3></H3>
+
+<P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H3>PIE_EX_OFF</H3>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PIE_EX_OFF<BR></SPAN> Location: <SPAN style="font-style: italic;">PIE<BR></SPAN>
+    <SPAN style="font-style: italic;">PIE_ON</SPAN> contains details about what PIE is used for and you
+    should first of all refer to that.
+    
+    Presuming that PIE is enabled (with <SPAN style="font-style: italic;">PIE_ON</SPAN>), you may want to
+    treat any programs (or toolkits) which use SD.EXTOP machine
+    code calls to access the screen differently. Normally, the
+    Window Manager halts any program which attempts to call the
+    SD.EXTOP machine code routine unless that program does not
+    have any buried windows.
+    
+    However, <SPAN style="font-style: italic;">PIE_ON</SPAN> allows all buried programs to continue in the
+    background, storing the changes to the screen as necessary.
+    However, SD.EXTOP routines may be used for various purposes
+    including writing to the screen directly and for this reason,
+    if PIE is active, you may find that a program writes to the
+    screen using SD.EXTOP even though its windows are buried (thus
+    overwriting part of an existing program's display).
+    
+    <SPAN style="font-style: italic;">PIE_EX_OFF</SPAN> prevents this effect by still halting any program
+    which attempts to use SD.EXTOP.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsP.html#PIE_ON">PIE_ON</A> and <A style="font-style: italic;" href="KeywordsP.html#PIE_EX_ON">PIE_EX_ON</A>.
+    
+    See also <A style="font-style: italic;" href="KeywordsP.html#PXOFF">PXOFF</A> which is similar.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PIE_EX_ON" id="PIE_EX_ON"></A>PIE_EX_ON</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PIE_EX_ON<BR></SPAN> Location: <SPAN style="font-style: italic;">PIE<BR></SPAN>
+    This command re-enables PIE for SD.EXTOP system calls, so
+    that they are affected by the normal <SPAN style="font-style: italic;">PIE_ON</SPAN> and <SPAN style="font-style: italic;">PIE_OFF</SPAN> commands.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsP.html#PIE_ON">PIE_ON</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PIE_OFF" id="PIE_OFF"></A>PIE_OFF</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PIE_OFF<BR></SPAN> Location: <SPAN style="font-style: italic;">PIE<BR></SPAN>
+    See <SPAN style="font-style: italic;">PIE_ON</SPAN> below.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PIE_ON" id="PIE_ON"></A>PIE_ON</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PIE_ON<BR></SPAN> Location: <SPAN style="font-style: italic;">PIE<BR></SPAN>
+    The Window Manager forms part of the Pointer Environment
+    and is a standard system extension: it allows you to multitask
+    all kinds of programs easily, provides non-destructible
+    windows and more.
+    
+    One of the main problems with current versions of the
+    Window Manager is that if any part of the windows owned by a
+    given Job is buried under another Job's windows (ie. you
+    cannot see that part of the window on-screen because of
+    another program), then if that buried Job tries to access the
+    screen (with <SPAN style="font-style: italic;">PRINT</SPAN> for example), the Window Manager will pause
+    that Job until its window is no longer buried.
+    
+    The Pointer Interface Extension (PIE) modifies the Pointer
+    Environment so that a program is not halted when it tries to
+    send screen output while its window is fully or partially
+    buried by another job. It does this by storing the changes to
+    the buried window in memory and then when the buried Job is
+    brought to the top of the pile (see <SPAN style="font-style: italic;">PICK%</SPAN>), then its window is
+    updated.
+    
+    <SPAN style="font-style: italic;">PIE_ON</SPAN> enables PIE, <SPAN style="font-style: italic;">PIE_OFF</SPAN> disables it. These commands on
+    their own cannot lead to any problems, you can switch PIE on
+    and off whenever you like.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsP.html#PIE_EX_ON">PIE_EX_ON</A> and <A style="font-style: italic;" href="KeywordsP.html#PIE_EX_OFF">PIE_EX_OFF</A>.
+    
+    See also <A style="font-style: italic;" href="KeywordsP.html#PEON">PEON</A> and <A style="font-style: italic;" href="KeywordsP.html#PXON">PXON</A> which greatly enhance these
+    facilities.
+    
+    <A style="font-style: italic;" href="KeywordsP.html#PEND">PEND</A> can be used to check if a Job can send output to the
+    screen.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PIF$" id="PIF$"></A>PIF$</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PIF$<BR></SPAN> Location: <SPAN style="font-style: italic;">PEX<BR></SPAN>
+    This is the same as <SPAN style="font-style: italic;">QRAM$</SPAN>!
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PINF$" id="PINF$"></A>PINF$</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PINF$<BR></SPAN> Location: <SPAN style="font-style: italic;">Fn<BR></SPAN>
+    This is the same as <SPAN style="font-style: italic;">QRAM$</SPAN> and <SPAN style="font-style: italic;">PIF$</SPAN>!
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PIXEL%" id="PIXEL%"></A>PIXEL%</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PIXEL% (</SPAN> [<SPAN style="font-style: italic;">#ch,</SPAN>] <SPAN style="font-style: italic;">x1,y1</SPAN> ) Location: <SPAN style="font-style: italic;">PIXEL (DIY Toolkit - Vol G)<BR></SPAN>
+    This function can be used to read the colour of a point in
+    absolute co-ordinates on the screen with reference to the
+    specified window channel (if any - default #1).
+    
+    This function will work in <SPAN style="font-style: italic;">MODE 4</SPAN>, <SPAN style="font-style: italic;">8</SPAN> and <SPAN style="font-style: italic;">12</SPAN> (on the THOR XVI,
+    if you have v0.9+).
+    
+    The main limitation on this function is that the point must
+    appear within the specified window, so <SPAN style="font-style: italic;">x1</SPAN> and <SPAN style="font-style: italic;">y1</SPAN> cannot exceed
+    the width or height of the specified window (in pixels), or be
+    less than zero.
+    
+    
+<H3>NOTE:</H3>
+
+<P>
+    Although <SPAN style="font-style: italic;">PIXEL%</SPAN> will work wherever the screen base is
+    located, prior to v1.0, it assumed that a line of pixels takes
+    128 bytes - early versions will not therefore work on higher
+    resolutions.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsP.html#PLOT">PLOT</A> and <A style="font-style: italic;" href="KeywordsD.html#DRAW">DRAW</A> allow you to draw points and lines on the
+    screen.
+    
+    <A style="font-style: italic;" href="KeywordsI.html#INK">INK</A> gives details about the various colour values which may
+    be returned (this will be in the range 0...16).
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PJOB" id="PJOB"></A>PJOB</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PJOB (job_ID)<BR></SPAN>
+    or <SPAN style="font-style: italic;">PJOB (jobnr,tag)<BR></SPAN>
+    or <SPAN style="font-style: italic;">PJOB (jobname)<BR></SPAN> Location: <SPAN style="font-style: italic;">Toolkit II<BR></SPAN>
+    Each job has a priority - the function <SPAN style="font-style: italic;">PJOB</SPAN> finds it and
+    returns 0 if the given job does not exist, otherwise it
+    returns the priority of the specified job. You can calculate
+    the <SPAN style="font-style: italic;">job_ID</SPAN> with the formula <SPAN style="font-style: italic;">job_id=jobnr+tag*2^16</SPAN>, a negative <SPAN style="font-style: italic;">job_ID<BR></SPAN> (preferably -1) identifies the job calling <SPAN style="font-style: italic;">PJOB</SPAN>. The higher the
+    priority, the more working time a job draws from the
+    processor, and therefore the faster the execution.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    The priority of the main SuperBASIC interpreter can be seen
+    
+    with:
+    <SPAN style="font-style: italic;">
+    PRINT PJOB(0)</SPAN>.
+    
+    
+<H3>MINERVA NOTE:</H3>
+
+<P>
+    The maximum priority for a job on a standard QL is 255,
+    however, on a Minerva ROM, the acceptable priority range is
+    altered to -128...127. If <SPAN style="font-style: italic;">PJOB</SPAN> returns a value over 127, then
+    deduct the difference between this and 256 from zero to get
+    the priority on a Minerva machine - see <SPAN style="font-style: italic;">SPJOB</SPAN> for further
+    details.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsJ.html#JOB$">JOB$</A>, <A style="font-style: italic;" href="KeywordsO.html#OJOB">OJOB</A> and <A style="font-style: italic;" href="KeywordsN.html#NXJOB">NXJOB</A> return other information about a job.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PLAY" id="PLAY"></A>PLAY</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PLAY nr, music$<BR></SPAN> Location: <SPAN style="font-style: italic;">ST/QL, QSound<BR></SPAN>
+    The command <SPAN style="font-style: italic;">PLAY</SPAN> will store the sequence <SPAN style="font-style: italic;">music$</SPAN> under the
+    sequence number <SPAN style="font-style: italic;">nr</SPAN>. The sequences are numbered 1, 2, 3, etc. No
+    details are available for the limits of <SPAN style="font-style: italic;">nr</SPAN> and the structure of
+    <SPAN style="font-style: italic;">music$</SPAN>.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsR.html#RELEASE%20nr">RELEASE nr</A> plays a sequence.
+    
+    <A style="font-style: italic;" href="KeywordsS.html#SND_EXT">SND_EXT</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PLOT" id="PLOT"></A>PLOT</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PLOT x,y,colour<BR></SPAN> Location: <SPAN style="font-style: italic;">Fast PLOT/DRAW Toolkit<BR></SPAN>
+    This command forces a pixel to be set at the absolute
+    screen position <SPAN style="font-style: italic;">x,y</SPAN>. The origin (0,0) is the upper left corner
+    of the full QL screen, the opposite corner (diagonally) is
+    (511,255). Two neighbouring points do not have any space
+    between them.
+    
+    Co-ordinates greater than 511 (x) or 255 (y) or smaller
+    than 0 are modulated (eg. <SPAN style="font-style: italic;">x MOD 511</SPAN>). The base address of the
+    screen used by <SPAN style="font-style: italic;">PLOT</SPAN> is defined with <SPAN style="font-style: italic;">SCRBASE</SPAN>.
+    <SPAN style="font-style: italic;">
+    PLOT</SPAN> works in MODE 4 only.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    The following procedure plots a point given in polar
+    
+    co-ordinates. A simple approach to draw a line in a polar
+    
+    system is listed at <SPAN style="font-style: italic;">DRAW</SPAN>. A sensible range for the radius is
+    
+    0&lt;=r&lt;=127.
+    <SPAN style="font-style: italic;">100 DEFine PROCedure POLAR_PLOT (r,phi,col)
+    110 LOCal x,y
+    120 x=1.35*r*SIN(phi+PI/2)+255
+    130 y=r*COS(phi+PI/2)+127
+    140 PLOT x,y,col
+    150 END DEFine POLAR_PLOT<BR></SPAN>
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">PLOT</SPAN> writes directly into screen memory and will work on
+    512x256 resolutions only, it assumes by default that the
+    screen starts at $20000 (redefine with <SPAN style="font-style: italic;">SCRBASE</SPAN>) and works in <SPAN style="font-style: italic;">MODE 4<BR></SPAN> only.
+    
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    Minerva users can <SPAN style="font-style: italic;">SCRBASE SCREEN(#3)</SPAN> to allow <SPAN style="font-style: italic;">PLOT</SPAN> to draw on the
+    screen on which channel #3 is located.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsD.html#DRAW">DRAW</A> draws a line, <A style="font-style: italic;" href="KeywordsS.html#SCLR">SCLR</A> clears the screen, and <A style="font-style: italic;" href="KeywordsR.html#REFRESH">REFRESH</A> makes the
+    screen defined by <A style="font-style: italic;" href="KeywordsS.html#SCRBASE">SCRBASE</A> visible.
+    
+    Compare the other implementation of <A style="font-style: italic;" href="KeywordsP.html#PLOT">PLOT</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PLOT" id="PLOT"></A>PLOT</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PLOT</SPAN> [<SPAN style="font-style: italic;">#ch,</SPAN>] <SPAN style="font-style: italic;">x1,y1<BR></SPAN> Location: <SPAN style="font-style: italic;">DRAW (DIY Toolkit - Vol G)<BR></SPAN>
+    This command plots a point in absolute co-ordinates on the
+    screen with reference to the specified window channel (if any
+    - default #1).
+    
+    This is also used to specify the start point of a line to
+    be drawn with the <SPAN style="font-style: italic;">DRAW</SPAN> command from the same toolkit.
+    
+    This is quicker than using the SuperBASIC <SPAN style="font-style: italic;">POINT</SPAN> command and
+    unlike other similar commands, it will support the current <SPAN style="font-style: italic;">INK<BR></SPAN> colour and <SPAN style="font-style: italic;">OVER</SPAN> mode. &lt;CTRL&gt;&lt;F5&gt; will pause the point drawing
+    and it will even work in <SPAN style="font-style: italic;">MODE 4</SPAN>, <SPAN style="font-style: italic;">8</SPAN> and <SPAN style="font-style: italic;">12</SPAN> (on the THOR XVI, if
+    you have v1.6+).
+    
+    The main limitation on this command is that the point must
+    appear within the specified window, so <SPAN style="font-style: italic;">x1</SPAN> and <SPAN style="font-style: italic;">y1</SPAN> cannot exceed
+    the width or height of the specified window (in pixels), or be
+    less than zero.
+    
+    
+<H3>NOTE:</H3>
+
+<P>
+    Although <SPAN style="font-style: italic;">PLOT</SPAN> will work wherever the screen base is located,
+    it assumes that a line of pixels takes 128 bytes - it will not
+    therefore work on higher resolutions.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See the other variant of<A style="font-style: italic;" href="KeywordsP.html#PLOT">PLOT</A>.
+    
+    See also <A style="font-style: italic;" href="KeywordsD.html#DRAW">DRAW</A>.
+    
+    Compare <A style="font-style: italic;" href="KeywordsP.html#POINT">POINT</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="POINT" id="POINT"></A>POINT</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">POINT</SPAN> [<SPAN style="font-style: italic;">#ch,</SPAN>] <SPAN style="font-style: italic;">x,y</SPAN> <SUP>*</SUP>[<SPAN style="font-style: italic;">;x</SPAN><SUP>i</SUP><SPAN style="font-style: italic;">,y</SPAN><SUP>i</SUP>]<SUP>*<BR></SUP> Location: <SPAN style="font-style: italic;">QL ROM, GPOINT<BR></SPAN>
+    This command draws one or more specified points in the
+    given window (default #1). The co-ordinates are floating point
+    numbers, which means that two <SPAN style="font-style: italic;">POINT</SPAN>s drawn with:
+    
+    <SPAN style="font-style: italic;">POINT 20,20: POINT 21,20<BR></SPAN>
+    (or <SPAN style="font-style: italic;">POINT 20,20;21,20</SPAN>)
+    
+    for example, are not normally neighbours. If a point lies
+    outside a window, it is simply not drawn, ie. overflow errors
+    do not occur.
+    
+    The graphics cursor is updated to the last point to be
+    plotted.
+    
+    
+<H3>Examples:</H3>
+
+<P><SPAN style="font-style: italic;">POINT 50,50
+    POINT 50,50;60,60
+    POINT#2,20,50
+    POINT #2,20,50;50,20;20,20;50,50<BR></SPAN>
+    
+<H3>NOTE:</H3>
+
+<P>
+    On MGx ROMs, there is a well-known <SPAN style="font-style: italic;">POINT</SPAN> bug which makes
+    <SPAN style="font-style: italic;">POINT</SPAN> draw two points instead of one. This is fixed by some
+    versions of Toolkit II, the ST/QL Emulator, SMS, Gold Card,
+    other ROMs (especially Minerva) and small patches like GPOINT.
+    
+    GPOINT includes two commands: a replacement <SPAN style="font-style: italic;">POINT</SPAN> and <SPAN style="font-style: italic;">GPOINT<BR></SPAN> which is just another name for the same thing.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    The relation between the supplied co-ordinates and their
+    position in the window is defined with <A style="font-style: italic;" href="KeywordsS.html#SCALE">SCALE</A>. The colour of the
+    point(s) is set with <A style="font-style: italic;" href="KeywordsI.html#INK">INK</A>. The window can be resized with <A style="font-style: italic;" href="KeywordsW.html#WINDOW">WINDOW</A>.
+    <A href="KeywordsL.html#LINE">LINE</A> draws a line.
+    
+    The <A style="font-style: italic;" href="KeywordsG.html#GPOINT">GPOINT</A> command is fully identical to <A style="font-style: italic;" href="KeywordsP.html#POINT">POINT</A> except that it
+    fixes the MGx ROM bug.
+    
+    Check the ROM version with <A style="font-style: italic;" href="KeywordsV.html#VER$">VER$</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="POINT_R" id="POINT_R"></A>POINT_R</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">POINT_R</SPAN> [<SPAN style="font-style: italic;">#ch,</SPAN>] <SPAN style="font-style: italic;">x,y</SPAN> <SUP>*</SUP>[<SPAN style="font-style: italic;">;x</SPAN><SUP>i</SUP><SPAN style="font-style: italic;">,y</SPAN><SUP>i</SUP>]<SUP>*<BR></SUP> Location: <SPAN style="font-style: italic;">QL ROM<BR></SPAN>
+    This command is similar to <SPAN style="font-style: italic;">POINT</SPAN> except that all
+    co-ordinates given are relative to the current graphics
+    pointer.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsP.html#POINT">POINT</A>!
+    
+    Also see <A style="font-style: italic;" href="KeywordsL.html#LINE_R">LINE_R</A> and <A style="font-style: italic;" href="KeywordsC.html#CIRCLE_R">CIRCLE_R</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1>POKE</H1>
+    <HR style="width: 100%; height: 2px;">
+    
+<H3>POKE_W</H3>
+
+<P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H3>POKE_L</H3>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">POKE address,valueaddress=0,1,2,3,...value=0..255<BR></SPAN>
+    or <SPAN style="font-style: italic;">POKE address, value</SPAN><SUP>1</SUP> <SUP>*</SUP>[<SPAN style="font-style: italic;">,value</SPAN><SUP>i</SUP>]<SUP>*</SUP><SPAN style="font-style: italic;">(Minerva and SMS only)<BR></SPAN>
+    or <SPAN style="font-style: italic;">POKE address,</SPAN> {<SPAN style="font-style: italic;">value</SPAN><SUP>1</SUP> | <SPAN style="font-style: italic;">value</SPAN><SUP>1</SUP><SPAN style="font-style: italic;">$</SPAN>} <SUP>*</SUP>{<SPAN style="font-style: italic;">,value</SPAN><SUP>i</SUP> | <SPAN style="font-style: italic;">value</SPAN><SUP>i</SUP><SPAN style="font-style: italic;">$</SPAN>}<SUP>*<BR></SUP> <SPAN style="font-style: italic;">
+    (SMS only)<BR></SPAN>
+    and <SPAN style="font-style: italic;">POKE_W address,value address=0,2,4,6,...value=-32768..32767<BR></SPAN>
+    or <SPAN style="font-style: italic;">POKE_W address, value</SPAN><SUP>1</SUP> <SUP>*</SUP>[<SPAN style="font-style: italic;">,value</SPAN><SUP>i</SUP>]<SUP>*</SUP><SPAN style="font-style: italic;">(Minerva and SMS only)<BR></SPAN>
+    and <SPAN style="font-style: italic;">POKE_L address,valueaddress=0,2,4,6,...
+    
+    value=-655362/2..655362/2-2<BR></SPAN>
+    or <SPAN style="font-style: italic;">POKE_L address, value</SPAN><SUP>1</SUP> <SUP>*</SUP>[<SPAN style="font-style: italic;">,value</SPAN><SUP>i</SUP>]<SUP>*</SUP><SPAN style="font-style: italic;">(Minerva and SMS only)<BR></SPAN> Location: <SPAN style="font-style: italic;">QL ROM<BR></SPAN>
+    Both kinds of internal memory (RAM and ROM) are organised
+    as a stream of values. The basic unit for memory is a bit (a
+    value of 0 or 1 relating to false or true), which relates to
+    the binary system of counting. Eight bits are combined to form
+    a byte (0 to 255), sixteen bits make a word, and thirty-two a
+    longword. Words and longwords are signed whilst bytes are
+    unsigned.
+    
+    The <SPAN style="font-style: italic;">POKE</SPAN> commands allow you to set values in memory. It is
+    however unwise to <SPAN style="font-style: italic;">POKE</SPAN> just anywhere, because there could be
+    important code present in that part of memory which will be
+    disrupted by <SPAN style="font-style: italic;">POKE</SPAN>s and could crash your computer. You would
+    generally have already set aside a part of memory for use by
+    your own programs, by using <SPAN style="font-style: italic;">RESPR</SPAN> or <SPAN style="font-style: italic;">ALCHP</SPAN> and then you would <SPAN style="font-style: italic;">POKE<BR></SPAN> different values in that part of memory, eg. for storing data.
+    
+    This is a representation of the relationship betwen bits,
+    bytes, words and longwords:
+    
+    <SPAN style="font-style: italic;">10011000 10001000 11011111 10111000 01110110 11000111 01100000 00000011
+    
+    \ / \ / \ / \ / \ / \ / \ / \ /
+    
+    byte 152 136 223 184 118 199 96 3
+    
+    \ / \ / \ / \ /
+    
+    words 39048 57272 30407 24579
+    
+    \ / \ /
+    
+    longwords -1.73586E9 1.992778E9<BR></SPAN>
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    Negative values can also be stored in memory. However, they
+    are stored by deducting the number from the maximum number
+    which can be stored in a byte plus one.
+    <SPAN style="font-style: italic;">
+    POKE 131072,255</SPAN> and <SPAN style="font-style: italic;">POKE</SPAN> <SPAN style="font-style: italic;">131072,-1</SPAN> have the same effect!
+    
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    Do not try to <SPAN style="font-style: italic;">POKE_W</SPAN> or <SPAN style="font-style: italic;">POKE_L</SPAN> to an odd address (eg. 10001) as
+    this will cause an error unless you are using Minerva (see
+    below).
+    
+    
+<H3>
+    
+    NOTE 3:</H3>
+
+<P>
+    If you try to poke a <SPAN style="font-style: italic;">value</SPAN> which is too big to fit into the
+    given space, eg. <SPAN style="font-style: italic;">POKE 131072,-32768</SPAN> then only the least significant
+    byte is used (with <SPAN style="font-style: italic;">POKE</SPAN>) and the low word is used (with <SPAN style="font-style: italic;">POKE_W</SPAN>).
+    
+    
+<H3>NOTE 4:</H3>
+
+<P>
+    The THOR XVI limits <SPAN style="font-style: italic;">value</SPAN> to the following ranges:
+    <SPAN style="font-style: italic;">POKE: -128..255</SPAN>; <SPAN style="font-style: italic;">POKE_W: -32768..65535<BR></SPAN>
+    
+<H3>MINERVA NOTES:</H3>
+
+<P>
+    The <SPAN style="font-style: italic;">POKE</SPAN>, <SPAN style="font-style: italic;">POKE_W</SPAN> and <SPAN style="font-style: italic;">POKE_L</SPAN> commands on Minerva (version 1.77 or
+    later) are very much enhanced and different.
+    
+    Minerva allows you to <SPAN style="font-style: italic;">POKE_W</SPAN> and <SPAN style="font-style: italic;">POKE_L</SPAN> to odd addresses (eg.
+    <SPAN style="font-style: italic;">POKE_W 131073,100100<BR></SPAN>
+    Minerva has also added to the usefulness of the <SPAN style="font-style: italic;">POKE</SPAN>, <SPAN style="font-style: italic;">POKE_W<BR></SPAN> and <SPAN style="font-style: italic;">POKE_L</SPAN> commands by allowing them to store a list of numbers
+    in one go. As an example the following two program lines have
+    exactly the same effect, although only line 100 will run on a
+    non-Minerva QL.
+    
+    <SPAN style="font-style: italic;">100 POKE_W start,10:POKE_W start+2,125:POKE_W start+4,10322<BR></SPAN>
+    <SPAN style="font-style: italic;">110 POKE_W start,10,125,10322<BR></SPAN>
+    Minerva also allows the BASIC programmer to access the QL's
+    SuperBASIC variables, system variables and Minerva's own
+    System Xtensions (although the extended <SPAN style="font-style: italic;">PEEK</SPAN>s should be of more
+    use). You will need a good book on QDOS (eg. QDOS/SMS
+    Reference Manual) to find out what the possible values are.
+    
+    The syntax for these extra commands is:
+    
+    
+<H3>(1) Alter SuperBASIC variables.</H3>
+
+<P>
+    <SPAN style="font-style: italic;">POKE \\SBvar,value SBvar=0...256
+    
+    POKE_W \\SBvar,value
+    
+    POKE_L \\SBvar,value
+    
+    POKE \SBvar\Offset,value
+    
+    POKE_W \SBvar\Offset,value
+    
+    POKE_L \SBvar\Offset,value<BR></SPAN>
+    
+<H3>(2) Alter System variables.</H3>
+
+<P>
+    <SPAN style="font-style: italic;">POKE !!Sysvar,value Sysvar=0...1152
+    
+    POKE_W !!Sysvar,value
+    
+    POKE_L !!Sysvar,value
+    
+    POKE !Sysvar!Offset,value
+    
+    POKE_W !Sysvar!Offset,value
+    
+    POKE_L !Sysvar!Offset,value<BR></SPAN>
+    <SPAN style="font-style: italic;">POKE \\SBvar,value<BR></SPAN>
+    will alter the SuperBASIC variable pointed to by <SPAN style="font-style: italic;">Sysvar</SPAN>, such
+    as the current line number. The most useful of these are
+    variables $68 onwards.
+    
+    <SPAN style="font-style: italic;">POKE \SBvar\Offset,value<BR></SPAN>
+    allows you to alter the different SuperBASIC tables used by
+    the QL (eg. the channel table). The start addresses of the
+    different tables are contained in the SuperBASIC variables $0
+    to $64.
+    
+    <SPAN style="font-style: italic;">SBvar</SPAN> must contain the relevant SuperBASIC variable (the
+    pointer to the required table), then the <SPAN style="font-style: italic;">Offset</SPAN> is the required
+    address within the table.
+    
+    <SPAN style="font-style: italic;">POKE !!Sysvar,value<BR></SPAN>
+    allows you to alter the different system variables
+    (normally stored at $28000 on a QL, but they can move!).
+    These are useful for accessing the current network number,
+    finding free space, accessing device drivers, forcing
+    &lt;CAPSLOCK&gt;..... <SPAN style="font-style: italic;">Sysvar</SPAN> merely contains the number of the
+    required system variable.
+    
+    <SPAN style="font-style: italic;">POKE !Sysvar!Offset,value<BR></SPAN>
+    takes the address contained within the given system
+    variable, adds the <SPAN style="font-style: italic;">Offset</SPAN> to that address and then pokes it with
+    the given <SPAN style="font-style: italic;">value</SPAN>.
+    
+    On a Minerva machine the system variable stored at $7C
+    (124) (SV.CHTOP) contains the address of the Minerva System
+    Xtensions, therefore to alter these:
+    
+    <SPAN style="font-style: italic;">SysX=PEEK_L (ver$(-2) + 124)
+    
+    POKE SysX+offset,value
+    
+    POKE_W SysX+offset,value
+    
+    POKE_L SysX+offset,value<BR></SPAN>
+    Minerva's System Xtensions provide such things as the
+    addresses for translation tables, the attributes for the size
+    type and colour of a cursor, the fonts for all subsequently
+    opened windows and much more... (see Minerva manual for list).
+    
+    
+<H3>Minerva Example 1:</H3>
+
+<P>
+    It is sometimes useful to alter the key repeat delay and
+    
+    frequency to make allowances for when a different keyboard
+    
+    is attached to the QL, so that you can type more quickly
+    
+    without having the problem that you are waiting around for
+    
+    auto-repeat to take effect.
+    
+    These two values can now simply be altered using:
+    <SPAN style="font-style: italic;">POKE_W !!140,key_delay
+    POKE_W !!142,key_frequency<BR></SPAN>
+    
+<H3>Minerva Example 2:</H3>
+
+<P>
+    Want to attach a new font to all channels which will be
+    
+    opened in the future?
+    <SPAN style="font-style: italic;">100 a=RESPR(2000)
+    110 LBYTES flp1_new_font,a
+    120 POKE_L !124!40,a<BR></SPAN>
+    
+<H3>
+    Minerva Example 3:</H3>
+
+<P>
+    It might be useful in an error trapping routine to find the
+    
+    current <SPAN style="font-style: italic;">DATA</SPAN> position (eg. if there is an error when reading
+    
+    data into a variable), so that the position may be returned
+    
+    to later once the error has been overcome. You may even
+    
+    wish to miss out the problem <SPAN style="font-style: italic;">DATA</SPAN> line. This program is an
+    
+    'intelligent' data-loader:
+    <SPAN style="font-style: italic;">100 WHEN ERRor
+    110 data_line=PEEK_W(\\148)
+    115 PRINT 'ERROR IN DATA LINE'!data_line!';statement'! PEEK(\\151)-1
+    120 INPUT 'Go to next data line (y/n)'!a$
+    130 IF a$=='y': POKE_W\\148,data_line+1: POKE\\150,1:POKE\\151,1: RETRY
+    140 IF a$=='n' THEN
+    145 data_store=PEEK_W(\\148)*65536+(PEEK(\\150)-1)*256+PEEK(\\151)-1
+    147 PRINT"Alter offending line then enter re_run":STOP
+    149 END IF
+    150 END WHEN
+    155 :
+    160 RESTORE
+    170 ax=RESPR(100):i=0
+    180 REPeat data_load
+    190 IF EOF: EXIT data_load
+    200 READ b
+    210 PRINT b,i:POKE ax+i,b
+    220 i=i+1
+    230 END REPeat data_load
+    240 DATA 10,10,2,3,3a,10
+    250 DATA 10,2,2,3,3,2
+    255 :
+    260 DEFine PROCedure RE_run
+    270 POKE_L \\148,data_store: GO TO 170
+    280 END DEFine<BR></SPAN>
+    
+<H3>SMS NOTE:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">POKE</SPAN>, <SPAN style="font-style: italic;">POKE_W</SPAN> and <SPAN style="font-style: italic;">POKE_L</SPAN> have been made the same as on Minerva
+    except that <SPAN style="font-style: italic;">POKE_W</SPAN> and <SPAN style="font-style: italic;">POKE_L</SPAN> cannot address odd addresses.
+    
+    SMS does not possess Minerva's System Xtensions. Please
+    also note that SMS's improved interpreter won't allow you to
+    enter line 240 in the Minerva Example 1.
+    
+    One extra addition to SMS is that the <SPAN style="font-style: italic;">POKE</SPAN> command can
+    actually accept a string as a value to be poked into memory.
+    If a string is passed as a parameter, each character of the
+    string is converted to its character code and then that byte
+    poked into memory, for example:
+    
+    <SPAN style="font-style: italic;">POKE base,0,5,'WIN1_'<BR></SPAN>
+    will store '<SPAN style="font-style: italic;">WIN1_</SPAN>' as a standard QL string (a word
+    containing its length followed by the string itself) at the
+    address in memory pointed to by base.
+    
+    Note that if you pass an empty string, this will have no
+    effect.
+    
+    
+<H3>WARNING:</H3>
+
+<P>
+    If you are <SPAN style="font-style: italic;">POKE</SPAN>ing around in memory then make sure that you
+    know what you are doing. On every QDOS machine, even RAM areas
+    which have not been set aside for program use are used by the
+    operating system, eg. for buffering purposes.
+    
+    On Emulators and QLs fitted with a Gold Card, the operating
+    system itself is no longer in ROM but is moved into RAM.
+    <SPAN style="font-style: italic;">POKE</SPAN>ing in this area will almost surely lead to crashes. Even
+    advanced users who know which parts of memory are used by QDOS
+    should avoid amending QDOS directly. There are more elegant
+    and safer methods how to do this which will run on every QDOS
+    compatible computer.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsP.html#PEEK">PEEK</A>, <A style="font-style: italic;" href="KeywordsP.html#PEEK_W">PEEK_W</A>, <A style="font-style: italic;" href="KeywordsP.html#PEEK_L">PEEK_L</A> and <A style="font-style: italic;" href="KeywordsP.html#PEEK$">PEEK$</A> read memory values and <A style="font-style: italic;" href="KeywordsP.html#POKE$">POKE$</A> is
+    another command to set them.
+    
+    <A style="font-style: italic;" href="KeywordsC.html#CHAR_DEF">CHAR_DEF</A> allows you to attach a font to all channels <A style="font-style: italic;" href="KeywordsO.html#OPEN">OPEN</A>ed
+    after the command.
+    
+    <A style="font-style: italic;" href="KeywordsP.html#POKES">POKES</A> allows you to <A style="font-style: italic;" href="KeywordsP.html#POKE">POKE</A> memory in Supervisor mode.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1>POKES</H1>
+    <HR style="width: 100%; height: 2px;">
+    
+<H3>POKES_W</H3>
+
+<P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H3>POKES_L</H3>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">POKES address,</SPAN> {<SPAN style="font-style: italic;">value</SPAN><SUP>1</SUP> | <SPAN style="font-style: italic;">value</SPAN><SUP>1</SUP>$} <SUP>*</SUP>{<SPAN style="font-style: italic;">,value</SPAN><SUP>i</SUP> | <SPAN style="font-style: italic;">,value</SPAN><SUP>i</SUP><SPAN style="font-style: italic;">$</SPAN>}<SUP>*<BR></SUP> <SPAN style="font-style: italic;">
+    address=0,1,2,3,...
+    
+    value=0...255<BR></SPAN>
+    and <SPAN style="font-style: italic;">POKES_W address, value</SPAN><SUP>1</SUP> <SUP>*</SUP>[<SPAN style="font-style: italic;">,value</SPAN><SUP>i</SUP>]<SUP>*</SUP><SPAN style="font-style: italic;">address=0,2,4,6,...
+    value=-32768..32767<BR></SPAN>
+    and <SPAN style="font-style: italic;">POKES_L address, value</SPAN><SUP>1</SUP> <SUP>*</SUP>[<SPAN style="font-style: italic;">,value</SPAN><SUP>i</SUP>]<SUP>*</SUP><SPAN style="font-style: italic;">address=0,2,4,6,...
+    value=-655362/2..655362/2-2<BR></SPAN> Location: <SPAN style="font-style: italic;">SMSQ/E and ATARI_REXT v2.17+<BR></SPAN>
+    These three commands are only of any use on the Atari
+    series of computers.
+    
+    They are the same as the simple forms of <SPAN style="font-style: italic;">POKE</SPAN>, <SPAN style="font-style: italic;">POKE_W</SPAN> and
+    <SPAN style="font-style: italic;">POKE_L</SPAN>, except that they operate in Supervisor Mode and can
+    therefore be used to write data direct into the Atari's IO
+    hardware.
+    
+    On all other implementations they are the same as <SPAN style="font-style: italic;">POKE</SPAN>, <SPAN style="font-style: italic;">POKE_W<BR></SPAN> and <SPAN style="font-style: italic;">POKE_L</SPAN>.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsP.html#POKE">POKE</A> and <A style="font-style: italic;" href="KeywordsP.html#PEEKS">PEEKS</A>.
+    
+    Also see <A style="font-style: italic;" href="KeywordsP.html#PROT_MEM">PROT_MEM</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="POKE$" id="POKE$"></A>POKE$</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">POKE$ address,string$<BR></SPAN> Location: <SPAN style="font-style: italic;">ATARI_REXT, TinyToolkit, BTool, SMS<BR></SPAN>
+    The standard version of this command pokes the code of each
+    of the given string's characters to memory from <SPAN style="font-style: italic;">address</SPAN> onwards.
+    In SuperBASIC, the procedure might look similar to:
+    <SPAN style="font-style: italic;">100 DEFine PROCedure POKE$ (address,string$)
+    110 LOCal i
+    120 FOR i=1 TO LEN(string$)
+    130 POKE address+i-1,CODE(string$(i))
+    140 END FOR i
+    150 END DEFine POKE$<BR></SPAN>
+    The BTool version writes the string in QDOS internal
+    format: the string's contents are preceded by two additional
+    bytes (one word) indicating the length of the string. address
+    must be even.
+    
+    If you pass an empty string, all versions of this command
+    will not do anything.
+    
+    
+<H3>SMS NOTE:</H3>
+
+<P>
+    This command is now very similar to <SPAN style="font-style: italic;">POKE</SPAN> in that <SPAN style="font-style: italic;">POKE</SPAN> allows
+    you to pass a string as a parameter.
+    
+    <SPAN style="font-style: italic;">POKE$</SPAN> can also now access the System Variables and
+    SuperBASIC variables directly as with <SPAN style="font-style: italic;">POKE</SPAN>.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsP.html#PEEK$">PEEK$</A> reads strings from memory.
+    <A href="KeywordsM.html#MKS$">MKS$</A> returns the internal format of a given string.
+    
+    <A style="font-style: italic;" href="KeywordsT.html#TTPOKE$">TTPOKE$</A> is the same as this command.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="POKE_F" id="POKE_F"></A>POKE_F</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">POKE_F address,float<BR></SPAN> Location: <SPAN style="font-style: italic;">BTool<BR></SPAN>
+    Floating point numbers are internally stored as six bytes.
+    <SPAN style="font-style: italic;">POKE_F</SPAN> will store any float at address in memory where
+    <SPAN style="font-style: italic;">ODD(address)=0</SPAN>.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    Floating point numbers can be stored in internal format in
+    
+    a file with <SPAN style="font-style: italic;">PUT</SPAN>. The disadvantage of that method is low disk
+    
+    access speed if you need to store a large number of values.
+    
+    Compare the following two programs which store the same
+    
+    amount of data at different speeds:
+    
+    (a) slow but minimal memory usage:
+    <SPAN style="font-style: italic;">100 n=1000: file$="flp1_test_dat"
+    120 fp=FOP_NEW(file$)
+    130 FOR i=1 TO n: PUT#fp,RND
+    140 CLOSE#fp<BR></SPAN>
+    (b) fast but 6K buffer required:
+    <SPAN style="font-style: italic;">100 n=1000: file$="flp1_test_dat"
+    120 a=ALCHP(6*(n+1))
+    130 FOR i=0 TO n: POKE_F a+i*6,RND
+    140 SBYTES file$,a,6*(n+1)
+    150 RECHP a<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsP.html#POKE">POKE</A>, <A style="font-style: italic;" href="KeywordsP.html#POKE_W">POKE_W</A> and <A style="font-style: italic;" href="KeywordsP.html#POKE_L">POKE_L</A> store different ranges of integer
+    numbers.
+    <A href="KeywordsM.html#MKF$">MKF$</A> returns the internal representation of a floating point
+    number as a string.
+    <A href="KeywordsG.html#GET">GET</A> and <A style="font-style: italic;" href="KeywordsP.html#PUT">PUT</A> write all kinds of data types in their internal
+    format to a channel, <A style="font-style: italic;" href="KeywordsF.html#FPUTF">FPUTF</A> and <A style="font-style: italic;" href="KeywordsF.html#FGETF">FGETF</A> are specialised variants for
+    floats only.
+    
+    See also <A style="font-style: italic;" href="KeywordsP.html#PEEK_F">PEEK_F</A>!
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PRINT" id="PRINT"></A>PRINT</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PRINT</SPAN> [<SPAN style="font-style: italic;">#chan,</SPAN>] <SUP>*</SUP>[ [<SPAN style="font-style: italic;">separator</SPAN>] [<SPAN style="font-style: italic;">strg</SPAN><SUP>i</SUP><SPAN style="font-style: italic;">$ separator</SPAN>] <SPAN style="font-style: italic;">var</SPAN><SUP>i</SUP>]<SUP>*<BR></SUP>
+    or <SPAN style="font-style: italic;">PRINT</SPAN> <SUP>*</SUP>[ [<SPAN style="font-style: italic;">#chan,</SPAN>] [<SPAN style="font-style: italic;">separator</SPAN>] [<SPAN style="font-style: italic;">strg</SPAN><SUP>i</SUP><SPAN style="font-style: italic;">$ separator</SPAN>] <SPAN style="font-style: italic;">var</SPAN><SUP>i</SUP>]<SUP>*<BR></SUP>
+    <SPAN style="font-style: italic;">(THOR XVI &amp; Minerva v1.97+ only)<BR></SPAN> Location: <SPAN style="font-style: italic;">QL ROM<BR></SPAN>
+    This command will send a string of bytes to the specified
+    channel (default #1). If any variables (<SPAN style="font-style: italic;">var</SPAN>) are specified, the
+    contents of those variables are <SPAN style="font-style: italic;">PRINT</SPAN>ed in the specified
+    channel. If the channel is a window, the characters printed
+    appear at the current text cursor position, in the current <SPAN style="font-style: italic;">INK<BR></SPAN> colour on the current <SPAN style="font-style: italic;">STRIP</SPAN> colour, and will also be affected by
+    the settings of <SPAN style="font-style: italic;">CSIZE</SPAN>, <SPAN style="font-style: italic;">UNDER</SPAN>, <SPAN style="font-style: italic;">FLASH</SPAN> and <SPAN style="font-style: italic;">OVER</SPAN>.
+    
+    If you tell <SPAN style="font-style: italic;">PRINT</SPAN> to use an unset variable, an asterisk
+    ('*') will be <SPAN style="font-style: italic;">PRINT</SPAN>ed on screen rather than an error being
+    reported (except on SMS where an unset variable is given the
+    value 0 (if a numeric variable) or '' for a string).
+    
+    Beware, however that if you try to use an unset variable in
+    a calculation inside the <SPAN style="font-style: italic;">PRINT</SPAN> statement, an 'Error in
+    Expression' error will be generated, for example:
+    
+    <SPAN style="font-style: italic;">1 a=10 : PRINT 'A is :'! a ,'B is :'! b : PRINT 'A*B is :' !a*b<BR></SPAN>
+    If a channel is specified, this must be followed by a
+    comma. It may however also be followed by one or more
+    separators, as with <SPAN style="font-style: italic;">INPUT</SPAN>. At the end of the <SPAN style="font-style: italic;">PRINT</SPAN> command, the
+    text cursor is placed at the start of the next print line
+    (unless an end <SPAN style="font-style: italic;">separator</SPAN> of '!', '\' or ';' is used).
+    
+    When using a <SPAN style="font-style: italic;">separator</SPAN> of '!', TO or ',' on a non-window
+    channel, the <SPAN style="font-style: italic;">PRINT</SPAN> statement will always assume the end of each
+    line to be the number of characters specified with the <SPAN style="font-style: italic;">WIDTH<BR></SPAN> command, thus allowing you to format your output on a printer,
+    for example.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    The following procedure allows you to print text to a given
+    
+    channel without splitting words when the text wraps onto
+    
+    the next line:
+    <SPAN style="font-style: italic;">100 DEFine PROCedure PRINT_TEXT(ch,txt$)
+    110 LOCal print_loop
+    120 REPeat print_loop%
+    130 IF LEN(txt$)=0:PRINT #ch:RETurn
+    140 I%=' ' INSTR txt$
+    150 IF I%=0:PRINT #ch!!txt$:RETurn
+    160 PRINT #ch!!txt$(1 TO I%-1)!
+    170 IF I%&lt;LEN(txt$):txt$=txt$(I%+1 TO):ELSE txt$=''
+    180 END REPeat print_loop%
+    190 END DEFine<BR></SPAN>
+    Try:
+    <SPAN style="font-style: italic;">WINDOW #1,50,100,32,16:PRINT_TEXT #1,'This is a test line'<BR></SPAN>
+    Compare:
+    <SPAN style="font-style: italic;">PRINT #1,'This is a test line'<BR></SPAN>
+    
+<H3></H3>
+
+<P>
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    Version 6.40 of the THOR XVI ROM can crash if you try to
+    use <SPAN style="font-style: italic;">PRINT</SPAN> with the '<SPAN style="font-style: italic;">!</SPAN>' separator in a non-window channel.
+    
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    The THOR XVI (all versions) and non-Minerva ROMs (unless
+    SMS is installed) have problems with the concatenation of
+    values which should produce an 'Overflow Error'. For example,
+    <SPAN style="font-style: italic;">
+    PRINT 'hello'&amp;(1/0)<BR></SPAN>
+    may crash the computer rather than producing an overflow
+    error.
+    
+    
+<H3>NOTE 3:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">PRINT</SPAN> can only show a maximum of six integer digits. If a
+    number is larger than this, it will be represented by the E
+    function (eg. 1E2 is the same as 100). If on the other hand,
+    the figure is a floating point, then the QL can cope with
+    seven digits excluding the decimal point, eg. 123.4567. Any
+    more digits will cause the number to be rounded up or down as
+    appropriate.
+    
+    
+<H3>MINERVA NOTE:</H3>
+
+<P>
+    v1.97+ allows different channels part way through statement
+    as per THOR XVI.
+    
+    
+<H3>THOR XVI NOTE:</H3>
+
+<P>
+    Version 6.41 of the THOR XVI allows you to put channel
+    numbers part way through a statement, for example:
+    <SPAN style="font-style: italic;">PRINT 'Name:'!name$ \#0; 'Address:' !address$<BR></SPAN>
+    instead of:
+    <SPAN style="font-style: italic;">PRINT 'Name '!name$ : PRINT #0;'Address:'!address$<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See also <A style="font-style: italic;" href="KeywordsI.html#INPUT">INPUT</A> which contains a description of the different
+    types of separators.
+    
+    Please also see <A style="font-style: italic;" href="KeywordsW.html#WIDTH">WIDTH</A>.
+    
+    <A style="font-style: italic;" href="KeywordsT.html#TO">TO</A> has other meanings - see <A style="font-style: italic;" href="KeywordsT.html#TO">TO</A>.
+    
+    <A style="font-style: italic;" href="KeywordsV.html#VG_PRINT">VG_PRINT</A> allows you to print using scaleable fonts on screen.
+    
+    <A style="font-style: italic;" href="KeywordsC.html#CHAR_USE">CHAR_USE</A> and <A style="font-style: italic;" href="KeywordsC.html#CHAR_DEF">CHAR_DEF</A> allow you to alter the fonts used for
+    printing characters on screen.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PRINT_USING" id="PRINT_USING"></A>PRINT_USING</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PRINT_USING</SPAN> [<SPAN style="font-style: italic;">#ch,</SPAN>] <SPAN style="font-style: italic;">format$,</SPAN> <SUP>*</SUP>[<SPAN style="font-style: italic;">item</SPAN><SUP>i</SUP>]<SUP>*<BR></SUP> Location: <SPAN style="font-style: italic;">Toolkit II<BR></SPAN>
+    This command allows you to send output to the specified
+    channel (default #1) in a particular format. This for example,
+    allows you to print neat columns of figures easily, all lined
+    up on the decimal point.
+    
+    The <SPAN style="font-style: italic;">format$</SPAN> is made up of a mixture of special characters,
+    text and fields. Basically, <SPAN style="font-style: italic;">PRINT_USING</SPAN> will print out <SPAN style="font-style: italic;">format$</SPAN> as
+    normal, until one of these special characters is met. The
+    special characters currently supported are:
+    
+    <SPAN style="font-style: italic;">�</SPAN> (copyright) <SPAN style="font-style: italic;">+ - ( # * , . ! \ ' "</SPAN> and <SPAN style="font-style: italic;">$</SPAN>.
+    
+    These have the following effects:
+    
+    
+<H3>CharacterEffect</H3>
+
+<P>
+    <SPAN style="font-style: italic;">�</SPAN>This forces <SPAN style="font-style: italic;">PRINT_USING</SPAN> to print out the next
+    character in <SPAN style="font-style: italic;">format$</SPAN> even if it is a special
+    character. If you want to print some text
+    including one of the special characters, this
+    must be used.
+    
+    <SPAN style="font-style: italic;">+</SPAN>This is used to either prefix or postfix a
+    decimal field. If present, then the sign of the
+    decimal number is written out in this position.
+    
+    <SPAN style="font-style: italic;">-</SPAN>This is used to either prefix or postfix a
+    decimal field. The sign of the decimal number
+    will only be written in this position if the
+    number is negative.
+    
+    <SPAN style="font-style: italic;">(</SPAN>This and the closing bracket can be used to
+    surround a decimal field, in which case if the
+    number is negative, it will appear in brackets.
+    
+    <SPAN style="font-style: italic;">#</SPAN>This is used to mark a type of field (see below).
+    
+    <SPAN style="font-style: italic;">*</SPAN>This is also used to mark a type of field (see
+    below).
+    
+    <SPAN style="font-style: italic;">\</SPAN>This will force a newline to take place. Unlike
+    <SPAN style="font-style: italic;">PRINT</SPAN>, <SPAN style="font-style: italic;">PRINT_USING</SPAN> does not automatically carry out a
+    newline after finishing its work.
+    
+    <SPAN style="font-style: italic;">"</SPAN> and <SPAN style="font-style: italic;">'</SPAN>Anything between either single or double
+    quotation marks will be printed out without
+    looking for special characters.
+    
+    <SPAN style="font-style: italic;">$</SPAN>This is used to signify the start of a currency
+    field. Any characters between this sign and the
+    next '<SPAN style="font-style: italic;">#</SPAN>' symbol are taken to be the name of the
+    currency and are pushed right to line up with the
+    actual amount.
+    
+    The fields in the <SPAN style="font-style: italic;">format$</SPAN> allow you to print text and/or
+    figures in specific formats. Each item following <SPAN style="font-style: italic;">format$</SPAN> is then
+    read and inserted in place of each field. If however, a
+    numeric field is not long enough to hold the specified figure,
+    then the field appears as just '<SPAN style="font-style: italic;">#</SPAN>' marks on screen. Text fields
+    will just truncate the text supplied to fit. The fields which
+    are recognised are:
+    
+    
+<H3>FieldMeaning</H3>
+
+<P>
+    <SPAN style="font-style: italic;">####</SPAN>If <SPAN style="font-style: italic;">item</SPAN> is text, write it left justified and
+    truncate to fit size of field if necessary. If
+    <SPAN style="font-style: italic;">item</SPAN> is a number, write the integer part of the
+    number right justified (eg. <SPAN style="font-style: italic;">PRINT_USING '###','Hello'<BR></SPAN> will print Hel).
+    
+    <SPAN style="font-style: italic;">****</SPAN>This is the same as <SPAN style="font-style: italic;">####</SPAN> except that any unused
+    part of the field to the left of the characters
+    is filled with '<SPAN style="font-style: italic;">*</SPAN>' (eg. <SPAN style="font-style: italic;">PRINT_USING '****',1.234</SPAN> will
+    print ***1).
+    
+    <SPAN style="font-style: italic;">###.##</SPAN>Print a fixed decimal point number right
+    justified to a set number of decimal places. (eg.
+    <SPAN style="font-style: italic;">PRINT_USING '##.#',1.26</SPAN> will print 1.3).
+    
+    <SPAN style="font-style: italic;">***.**</SPAN>The same as <SPAN style="font-style: italic;">###.##</SPAN> except that any unused part of
+    the field is filled with '<SPAN style="font-style: italic;">*</SPAN>'.
+    
+    <SPAN style="font-style: italic;">#,###.##</SPAN>This is the same as <SPAN style="font-style: italic;">###.##</SPAN> except that a comma will
+    be used to separate thousands.
+    
+    <SPAN style="font-style: italic;">*,***.**</SPAN>This is similar to <SPAN style="font-style: italic;">#,###.##</SPAN> except that any unused
+    part of the field will be filled with '<SPAN style="font-style: italic;">*</SPAN>'.
+    
+    <SPAN style="font-style: italic;">-#.###!!!!</SPAN>This is used for an exponential field with the
+    sign only being shown if the figure is negative
+    (eg. <SPAN style="font-style: italic;">PRINT_USING '-#.##!!!!',3120</SPAN> will print 3.12E+03). An
+    exponential field must always begin with a sign
+    followed by one # mark and a decimal point, and
+    always end with four ! marks.
+    
+    <SPAN style="font-style: italic;">+#.###!!!!</SPAN>This is the same as <SPAN style="font-style: italic;">-#.###!!!!</SPAN> except that the sign
+    of the number is always shown.
+    
+    <SPAN style="font-style: italic;">###.&gt;&gt;</SPAN>This is introduced by SMSQ/E v2.73+ and is the
+    same as <SPAN style="font-style: italic;">###.##</SPAN> except that it is for fixed point
+    decimal figures, scaled accordingly. This allows
+    you, for example, to convert a calculation from
+    pennies into pounds (eg. <SPAN style="font-style: italic;">PRINT_USING '###.&gt;&gt;',312.01</SPAN> will
+    print 3.12). You can add more &gt; characters after
+    the decimal point if you need to convert to three
+    decimal places.
+    
+    <SPAN style="font-style: italic;">***.&gt;&gt;</SPAN>This is introduced by SMSQ/E v2.73+ and is the
+    same as <SPAN style="font-style: italic;">###.&gt;&gt;</SPAN> except that any unused part of the
+    field is filled with '<SPAN style="font-style: italic;">*</SPAN>'.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    A program which prints out a stocklist, which might be
+    
+    useful for a small business:
+    <SPAN style="font-style: italic;">100 RESTORE
+    110 MODE 4
+    120 WINDOW 448,200,32,16:PAPER 0:INK 7:CLS
+    130 CSIZE 2,0:AT 1,10:UNDER 1:PRINT 'STOCK LIST'
+    140 CSIZE 1,0:AT 5,0
+    150 PRINT 'NO ITEM IND. PRICE TOTAL'
+    160 UNDER 0
+    170 total=0:Lines=6
+    180 REPeat loop
+    190 IF EOF:EXIT loop
+    200 READ equipment$,items,ind_price
+    210 price=ind_price*items
+    220 total=total+price:Lines=Lines+1
+    230 PRINT_USING '#,###. ##############',items,equipment$
+    240 PRINT_USING ' $##.## $##,###.##\',ind_price,price
+    250 END REPeat loop
+    260 OVER 1:AT Lines-1,0:UNDER 1
+    270 PRINT FILL$(' ',45):UNDER 0
+    280 IF INT(total)&lt;&gt;total:total=total*100
+    290 PRINT TO 23;'Total Stock �';CDEC$(total,9,2)
+    1000 DATA 'Minerva',110,40,'Minerva MKII',205,65.61
+    1010 DATA 'Hermes',100,25,'68008 CPU',1230,8.7<BR></SPAN>
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    On Toolkit II versions before v2.08, this command could
+    cause problems if an empty string was passed to it.
+    
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    Some versions of the Toolkit II manual get the copyright
+    symbol ('<SPAN style="font-style: italic;">�</SPAN>') mixed up with the address symbol ('@'). The latter
+    has no special meaning.
+    
+    
+<H3>NOTE 3:</H3>
+
+<P>
+    Because of variations in the way in which numbers are
+    represented in different countries, either a comma or full
+    stop is recognised as a decimal point by <SPAN style="font-style: italic;">PRINT_USING</SPAN>. If a field
+    only contains one comma or full stop, that is taken to be the
+    decimal point, however, if more than one comma and/or full
+    stop appears in the field, the last one is taken to be the
+    decimal point, the others being assumed to be thousands
+    separators. If you want numbers to be printed with thousands
+    separators but no decimal point, use a comma or full stop as
+    the last character of the field.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See also <A style="font-style: italic;" href="KeywordsF.html#FDEC$">FDEC$</A>, <A style="font-style: italic;" href="KeywordsI.html#IDEC$">IDEC$</A> and <A style="font-style: italic;" href="KeywordsC.html#CDEC$">CDEC$</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PRIO" id="PRIO"></A>PRIO</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PRIO priority<BR></SPAN> Location: <SPAN style="font-style: italic;">PRIO<BR></SPAN>
+    This command sets the priority of the current job to the
+    given priority. <SPAN style="font-style: italic;">Priority</SPAN> must range from 0 to 127.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    Multitasking jobs waiting for a keypress or anything else
+    
+    to be activated slow down the whole system although they
+    
+    are actually doing nothing. A job which is waiting (perhaps
+    
+    for a certain amount of time) for input could set its own
+    
+    priority to one, and then when it is able to continue,
+    
+    reset to a higher priority value.
+    
+    
+<H3>NOTE:</H3>
+
+<P>
+    If a job has priority 0 it will not be able to run. Other
+    tasks may however set that job's priority (eg. with <SPAN style="font-style: italic;">SPJOB</SPAN> and
+    allow it to continue).
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsS.html#SPJOB">SPJOB</A>, <A style="font-style: italic;" href="KeywordsS.html#SP_JOB">SP_JOB</A>, and <A style="font-style: italic;" href="KeywordsP.html#PJOB">PJOB</A> also deal with job priorities.
+    <A href="KeywordsS.html#SPJOB%20-1">SPJOB -1</A>, <A style="font-style: italic;" href="Keywordsp.html#priority">priority</A> is exactly the same as <A style="font-style: italic;" href="KeywordsP.html#PRIO%20priority">PRIO priority</A> or <A style="font-style: italic;" href="KeywordsP.html#PRIORITISE">PRIORITISE</A> <A href="Keywordsp.html#priority">priority</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PRIORITISE" id="PRIORITISE"></A>PRIORITISE</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PRIORITISE</SPAN> [<SPAN style="font-style: italic;">jobnr, jobtag,</SPAN>] <SPAN style="font-style: italic;">priority<BR></SPAN> Location: <SPAN style="font-style: italic;">TASKCMDS (DIY Toolkit Vol J)<BR></SPAN>
+    <SPAN style="font-style: italic;">PRIORITISE</SPAN> is a command which takes either one or three
+    parameters and sets the priority of the current job (if only
+    one parameter is used) or the job specified by <SPAN style="font-style: italic;">jobnr</SPAN> and <SPAN style="font-style: italic;">jobtag</SPAN> to
+    <SPAN style="font-style: italic;">priority</SPAN>.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">PRIORITISE 127</SPAN> gives the current job the maximum amount of
+    
+    processor time available when multitasking.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    A one parameter variant of <A style="font-style: italic;" href="KeywordsP.html#PRIORITISE">PRIORITISE</A> is <A style="font-style: italic;" href="KeywordsP.html#PRIO">PRIO</A>.
+    
+    Refer to <A style="font-style: italic;" href="KeywordsS.html#SPJOB">SPJOB</A> and connected keywords for more information
+    on jobs and priorities.
+    
+    <A style="font-style: italic;" href="KeywordsJ.html#JOBS">JOBS</A> will give details of job numbers and job tags.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PRO" id="PRO"></A>PRO</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PRO<BR></SPAN> Location: <SPAN style="font-style: italic;">Beuletools<BR></SPAN>
+    This function returns the codes needed to switch on the
+    proportional font on an EPSON compatible printer:
+    
+    <SPAN style="font-style: italic;">PRINT PRO<BR></SPAN>
+    is the same as
+    
+    <SPAN style="font-style: italic;">PRINT CHR$ (27) &amp;"p" &amp;CHR$ (1)<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsN.html#NORM">NORM</A>, <A style="font-style: italic;" href="KeywordsB.html#BLD">BLD</A>, <A style="font-style: italic;" href="KeywordsE.html#EL">EL</A>, <A style="font-style: italic;" href="KeywordsD.html#DBL">DBL</A>, <A style="font-style: italic;" href="KeywordsE.html#ENL">ENL</A>, <A style="font-style: italic;" href="KeywordsS.html#SI">SI</A>, <A style="font-style: italic;" href="KeywordsN.html#NRM">NRM</A>, <A style="font-style: italic;" href="KeywordsU.html#UNL">UNL</A>, <A style="font-style: italic;" href="KeywordsA.html#ALT">ALT</A>, <A style="font-style: italic;" href="KeywordsE.html#ESC">ESC</A>, <A style="font-style: italic;" href="KeywordsF.html#FF">FF</A>, <A style="font-style: italic;" href="KeywordsL.html#LMAR">LMAR</A>, <A style="font-style: italic;" href="KeywordsR.html#RMAR">RMAR</A>, <A style="font-style: italic;" href="KeywordsP.html#PAGDIS">PAGDIS</A>,
+    <A style="font-style: italic;" href="KeywordsP.html#PAGLEN">PAGLEN</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PROCESSOR" id="PROCESSOR"></A>PROCESSOR</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PROCESSOR<BR></SPAN> Location: <SPAN style="font-style: italic;">SMSQ/E<BR></SPAN>
+    This function returns a value which can be used to find the
+    type of Processor on which SuperBASIC is running (normally a
+    member of the Motorola 680xx family).
+    
+    The values returned are:
+    
+    
+<H3><SPAN style="font-style: italic;">PROCESSOR</SPAN>Chip Type</H3>
+
+<P>
+    0x68000 or 68008
+    
+    1x68010 or an INTEL chip (if QPC is running)
+    
+    2x68020
+    
+    3x68030
+    
+    4x68040
+    
+    6x68060
+    
+    (x is replaced by a value between 0 and 8 to indicate if a
+    maths co-processor is installed). You can also test if a
+    maths co-processor is installed, by using:
+    
+    <SPAN style="font-style: italic;">coprocessor%=PEEK(!!$A1) &amp;&amp; BIN('1111')<BR></SPAN>
+    The following values may be returned:
+    
+<H3><SPAN style="font-style: italic;">coprocessor%</SPAN>Meaning</H3>
+
+<P>0No FPU fitted
+    1An Internal MMU is fitted.
+    2A 68851 MMU is fitted
+    4An internal FPU is fitted.
+    8EIther a 68881 or 68882 FPU is fitted
+    
+    
+<H3>NOTE:</H3>
+
+<P>
+    The processor type was not stored before Level E-20 of the
+    ST/QL Drivers.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsM.html#MACHINE">MACHINE</A>, <A style="font-style: italic;" href="KeywordsQ.html#QDOS$">QDOS$</A> and <A style="font-style: italic;" href="KeywordsV.html#VER$">VER$</A>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="... PROCedure"></A>... PROCedure</H1>
+
+<P>
+    Syntax: ... <SPAN style="font-style: italic;">PROCedure<BR></SPAN> Location: <SPAN style="font-style: italic;">QL ROM<BR></SPAN>
+    This keyword forms part of the structure <SPAN style="font-style: italic;">DEFine PROCedure</SPAN>. As
+    such, it cannot be used on its own within a program - this
+    will cause a 'bad line' error.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    Please refer to the individual structure descriptions for
+    more details.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PROGD$" id="PROGD$"></A>PROGD$</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PROGD$<BR></SPAN> Location: <SPAN style="font-style: italic;">Toolkit II<BR></SPAN>
+    This function returns the default program device as set by
+    <SPAN style="font-style: italic;">PROG_USE</SPAN>, see below.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsP.html#PROG_USE">PROG_USE</A>, <A style="font-style: italic;" href="KeywordsD.html#DLIST">DLIST</A>, <A style="font-style: italic;" href="KeywordsD.html#DATAD$">DATAD$</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PROG_USE" id="PROG_USE"></A>PROG_USE</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PROG_USE default_device<BR></SPAN> Location: <SPAN style="font-style: italic;">Toolkit II, THOR XVI<BR></SPAN>
+    The command <SPAN style="font-style: italic;">PROG_USE</SPAN> and dependent commands behave in the
+    same way as <SPAN style="font-style: italic;">DATA_USE</SPAN> with a few differences:
+    
+    The program device set with <SPAN style="font-style: italic;">PROG_USE</SPAN> is used by the <SPAN style="font-style: italic;">EX</SPAN> (<SPAN style="font-style: italic;">EXEC</SPAN>),
+    <SPAN style="font-style: italic;">EW</SPAN> (<SPAN style="font-style: italic;">EXEC_W</SPAN>) and (exceptionally <SPAN style="font-style: italic;">SEXEC</SPAN>) commands as the default
+    device.
+    
+    Whereas some commands which use the data device (eg. <SPAN style="font-style: italic;">MERGE</SPAN>,
+    <SPAN style="font-style: italic;">LOAD</SPAN>) check the program device if they do not find a given file
+    on the data device, the above commands which use the program
+    device will not look at the data device should they fail on
+    the program device.
+    
+    
+<H3>NOTE:</H3>
+
+<P>
+    The default devices cannot exceed 32 characters (plus a
+    final underscore) - any attempt to assign a longer string will
+    result in the error 'Bad Parameter' (error -15).
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsP.html#PROGD$">PROGD$</A> returns the program device setting. See <A style="font-style: italic;" href="KeywordsD.html#DATA_USE">DATA_USE</A> for
+    more information.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PROT_DATE" id="PROT_DATE"></A>PROT_DATE</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PROT_DATE flag<BR></SPAN> Location: <SPAN style="font-style: italic;">SMS, Gold Card<BR></SPAN>
+    Many systems which can run SMS (including QXL, the Gold
+    Card and Super Gold Card) include a battery backed clock (also
+    known as a real-time clock). In this case, there are actually
+    two clocks running: One is run by the operating system (the
+    QL internal clock) which is found on each QL implementation.
+    The internal clock forgets the time if the computer is
+    switched off and has to be set each time the machine is
+    powered up. The other clock is the battery backed clock which
+    keeps the time even when the QL is switched off (until the
+    battery runs flat) and this normally sets the Internal Clock
+    each time the QL is reset (or switched on).
+    
+    It may be necessary to adjust the QL's internal clock
+    whilst the QL is being used, without wishing to disrupt the
+    battery backed clock - some software alters the QL's internal
+    clock when there is no need, the internal clock can also be
+    affected by crashes during program development. Some battery
+    backed clocks may alter their time when the QL's internal
+    clock is altered and therefore some form of protection is
+    needed - you will normally need to enable the protection by
+    using the command: <SPAN style="font-style: italic;">PROT_DATE 1</SPAN>.
+    <SPAN style="font-style: italic;">
+    PROT_DATE 0</SPAN> will disable the protection.
+    
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    This has no effect on the battery backed clock provided by
+    Minerva MKII which has to be altered using the configuration
+    program.
+    
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    If you reset the Gold Card or Super Gold Card to 128K,
+    <SPAN style="font-style: italic;">PROT_DATE 1</SPAN> is executed.
+    
+    
+<H3>NOTE 3:</H3>
+
+<P>
+    Serious crashes and some old games may disturb the battery
+    backed clock even in protected mode.
+    
+    
+<H3>NOTE 4:</H3>
+
+<P>
+    On some conbinations of AURORA and Super Gold Card, if you
+    use <SPAN style="font-style: italic;">PROT_DATE 1</SPAN>, the QL's internal clock will run too quickly (see
+    also the notes on <SPAN style="font-style: italic;">DISP_SIZE</SPAN>).
+    
+    
+<H3>WARNING:</H3>
+
+<P>
+    SMS, the Gold Card and Super Gold Card do not automatically
+    protect the battery backed clock. It is therefore advisable to
+    include the line:
+    
+    <SPAN style="font-style: italic;">PROT_DATE 1<BR></SPAN>
+    in your boot program.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsS.html#SDATE">SDATE</A> and <A style="font-style: italic;" href="KeywordsA.html#ADATE">ADATE</A> alter the QL's internal clock.<A style="font-style: italic;" href="KeywordsD.html#DATE$">DATE$</A> and <A style="font-style: italic;" href="KeywordsD.html#DAY$">DAY$</A> can
+    be used to read the time on the QL's internal clock.
+    
+    
+<H3></H3>
+
+<P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H3>PROT_MEM</H3>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PROT_MEM level<BR></SPAN> Location: <SPAN style="font-style: italic;">SMSQ/E<BR></SPAN>
+    The command <SPAN style="font-style: italic;">PROT_MEM</SPAN> can be used to set the level of memory
+    protection which is afforded on Atari ST and TT computers, to
+    try and stop the user from altering essential areas of the
+    operating system by mistake.
+    
+    There are five levels of memory protection currently
+    available:
+    
+    
+<H3><SPAN style="font-style: italic;">Level</SPAN>Protection</H3>
+
+<P>
+    0Memory access faults are not reported.
+    
+    1Write memory access faults are trapped from all
+    jobs except from Job 0. Read operations from a
+    protected area read 0.
+    
+    2Read memory access faults are trapped from all
+    jobs except Job 0. Any Write operations to a
+    protected area are ignored.
+    
+    3Both Read and Write memory access faults are
+    trapped from all jobs except Job 0.
+    
+    7Both Read and Write memory access faults are
+    trapped from all jobs.
+    
+    The default level is 3. We would recommend that Level 0 is
+    avoided if at all possible.
+    
+    Memory access faults tend to occur when the user (or a
+    program) tries to access memory which does not exist or can
+    only be accessed in Supervisor Mode (the vector area, the TOS
+    system variables and the IO hardware). However, under SMSQ/E,
+    if there is an attempt to read an address which actually forms
+    part of the legitimate QL vector area, this will not cause a
+    fault.
+    
+    If a memory access fault is trapped, the Job which has
+    caused the fault is paused and the program counter is placed
+    on the stack (all registers are preserved). An advanced user
+    may then use a debugger to examine the Job to find out what
+    has caused the fault.
+    
+    
+<H3>NOTE:</H3>
+
+<P>
+    Unfortunately, on other implementations, this command has
+    no effect, and it is therefore still possible to overwrite the
+    operating system on QL Emulators (non-Atari based), Gold and
+    Super Gold Cards.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsP.html#POKES">POKES</A> and <A style="font-style: italic;" href="KeywordsP.html#PEEKS">PEEKS</A>.
+    
+    <A style="font-style: italic;" href="KeywordsP.html#PROT_DATE">PROT_DATE</A> protects a battery backed clock.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PROUND" id="PROUND"></A>PROUND</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PROUND (p, x)<BR></SPAN> Location: <SPAN style="font-style: italic;">TRIPRODRO<BR></SPAN>
+    <SPAN style="font-style: italic;">PROUND</SPAN> is a function which rounds the given floating pointer
+    number <SPAN style="font-style: italic;">x</SPAN> to the precision of <SPAN style="font-style: italic;">10</SPAN><SUP>p</SUP>. It looks at the next digit to
+    decide whether to round upwards or downwards and ignores any
+    others.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    Print ten random number with three digits after the decimal
+    
+    point:
+    <SPAN style="font-style: italic;">100 RANDOMISE
+    110 FOR i = 1 TO 10
+    120 PRINT PROUND(-3, 10*RND)
+    130 END FOR i<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsD.html#DROUND">DROUND</A>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PRT_ABORT" id="PRT_ABORT"></A>PRT_ABORT</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PRT_ABORT<BR></SPAN> Location: <SPAN style="font-style: italic;">ST/QL, SMSQ/E<BR></SPAN>
+    This is the same as <SPAN style="font-style: italic;">PAR_ABORT</SPAN> or <SPAN style="font-style: italic;">SER_ABORT</SPAN>, depending on which
+    device <SPAN style="font-style: italic;">PRT</SPAN> is linked to.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsS.html#SER_ABORT">SER_ABORT</A> and <A style="font-style: italic;" href="KeywordsP.html#PAR_ABORT">PAR_ABORT</A>.
+    
+    <A style="font-style: italic;" href="KeywordsP.html#PRT_USE">PRT_USE</A> allows you to specify which port <A style="font-style: italic;" href="KeywordsP.html#PRT">PRT</A> emulates.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PRT_ABT" id="PRT_ABT"></A>PRT_ABT</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PRT_ABT<BR></SPAN> Location: <SPAN style="font-style: italic;">Trump Card, Gold Card, QXL<BR></SPAN>
+    Because all output sent to the Trump Card, Gold Card and
+    Super Gold Card's built in <SPAN style="font-style: italic;">PRT</SPAN> device is buffered (except if
+    you are running SMSQ/E which uses its own <SPAN style="font-style: italic;">PRT</SPAN> device), it can
+    be useful to stop the port from outputting any further data.
+    
+    <SPAN style="font-style: italic;">PRT_ABT</SPAN> will prevent any further output and clear the
+    contents. The message
+    <SPAN style="font-style: italic;">
+    ****** ABORTED ******<BR></SPAN>
+    will then be sent to the port.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsP.html#PRT_USE">PRT_USE</A> allows you to specify the type of output to be
+    buffered.
+    
+    The ST/QL Emulator and SMSQ/E support a similar function
+    with <A style="font-style: italic;" href="KeywordsP.html#PRT_ABORT">PRT_ABORT</A>, <A style="font-style: italic;" href="KeywordsP.html#PAR_ABORT">PAR_ABORT</A> and <A style="font-style: italic;" href="KeywordsS.html#SER_ABORT">SER_ABORT</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PRT_BUFF" id="PRT_BUFF"></A>PRT_BUFF</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PRT_BUFF</SPAN> [<SPAN style="font-style: italic;">size</SPAN>] Location: <SPAN style="font-style: italic;">ST/QL, SMSQ/E<BR></SPAN>
+    This is exactly the same as <SPAN style="font-style: italic;">PAR_BUFF</SPAN> except that it creates
+    buffered output on whichever port is attached to the <SPAN style="font-style: italic;">PRT<BR></SPAN> device.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsP.html#PAR_BUFF">PAR_BUFF</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PRT_CLEAR" id="PRT_CLEAR"></A>PRT_CLEAR</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PRT_CLEAR<BR></SPAN> Location: <SPAN style="font-style: italic;">ST/QL, SMSQ/E<BR></SPAN>
+    This clears out all currently closed <SPAN style="font-style: italic;">PRT</SPAN> buffers, thus
+    preventing any further output, in the same way as <SPAN style="font-style: italic;">PAR_CLEAR</SPAN>.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsP.html#PAR_CLEAR">PAR_CLEAR</A> and <A style="font-style: italic;" href="KeywordsS.html#SER_CLEAR">SER_CLEAR</A> are similar.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PRT_USE" id="PRT_USE"></A>PRT_USE</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PRT_USE device<BR></SPAN> Location: <SPAN style="font-style: italic;">ST/QL, SMSQ/E<BR></SPAN>
+    The ST/QL Emulator and SMSQ/E allow you to set up the <SPAN style="font-style: italic;">PRT<BR></SPAN> device so that it mimics the <SPAN style="font-style: italic;">SER</SPAN>, <SPAN style="font-style: italic;">STX</SPAN> or <SPAN style="font-style: italic;">PAR</SPAN> device. This means
+    that programs can be written which merely send their output to
+    the <SPAN style="font-style: italic;">PRT</SPAN> device and it is then up to the user to set the port
+    and options required by the device attached to either the
+    serial or parallel port.
+    
+    The command <SPAN style="font-style: italic;">PRT_USE</SPAN> allows you to specify both the port and
+    options to be associated with <SPAN style="font-style: italic;">PRT</SPAN>. It will ignore <SPAN style="font-style: italic;">SER_USE</SPAN> and
+    <SPAN style="font-style: italic;">PAR_USE</SPAN> settings and therefore expects <SPAN style="font-style: italic;">device</SPAN> to be in one of the
+    following forms:-
+    
+    <SPAN style="font-style: italic;">PAR</SPAN>&lt;<SPAN style="font-style: italic;">port</SPAN>&gt;&lt;<SPAN style="font-style: italic;">translate</SPAN>&gt;&lt;<SPAN style="font-style: italic;">convert</SPAN>&gt;&lt;<SPAN style="font-style: italic;">eof</SPAN>&gt;
+    
+    <SPAN style="font-style: italic;">SER</SPAN>&lt;<SPAN style="font-style: italic;">port</SPAN>&gt;&lt;<SPAN style="font-style: italic;">parity</SPAN>&gt;&lt;<SPAN style="font-style: italic;">handshake</SPAN>&gt;&lt;<SPAN style="font-style: italic;">translate</SPAN>&gt;&lt;<SPAN style="font-style: italic;">convert</SPAN>&gt;&lt;<SPAN style="font-style: italic;">eof</SPAN>&gt;
+    
+    <SPAN style="font-style: italic;">STX</SPAN>&lt;<SPAN style="font-style: italic;">port</SPAN>&gt;&lt;<SPAN style="font-style: italic;">parity</SPAN>&gt;&lt;<SPAN style="font-style: italic;">handshake</SPAN>&gt;&lt;<SPAN style="font-style: italic;">translate</SPAN>&gt;&lt;<SPAN style="font-style: italic;">convert</SPAN>&gt;&lt;<SPAN style="font-style: italic;">eof</SPAN>&gt;
+    
+    See the Appendix on drivers for further details.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">PRT_USE ser1etf<BR></SPAN>
+    will cause all attempts to access the <SPAN style="font-style: italic;">PRT</SPAN> device to be
+    
+    re-directed to serial port 1 with Even parity, translation
+    
+    enabled and a form feed being printed at the end of the
+    
+    file.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsR.html#RAM_USE">RAM_USE</A>, <A style="font-style: italic;" href="KeywordsF.html#FLP_USE">FLP_USE</A>, <A style="font-style: italic;" href="KeywordsW.html#WIN_USE">WIN_USE</A>, <A style="font-style: italic;" href="KeywordsS.html#SER_USE">SER_USE</A> and <A style="font-style: italic;" href="KeywordsP.html#PAR_USE">PAR_USE</A> are all very similar.
+    
+    See the other version of this command.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PRT_USE" id="PRT_USE"></A>PRT_USE</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PRT_USE usage,device<BR></SPAN> Location: <SPAN style="font-style: italic;">Qjump RAMPRT, Trump Card, Gold Card, QXL Card<BR></SPAN>
+    Unlike the ST/QL Emulator and SMSQ/E implementations of
+    this command, this version of this command is used to enable
+    you to set up dynamic buffering on serial and parallel ports.
+    
+    The command <SPAN style="font-style: italic;">PRT_USE</SPAN> enables you to connect a buffer to a
+    specified <SPAN style="font-style: italic;">device</SPAN>, altering the description (<SPAN style="font-style: italic;">usage</SPAN>) used to access
+    that buffered <SPAN style="font-style: italic;">device</SPAN>.
+    
+    Initially, the default <SPAN style="font-style: italic;">usage</SPAN> is <SPAN style="font-style: italic;">PRT</SPAN> and the default <SPAN style="font-style: italic;">device</SPAN> is
+    <SPAN style="font-style: italic;">SER</SPAN> which means that any attempt to send output to the <SPAN style="font-style: italic;">PRT<BR></SPAN> device will actually access <SPAN style="font-style: italic;">ser1</SPAN>, using the whole of the
+    available memory as a buffer.
+    
+    <SPAN style="font-style: italic;">PRT_USE</SPAN> will actually recognise the full device name,
+    allowing it to have a similar effect as the alternative
+    version of this command. For example, the following are both
+    equivalent:-
+    
+    <SPAN style="font-style: italic;">PRT_USE prt,ser1c</SPAN> (On the Gold Card)
+    
+    <SPAN style="font-style: italic;">PRT_BUFF 0:PRT_USE ser1c</SPAN> (Under SMSQ/E)
+    
+    The <SPAN style="font-style: italic;">PRT</SPAN> device will also allow the same options as the
+    <SPAN style="font-style: italic;">device</SPAN> which it is emulating, for example, the following are
+    both the same (except the latter uses buffered output):
+    
+    <SPAN style="font-style: italic;">OPEN #3,ser1c
+    
+    PRT_USE prt,ser:OPEN #3,prt1c<BR></SPAN>
+    If you wish to buffer output on a given <SPAN style="font-style: italic;">device</SPAN>, then you
+    merely need to specify the <SPAN style="font-style: italic;">usage</SPAN> to be the same as the device.
+    For example,
+    
+    <SPAN style="font-style: italic;">PRT_USE ser,ser<BR></SPAN>
+    will create buffered output to the serial ports whenever
+    ser is used.
+    
+    <SPAN style="font-style: italic;">PRT_USE</SPAN> will also allow you to specify the <SPAN style="font-style: italic;">device</SPAN> to be
+    buffered at run-time. This is achieved by leaving the <SPAN style="font-style: italic;">device<BR></SPAN> parameter as an empty string. For example:
+    
+    <SPAN style="font-style: italic;">PRT_USE buff_,</SPAN>""
+    
+    allows you to use the device name <SPAN style="font-style: italic;">buff_ser1</SPAN> to access <SPAN style="font-style: italic;">ser1</SPAN>,
+    <SPAN style="font-style: italic;">buff_par</SPAN> to access the parallel port etc. and all with buffered
+    output.
+    
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">PRT_USE prt,ser</SPAN> will return the QL to the normal state after
+    being switched on (ie. only buffered output will occur if the
+    device <SPAN style="font-style: italic;">PRT</SPAN> is used).
+    
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    If PRT_USE is used to allow background printing, then some
+    characters may be lost (especially if you are using an old
+    serial to parallel convertor), if you use a command which
+    stops the QL multitasking (for example <SPAN style="font-style: italic;">FORMAT</SPAN>, <SPAN style="font-style: italic;">LOAD</SPAN>, <SPAN style="font-style: italic;">LBYTES</SPAN>, <SPAN style="font-style: italic;">SBYTES<BR></SPAN> and <SPAN style="font-style: italic;">SAVE</SPAN>). You can tell when this happens as the printer will
+    stop while the command is being carried out.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See also <A style="font-style: italic;" href="KeywordsP.html#PRT_ABT">PRT_ABT</A>.
+    
+    See the other version of this command.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PRT_USE$" id="PRT_USE$"></A>PRT_USE$</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PRT_USE$<BR></SPAN> Location: <SPAN style="font-style: italic;">ST/QL, SMSQ/E<BR></SPAN>
+    This function returns a string representing the current
+    port emulated by the <SPAN style="font-style: italic;">PRT</SPAN> device, thus allowing you to check
+    whether or not you need to alter the device set with <SPAN style="font-style: italic;">PRT_USE</SPAN>.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">PRT_USE ser1etf<BR></SPAN>
+    <SPAN style="font-style: italic;">PRINT PRT_USE$<BR></SPAN>
+    will return 'ser1etf'.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsP.html#PRT_USE">PRT_USE</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PTH_ADD" id="PTH_ADD"></A>PTH_ADD</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PTH_ADD</SPAN> [<SPAN style="font-style: italic;">n,</SPAN>] <SPAN style="font-style: italic;">directory<BR></SPAN> Location: <SPAN style="font-style: italic;">Path device<BR></SPAN>
+    First we need to explain the <SPAN style="font-style: italic;">PTH</SPAN> device before you can
+    understand what the command <SPAN style="font-style: italic;">PTH_ADD</SPAN> and its related commands/
+    functions do.
+    
+    Using sub-directories helps to clean up disk storage - even
+    if you know on which disk a file is kept, if you are using a
+    large storage media like HD/ED disks or even hard disks, you
+    will soon find yourself searching through the whole directory
+    tree with a desktop or <SPAN style="font-style: italic;">WDIR</SPAN>.
+    
+    That's why <SPAN style="font-style: italic;">PTH</SPAN> was created. This virtual device interfaces
+    with any kind of drive and searches through a list of
+    directories when a file is to be opened. For instance, instead
+    of being forced to type:
+    
+    <SPAN style="font-style: italic;">VIEW win1_games_defender_manual_txt<BR></SPAN>
+    a short
+    
+    <SPAN style="font-style: italic;">VIEW pth1_manual_txt<BR></SPAN>
+    would be enough to show the <SPAN style="font-style: italic;">manual_txt</SPAN> if the directory
+    <SPAN style="font-style: italic;">win1_games_defender_</SPAN> is in the path list.
+    
+    The size of the search list is only limited by memory
+    available; a list of 30000 entries has been tested, 900k was
+    necessary to store it - but this is not a realistic
+    limitation. Who works with several thousand directories?
+    
+    <SPAN style="font-style: italic;">PTH_ADD</SPAN> modifies that list which can have as many entries as
+    necessary. <SPAN style="font-style: italic;">PTH_ADD</SPAN> (the name says it already) adds a directory to
+    the path list, it can be inserted (you cannot replace
+    pathnames!) at a certain position by directly specifying the
+    position <SPAN style="font-style: italic;">n</SPAN> (a non-negative integer) in the list. If <SPAN style="font-style: italic;">n</SPAN> is not
+    specified, the new directory is merely added to the end of the
+    list. The example will clarify this.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    We assume the path list is empty.
+    <SPAN style="font-style: italic;">PTH_ADD flp1_<BR></SPAN>
+    will add flp1_ to the list which will now look like this
+    
+    (the list can be obtained with <SPAN style="font-style: italic;">PTH_LIST</SPAN>):
+    
+    <SPAN style="font-style: italic;">0 flp1_<BR></SPAN>
+    The first column is the number of the entry, programmers
+    
+    tend to start counting with zero, that's why the first
+    
+    entry has the number 0.
+    
+    If you type, for example,
+    <SPAN style="font-style: italic;">SPL pth1_pth_bin,#1<BR></SPAN>
+    
+<H3></H3>
+
+<P>
+    the binary file <SPAN style="font-style: italic;">pth_bin</SPAN> in <SPAN style="font-style: italic;">flp1_</SPAN> will be spooled to channel #1
+    
+    (usually a window under the interpreter). Now let's add a
+    
+    few more entries to exploit the power of the path device:
+    <SPAN style="font-style: italic;">PTH_ADD flp1_basic_
+    PTH_ADD flp2_
+    PTH_ADD ram1_<BR></SPAN>
+    The list is:
+    
+    <SPAN style="font-style: italic;">0 flp1_
+    
+    1 flp1_basic_
+    
+    2 flp2_
+    
+    3 ram1_<BR></SPAN>
+    Assume the file myprog_bas is in ram1_.
+    <SPAN style="font-style: italic;">LOAD pth1_myprog_bas<BR></SPAN>
+    tries to load the following files one by one and skips to
+    
+    the next one in case of failure:
+    
+    <SPAN style="font-style: italic;">flp1_myprog_bas
+    
+    flp1_basic_myprog_bas
+    
+    flp2_myprog_bas
+    
+    ram1_myprog_bas<BR></SPAN>
+    If myprog_bas does not appear in any of the directories,
+    
+    the usual 'Not Found' error would appear.
+    
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    The name of the path device can be freely configured with
+    the Qjump standard configuration program Config (or
+    MenuConfig). We use the default in this manual, which is <SPAN style="font-style: italic;">PTH</SPAN>.
+    The name can be changed temporarily with <SPAN style="font-style: italic;">PTH_USE</SPAN>.
+    
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">PTH</SPAN> suffers from the same problem as the <SPAN style="font-style: italic;">DEV</SPAN> device, see the
+    note at <SPAN style="font-style: italic;">DEV_USE</SPAN>.
+    
+    
+<H3>NOTE 3:</H3>
+
+<P>
+    An underscore is added to the directory if it's missing. On
+    this point <SPAN style="font-style: italic;">PTH_ADD</SPAN> behaves differently from <SPAN style="font-style: italic;">DEV_USE</SPAN>.
+    
+    
+<H3>WARNING:</H3>
+
+<P>
+    Some applications do not co-operate happily with <SPAN style="font-style: italic;">PTH</SPAN> so that
+    a file may get spread over all directories if you save it from
+    some editors etc. There are no crashes, do not worry, but this
+    strange behaviour could lead to a loss of data if you are not
+    aware of the strange phenomenon.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    The path device is very similar to the <A style="font-style: italic;" href="KeywordsD.html#DEV">DEV</A> device, please
+    read through <A style="font-style: italic;" href="KeywordsD.html#DEV_USE">DEV_USE</A> to understand the idea behind both devices.
+    It's pretty useful to set the Toolkit II <A style="font-style: italic;" href="KeywordsD.html#DATAD$">DATAD$</A> and <A style="font-style: italic;" href="KeywordsP.html#PROGD$">PROGD$</A> to <A style="font-style: italic;" href="Keywordsp.html#pth1_">pth1_</A>:
+    <A style="font-style: italic;" href="KeywordsD.html#DATA_USE%20pth1_">DATA_USE pth1_</A> <A href="KeywordsP.html#PROG_USE%20pth1_">PROG_USE pth1_</A>
+    Do this preferably in your BOOT program. - Look at the
+    other <A style="font-style: italic;" href="KeywordsP.html#PTH_">PTH_</A>.. style keywords!
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PTH_LIST" id="PTH_LIST"></A>PTH_LIST</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PTH_LIST</SPAN> [<SPAN style="font-style: italic;">#ch</SPAN>] Location: <SPAN style="font-style: italic;">Path device<BR></SPAN>
+    The command <SPAN style="font-style: italic;">PTH_LIST</SPAN> prints a list of the search paths
+    available to the <SPAN style="font-style: italic;">PTH</SPAN> device.
+    
+    
+<H3>Examples:</H3>
+
+<P><SPAN style="font-style: italic;">PTH_LIST
+    PTH_LIST#2<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsP.html#PTH$">PTH$</A> is an alternative way to get the path list.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PTH_RMV" id="PTH_RMV"></A>PTH_RMV</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PTH_RMV n<BR></SPAN> Location: <SPAN style="font-style: italic;">Path device<BR></SPAN>
+    This command removes a search path from the search list and
+    all directories below the removed entry are moved up in the
+    list by one position to fill the gap. The number <SPAN style="font-style: italic;">n</SPAN> corresponds
+    to the number in the list produced by <SPAN style="font-style: italic;">PTH_LIST</SPAN>.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    Assume the following search list:
+    
+    <SPAN style="font-style: italic;">0 flp1_
+    
+    1 flp1_basic_
+    
+    2 flp2_ &lt;- to be removed
+    
+    3 ram1_<BR></SPAN> <SPAN style="font-style: italic;">PTH_RMV 2<BR></SPAN>
+    will remove entry 2 (flp2_), entry 3 will become entry 2 so
+    
+    that the new list will be:
+    
+    <SPAN style="font-style: italic;">0 flp1_
+    
+    1 flp1_basic_
+    
+    2 ram1_<BR></SPAN>
+    The search list can be totally cleaned up with the
+    
+    following little procedure <SPAN style="font-style: italic;">PTH_CLEAR</SPAN>:
+    <SPAN style="font-style: italic;">10 DEFine PROCedure PTH_CLEAR
+    20 REPeat clean_up
+    30 IF PTH$(0)="" THEN EXIT clean_up
+    40 PTH_RMV 0
+    50 END REPeat clean_up
+    60 END DEFine PTH_CLEAR<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    The other <A style="font-style: italic;" href="KeywordsP.html#PTH_">PTH_</A>... keywords
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PTH_USE" id="PTH_USE"></A>PTH_USE</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PTH_USE</SPAN> [<SPAN style="font-style: italic;">path_name</SPAN>] Location: <SPAN style="font-style: italic;">Path device<BR></SPAN>
+    The default name used for the path device is <SPAN style="font-style: italic;">PTH</SPAN>. If you
+    don't like that, you can change it with <SPAN style="font-style: italic;">PTH_USE</SPAN> to any other
+    combination of three letters, including existing drive names.
+    If no parameter is used, the default name is restored.
+    
+    
+<H3>Examples:</H3>
+
+<P><SPAN style="font-style: italic;">PTH_USE huh
+    PTH_USE flp
+    PTH_USE<BR></SPAN>
+    
+<H3>NOTE:</H3>
+
+<P>
+    The default name can be permanently configured with Qjump's
+    Config program.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsP.html#PTH_USE$">PTH_USE$</A> returns the current setting.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PTH_USE$" id="PTH_USE$"></A>PTH_USE$</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PTH_USE$<BR></SPAN> Location: <SPAN style="font-style: italic;">Path device<BR></SPAN>
+    As mentioned above, the function <SPAN style="font-style: italic;">PTH_USE$</SPAN> gives you the name
+    which is used for the path device.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">PRINT PTH_USE$<BR></SPAN>
+    
+<H3></H3>
+
+<P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PTH$" id="PTH$"></A>PTH$</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PTH$ (n)<BR></SPAN> Location: <SPAN style="font-style: italic;">Path device<BR></SPAN>
+    The function <SPAN style="font-style: italic;">PTH$</SPAN> returns the <SPAN style="font-style: italic;">n</SPAN>th directory in the search
+    list of the path device.
+    
+    
+<H3>Examples:</H3>
+
+<P>
+    The procedure <SPAN style="font-style: italic;">PTH_INFO</SPAN> prints all of the current settings
+    
+    concerning the the pth device to #1. The function <SPAN style="font-style: italic;">PTH_ENTRIES%<BR></SPAN>
+    returns the number of directories in the path list.
+    <SPAN style="font-style: italic;">100 DEFine PROCedure PTH_INFO
+    110 LOCal n: n=0
+    120 PRINT "Path device:"!PTH_USE$
+    130 PRINT\"Search paths";
+    140 REPeat list_them
+    150 IF PTH$(n)="" THEN EXIT list_them
+    160 IF NOT n THEN PRINT
+    170 PRINT FILL$(" ",3-LEN(n));n;TO 5,PTH$(n)
+    180 n=n+1
+    190 END REPeat list_them
+    200 IF NOT n THEN PRINT " no entries"
+    210 END DEFine PTH_INFO
+    220 :
+    240 DEFine FuNction PTH_ENTRIES%
+    250 LOCal n
+    260 FOR n=0 TO 32767: IF PTH$(n)="" THEN EXIT n
+    270 RETurn n
+    280 END DEFine PTH_ENTRIES%<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsP.html#PTH_ADD">PTH_ADD</A>, <A style="font-style: italic;" href="KeywordsP.html#PTH_LIST">PTH_LIST</A>
+    
+<H3></H3>
+
+<P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PTR_FN%" id="PTR_FN%"></A>PTR_FN%</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PTR_FN% (offset)<BR></SPAN> Location: <SPAN style="font-style: italic;">KMOUSE, MOUSE (DIY Toolkit - Vol I - v2.8+)<BR></SPAN>
+    The DIY Toolkit includes code which allows you to link a
+    serial mouse to the QL, similar to the commercial SERMouse
+    package which is packaged with SMSQ/E for the Gold Card.
+    Refer to the Appendix on Mice for more details.
+    
+    The mouse is enabled with <SPAN style="font-style: italic;">PTR_ON</SPAN>.
+    
+    This function can be used to read various values used by
+    the DIY mouse driver and which can be altered using other
+    commands from this toolkit.
+    
+    The value of offset should be in the range 0...13 and
+    returns the following:
+    
+    0Latest X position(Read with <SPAN style="font-style: italic;">X_PTR%</SPAN>)
+    
+    1Latest Y position(Read with <SPAN style="font-style: italic;">Y_PTR%</SPAN>)
+    
+    2Maximum X co-ordinate(Set with <SPAN style="font-style: italic;">PTR_MAX</SPAN>)
+    
+    3Maximum Y co-ordinate(Set with <SPAN style="font-style: italic;">PTR_MAX</SPAN>)
+    
+    4Step X(Set with <SPAN style="font-style: italic;">PTR_INC</SPAN>)
+    
+    5Step Y(Set with <SPAN style="font-style: italic;">PTR_INC</SPAN>)
+    
+    6Details of buttons pressed(Read with <SPAN style="font-style: italic;">BUTTON%</SPAN>)
+    
+    7Synchronisation counter(Read with <SPAN style="font-style: italic;">SYNCH%</SPAN>)
+    
+    8+9Zero, or serial channel ID
+    
+    10Accumulated X drift
+    
+    11Accumulated Y drift
+    
+    12Set = cursor key emulation(Set with <SPAN style="font-style: italic;">PTR_KEY</SPAN>)
+    
+    13Set = Pointer Wrap(Set with <SPAN style="font-style: italic;">PTR_KEY</SPAN>)
+    
+    The Accumulated X and Y drift are counters, used by the
+    serial mouse driver to judge how far off the horizontal /
+    vertical the mouse has moved and whether to continue moving
+    the pointer in a straight line or to take this into account.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    For more details, refer to the individual commands/
+    functions.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PTR_INC" id="PTR_INC"></A>PTR_INC</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PTR_INC x_step, y_step<BR></SPAN> Location: <SPAN style="font-style: italic;">KMOUSE (DIY Toolkit - Vol I)<BR></SPAN>
+    This command is only really of any use when the Cursor Key
+    emulation is enabled (see <SPAN style="font-style: italic;">PTR_KEY</SPAN>). It allows you to set the
+    number of mouse pulses which are taken to correspond to moving
+    the cursor 1 character either in an x direction or a y
+    direction.
+    
+    The two values given are normally set to 12 and 24
+    respectively for <SPAN style="font-style: italic;">MODE 4</SPAN> operation, although if this proves too
+    quick (especially in <SPAN style="font-style: italic;">MODE 8</SPAN>), you could try <SPAN style="font-style: italic;">PTR_INC 24,24</SPAN>.
+    
+    The higher the values, the slower the cursor will move as
+    you push the mouse about the table.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsP.html#PTR_KEY">PTR_KEY</A> and also compare <A style="font-style: italic;" href="KeywordsS.html#SERMSPEED">SERMSPEED</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PTR_KEY" id="PTR_KEY"></A>PTR_KEY</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PTR_KEY cursor, edge<BR></SPAN> Location: <SPAN style="font-style: italic;">KMOUSE (DIY Toolkit - Vol I)<BR></SPAN>
+    Normally DIY Toolkit's mouse driver will enable you to
+    control the mouse pointer on screen. This mouse pointer is
+    however, not the one used by the Pointer Environment
+    (therefore the mouse cannot be used to control programs
+    written specifically for the Pointer Environment except in
+    cursor emulation mode) and you need a separate program to run
+    in the background which will display a symbol to show the
+    position of the mouse on screen.
+    
+    However, this command allows you to specify whether the
+    serial mouse driver should emulate the cursor keys (instead of
+    the pointer), which allows it to operate software such as word
+    processors. To emulate the cursor keys, <SPAN style="font-style: italic;">cursor</SPAN> should be 1 - to
+    emulate the pointer again, set <SPAN style="font-style: italic;">cursor</SPAN> to 0.
+    
+    The DIY Toolkit mouse driver is actually better than the
+    SERMouse driver in this respect in that the mouse does not
+    automatically switch back into Pointer Mode when you leave the
+    program (see <SPAN style="font-style: italic;">SERMCUR</SPAN>). Then again, you cannot switch between the
+    two modes using the mouse buttons, or control Pointer
+    Environment programs...
+    
+    The second parameter expected by this command is used to
+    specify what should happen to the cursor (or pointer) at the
+    edge of the screen - if <SPAN style="font-style: italic;">edge=1</SPAN>, moving the cursor or pointer
+    over the edge of the screen will make it re-emerge on the
+    opposite edge (a wrapping effect). <SPAN style="font-style: italic;">edge=0</SPAN> disables this.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsP.html#PTR_INC">PTR_INC</A> also.
+    
+    Also see <A style="font-style: italic;" href="KeywordsP.html#PTR_ON">PTR_ON</A> and <A style="font-style: italic;" href="KeywordsS.html#SERMPTR">SERMPTR</A>
+    
+<H3></H3>
+
+<P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PTR_LIMITS" id="PTR_LIMITS"></A>PTR_LIMITS</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PTR_LIMITS minx, miny, maxx, maxy<BR></SPAN> Location: <SPAN style="font-style: italic;">KMOUSE, MOUSE (DIY Toolkit - Vol I), Amiga QDOS
+    (v3.20+)<BR></SPAN>
+    This command is used to set the limits of the screen over
+    which the mouse pointer can be moved using the mouse. The
+    command expects four parameters, the minimum x and y co-
+    ordinates and the maximum x and y co-ordinates.
+    
+    For a standard QL, you would normally set these values
+    with:
+    
+    <SPAN style="font-style: italic;">PTR_LIMITS 0,0,511,255<BR></SPAN>
+    However, on larger resolution displays, larger limits will
+    be needed.
+    
+    On the DIY Toolkit variant, the first two limits are
+    ignored (they are always taken to be zero). The maximum co-
+    ordinates should be in pixel sizes and can be any positive
+    number up to 32767.
+    
+    On Amiga QDOS, negative numbers can be used, but to retain
+    compatability, the first two parameters should be zero.
+    
+    Having set these parameters, once the mouse pointer has
+    reached this position on screen then what happens depends on
+    whether the wrap-around display mode has been enabled with
+    <SPAN style="font-style: italic;">PTR_KEY 0,1</SPAN> or <SPAN style="font-style: italic;">PTR_KEY 1,1</SPAN> (or not). If it has been disabled, then
+    the mouse pointer will move no further. If it has been
+    enabled, then the mouse pointer will appear at the other
+    extreme limit.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsP.html#PTR_POS">PTR_POS</A> can be used to dictate where the mouse pointer should
+    appear on screen.
+    
+    This command only calls <A style="font-style: italic;" href="KeywordsP.html#PTR_MAX">PTR_MAX</A> on the DIY implementation.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PTR_MAX" id="PTR_MAX"></A>PTR_MAX</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PTR_MAX maxx, maxy<BR></SPAN> Location: <SPAN style="font-style: italic;">KMOUSE, MOUSE (DIY Toolkit - Vol I), Amiga QDOS
+    v3.20+<BR></SPAN>
+    This command is the same as:
+    
+    <SPAN style="font-style: italic;">PTR_LIMITS 0,0,maxx,maxy<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsP.html#PTR_LIMITS">PTR_LIMITS</A>!
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PTR_OFF" id="PTR_OFF"></A>PTR_OFF</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PTR_OFF<BR></SPAN> Location: <SPAN style="font-style: italic;">KMOUSE, MOUSE (DIY Toolkit - Vol I), Amiga QDOS
+    v3.20+<BR></SPAN>
+    This command switches off the mouse driver, releasing
+    memory which is used by it for temporary shortage.
+    
+    <SPAN style="font-style: italic;">PTR_ON</SPAN> switches the driver back on.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    This is similar to <A style="font-style: italic;" href="KeywordsS.html#SERMOFF">SERMOFF</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PTR_ON" id="PTR_ON"></A>PTR_ON</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PTR_ON<BR></SPAN> Location: <SPAN style="font-style: italic;">KMOUSE, MOUSE (DIY Toolkit - Vol I), Amiga QDOS
+    v3.20+<BR></SPAN>
+    This command enables the mouse driver after it has been
+    loaded or after it has been disabled with <SPAN style="font-style: italic;">PTR_OFF</SPAN>.
+    
+    All of the mouse settings are reset to the defaults (set
+    when the files were originally assembled) and the pointer is
+    positioned in the top left corner of the screen (position
+    0,0).
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    You can re-position the mouse with <A style="font-style: italic;" href="KeywordsP.html#PTR_POS">PTR_POS</A>.
+    
+    See <A style="font-style: italic;" href="KeywordsS.html#SERMON">SERMON</A> and <A style="font-style: italic;" href="KeywordsP.html#PTR_OFF">PTR_OFF</A>.
+    
+    <A style="font-style: italic;" href="KeywordsP.html#PTR_INC">PTR_INC</A>, <A style="font-style: italic;" href="KeywordsP.html#PTR_KEY">PTR_KEY</A> and <A style="font-style: italic;" href="KeywordsP.html#PTR_MAX">PTR_MAX</A> are also needed to set various
+    parameters on start-up.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PTR_POS" id="PTR_POS"></A>PTR_POS</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PTR_POS x,y<BR></SPAN> Location: <SPAN style="font-style: italic;">KMOUSE, MOUSE (DIY Toolkit - Vol I), Amiga QDOS
+    v3.20+<BR></SPAN>
+    This command can be used to set the initial position of the
+    mouse pointer on screen - it is normally located at 0,0 (the
+    top left hand corner of the screen). You can however use this
+    command to set it to the specified absolute pixel co-
+    ordinates, which must be within the area defined with the
+    <SPAN style="font-style: italic;">PTR_LIMITS</SPAN> command.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsP.html#PTR_LIMITS">PTR_LIMITS</A> and <A style="font-style: italic;" href="KeywordsP.html#PTR_ON">PTR_ON</A>.
+    
+    The pointer position can be read with <A style="font-style: italic;" href="KeywordsX.html#X_PTR%">X_PTR%</A>, <A style="font-style: italic;" href="KeywordsY.html#Y_PTR%">Y_PTR%</A> and <A style="font-style: italic;" href="KeywordsP.html#PTR_FN%.">PTR_FN%.</A>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PTR_X" id="PTR_X"></A>PTR_X</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PTR_X (argument, module)<BR></SPAN> Location: <SPAN style="font-style: italic;">PTRRTP<BR></SPAN>
+    The function <SPAN style="font-style: italic;">PTR_X</SPAN> transforms a point (described in polar
+    co-ordinates) into the rectangular co-ordinates and returns
+    the real part of the latter. <SPAN style="font-style: italic;">argument</SPAN> is an angle in radians,
+    <SPAN style="font-style: italic;">module</SPAN> a radius.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    A line in rectangular co-ordinates transformed to polar co-
+    
+    ordinates looks like a circle when plotted on screen.
+    
+    However, if you were to look at this line using polar
+    
+    co-ordinates, it would appear as straight line again.
+    
+    Confused?
+    <SPAN style="font-style: italic;">100 SCALE 10,-5,-5: PAPER 0: CLS
+    110 FOR a = 0 TO 2*PI STEP PI/128
+    120 POINT PTR_X(a,2), PTR_Y(a,2)
+    130 END FOR a<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    The other rectangular co-ordinate is found with <A style="font-style: italic;" href="KeywordsP.html#PTR_Y">PTR_Y</A> below.
+    
+    Also see <A style="font-style: italic;" href="KeywordsR.html#RTP_R">RTP_R</A> and <A style="font-style: italic;" href="KeywordsR.html#RTP_T">RTP_T</A>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PTR_Y" id="PTR_Y"></A>PTR_Y</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PTR_Y (argument, module)<BR></SPAN> Location: <SPAN style="font-style: italic;">PTRRTP<BR></SPAN>
+    This function is very similar to <SPAN style="font-style: italic;">PTR_X</SPAN> but this time the
+    imaginary part is returned.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PURGE" id="PURGE"></A>PURGE</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PURGE<BR></SPAN> Location: <SPAN style="font-style: italic;">CONTROL (DIY Toolkit Vol E)<BR></SPAN>
+    The command <SPAN style="font-style: italic;">PURGE</SPAN> has the same (fatal) effect as <SPAN style="font-style: italic;">KILL</SPAN> or <SPAN style="font-style: italic;">KJOBS</SPAN>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PUT" id="PUT"></A>PUT</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PUT</SPAN> [<SPAN style="font-style: italic;">#channel</SPAN>\<SPAN style="font-style: italic;">file_position,</SPAN>] [<SPAN style="font-style: italic;">item</SPAN><SUP>1</SUP> <SUP>*</SUP>[<SPAN style="font-style: italic;">,item</SPAN><SUP>i</SUP>]<SUP>*</SUP> ...]
+    
+    or <SPAN style="font-style: italic;">PUT</SPAN> [<SPAN style="font-style: italic;">#channel,</SPAN>] [<SPAN style="font-style: italic;">item</SPAN><SUP>1</SUP> <SUP>*</SUP>[<SPAN style="font-style: italic;">,item</SPAN><SUP>i</SUP>]<SUP>*</SUP> ...] Location: <SPAN style="font-style: italic;">Toolkit II, THOR XVI<BR></SPAN>
+    This command forms the complement to <SPAN style="font-style: italic;">GET</SPAN> and allows you to
+    store variables in the specified channel (default #3) in the
+    QL's internal format. The variables are stored at the current
+    position in the file (or the <SPAN style="font-style: italic;">file_position</SPAN> given with the command,
+    if the first variant is used). If you provide more than one
+    variable name as the second, third parameter etc, then several
+    variables will be stored in the file in one go.
+    
+    If no variable is specified, the file pointer will be set
+    to the specified position if the first variant is used. If the
+    second variant is used, this will have no effect.
+    
+    If a variable is given as the file pointer, then this
+    variable will be updated with the current file position once
+    <SPAN style="font-style: italic;">PUT</SPAN> has finished its work.
+    
+    <SPAN style="font-style: italic;">PUT</SPAN> can actually be used to store variables in a different
+    type to their current use (this might, for example, be useful
+    if storing part of a string), by adding the following suffixes
+    to each item:
+    
+    ...+0Force floating point type (see note 2 below!)
+    
+    ...&amp;''Force string type
+    
+    ...||0Force integer type
+    
+    
+<H3>Example:</H3>
+
+<P><SPAN style="font-style: italic;">a$='Entry 123':PUT #3,a$,a$(7 TO) || 0<BR></SPAN>
+    will store in channel #3 two bytes giving the length of the
+    
+    string a$, followed by the characters of the string itself,
+    
+    followed by two bytes representing the integer value 123
+    
+    (ie. 0*256+123).
+    
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    On version 2.09 (or earlier) of Toolkit II, <SPAN style="font-style: italic;">PUT</SPAN> could cause
+    problems when used on a channel opened over the network.
+    
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    Although <SPAN style="font-style: italic;">PUT</SPAN> can convert variable types as above, if integer
+    tokenisation is enabled on Minerva, then <SPAN style="font-style: italic;">PUT x%+0</SPAN> will not work.
+    You need to use something such as <SPAN style="font-style: italic;">PUT x%+1e-555</SPAN> instead.
+    
+    
+<H3>NOTE 3:</H3>
+
+<P>
+    Whenever storing data on disk, it is always preferable to
+    store it in its internal format (unless it is to be read on
+    other systems as well). Internal storage is faster because
+    conversion between internal and readable format is no longer
+    necessary. It also produces shorter files since the internal
+    format needs less space and for floating point numbers, the
+    internal format gives the greatest possible accuracy.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsP.html#PUT">PUT</A>, <A style="font-style: italic;" href="KeywordsB.html#BPUT">BPUT</A>, <A style="font-style: italic;" href="KeywordsW.html#WPUT">WPUT</A>, <A style="font-style: italic;" href="KeywordsL.html#LPUT">LPUT</A>, <A style="font-style: italic;" href="KeywordsU.html#UPUT">UPUT</A> and <A style="font-style: italic;" href="KeywordsG.html#GET">GET</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PXOFF" id="PXOFF"></A>PXOFF</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PXOFF<BR></SPAN> Location: <SPAN style="font-style: italic;">PEX<BR></SPAN>
+    This command is the same as <SPAN style="font-style: italic;">PIE_EX_OFF</SPAN> except for the PEX
+    system extension - it disables PEX for SD.EXTOP system calls,
+    so that they are trapped by the Pointer Environment.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsP.html#PXON">PXON</A> and<A style="font-style: italic;" href="KeywordsP.html#PEON">PEON</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PXON" id="PXON"></A>PXON</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PXON<BR></SPAN> Location: <SPAN style="font-style: italic;">PEX<BR></SPAN>
+    This command is the same as <SPAN style="font-style: italic;">PIE_EX_ON</SPAN> except for the PEX
+    system extension - it enables PEX for SD.EXTOP system calls,
+    so that they can work in the background.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsP.html#PXOFF">PXOFF</A> and<A style="font-style: italic;" href="KeywordsP.html#PEON">PEON</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="PX1ST" id="PX1ST"></A>PX1ST</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">PX1ST</SPAN> [{ <SPAN style="font-style: italic;">flag</SPAN> }] Location: <SPAN style="font-style: italic;">PEX<BR></SPAN>
+    This function can be used to determine whether <SPAN style="font-style: italic;">IS_PTRAP</SPAN> has
+    been used to dictate that any screen operations should just be
+    ignored (this is the default under PEX on JS and MG ROMs). If
+    the value returned is 0, then (providing that you do not have
+    a JS or MG ROM), PEX may be allowing background screen access.
+    If the value is not 0, then screen operations are merely
+    ignored by the operating system (and therefore the display is
+    not affected).
+    
+    If you use this function to pass a parameter, then if the
+    parameter is 0, then screen operations will not be ignored and
+    whether they cause a Buried program to halt will depend on
+    whether PEX is active. If you pass a non-zero parameter, then
+    any screen operations will be ignored.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsP.html#PEON">PEON</A> and in particular, refer to <A style="font-style: italic;" href="KeywordsI.html#IS_PTRAP">IS_PTRAP</A> for more details.
+    See also <A style="font-style: italic;" href="KeywordsI.html#IS_PEON">IS_PEON</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="P_ENV" id="P_ENV"></A>P_ENV</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">P_ENV (#ch)<BR></SPAN> Location: <SPAN style="font-style: italic;">MULTI<BR></SPAN>
+    This function detects whether the given channel is running
+    under the Pointer Environment and returns:
+    
+    0if the Pointer Environment is not connected to
+    that channel, or no parameter was used, or <SPAN style="font-style: italic;">#ch</SPAN> is
+    not a screen channel; or
+    
+    1if the Pointer Interface (ptr_gen) is active in
+    that channel; or
+    
+    2if the Pointer Interface and the Window Manager
+    (wman) are present for that channel.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    All programs which need the Pointer Environment to work,
+    
+    should check to see if it is present. This short program
+    
+    does so:
+    <SPAN style="font-style: italic;">100 ch=FOPEN(con_2x2a0x0): p=P_ENV(#ch): CLOSE#ch
+    110 IF p&lt;2 THEN
+    120 PRINT "This program does not run without the P.E.,"
+    130 PRINT "so program execution has to stop here."
+    140 PRINT " Press any key...": PAUSE 400
+    150 STOP
+    160 END IF<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsW.html#WMAN$">WMAN$</A> finds the version of the Window Manager and <A style="font-style: italic;" href="KeywordsQ.html#QRAM$">QRAM$</A> the
+    version of the Pointer Interface. These functions can also be
+    used to detect the presence of the Pointer Environment
+    (=Window Manager &amp; Pointer Interface).
+</BODY>
+</HTML>
