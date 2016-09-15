@@ -1,3 +1,12 @@
+==========
+Keywords Q
+==========
+
+TODO
+====
+
+
+
 QACONVERT
 =========
 
@@ -7,7 +16,7 @@ QACONVERT
 | Location |  ATARIDOS                                                         |
 +----------+-------------------------------------------------------------------+
 
- This command takes a file which is stored on a QL Format disk and
+This command takes a file which is stored on a QL Format disk and
 converts it into Atari Format. It will then convert special characters
 in that file to Atari compatible characters as well as converting any
 occurence of a Line Feed character CHR$(10) to a Carriage Return
@@ -30,14 +39,15 @@ QCOPY
 | Location |  ATARIDOS                                                         |
 +----------+-------------------------------------------------------------------+
 
- This command is similar to COPY except that it copies a file from an
+This command is similar to COPY except that it copies a file from an
 Atari Format disk to a QL Format disk. No conversion takes place.
 
 **NOTE**
 
 You will need to pass the Atari filename in quote marks if it includes a
-three letter extension preceded by a dot eg: QCOPY "flp1\_PROGRAM.BAS",
-flp2\_PROGRAM.BAS
+three letter extension preceded by a dot eg::
+
+    QCOPY "flp1_PROGRAM.BAS", flp2_PROGRAM.BAS
 
 **CROSS-REFERENCE**
 
@@ -57,7 +67,7 @@ QCOUNT%
 | Location |  PIPES (DIY Toolkit - Vol P)                                      |
 +----------+-------------------------------------------------------------------+
 
- This function is designed to make the use of pipes easier. Provided
+This function is designed to make the use of pipes easier. Provided
 that the specified channel is linked to a pipe (normally the input end
 of the pipe), this function will return the number of characters which
 are waiting to be read from the pipe.
@@ -66,10 +76,14 @@ are waiting to be read from the pipe.
 
 The value returned will be the exact number of characters placed into
 the pipe, which will therefore include the line feed characters and
-other control characters. Take the example of: 10 OPEN #3,pipe\_1048 20
-PRINT #3,'HELLO' 30 PRINT QCOUNT%(#3)
- The value of 6 is returned, this is because the PRINT
- statement has added a line feed to the end of the word 'HELLO', so that
+other control characters. Take the example of::
+
+    10 OPEN #3,pipe_1048 
+    20 PRINT #3,'HELLO' 
+    30 PRINT QCOUNT%(#3)
+
+The value of 6 is returned, this is because the PRINT
+statement has added a line feed to the end of the word 'HELLO', so that
 this can be read by an INPUT command.
 
 **CROSS-REFERENCE**
@@ -89,23 +103,22 @@ QDOS$
 | Location |  Fn, TinyToolkit, BTool                                           |
 +----------+-------------------------------------------------------------------+
 
- This function returns a string containing the version code of the
-operating system on which SuperBASIC is running. Example values:
+This function returns a string containing the version code of the
+operating system on which SuperBASIC is running. For example ::
 
-QDOS$
-~~~~~
-
-Operating System
-~~~~~~~~~~~~~~~~
-
-1.03the first main version of QDOS (an upgrade is essential if you have
-an earlier version!) 1x13all MGx ROMs, eg. 1G13 for the MGG 1.63the
-first version of Minerva 1.76the first version of Minerva with reliable
-MultiBASICs 1.98the latest and best version of Minerva 2.xxSMS version
-3.xxthe version number of the Amiga QL Emulator 4.xxthe first version of
-ARGOS on a THOR 1 computer 5.xxthe version of ARGOS on a THOR 20
-computer 6.xxthe version of ARGOS on a THOR XVI computer 6.41the final
-version of the THOR ARGOS ROM
+    PRINT QDOS$
+    
+- Version 1.03 was the first main version of QDOS (an upgrade is essential if you have an earlier version!) 
+- Version 1x13 is for all MGx ROMs, eg. 1G13 for the MGG. 
+- 1.63 was the first version of Minerva. 
+- 1.76 was the first version of Minerva with reliable MultiBASICs.
+- 1.98 was the latest and best version of Minerva 
+- 2.xx SMS version.
+- 3.xx is the version number of the Amiga QL Emulator. 
+- 4.xx is the first version of ARGOS on a THOR 1 computer. #
+- 5.xx is the version of ARGOS on a THOR 20 computer. 
+- 6.xx is the version of ARGOS on a THOR XVI computer. 
+- 6.41 is the final version of the THOR ARGOS ROM.
 
 **NOTE 1**
 
@@ -142,19 +155,26 @@ QFLIM
 | Location |  Fn                                                               |
 +----------+-------------------------------------------------------------------+
 
- With the Pointer Interface present, each job has a maximum outline
+With the Pointer Interface present, each job has a maximum outline
 window size in which it can open its windows to avoid storing more
 information than necessary when switching between jobs and saving the
 window contents. The function QFLIM returns the following information
 about this maximum outline size, in the (window independent) absolute
 co-ordinate system for the different n:
 
-ninformation
-~~~~~~~~~~~~
++---+------------------------------------------------------+
+| N | Information Returned                                 |
++===+======================================================+
+| 0 | Width in pixels (eg. 512 on a standard QL display).  | 
++---+------------------------------------------------------+
+| 1 | Height in pixels (eg. 256 on a standard QL display). |
++---+------------------------------------------------------+
+| 2 | Leftmost horizontal position.                        |
++---+------------------------------------------------------+
+| 3 | Uppermost vertical position.                         |
++---+------------------------------------------------------+
 
-0width in pixels (eg. 512 on a standard QL display). 1height in pixels
-(eg. 256 on a standard QL display). 2leftmost horizontal position
-3uppermost vertical position QFLIM needs an open window to get the
+QFLIM needs an open window to get the
 information from (default #1). The return values refer to the current
 job. If any other values of n are used, a bad parameter error will be
 generated.
@@ -162,16 +182,29 @@ generated.
 **Example**
 
 If there are no windows other than #0, #1 and #2, and their positions
-are as follows: 100 WINDOW#0,100,100,50,50 110 WINDOW#1,20,20,0,0 120
-WINDOW#2,200,50,40,40 130 FOR c=0 TO 2: PAPER#c,3: BORDER#c,1,4: CLS#c
- The Pointer Interface will reduce the outline size of the screen
+are set up as follows:: 
+
+    100 WINDOW #0,100,100,50,50 
+    110 WINDOW #1,20,20,0,0 
+    120 WINDOW #2,200,50,40,40 
+    130 FOR c=0 TO 2: PAPER #c,3: BORDER #c,1,4: CLS #c
+
+The Pointer Interface will reduce the outline size of the screen
 available to SuperBASIC, which can be checked with the next program or
-by swapping to other jobs which fill the whole screen. 100 ch=2 110
-xmin=QFLIM(#ch,2): xmax=xmin+ QFLIM(#ch,0) 120 ymin=QFLIM(#ch,3):
-ymax=ymin+ QFLIM(#ch,1) 130 PRINT "x = ";xmin;"..";xmax 140 PRINT "y =
-";ymin;"..";ymax 150 percent% = 100 \* QFLIM(#ch,0) \* QFLIM(#ch,1) /
-(512\*256) 160 PRINT "fills"!percent%;"% of the screen"
- Type WTV or WMON to restore standard window sizes. Note that this
+by swapping to other jobs which fill the whole screen. 
+
+::
+
+    100 ch=2 
+    110 xmin = QFLIM(#ch, 2): xmax = xmin + QFLIM(#ch,0) 
+    120 ymin = QFLIM(#ch, 3): ymax = ymin + QFLIM(#ch,1) 
+    130 PRINT "x = "; xmin; ".."; xmax 
+    140 PRINT "y = "; ymin; ".."; ymax 
+    150 percent% = 100 * QFLIM(#ch, 0) * QFLIM(#ch, 1) / (512 * 256) 
+    160 PRINT "fills"! percent%; "% of the screen" 
+
+
+Type WTV or WMON to restore standard window sizes. Note that this
 example expects the display to be 512x256 pixels.
 
 **NOTE 1**
@@ -181,11 +214,15 @@ The Pointer Interface makes a distinction between the primary window
 secondary windows. Although using QFLIM on a secondary window will
 return the maximum outlines for the current job's windows, using QFLIM
 on the primary window (eg. #0 in SuperBASIC) will return the physical
-screen size, ie. the parameters of the largest possible window: WINDOW
-QFLIM(#0,0),QFLIM(#0,1),QFLIM(#0,2),QFLIM(#0,3)
- This can therefore be used to check whether or not the extra high
-resolution modes provided by some Emulators and the AURORA is available:
-exten4=0: IF QFLIM(#0,1)>256:exten4=1
+screen size, ie. the parameters of the largest possible window:: 
+
+    WINDOW QFLIM(#0, 0), QFLIM(#0, 1), QFLIM(#0, 2), QFLIM(#0, 3)
+
+This can therefore be used to check whether or not the extra high
+resolution modes provided by some Emulators and the AURORA is available::
+
+    exten4 = 0
+    IF QFLIM(#0,1) > 256: exten4 = 1
 
 **NOTE 2**
 
@@ -213,7 +250,7 @@ QICONVERT
 | Location |  ATARIDOS                                                         |
 +----------+-------------------------------------------------------------------+
 
- This command takes a file which is stored on a QL Format disk and
+This command takes a file which is stored on a QL Format disk and
 converts it into IBM Format. It will then convert special characters in
 that file to IBM compatible characters as well as converting any
 occurence of a Line Feed character CHR$(10) to a Carriage Return
@@ -237,7 +274,7 @@ QLINK
 | Location |  PIPES (DIY Toolkit - Vol P)                                      |
 +----------+-------------------------------------------------------------------+
 
- This command is the same as TCONNECT.
+This command is the same as TCONNECT.
 
 **CROSS-REFERENCE**
 
@@ -257,7 +294,7 @@ QLOAD
 | Location |  SMS                                                              |
 +----------+-------------------------------------------------------------------+
 
- This command is very similar to LOAD as implemented on the SMS. The
+This command is very similar to LOAD as implemented on the SMS. The
 only difference are that it insists that the program must have been
 saved with the \_sav suffix (eg. flp1\_TEST\_sav). QLOAD will then
 proceed to load the BASIC program whether it was saved with the normal
@@ -284,7 +321,7 @@ Also see `LOAD <KeywordsL.clean.html#load>`__,
 --------------
 
 QLRUN
-~~~~~
+=====
 
 +----------+-------------------------------------------------------------------+
 | Syntax   |  QLRUN [device\_]filename                                         |
@@ -292,7 +329,7 @@ QLRUN
 | Location |  SMS                                                              |
 +----------+-------------------------------------------------------------------+
 
- This command is exactly the same as QLOAD except that the program is
+This command is exactly the same as QLOAD except that the program is
 automatically RUN as soon as it has been loaded into memory.
 
 **CROSS-REFERENCE**
@@ -303,7 +340,7 @@ See `QLOAD <KeywordsQ.clean.html#qload>`__ and
 --------------
 
 QL\_PEX
-~~~~~~~
+=======
 
 +----------+-------------------------------------------------------------------+
 | Syntax   |  QL\_PEX                                                          |
@@ -311,13 +348,13 @@ QL\_PEX
 | Location |  PEX                                                              |
 +----------+-------------------------------------------------------------------+
 
- This function returns the offset of the keyword linkage block of the
+This function returns the offset of the keyword linkage block of the
 keywords added by the PEX toolkit. This offset is needed for
 Qliberator's $$asmb directorive.
 
 **CROSS-REFERENCE**
 
-See `PEX\_SAVE. <KeywordsP.clean.html#pex-save.>`__
+See `PEX\_SAVE <KeywordsP.clean.html#pex-save>`__\ .
 
 --------------
 
@@ -330,8 +367,7 @@ QMERGE
 | Location |  SMS                                                              |
 +----------+-------------------------------------------------------------------+
 
- This command bears the same relationship to MERGE as QLOAD
- does to LOAD.
+This command bears the same relationship to MERGE as QLOAD does to LOAD.
 
 **CROSS-REFERENCE**
 
@@ -342,7 +378,7 @@ Refer to `QLOAD <KeywordsQ.clean.html#qload>`__ and
 --------------
 
 QMRUN
-~~~~~
+=====
 
 +----------+-------------------------------------------------------------------+
 | Syntax   |  QMRUN [device\_]filename                                         |
@@ -350,7 +386,7 @@ QMRUN
 | Location |  SMS                                                              |
 +----------+-------------------------------------------------------------------+
 
- This command is exactly the same as QMERGE except that it ensures that
+This command is exactly the same as QMERGE except that it ensures that
 the program is RUN as soon as it has been merged into memory. If the
 command is issued from the command line as a direct command, then the
 merged program is RUN from line 1. If, however, QMRUN appears in the
@@ -373,7 +409,7 @@ QRAM$
 | Location |  TinyToolkit, BTool                                               |
 +----------+-------------------------------------------------------------------+
 
- This function returns a string containing the version number of the
+This function returns a string containing the version number of the
 Pointer Environment, or an empty string if this is not present.
 
 **CROSS-REFERENCE**
@@ -389,32 +425,46 @@ QSAVE
 =====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  QSAVE [device\_]filename  or QSAVE                               |
+| Syntax   || QSAVE [device\_]filename  or                                     |
+|          || QSAVE                                                            |
 +----------+-------------------------------------------------------------------+
-| Location |  SMS                                                              |
+| Location || SMS                                                              |
 +----------+-------------------------------------------------------------------+
 
- For several years now, the best utility for saving SuperBASIC programs
+For several years now, the best utility for saving SuperBASIC programs
 in a form which can be loaded very quickly into memory has been QLOAD
-from Liberation Software. This utility stores SuperBASIC programs on
+from Liberation Software. 
+
+This utility stores SuperBASIC programs on
 disk in a special format which although seems meaningless if you VIEW
 the file, allows the program to be loaded at around 3x the speed of the
-normal LOAD command, which can be very useful for large programs. Unlike
-other similar utilities, programs which have been saved using this
+normal LOAD command, which can be very useful for large programs. 
+
+Unlike other similar utilities, programs which have been saved using this
 utility can be loaded into any other ROM version without any trouble,
 using the QLOAD command. It is nice to see that this utility has been
-implemented as part of SMS. The QSAVE command allows you to save the
+implemented as part of SMS. 
+
+The QSAVE command allows you to save the
 whole of SuperBASIC program currently in memory under the specified
 filename to the specified device. If the filename does not end in the
-suffix \_SAV, then this will be added automatically. If no device is
+suffix \_SAV, then this will be added automatically. 
+
+If no device is
 specified (or it does not exist), then Toolkit II's default data device
 will be used. You will also be prompted to confirm whether an existing
-file should be overwritten if necessary. The second variant of the
+file should be overwritten if necessary. 
+
+The second variant of the
 command will allow you to QSAVE
- the program in memory under the same filename as when LOAD or QLOAD was
-last used (with the \_SAV suffix appended if necessary). If the original
+the program in memory under the same filename as when LOAD or QLOAD was
+last used (with the \_SAV suffix appended if necessary). 
+
+If the original
 filename used when the program was LOADed ended in \_BAS, then QSAVE
-will alter this to be the \_SAV suffix. This variant will also take the
+will alter this to be the \_SAV suffix. 
+
+This variant will also take the
 version number of the file when it was LOADed (or QLOADed) and then
 increase this by one.
 
@@ -422,10 +472,12 @@ increase this by one.
 
 To ensure that QSAVEd programs can be used on all implementations of the
 QL, ensure that if used from Minerva, Integer Tokenisation is switched
-off - you will need to follow the following procedure: (1) POKE
-\\\\212,128
- (2) LOAD ASCII version of the program (or type NEW) (3) Alter program
-as necessary (4) QSAVE the fast loading version of the program
+off - you will need to follow the following procedure:
+
+#. POKE \\\\212,128
+#. LOAD the ASCII version of the program (or type NEW) 
+#. Alter the program as necessary ... 
+#. QSAVE the fast loading version of the program.
 
 **NOTE 2**
 
@@ -442,15 +494,16 @@ allows you to read the current version number of a file.
 --------------
 
 QSAVE\_O
-~~~~~~~~
+========
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  QSAVE\_O [device\_]filename  or QSAVE\_O                         |
+| Syntax   || QSAVE\_O [device\_]filename  or                                  |
+|          || QSAVE\_O                                                         |
 +----------+-------------------------------------------------------------------+
-| Location |  SMS                                                              |
+| Location || SMS                                                              |
 +----------+-------------------------------------------------------------------+
 
- This command is the same as QSAVE except that it will automatically
+This command is the same as QSAVE except that it will automatically
 overwrite an existing file with the same filename.
 
 **NOTE**
@@ -473,22 +526,39 @@ QSIZE%
 | Location |  PIPES (DIY Toolkit - Vol P)                                      |
 +----------+-------------------------------------------------------------------+
 
- This function is designed to read the amount of characters which a pipe
+This function is designed to read the amount of characters which a pipe
 linked to the specified channel can hold at any one time.
 
 **Example**
 
-10 OPEN #4,pipe\_200 20 QLINK #4 TO #3 25 PRINT #4,'QL DATA' 30 PRINT
-QSIZE% (#3), QCOUNT%(#3) 40 CLOSE #3:CLOSE #4
- This short program will print the figures 203 and 8 on screen. This
-will also work with named pipes on SMS: 10 OPEN\_NEW #4,pipe\_test\_200
-20 OPEN\_IN #3,pipe\_test 25 PRINT #4,'QL DATA' 30 PRINT QSIZE% (#3),
-QCOUNT%(#3) 40 CLOSE #3:CLOSE #4
- Note however, that if you re-run the program the figure returned by
+::
+
+    10 OPEN #4,pipe_200 
+    20 QLINK #4 TO #3 
+    25 PRINT #4,'QL DATA' 
+    30 PRINT QSIZE% (#3), QCOUNT%(#3) 
+    40 CLOSE #3: CLOSE #4 
+
+This short program will print 203 and 8 on screen. 
+
+This will also work with named pipes on SMS:: 
+
+    10 OPEN_NEW #4,pipe_test_200 
+    20 OPEN_IN #3,pipe_test 
+    25 PRINT #4,'QL DATA' 
+    30 PRINT QSIZE% (#3), QCOUNT%(#3) 
+    40 CLOSE #3:CLOSE #4
+
+Note however, that if you re-run the program the figure returned by
 QCOUNT% continues increasing - this is because a named pipe does not
 disappear just because both ends of the pipe have been closed. You would
-need to add the line: 50 DELETE pipe\_test
- to overcome this, or try: DIR pipe: WDEL pipe
+need to add the line:: 
+
+    50 DELETE pipe_test
+
+to overcome this. Alternatively, try:: 
+
+    DIR pipe: WDEL pipe
 
 **NOTE**
 
@@ -514,9 +584,16 @@ QSPACE%
 | Location |  PIPES (DIY Toolkit - Vol P)                                      |
 +----------+-------------------------------------------------------------------+
 
- This function returns the amount of empty space in a pipe connected to
-the specified channel. PRINT QSPACE(#3)
- is therefore the same as: PRINT QSIZE%(#3)-QCOUNT%(#3)
+This function returns the amount of empty space in a pipe connected to
+the specified channel. 
+
+::
+
+    PRINT QSPACE(#3)
+    
+is therefore the same as::
+
+    PRINT QSIZE%(#3) - QCOUNT%(#3)
 
 **CROSS-REFERENCE**
 
@@ -531,21 +608,28 @@ QTRAP
 +----------+-------------------------------------------------------------------+
 | Syntax   |  QTRAP #ch,key [,d1 [,d2 [,d3 [,a1 [,a2 ]]]]]                     |
 +----------+-------------------------------------------------------------------+
-| Location |  TRAPS                                                            |
+| Location |  TRAPS (DIY Toolkit Vol T)                                        |
 +----------+-------------------------------------------------------------------+
 
-(DIY Toolkit Vol T)
- This command is similar to IO\_TRAP in that it allows you to access the
-machine code TRAP #3 system calls directly. You will need to pass at
+This command is similar to IO\_TRAP in that it allows you to access the
+machine code TRAP #3 system calls directly. 
+
+You will need to pass at
 least two parameters, the number of the channel to be affected and the
 operation key to be carried out (this is equivalent to the value in D0
-when TRAP #3 is performed). The other parameters allow you to pass the
+when TRAP #3 is performed). 
+
+The other parameters allow you to pass the
 various register values which may be required by the system calls. The
-timeout parameter (D3) defaults to -1 (infinite timeout). This can be
+timeout parameter (D3) defaults to -1 (infinite timeout). 
+
+This can be
 used effectively to set the INK and PAPER colours for THOR XVI's MODE 12
-and still allow the program to be compiled. For example: QTRAP
-#2,HEX('27'),4
- will set the PAPER colour in the window #2 to Green (although the STRIP
+and still allow the program to be compiled. For example::
+
+    QTRAP #2,HEX('27'),4
+    
+will set the PAPER colour in the window #2 to Green (although the STRIP
 colour will remain unaffected).
 
 **WARNING**
@@ -575,7 +659,7 @@ QuATARI
 | Location |  Beuletools, FN                                                   |
 +----------+-------------------------------------------------------------------+
 
- This is a logical function which returns either 1 (true) or 0 (false)
+This is a logical function which returns either 1 (true) or 0 (false)
 depending on whether or not the command was executed on an Atari
 QL-Emulator. Unfortunately, there are some additional keywords only
 available on the Emulator, so a portable program which uses these has to
@@ -604,10 +688,14 @@ QUEUE%
 | Location |  QBASE (DIY Toolkit Vol Q)                                        |
 +----------+-------------------------------------------------------------------+
 
- QUEUE% is a function but does exactly the same as FORCE\_TYPE and
-TYPE\_IN. The return value is zero if all bytes have been successfully
+QUEUE% is a function but does exactly the same as FORCE\_TYPE and
+TYPE\_IN. 
+
+The return value is zero if all bytes have been successfully
 typed in, negative if the keyboard queue is full and positive if another
-problem occured. The absolute value of the return always indicates how
+problem occured. 
+
+The absolute value of the return always indicates how
 many characters QUEUE% failed to send.
 
 --------------
@@ -621,7 +709,7 @@ QUIT
 | Location |  SMS                                                              |
 +----------+-------------------------------------------------------------------+
 
- This command is used to force remove a Multiple SBASIC Interpreter or a
+This command is used to force remove a Multiple SBASIC Interpreter or a
 compiled Job (in the latter case it is the same as STOP).
 
 **NOTE**
@@ -632,5 +720,5 @@ If this command is used from SuperBASIC Job 0, it will return an
 **CROSS-REFERENCE**
 
 See `MB <KeywordsM.clean.html#mb>`__ and `SBASIC <KeywordsS.clean.html#sbasic>`__.
-`CLOSE #0 <KeywordsC.clean.html#close20#0>`__ has the same effect from within
+`CLOSE <KeywordsC.clean.html#close>`__ #0 has the same effect from within
 a Multiple SBASIC or MultiBASIC Interpreter
