@@ -1,0 +1,79 @@
+line 22 column 13 - Warning: discarding unexpected </hr>
+line 50 column 13 - Warning: discarding unexpected </hr>
+line 82 column 43 - Warning: replacing invalid UTF-8 bytes (char. code U+0003)
+line 105 column 500 - Warning: <a> discarding newline in URI reference
+line 115 column 500 - Warning: <a> discarding newline in URI reference
+line 127 column 9 - Warning: missing </a> before <a>
+line 338 column 108 - Warning: <a> discarding newline in URI reference
+line 379 column 110 - Warning: <a> discarding newline in URI reference
+line 468 column 5 - Warning: <a> attribute "program":stop" lacks value
+line 470 column 1 - Warning: <a> discarding newline in URI reference
+line 468 column 5 - Warning: missing </a> before <a>
+line 472 column 1 - Warning: <a> discarding newline in URI reference
+line 470 column 1 - Warning: missing </a> before <a>
+line 723 column 27 - Warning: unescaped & or unknown entity "&CHR"
+line 775 column 60 - Warning: unescaped & which should be written as &amp;
+line 857 column 84 - Warning: missing </a> before <h3>
+line 865 column 13 - Warning: inserting implicit <a>
+line 866 column 10 - Warning: inserting implicit <a>
+line 866 column 10 - Warning: missing </a> before <h3>
+line 883 column 20 - Warning: inserting implicit <a>
+line 883 column 45 - Warning: inserting implicit <a>
+line 883 column 45 - Warning: missing </a> before <a>
+line 883 column 115 - Warning: <a> discarding newline in URI reference
+line 919 column 232 - Warning: <a> discarding newline in URI reference
+line 1170 column 135 - Warning: <a> discarding newline in URI reference
+line 1170 column 135 - Warning: missing </a> before <a>
+line 1205 column 61 - Warning: unescaped & which should be written as &amp;
+line 1205 column 65 - Warning: unescaped & or unknown entity "&CHR"
+line 1292 column 9 - Warning: missing </span> before </h3>
+line 1293 column 10 - Warning: inserting implicit <span>
+line 370 column 47 - Warning: <a> anchor "RELEASE" already defined
+line 450 column 53 - Warning: <a> escaping malformed URI reference
+line 468 column 5 - Warning: <a> escaping malformed URI reference
+line 470 column 1 - Warning: <a> escaping malformed URI reference
+line 472 column 1 - Warning: <a> escaping malformed URI reference
+line 791 column 109 - Warning: <a> escaping malformed URI reference
+line 964 column 35 - Warning: <a> escaping malformed URI reference
+line 1094 column 131 - Warning: <a> escaping malformed URI reference
+line 1160 column 53 - Warning: <a> escaping malformed URI reference
+line 1160 column 148 - Warning: <a> escaping malformed URI reference
+line 1160 column 259 - Warning: <a> escaping malformed URI reference
+line 1293 column 10 - Warning: trimming empty <span>
+line 2 column 1 - Warning: <html> proprietary attribute "xmlns:v"
+line 468 column 5 - Warning: <a> proprietary attribute "end"
+line 468 column 5 - Warning: <a> proprietary attribute "of"
+Info: Doctype given is "-//W3C//DTD HTML 4.0 Transitional//EN"
+Info: Document content looks like HTML 4.01 Strict
+Info: No system identifier in emitted doctype
+Tidy found 45 warnings and 0 errors!
+
+Character codes for UTF-8 must be in the range: U+0000 to U+10FFFF.
+The definition of UTF-8 in Annex D of ISO/IEC 10646-1:2000 also
+allows for the use of five- and six-byte sequences to encode
+characters that are outside the range of the Unicode character set;
+those five- and six-byte sequences are illegal for the use of
+UTF-8 as a transformation of Unicode characters. ISO/IEC 10646
+does not allow mapping of unpaired surrogates, nor U+FFFE and U+FFFF
+(but it does allow other noncharacters). For more information please refer to
+http://www.unicode.org/ and http://www.cl.cam.ac.uk/~mgk25/unicode.html
+
+URIs must be properly escaped, they must not contain unescaped
+characters below U+0021 including the space character and not
+above U+007E. Tidy escapes the URI for you as recommended by
+HTML 4.01 section B.2.1 and XML 1.0 section 4.2.2. Some user agents
+use another algorithm to escape such URIs and some server-sided
+scripts depend on that. If you want to depend on that, you must
+escape the URI on your own. For more information please refer to
+http://www.w3.org/International/O-URL-and-ident.html
+
+About HTML Tidy: https://github.com/htacg/tidy-html5
+Bug reports and comments: https://github.com/htacg/tidy-html5/issues
+Official mailing list: https://lists.w3.org/Archives/Public/public-htacg/
+Latest HTML specification: http://dev.w3.org/html5/spec-author-view/
+Validate your HTML documents: http://validator.w3.org/nu/
+Lobby your company to join the W3C: http://www.w3.org/Consortium
+
+Do you speak a language other than English, or a different variant of 
+English? Consider helping us to localize HTML Tidy. For details please see 
+https://github.com/htacg/tidy-html5/blob/master/README/LOCALIZE.md

@@ -1,0 +1,2056 @@
+    
+<H1><A name="RAD" id="RAD"></A>RAD</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">RAD (angle)<BR></SPAN> Location: <SPAN style="font-style: italic;">QL ROM<BR></SPAN>
+    This function is used to convert an angle in degrees into
+    an angle in radians (which is the system used by QDOS to
+    represent angles in commands such as <SPAN style="font-style: italic;">SIN</SPAN>, <SPAN style="font-style: italic;">COS</SPAN>, <SPAN style="font-style: italic;">TAN</SPAN>, etc.).
+    Although this will work for any value of <SPAN style="font-style: italic;">angle</SPAN>, due to the very
+    nature of angles, <SPAN style="font-style: italic;">angle</SPAN> should be in the range 0...360, which
+    will return a value in the range 0...2�.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    A small program to draw a circle split into 30 degree
+    
+    segments:
+    <SPAN style="font-style: italic;">100 MODE 4:WINDOW 448,200,32,16:SCALE 100,0,0
+    110 STRIP 2:INK 7
+    120 x1=75:y1=50:x2=x1:y2=y1+25
+    130 CIRCLE x1,y1,25
+    140 FOR x=0 TO 360/30-1
+    150 x2=x1+SIN(RAD(30)*x)*25:y2=y1+COS(RAD(30)*x)*25
+    160 LINE x1,y1 TO x2,y2
+    170 END FOR x<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsD.html#DEG">DEG</A>, <A style="font-style: italic;" href="KeywordsS.html#SIN">SIN</A>, <A style="font-style: italic;" href="KeywordsC.html#COS">COS</A>.
+    
+    Also please refer to the Mathematics section of the
+    Appendix.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="RAE" id="RAE"></A>RAE</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">RAE (i,n)<BR></SPAN> Location: <SPAN style="font-style: italic;">Toolfin<BR></SPAN>
+    The function <SPAN style="font-style: italic;">RAE</SPAN> returns the value of:
+    
+    <SPAN style="font-style: italic;">i / ( ( (1+i)<SUP>1/n</SUP>) -1 ) *n )<BR></SPAN>
+    where <SPAN style="font-style: italic;">i</SPAN> and <SPAN style="font-style: italic;">n</SPAN> can be any floating point numbers (see <SPAN style="font-style: italic;">MT</SPAN> for
+    error handling).
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsM.html#MT">MT</A>, <A style="font-style: italic;" href="KeywordsV.html#VA">VA</A>, <A style="font-style: italic;" href="KeywordsV.html#VFR">VFR</A>, <A style="font-style: italic;" href="KeywordsV.html#VAR">VAR</A>, <A style="font-style: italic;" href="KeywordsT.html#TCA">TCA</A>, <A style="font-style: italic;" href="KeywordsT.html#TNC">TNC</A>, <A style="font-style: italic;" href="KeywordsT.html#TEE">TEE</A>, <A style="font-style: italic;" href="KeywordsR.html#RAFE">RAFE</A>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="RAFE" id="RAFE"></A>RAFE</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">RAFE (i,n)<BR></SPAN> Location: <SPAN style="font-style: italic;">Toolfin<BR></SPAN>
+    The function <SPAN style="font-style: italic;">RAFE</SPAN> returns the value of
+    
+    <SPAN style="font-style: italic;">( ( (1+i) ^ (1/n-1) * n ) /i<BR></SPAN>
+    where <SPAN style="font-style: italic;">i</SPAN> and <SPAN style="font-style: italic;">n</SPAN> can be any floating point numbers (see <SPAN style="font-style: italic;">MT</SPAN> for
+    error handling).
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsM.html#MT">MT</A>, <A style="font-style: italic;" href="KeywordsV.html#VA">VA</A>, <A style="font-style: italic;" href="KeywordsV.html#VFR">VFR</A>, <A style="font-style: italic;" href="KeywordsV.html#VAR">VAR</A>, <A style="font-style: italic;" href="KeywordsT.html#TCA">TCA</A>, <A style="font-style: italic;" href="KeywordsT.html#TNC">TNC</A>, <A style="font-style: italic;" href="KeywordsT.html#TEE">TEE</A>, <A style="font-style: italic;" href="KeywordsR.html#RAE">RAE</A>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="RAMTOP" id="RAMTOP"></A>RAMTOP</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">RAMTOP<BR></SPAN> Location: <SPAN style="font-style: italic;">Beuletools<BR></SPAN>
+    The function returns the active memory in KBytes, whether
+    this is free memory or not. On the original QL without any
+    expansion this function will return 128, whereas on a QL
+    expanded to 640K, 640 is returned.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    The value of <A style="font-style: italic;" href="KeywordsR.html#RAMTOP">RAMTOP</A> can be lowered with <A style="font-style: italic;" href="KeywordsR.html#RESET">RESET</A> to emulate a
+    machine which has less available memory.
+    
+    <A style="font-style: italic;" href="KeywordsP.html#PRINT">PRINT</A><A style="font-style: italic;" href="KeywordsP.html#PRINT">PRINT(PHYSTOP/1024)-128"&gt;(PHYSTOP/1024)-128</A> gives the value of the additional memory.
+    
+    <A style="font-style: italic;" href="KeywordsF.html#FREE_MEM">FREE_MEM</A>, <A style="font-style: italic;" href="KeywordsF.html#FREE">FREE</A> and <A style="font-style: italic;" href="KeywordsM.html#MT_FREE">MT_FREE</A> return the actually available memory.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="RAM_USE" id="RAM_USE"></A>RAM_USE</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">RAM_USE</SPAN> [<SPAN style="font-style: italic;">device</SPAN>] Location: <SPAN style="font-style: italic;">Trump Card, Gold Card, ST/QL, SMS<BR></SPAN>
+    This command is the same as <SPAN style="font-style: italic;">FLP_USE</SPAN> except that it alters the
+    name of the device used to access the ramdisks.
+    
+    
+<H3>NOTE:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">device</SPAN> must only be three letters long.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsF.html#FLP_USE">FLP_USE</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="RAND" id="RAND"></A>RAND</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">RAND (devicename)<BR></SPAN>
+    or <SPAN style="font-style: italic;">RAND (device$)<BR></SPAN> Location: <SPAN style="font-style: italic;">TinyToolkit<BR></SPAN>
+    Every physical directory device (eg. floppies and
+    microdrives, but not RAM disks), contain a random number in
+    their FAT (which is a place on the medium which contains
+    internal data, the number of free/bad/empty sectors etc).
+    
+    The function <SPAN style="font-style: italic;">RAND</SPAN> returns this number which can be used by
+    QDOS to check if a medium has been changed.
+    
+    
+<H3>NOTE:</H3>
+
+<P>
+    QDOS increases access speed by temporarily storing data in
+    so-called slave blocks. On QDOS and compatible machines this
+    may lead to the phenomen that <SPAN style="font-style: italic;">RAND</SPAN> only returns the correct
+    value the first time that it is used, and then returns the
+    same value for any other medium. This can be avoided by using
+    the command <SPAN style="font-style: italic;">DEL_DEFB</SPAN>, or better <SPAN style="font-style: italic;">CLRMDV</SPAN> before each <SPAN style="font-style: italic;">RAND</SPAN>.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsF.html#FOP_DIR">FOP_DIR</A> opens a directory.
+    <A href="KeywordsF.html#FLP_SEC">FLP_SEC</A> allows you to alter the amount of checking carried
+    out by a disk interface to see if a disk has been swapped.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="RANDOMISE" id="RANDOMISE"></A>RANDOMISE</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">RANDOMISE</SPAN> [<SPAN style="font-style: italic;">(start)</SPAN>]
+    
+    or <SPAN style="font-style: italic;">RANDOMISE \</SPAN> <SPAN style="font-style: italic;">(Minerva v1.82+ only)<BR></SPAN> Location: <SPAN style="font-style: italic;">QL ROM<BR></SPAN>
+    SuperBASIC uses a standard method to generate pseudo random
+    numbers. Each time that the function <SPAN style="font-style: italic;">RND</SPAN> is called, a start
+    value specified by the command <SPAN style="font-style: italic;">RANDOMISE</SPAN> is multiplied by a large
+    number and another number is added, the solution is modulated
+    and the final number is nearly unpredictable.
+    
+    This method means that after a <SPAN style="font-style: italic;">RANDOMISE</SPAN> command with
+    parameter, <SPAN style="font-style: italic;">RND</SPAN> will always generate the same numbers. If you
+    pick another number as the parameter (or do not specify a
+    parameter at all), this will let <SPAN style="font-style: italic;">RND</SPAN> produce other numbers.
+    
+    If no parameter is specified, <SPAN style="font-style: italic;">RANDOMISE</SPAN> calculates a random
+    number by combining some internal system data such as the
+    time, date, pointers etc.
+    
+    
+<H3>Example:</H3>
+
+<P><SPAN style="font-style: italic;">100 RANDOMISE 38
+    110 FOR n=1 TO 10: PRINT RND(10)<BR></SPAN>
+    The program will always write the same ten random numbers
+    
+    on the screen.
+    
+    
+<H3>MINERVA NOTE:</H3>
+
+<P>
+    The main problem with using <SPAN style="font-style: italic;">RANDOMISE</SPAN> is that even without a
+    parameter, the same pattern of 'random' numbers is generated
+    if the interval between when the computer is switched on and
+    when the line containing <SPAN style="font-style: italic;">RANDOMISE</SPAN> is reached tends to be the
+    same every time that a program is run.
+    
+    Although v2.53+ of SMS makes <SPAN style="font-style: italic;">RANDOMISE</SPAN> without a parameter
+    more random, the only other fix is on v1.82+ of Minerva which
+    allows you to use:
+    
+    <SPAN style="font-style: italic;">RANDOMISE \<BR></SPAN>
+    instead of the normal <SPAN style="font-style: italic;">RANDOMISE</SPAN> which should alleviate this
+    problem somewhat.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsR.html#RND">RND</A> is the function that returns a random number.
+    <A href="KeywordsR.html#RANDOMISE">RANDOMISE</A> influences <A style="font-style: italic;" href="KeywordsM.html#MATRND">MATRND</A> in the same way.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="READ" id="READ"></A>READ</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">READ var</SPAN><SUP>1</SUP> <SUP>*</SUP>[<SPAN style="font-style: italic;">var</SPAN><SUP>i</SUP>]<SUP>*<BR></SUP> Location: <SPAN style="font-style: italic;">QL ROM<BR></SPAN>
+    This command forces the interpreter to look at the current
+    data pointer, that is to say the next program line which
+    begins with the marker <SPAN style="font-style: italic;">DATA</SPAN>.
+    
+    When a program is first <SPAN style="font-style: italic;">RUN</SPAN>, the data pointer is set to the
+    start of the program, and hence <SPAN style="font-style: italic;">READ</SPAN> will attempt to assign the
+    first value following the first occurrence of <SPAN style="font-style: italic;">DATA</SPAN> to the
+    specified variable.
+    
+    Having assigned this value, the data pointer is updated to
+    the next value in the same <SPAN style="font-style: italic;">DATA</SPAN> statement, or the next program
+    line if there are no more values following the <SPAN style="font-style: italic;">DATA</SPAN> statement.
+    
+    If no more <SPAN style="font-style: italic;">DATA</SPAN> is contained within the program and you try
+    to <SPAN style="font-style: italic;">READ</SPAN> a value, the error 'End of File' is reported. SMS's
+    improved interpreter reports 'End of DATA'.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    A simple program to convert the three letter code returned
+    
+    by <SPAN style="font-style: italic;">DAY$</SPAN> into the full name of the day:
+    <SPAN style="font-style: italic;">100 DATA 'Monday','Tuesday','Wednesday','Thursday'
+    110 DATA 'Friday','Saturday','Sunday'
+    120 RESTORE
+    130 dday$=DAY$
+    135 day=(dday$ INSTR ' MonTueWedThuFriSatSun')/3
+    140 FOR find_day=1 TO day
+    150 IF EOF:EXIT find_day
+    160 READ dday$
+    170 END FOR find_day
+    180 PRINT dday$<BR></SPAN>
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    The data pointer is not reset to the start of the program
+    following every <SPAN style="font-style: italic;">RUN</SPAN>. You need a <SPAN style="font-style: italic;">RESTORE</SPAN> command to do this - try
+    running the above program without line 120.
+    
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    If you try to <SPAN style="font-style: italic;">READ</SPAN> a value into a slice of an undimensioned
+    string, the value will not be stored and SuperBASIC may stop
+    without a message, eg:
+    <SPAN style="font-style: italic;">100 DATA 'Bess '
+    110 a$='Hello World'
+    120 READ a$(7 TO)
+    130 PRINT a$<BR></SPAN>
+    Try by way of comparison, adding the line:
+    <SPAN style="font-style: italic;">10 DIM a$(12)<BR></SPAN>
+    Both of these work under SMS.
+    
+    
+<H3>NOTE 3:</H3>
+
+<P>
+    The interpreter does not really check the parameters listed
+    after <SPAN style="font-style: italic;">READ</SPAN>, and unacceptable parameters, for example:
+    
+    <SPAN style="font-style: italic;">READ 1<BR></SPAN>
+    won't report an error and the program continues as if it
+    had read a variable.
+    
+    SMS's improved Interpreter reports 'Unacceptable Parameters
+    for READ' when the program is <SPAN style="font-style: italic;">RUN</SPAN>.
+    
+    
+<H3>MINERVA NOTE:</H3>
+
+<P>
+    As from v1.96, <SPAN style="font-style: italic;">READ</SPAN> has been improved so that it will accept
+    an array parameter and then read a value for each element of
+    the array in turn, without having to put <SPAN style="font-style: italic;">READ</SPAN> into a loop.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">100 DIM x(5)
+    
+    110 READ x
+    
+    1000 DATA 1,2,3,4,5,6<BR></SPAN>
+    This will read <SPAN style="font-style: italic;">x(0)</SPAN>, <SPAN style="font-style: italic;">x(1)</SPAN>, <SPAN style="font-style: italic;">x(2)</SPAN>, <SPAN style="font-style: italic;">x(3)</SPAN>, <SPAN style="font-style: italic;">x(4)</SPAN> and <SPAN style="font-style: italic;">x(5)<BR></SPAN>
+    All other implementations insist upon you using something
+    akin to:
+    
+    <SPAN style="font-style: italic;">100 DIM x(5)
+    
+    110 FOR i=0 TO 5:READ x(i)
+    
+    1000 DATA 1,2,3,4,5,6<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsR.html#RESTORE">RESTORE</A> allows you to alter the program line pointed at by
+    the data pointer.
+    
+    <A style="font-style: italic;" href="KeywordsD.html#DATA">DATA</A> sets out lines to be <A style="font-style: italic;" href="KeywordsR.html#READ">READ</A>.
+    <A href="KeywordsE.html#EOF">EOF</A> allows you to test for the end of all program data.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="RECHP" id="RECHP"></A>RECHP</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">RECHP address<BR></SPAN>
+    or <SPAN style="font-style: italic;">RECHP address</SPAN><SUP>1</SUP> <SUP>*</SUP>[<SPAN style="font-style: italic;">,address</SPAN><SUP>i</SUP>]<SUP>*</SUP> <SPAN style="font-style: italic;">(BTool only)<BR></SPAN> Location: <SPAN style="font-style: italic;">Toolkit II, THOR XVI, BTool<BR></SPAN>
+    The common heap is an area in memory where all programs may
+    store data, this space being only limited by the memory
+    available. A BASIC program can reserve space in the common
+    heap with the function <SPAN style="font-style: italic;">ALCHP</SPAN>. The command <SPAN style="font-style: italic;">RECHP</SPAN> allows you to
+    recover this memory.
+    
+    The parameter of <SPAN style="font-style: italic;">RECHP</SPAN> must be the address which was
+    returned by <SPAN style="font-style: italic;">ALCHP</SPAN>.
+    
+    The Btool variant of this command allows you to recover
+    several addresses at once.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    Loading a title screen:
+    <SPAN style="font-style: italic;">100 Title$="FLP1_TITLE_SCR"
+    110 IF FREE_MEM &lt; 38*1024 THEN
+    120 LBYTES Title$,SCREEN
+    130 ELSE
+    140 TitleAdr=ALCHP(32768)
+    150 LBYTES Title$,TitleAdr
+    160 SCRBASE TitleAdr: REFRESH
+    170 RECHP TitleAdr
+    180 END IF<BR></SPAN>
+    
+<H3>NOTE:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">RECHP</SPAN> reports error -15 if the address was not reserved with
+    <SPAN style="font-style: italic;">ALCHP</SPAN> or if the memory has already been given back to QDOS.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsC.html#CLCHP">CLCHP</A> clears all memory reserved by <A style="font-style: italic;" href="KeywordsA.html#ALCHP">ALCHP</A>, <A style="font-style: italic;" href="KeywordsC.html#CLEAR">CLEAR</A> deletes the
+    values of all variables.
+    
+    See also <A style="font-style: italic;" href="KeywordsD.html#DISCARD">DISCARD</A>, <A style="font-style: italic;" href="KeywordsT.html#TTREL">TTREL</A> and <A style="font-style: italic;" href="KeywordsR.html#RELEASE">RELEASE</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="RECOL" id="RECOL"></A>RECOL</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">RECOL</SPAN> [<SPAN style="font-style: italic;">#ch,</SPAN>] <SPAN style="font-style: italic;">black,blue,red,magenta,green,cyan,yellow,white (MODE 8)<BR></SPAN>
+    or <SPAN style="font-style: italic;">RECOL</SPAN> [<SPAN style="font-style: italic;">#ch,</SPAN>] <SPAN style="font-style: italic;">black,1,red,3,green,5,white,white</SPAN> <SPAN style="font-style: italic;">(MODE 4)<BR></SPAN> Location: <SPAN style="font-style: italic;">QL ROM<BR></SPAN>
+    This command recolours all individual pixels in the
+    specified window (default #1). At least eight parameters must
+    be specified, representing each of the colours available in
+    <SPAN style="font-style: italic;">MODE 8</SPAN>. Each parameter must then have a value in the range 0..8
+    representing how that colour pixel is to be recoloured.
+    
+    The rather odd syntax for use in <SPAN style="font-style: italic;">MODE 4</SPAN> is due to a slight
+    apparent bug in the <SPAN style="font-style: italic;">RECOL</SPAN> command which means that on some
+    implementations the parameter which would normally represent
+    the colour to replace yellow on screen has to be used to
+    specify the colour to replace white.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    A simple demonstration program which recolours a circle
+    
+    randomnly:
+    <SPAN style="font-style: italic;">100 WINDOW 448,200,32,16
+    110 PAPER 0:CLS:INK 7
+    120 SCALE 100,0,0
+    130 REPeat loop
+    140 CIRCLE 75,50,20
+    150 new_col=RND(1 TO 6)
+    160 RECOL 0,1,2,3,4,5,6,new_col
+    170 END REPeat loop<BR></SPAN>
+    Note how this only works in <SPAN style="font-style: italic;">MODE 8</SPAN> (except on SMS): to get it
+    
+    to work in <SPAN style="font-style: italic;">MODE 4</SPAN>, you would need to alter line 160 to:
+    <SPAN style="font-style: italic;">160 RECOL 0,1,2,3,4,5,new_col,new_col<BR></SPAN>
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    Do not forget that the value of each parameter is taken to
+    be the new colour, therefore if <SPAN style="font-style: italic;">RECOL</SPAN> is to have no effect at
+    all, you will need to use:
+    
+    <SPAN style="font-style: italic;">RECOL 0,1,2,3,4,5,6,7<BR></SPAN>
+    and not
+    <SPAN style="font-style: italic;">
+    RECOL 0,0,0,0,0,0,0,0<BR></SPAN>
+    as you might at first think (the latter turns the whole
+    window to black!).
+    
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    This command did not work on ST/QL Emulators prior to Level
+    D-05 drivers.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsI.html#INK">INK</A>, <A style="font-style: italic;" href="KeywordsF.html#FILL">FILL</A>
+    See also <A style="font-style: italic;" href="KeywordsW.html#W_SWOP">W_SWOP</A>, <A style="font-style: italic;" href="KeywordsS.html#SET_RED">SET_RED</A> and <A style="font-style: italic;" href="KeywordsS.html#SET_GREEN">SET_GREEN</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="REFRESH" id="REFRESH"></A>REFRESH</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">REFRESH<BR></SPAN> Location: <SPAN style="font-style: italic;">Fast PLOT/DRAW Toolkit<BR></SPAN>
+    This command forces the whole screen pointed to by <SPAN style="font-style: italic;">SCRBASE</SPAN> to
+    be copied onto the visible part of memory.
+    
+    
+<H3>NOTE:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">REFRESH</SPAN> assumes 512x256 pixel resolution, the screen base is
+    always assumed at $20000.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See also <A style="font-style: italic;" href="KeywordsS.html#SCRBASE">SCRBASE</A>, <A style="font-style: italic;" href="KeywordsS.html#SCLR">SCLR</A>, <A style="font-style: italic;" href="KeywordsP.html#PLOT">PLOT</A> and <A style="font-style: italic;" href="KeywordsD.html#DRAW">DRAW</A>.
+    
+    See also <A style="font-style: italic;" href="KeywordsW.html#W_SHOW">W_SHOW</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="RELEASE" id="RELEASE"></A>RELEASE</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">RELEASE address<BR></SPAN> Location: <SPAN style="font-style: italic;">TinyToolkit<BR></SPAN>
+    This command allows you to return a section of memory
+    reserved by <SPAN style="font-style: italic;">GRAB</SPAN> to QDOS.
+    
+    
+<H3>NOTE:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">LOAD</SPAN>, <SPAN style="font-style: italic;">CLEAR</SPAN>, <SPAN style="font-style: italic;">NEW</SPAN> and similar commands do not free <SPAN style="font-style: italic;">GRAB</SPAN>bed memory
+    (unlike memory reserved with <SPAN style="font-style: italic;">ALCHP</SPAN>).
+    
+    
+<H3>WARNING:</H3>
+
+<P>
+    Never free memory where extensions, device drivers or other
+    code have been loaded and started (for example with <SPAN style="font-style: italic;">CALL</SPAN>)
+    because the operating system will continue to update these
+    routines regularly and find code which may have been
+    overwritten by other programs, internal data etc. Crash!
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsR.html#RECHP">RECHP</A> and <A style="font-style: italic;" href="KeywordsC.html#CLCHP">CLCHP</A> clear memory allocated with <A style="font-style: italic;" href="KeywordsA.html#ALCHP">ALCHP</A>.
+    
+    <A style="font-style: italic;" href="KeywordsD.html#DISCARD">DISCARD</A> releases memory allocated with <A style="font-style: italic;" href="KeywordsR.html#RESERVE">RESERVE</A>.
+    
+    See also the other version of <A style="font-style: italic;" href="KeywordsR.html#RELEASE">RELEASE</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="RELEASE" id="RELEASE"></A>RELEASE</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">RELEASE nr<BR></SPAN> Location: <SPAN style="font-style: italic;">ST/QL, QSound<BR></SPAN>
+    <SPAN style="font-style: italic;">RELEASE</SPAN> activates the enhanced sound capabilities of the
+    ST/QL (or the QSound interface which has now been out of
+    production for some years). A sequence which has been
+    previously stored with <SPAN style="font-style: italic;">PLAY</SPAN> under the number <SPAN style="font-style: italic;">nr</SPAN> is 'executed' by
+    <SPAN style="font-style: italic;">RELEASE</SPAN>.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsP.html#PLAY">PLAY</A>, <A style="font-style: italic;" href="KeywordsS.html#SND_EXT">SND_EXT</A>
+    Beware the other version of <A style="font-style: italic;" href="KeywordsR.html#RELEASE">RELEASE</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="RELEASE_TASK" id="RELEASE_TASK"></A>RELEASE_TASK</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">RELEASE_TASK jobnr, jobtag<BR></SPAN> Location: <SPAN style="font-style: italic;">TASKCMDS (DIY Toolkit Vol J)<BR></SPAN>
+    See <SPAN style="font-style: italic;">REL_JOB</SPAN> and <SPAN style="font-style: italic;">RELJOB</SPAN> below. Refer to <SPAN style="font-style: italic;">NXJOB</SPAN> for information
+    about the job identification.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="RELJOB" id="RELJOB"></A>RELJOB</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">RELJOB jobId<BR></SPAN> Location: <SPAN style="font-style: italic;">BTool<BR></SPAN>
+    Same as <SPAN style="font-style: italic;">REL_JOB</SPAN> apart from the fact that this expects the
+    JobID of the Job rather than its name or a simple job number.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="RELOAD" id="RELOAD"></A>RELOAD</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">RELOAD program_name<BR></SPAN> Location: <SPAN style="font-style: italic;">MutiBASIC (DIY Toolkit - Vol M)<BR></SPAN>
+    This command is the opposite to <SPAN style="font-style: italic;">UNLOAD</SPAN> in that it fetches the
+    program which is stored in memory and loads it into the
+    current SuperBASIC interpreter.
+    
+    If the screen mode has been stored with <SPAN style="font-style: italic;">UNLOAD</SPAN> (or <SPAN style="font-style: italic;">RESAVE</SPAN>),
+    then when the program is loaded, <SPAN style="font-style: italic;">RELOAD</SPAN> checks if the current
+    display mode is the correct one and if not will alter it
+    (although see below).
+    
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    See the various notes and warnings given for <SPAN style="font-style: italic;">UNLOAD</SPAN>.
+    
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    Any commands which appear after <SPAN style="font-style: italic;">RELOAD</SPAN> will be ignored.
+    
+    
+<H3>NOTE 3:</H3>
+
+<P>
+    If you <SPAN style="font-style: italic;">RELOAD</SPAN> a program which has a stored screen in a
+    different mode to the current display mode, then the system
+    can become confused if the Pointer Environment or Speedscreen
+    is loaded. Therefore you should always ensure that the
+    correct <SPAN style="font-style: italic;">MODE</SPAN> is set before you <SPAN style="font-style: italic;">RELOAD</SPAN> a program.
+    
+    
+<H3>NOTE 4:</H3>
+
+<P>
+    If the specified file is not a file you <SPAN style="font-style: italic;">stored with UNLOAD</SPAN> or
+    does not exist, an error will be generated. You may also get
+    the error 'Channel not Open' if the program uses a channel
+    which was <SPAN style="font-style: italic;">OPEN</SPAN> when the program was <SPAN style="font-style: italic;">UNLOAD</SPAN>ed but is no longer <SPAN style="font-style: italic;">OPEN.<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsS.html#SCR_SAVE">SCR_SAVE</A> allows you to dictate whether the screen display and
+    mode should be stored together with the program.
+    
+    <A style="font-style: italic;" href="KeywordsR.html#REMOVE">REMOVE</A> allows you to remove a program stored in memory with
+    this command.
+    
+    See also <A style="font-style: italic;" href="KeywordsR.html#RESAVE">RESAVE</A> and <A style="font-style: italic;" href="KeywordsQ.html#QLOAD">QLOAD</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="REL_JOB" id="REL_JOB"></A>REL_JOB</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">REL_JOB jobname<BR></SPAN>
+    or <SPAN style="font-style: italic;">REL_JOB jobnr<BR></SPAN> Location: <SPAN style="font-style: italic;">TinyToolkit<BR></SPAN>
+    This command releases a suspended job, so that it becomes
+    active again.
+    
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    Releasing a job which is waiting for screen input/output
+    will normally kill it, because it should be activated by
+    &lt;CTRL&gt;&lt;C&gt;.
+    
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    Before v1.11 of this Toolkit, jobnr could not be a variable
+    (see <SPAN style="font-style: italic;">JBASE</SPAN>).
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    Jobs can be suspended by <A style="font-style: italic;" href="KeywordsS.html#SJOB">SJOB</A> and removed with <A style="font-style: italic;" href="KeywordsR.html#RJOB">RJOB</A>, <A style="font-style: italic;" href="KeywordsK.html#KJOB">KJOB</A>, <A style="font-style: italic;" href="KeywordsK.html#KILL">KILL</A>,
+    etc.
+    <A href="KeywordsJ.html#JOBS">JOBS</A> lists the current jobs.
+    
+    See <A style="font-style: italic;" href="KeywordsR.html#RELJOB">RELJOB</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="REMAINDER" id="REMAINDER"></A>REMAINDER</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">REMAINDER<BR></SPAN> Location: <SPAN style="font-style: italic;">QL ROM<BR></SPAN>
+    This keyword can only be used within a <SPAN style="font-style: italic;">SELect ON</SPAN> structure. It
+    is used to represent all possible untested values of the
+    <SPAN style="font-style: italic;">SELect ON variable</SPAN>.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    Please see <A style="font-style: italic;" href="KeywordsS.html#SELect%20ON">SELect ON</A>!
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="REMark" id="REMark"></A>REMark</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">REMark text<BR></SPAN> Location: <SPAN style="font-style: italic;">QL ROM<BR></SPAN>
+    This command has no purpose when a program is <SPAN style="font-style: italic;">RUN</SPAN>ing. It is
+    however used to place comments in the program which can be
+    useful when you later come to edit a SuperBASIC program.
+    
+    Anything which appears after <SPAN style="font-style: italic;">REMark</SPAN> on the same line, will be
+    ignored by the interpreter, thus allowing you to make any sort
+    of comment you like.
+    
+    
+<H3>Example:</H3>
+
+<P><SPAN style="font-style: italic;">100 REMark Line 110 could be altered to:
+    101 REMark 110 INPUT 'Yourname';a$:IF password$&lt;&gt;a$:STOP
+    110 Name$='Author'<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    Another means of splitting a SuperBASIC program into
+    sections is to include program lines which only contain a
+    colon (:), for example:
+    <A style="font-style: italic;" href="Keywords1.html#100%20PRINT" end="" of="">100 PRINT "End of Program":STOP</A> <A href="Keywords1.html#110%20:">110 :</A> <A href="Keywords2.html#200%20DATA%20'Some%20data%20to%20read'">200 DATA 'Some data to read'</A>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="REMOVE" id="REMOVE"></A>REMOVE</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">REMOVE program_name<BR></SPAN> Location: <SPAN style="font-style: italic;">MultiBASIC (DIY Toolkit - Vol M)<BR></SPAN>
+    This command allows you to remove a task (or program stored
+    in memory with <SPAN style="font-style: italic;">UNLOAD</SPAN> or <SPAN style="font-style: italic;">RESAVE</SPAN>) by reference to its name. It is
+    therefore very similar to <SPAN style="font-style: italic;">RJOB</SPAN>, <SPAN style="font-style: italic;">REL_JOB</SPAN> and <SPAN style="font-style: italic;">REMOVE_TASK</SPAN> (amongst
+    others).
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="REMOVE_TASK" id="REMOVE_TASK"></A>REMOVE_TASK</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">REMOVE_TASK jobnr, jobtag<BR></SPAN> Location: <SPAN style="font-style: italic;">TASKCMDS (DIY Toolkit - Vol J)<BR></SPAN>
+    Please see <SPAN style="font-style: italic;">RJOB</SPAN>, because <SPAN style="font-style: italic;">REMOVE_TASK a,b</SPAN> works like <SPAN style="font-style: italic;">RJOB a,b,0</SPAN>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="RENAME" id="RENAME"></A>RENAME</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">RENAME</SPAN> [<SPAN style="font-style: italic;">device_</SPAN>]<SPAN style="font-style: italic;">oldname TO</SPAN> [<SPAN style="font-style: italic;">device_</SPAN>]<SPAN style="font-style: italic;">newname<BR></SPAN> Location: <SPAN style="font-style: italic;">THOR XVI, Toolkit II<BR></SPAN>
+    This command allows you to alter the name of a file which
+    has already been created on the given <SPAN style="font-style: italic;">device</SPAN>. You must first of
+    all specify the name of the file to be renamed (if no <SPAN style="font-style: italic;">device</SPAN> is
+    specified, the default data directory will be used). You will
+    then need to specify the new name for that file (again, if no
+    <SPAN style="font-style: italic;">device</SPAN> is specified, the default data device will be used).
+    Assuming that both filenames are valid, an attempt will be
+    made to alter the filename as requested. If however <SPAN style="font-style: italic;">newname<BR></SPAN> already exists an error will be generated.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">RENAME flp1_boot TO flp1_oldboot<BR></SPAN>
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    If you try to <SPAN style="font-style: italic;">RENAME</SPAN> a file across to another drive, (eg.
+    <SPAN style="font-style: italic;">
+    RENAME flp1_boot,flp2_oldboot<BR></SPAN>
+    the error 'bad name' will be reported.
+    
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    Although you can <SPAN style="font-style: italic;">RENAME</SPAN> each file within a sub-directory so
+    that they no longer appear in that sub-directory, any attempt
+    to <SPAN style="font-style: italic;">RENAME</SPAN> the sub-directory itself (even if there are no files
+    in it) will cause the error 'Read Only'. For example, assuming
+    that a directory of disk flp1_ returns the following:
+    
+    <SPAN style="font-style: italic;">boot
+    
+    QUILL-&gt;<BR></SPAN>
+    You could for example, use:
+    <SPAN style="font-style: italic;">RENAME flp1_QUILL_boot TO flp1_ARCHIVE_boot<BR></SPAN>
+    if you wished, but any attempt to use:
+    <SPAN style="font-style: italic;">RENAME flp1_QUILL TO flp1_ARCHIVE<BR></SPAN>
+    will cause an error except on SMSQ/E (although an error is
+    still generated on RAM disks).
+    
+    
+<H3>NOTE 3:</H3>
+
+<P>
+    Unless you have Minerva v1.77 (or later) fitted, <SPAN style="font-style: italic;">RENAME</SPAN> will
+    alter the date of a microdrive file when used to rename a file
+    on microdrive.
+    
+    
+<H3>NOTE 4:</H3>
+
+<P>
+    In versions of Toolkit II before v2.10, <SPAN style="font-style: italic;">RENAME</SPAN> could leave
+    the file open (and therefore inaccessible) if only one name
+    was provided.
+    
+    
+<H3>NOTE 5:</H3>
+
+<P>
+    If you try to use <SPAN style="font-style: italic;">RENAME</SPAN> to change a filename to uppercase
+    (or lowercase) the error 'Already Exists' will be reported.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See also <A style="font-style: italic;" href="KeywordsW.html#WREN">WREN</A> which allows you to rename several files at
+    once. <A style="font-style: italic;" href="KeywordsT.html#TTRENAME">TTRENAME</A> is similar.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="RENUM" id="RENUM"></A>RENUM</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">RENUM</SPAN> [<SPAN style="font-style: italic;">start_line</SPAN> [<SPAN style="font-style: italic;">TO end_line</SPAN>]<SPAN style="font-style: italic;">;</SPAN>][<SPAN style="font-style: italic;">new_line</SPAN>][<SPAN style="font-style: italic;">,step</SPAN>]
+    
+    or <SPAN style="font-style: italic;">RENUM</SPAN> [s<SPAN style="font-style: italic;">tart_line</SPAN>] <SPAN style="font-style: italic;">TO</SPAN> [<SPAN style="font-style: italic;">end_line</SPAN>][<SPAN style="font-style: italic;">;new_line</SPAN>][<SPAN style="font-style: italic;">,step</SPAN>] Location: <SPAN style="font-style: italic;">QL ROM<BR></SPAN>
+    When developing a SuperBASIC program, you will find that
+    you sometimes run out of space in which to insert a new line,
+    because of the line numbers which you have used. Line numbers
+    can be any integer in the range 1...32767 and it is therefore
+    unlikely that you will not be able to make room to fit any
+    more lines into the program.
+    
+    To make more room, you will need to <SPAN style="font-style: italic;">RENUM</SPAN>ber the program.
+    You can either elect to use <SPAN style="font-style: italic;">RENUM</SPAN> in its simplest form, or a
+    more complex form. The simplest form of <SPAN style="font-style: italic;">RENUM</SPAN> is the command:
+    
+    <SPAN style="font-style: italic;">RENUM<BR></SPAN>
+    This will renumber the whole of the SuperBASIC program in
+    memory, so that the first line number becomes line 100 and
+    every subsequent SuperBASIC line number will be in an
+    increment of 10.
+    
+    You can however also use <SPAN style="font-style: italic;">RENUM</SPAN> to renumber a specified range
+    of lines in a program, by using some of the optional
+    parameters. These parameters have the following effects:
+    <SPAN style="font-style: italic;">start_line</SPAN>specifies the first line to be <SPAN style="font-style: italic;">RENUM</SPAN>bered
+    (default 1).
+    <SPAN style="font-style: italic;">end_line</SPAN> specifies the last line in the range to be
+    <SPAN style="font-style: italic;">RENUM</SPAN>bered (default 32767).
+    <SPAN style="font-style: italic;">new_line</SPAN>the line number which the <SPAN style="font-style: italic;">start_line</SPAN> will be
+    <SPAN style="font-style: italic;">RENUM</SPAN>bered to (default 100).
+    <SPAN style="font-style: italic;">step</SPAN>specifies the gap between each new line number
+    (default 10).
+    
+    <SPAN style="font-style: italic;">RENUM</SPAN> will also alter line numbers referred to in the
+    standard QL ROM commands:
+    
+    <SPAN style="font-style: italic;">GO SUB
+    
+    GO TO
+    
+    RESTORE<BR></SPAN>
+    (provided of course that the line number referred to is
+    within the range of lines being renumbered!).
+    
+    If the line number originally referred to does not exist,
+    then <SPAN style="font-style: italic;">RENUM</SPAN> will point it to the next program line following that
+    line number.
+    
+    It is also possible that a reference to a line number is
+    actually calculated when the interpreter reaches that line. In
+    such instances, the line number reference can only be
+    renumbered if it is the first thing in the expression.
+    
+    For example, take the following program:-
+    <SPAN style="font-style: italic;">100 locat=0
+    110 REPeat loop
+    120 RESTORE locat+1000
+    125 IF EOF:EXIT loop
+    130 READ description$
+    140 PRINT description$
+    150 locat=locat+1
+    155 PAUSE
+    160 END REPeat loop
+    1000 DATA 'Location One'
+    1001 DATA 'Location Two'
+    1002 DATA 'Location Three'<BR></SPAN>
+    <SPAN style="font-style: italic;">RENUM</SPAN> would renumber all of the line numbers beginning with
+    line 100 in steps of 10, however, the program would no longer
+    work as the <SPAN style="font-style: italic;">RESTORE</SPAN> command in line 120 would then point to a
+    non-existant line 1000. To solve this, before using <SPAN style="font-style: italic;">RENUM</SPAN>, alter
+    line 120 to:
+    <SPAN style="font-style: italic;">120 RESTORE 1000+locat<BR></SPAN>
+    Having carried out the renumbering task, if the lines
+    currently shown in the list window are affected, they will be
+    relisted in #2 (except under SMS).
+    
+    
+<H3>Examples:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">RENUM 100
+    <BR></SPAN> or
+    <SPAN style="font-style: italic;">
+    RENUM 1 TO<BR></SPAN>
+    these are both the same as <SPAN style="font-style: italic;">RENUM<BR></SPAN>
+    <SPAN style="font-style: italic;">RENUM 100 TO 1000;10,5<BR></SPAN>
+    this will renumber all lines in the range 100 to 1000, with
+    
+    the new lines beginning from line 10 in steps of 5.
+    
+    <SPAN style="font-style: italic;">RENUM 1000;2000<BR></SPAN>
+    this will renumber all lines from line 1000 onwards, with
+    
+    the new line numbers beginning with line 2000, and
+    
+    increasing in steps of 10.
+    
+    <SPAN style="font-style: italic;">RENUM 1000,20<BR></SPAN>
+    this will renumber all lines from 1000 onwards, with the
+    
+    new line numbers beginning with line 100 and increasing in
+    
+    steps of 20.
+    
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    On pre Minerva v1.77 ROMs, <SPAN style="font-style: italic;">RENUM</SPAN> will not generally work
+    correctly on the line number reference in a <SPAN style="font-style: italic;">RESTORE</SPAN> where this
+    appears on the same line as a <SPAN style="font-style: italic;">DATA</SPAN> statement.
+    
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    On non Minerva ROMs, the current <SPAN style="font-style: italic;">DATA</SPAN> pointer and <SPAN style="font-style: italic;">ERLIN</SPAN> line
+    numbers tend to get lost in the process!
+    
+    Although SMS updates the <SPAN style="font-style: italic;">DATA</SPAN> pointer, it still has some
+    problems. For example, try the following program:
+    <SPAN style="font-style: italic;">1 RENUM TO 170;1,1
+    2 RESTORE
+    3 READ x:PRINT x
+    4 RENUM
+    5 READ x:PRINT x
+    6 RESTORE 6:DATA 10,12:RESTORE 6
+    7 READ x:PRINT x
+    8 STOP
+    180 PRINT 'Why have I reached here?'<BR></SPAN>
+    If you alter line 1 to read:
+    <SPAN style="font-style: italic;">1 RENUM 1,1<BR></SPAN>
+    the program just stops without an error at line 4.
+    
+    Minerva still has problems with the above.
+    
+    Try entering the command:
+    <SPAN style="font-style: italic;">RENUM 1 TO 7;1,1<BR></SPAN>
+    An out of range error is reported even though there is no
+    problem with this range. Minerva does this correctly.
+    
+    We believe other ROMs will show different symptoms (see the
+    WARNING below).
+    
+    
+<H3>NOTE 3:</H3>
+
+<P>
+    On Minerva ROMs (pre v1.97), if integer tokenisation is
+    enabled, <SPAN style="font-style: italic;">RENUM</SPAN> cannot renumber line numbers less than 128.
+    
+    
+<H3>NOTE 4:</H3>
+
+<P>
+    You cannot use <SPAN style="font-style: italic;">RENUM</SPAN> to renumber lines out of sequence. For
+    example, given the following lines:-
+    <SPAN style="font-style: italic;">100 REPeat loop
+    110 IF INKEY$=CHR$(27):EXIT loop
+    120 END REPeat loop<BR></SPAN>
+    an attempt to <SPAN style="font-style: italic;">RENUM 110 TO 110;200</SPAN> would report an 'Out of Range'
+    error, as you would be trying to renumber line 110 out of
+    order!
+    
+    
+<H3>NOTE 5:</H3>
+
+<P>
+    If you try to renumber a line outside of the range of line
+    numbers (see above), or there is not enough space between line
+    numbers outside the given range to fit the newly renumbered
+    program lines into, this will cause an 'Out of Range' error.
+    For example, taking the routine listed at note 4, <SPAN style="font-style: italic;">RENUM 32760</SPAN> or
+    <SPAN style="font-style: italic;">RENUM 100 TO 110;119,1</SPAN> would both report such an error.
+    
+    
+<H3>NOTE 6:</H3>
+
+<P>
+    The Turbo and Supercharge compilers from Digital Precision
+    cannot compile a program with calculated <SPAN style="font-style: italic;">RESTORE</SPAN>s, <SPAN style="font-style: italic;">GO SUB</SPAN>s or <SPAN style="font-style: italic;">GO
+    TO</SPAN>s.
+    
+    
+<H3>NOTE 7:</H3>
+
+<P>
+    Unfortunately, <SPAN style="font-style: italic;">RENUM</SPAN> will not handle line number references
+    in commands other than <SPAN style="font-style: italic;">GO TO</SPAN>, <SPAN style="font-style: italic;">GO SUB</SPAN> or <SPAN style="font-style: italic;">RESTORE</SPAN>, which can leave
+    lines such as:
+    
+    <SPAN style="font-style: italic;">SAVE flp1_Prog_ext,1000 TO 2000<BR></SPAN>
+    high and dry!
+    
+    
+<H3>WARNING:</H3>
+
+<P>
+    It is generally inadvisable to use <SPAN style="font-style: italic;">RENUM</SPAN> within a program as
+    the interpreter tends to lose its place (see Note 2 above).
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsD.html#DLINE">DLINE</A> allows you to delete lines from a program.
+    
+    <A style="font-style: italic;" href="KeywordsE.html#ED">ED</A> allows you to edit a program in memory.
+    
+    Also see <A style="font-style: italic;" href="KeywordsA.html#AUTO">AUTO</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="REPeat" id="REPeat"></A>REPeat</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">REPeat identifier<BR></SPAN>
+    or <SPAN style="font-style: italic;">REPeat</SPAN> [<SPAN style="font-style: italic;">identifier</SPAN>]<SPAN style="font-style: italic;">(SMS only)<BR></SPAN> Location: <SPAN style="font-style: italic;">QL ROM<BR></SPAN>
+    The SuperBASIC <SPAN style="font-style: italic;">REPeat</SPAN> loop is extremely flexible and provides
+    an alternative to the classic <SPAN style="font-style: italic;">FOR</SPAN> loop. It sets up a perpetual
+    loop which can only be ended (correctly) by means of the <SPAN style="font-style: italic;">EXIT<BR></SPAN> command. The syntax of this SuperBASIC structure can take two
+    forms:
+    
+    <SPAN style="font-style: italic;">REPeat identifier :statement</SPAN> <SUP>*</SUP>[<SPAN style="font-style: italic;">:statement</SPAN>]<SUP>*<BR></SUP>
+    or
+    
+    <SPAN style="font-style: italic;">REPeat identifier<BR></SPAN>
+    <SUP>*</SUP>[<SPAN style="font-style: italic;">statements</SPAN>]<SUP>*<BR></SUP>
+    ...
+    
+    [<SPAN style="font-style: italic;">EXIT identifier</SPAN>]
+    
+    [<SPAN style="font-style: italic;">NEXT identifier</SPAN>]
+    
+    ...
+    
+    <SPAN style="font-style: italic;">END REPeat identifier<BR></SPAN>
+    The first of these variants is known as an in-line <SPAN style="font-style: italic;">REPeat<BR></SPAN> loop. Provided that there is at least one statement following
+    <SPAN style="font-style: italic;">REPeat</SPAN>, this line will be repeated forever (unless there is an
+    <SPAN style="font-style: italic;">EXIT</SPAN> statement - see below). There is no need for a related <SPAN style="font-style: italic;">END<BR></SPAN> <SPAN style="font-style: italic;">REPeat</SPAN> statement and therefore the shortest (practicable)
+    in-line <SPAN style="font-style: italic;">REPeat</SPAN> loop possible is:
+    <SPAN style="font-style: italic;">REPeat loop: IF INKEY$=' ' THEN EXIT loop<BR></SPAN>
+    If an in-line loop is terminated with <SPAN style="font-style: italic;">EXIT</SPAN>, control will be
+    passed to the statement following the corresponding <SPAN style="font-style: italic;">END REPeat<BR></SPAN> statement (if one exists), or the next program line. This
+    allows the following:
+    <SPAN style="font-style: italic;">REPeat loop: IF INKEY$=' ':EXIT loop: END REPeat loop: PRINT 'Phew!'<BR></SPAN>
+    <SPAN style="font-style: italic;">EXIT</SPAN> is used (in both <SPAN style="font-style: italic;">REPeat</SPAN> loops and <SPAN style="font-style: italic;">FOR</SPAN> loops) to terminate
+    the loop, and the next statement which will be processed is
+    the first statement after the corresponding <SPAN style="font-style: italic;">END REPeat</SPAN> (if one
+    exists). <SPAN style="font-style: italic;">NEXT</SPAN> forces the program to make another pass of the
+    loop, returning program control to the statement following
+    <SPAN style="font-style: italic;">REPeat</SPAN>.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    A short FuNction which waits for a key to be pressed which
+    
+    can be &lt;ESC&gt; or any key listed in a string passed as the
+    
+    parameter, and returns the CODE of the key pressed:
+    <SPAN style="font-style: italic;">100 DEFine FuNction Getkey(key$)
+    105 LOCal loop,k$
+    110 REPeat loop
+    120 k$=INKEY$:IF k$='':NEXT loop
+    130 IF k$ INSTR key$&amp;CHR$(27):RETurn CODE(k$)
+    140 END REPeat loop
+    150 END DEFine<BR></SPAN>
+    
+<H3></H3>
+
+<P>
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    The loop <SPAN style="font-style: italic;">identifier</SPAN> must be a floating-point, except under
+    Minerva or SMS. However, if the loop identifier is also used
+    as a variable in the program, its value will not be altered by
+    the <SPAN style="font-style: italic;">REPeat</SPAN> / <SPAN style="font-style: italic;">END REPeat</SPAN> / <SPAN style="font-style: italic;">EXIT</SPAN> / <SPAN style="font-style: italic;">NEXT</SPAN> statements. It can therefore
+    still be used as a variable within the loop without any
+    problems.
+    
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    It is actually possible to force a <SPAN style="font-style: italic;">NEXT</SPAN> loop from outside of
+    the loop, for example in a program such as:
+    <SPAN style="font-style: italic;">100 REPeat Getkey
+    110 AT 0,0:PRINT 'Looping'
+    120 a$=INKEY$:IF a$='':NEXT Getkey
+    130 PRINT a$
+    140 IF a$=='x':EXIT Getkey
+    150 END REPeat Getkey
+    160 PRINT 'You have decided to leave the loop'
+    170 PRINT 'Press a key to return to it'
+    180 PAUSE
+    190 CLS
+    200 NEXT Getkey<BR></SPAN>
+    This is however very bad programming style and should be
+    avoided. It makes it very difficult to follow programs and no
+    SuperBASIC compilers would be able to make sense of it. The
+    above program should be re-written:
+    <SPAN style="font-style: italic;">100 REPeat Getkey
+    110 AT 0,0:PRINT 'Looping'
+    120 a$=INKEY$:IF a$='':NEXT Getkey
+    130 PRINT a$
+    140 IF a$=='x'
+    150 PRINT 'You are now still in the loop'
+    160 PRINT 'Press a key to restart it'
+    170 PAUSE
+    180 CLS
+    190 END IF
+    200 END REPeat Getkey<BR></SPAN>
+    
+<H3>MINERVA NOTES:</H3>
+
+<P>
+    This allows string <SPAN style="font-style: italic;">REPeat</SPAN> loops and integer <SPAN style="font-style: italic;">REPeat</SPAN> loops,
+    although the use of the former is dubious. You can of course
+    still use the identifiers within the loop as variables.
+    Integer <SPAN style="font-style: italic;">REPeat</SPAN> loops do not seem to be any quicker than floating
+    point loops.
+    
+    If you do use a string identifier, Minerva restricts such
+    strings to a maximum of four characters. If the string
+    identifier is defined as a variable beforehand, it will be
+    truncated if necessary - for example, try:
+    <SPAN style="font-style: italic;">a$='Hello World':REPeat a$:PRINT a$<BR></SPAN>
+    and
+    <SPAN style="font-style: italic;">a$='':REPeat a$:a$=a$&amp;'x':PRINT a$<BR></SPAN>
+    
+<H3></H3>
+
+<P>
+    String and integer <SPAN style="font-style: italic;">REPeat</SPAN> loops will not safely work on other
+    ROMs (except under SMS), even if they will let you type them
+    in!
+    
+    
+<H3>SMS NOTES:</H3>
+
+<P>
+    Like Minerva, SMS allows string <SPAN style="font-style: italic;">REPeat</SPAN> loops and integer <SPAN style="font-style: italic;">REPeat<BR></SPAN> loops. However, SMS does not restrict the length of a string
+    loop identifier (except to the normal string length limit of
+    32767 characters).
+    
+    SMS also allows you to omit the loop identifier, in which
+    case the relative <SPAN style="font-style: italic;">EXIT</SPAN>, <SPAN style="font-style: italic;">NEXT</SPAN> and <SPAN style="font-style: italic;">END REPeat</SPAN> statements must also
+    omit the loop identifier. This flexibility brings this
+    command more in line with other implementations of BASIC.
+    
+    Error trapping of incorrectly structured <SPAN style="font-style: italic;">REPeat</SPAN> loops is also
+    improved - please refer to <SPAN style="font-style: italic;">NEXT</SPAN> and <SPAN style="font-style: italic;">END REPeat</SPAN>.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsF.html#FOR">FOR</A>...<A style="font-style: italic;" href="KeywordsE.html#END%20FOR">END FOR</A> is the other loop type.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="REPLACE" id="REPLACE"></A>REPLACE</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">REPLACE oldvar, newvar<BR></SPAN> Location: <SPAN style="font-style: italic;">REPLACE (DIY Toolkit - Vol R)<BR></SPAN>
+    The <SPAN style="font-style: italic;">REPLACE</SPAN> command is intended for use from the
+    interpreter's command line and for program development only.
+    The idea of <SPAN style="font-style: italic;">REPLACE</SPAN> is to rename SuperBASIC variables contained
+    in the program which is currently loaded into the interpreter.
+    The first and second parameter can be any variables, they must
+    not be given as strings ie. inside quotes (this leads to error
+    -15: bad parameter).
+    
+    <SPAN style="font-style: italic;">REPLACE</SPAN> will replace <SPAN style="font-style: italic;">oldvar</SPAN> by <SPAN style="font-style: italic;">newvar</SPAN> for the whole program (in
+    fact for the whole interpreter). Acceptable types of
+    parameters are variables and also <SPAN style="font-style: italic;">REPeat</SPAN> loop names but not
+    <SPAN style="font-style: italic;">PROCedure</SPAN> or <SPAN style="font-style: italic;">FuNction</SPAN> names. You can even use this to change
+    unquoted device names if you wish, such as:
+    
+    <SPAN style="font-style: italic;">LBYTES flp1_data_cde<BR></SPAN>
+    - you could use
+    
+    <SPAN style="font-style: italic;">REPLACE flp1_data_cde,flp2_data_cde<BR></SPAN>
+    <SPAN style="font-style: italic;">REPLACE</SPAN> is extremely fast, without any noticeable reduction
+    in speed for large programs due to the fact that the
+    interpreter stores the program lines in tokenised format, this
+    means that a line is not stored as text but as a set of
+    numbers (tokens) which represent the elements of the line. So
+    <SPAN style="font-style: italic;">REPLACE</SPAN> merely has to modify the name table and change the name
+    which is identified with a certain token.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    Enter the following lines:
+    <SPAN style="font-style: italic;">10 x = 1
+    20 PRINT SQRT(x)<BR></SPAN>
+    Now type
+    <SPAN style="font-style: italic;">REPLACE x,Whatever<BR></SPAN>
+    and then <SPAN style="font-style: italic;">LIST</SPAN> or <SPAN style="font-style: italic;">ED</SPAN>, the program now reads
+    <SPAN style="font-style: italic;">10 Whatever = 1
+    20 PRINT SQRT(Whatever)<BR></SPAN>
+    and is functionally identical to the original.
+    
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    Never use <SPAN style="font-style: italic;">REPLACE</SPAN> as part of a program.
+    
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">REPLACE</SPAN> will work on a program loaded into a MultiBASIC.
+    
+    
+<H3>WARNING 1:</H3>
+
+<P>
+    There is one possibility that you can harm your program: if
+    you replace a variable by another variable which is already
+    used in this program then the program will usually behave very
+    differently after the <SPAN style="font-style: italic;">REPLACE</SPAN>ment.
+    
+    
+<H3>WARNING 2:</H3>
+
+<P>
+    According to the Minerva Technical Manual <SPAN style="font-style: italic;">REPLACE</SPAN> is "not
+    particularly safe". At least if you are using the original
+    version as published in QL World then you need to turn off
+    Minerva's integer tokenisation (<SPAN style="font-style: italic;">POKE \\212,128</SPAN>). Later versions
+    (v0.3+) do however cope with integer tokenisation. Despite
+    the warning, we have yet to find any other problems with <SPAN style="font-style: italic;">REPLACE</SPAN>.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsN.html#NEW_NAME">NEW_NAME</A> is very similar to <A style="font-style: italic;" href="KeywordsR.html#REPLACE">REPLACE</A> but the parameters are
+    passed as strings.
+    
+    This has the advantage that <A style="font-style: italic;" href="KeywordsN.html#NEW_NAME">NEW_NAME</A> can take variable
+    parameters, <A style="font-style: italic;" href="KeywordsR.html#REPLACE">REPLACE</A> would replace the variable for the variable
+    name.
+    
+    Compare <A style="font-style: italic;" href="KeywordsA.html#ALIAS">ALIAS</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="REPLY" id="REPLY"></A>REPLY</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">REPLY</SPAN> [<SPAN style="font-style: italic;">(</SPAN>[<SPAN style="font-style: italic;">#wind,</SPAN>] <SPAN style="font-style: italic;">keys$)</SPAN>] Location: <SPAN style="font-style: italic;">BTool<BR></SPAN>
+    The function <SPAN style="font-style: italic;">REPLY</SPAN> reads a character from the keyboard (with
+    the text cursor in a window enabled). If <SPAN style="font-style: italic;">keys$</SPAN> was specified,
+    then <SPAN style="font-style: italic;">REPLY</SPAN> will only stop if the pressed key was listed in
+    <SPAN style="font-style: italic;">keys$</SPAN>, this is case-sensitive so <A>and &lt;SHIFT&gt;&lt;A&gt; are
+    different. The return of <SPAN style="font-style: italic;">REPLY</SPAN> is the position of the pressed
+    key in <SPAN style="font-style: italic;">keys$</SPAN>.
+    
+    <SPAN style="font-style: italic;">REPLY</SPAN> behaves very differently if there is no <SPAN style="font-style: italic;">keys$</SPAN> supplied.
+    The return will be the code of the pressed key, just like
+    <SPAN style="font-style: italic;">CODE(INKEY$(-1))</SPAN> except that combinations of &lt;ALT&gt; and any other key
+    are recognised - if &lt;ALT&gt; was held and any other key pressed,
+    <SPAN style="font-style: italic;">REPLY</SPAN> returns 256 minus the code of that key.
+    <BR></A>
+    
+<H3><A>Example:<BR></A></H3><A>
+    Another version of the game also shown at <SPAN style="font-style: italic;">ASK</SPAN>:
+    <SPAN style="font-style: italic;">100 CLS: x1 = 0: x2 = 100
+    110 PRINT "I am going to find out a number"
+    120 PRINT "from"!x1!"to"!x2!"which only you know."
+    130 PRINT "Press &lt;S&gt; if the proposed number is too small,"
+    140 PRINT "&lt;L&gt; if it's too large or &lt;Y&gt; if it's the result."
+    150 REPeat find_out
+    160 x=(x1+x2) DIV 2
+    170 PRINT x;"? ";
+    180 answer = REPLY("sSlLyY")
+    190 SELect ON answer
+    200 =1,2: x1 = x + 1: PRINT "too small"
+    210 =3,4: x2 = x - 1: PRINT "too large"
+    220 =5,6: EXIT find_out
+    230 END SELect
+    240 END REPeat find_out
+    250 PRINT "ok"\"I am the best."<BR></SPAN><BR></A>
+    
+<H3><A>CROSS-REFERENCE:<BR></A></H3><A><BR></A><A style="font-style: italic;" href="KeywordsA.html#ASK">ASK</A>, <A style="font-style: italic;" href="KeywordsI.html#INKEY$">INKEY$</A>
+    See <A style="font-style: italic;" href="KeywordsC.html#CODE">CODE</A> also.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="REPORT" id="REPORT"></A>REPORT</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">REPORT</SPAN> [<SPAN style="font-style: italic;">#channel</SPAN>]
+    
+    or <SPAN style="font-style: italic;">REPORT</SPAN> [<SPAN style="font-style: italic;">#channel,</SPAN>][<SPAN style="font-style: italic;">error_number</SPAN>]<SPAN style="font-style: italic;">(Toolkit II, THOR XVI,
+    TinyToolkit, BTool)<BR></SPAN>
+    Location: <SPAN style="font-style: italic;">QL ROM (post JM), Toolkit II, TinyToolkit, THOR
+    XVI and BTool<BR></SPAN>
+    This command will print an error message to the given
+    channel (default #0, the command line). The type of error is
+    identified by the error number. If an error number is not
+    supplied, then the last error to have occurred is displayed.
+    The error message depends on the machine where the program is
+    running, see <SPAN style="font-style: italic;">ERNUM</SPAN> for conventions. Positive error numbers have
+    no effect.
+    
+    
+<H3>WARNING:</H3>
+
+<P>
+    Toolkit II's <SPAN style="font-style: italic;">REPORT</SPAN> allows any value for the <SPAN style="font-style: italic;">error_number</SPAN>,
+    whereas TinyToolkit and BTool limit them to -1 to -21 and
+    report undefined error for values lower than -21. Except under
+    SMS, with Toolkit II, negative errors smaller than -27 may
+    lead to undefined actions ie. printing a continuous stream of
+    characters to the report channel - this may never stop.
+    
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">TRA</SPAN> can be used to redefine the error messages.
+    
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    For the original <SPAN style="font-style: italic;">REPORT</SPAN> (QL ROM), only the first version of
+    the command can be used. Further, if the supplied channel is
+    not yet open, no error is reported and <SPAN style="font-style: italic;">REPORT</SPAN> simply returns to
+    BASIC as if it had carried out its job successfully.
+    
+    Also, on Minerva, SMS and ST/QL Emulators with E-Init
+    software v1.27+, <SPAN style="font-style: italic;">REPORT</SPAN> will show the line and statement number
+    where the error occurred (rather than merely the line number)
+    in the form:
+    
+    <SPAN style="font-style: italic;">At line &lt;line number&gt;;&lt;statement number&gt;&lt;error message&gt;<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsE.html#ERNUM">ERNUM</A> about error messages in general and <A style="font-style: italic;" href="KeywordsT.html#TK2_EXT">TK2_EXT</A> /<A style="font-style: italic;" href="KeywordsT.html#TINY_EXT">TINY_EXT</A> about updating Toolkits. Refer to the Appendix for the
+    different message texts in various languages.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="RESAVE" id="RESAVE"></A>RESAVE</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">RESAVE program_name<BR></SPAN> Location: <SPAN style="font-style: italic;">MutiBASIC (DIY Toolkit - Vol M)<BR></SPAN>
+    This command is the same as <SPAN style="font-style: italic;">UNLOAD</SPAN> except that if the
+    specified program_name has already been stored in memory, it
+    is overwritten.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsU.html#UNLOAD">UNLOAD</A>!
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="RESERVE" id="RESERVE"></A>RESERVE</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">RESERVE (bytes, JobID)<BR></SPAN> Location: <SPAN style="font-style: italic;">Timing Toolkit (DIY Toolkit Vol H)<BR></SPAN>
+    This function grabs an area of memory in the Common Heap
+    similar to <SPAN style="font-style: italic;">ALCHP</SPAN>. However, the area is not released after a new
+    SuperBASIC program is loaded.
+    
+    Standard error returns are returned as values by the
+    function and the program can therefore include error trapping.
+    -3 (Out of Memory) or -2 (Invalid Job ID) are the most common
+    errors.
+    
+    You can also specify a task which will own the memory, and
+    that memory will be removed when that task is removed. This
+    task will normally be 0 (SuperBASIC) or -1 (the current job).
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsD.html#DISCARD">DISCARD</A> and <A style="font-style: italic;" href="KeywordsL.html#LINKUP">LINKUP</A>.
+    
+    Also see <A style="font-style: italic;" href="KeywordsA.html#ALCHP">ALCHP</A>, <A style="font-style: italic;" href="KeywordsR.html#RESPR">RESPR</A> and <A style="font-style: italic;" href="KeywordsG.html#GRAB">GRAB</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="RESET" id="RESET"></A>RESET</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">RESET</SPAN> [<SPAN style="font-style: italic;">new_ramtop</SPAN>]<SPAN style="font-style: italic;">(Not SMSQ/E)<BR></SPAN>
+    or <SPAN style="font-style: italic;">RESET</SPAN><SPAN style="font-style: italic;">(SMSQ/E only)<BR></SPAN> Location: <SPAN style="font-style: italic;">TinyToolkit, Beuletools, BTool, SMSQ/E, RES<BR></SPAN>
+    This command performs a system reset.
+    
+    Except under SMSQ/E, this can be used to simulate a system
+    with less memory or to get old games and problem software
+    running, you can reduce the available memory (via new_ramtop)
+    to anything between 128K (TinyToolkit: 64K) and RAMTOP in 64K
+    steps (RES and BTool set a maximum of 640K).
+    
+    
+<H3>NOTE:</H3>
+
+<P>
+    Do not include this command in a program without asking the
+    user to confirm that it is OK since the computer may be
+    writing some essential data to disk at the time (or still have
+    some in memory).
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    On Gold Cards use <A style="font-style: italic;" href="KeywordsR.html#RES_128">RES_128</A> and <A style="font-style: italic;" href="KeywordsR.html#RES_SIZE">RES_SIZE</A> for a faster reset.
+    
+    Minerva allows you to use <A style="font-style: italic;" href="KeywordsC.html#CALL%20390,x">CALL 390,x</A> to reset the system.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="RESFAST" id="RESFAST"></A>RESFAST</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">RESFAST (bytes)<BR></SPAN> Location: <SPAN style="font-style: italic;">ATARI_REXT for QVME (v2.31+)<BR></SPAN>
+    This function allows you to grab a specified number of <SPAN style="font-style: italic;">bytes<BR></SPAN> in Atari TT FastRAM and is therefore akin to <SPAN style="font-style: italic;">RESPR</SPAN> and <SPAN style="font-style: italic;">ALCHP</SPAN>.
+    
+    However, note that you can only use <SPAN style="font-style: italic;">LBYTES</SPAN> to load data to
+    this area or <SPAN style="font-style: italic;">SBYTES</SPAN> / <SPAN style="font-style: italic;">SEXEC</SPAN> to save data if you are loading a file
+    from or saving a file to a RAM disk. You cannot use floppy
+    disks or hard disks with this area of memory.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsF.html#FAST_FREE">FAST_FREE</A> and <A style="font-style: italic;" href="KeywordsR.html#RESPR">RESPR</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="RESPR" id="RESPR"></A>RESPR</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">RESPR (bytes)<BR></SPAN> Location: <SPAN style="font-style: italic;">QL ROM<BR></SPAN>
+    This function sets aside a chunk of resident procedure
+    space for use by a program and returns the address of the
+    start of that memory. Resident procedure space is merely an
+    area of RAM which can be used safely by the user without fear
+    of the system crashing if values are written to it. When used,
+    the <SPAN style="font-style: italic;">RESPR</SPAN> function will search for an area in RAM which is
+    currently unused and which is at least <SPAN style="font-style: italic;">bytes</SPAN> long. If there is
+    insufficient space in RAM, then an 'Out of Memory' error is
+    reported.
+    
+    Memory set aside using <SPAN style="font-style: italic;">RESPR</SPAN> cannot later be released and
+    used for other purposes (unless you have a Minerva ROM), and
+    thus this command is used mainly for linking in Toolkits and
+    other system extensions in a boot program.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    A simple boot program might look like this:
+    <SPAN style="font-style: italic;">100 x=RESPR(10*1024):LBYTES flp1_Toolkit,x:CALL x
+    120 EXEC flp1_Program_obj<BR></SPAN>
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    If a task is running in memory (eg. with <SPAN style="font-style: italic;">EXEC</SPAN>), when <SPAN style="font-style: italic;">RESPR</SPAN> is
+    used, the resident procedure space cannot be accessed and the
+    error 'Not Complete' is reported. However, some Toolkits, SMS
+    and Minerva rewrite the <SPAN style="font-style: italic;">RESPR</SPAN> command so that it will access the
+    common heap if the resident procedure space cannot be
+    accessed.
+    
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    Normally, the function <SPAN style="font-style: italic;">RESPR(0)</SPAN> will return the address of
+    ramtop, this can actually be used to find out the size of
+    memory attached to the QL - <SPAN style="font-style: italic;">PRINT RESPR(0)/1024-128</SPAN>. However, this
+    will not work on versions of the command which work when tasks
+    are running in memory.
+    
+    
+<H3>NOTE 3:</H3>
+
+<P>
+    On Minerva pre v1.96, adding machine code functions and
+    procedures from within a SuperBASIC <SPAN style="font-style: italic;">PROCedure</SPAN> or <SPAN style="font-style: italic;">FuNction</SPAN> definition
+    could cause problems after a <SPAN style="font-style: italic;">CLEAR</SPAN> command.
+    
+    
+<H3>WARNING:</H3>
+
+<P>
+    Several programs may try to use the same area of resident
+    procedure space if absolute addresses are used.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    Please also see <A style="font-style: italic;" href="KeywordsA.html#ALCHP">ALCHP</A> which allocates memory from the common
+    heap, which can be accessed when tasks are running in memory.
+    
+    Also see <A style="font-style: italic;" href="KeywordsR.html#RESERVE">RESERVE</A> and <A style="font-style: italic;" href="KeywordsG.html#GRAB">GRAB</A> which are similar to <A style="font-style: italic;" href="KeywordsA.html#ALCHP">ALCHP</A>.
+    
+    It is also worth looking at <A style="font-style: italic;" href="KeywordsR.html#RESFAST">RESFAST</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="RESTORE" id="RESTORE"></A>RESTORE</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">RESTORE</SPAN> [<SPAN style="font-style: italic;">line_no</SPAN>] Location: <SPAN style="font-style: italic;">QL ROM<BR></SPAN>
+    In any program which uses <SPAN style="font-style: italic;">DATA</SPAN> statements, it is necessary
+    to tell the interpreter where the data begins within the
+    program, so that it knows where to look when it encounters a
+    <SPAN style="font-style: italic;">READ</SPAN> command.
+    
+    <SPAN style="font-style: italic;">RESTORE</SPAN> allows you to set the data pointer to a specific line
+    number within a SuperBASIC program. If <SPAN style="font-style: italic;">line_no</SPAN> is not specified,
+    then the data pointer is moved to the start of a program
+    allowing all <SPAN style="font-style: italic;">DATA</SPAN> within a program to be <SPAN style="font-style: italic;">READ</SPAN>.
+    
+    <SPAN style="font-style: italic;">line_no</SPAN> can be either a simple reference to a line number
+    anywhere in a SuperBASIC program, or an expression which will
+    be calculated by the interpreter when it reaches the <SPAN style="font-style: italic;">RESTORE<BR></SPAN> command.
+    
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    The Turbo and Supercharge compilers cannot compile computed
+    <SPAN style="font-style: italic;">RESTORE</SPAN>s.
+    
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    The data pointer is not reset when a program is <SPAN style="font-style: italic;">RUN</SPAN> and it
+    is therefore necessary to use an implicit <SPAN style="font-style: italic;">RESTORE</SPAN> or <SPAN style="font-style: italic;">CLEAR</SPAN> if you
+    wish to read the same set of <SPAN style="font-style: italic;">DATA</SPAN> each time that a program is
+    <SPAN style="font-style: italic;">RUN</SPAN>.
+    
+    
+<H3>NOTE 3:</H3>
+
+<P>
+    On some implementations <SPAN style="font-style: italic;">RESTORE</SPAN> with an invalid parameter
+    will do a <SPAN style="font-style: italic;">RESTORE 0</SPAN>. This is fixed on Minerva v1.96+ and SMS
+    which report the error.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsD.html#DATA">DATA</A> and <A style="font-style: italic;" href="KeywordsR.html#READ">READ</A>.
+    
+    Please also refer to <A style="font-style: italic;" href="KeywordsR.html#RENUM">RENUM</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="RES_SIZE" id="RES_SIZE"></A>RES_SIZE</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">RES_SIZE ram_top<BR></SPAN> Location: <SPAN style="font-style: italic;">Gold Card<BR></SPAN>
+    To get the few old programs which still do not work with
+    the Gold Card's 1920K RAM running and to simulate a system
+    with less RAM for debugging, <SPAN style="font-style: italic;">RES_SIZE</SPAN> resets the system and
+    adjusts the RAMTOP to the desired value.
+    
+    If you use <SPAN style="font-style: italic;">RES_SIZE 128</SPAN>, high density and extra density disks
+    cannot be accessed until the next reset. Secondly, the
+    realtime clock runs by default in protected mode. Thirdly, the
+    ramdisks cannot be accessed by the system. This should
+    simulate the unexpanded, original QL. Normal disk drives (DD)
+    can still be accessed, although this can be temperamental.
+    
+    
+<H3>Examples:</H3>
+
+<P><SPAN style="font-style: italic;">RES_SIZE 640
+    RES_SIZE 128
+    RES_SIZE 1024<BR></SPAN>
+    
+<H3>NOTE:</H3>
+
+<P>
+    You may find that some programs will still not work
+    following <SPAN style="font-style: italic;">RES_SIZE</SPAN>, especially if they use a line such as:
+    <SPAN style="font-style: italic;">x=RESPR(0):start=RESPR(x-131072)<BR></SPAN>
+    This appears to happen because <SPAN style="font-style: italic;">RESPR(0)</SPAN> returns the address
+    of RAMTOP which is still over 2MB even though only 128K is
+    available. Minerva users should use
+    
+    <SPAN style="font-style: italic;">CALL 390,x<BR></SPAN>
+    instead.
+    
+    
+<H3>WARNING:</H3>
+
+<P>
+    At least up to Gold Card's firmware v2.28, <SPAN style="font-style: italic;">RES_SIZE</SPAN> does not
+    check the range of the supplied parameter. If values lower
+    than 56 or higher than 1920 are used, this can lead to crashes
+    of a particularly serious character. Either the QL hangs
+    during or after the resets, or there will not be enough free
+    memory to enter any commands. There is even a danger that a
+    fatal crash will occur which can destroy data on hard disks,
+    disks or microdrive cartridges, or the realtime clock can be
+    affected or even combinations of these different crashes can
+    occur.
+    
+    As hard disk drives cannot be removed or protected from any
+    malfunction of the operating system or programs, they are in
+    extreme danger. It is also not advisable to use values other
+    than multiples of 64 because software tends to expect a ramtop
+    which is a multiple of 64 and memory is wasted.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsR.html#RES_128">RES_128</A> is identical to <A style="font-style: italic;" href="KeywordsR.html#RES_SIZE%20128">RES_SIZE 128</A>. See also <A style="font-style: italic;" href="KeywordsR.html#RESET">RESET</A>.
+    
+    See <A style="font-style: italic;" href="KeywordsR.html#RAMTOP">RAMTOP</A> and <A style="font-style: italic;" href="KeywordsF.html#FREE_MEM">FREE_MEM</A> about available and free memory.
+    
+    <A style="font-style: italic;" href="KeywordsF.html#FLP_EXT">FLP_EXT</A> improves the reliability of the floppy disk drives
+    and allows RAM disks to be used.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="RES_128" id="RES_128"></A>RES_128</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">RES_128<BR></SPAN> Location: <SPAN style="font-style: italic;">Gold Card, Trump Card<BR></SPAN>
+    This command does the same as <SPAN style="font-style: italic;">RES_SIZE 128</SPAN>.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsF.html#FLP_EXT">FLP_EXT</A> can be used to re-enable some functions such as
+    ramdisks.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="RETRY" id="RETRY"></A>RETRY</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">RETRY<BR></SPAN>
+    or <SPAN style="font-style: italic;">RETRY</SPAN> [<SPAN style="font-style: italic;">line_no</SPAN>]<SPAN style="font-style: italic;">(Toolkit II and Minerva)<BR></SPAN> Location: <SPAN style="font-style: italic;">QL ROM, Toolkit II<BR></SPAN>
+    The command <SPAN style="font-style: italic;">RETRY</SPAN> performs the same operation as <SPAN style="font-style: italic;">CONTINUE<BR></SPAN> except that interpreting re-starts with the statement at which
+    the error occurred (<SPAN style="font-style: italic;">CONTINUE</SPAN> re-starts the program from the next
+    statement).
+    
+    If you have Toolkit II or Minerva installed, you will be
+    able to use the second variant of this command which allows
+    you to re-start processing at a specified line number to help
+    with error trapping. If the parameter is specified, this is
+    exactly the same as the second variant of <SPAN style="font-style: italic;">CONTINUE</SPAN>.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    Take the following short program:
+    <SPAN style="font-style: italic;">100 REPeat loop
+    110 INPUT 'Enter a number: ';a
+    120 PRINT 'The number you entered is: ';a
+    130 END REPeat loop<BR></SPAN>
+    Now, when prompted to enter a number, enter a letter, which
+    
+    results in the error 'Error in Expression'. If you were to
+    
+    enter the command <SPAN style="font-style: italic;">RETRY</SPAN>, the program would re-start at line
+    
+    110, asking you to enter a number. However, if you entered
+    
+    the command <SPAN style="font-style: italic;">CONTINUE</SPAN>, the program would re-start at line 120,
+    
+    displaying the message: The number you entered is: *
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    Please refer to <A style="font-style: italic;" href="KeywordsC.html#CONTINUE">CONTINUE</A>!
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="RETurn" id="RETurn"></A>RETurn</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">RETurn</SPAN> [<SPAN style="font-style: italic;">expression</SPAN>] Location: <SPAN style="font-style: italic;">QL ROM<BR></SPAN>
+    This command has two actual uses. The main use of <SPAN style="font-style: italic;">RETurn</SPAN> is
+    to force an early return from a <SPAN style="font-style: italic;">PROCedure</SPAN> or <SPAN style="font-style: italic;">FuNction</SPAN> definition
+    block. A <SPAN style="font-style: italic;">FuNction</SPAN> must always return a value and therefore a
+    SuperBASIC <SPAN style="font-style: italic;">DEFine FuNction</SPAN> block must always contain a <SPAN style="font-style: italic;">RETurn<BR></SPAN> statement to return this value.
+    
+    The second use of <SPAN style="font-style: italic;">RETurn</SPAN> is to mark the end of a sub-routine
+    which has been called with <SPAN style="font-style: italic;">GO SUB</SPAN>. This is implemented in
+    SuperBASIC to make the transition from other implementations
+    of BASIC easier.
+    
+    
+<H3>Examples:</H3>
+
+<P>
+    (1) A <SPAN style="font-style: italic;">PROCedure</SPAN> to report an error more safely than <SPAN style="font-style: italic;">REPORT</SPAN>:
+    <SPAN style="font-style: italic;">100 DEFine PROCedure REPORT_ERROR(errnumber)
+    110 IF errnumber&gt;=0 OR errnumber&lt;-21
+    120 PRINT #0,'No error'
+    130 RETurn
+    140 END IF
+    150 REPORT errnumber
+    160 END DEFine<BR></SPAN>
+    (2) A <SPAN style="font-style: italic;">FuNction</SPAN> which returns 1 (true) if a given number is
+    
+    even:
+    <SPAN style="font-style: italic;">100 DEFine FuNction CK_EVEN (x)
+    110 IF x/2=INT(x/2):RETurn 1
+    120 RETurn 0
+    130 END DEFine<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsD.html#DEFine%20PROCedure">DEFine PROCedure</A> and <A style="font-style: italic;" href="KeywordsD.html#DEFine%20FuNction">DEFine FuNction</A>. Please also refer to <A style="font-style: italic;" href="KeywordsG.html#GO%20SUB">GO SUB</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="REV$" id="REV$"></A>REV$</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">REV$ (string$)<BR></SPAN> Location: <SPAN style="font-style: italic;">REV<BR></SPAN>
+    This function returns the supplied string in reverse order.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">PRINT REV$("Hello World")<BR></SPAN>
+    shows
+    
+    dlroW olleH
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsL.html#LEN">LEN</A> finds the length of a string<A style="font-style: italic;" href="Keywords..html#.">.</A> <A href="KeywordsT.html#TRIM$">TRIM$</A> cuts off excess spaces from a string.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="RJOB" id="RJOB"></A>RJOB</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">RJOB jobname</SPAN> [<SPAN style="font-style: italic;">,error</SPAN>]
+    
+    or <SPAN style="font-style: italic;">RJOB jobnr,tag,error<BR></SPAN>
+    or <SPAN style="font-style: italic;">RJOB job_id,error<BR></SPAN>
+    or <SPAN style="font-style: italic;">RJOB</SPAN> [<SPAN style="font-style: italic;">job_id,error</SPAN>] <SPAN style="font-style: italic;">(BTool only)<BR></SPAN> Location: <SPAN style="font-style: italic;">Toolkit II, THOR XVI, BTool<BR></SPAN>
+    This command removes a job from memory - all of its
+    channels are automatically closed and any memory used by the
+    job is freed. The <SPAN style="font-style: italic;">error</SPAN> code is returned to the owner job of the
+    removed job.
+    
+    The BTool variant of <SPAN style="font-style: italic;">RJOB</SPAN> allows you to enter the command
+    without any parameters which will kill every job except
+    SuperBASIC (Job 0), see <SPAN style="font-style: italic;">KJOBS</SPAN> and <SPAN style="font-style: italic;">KILL</SPAN>.
+    
+    
+<H3>NOTE:</H3>
+
+<P>
+    If the first syntax does not work, you are using an old
+    Toolkit version.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsK.html#KJOB">KJOB</A> works similarly to <A style="font-style: italic;" href="KeywordsR.html#RJOB">RJOB</A>.
+    
+    <A style="font-style: italic;" href="KeywordsK.html#KILL">KILL</A>, <A style="font-style: italic;" href="KeywordsR.html#REMOVE">REMOVE</A> and <A style="font-style: italic;" href="KeywordsK.html#KJOBS">KJOBS</A> remove all jobs.
+    
+    Have a look at <A style="font-style: italic;" href="KeywordsJ.html#JOBS">JOBS</A>, <A style="font-style: italic;" href="KeywordsS.html#SPJOB">SPJOB</A>, <A style="font-style: italic;" href="KeywordsA.html#AJOB">AJOB</A>, <A style="font-style: italic;" href="KeywordsS.html#SJOB">SJOB</A> etc.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="RMAR" id="RMAR"></A>RMAR</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">RMAR(n)</SPAN> with <SPAN style="font-style: italic;">n=0..255<BR></SPAN> Location: <SPAN style="font-style: italic;">Beuletools<BR></SPAN>
+    This function returns the control codes needed to set the
+    right margin to <SPAN style="font-style: italic;">n</SPAN> characters (from the left side) on EPSON
+    compatible printers.
+    
+    If the right margin is smaller than the left margin, the
+    printer will ignore this setting and print to the greatest
+    possible right margin:
+    
+    <SPAN style="font-style: italic;">PRINT #ch,RMAR<BR></SPAN>
+    is the same as
+    
+    <SPAN style="font-style: italic;">PRINT #ch,CHR$(27)&amp;'Q'&amp;CHR$(n)<BR></SPAN> |- LMAR -|
+    |------------ RMAR ----------|
+    +---------------------------------+
+    | |
+    | ..................... |
+    | ..................... |
+    | ..................... |
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsN.html#NORM">NORM</A>, <A style="font-style: italic;" href="KeywordsB.html#BLD">BLD</A>, <A style="font-style: italic;" href="KeywordsE.html#EL">EL</A>, <A style="font-style: italic;" href="KeywordsD.html#DBL">DBL</A>, <A style="font-style: italic;" href="KeywordsE.html#ENL">ENL</A>, <A style="font-style: italic;" href="KeywordsP.html#PRO">PRO</A>, <A style="font-style: italic;" href="KeywordsS.html#SI">SI</A>, <A style="font-style: italic;" href="KeywordsN.html#NRM">NRM</A>, <A style="font-style: italic;" href="KeywordsU.html#UNL">UNL</A>, <A style="font-style: italic;" href="KeywordsA.html#ALT">ALT</A>, <A style="font-style: italic;" href="KeywordsE.html#ESC">ESC</A>, <A style="font-style: italic;" href="KeywordsF.html#FF">FF</A>, <A style="font-style: italic;" href="KeywordsL.html#LMAR">LMAR</A>, <A style="font-style: italic;" href="KeywordsP.html#PAGDIS">PAGDIS</A>,
+    <A style="font-style: italic;" href="KeywordsP.html#PAGLEN">PAGLEN</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="RMODE" id="RMODE"></A>RMODE</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">RMODE</SPAN> [<SPAN style="font-style: italic;">(screen)</SPAN>] Location: <SPAN style="font-style: italic;">Fn<BR></SPAN>
+    The function <SPAN style="font-style: italic;">RMODE</SPAN> returns the current screen mode (of the
+    screen belonging to the job which executes <SPAN style="font-style: italic;">RMODE</SPAN> if the Window
+    Manager is present).
+    
+    If Minerva or Amiga QDOS v3.23 is present and is in dual
+    screen mode, then <SPAN style="font-style: italic;">PRINT RMODE(1)</SPAN> will show the current screen mode
+    for the Other Screen (see <SPAN style="font-style: italic;">MODE</SPAN>). If Minerva and Amiga QDOS is
+    not present, (or dual screen mode is not active), then
+    <SPAN style="font-style: italic;">RMODE(1)</SPAN> will return -19 (for 'Not Implemented'). Both <SPAN style="font-style: italic;">RMODE</SPAN> and
+    <SPAN style="font-style: italic;">RMODE(0)</SPAN> return the mode of the Default Screen on all ROMs:
+    
+<H3><SPAN style="font-style: italic;">RMODE</SPAN>min resolutioncolours</H3>
+
+<P>2640 x 4002
+    4512 x 2564
+    8256 x 2568
+    12256 x 256 16
+    
+    
+<H3>Example:</H3>
+
+<P>
+    If a program is written to operate in one of these modes,
+    
+    it has to change to that mode at the very beginning. A
+    
+    simple <SPAN style="font-style: italic;">MODE 4</SPAN> will do, if high resolution is needed. But the
+    
+    <SPAN style="font-style: italic;">MODE</SPAN> is executed even if the screen was already in the
+    
+    correct mode. It looks better if <SPAN style="font-style: italic;">MODE</SPAN> is only done if the
+    
+    mode really has to be changed.
+    <SPAN style="font-style: italic;">
+    CHANGE_MODE</SPAN> should be used instead of <SPAN style="font-style: italic;">MODE</SPAN>:
+    <SPAN style="font-style: italic;">100 DEFine PROCedure CHANGE_MODE (mode%)
+    110 IF RMODE(0)&lt;&gt;mode%
+    120 MODE mode%
+    130 END IF
+    140 END DEFine CHANGE_MODE<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsM.html#MODE">MODE</A> sets the mode.
+    
+    <A style="font-style: italic;" href="KeywordsQ.html#QFLIM">QFLIM</A> returns the screen resolution.
+    
+    <A style="font-style: italic;" href="KeywordsT.html#TTMODE%">TTMODE%</A> is similar.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="RND" id="RND"></A>RND</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">RND</SPAN> [<SPAN style="font-style: italic;">(</SPAN>[<SPAN style="font-style: italic;">min TO</SPAN>] <SPAN style="font-style: italic;">max)</SPAN>] Location: <SPAN style="font-style: italic;">QL ROM<BR></SPAN>
+    This function produces a (pseudo) random number. When used
+    without parameters it returns a floating point number between
+    0 and 1, otherwise an integer number lying between the two
+    parameters (including the parameters) will be returned.
+    
+<H3>expressionresults</H3>
+
+<P><SPAN style="font-style: italic;">x=RND0 &lt; x &lt; 1<BR></SPAN> <SPAN style="font-style: italic;">x=RND(max)</SPAN> , where <SPAN style="font-style: italic;">max&gt;=00,1,2,3,...,max<BR></SPAN> <SPAN style="font-style: italic;">x=RND(min TO max)</SPAN> , <SPAN style="font-style: italic;">max&gt;=minmin,min+1,...,max-1,max<BR></SPAN>
+    
+<H3>Example:</H3>
+
+<P><SPAN style="font-style: italic;">100 CLS: PRINT "RND Statistics"
+    110 n=1000: m=10: DIM h%(m)
+    120 FOR i=1 TO n
+    130 k=RND(1 TO m)
+    140 h%(k)=h%(k)+1
+    150 AT 2,5: PRINT i
+    160 END FOR i
+    170 PRINT: avdiff=0
+    180 FOR k=1 TO m
+    190 diff=n/m-h%(k)
+    200 PRINT k;TO 6;h%(k);TO 12;INT(diff)
+    210 avdiff=avdiff+ABS(diff/n*m)
+    220 END FOR k
+    230 PRINT\"average difference:"!INT(100*avdiff/m);"%"<BR></SPAN>
+    
+<H3>NOTE:</H3>
+
+<P>
+    If a range is specified {eg. <SPAN style="font-style: italic;">RND(x TO y)</SPAN>} the second number
+    must not be less than the first (ie. <SPAN style="font-style: italic;">y&gt;=x</SPAN>). If only one
+    parameter is specified, this is taken to be the top of the
+    range, with the bottom of the range being 0. Therefore, if
+    only one parameter is specified, this must not be negative.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    The results of <A style="font-style: italic;" href="KeywordsR.html#RND">RND</A> can be influenced with <A style="font-style: italic;" href="KeywordsR.html#RANDOMISE">RANDOMISE</A>.
+    
+    See also <A style="font-style: italic;" href="KeywordsM.html#MATRND">MATRND</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="ROM" id="ROM"></A>ROM</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">ROM (n)<BR></SPAN> Location: <SPAN style="font-style: italic;">TinyToolkit<BR></SPAN>
+    This function returns the address im memory where
+    additional <SPAN style="font-style: italic;">ROM</SPAN>s can be placed. The parameter specifies the
+    number of the slot you wish to look at (it must be in the
+    range 0...16). The possible values are:
+    
+<H3><SPAN style="font-style: italic;">nROM(n)<BR></SPAN></H3>049152 (EPROM-Port)
+    1786432
+    2802816
+    3819200
+    4835584
+    5851968
+    6868352
+    7884736
+    8901120
+    9917504
+    10933888
+    11950272
+    12966656
+    13983040
+    14999424
+    151015808
+    161032192
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsR.html#ROM_TEST">ROM_TEST</A> checks if a piece of code can be placed into a ROM.
+    
+    <A style="font-style: italic;" href="KeywordsE.html#EPROM_LOAD">EPROM_LOAD</A> allows you to load an EPROM on an emulator.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="ROM_EXT" id="ROM_EXT"></A>ROM_EXT</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">ROM_EXT<BR></SPAN> Location: <SPAN style="font-style: italic;">ATARI_REXT<BR></SPAN>
+    This command activates any EPROMs in a standard QL format
+    which have been plugged into the ROM port on the Atari ST. The
+    code contained in the EPROMs is initialised just as it would
+    be on the QL.
+    
+    
+<H3>NOTE:</H3>
+
+<P>
+    This can only be used on code which is stored on EPROM
+    chips, as a QL EPROM cartridge cannot be plugged into the
+    Atari ST.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See also <A style="font-style: italic;" href="KeywordsR.html#ROM_LOAD">ROM_LOAD</A> and <A style="font-style: italic;" href="KeywordsE.html#EPROM_LOAD">EPROM_LOAD</A> which allows you to transport
+    code across from QL EPROM cartridges.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="ROM_LOAD" id="ROM_LOAD"></A>ROM_LOAD</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">ROM_LOAD device_file<BR></SPAN> Location: <SPAN style="font-style: italic;">ATARI_REXT (pre v1.21 only)<BR></SPAN>
+    On later versions of the Emulator, this has been renamed
+    <SPAN style="font-style: italic;">EPROM_LOAD</SPAN>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="ROMs" id="ROMs"></A>ROMs</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">ROMs</SPAN> [<SPAN style="font-style: italic;">#ch</SPAN>] Location: <SPAN style="font-style: italic;">Beuletools<BR></SPAN>
+    This command lists all ROM headers of plugged in ROMs to
+    the given channel (default #1), provided the ROMs conform to
+    the Sinclair standard. This will recognise, for example,
+    Trumpcard, Atari QL-Emulator and anything plugged into the
+    QL's ROMport.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsR.html#ROM">ROM</A> returns the start address of a ROM slot.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="RTP_R" id="RTP_R"></A>RTP_R</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">RTP_R (imag, real)<BR></SPAN> Location: <SPAN style="font-style: italic;">PTRRTP<BR></SPAN>
+    The function <SPAN style="font-style: italic;">RTP_R</SPAN> takes a given rectangular co-ordinate and
+    returns the so-called module (ie. the radius in polar
+    co-ordinates). The result of <SPAN style="font-style: italic;">RTP_R</SPAN> is always strictly positive
+    and is not affected by the sign of the <SPAN style="font-style: italic;">imag</SPAN> and <SPAN style="font-style: italic;">real</SPAN> parameters,
+    because of the symmetries of a circle.
+    
+    
+<H3>Example 1:</H3>
+
+<P>
+    Draw a rectangular pattern in green and the corresponding
+    
+    polar pattern again displayed as rectangular co-ordinates
+    
+    in white:
+    <SPAN style="font-style: italic;">100 SCALE 10,-5,-5: PAPER 0: CLS
+    110 FOR x = -3 TO 3 STEP .4
+    120 FOR y = -3 TO 3 STEP 5E-2
+    130 INK 4: POINT x, y
+    140 INK 7: POINT RTP_R(x,y), RTP_T(x,y)
+    150 END FOR y
+    160 END FOR x<BR></SPAN>
+    
+<H3>Example 2:</H3>
+
+<P>
+    The same as the above example but the polar co-ordinates
+    
+    are treated even more unusually. If you correct the program
+    
+    and exchange <SPAN style="font-style: italic;">a</SPAN> and <SPAN style="font-style: italic;">b</SPAN> in line 140 then the two patterns
+    
+    will match exactly - this reveals what the <SPAN style="font-style: italic;">RTP_</SPAN>... functions
+    
+    are actually doing:
+    <SPAN style="font-style: italic;">100 SCALE 10,-5,-5: PAPER 0: CLS
+    110 FOR x = -3 TO 3 STEP .4
+    120 FOR y = -3 TO 3 STEP 2E-2
+    130 INK 4: POINT x, y
+    140 a = RTP_R(x,y): b = RTP_T(x,y)
+    145 INK 7: POINT b * COS(a), b * SIN(a)
+    150 END FOR y
+    160 END FOR x<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    Polar co-ordinates also need an angle, this is calculated
+    with <A style="font-style: italic;" href="KeywordsR.html#RTP_T">RTP_T</A>.
+    
+    The <A style="font-style: italic;" href="KeywordsP.html#PTR_">PTR_</A>... pair of functions is complementary to <A style="font-style: italic;" href="KeywordsR.html#RTP_">RTP_</A>...
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="RTP_T" id="RTP_T"></A>RTP_T</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">RTP_T (imag, real)<BR></SPAN> Location: <SPAN style="font-style: italic;">PTRRTP<BR></SPAN>
+    The function <SPAN style="font-style: italic;">RTP_T</SPAN> takes rectangular co-ordinates and
+    returns the corresponding argument, (the angle used in polar
+    co-ordinates) in radians. See <SPAN style="font-style: italic;">RTP_R</SPAN> for further information.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="RUN" id="RUN"></A>RUN</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">RUN</SPAN> [<SPAN style="font-style: italic;">line</SPAN>] Location: <SPAN style="font-style: italic;">QL ROM<BR></SPAN>
+    There is one command which can be found in any BASIC
+    language: <SPAN style="font-style: italic;">RUN</SPAN>. Issuing <SPAN style="font-style: italic;">RUN</SPAN> may actually be a little closer to
+    the truth than you like to admit, but you should be happy with
+    BASIC. Assembly language is much more terrifying, and if you
+    have not yet reached that point of knowledge and understanding
+    which it is most frustrating to reach...
+    
+    However, <SPAN style="font-style: italic;">RUN line</SPAN> is identical to <SPAN style="font-style: italic;">GOTO line</SPAN> and <SPAN style="font-style: italic;">RUN</SPAN> without a
+    parameter could be replaced by <SPAN style="font-style: italic;">GOTO 1</SPAN>. Unlike some
+    implementations of BASIC, the variables and the <SPAN style="font-style: italic;">DATA</SPAN> pointer are
+    not reset when you enter <SPAN style="font-style: italic;">RUN</SPAN>.
+    
+    
+<H3>NOTE:</H3>
+
+<P>
+    Jobs cannot be started with <SPAN style="font-style: italic;">RUN</SPAN> but have to loaded and
+    executed with <SPAN style="font-style: italic;">EX</SPAN>, <SPAN style="font-style: italic;">EXEC_W</SPAN>,... or a file manager/desktop. <SPAN style="font-style: italic;">RUN</SPAN> will
+    work okay from inside compiled jobs to enable them to re-start
+    themselves.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsG.html#GOTO">GOTO</A> or even better, <A style="font-style: italic;" href="KeywordsR.html#REPeat">REPeat</A> and <A style="font-style: italic;" href="KeywordsF.html#FOR">FOR</A> loops.
+</BODY>
+</HTML>

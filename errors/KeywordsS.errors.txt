@@ -1,0 +1,238 @@
+line 22 column 13 - Warning: discarding unexpected </hr>
+line 50 column 13 - Warning: discarding unexpected </hr>
+line 130 column 184 - Warning: <a> discarding newline in URI reference
+line 315 column 22 - Warning: unescaped & or unknown entity "&INKEY"
+line 362 column 53 - Warning: unescaped & which should be written as &amp;
+line 362 column 54 - Warning: unescaped & which should be written as &amp;
+line 664 column 18 - Warning: <a> discarding newline in URI reference
+line 854 column 17 - Warning: <hr> isn't allowed in <h3> elements
+line 854 column 9 - Info: <h3> previously mentioned
+line 908 column 165 - Warning: <a> discarding newline in URI reference
+line 939 column 22 - Warning: unescaped & or unknown entity "&wx"
+line 939 column 25 - Warning: unescaped & which should be written as &amp;
+line 939 column 29 - Warning: unescaped & or unknown entity "&wy"
+line 939 column 32 - Warning: unescaped & which should be written as &amp;
+line 939 column 36 - Warning: unescaped & or unknown entity "&px"
+line 939 column 39 - Warning: unescaped & which should be written as &amp;
+line 939 column 43 - Warning: unescaped & or unknown entity "&py:"
+line 978 column 99 - Warning: <a> discarding newline in URI reference
+line 1123 column 5 - Warning: missing </span> before <h3>
+line 1123 column 43 - Warning: inserting implicit <span>
+line 1123 column 43 - Warning: missing </span> before <hr>
+line 1124 column 33 - Warning: <hr> isn't allowed in <h3> elements
+line 1123 column 39 - Info: <h3> previously mentioned
+line 1124 column 83 - Warning: <hr> isn't allowed in <h3> elements
+line 1124 column 33 - Info: <h3> previously mentioned
+line 1125 column 10 - Warning: inserting implicit <span>
+line 1125 column 10 - Warning: missing </span> before <hr>
+line 1125 column 73 - Warning: inserting implicit <span>
+line 1125 column 73 - Warning: missing </span> before <hr>
+line 1125 column 144 - Warning: inserting implicit <span>
+line 1125 column 144 - Warning: missing </span> before <hr>
+line 1126 column 55 - Warning: inserting implicit <span>
+line 1126 column 55 - Warning: missing </span> before <hr>
+line 1126 column 104 - Warning: inserting implicit <span>
+line 1126 column 104 - Warning: missing </span> before <hr>
+line 1126 column 163 - Warning: inserting implicit <span>
+line 1126 column 163 - Warning: missing </span> before <hr>
+line 1126 column 212 - Warning: inserting implicit <span>
+line 1126 column 212 - Warning: missing </span> before <hr>
+line 1128 column 67 - Warning: inserting implicit <span>
+line 1128 column 67 - Warning: missing </span> before <hr>
+line 1128 column 138 - Warning: inserting implicit <span>
+line 1128 column 138 - Warning: missing </span> before <hr>
+line 1129 column 63 - Warning: inserting implicit <span>
+line 1129 column 63 - Warning: missing </span> before <hr>
+line 1129 column 112 - Warning: inserting implicit <span>
+line 1129 column 112 - Warning: missing </span> before <hr>
+line 1129 column 170 - Warning: inserting implicit <span>
+line 1129 column 170 - Warning: missing </span> before <hr>
+line 1129 column 219 - Warning: inserting implicit <span>
+line 1129 column 219 - Warning: missing </span> before <hr>
+line 1131 column 68 - Warning: inserting implicit <span>
+line 1131 column 68 - Warning: missing </span> before <hr>
+line 1131 column 133 - Warning: inserting implicit <span>
+line 1131 column 133 - Warning: missing </span> before <hr>
+line 1132 column 88 - Warning: inserting implicit <span>
+line 1132 column 88 - Warning: missing </span> before <hr>
+line 1132 column 164 - Warning: inserting implicit <span>
+line 1132 column 164 - Warning: missing </span> before <hr>
+line 1132 column 205 - Warning: inserting implicit <span>
+line 1134 column 10 - Warning: missing </span> before <h3>
+line 1134 column 48 - Warning: inserting implicit <span>
+line 1134 column 48 - Warning: missing </span> before <hr>
+line 1135 column 33 - Warning: <hr> isn't allowed in <h3> elements
+line 1134 column 44 - Info: <h3> previously mentioned
+line 1135 column 83 - Warning: <hr> isn't allowed in <h3> elements
+line 1135 column 33 - Info: <h3> previously mentioned
+line 1136 column 43 - Warning: inserting implicit <span>
+line 1136 column 43 - Warning: missing </span> before <hr>
+line 1137 column 79 - Warning: inserting implicit <span>
+line 1137 column 79 - Warning: missing </span> before <hr>
+line 1137 column 144 - Warning: inserting implicit <span>
+line 1137 column 144 - Warning: missing </span> before <hr>
+line 1137 column 194 - Warning: inserting implicit <span>
+line 1137 column 194 - Warning: missing </span> before <hr>
+line 1138 column 70 - Warning: inserting implicit <span>
+line 1138 column 70 - Warning: missing </span> before <hr>
+line 1138 column 111 - Warning: inserting implicit <span>
+line 1138 column 111 - Warning: missing </span> before <hr>
+line 1139 column 71 - Warning: inserting implicit <span>
+line 1139 column 71 - Warning: missing </span> before <hr>
+line 1139 column 164 - Warning: inserting implicit <span>
+line 1139 column 164 - Warning: missing </span> before <hr>
+line 1140 column 63 - Warning: inserting implicit <span>
+line 1140 column 63 - Warning: missing </span> before <hr>
+line 1141 column 92 - Warning: inserting implicit <span>
+line 1141 column 92 - Warning: missing </span> before <hr>
+line 1141 column 175 - Warning: inserting implicit <span>
+line 1141 column 175 - Warning: missing </span> before <hr>
+line 1141 column 216 - Warning: inserting implicit <span>
+line 1141 column 216 - Warning: missing </span> before <hr>
+line 1143 column 86 - Warning: inserting implicit <span>
+line 1143 column 86 - Warning: missing </span> before <hr>
+line 1143 column 127 - Warning: inserting implicit <span>
+line 1143 column 127 - Warning: missing </span> before <hr>
+line 1143 column 212 - Warning: inserting implicit <span>
+line 1143 column 212 - Warning: missing </span> before <hr>
+line 1143 column 253 - Warning: inserting implicit <span>
+line 1143 column 253 - Warning: missing </span> before <hr>
+line 1144 column 75 - Warning: inserting implicit <span>
+line 1144 column 75 - Warning: missing </span> before <hr>
+line 1144 column 116 - Warning: inserting implicit <span>
+line 1144 column 116 - Warning: missing </span> before <hr>
+line 1145 column 76 - Warning: inserting implicit <span>
+line 1145 column 76 - Warning: missing </span> before <hr>
+line 1145 column 173 - Warning: inserting implicit <span>
+line 1145 column 173 - Warning: missing </span> before <hr>
+line 1146 column 75 - Warning: inserting implicit <span>
+line 1146 column 75 - Warning: missing </span> before <hr>
+line 1146 column 156 - Warning: inserting implicit <span>
+line 1146 column 156 - Warning: missing </span> before <hr>
+line 1147 column 62 - Warning: inserting implicit <span>
+line 1147 column 62 - Warning: missing </span> before <hr>
+line 1149 column 90 - Warning: inserting implicit <span>
+line 1149 column 90 - Warning: missing </span> before <hr>
+line 1149 column 186 - Warning: inserting implicit <span>
+line 1149 column 186 - Warning: missing </span> before <hr>
+line 1151 column 72 - Warning: inserting implicit <span>
+line 1151 column 72 - Warning: missing </span> before <hr>
+line 1151 column 155 - Warning: inserting implicit <span>
+line 1151 column 155 - Warning: missing </span> before <hr>
+line 1152 column 70 - Warning: inserting implicit <span>
+line 1152 column 70 - Warning: missing </span> before <hr>
+line 1152 column 140 - Warning: inserting implicit <span>
+line 1152 column 140 - Warning: missing </span> before <hr>
+line 1154 column 75 - Warning: inserting implicit <span>
+line 1154 column 75 - Warning: missing </span> before <hr>
+line 1154 column 165 - Warning: inserting implicit <span>
+line 1154 column 165 - Warning: missing </span> before <hr>
+line 1155 column 76 - Warning: inserting implicit <span>
+line 1155 column 76 - Warning: missing </span> before <hr>
+line 1155 column 117 - Warning: inserting implicit <span>
+line 1155 column 117 - Warning: missing </span> before <hr>
+line 1157 column 82 - Warning: inserting implicit <span>
+line 1157 column 82 - Warning: missing </span> before <hr>
+line 1157 column 123 - Warning: inserting implicit <span>
+line 1157 column 123 - Warning: missing </span> before <hr>
+line 1159 column 90 - Warning: inserting implicit <span>
+line 1159 column 90 - Warning: missing </span> before <hr>
+line 1166 column 89 - Warning: inserting implicit <span>
+line 1166 column 89 - Warning: missing </span> before <hr>
+line 1170 column 75 - Warning: inserting implicit <span>
+line 1172 column 10 - Warning: missing </span> before <h3>
+line 1172 column 48 - Warning: inserting implicit <span>
+line 1172 column 48 - Warning: missing </span> before <hr>
+line 1173 column 33 - Warning: <hr> isn't allowed in <h3> elements
+line 1172 column 44 - Info: <h3> previously mentioned
+line 1173 column 83 - Warning: <hr> isn't allowed in <h3> elements
+line 1173 column 33 - Info: <h3> previously mentioned
+line 1174 column 43 - Warning: inserting implicit <span>
+line 1174 column 43 - Warning: missing </span> before <hr>
+line 1180 column 87 - Warning: inserting implicit <span>
+line 1180 column 87 - Warning: missing </span> before <hr>
+line 1195 column 83 - Warning: inserting implicit <span>
+line 1195 column 83 - Warning: missing </span> before <hr>
+line 1198 column 92 - Warning: inserting implicit <span>
+line 1352 column 33 - Warning: unescaped & which should be written as &amp;
+line 1521 column 18 - Warning: unescaped & or unknown entity "&chr"
+line 1618 column 17 - Warning: <a> discarding newline in URI reference
+line 1895 column 46 - Warning: <a> discarding newline in URI reference
+line 1965 column 60 - Warning: unescaped & which should be written as &amp;
+line 2127 column 21 - Warning: replacing invalid UTF-8 bytes (char. code U+0007)
+line 2141 column 52 - Warning: replacing invalid UTF-8 bytes (char. code U+0007)
+line 2150 column 24 - Warning: <a> unexpected or duplicate quote mark
+line 2150 column 24 - Warning: <a> unexpected or duplicate quote mark
+line 2229 column 54 - Warning: <hr> isn't allowed in <h3> elements
+line 2229 column 43 - Info: <h3> previously mentioned
+line 2317 column 185 - Warning: <a> discarding newline in URI reference
+line 2403 column 9 - Warning: <a> discarding newline in URI reference
+line 2482 column 42 - Warning: <a> discarding newline in URI reference
+line 2529 column 112 - Warning: <a> discarding newline in URI reference
+line 2658 column 32 - Warning: unescaped & which should be written as &amp;
+line 2662 column 49 - Warning: unescaped & which should be written as &amp;
+line 2663 column 36 - Warning: unescaped & which should be written as &amp;
+line 2666 column 77 - Warning: unescaped & which should be written as &amp;
+line 2666 column 94 - Warning: unescaped & which should be written as &amp;
+line 2678 column 26 - Warning: replacing invalid UTF-8 bytes (char. code U+0004)
+line 2902 column 266 - Warning: <a> discarding newline in URI reference
+line 3097 column 42 - Warning: <a> discarding newline in URI reference
+line 3156 column 476 - Warning: <a> discarding newline in URI reference
+line 3239 column 42 - Warning: <a> discarding newline in URI reference
+line 3242 column 5 - Warning: discarding unexpected </div>
+line 3241 column 9 - Warning: missing </h3> before </body>
+line 72 column 1 - Warning: missing </div>
+line 275 column 39 - Warning: <a> escaping malformed URI reference
+line 276 column 51 - Warning: <a> escaping malformed URI reference
+line 831 column 26 - Warning: <a> escaping malformed URI reference
+line 853 column 47 - Warning: <a> escaping malformed URI reference
+line 1315 column 47 - Warning: <a> anchor "SEARCH" already defined
+line 1387 column 53 - Warning: <a> escaping malformed URI reference
+line 1549 column 5 - Warning: <a> escaping malformed URI reference
+line 1550 column 9 - Warning: <a> escaping malformed URI reference
+line 1550 column 95 - Warning: <a> escaping malformed URI reference
+line 1929 column 47 - Warning: <a> anchor "SET" already defined
+line 2403 column 9 - Warning: <a> escaping malformed URI reference
+line 2995 column 128 - Warning: <a> escaping malformed URI reference
+line 3049 column 46 - Warning: <a> escaping malformed URI reference
+line 1123 column 5 - Warning: trimming empty <span>
+line 1134 column 10 - Warning: trimming empty <span>
+line 1172 column 10 - Warning: trimming empty <span>
+line 1388 column 47 - Warning: <a> cannot copy name attribute to id
+line 2964 column 47 - Warning: <a> cannot copy name attribute to id
+line 3042 column 47 - Warning: <a> cannot copy name attribute to id
+line 2 column 1 - Warning: <html> proprietary attribute "xmlns:v"
+Info: Doctype given is "-//W3C//DTD HTML 4.0 Transitional//EN"
+Info: Document content looks like HTML 4.01 Strict
+Info: No system identifier in emitted doctype
+Tidy found 196 warnings and 0 errors!
+
+Character codes for UTF-8 must be in the range: U+0000 to U+10FFFF.
+The definition of UTF-8 in Annex D of ISO/IEC 10646-1:2000 also
+allows for the use of five- and six-byte sequences to encode
+characters that are outside the range of the Unicode character set;
+those five- and six-byte sequences are illegal for the use of
+UTF-8 as a transformation of Unicode characters. ISO/IEC 10646
+does not allow mapping of unpaired surrogates, nor U+FFFE and U+FFFF
+(but it does allow other noncharacters). For more information please refer to
+http://www.unicode.org/ and http://www.cl.cam.ac.uk/~mgk25/unicode.html
+
+URIs must be properly escaped, they must not contain unescaped
+characters below U+0021 including the space character and not
+above U+007E. Tidy escapes the URI for you as recommended by
+HTML 4.01 section B.2.1 and XML 1.0 section 4.2.2. Some user agents
+use another algorithm to escape such URIs and some server-sided
+scripts depend on that. If you want to depend on that, you must
+escape the URI on your own. For more information please refer to
+http://www.w3.org/International/O-URL-and-ident.html
+
+About HTML Tidy: https://github.com/htacg/tidy-html5
+Bug reports and comments: https://github.com/htacg/tidy-html5/issues
+Official mailing list: https://lists.w3.org/Archives/Public/public-htacg/
+Latest HTML specification: http://dev.w3.org/html5/spec-author-view/
+Validate your HTML documents: http://validator.w3.org/nu/
+Lobby your company to join the W3C: http://www.w3.org/Consortium
+
+Do you speak a language other than English, or a different variant of 
+English? Consider helping us to localize HTML Tidy. For details please see 
+https://github.com/htacg/tidy-html5/blob/master/README/LOCALIZE.md
