@@ -1,0 +1,682 @@
+    
+<H1><A name="QACONVERT" id="QACONVERT"></A>QACONVERT</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">QACONVERT filename<BR></SPAN> Location: <SPAN style="font-style: italic;">ATARIDOS<BR></SPAN>
+    This command takes a file which is stored on a QL Format
+    disk and converts it into Atari Format. It will then convert
+    special characters in that file to Atari compatible characters
+    as well as converting any occurence of a Line Feed character
+    <SPAN style="font-style: italic;">CHR$(10)</SPAN> to a Carriage Return character <SPAN style="font-style: italic;">CHR$(13)</SPAN> followed by a Line
+    Feed character <SPAN style="font-style: italic;">CHR$(10)</SPAN>.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    Compare <A style="font-style: italic;" href="KeywordsA.html#AQCONVERT">AQCONVERT</A> and <A style="font-style: italic;" href="KeywordsQ.html#QICONVERT">QICONVERT</A>.
+    
+    See also <A style="font-style: italic;" href="KeywordsA.html#ACOPY">ACOPY</A> and <A style="font-style: italic;" href="KeywordsQ.html#QCOPY">QCOPY</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="QCOPY" id="QCOPY"></A>QCOPY</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">QCOPY filename1,filename2<BR></SPAN> Location: <SPAN style="font-style: italic;">ATARIDOS<BR></SPAN>
+    This command is similar to <SPAN style="font-style: italic;">COPY</SPAN> except that it copies a file
+    from an Atari Format disk to a QL Format disk. No conversion
+    takes place.
+    
+    
+<H3>NOTE:</H3>
+
+<P>
+    You will need to pass the Atari filename in quote marks if
+    it includes a three letter extension preceded by a dot eg:
+    
+    <SPAN style="font-style: italic;">QCOPY "flp1_PROGRAM.BAS", flp2_PROGRAM.BAS<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsA.html#ACOPY">ACOPY</A> copies a file from a QL disk to an Atari disk.
+    
+    Level-3 device drivers allow you to read and write to Atari
+    and IBM format disks anyway.
+    
+    See <A style="font-style: italic;" href="KeywordsA.html#AFORMAT%20and%20AQCONVERT">AFORMAT and AQCONVERT</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="QCOUNT%" id="QCOUNT%"></A>QCOUNT%</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">QCOUNT% (#pipe_ch)<BR></SPAN> Location: <SPAN style="font-style: italic;">PIPES (DIY Toolkit - Vol P)<BR></SPAN>
+    This function is designed to make the use of pipes easier.
+    
+    Provided that the specified channel is linked to a pipe
+    (normally the input end of the pipe), this function will
+    return the number of characters which are waiting to be read
+    from the pipe.
+    
+    
+<H3>NOTE:</H3>
+
+<P>
+    The value returned will be the exact number of characters
+    placed into the pipe, which will therefore include the line
+    feed characters and other control characters. Take the
+    example of:
+    <SPAN style="font-style: italic;">10 OPEN #3,pipe_1048
+    20 PRINT #3,'HELLO'
+    30 PRINT QCOUNT%(#3)<BR></SPAN>
+    The value of 6 is returned, this is because the <SPAN style="font-style: italic;">PRINT<BR></SPAN> statement has added a line feed to the end of the word
+    <SPAN style="font-style: italic;">'HELLO'</SPAN>, so that this can be read by an <SPAN style="font-style: italic;">INPUT</SPAN> command.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    Refer to <A style="font-style: italic;" href="KeywordsQ.html#QLINK">QLINK</A> and also the Device Drivers Appendix.
+    
+    See also <A style="font-style: italic;" href="KeywordsQ.html#QSIZE%">QSIZE%</A> and <A style="font-style: italic;" href="KeywordsQ.html#QSPACE%">QSPACE%</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="QDOS$" id="QDOS$"></A>QDOS$</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">QDOS$<BR></SPAN> Location: <SPAN style="font-style: italic;">Fn, TinyToolkit, BTool<BR></SPAN>
+    This function returns a string containing the version code
+    of the operating system on which SuperBASIC is running.
+    
+    Example values:
+    
+    
+<H3><SPAN style="font-style: italic;">QDOS$</SPAN></H3>
+    
+<H3>Operating System</H3>
+
+<P>
+    1.03the first main version of QDOS (an upgrade is
+    essential if you have an earlier version!)
+    
+    1x13all MGx ROMs, eg. 1G13 for the MGG
+    
+    1.63the first version of Minerva
+    
+    1.76the first version of Minerva with reliable
+    MultiBASICs
+    
+    1.98the latest and best version of Minerva
+    
+    2.xxSMS version
+    
+    3.xxthe version number of the Amiga QL Emulator
+    
+    4.xxthe first version of ARGOS on a THOR 1 computer
+    
+    5.xxthe version of ARGOS on a THOR 20 computer
+    
+    6.xxthe version of ARGOS on a THOR XVI computer
+    
+    6.41the final version of the THOR ARGOS ROM
+    
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">VER$</SPAN> is normally used to identify the version of the
+    SuperBASIC interpreter and <SPAN style="font-style: italic;">QDOS$</SPAN> to identify the version of QDOS
+    (the operating system). However, as SuperBASIC is an integral
+    part of the operating system on most QDOS computers, there
+    should really only be a need to use one of these functions and
+    not both.
+    
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    The '.' in <SPAN style="font-style: italic;">QDOS$</SPAN> is changed on MG and SMS v2.50+ (on Gold
+    Cards and Super Gold Cards only) to reflect the country code
+    of the language version currently loaded.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsV.html#VER$">VER$</A> contains another code identifying the operating system.
+    <A href="KeywordsV.html#VER$(1)">VER$(1)</A> is identical to <A style="font-style: italic;" href="KeywordsQ.html#QDOS$">QDOS$</A> for Minerva ROMs and SMS.
+    
+    You should also look at <A style="font-style: italic;" href="KeywordsM.html#MACHINE">MACHINE</A> and <A style="font-style: italic;" href="KeywordsP.html#PROCESSOR">PROCESSOR</A>.
+    
+    <A style="font-style: italic;" href="KeywordsL.html#LANG_USE">LANG_USE</A> allows you to change the operating system language.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="QFLIM" id="QFLIM"></A>QFLIM</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">QFLIM (</SPAN>[<SPAN style="font-style: italic;">#channel,</SPAN>] <SPAN style="font-style: italic;">n) n=0..3<BR></SPAN> Location: <SPAN style="font-style: italic;">Fn<BR></SPAN>
+    With the Pointer Interface present, each job has a maximum
+    outline window size in which it can open its windows to avoid
+    storing more information than necessary when switching between
+    jobs and saving the window contents.
+    
+    The function <SPAN style="font-style: italic;">QFLIM</SPAN> returns the following information about
+    this maximum outline size, in the (window independent)
+    absolute co-ordinate system for the different <SPAN style="font-style: italic;">n</SPAN>:
+    
+    
+<H3><SPAN style="font-style: italic;">n</SPAN>information</H3>
+
+<P>
+    0width in pixels (eg. 512 on a standard QL display).
+    
+    1height in pixels (eg. 256 on a standard QL display).
+    
+    2leftmost horizontal position
+    
+    3uppermost vertical position
+    
+    <SPAN style="font-style: italic;">QFLIM</SPAN> needs an open window to get the information from
+    (default #1). The return values refer to the current job. If
+    any other values of <SPAN style="font-style: italic;">n</SPAN> are used, a bad parameter error will be
+    generated.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    If there are no windows other than #0, #1 and #2, and their
+    
+    positions are as follows:
+    <SPAN style="font-style: italic;">100 WINDOW#0,100,100,50,50
+    110 WINDOW#1,20,20,0,0
+    120 WINDOW#2,200,50,40,40
+    130 FOR c=0 TO 2: PAPER#c,3: BORDER#c,1,4: CLS#c<BR></SPAN>
+    The Pointer Interface will reduce the outline size of the
+    
+    screen available to SuperBASIC, which can be checked with
+    
+    the next program or by swapping to other jobs which fill
+    
+    the whole screen.
+    <SPAN style="font-style: italic;">100 ch=2
+    110 xmin=QFLIM(#ch,2): xmax=xmin+ QFLIM(#ch,0)
+    120 ymin=QFLIM(#ch,3): ymax=ymin+ QFLIM(#ch,1)
+    130 PRINT "x = ";xmin;"..";xmax
+    140 PRINT "y = ";ymin;"..";ymax
+    150 percent% = 100 * QFLIM(#ch,0) * QFLIM(#ch,1) / (512*256)
+    160 PRINT "fills"!percent%;"% of the screen"<BR></SPAN>
+    Type <SPAN style="font-style: italic;">WTV</SPAN> or <SPAN style="font-style: italic;">WMON</SPAN> to restore standard window sizes. Note that
+    
+    this example expects the display to be 512x256 pixels.
+    
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    The Pointer Interface makes a distinction between the
+    primary window (generally the first window to be used for
+    input/output operations) and secondary windows. Although using
+    <SPAN style="font-style: italic;">QFLIM</SPAN> on a secondary window will return the maximum outlines for
+    the current job's windows, using <SPAN style="font-style: italic;">QFLIM</SPAN> on the primary window
+    (eg. #0 in SuperBASIC) will return the physical screen size,
+    ie. the parameters of the largest possible window:
+    
+    <SPAN style="font-style: italic;">WINDOW QFLIM(#0,0),QFLIM(#0,1),QFLIM(#0,2),QFLIM(#0,3)<BR></SPAN>
+    This can therefore be used to check whether or not the
+    extra high resolution modes provided by some Emulators and the
+    AURORA is available:
+    
+    <SPAN style="font-style: italic;">exten4=0: IF QFLIM(#0,1)&gt;256:exten4=1<BR></SPAN>
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">QFLIM</SPAN> returns useless numbers greater than 10000 if the
+    Pointer Interface is not present.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsW.html#WMAN$">WMAN$</A>, <A style="font-style: italic;" href="KeywordsW.html#WINF$">WINF$</A> allow you to find out various information about
+    the Pointer Environment.
+    <A href="KeywordsX.html#XLIM">XLIM</A>, <A style="font-style: italic;" href="KeywordsS.html#SCR_XLIM">SCR_XLIM</A>, <A style="font-style: italic;" href="KeywordsY.html#YLIM">YLIM</A> and <A style="font-style: italic;" href="KeywordsS.html#SCR_YLIM">SCR_YLIM</A> are similar to <A style="font-style: italic;" href="KeywordsQ.html#QFLIM">QFLIM</A>.
+    
+    See also <A style="font-style: italic;" href="KeywordsO.html#OUTLN">OUTLN</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="QICONVERT" id="QICONVERT"></A>QICONVERT</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">QICONVERT filename<BR></SPAN> Location: <SPAN style="font-style: italic;">ATARIDOS<BR></SPAN>
+    This command takes a file which is stored on a QL Format
+    disk and converts it into IBM Format. It will then convert
+    special characters in that file to IBM compatible characters
+    as well as converting any occurence of a Line Feed character
+    <SPAN style="font-style: italic;">CHR$(10)</SPAN> to a Carriage Return character <SPAN style="font-style: italic;">CHR$(13)</SPAN> followed by a Line
+    Feed character <SPAN style="font-style: italic;">CHR$(10)</SPAN>.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    Compare <A style="font-style: italic;" href="KeywordsI.html#IQCONVERT">IQCONVERT</A> and <A style="font-style: italic;" href="KeywordsA.html#AQCONVERT">AQCONVERT</A>.
+    
+    See also <A style="font-style: italic;" href="KeywordsA.html#ACOPY">ACOPY</A> and <A style="font-style: italic;" href="KeywordsQ.html#QCOPY">QCOPY</A>.
+    
+    See <A style="font-style: italic;" href="KeywordsI.html#IFORMAT">IFORMAT</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="QLINK" id="QLINK"></A>QLINK</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">QLINK #output TO #input<BR></SPAN> Location: <SPAN style="font-style: italic;">PIPES (DIY Toolkit - Vol P)<BR></SPAN>
+    This command is the same as <SPAN style="font-style: italic;">TCONNECT</SPAN>.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    The following functions are also useful when accessing
+    pipes: <A style="font-style: italic;" href="KeywordsE.html#EOFW">EOFW</A>, <A style="font-style: italic;" href="KeywordsP.html#PEND">PEND</A>, <A style="font-style: italic;" href="KeywordsQ.html#QSIZE%">QSIZE%</A>, <A style="font-style: italic;" href="KeywordsQ.html#QCOUNT%">QCOUNT%</A> and <A style="font-style: italic;" href="KeywordsQ.html#QSPACE%">QSPACE%</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="QLOAD" id="QLOAD"></A>QLOAD</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">QLOAD</SPAN> [<SPAN style="font-style: italic;">device_</SPAN>]<SPAN style="font-style: italic;">filename<BR></SPAN> Location: <SPAN style="font-style: italic;">SMS<BR></SPAN>
+    This command is very similar to <SPAN style="font-style: italic;">LOAD</SPAN> as implemented on the
+    SMS.
+    
+    The only difference are that it insists that the program
+    must have been saved with the <SPAN style="font-style: italic;">_sav</SPAN> suffix (eg. <SPAN style="font-style: italic;">flp1_TEST_sav</SPAN>).
+    
+    <SPAN style="font-style: italic;">QLOAD</SPAN> will then proceed to load the BASIC program whether it
+    was saved with the normal <SPAN style="font-style: italic;">SAVE</SPAN> or <SPAN style="font-style: italic;">SAVE_O</SPAN> commands, or with the
+    <SPAN style="font-style: italic;">QSAVE</SPAN> or <SPAN style="font-style: italic;">QSAVE_O</SPAN> commands.
+    
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    If a program has been saved using <SPAN style="font-style: italic;">QSAVE</SPAN> on a Minerva machine
+    with Integer Tokenisation enabled, then <SPAN style="font-style: italic;">QLOAD</SPAN> will not be able
+    to understand it properly and you will notice that numbers and
+    keywords have been replaced by various symbols.
+    
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    Any commands which appear after a <SPAN style="font-style: italic;">QLOAD</SPAN> command will be
+    ignored.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    Also see <A style="font-style: italic;" href="KeywordsL.html#LOAD">LOAD</A>, <A style="font-style: italic;" href="KeywordsQ.html#QLRUN">QLRUN</A>, <A style="font-style: italic;" href="KeywordsQ.html#QMERGE">QMERGE</A> and <A style="font-style: italic;" href="KeywordsQ.html#QSAVE">QSAVE</A>
+    Compare <A style="font-style: italic;" href="KeywordsU.html#UNLOAD">UNLOAD</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H3>QLRUN</H3>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">QLRUN</SPAN> [<SPAN style="font-style: italic;">device_</SPAN>]<SPAN style="font-style: italic;">filename<BR></SPAN> Location: <SPAN style="font-style: italic;">SMS<BR></SPAN>
+    This command is exactly the same as <SPAN style="font-style: italic;">QLOAD</SPAN> except that the
+    program is automatically <SPAN style="font-style: italic;">RUN</SPAN> as soon as it has been loaded into
+    memory.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsQ.html#QLOAD">QLOAD</A> and <A style="font-style: italic;" href="KeywordsQ.html#QMRUN">QMRUN</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H3>QL_PEX</H3>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">QL_PEX<BR></SPAN> Location: <SPAN style="font-style: italic;">PEX<BR></SPAN>
+    This function returns the offset of the keyword linkage
+    block of the keywords added by the PEX toolkit. This offset
+    is needed for Qliberator's $$asmb directorive.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsP.html#PEX_SAVE.">PEX_SAVE.</A>
+    
+<H3></H3>
+
+<P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="QMERGE" id="QMERGE"></A>QMERGE</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">QMERGE</SPAN> [<SPAN style="font-style: italic;">device_</SPAN>]<SPAN style="font-style: italic;">filename<BR></SPAN> Location: <SPAN style="font-style: italic;">SMS<BR></SPAN>
+    This command bears the same relationship to <SPAN style="font-style: italic;">MERGE</SPAN> as <SPAN style="font-style: italic;">QLOAD<BR></SPAN> does to <SPAN style="font-style: italic;">LOAD</SPAN>.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    Refer to <A style="font-style: italic;" href="KeywordsQ.html#QLOAD">QLOAD</A> and <A style="font-style: italic;" href="KeywordsM.html#MERGE">MERGE</A>.
+    
+    See also <A style="font-style: italic;" href="KeywordsQ.html#QMRUN">QMRUN</A>
+    <HR style="width: 100%; height: 2px;">
+    
+<H3>QMRUN</H3>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">QMRUN</SPAN> [<SPAN style="font-style: italic;">device_</SPAN>]<SPAN style="font-style: italic;">filename<BR></SPAN> Location: <SPAN style="font-style: italic;">SMS<BR></SPAN>
+    This command is exactly the same as <SPAN style="font-style: italic;">QMERGE</SPAN> except that it
+    ensures that the program is <SPAN style="font-style: italic;">RUN</SPAN> as soon as it has been merged
+    into memory.
+    
+    If the command is issued from the command line as a direct
+    command, then the merged program is <SPAN style="font-style: italic;">RUN</SPAN> from line 1.
+    
+    If, however, <SPAN style="font-style: italic;">QMRUN</SPAN> appears in the program itself, the
+    program continues from the statement following <SPAN style="font-style: italic;">QMRUN</SPAN> (making it
+    the same as <SPAN style="font-style: italic;">QMERGE</SPAN>).
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsQ.html#QMERGE">QMERGE</A> and <A style="font-style: italic;" href="KeywordsM.html#MRUN">MRUN</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="QRAM$" id="QRAM$"></A>QRAM$</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">QRAM$<BR></SPAN> Location: <SPAN style="font-style: italic;">TinyToolkit, BTool<BR></SPAN>
+    This function returns a string containing the version
+    number of the Pointer Environment, or an empty string if this
+    is not present.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsP.html#PINF$">PINF$</A> is exactly the same as <A style="font-style: italic;" href="KeywordsQ.html#QRAM$">QRAM$</A>.
+    
+    <A style="font-style: italic;" href="KeywordsW.html#WMAN$">WMAN$</A> and <A style="font-style: italic;" href="KeywordsW.html#WINF$">WINF$</A> contain the version number of the Window
+    Manager.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="QSAVE" id="QSAVE"></A>QSAVE</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">QSAVE</SPAN> [<SPAN style="font-style: italic;">device_</SPAN>]<SPAN style="font-style: italic;">filename<BR></SPAN>
+    or <SPAN style="font-style: italic;">QSAVE<BR></SPAN> Location: <SPAN style="font-style: italic;">SMS<BR></SPAN>
+    For several years now, the best utility for saving
+    SuperBASIC programs in a form which can be loaded very quickly
+    into memory has been QLOAD from Liberation Software.
+    
+    This utility stores SuperBASIC programs on disk in a
+    special format which although seems meaningless if you <SPAN style="font-style: italic;">VIEW</SPAN> the
+    file, allows the program to be loaded at around 3x the speed
+    of the normal <SPAN style="font-style: italic;">LOAD</SPAN> command, which can be very useful for large
+    programs. Unlike other similar utilities, programs which have
+    been saved using this utility can be loaded into any other ROM
+    version without any trouble, using the <SPAN style="font-style: italic;">QLOAD</SPAN> command.
+    
+    It is nice to see that this utility has been implemented as
+    part of SMS.
+    
+    The <SPAN style="font-style: italic;">QSAVE</SPAN> command allows you to save the whole of SuperBASIC
+    program currently in memory under the specified filename to
+    the specified device. If the filename does not end in the
+    suffix _SAV, then this will be added automatically. If no
+    device is specified (or it does not exist), then Toolkit II's
+    default data device will be used. You will also be prompted
+    to confirm whether an existing file should be overwritten if
+    necessary.
+    
+    The second variant of the command will allow you to <SPAN style="font-style: italic;">QSAVE<BR></SPAN> the program in memory under the same filename as when <SPAN style="font-style: italic;">LOAD</SPAN> or
+    <SPAN style="font-style: italic;">QLOAD</SPAN> was last used (with the _SAV suffix appended if
+    necessary). If the original filename used when the program
+    was <SPAN style="font-style: italic;">LOAD</SPAN>ed ended in _BAS, then <SPAN style="font-style: italic;">QSAVE</SPAN> will alter this to be the
+    _SAV suffix. This variant will also take the version number
+    of the file when it was <SPAN style="font-style: italic;">LOAD</SPAN>ed (or <SPAN style="font-style: italic;">QLOAD</SPAN>ed) and then increase
+    this by one.
+    
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    To ensure that <SPAN style="font-style: italic;">QSAVE</SPAN>d programs can be used on all
+    implementations of the QL, ensure that if used from Minerva,
+    Integer Tokenisation is switched off - you will need to follow
+    the following procedure:
+    
+    (1) <SPAN style="font-style: italic;">POKE \\212,128<BR></SPAN>
+    (2) <SPAN style="font-style: italic;">LOAD</SPAN> ASCII version of the program (or type <SPAN style="font-style: italic;">NEW</SPAN>)
+    
+    (3) Alter program as necessary
+    
+    (4) <SPAN style="font-style: italic;">QSAVE</SPAN> the fast loading version of the program
+    
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">QSAVE</SPAN> without a filename suffers the same problems as <SPAN style="font-style: italic;">SAVE</SPAN>.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsS.html#SAVE">SAVE</A>, <A style="font-style: italic;" href="KeywordsQ.html#QLRUN">QLRUN</A> and <A style="font-style: italic;" href="KeywordsQ.html#QMERGE">QMERGE</A>.
+    
+    <A style="font-style: italic;" href="KeywordsD.html#DATAD$">DATAD$</A> allows you to read the current default data device.
+    
+    See also <A style="font-style: italic;" href="KeywordsQ.html#QSAVE_O">QSAVE_O</A>.
+    
+    <A style="font-style: italic;" href="KeywordsF.html#FVERS">FVERS</A> allows you to read the current version number of a
+    file.
+    <HR style="width: 100%; height: 2px;">
+    
+<H3>QSAVE_O</H3>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">QSAVE_O</SPAN> [<SPAN style="font-style: italic;">device_</SPAN>]<SPAN style="font-style: italic;">filename<BR></SPAN>
+    or <SPAN style="font-style: italic;">QSAVE_O<BR></SPAN> Location: <SPAN style="font-style: italic;">SMS<BR></SPAN>
+    This command is the same as <SPAN style="font-style: italic;">QSAVE</SPAN> except that it will
+    automatically overwrite an existing file with the same
+    filename.
+    
+    
+<H3>NOTE:</H3>
+
+<P>
+    On Minerva machines you need to be careful about Integer
+    Tokenisation - see <SPAN style="font-style: italic;">QSAVE</SPAN>.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsQ.html#QSAVE">QSAVE</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="QSIZE%" id="QSIZE%"></A>QSIZE%</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">QSIZE% (#pipe_ch)<BR></SPAN> Location: <SPAN style="font-style: italic;">PIPES (DIY Toolkit - Vol P)<BR></SPAN>
+    This function is designed to read the amount of characters
+    which a pipe linked to the specified channel can hold at any
+    one time.
+    
+    
+<H3>Example:</H3>
+
+<P><SPAN style="font-style: italic;">10 OPEN #4,pipe_200
+    20 QLINK #4 TO #3
+    25 PRINT #4,'QL DATA'
+    30 PRINT QSIZE% (#3), QCOUNT%(#3)
+    40 CLOSE #3:CLOSE #4<BR></SPAN>
+    This short program will print the figures 203 and 8 on
+    screen.
+    
+    This will also work with named pipes on SMS:
+    <SPAN style="font-style: italic;">10 OPEN_NEW #4,pipe_test_200
+    20 OPEN_IN #3,pipe_test
+    25 PRINT #4,'QL DATA'
+    30 PRINT QSIZE% (#3), QCOUNT%(#3)
+    40 CLOSE #3:CLOSE #4<BR></SPAN>
+    Note however, that if you re-run the program the figure
+    returned by <SPAN style="font-style: italic;">QCOUNT%</SPAN> continues increasing - this is because a
+    named pipe does not disappear just because both ends of the
+    pipe have been closed. You would need to add the line:
+    <SPAN style="font-style: italic;">50 DELETE pipe_test<BR></SPAN>
+    to overcome this, or try:
+    <SPAN style="font-style: italic;">DIR pipe: WDEL pipe<BR></SPAN>
+    
+<H3>NOTE:</H3>
+
+<P>
+    A pipe can normally hold a few extra characters that the
+    size originally given to the pipe (in the example 203 is
+    returned on most implementations rather than 200 as might be
+    expected). This does not cause a problem.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    Refer to <A style="font-style: italic;" href="KeywordsQ.html#QLINK">QLINK</A> and also the Device Drivers Appendix.
+    
+    See also <A style="font-style: italic;" href="KeywordsQ.html#QCOUNT%">QCOUNT%</A> and <A style="font-style: italic;" href="KeywordsQ.html#QSPACE%">QSPACE%</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="QSPACE%" id="QSPACE%"></A>QSPACE%</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">QSPACE% (#pipe_ch)<BR></SPAN> Location: <SPAN style="font-style: italic;">PIPES (DIY Toolkit - Vol P)<BR></SPAN>
+    This function returns the amount of empty space in a pipe
+    connected to the specified channel.
+    <SPAN style="font-style: italic;">PRINT QSPACE(#3)<BR></SPAN>
+    is therefore the same as:
+    <SPAN style="font-style: italic;">PRINT QSIZE%(#3)-QCOUNT%(#3)<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    Refer to <A style="font-style: italic;" href="KeywordsQ.html#QCOUNT%">QCOUNT%</A> and <A style="font-style: italic;" href="KeywordsQ.html#QSIZE%">QSIZE%</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="QTRAP" id="QTRAP"></A>QTRAP</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">QTRAP #ch,key</SPAN> [<SPAN style="font-style: italic;">,d1</SPAN> [<SPAN style="font-style: italic;">,d2</SPAN> [<SPAN style="font-style: italic;">,d3</SPAN> [<SPAN style="font-style: italic;">,a1</SPAN> [<SPAN style="font-style: italic;">,a2</SPAN> ]]]]] Location: <SPAN style="font-style: italic;">TRAPS (DIY Toolkit Vol T)<BR></SPAN>
+    This command is similar to <SPAN style="font-style: italic;">IO_TRAP</SPAN> in that it allows you to
+    access the machine code TRAP #3 system calls directly.
+    
+    You will need to pass at least two parameters, the number
+    of the channel to be affected and the operation <SPAN style="font-style: italic;">key</SPAN> to be
+    carried out (this is equivalent to the value in D0 when TRAP
+    #3 is performed). The other parameters allow you to pass the
+    various register values which may be required by the system
+    calls. The timeout parameter (D3) defaults to -1 (infinite
+    timeout).
+    
+    This can be used effectively to set the <SPAN style="font-style: italic;">INK</SPAN> and <SPAN style="font-style: italic;">PAPER</SPAN> colours
+    for THOR XVI's <SPAN style="font-style: italic;">MODE 12</SPAN> and still allow the program to be
+    compiled. For example:
+    
+    <SPAN style="font-style: italic;">QTRAP #2,HEX('27'),4<BR></SPAN>
+    will set the <SPAN style="font-style: italic;">PAPER</SPAN> colour in the window #2 to Green
+    (although the <SPAN style="font-style: italic;">STRIP</SPAN> colour will remain unaffected).
+    
+    
+<H3>WARNING:</H3>
+
+<P>
+    Several TRAP #3 calls can crash the computer - make certain
+    that you know what you are doing!
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsI.html#IO_TRAP">IO_TRAP</A>, <A style="font-style: italic;" href="KeywordsT.html#TTET3">TTET3</A>, <A style="font-style: italic;" href="KeywordsM.html#MTRAP">MTRAP</A> and <A style="font-style: italic;" href="KeywordsB.html#BTRAP">BTRAP</A>.
+    
+    Any return parameters can be read with <A style="font-style: italic;" href="KeywordsD.html#DATAREG">DATAREG</A> and <A style="font-style: italic;" href="KeywordsA.html#ADDREG">ADDREG</A>.
+    
+    <A style="font-style: italic;" href="KeywordsC.html#CLS">CLS</A>, <A style="font-style: italic;" href="KeywordsP.html#PAN">PAN</A> and <A style="font-style: italic;" href="KeywordsS.html#SCROLL">SCROLL</A> can also be used to call TRAP #3.
+    
+    Refer to the QDOS/SMS Reference Manual (Section 15) for
+    details of the various system TRAP #3 calls.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="QuATARI" id="QuATARI"></A>QuATARI</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">QuATARI<BR></SPAN> Location: <SPAN style="font-style: italic;">Beuletools, FN<BR></SPAN>
+    This is a logical function which returns either 1 (true) or
+    0 (false) depending on whether or not the command was executed
+    on an Atari QL-Emulator. Unfortunately, there are some
+    additional keywords only available on the Emulator, so a
+    portable program which uses these has to check which system it
+    is running on first.
+    
+    
+<H3>NOTE:</H3>
+
+<P>
+    This function does not always work!
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    Also see <A style="font-style: italic;" href="KeywordsQ.html#QDOS$">QDOS$</A>, <A style="font-style: italic;" href="KeywordsA.html#ATARI">ATARI</A>, <A style="font-style: italic;" href="KeywordsV.html#VER$">VER$</A>, <A style="font-style: italic;" href="KeywordsQ.html#QRAM$">QRAM$</A>, <A style="font-style: italic;" href="KeywordsW.html#WMAN$">WMAN$</A>, <A style="font-style: italic;" href="KeywordsP.html#P_ENV">P_ENV</A>.
+    
+    <A style="font-style: italic;" href="KeywordsM.html#MACHINE">MACHINE</A> is much more reliable.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="QUEUE%" id="QUEUE%"></A>QUEUE%</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">QUEUE% (string$)<BR></SPAN> Location: <SPAN style="font-style: italic;">QBASE (DIY Toolkit Vol Q)<BR></SPAN>
+    <SPAN style="font-style: italic;">QUEUE%</SPAN> is a function but does exactly the same as <SPAN style="font-style: italic;">FORCE_TYPE</SPAN> and
+    <SPAN style="font-style: italic;">TYPE_IN</SPAN>.
+    
+    The return value is zero if all bytes have been
+    successfully typed in, negative if the keyboard queue is full
+    and positive if another problem occured. The absolute value of
+    the return always indicates how many characters <SPAN style="font-style: italic;">QUEUE%</SPAN> failed to
+    send.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="QUIT" id="QUIT"></A>QUIT</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">QUIT<BR></SPAN> Location: <SPAN style="font-style: italic;">SMS<BR></SPAN>
+    This command is used to force remove a Multiple SBASIC
+    Interpreter or a compiled Job (in the latter case it is the
+    same as <SPAN style="font-style: italic;">STOP</SPAN>).
+    
+    
+<H3>NOTE:</H3>
+
+<P>
+    If this command is used from SuperBASIC Job 0, it will
+    return an 'Incomplete' error.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsM.html#MB">MB</A> and <A style="font-style: italic;" href="KeywordsS.html#SBASIC">SBASIC</A>.
+    
+    <A style="font-style: italic;" href="KeywordsC.html#CLOSE%20#0">CLOSE #0</A> has the same effect from within a Multiple SBASIC or
+    MultiBASIC Interpreter
+</BODY>
+</HTML>

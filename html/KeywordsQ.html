@@ -1,0 +1,441 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html xmlns:v="urn:schemas-microsoft-com:vml">
+  <head>
+    <meta http-equiv="content-type" content="text/html;
+      charset=ISO-8859-1">
+    <link rel="stylesheet" type="text/css" href="css/QLManualStyle.css" media="all" />
+    <title>Sinclair QL SuperBASIC/SBASIC Reference Manual - Keywords Q</title>
+</head>
+<body>
+<div id="header">
+  SBASIC/SuperBASIC Reference Manual Online (c) RWAP Software
+  <br />
+  The Online Guide to programming the Sinclair QL Home Computer in SuperBASIC
+</div>
+<div id="sideBar">
+    <ul>
+        <li><a href="Foreword.html">Foreword</a></li>
+        <li><a href="Introduction.html">Introduction</a></li>
+        <li><a href="Credits.html">Credits</a></li>        
+        <li><a href="Structure.html">Structure</a></li>
+        <li><a href="WritingPrograms.html">Writing Programs</a></li>
+        <hr></hr>
+        <li><a href="KeywordsA.html">Keywords - A</a></li>
+        <li><a href="KeywordsB.html">Keywords - B</a></li>
+        <li><a href="KeywordsC.html">Keywords - C</a></li>
+        <li><a href="KeywordsD.html">Keywords - D</a></li>
+        <li><a href="KeywordsE.html">Keywords - E</a></li>
+        <li><a href="KeywordsF.html">Keywords - F</a></li>
+        <li><a href="KeywordsG.html">Keywords - G</a></li>
+        <li><a href="KeywordsH.html">Keywords - H</a></li>
+        <li><a href="KeywordsI.html">Keywords - I</a></li>
+        <li><a href="KeywordsJ.html">Keywords - J</a></li>
+        <li><a href="KeywordsK.html">Keywords - K</a></li>
+        <li><a href="KeywordsL.html">Keywords - L</a></li>
+        <li><a href="KeywordsM.html">Keywords - M</a></li>
+        <li><a href="KeywordsN.html">Keywords - N</a></li>
+        <li><a href="KeywordsO.html">Keywords - O</a></li>
+        <li><a href="KeywordsP.html">Keywords - P</a></li>
+        <li><a href="KeywordsQ.html">Keywords - Q</a></li>
+        <li><a href="KeywordsR.html">Keywords - R</a></li>
+        <li><a href="KeywordsS.html">Keywords - S</a></li>
+        <li><a href="KeywordsT.html">Keywords - T</a></li>
+        <li><a href="KeywordsU.html">Keywords - U</a></li>
+        <li><a href="KeywordsV.html">Keywords - V</a></li>
+        <li><a href="KeywordsW.html">Keywords - W</a></li>
+        <li><a href="KeywordsX.html">Keywords - X</a></li>
+        <li><a href="KeywordsY.html">Keywords - Y</a></li>
+        <li><a href="KeywordsZ.html">Keywords - Z</a></li>
+        <li><a href="Keywords_.html">Keywords - Other</a></li>
+        <hr></hr>
+        <li><a href="AppendicesIntro.html">Appendices Introduction</a></li>
+        <li><a href="Appendix01.html">Appendix 1 - Minerva</a></li>
+        <li><a href="Appendix02.html">Appendix 2 - SMSQE</a></li>
+        <li><a href="Appendix03.html">Appendix 3 - Emulators</a></li>
+        <li><a href="Appendix04.html">Appendix 4 - THOR Computers</a></li>
+        <li><a href="Appendix05.html">Appendix 5 - Expansion Boards</a></li>
+        <li><a href="Appendix06.html">Appendix 6 - Compatability</a></li>
+        <li><a href="Appendix07.html">Appendix 7 - Multiple BASICs</a></li>
+        <li><a href="Appendix08.html">Appendix 8 - Error Messages</a></li>
+        <li><a href="Appendix09.html">Appendix 9 - Character Set / Keyboard</a></li>
+        <li><a href="Appendix10.html">Appendix 10 - Fonts</a></li>
+        <li><a href="Appendix11.html">Appendix 11 - Mathematics</a></li>
+        <li><a href="Appendix12.html">Appendix 12 - Device Drivers</a></li>
+        <li><a href="Appendix13.html">Appendix 13 - Extended Pointer Environment</a></li>
+        <li><a href="Appendix14.html">Appendix 14 - Coercion</a></li>
+        <li><a href="Appendix15.html">Appendix 15 - Mouse Drivers</a></li>
+        <li><a href="Appendix16.html">Appendix 16 - The QL Display</a></li>
+        <li><a href="Appendix17.html">Appendix 17 - Networks</a></li>
+        <li><a href="Appendix18.html">Appendix 18 - Configuring Programs</a></li>
+    </ul>
+</div>
+<div id="mainText">
+<h1><a name="QACONVERT"></a>QACONVERT</h1><br>Syntax: <span style="font-style: italic;">QACONVERT filename
+<br></span>Location: <span style="font-style: italic;">ATARIDOS
+<br></span><br>This command takes a file which is stored on a QL Format
+<br>disk and converts it into Atari Format. It will then convert
+<br>special characters in that file to Atari compatible characters
+<br>as well as converting any occurence of a Line Feed character
+<br><span style="font-style: italic;">CHR$(10)</span> to a Carriage Return character <span style="font-style: italic;">CHR$(13)</span> followed by a Line
+<br>Feed character <span style="font-style: italic;">CHR$(10)</span>.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>Compare <a style="font-style: italic;" href="KeywordsA.html#AQCONVERT">AQCONVERT</a> and <a style="font-style: italic;" href="KeywordsQ.html#QICONVERT">QICONVERT</a>.
+<br><br>See also <a style="font-style: italic;" href="KeywordsA.html#ACOPY">ACOPY</a> and <a style="font-style: italic;" href="KeywordsQ.html#QCOPY">QCOPY</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="QCOPY"></a>QCOPY</h1><br>Syntax: <span style="font-style: italic;">QCOPY filename1,filename2
+<br></span>Location: <span style="font-style: italic;">ATARIDOS
+<br></span><br>This command is similar to <span style="font-style: italic;">COPY</span> except that it copies a file
+<br>from an Atari Format disk to a QL Format disk.  No conversion
+<br>takes place.
+<br><br><h3>NOTE:
+<br></h3><br>You will need to pass the Atari filename in quote marks if
+<br>it includes a three letter extension preceded by a dot eg:
+<br><br><span style="font-style: italic;">QCOPY "flp1_PROGRAM.BAS", flp2_PROGRAM.BAS
+<br></span><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsA.html#ACOPY">ACOPY</a> copies a file from a QL disk to an Atari disk.
+<br><br>Level-3 device drivers allow you to read and write to Atari
+<br>and IBM format disks anyway.
+<br><br>See <a style="font-style: italic;" href="KeywordsA.html#AFORMAT and AQCONVERT">AFORMAT and AQCONVERT</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="QCOUNT%"></a>QCOUNT%</h1><br>Syntax: <span style="font-style: italic;">QCOUNT% (#pipe_ch)
+<br></span>Location: <span style="font-style: italic;">PIPES (DIY Toolkit - Vol P)
+<br></span><br>This function is designed to make the use of pipes easier.
+<br><br>Provided that the specified channel is linked to a pipe
+<br>(normally the input end of the pipe), this function will
+<br>return the number of characters which are waiting to be read
+<br>from the pipe.
+<br><br><h3>NOTE:
+<br></h3><br>The value returned will be the exact number of characters
+<br>placed into the pipe, which will therefore include the line
+<br>feed characters  and  other  control characters.    Take  the
+<br>example of:
+<br><span style="font-style: italic;">10 OPEN #3,pipe_1048
+<br>20 PRINT #3,'HELLO'
+<br>30 PRINT QCOUNT%(#3)
+<br></span><br>The value of 6 is returned, this is because the <span style="font-style: italic;">PRINT
+<br></span>statement has added a line feed to the end of the word
+<br><span style="font-style: italic;">'HELLO'</span>, so that this can be read by an <span style="font-style: italic;">INPUT</span> command.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>Refer to <a style="font-style: italic;" href="KeywordsQ.html#QLINK">QLINK</a> and also the Device Drivers Appendix.
+<br><br>See also <a style="font-style: italic;" href="KeywordsQ.html#QSIZE%">QSIZE%</a> and <a style="font-style: italic;" href="KeywordsQ.html#QSPACE%">QSPACE%</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="QDOS$"></a>QDOS$</h1><br>Syntax: <span style="font-style: italic;">QDOS$
+<br></span>Location: <span style="font-style: italic;">Fn, TinyToolkit, BTool
+<br></span><br>This function returns a string containing the version code
+<br>of the operating system on which SuperBASIC is running.
+<br><br>Example values:
+<br><br><h3><span style="font-style: italic;">QDOS$</h3></span><h3>Operating System
+<br></h3><br>1.03the first main version of QDOS (an upgrade is
+<br>essential if you have an earlier version!)
+<br><br>1x13all MGx ROMs, eg. 1G13 for the MGG
+<br><br>1.63the first version of Minerva
+<br><br>1.76the  first  version  of  Minerva  with  reliable
+<br>MultiBASICs
+<br><br>1.98the latest and best version of Minerva
+<br><br>2.xxSMS version
+<br><br>3.xxthe version number of the Amiga QL Emulator
+<br><br>4.xxthe first version of ARGOS on a THOR 1 computer
+<br><br>5.xxthe version of ARGOS on a THOR 20 computer
+<br><br>6.xxthe version of ARGOS on a THOR XVI computer
+<br><br>6.41the final version of the THOR ARGOS ROM
+<br><br><h3>NOTE 1:
+<br></h3><br><span style="font-style: italic;">VER$</span> is normally used to identify the version of the
+<br>SuperBASIC interpreter and <span style="font-style: italic;">QDOS$</span> to identify the version of QDOS
+<br>(the operating system). However, as SuperBASIC is an integral
+<br>part of the operating system on most QDOS computers, there
+<br>should really only be a need to use one of these functions and
+<br>not both.
+<br><br><h3>NOTE 2:
+<br></h3><br>The '.' in <span style="font-style: italic;">QDOS$</span> is changed on MG and SMS v2.50+ (on Gold
+<br>Cards and Super Gold Cards only) to reflect the country code
+<br>of the language version currently loaded.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsV.html#VER$">VER$</a> contains another code identifying the operating system.
+<br><br href="KeywordsV.html#VER$(1)">VER$(1)</a> is identical to <a style="font-style: italic;" href="KeywordsQ.html#QDOS$">QDOS$</a> for Minerva ROMs and SMS.
+<br><br>You should also look at <a style="font-style: italic;" href="KeywordsM.html#MACHINE">MACHINE</a> and <a style="font-style: italic;" href="KeywordsP.html#PROCESSOR">PROCESSOR</a>.
+<br><br><a style="font-style: italic;" href="KeywordsL.html#LANG_USE">LANG_USE</a> allows you to change the operating system language.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="QFLIM"></a>QFLIM</h1><br>Syntax: <span style="font-style: italic;">QFLIM (</span>[<span style="font-style: italic;">#channel,</span>]<span style="font-style: italic;"> n)    n=0..3
+<br></span>Location: <span style="font-style: italic;">Fn
+<br></span><br>With the Pointer Interface present, each job has a maximum
+<br>outline window size in which it can open its windows to avoid
+<br>storing more information than necessary when switching between
+<br>jobs and saving the window contents.
+<br><br>The function <span style="font-style: italic;">QFLIM</span> returns the following information about
+<br>this  maximum  outline  size,  in  the  (window  independent)
+<br>absolute co-ordinate system for the different <span style="font-style: italic;">n</span>:
+<br><br><h3><span style="font-style: italic;">n</span>information
+<br></h3><br>0width in pixels (eg. 512 on a standard QL display).
+<br><br>1height in pixels (eg. 256 on a standard QL display).
+<br><br>2leftmost horizontal position
+<br><br>3uppermost vertical position
+<br><br><span style="font-style: italic;">QFLIM</span> needs an open window to get the information from
+<br>(default #1). The return values refer to the current job. If
+<br>any other values of <span style="font-style: italic;">n</span> are used, a bad parameter error will be
+<br>generated.
+<br><br><h3>Example:
+<br></h3><br>If there are no windows other than #0, #1 and #2, and their
+<br><br>positions are as follows:
+<br><span style="font-style: italic;">100 WINDOW#0,100,100,50,50
+<br>110 WINDOW#1,20,20,0,0
+<br>120 WINDOW#2,200,50,40,40
+<br>130 FOR c=0 TO 2: PAPER#c,3: BORDER#c,1,4: CLS#c
+<br></span><br>The Pointer Interface will reduce the outline size of the
+<br><br>screen available to SuperBASIC, which can be checked with
+<br><br>the next program or by swapping to other jobs which fill
+<br><br>the whole screen.
+<br><span style="font-style: italic;">100 ch=2
+<br>110 xmin=QFLIM(#ch,2): xmax=xmin+ QFLIM(#ch,0)
+<br>120 ymin=QFLIM(#ch,3): ymax=ymin+ QFLIM(#ch,1)
+<br>130 PRINT "x = ";xmin;"..";xmax
+<br>140 PRINT "y = ";ymin;"..";ymax
+<br>150 percent% = 100 * QFLIM(#ch,0) * QFLIM(#ch,1) / (512*256)
+<br>160 PRINT "fills"!percent%;"% of the screen"
+<br></span><br>Type <span style="font-style: italic;">WTV</span> or <span style="font-style: italic;">WMON</span> to restore standard window sizes.  Note that
+<br><br>this example expects the display to be 512x256 pixels.
+<br><br><h3>NOTE 1:
+<br></h3><br>The Pointer Interface makes a distinction between the
+<br>primary window (generally the first window to be used for
+<br>input/output operations) and secondary windows. Although using
+<br><span style="font-style: italic;">QFLIM</span> on a secondary window will return the maximum outlines for
+<br>the current job's windows, using <span style="font-style: italic;">QFLIM</span> on the primary window
+<br>(eg. #0 in SuperBASIC) will return the physical screen size,
+<br>ie. the parameters of the largest possible window:
+<br><br><span style="font-style: italic;">WINDOW QFLIM(#0,0),QFLIM(#0,1),QFLIM(#0,2),QFLIM(#0,3)
+<br></span><br>This can therefore be used to check whether or not the
+<br>extra high resolution modes provided by some Emulators and the
+<br>AURORA is available:
+<br><br><span style="font-style: italic;">exten4=0: IF QFLIM(#0,1)>256:exten4=1
+<br></span><br><h3>NOTE 2:
+<br></h3><br><span style="font-style: italic;">QFLIM</span> returns useless numbers greater than 10000 if the
+<br>Pointer Interface is not present.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsW.html#WMAN$">WMAN$</a>, <a style="font-style: italic;" href="KeywordsW.html#WINF$">WINF$</a> allow you to find out various information about
+<br>the Pointer Environment.
+<br><br href="KeywordsX.html#XLIM">XLIM</a>, <a style="font-style: italic;" href="KeywordsS.html#SCR_XLIM">SCR_XLIM</a>, <a style="font-style: italic;" href="KeywordsY.html#YLIM">YLIM</a> and <a style="font-style: italic;" href="KeywordsS.html#SCR_YLIM">SCR_YLIM</a> are similar to <a style="font-style: italic;" href="KeywordsQ.html#QFLIM">QFLIM</a>.
+<br><br>See also <a style="font-style: italic;" href="KeywordsO.html#OUTLN">OUTLN</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="QICONVERT"></a>QICONVERT</h1><br>Syntax: <span style="font-style: italic;">QICONVERT filename
+<br></span>Location: <span style="font-style: italic;">ATARIDOS
+<br></span><br>This command takes a file which is stored on a QL Format
+<br>disk and converts it into IBM Format. It will then convert
+<br>special characters in that file to IBM compatible characters
+<br>as well as converting any occurence of a Line Feed character
+<br><span style="font-style: italic;">CHR$(10)</span> to a Carriage Return character <span style="font-style: italic;">CHR$(13)</span> followed by a Line
+<br>Feed character <span style="font-style: italic;">CHR$(10)</span>.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>Compare <a style="font-style: italic;" href="KeywordsI.html#IQCONVERT">IQCONVERT</a> and <a style="font-style: italic;" href="KeywordsA.html#AQCONVERT">AQCONVERT</a>.
+<br><br>See also <a style="font-style: italic;" href="KeywordsA.html#ACOPY">ACOPY</a> and <a style="font-style: italic;" href="KeywordsQ.html#QCOPY">QCOPY</a>.
+<br><br>See <a style="font-style: italic;" href="KeywordsI.html#IFORMAT">IFORMAT</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="QLINK"></a>QLINK</h1><br>Syntax: <span style="font-style: italic;">QLINK #output TO #input
+<br></span>Location: <span style="font-style: italic;">PIPES (DIY Toolkit - Vol P)
+<br></span><br>This command is the same as <span style="font-style: italic;">TCONNECT</span>.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>The following functions are also useful when accessing
+<br>pipes: <a style="font-style: italic;" href="KeywordsE.html#EOFW">EOFW</a>, <a style="font-style: italic;" href="KeywordsP.html#PEND">PEND</a>, <a style="font-style: italic;" href="KeywordsQ.html#QSIZE%">QSIZE%</a>, <a style="font-style: italic;" href="KeywordsQ.html#QCOUNT%">QCOUNT%</a> and <a style="font-style: italic;" href="KeywordsQ.html#QSPACE%">QSPACE%</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="QLOAD"></a>QLOAD</h1><br>Syntax: <span style="font-style: italic;">QLOAD </span>[<span style="font-style: italic;">device_</span>]<span style="font-style: italic;">filename
+<br></span>Location: <span style="font-style: italic;">SMS
+<br></span><br>This command is very similar to <span style="font-style: italic;">LOAD</span> as implemented on the
+<br>SMS.
+<br><br>The only difference are that it insists that the program
+<br>must have been saved with the <span style="font-style: italic;">_sav</span> suffix (eg. <span style="font-style: italic;">flp1_TEST_sav</span>).
+<br><br><span style="font-style: italic;">QLOAD</span> will then proceed to load the BASIC program whether it
+<br>was saved with the normal <span style="font-style: italic;">SAVE</span> or <span style="font-style: italic;">SAVE_O</span> commands, or with the
+<br><span style="font-style: italic;">QSAVE</span> or <span style="font-style: italic;">QSAVE_O</span> commands.
+<br><br><h3>NOTE 1:
+<br></h3><br>If a program has been saved using <span style="font-style: italic;">QSAVE</span> on a Minerva machine
+<br>with Integer Tokenisation enabled, then <span style="font-style: italic;">QLOAD</span> will not be able
+<br>to understand it properly and you will notice that numbers and
+<br>keywords have been replaced by various symbols.
+<br><br><h3>NOTE 2:
+<br></h3><br>Any commands which appear after a <span style="font-style: italic;">QLOAD</span> command will be
+<br>ignored.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>Also see <a style="font-style: italic;" href="KeywordsL.html#LOAD">LOAD</a>, <a style="font-style: italic;" href="KeywordsQ.html#QLRUN">QLRUN</a>, <a style="font-style: italic;" href="KeywordsQ.html#QMERGE">QMERGE</a> and <a style="font-style: italic;" href="KeywordsQ.html#QSAVE
+">QSAVE
+</a><br>Compare <a style="font-style: italic;" href="KeywordsU.html#UNLOAD">UNLOAD</a>.
+<br><h3><hr style="width: 100%; height: 2px;">QLRUN<br></h3><br>Syntax: <span style="font-style: italic;">QLRUN </span>[<span style="font-style: italic;">device_</span>]<span style="font-style: italic;">filename
+<br></span>Location: <span style="font-style: italic;">SMS
+<br></span><br>This command is exactly the same as <span style="font-style: italic;">QLOAD</span> except that the
+<br>program is automatically <span style="font-style: italic;">RUN</span> as soon as it has been loaded into
+<br>memory.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsQ.html#QLOAD">QLOAD</a> and <a style="font-style: italic;" href="KeywordsQ.html#QMRUN">QMRUN</a>.
+<br><h3><hr style="width: 100%; height: 2px;">QL_PEX<br></h3><br>Syntax: <span style="font-style: italic;">QL_PEX
+<br></span>Location: <span style="font-style: italic;">PEX
+<br></span><br>This function returns the offset of the keyword linkage
+<br>block of the keywords added by the PEX toolkit.  This offset
+<br>is needed for Qliberator's $$asmb directorive.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsP.html#PEX_SAVE.
+">PEX_SAVE.
+</a><br><h3>
+<br></h3><hr style="width: 100%; height: 2px;"><h1><a name="QMERGE"></a>QMERGE</h1><br>Syntax: <span style="font-style: italic;">QMERGE </span>[<span style="font-style: italic;">device_</span>]<span style="font-style: italic;">filename
+<br></span>Location: <span style="font-style: italic;">SMS
+<br></span><br>This command bears the same relationship to <span style="font-style: italic;">MERGE</span> as <span style="font-style: italic;">QLOAD
+<br></span>does to <span style="font-style: italic;">LOAD</span>.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>Refer to <a style="font-style: italic;" href="KeywordsQ.html#QLOAD">QLOAD</a> and <a style="font-style: italic;" href="KeywordsM.html#MERGE">MERGE</a>.
+<br><br>See also <a style="font-style: italic;" href="KeywordsQ.html#QMRUN
+">QMRUN
+</a><h3><hr style="width: 100%; height: 2px;">QMRUN<br></h3><br>Syntax: <span style="font-style: italic;">QMRUN </span>[<span style="font-style: italic;">device_</span>]<span style="font-style: italic;">filename
+<br></span>Location: <span style="font-style: italic;">SMS
+<br></span><br>This command is exactly the same as <span style="font-style: italic;">QMERGE</span> except that it
+<br>ensures that the program is <span style="font-style: italic;">RUN</span> as soon as it has been merged
+<br>into memory.
+<br><br>If the command is issued from the command line as a direct
+<br>command, then the merged program is <span style="font-style: italic;">RUN</span> from line 1.
+<br><br>If, however, <span style="font-style: italic;">QMRUN</span> appears in the program itself, the
+<br>program continues from the statement following <span style="font-style: italic;">QMRUN</span> (making it
+<br>the same as <span style="font-style: italic;">QMERGE</span>).
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsQ.html#QMERGE">QMERGE</a> and <a style="font-style: italic;" href="KeywordsM.html#MRUN">MRUN</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="QRAM$"></a>QRAM$</h1><br>Syntax: <span style="font-style: italic;">QRAM$
+<br></span>Location: <span style="font-style: italic;">TinyToolkit, BTool
+<br></span><br>This function returns a string containing the version
+<br>number of the Pointer Environment, or an empty string if this
+<br>is not present.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsP.html#PINF$">PINF$</a> is exactly the same as <a style="font-style: italic;" href="KeywordsQ.html#QRAM$">QRAM$</a>.
+<br><br><a style="font-style: italic;" href="KeywordsW.html#WMAN$">WMAN$</a> and <a style="font-style: italic;" href="KeywordsW.html#WINF$">WINF$</a> contain the version number of the Window
+<br>Manager.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="QSAVE"></a>QSAVE</h1><br>Syntax: <span style="font-style: italic;">QSAVE </span>[<span style="font-style: italic;">device_</span>]<span style="font-style: italic;">filename
+<br></span><br>or <span style="font-style: italic;">QSAVE
+<br></span>Location: <span style="font-style: italic;">SMS
+<br></span><br>For  several  years  now,  the  best  utility  for  saving
+<br>SuperBASIC programs in a form which can be loaded very quickly
+<br>into memory has been QLOAD from Liberation Software.
+<br><br>This utility stores SuperBASIC programs on disk in a
+<br>special format which although seems meaningless if you <span style="font-style: italic;">VIEW</span> the
+<br>file, allows the program to be loaded at around 3x the speed
+<br>of the normal <span style="font-style: italic;">LOAD</span> command, which can be very useful for large
+<br>programs.  Unlike other similar utilities, programs which have
+<br>been saved using this utility can be loaded into any other ROM
+<br>version without any trouble, using the <span style="font-style: italic;">QLOAD</span> command.
+<br><br>It is nice to see that this utility has been implemented as
+<br>part of SMS.
+<br><br>The <span style="font-style: italic;">QSAVE</span> command allows you to save the whole of SuperBASIC
+<br>program currently in memory under the specified filename to
+<br>the specified device.  If the filename does not end in the
+<br>suffix _SAV, then this will be added automatically.  If no
+<br>device is specified (or it does not exist), then Toolkit II's
+<br>default data device will be used.  You will also be prompted
+<br>to confirm whether an existing file should be overwritten if
+<br>necessary.
+<br><br>The second variant of the command will allow you to <span style="font-style: italic;">QSAVE
+<br></span>the program in memory under the same filename as when <span style="font-style: italic;">LOAD</span> or
+<br><span style="font-style: italic;">QLOAD</span>  was  last  used  (with  the  _SAV  suffix  appended  if
+<br>necessary).  If the original filename used when the program
+<br>was <span style="font-style: italic;">LOAD</span>ed ended in _BAS, then <span style="font-style: italic;">QSAVE</span> will alter this to be the
+<br>_SAV suffix.  This variant will also take the version number
+<br>of the file when it was <span style="font-style: italic;">LOAD</span>ed (or <span style="font-style: italic;">QLOAD</span>ed) and then increase
+<br>this by one.
+<br><br><h3>NOTE 1:
+<br></h3><br>To  ensure  that  <span style="font-style: italic;">QSAVE</span>d  programs  can  be  used  on  all
+<br>implementations of the QL, ensure that if used from Minerva,
+<br>Integer Tokenisation is switched off - you will need to follow
+<br>the following procedure:
+<br><br>(1) <span style="font-style: italic;">POKE \\212,128
+<br></span><br>(2) <span style="font-style: italic;">LOAD</span> ASCII version of the program (or type <span style="font-style: italic;">NEW</span>)
+<br><br>(3) Alter program as necessary
+<br><br>(4) <span style="font-style: italic;">QSAVE</span> the fast loading version of the program
+<br><br><h3>NOTE 2:
+<br></h3><br><span style="font-style: italic;">QSAVE</span> without a filename suffers the same problems as <span style="font-style: italic;">SAVE</span>.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsS.html#SAVE">SAVE</a>, <a style="font-style: italic;" href="KeywordsQ.html#QLRUN">QLRUN</a> and <a style="font-style: italic;" href="KeywordsQ.html#QMERGE">QMERGE</a>.
+<br><br><a style="font-style: italic;" href="KeywordsD.html#DATAD$">DATAD$</a> allows you to read the current default data device.
+<br><br>See also <a style="font-style: italic;" href="KeywordsQ.html#QSAVE_O">QSAVE_O</a>.
+<br><br><a style="font-style: italic;" href="KeywordsF.html#FVERS">FVERS</a> allows you to read the current version number of a
+<br>file.
+<br><h3><hr style="width: 100%; height: 2px;">QSAVE_O<br></h3><br>Syntax: <span style="font-style: italic;">QSAVE_O </span>[<span style="font-style: italic;">device_</span>]<span style="font-style: italic;">filename
+<br></span><br>or <span style="font-style: italic;">QSAVE_O
+<br></span>Location: <span style="font-style: italic;">SMS
+<br></span><br>This command is the same as <span style="font-style: italic;">QSAVE</span> except that it will
+<br>automatically  overwrite  an  existing  file  with  the  same
+<br>filename.
+<br><br><h3>NOTE:
+<br></h3><br>On Minerva machines you need to be careful about Integer
+<br>Tokenisation - see <span style="font-style: italic;">QSAVE</span>.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsQ.html#QSAVE">QSAVE</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="QSIZE%"></a>QSIZE%</h1><br>Syntax: <span style="font-style: italic;">QSIZE% (#pipe_ch)
+<br></span>Location: <span style="font-style: italic;">PIPES (DIY Toolkit - Vol P)
+<br></span><br>This function is designed to read the amount of characters
+<br>which a pipe linked to the specified channel can hold at any
+<br>one time.
+<br><br><h3>Example:
+<br></h3><span style="font-style: italic;">10 OPEN #4,pipe_200
+<br>20 QLINK #4 TO #3
+<br>25 PRINT #4,'QL DATA'
+<br>30 PRINT QSIZE% (#3), QCOUNT%(#3)
+<br>40 CLOSE #3:CLOSE #4
+<br></span><br>This short program will print the figures 203 and 8 on
+<br>screen.
+<br><br>This will also work with named pipes on SMS:
+<br><span style="font-style: italic;">10 OPEN_NEW #4,pipe_test_200
+<br>20 OPEN_IN #3,pipe_test
+<br>25 PRINT #4,'QL DATA'
+<br>30 PRINT QSIZE% (#3), QCOUNT%(#3)
+<br>40 CLOSE #3:CLOSE #4
+<br></span><br>Note however, that if you re-run the program the figure
+<br>returned by <span style="font-style: italic;">QCOUNT%</span> continues increasing - this is because a
+<br>named pipe does not disappear just because both ends of the
+<br>pipe have been closed.  You would need to add the line:
+<br><span style="font-style: italic;">50 DELETE pipe_test
+<br></span><br>to overcome this, or try:
+<br><span style="font-style: italic;">DIR pipe: WDEL pipe
+<br></span><br><h3>NOTE:
+<br></h3><br>A pipe can normally hold a few extra characters that the
+<br>size originally given to the pipe (in the example 203 is
+<br>returned on most implementations rather than 200 as might be
+<br>expected).  This does not cause a problem.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>Refer to <a style="font-style: italic;" href="KeywordsQ.html#QLINK">QLINK</a> and also the Device Drivers Appendix.
+<br><br>See also <a style="font-style: italic;" href="KeywordsQ.html#QCOUNT%">QCOUNT%</a> and <a style="font-style: italic;" href="KeywordsQ.html#QSPACE%">QSPACE%</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="QSPACE%"></a>QSPACE%</h1><br>Syntax: <span style="font-style: italic;">QSPACE% (#pipe_ch)
+<br></span>Location: <span style="font-style: italic;">PIPES (DIY Toolkit - Vol P)
+<br></span><br>This function returns the amount of empty space in a pipe
+<br>connected to the specified channel.
+<br><span style="font-style: italic;">PRINT QSPACE(#3)
+<br></span><br>is therefore the same as:
+<br><span style="font-style: italic;">PRINT QSIZE%(#3)-QCOUNT%(#3)
+<br></span><br><h3>CROSS-REFERENCE:<br></h3><br>Refer to <a style="font-style: italic;" href="KeywordsQ.html#QCOUNT%">QCOUNT%</a> and <a style="font-style: italic;" href="KeywordsQ.html#QSIZE%">QSIZE%</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="QTRAP"></a>QTRAP</h1><br>Syntax: <span style="font-style: italic;">QTRAP #ch,key </span>[<span style="font-style: italic;">,d1 </span>[<span style="font-style: italic;">,d2 </span>[<span style="font-style: italic;">,d3 </span>[<span style="font-style: italic;">,a1 </span>[<span style="font-style: italic;">,a2 </span>]]]]]
+Location: <span style="font-style: italic;">TRAPS (DIY Toolkit Vol T)
+<br></span><br>This command is similar to <span style="font-style: italic;">IO_TRAP</span> in that it allows you to
+<br>access the machine code TRAP #3 system calls directly.
+<br><br>You will need to pass at least two parameters, the number
+<br>of the channel to be affected and the operation <span style="font-style: italic;">key</span> to be
+<br>carried out (this is equivalent to the value in D0 when TRAP
+<br>#3 is performed).  The other parameters allow you to pass the
+<br>various register values which may be required by the system
+<br>calls.  The timeout parameter (D3) defaults to -1 (infinite
+<br>timeout).
+<br><br>This can be used effectively to set the <span style="font-style: italic;">INK</span> and <span style="font-style: italic;">PAPER</span> colours
+<br>for THOR XVI's <span style="font-style: italic;">MODE 12</span> and still allow the program to be
+<br>compiled.  For example:
+<br><br><span style="font-style: italic;">QTRAP #2,HEX('27'),4
+<br></span><br>will set the <span style="font-style: italic;">PAPER</span> colour in the window #2 to Green
+<br>(although the <span style="font-style: italic;">STRIP</span> colour will remain unaffected).
+<br><br><h3>WARNING:
+<br></h3><br>Several TRAP #3 calls can crash the computer - make certain
+<br>that you know what you are doing!
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsI.html#IO_TRAP">IO_TRAP</a>, <a style="font-style: italic;" href="KeywordsT.html#TTET3">TTET3</a>, <a style="font-style: italic;" href="KeywordsM.html#MTRAP">MTRAP</a> and <a style="font-style: italic;" href="KeywordsB.html#BTRAP">BTRAP</a>.
+<br><br>Any return parameters can be read with <a style="font-style: italic;" href="KeywordsD.html#DATAREG">DATAREG</a> and <a style="font-style: italic;" href="KeywordsA.html#ADDREG">ADDREG</a>.
+<br><br><a style="font-style: italic;" href="KeywordsC.html#CLS">CLS</a>, <a style="font-style: italic;" href="KeywordsP.html#PAN">PAN</a> and <a style="font-style: italic;" href="KeywordsS.html#SCROLL">SCROLL</a> can also be used to call TRAP #3.
+<br><br>Refer to the QDOS/SMS Reference Manual (Section 15) for
+<br>details of the various system TRAP #3 calls.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="QuATARI"></a>QuATARI</h1><br>Syntax: <span style="font-style: italic;">QuATARI
+<br></span>Location: <span style="font-style: italic;">Beuletools, FN
+<br></span><br>This is a logical function which returns either 1 (true) or
+<br>0 (false) depending on whether or not the command was executed
+<br>on  an  Atari  QL-Emulator.  Unfortunately,  there  are  some
+<br>additional keywords only available on the Emulator, so a
+<br>portable program which uses these has to check which system it
+<br>is running on first.
+<br><br><h3>NOTE:
+<br></h3><br>This function does not always work!
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>Also see <a style="font-style: italic;" href="KeywordsQ.html#QDOS$">QDOS$</a>, <a style="font-style: italic;" href="KeywordsA.html#ATARI">ATARI</a>, <a style="font-style: italic;" href="KeywordsV.html#VER$">VER$</a>, <a style="font-style: italic;" href="KeywordsQ.html#QRAM$">QRAM$</a>, <a style="font-style: italic;" href="KeywordsW.html#WMAN$">WMAN$</a>, <a style="font-style: italic;" href="KeywordsP.html#P_ENV">P_ENV</a>.
+<br><br><a style="font-style: italic;" href="KeywordsM.html#MACHINE">MACHINE</a> is much more reliable.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="QUEUE%"></a>QUEUE%</h1><br>Syntax: <span style="font-style: italic;">QUEUE% (string$)
+<br></span>Location: <span style="font-style: italic;">QBASE (DIY Toolkit Vol Q)
+<br></span><br><span style="font-style: italic;">QUEUE%</span> is a function but does exactly the same as <span style="font-style: italic;">FORCE_TYPE</span> and
+<br><span style="font-style: italic;">TYPE_IN</span>.
+<br><br>The  return  value  is  zero  if  all  bytes  have  been
+<br>successfully typed in, negative if the keyboard queue is full
+<br>and positive if another problem occured. The absolute value of
+<br>the return always indicates how many characters <span style="font-style: italic;">QUEUE%</span> failed to
+<br>send.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="QUIT"></a>QUIT</h1><br>Syntax: <span style="font-style: italic;">QUIT
+<br></span>Location: <span style="font-style: italic;">SMS
+<br></span><br>This command is used to force remove a Multiple SBASIC
+<br>Interpreter or a compiled Job (in the latter case it is the
+<br>same as <span style="font-style: italic;">STOP</span>).
+<br><br><h3>NOTE:
+<br></h3><br>If this command is used from SuperBASIC Job 0, it will
+<br>return an 'Incomplete' error.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsM.html#MB">MB</a> and <a style="font-style: italic;" href="KeywordsS.html#SBASIC">SBASIC</a>.
+<br><br><a style="font-style: italic;" href="KeywordsC.html#CLOSE #0">CLOSE #0</a> has the same effect from within a Multiple SBASIC or
+<br>MultiBASIC Interpreter
+<br></div>
+</body>
+</html>
