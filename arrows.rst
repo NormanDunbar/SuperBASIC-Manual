@@ -2,3 +2,6 @@
 -  Right →
 -  Up ↑
 -  Down ↓
+-  A umlaut = Ä
+-  Pi = Π
+-  Copyright = ©
