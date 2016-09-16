@@ -1,3 +1,11 @@
+==========
+Keywords R
+==========
+
+TODO
+====
+
+
 RAD
 ===
 
@@ -7,19 +15,24 @@ RAD
 | Location |  QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
 
- This function is used to convert an angle in degrees into an angle in
+This function is used to convert an angle in degrees into an angle in
 radians (which is the system used by QDOS to represent angles in
 commands such as SIN, COS, TAN, etc.). Although this will work for any
 value of angle, due to the very nature of angles, angle should be in the
-range 0...360, which will return a value in the range 0...2�.
+range 0..360, which will return a value in the range 0..2Pi.
 
 **Example**
 
-A small program to draw a circle split into 30 degree segments: 100 MODE
-4:WINDOW 448,200,32,16:SCALE 100,0,0 110 STRIP 2:INK 7 120
-x1=75:y1=50:x2=x1:y2=y1+25 130 CIRCLE x1,y1,25 140 FOR x=0 TO 360/30-1
-150 x2=x1+SIN(RAD(30)\*x)\*25:y2=y1+COS(RAD(30)\*x)\*25 160 LINE x1,y1
-TO x2,y2 170 END FOR x
+A small program to draw a circle split into 30 degree segments:: 
+
+    100 MODE 4:WINDOW 448,200,32,16:SCALE 100,0,0 
+    110 STRIP 2:INK 7 
+    120 x1=75:y1=50:x2=x1:y2=y1+25 
+    130 CIRCLE x1,y1,25 
+    140 FOR x=0 TO 360/30-1 
+    150   x2=x1+SIN(RAD(30)*x)*25:y2=y1+COS(RAD(30)*x)*25 
+    160   LINE x1,y1 TO x2,y2 
+    170 END FOR x
 
 **CROSS-REFERENCE**
 
@@ -38,9 +51,9 @@ RAE
 | Location |  Toolfin                                                          |
 +----------+-------------------------------------------------------------------+
 
- The function RAE returns the value of: i / ( ( (1+i):sup:`1/n`) -1 )
+The function RAE returns the value of: i/(((1+i)\ :sup:`1/n`\ ) -1)
 \*n )
- where i and n can be any floating point numbers (see MT for error
+where i and n can be any floating point numbers (see MT for error
 handling).
 
 **CROSS-REFERENCE**
@@ -61,8 +74,8 @@ RAFE
 | Location |  Toolfin                                                          |
 +----------+-------------------------------------------------------------------+
 
- The function RAFE returns the value of ( ( (1+i) ^ (1/n-1) \* n ) /i
- where i and n can be any floating point numbers (see MT for error
+The function RAFE returns the value of (((1+i)\ :sup:`(1/n-1)` \* n )/i
+where i and n can be any floating point numbers (see MT for error
 handling).
 
 **CROSS-REFERENCE**
@@ -83,7 +96,7 @@ RAMTOP
 | Location |  Beuletools                                                       |
 +----------+-------------------------------------------------------------------+
 
- The function returns the active memory in KBytes, whether this is free
+The function returns the active memory in KBytes, whether this is free
 memory or not. On the original QL without any expansion this function
 will return 128, whereas on a QL expanded to 640K, 640 is returned.
 
@@ -92,8 +105,10 @@ will return 128, whereas on a QL expanded to 640K, 640 is returned.
 The value of `RAMTOP <KeywordsR.clean.html#ramtop>`__ can be lowered with
 `RESET <KeywordsR.clean.html#reset>`__ to emulate a machine which has less
 available memory.
-`PRINT <KeywordsP.clean.html#print>`__\ `PRINT(PHYSTOP/1024)-128">(PHYSTOP/1024)-128 <KeywordsP.clean.html#print>`__
+
+`PRINT <KeywordsP.clean.html#print>`__\ (PHYSTOP/1024)-128
 gives the value of the additional memory.
+
 `FREE\_MEM <KeywordsF.clean.html#free-mem>`__, `FREE <KeywordsF.clean.html#free>`__
 and `MT\_FREE <KeywordsM.clean.html#mt-free>`__ return the actually available
 memory.
@@ -109,7 +124,7 @@ RAM\_USE
 | Location |  Trump Card, Gold Card, ST/QL, SMS                                |
 +----------+-------------------------------------------------------------------+
 
- This command is the same as FLP\_USE except that it alters the name of
+This command is the same as FLP\_USE except that it alters the name of
 the device used to access the ramdisks.
 
 **NOTE**
@@ -126,12 +141,13 @@ RAND
 ====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  RAND (devicename)  or RAND (device$)                             |
+| Syntax   || RAND (devicename)  or                                            |
+|          || RAND (device$)                                                   |
 +----------+-------------------------------------------------------------------+
-| Location |  TinyToolkit                                                      |
+| Location || TinyToolkit                                                      |
 +----------+-------------------------------------------------------------------+
 
- Every physical directory device (eg. floppies and microdrives, but not
+Every physical directory device (eg. floppies and microdrives, but not
 RAM disks), contain a random number in their FAT (which is a place on
 the medium which contains internal data, the number of free/bad/empty
 sectors etc). The function RAND returns this number which can be used by
@@ -159,16 +175,20 @@ RANDOMISE
 =========
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  RANDOMISE [(start)] or RANDOMISE \\ (Minerva v1.82+ only)        |
+| Syntax   || RANDOMISE [(start)] or                                           |
+|          || RANDOMISE \\ (Minerva v1.82+ only)                               |
 +----------+-------------------------------------------------------------------+
-| Location |  QL ROM                                                           |
+| Location || QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
 
- SuperBASIC uses a standard method to generate pseudo random numbers.
+SuperBASIC uses a standard method to generate pseudo random numbers.
+
 Each time that the function RND is called, a start value specified by
 the command RANDOMISE is multiplied by a large number and another number
 is added, the solution is modulated and the final number is nearly
-unpredictable. This method means that after a RANDOMISE command with
+unpredictable. 
+
+This method means that after a RANDOMISE command with
 parameter, RND will always generate the same numbers. If you pick
 another number as the parameter (or do not specify a parameter at all),
 this will let RND produce other numbers. If no parameter is specified,
@@ -177,8 +197,12 @@ data such as the time, date, pointers etc.
 
 **Example**
 
-100 RANDOMISE 38 110 FOR n=1 TO 10: PRINT RND(10)
- The program will always write the same ten random numbers on the
+::
+
+    100 RANDOMISE 38 
+    110 FOR n=1 TO 10: PRINT RND(10)
+
+The program will always write the same ten random numbers on the
 screen.
 
 **MINERVA NOTE**
@@ -189,8 +213,11 @@ between when the computer is switched on and when the line containing
 RANDOMISE is reached tends to be the same every time that a program is
 run. Although v2.53+ of SMS makes RANDOMISE without a parameter more
 random, the only other fix is on v1.82+ of Minerva which allows you to
-use: RANDOMISE \\
- instead of the normal RANDOMISE which should alleviate this problem
+use:: 
+
+    RANDOMISE \
+    
+instead of the normal RANDOMISE which should alleviate this problem
 somewhat.
 
 **CROSS-REFERENCE**
@@ -205,30 +232,41 @@ READ
 ====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  READ var\ :sup:`1` :sup:`\*`\ [var\ :sup:`i`]\ :sup:`\* `        |
+| Syntax   |  READ var\ :sup:`1` :sup:`\*`\ [var\ :sup:`i`]\ :sup:`\*`         |
 +----------+-------------------------------------------------------------------+
 | Location |  QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
 
- This command forces the interpreter to look at the current data
+This command forces the interpreter to look at the current data
 pointer, that is to say the next program line which begins with the
-marker DATA. When a program is first RUN, the data pointer is set to the
+marker DATA. 
+
+When a program is *first* RUN, the data pointer is set to the
 start of the program, and hence READ will attempt to assign the first
 value following the first occurrence of DATA to the specified variable.
 Having assigned this value, the data pointer is updated to the next
 value in the same DATA statement, or the next program line if there are
-no more values following the DATA statement. If no more DATA is
+no more values following the DATA statement. 
+
+If no more DATA is
 contained within the program and you try to READ a value, the error 'End
 of File' is reported. SMS's improved interpreter reports 'End of DATA'.
 
 **Example**
 
 A simple program to convert the three letter code returned by DAY$ into
-the full name of the day: 100 DATA
-'Monday','Tuesday','Wednesday','Thursday' 110 DATA
-'Friday','Saturday','Sunday' 120 RESTORE 130 dday$=DAY$ 135 day=(dday$
-INSTR ' MonTueWedThuFriSatSun')/3 140 FOR find\_day=1 TO day 150 IF
-EOF:EXIT find\_day 160 READ dday$ 170 END FOR find\_day 180 PRINT dday$
+the full name of the day:: 
+
+    100 DATA 'Monday','Tuesday','Wednesday','Thursday' 
+    110 DATA 'Friday','Saturday','Sunday' 
+    120 RESTORE 
+    130 dday$=DAY$ 
+    135 day=(dday$ INSTR ' MonTueWedThuFriSatSun')/3 
+    140 FOR find_day=1 TO day 
+    150   IF EOF:EXIT find_day 
+    160   READ dday$ 
+    170 END FOR find_day 
+    180 PRINT dday$
 
 **NOTE 1**
 
@@ -239,16 +277,27 @@ program without line 120.
 **NOTE 2**
 
 If you try to READ a value into a slice of an undimensioned string, the
-value will not be stored and SuperBASIC may stop without a message, eg:
-100 DATA 'Bess ' 110 a$='Hello World' 120 READ a$(7 TO) 130 PRINT a$
- Try by way of comparison, adding the line: 10 DIM a$(12)
- Both of these work under SMS.
+value will not be stored and SuperBASIC may stop without a message, eg::
+
+    100 DATA 'Bess ' 
+    110 a$='Hello World' 
+    120 READ a$(7 TO) 
+    130 PRINT a$
+
+Try by way of comparison, adding the line::
+
+    10 DIM a$(12)
+
+Both of these work under SMS.
 
 **NOTE 3**
 
 The interpreter does not really check the parameters listed after READ,
-and unacceptable parameters, for example: READ 1
- won't report an error and the program continues as if it had read a
+and unacceptable parameters, for example::
+
+    READ 1
+    
+won't report an error and the program continues as if it had read a
 variable. SMS's improved Interpreter reports 'Unacceptable Parameters
 for READ' when the program is RUN.
 
@@ -260,10 +309,22 @@ without having to put READ into a loop.
 
 **Example**
 
-100 DIM x(5) 110 READ x 1000 DATA 1,2,3,4,5,6
- This will read x(0), x(1), x(2), x(3), x(4) and x(5)
- All other implementations insist upon you using something akin to: 100
-DIM x(5) 110 FOR i=0 TO 5:READ x(i) 1000 DATA 1,2,3,4,5,6
+::
+
+    100 DIM x(5) 
+    110 READ x 
+    120 :
+    1000 DATA 1,2,3,4,5,6
+
+
+This will read x(0), x(1), x(2), x(3), x(4) and x(5)
+
+All other implementations insist upon you using something akin to:: 
+
+    100 DIM x(5) 
+    110 FOR i=0 TO 5:READ x(i) 
+    120 :
+    1000 DATA 1,2,3,4,5,6
 
 **CROSS-REFERENCE**
 
@@ -278,25 +339,34 @@ program data.
 RECHP
 =====
 
-+----------+-------------------------------------------------------------------+
-| Syntax   |  RECHP address  or RECHP address\ :sup:`1` :sup:`\*`\ [,address\ :sup:`i`]\ :sup:`\*` (BTool only)  |
-+----------+-------------------------------------------------------------------+
-| Location |  Toolkit II, THOR XVI, BTool                                      |
-+----------+-------------------------------------------------------------------+
++----------+----------------------------------------------------------------------------------+
+| Syntax   || RECHP address  or                                                               |
+|          || RECHP address\ :sup:`1` :sup:`\*`\ [,address\ :sup:`i`]\ :sup:`\*` (BTool only) |
++----------+----------------------------------------------------------------------------------+
+| Location || Toolkit II, THOR XVI, BTool                                                     |
++----------+----------------------------------------------------------------------------------+
 
- The common heap is an area in memory where all programs may store data,
+The common heap is an area in memory where all programs may store data,
 this space being only limited by the memory available. A BASIC program
-can reserve space in the common heap with the function ALCHP. The
-command RECHP allows you to recover this memory. The parameter of RECHP
+can reserve space in the common heap with the function ALCHP. 
+
+The command RECHP allows you to recover this memory. The parameter of RECHP
 must be the address which was returned by ALCHP. The Btool variant of
 this command allows you to recover several addresses at once.
 
 **Example**
 
-Loading a title screen: 100 Title$="FLP1\_TITLE\_SCR" 110 IF FREE\_MEM <
-38\*1024 THEN 120 LBYTES Title$,SCREEN 130 ELSE 140
-TitleAdr=ALCHP(32768) 150 LBYTES Title$,TitleAdr 160 SCRBASE TitleAdr:
-REFRESH 170 RECHP TitleAdr 180 END IF
+Loading a title screen:: 
+
+    100 Title$="FLP1_TITLE_SCR" 
+    110 IF FREE_MEM < 38*1024 THEN 
+    120   LBYTES Title$,SCREEN 
+    130 ELSE 
+    140   TitleAdr=ALCHP(32768) 
+    150   LBYTES Title$,TitleAdr 
+    160   SCRBASE TitleAdr: REFRESH 
+    170   RECHP TitleAdr 
+    180 END IF
 
 **NOTE**
 
@@ -316,17 +386,24 @@ and `RELEASE <KeywordsR.clean.html#release>`__.
 RECOL
 =====
 
-+----------+-------------------------------------------------------------------+
-| Syntax   |  RECOL [#ch,] black,blue,red,magenta,green,cyan,yellow,white (MODE 8)  or RECOL [#ch,] black,1,red,3,green,5,white,white (MODE 4)  |
-+----------+-------------------------------------------------------------------+
-| Location |  QL ROM                                                           |
-+----------+-------------------------------------------------------------------+
++----------+---------------------------------------------------------------------------+
+| Syntax   || RECOL [#ch,] black,blue,red,magenta,green,cyan,yellow,white (MODE 8)  or |
+|          || RECOL [#ch,] black,1,red,3,green,5,white,white (MODE 4)                  |
++----------+---------------------------------------------------------------------------+
+| Location || QL ROM                                                                   |
++----------+---------------------------------------------------------------------------+
 
- This command recolours all individual pixels in the specified window
-(default #1). At least eight parameters must be specified, representing
-each of the colours available in MODE 8. Each parameter must then have a
+This command recolours all individual pixels in the specified window
+(default #1). 
+
+At least eight parameters must be specified, representing
+each of the colours available in MODE 8. 
+
+Each parameter must then have a
 value in the range 0..8 representing how that colour pixel is to be
-recoloured. The rather odd syntax for use in MODE 4 is due to a slight
+recoloured. 
+
+The rather odd syntax for use in MODE 4 is due to a slight
 apparent bug in the RECOL command which means that on some
 implementations the parameter which would normally represent the colour
 to replace yellow on screen has to be used to specify the colour to
@@ -334,21 +411,35 @@ replace white.
 
 **Example**
 
-A simple demonstration program which recolours a circle randomnly: 100
-WINDOW 448,200,32,16 110 PAPER 0:CLS:INK 7 120 SCALE 100,0,0 130 REPeat
-loop 140 CIRCLE 75,50,20 150 new\_col=RND(1 TO 6) 160 RECOL
-0,1,2,3,4,5,6,new\_col 170 END REPeat loop
- Note how this only works in MODE 8 (except on SMS): to get it to work
-in MODE 4, you would need to alter line 160 to: 160 RECOL
-0,1,2,3,4,5,new\_col,new\_col
+A simple demonstration program which recolours a circle randomnly:: 
+
+    100 WINDOW 448,200,32,16 
+    110 PAPER 0:CLS:INK 7 
+    120 SCALE 100,0,0 
+    130 REPeat loop 
+    140   CIRCLE 75,50,20 
+    150   new_col=RND(1 TO 6) 
+    160   RECOL 0,1,2,3,4,5,6,new_col 
+    170 END REPeat loop  
+
+Note how this only works in MODE 8 (except on SMS): to get it to work 
+in MODE 4, you would need to alter line 160 to::
+
+    160 RECOL 0,1,2,3,4,5,new_col,new_col
 
 **NOTE 1**
 
 Do not forget that the value of each parameter is taken to be the new
 colour, therefore if RECOL is to have no effect at all, you will need to
-use: RECOL 0,1,2,3,4,5,6,7
- and not RECOL 0,0,0,0,0,0,0,0
- as you might at first think (the latter turns the whole window to
+use::
+
+    RECOL 0,1,2,3,4,5,6,7
+    
+and not::
+
+    RECOL 0,0,0,0,0,0,0,0
+    
+as you might at first think (the latter turns the whole window to
 black!).
 
 **NOTE 2**
@@ -374,7 +465,7 @@ REFRESH
 | Location |  Fast PLOT/DRAW Toolkit                                           |
 +----------+-------------------------------------------------------------------+
 
- This command forces the whole screen pointed to by SCRBASE to be copied
+This command forces the whole screen pointed to by SCRBASE to be copied
 onto the visible part of memory.
 
 **NOTE**
@@ -400,7 +491,7 @@ RELEASE
 | Location |  TinyToolkit                                                      |
 +----------+-------------------------------------------------------------------+
 
- This command allows you to return a section of memory reserved by GRAB
+This command allows you to return a section of memory reserved by GRAB
 to QDOS.
 
 **NOTE**
@@ -435,7 +526,7 @@ RELEASE
 | Location |  ST/QL, QSound                                                    |
 +----------+-------------------------------------------------------------------+
 
- RELEASE activates the enhanced sound capabilities of the ST/QL (or the
+RELEASE activates the enhanced sound capabilities of the ST/QL (or the
 QSound interface which has now been out of production for some years). A
 sequence which has been previously stored with PLAY under the number nr
 is 'executed' by RELEASE.
@@ -456,7 +547,7 @@ RELEASE\_TASK
 | Location |  TASKCMDS (DIY Toolkit Vol J)                                     |
 +----------+-------------------------------------------------------------------+
 
- See REL\_JOB and RELJOB below. Refer to NXJOB for information about the
+See REL\_JOB and RELJOB below. Refer to NXJOB for information about the
 job identification.
 
 --------------
@@ -470,7 +561,7 @@ RELJOB
 | Location |  BTool                                                            |
 +----------+-------------------------------------------------------------------+
 
- Same as REL\_JOB apart from the fact that this expects the JobID of the
+Same as REL\_JOB apart from the fact that this expects the JobID of the
 Job rather than its name or a simple job number.
 
 --------------
@@ -484,7 +575,7 @@ RELOAD
 | Location |  MutiBASIC (DIY Toolkit - Vol M)                                  |
 +----------+-------------------------------------------------------------------+
 
- This command is the opposite to UNLOAD in that it fetches the program
+This command is the opposite to UNLOAD in that it fetches the program
 which is stored in memory and loads it into the current SuperBASIC
 interpreter. If the screen mode has been stored with UNLOAD (or RESAVE),
 then when the program is loaded, RELOAD checks if the current display
@@ -531,7 +622,7 @@ REL\_JOB
 | Location |  TinyToolkit                                                      |
 +----------+-------------------------------------------------------------------+
 
- This command releases a suspended job, so that it becomes active again.
+This command releases a suspended job, so that it becomes active again.
 
 **NOTE 1**
 
@@ -560,12 +651,12 @@ REMAINDER
 | Location |  QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
 
- This keyword can only be used within a SELect ON structure. It is used
+This keyword can only be used within a SELect ON structure. It is used
 to represent all possible untested values of the SELect ON variable.
 
 **CROSS-REFERENCE**
 
-Please see `SELect ON <KeywordsS.clean.html#select20on>`__!
+Please see `SELect ON <KeywordsS.clean.html#select-on>`__.
 
 --------------
 
@@ -578,7 +669,7 @@ REMark
 | Location |  QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
 
- This command has no purpose when a program is RUNing. It is however
+This command has no purpose when a program is RUNing. It is however
 used to place comments in the program which can be useful when you later
 come to edit a SuperBASIC program. Anything which appears after REMark
 on the same line, will be ignored by the interpreter, thus allowing you
@@ -586,19 +677,21 @@ to make any sort of comment you like.
 
 **Example**
 
-100 REMark Line 110 could be altered to: 101 REMark 110 INPUT
-'Yourname';a$:IF password$<>a$:STOP 110 Name$='Author'
+    100 REMark Line 110 could be altered to: 
+    101 REMark 110 INPUT 'Yourname';a$:IF password$<>a$:STOP 
+    110 Name$='Author'
 
 **CROSS-REFERENCE**
 
 Another means of splitting a SuperBASIC program into sections is to
-include program lines which only contain a colon (:), for example: `100
-PRINT "End of Program":STOP <Keywords1.clean.html#10020print>`__ `110
-: <Keywords1.clean.html#11020:>`__ `200 DATA 'Some data to
-read' <Keywords2.clean.html#20020data20'some20data20to20read'>`__
+include program lines which only contain a colon (:), for example::
+
+    100 PRINT "End of Program":STOP
+    110 : 
+    200 DATA 'Some data to read'
 
 --------------
-
+**** YOU ARE HERE *****
 REMOVE
 ======
 
@@ -1011,12 +1104,10 @@ keys$ supplied. The return will be the code of the pressed key, just
 like CODE(INKEY$(-1)) except that combinations of <ALT> and any other
 key are recognised - if <ALT> was held and any other key pressed, REPLY
 returns 256 minus the code of that key.
- <>`__
 
-**`Example**
-~~~~~~~~~
+**Example**
 
-`Another version of the game also shown at ASK: 100 CLS: x1 = 0: x2 =
+Another version of the game also shown at ASK: 100 CLS: x1 = 0: x2 =
 100 110 PRINT "I am going to find out a number" 120 PRINT
 "from"!x1!"to"!x2!"which only you know." 130 PRINT "Press <S> if the
 proposed number is too small," 140 PRINT "<L> if it's too large or <Y>
@@ -1025,13 +1116,11 @@ x;"? "; 180 answer = REPLY("sSlLyY") 190 SELect ON answer 200 =1,2: x1 =
 x + 1: PRINT "too small" 210 =3,4: x2 = x - 1: PRINT "too large" 220
 =5,6: EXIT find\_out 230 END SELect 240 END REPeat find\_out 250 PRINT
 "ok"\\"I am the best."
- <>`__
 
-**`CROSS-REFERENCE**
-~~~~~~~~~~~~~~~~~
+**CROSS-REFERENCE**
 
-`
- <>`__\ `ASK <KeywordsA.clean.html#ask>`__, `INKEY$ <KeywordsI.clean.html#inkey>`__
+
+`ASK <KeywordsA.clean.html#ask>`__, `INKEY$ <KeywordsI.clean.html#inkey>`__
 See `CODE <KeywordsC.clean.html#code>`__ also.
 
 --------------
