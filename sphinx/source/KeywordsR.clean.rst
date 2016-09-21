@@ -5,6 +5,7 @@ Keywords R
 TODO
 ====
 
+- ROM\_TEST is referenced from the cross reference for ROM, but is not found in this file.
 
 RAD
 ===
@@ -691,7 +692,7 @@ include program lines which only contain a colon (:), for example::
     200 DATA 'Some data to read'
 
 --------------
-**** YOU ARE HERE *****
+
 REMOVE
 ======
 
@@ -701,7 +702,7 @@ REMOVE
 | Location |  MultiBASIC (DIY Toolkit - Vol M)                                 |
 +----------+-------------------------------------------------------------------+
 
- This command allows you to remove a task (or program stored in memory
+This command allows you to remove a task (or program stored in memory
 with UNLOAD or RESAVE) by reference to its name. It is therefore very
 similar to RJOB, REL\_JOB and REMOVE\_TASK (amongst others).
 
@@ -716,7 +717,7 @@ REMOVE\_TASK
 | Location |  TASKCMDS (DIY Toolkit - Vol J)                                   |
 +----------+-------------------------------------------------------------------+
 
- Please see RJOB, because REMOVE\_TASK a,b works like RJOB a,b,0.
+Please see RJOB, because REMOVE\_TASK a,b works like RJOB a,b,0.
 
 --------------
 
@@ -729,37 +730,52 @@ RENAME
 | Location |  THOR XVI, Toolkit II                                             |
 +----------+-------------------------------------------------------------------+
 
- This command allows you to alter the name of a file which has already
-been created on the given device. You must first of all specify the name
+This command allows you to alter the name of a file which has already been created 
+on the given device. 
+
+You must first of all specify the name
 of the file to be renamed (if no device is specified, the default data
 directory will be used). You will then need to specify the new name for
 that file (again, if no device is specified, the default data device
 will be used). Assuming that both filenames are valid, an attempt will
 be made to alter the filename as requested. If however newname
- already exists an error will be generated.
+already exists an error will be generated.
 
 **Example**
 
-RENAME flp1\_boot TO flp1\_oldboot
+::
+
+    RENAME flp1_boot TO flp1_oldboot
 
 **NOTE 1**
 
-If you try to RENAME a file across to another drive, (eg. RENAME
-flp1\_boot,flp2\_oldboot
- the error 'bad name' will be reported.
+If you try to RENAME a file across to another drive, (eg::
+
+    RENAME flp1_boot, flp2_oldboot
+
+the error 'bad name' will be reported.
 
 **NOTE 2**
 
 Although you can RENAME each file within a sub-directory so that they no
 longer appear in that sub-directory, any attempt to RENAME the
 sub-directory itself (even if there are no files in it) will cause the
-error 'Read Only'. For example, assuming that a directory of disk flp1\_
-returns the following: boot QUILL->
- You could for example, use: RENAME flp1\_QUILL\_boot TO
-flp1\_ARCHIVE\_boot
- if you wished, but any attempt to use: RENAME flp1\_QUILL TO
-flp1\_ARCHIVE
- will cause an error except on SMSQ/E (although an error is still
+error 'Read Only'. 
+
+For example, assuming that a directory of disk flp1\_
+returns the following:: 
+
+    boot QUILL->
+    
+You could for example, use::
+
+    RENAME flp1_QUILL_boot TO flp1_ARCHIVE_boot
+
+if you wished, but any attempt to use:: 
+
+    RENAME flp1_QUILL TO flp1_ARCHIVE
+
+will cause an error except on SMSQ/E (although an error is still
 generated on RAM disks).
 
 **NOTE 3**
@@ -789,63 +805,115 @@ RENUM
 =====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  RENUM [start\_line [TO end\_line];][new\_line][,step] or RENUM [start\_line] TO [end\_line][;new\_line][,step] |
+| Syntax   || RENUM [start\_line [TO end\_line];][new\_line][,step] or         |
+|          || RENUM [start\_line] TO [end\_line][;new\_line][,step]            |
 +----------+-------------------------------------------------------------------+
-| Location |  QL ROM                                                           |
+| Location || QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
 
- When developing a SuperBASIC program, you will find that you sometimes
+When developing a SuperBASIC program, you will find that you sometimes
 run out of space in which to insert a new line, because of the line
 numbers which you have used. Line numbers can be any integer in the
 range 1...32767 and it is therefore unlikely that you will not be able
 to make room to fit any more lines into the program. To make more room,
 you will need to RENUMber the program. You can either elect to use RENUM
-in its simplest form, or a more complex form. The simplest form of RENUM
-is the command: RENUM
- This will renumber the whole of the SuperBASIC program in memory, so
+in its simplest form, or a more complex form. 
+
+The simplest form of RENUM is the command:: 
+
+    RENUM
+    
+This will renumber the whole of the SuperBASIC program in memory, so
 that the first line number becomes line 100 and every subsequent
-SuperBASIC line number will be in an increment of 10. You can however
+SuperBASIC line number will be in an increment of 10. 
+
+You can however
 also use RENUM to renumber a specified range of lines in a program, by
 using some of the optional parameters. These parameters have the
-following effects: start\_linespecifies the first line to be RENUMbered
-(default 1). end\_line specifies the last line in the range to be
-RENUMbered (default 32767). new\_linethe line number which the
-start\_line will be RENUMbered to (default 100). stepspecifies the gap
-between each new line number (default 10). RENUM will also alter line
-numbers referred to in the standard QL ROM commands: GO SUB GO TO
-RESTORE
- (provided of course that the line number referred to is within the
-range of lines being renumbered!). If the line number originally
+following effects: 
+
+- Start\_line specifies the first line to be RENUMbered (default 1). 
+- End\_line specifies the last line in the range to be RENUMbered (default 32767). 
+- New\_line the line number which the start\_line will be RENUMbered to (default 100). 
+- Step specifies the gap between each new line number (default 10). 
+
+RENUM will also alter line
+numbers referred to in the standard QL ROM commands:: 
+
+    GO SUB 
+    GO TO
+    RESTORE
+
+provided of course that the line number referred to is within the
+range of lines being renumbered!. 
+
+If the line number originally
 referred to does not exist, then RENUM will point it to the next program
-line following that line number. It is also possible that a reference to
+line following that line number. 
+
+It is also possible that a reference to
 a line number is actually calculated when the interpreter reaches that
 line. In such instances, the line number reference can only be
 renumbered if it is the first thing in the expression. For example, take
-the following program:- 100 locat=0 110 REPeat loop 120 RESTORE
-locat+1000 125 IF EOF:EXIT loop 130 READ description$ 140 PRINT
-description$ 150 locat=locat+1 155 PAUSE 160 END REPeat loop 1000 DATA
-'Location One' 1001 DATA 'Location Two' 1002 DATA 'Location Three'
- RENUM would renumber all of the line numbers beginning with line 100 in
+the following program::
+
+    100 locat = 0 
+    110 REPeat loop 
+    120   RESTORE locat + 1000 
+    125   IF EOF: EXIT loop 
+    130   READ description$ 
+    140   PRINT description$ 
+    150   locat = locat + 1 
+    155   PAUSE 
+    160 END REPeat loop 
+    888 :
+    1000 DATA 'Location One' 
+    1001 DATA 'Location Two' 
+    1002 DATA 'Location Three'
+
+RENUM would renumber all of the line numbers beginning with line 100 in
 steps of 10, however, the program would no longer work as the RESTORE
 command in line 120 would then point to a non-existant line 1000. To
-solve this, before using RENUM, alter line 120 to: 120 RESTORE
-1000+locat
- Having carried out the renumbering task, if the lines currently shown
+solve this, before using RENUM, alter line 120 to::
+
+    120 RESTORE 1000 + locat
+
+Having carried out the renumbering task, if the lines currently shown
 in the list window are affected, they will be relisted in #2 (except
 under SMS).
 
 **Examples**
 
-RENUM 100
- or RENUM 1 TO
- these are both the same as RENUM
- RENUM 100 TO 1000;10,5
- this will renumber all lines in the range 100 to 1000, with the new
-lines beginning from line 10 in steps of 5. RENUM 1000;2000
- this will renumber all lines from line 1000 onwards, with the new line
-numbers beginning with line 2000, and increasing in steps of 10. RENUM
-1000,20
- this will renumber all lines from 1000 onwards, with the new line
+::
+
+    RENUM 100
+    
+or::
+
+    RENUM 1 TO
+    
+These are both the same as RENUM.
+
+
+::
+
+    RENUM 100 TO 1000;10,5
+    
+This will renumber all lines in the range 100 to 1000, with the new
+lines beginning from line 10 in steps of 5. 
+
+::
+
+    RENUM 1000;2000
+    
+This will renumber all lines from line 1000 onwards, with the new line
+numbers beginning with line 2000, and increasing in steps of 10. 
+
+::
+
+    RENUM 1000,20
+    
+This will renumber all lines from 1000 onwards, with the new line
 numbers beginning with line 100 and increasing in steps of 20.
 
 **NOTE 1**
@@ -858,14 +926,30 @@ line as a DATA statement.
 
 On non Minerva ROMs, the current DATA pointer and ERLIN line numbers
 tend to get lost in the process! Although SMS updates the DATA pointer,
-it still has some problems. For example, try the following program: 1
-RENUM TO 170;1,1 2 RESTORE 3 READ x:PRINT x 4 RENUM 5 READ x:PRINT x 6
-RESTORE 6:DATA 10,12:RESTORE 6 7 READ x:PRINT x 8 STOP 180 PRINT 'Why
-have I reached here?'
- If you alter line 1 to read: 1 RENUM 1,1
- the program just stops without an error at line 4. Minerva still has
-problems with the above. Try entering the command: RENUM 1 TO 7;1,1
- An out of range error is reported even though there is no problem with
+it still has some problems. For example, try the following program::
+
+    1 RENUM TO 170;1,1 
+    2 RESTORE 
+    3 READ x:PRINT x 
+    4 RENUM 
+    5 READ x:PRINT x 
+    6 RESTORE 6: DATA 10,12: RESTORE 6 
+    7 READ x: PRINT x 
+    8 STOP 
+    180 PRINT 'Why have I reached here?'
+
+If you alter line 1 to read::
+
+    1 RENUM 1,1
+    
+then the program just stops without an error at line 4. Minerva still 
+has problems with the above. 
+
+Try entering the command:: 
+
+    RENUM 1 TO 7;1,1
+    
+An out of range error is reported even though there is no problem with
 this range. Minerva does this correctly. We believe other ROMs will show
 different symptoms (see the WARNING below).
 
@@ -877,10 +961,17 @@ cannot renumber line numbers less than 128.
 **NOTE 4**
 
 You cannot use RENUM to renumber lines out of sequence. For example,
-given the following lines:- 100 REPeat loop 110 IF INKEY$=CHR$(27):EXIT
-loop 120 END REPeat loop
- an attempt to RENUM 110 TO 110;200 would report an 'Out of Range'
-error, as you would be trying to renumber line 110 out of order!
+given the following lines::
+
+    100 REPeat loop 
+    110 IF INKEY$=CHR$(27):EXIT loop 
+    120 END REPeat loop 
+
+Any attempt to::
+
+    RENUM 110 TO 110;200 
+    
+would report an 'Out of Range' error, as you would be trying to renumber line 110 out of order!
 
 **NOTE 5**
 
@@ -888,8 +979,15 @@ If you try to renumber a line outside of the range of line numbers (see
 above), or there is not enough space between line numbers outside the
 given range to fit the newly renumbered program lines into, this will
 cause an 'Out of Range' error. For example, taking the routine listed at
-note 4, RENUM 32760 or RENUM 100 TO 110;119,1 would both report such an
-error.
+note 4::
+
+    RENUM 32760 
+    
+or::
+
+    RENUM 100 TO 110;119,1 
+    
+would both report such an error.
 
 **NOTE 6**
 
@@ -899,9 +997,11 @@ compile a program with calculated RESTOREs, GO SUBs or GO TOs.
 **NOTE 7**
 
 Unfortunately, RENUM will not handle line number references in commands
-other than GO TO, GO SUB or RESTORE, which can leave lines such as: SAVE
-flp1\_Prog\_ext,1000 TO 2000
- high and dry!
+other than GO TO, GO SUB or RESTORE, which can leave lines such as::
+
+    SAVE flp1_Prog_ext,1000 TO 2000
+
+high and dry!
 
 **WARNING**
 
@@ -920,43 +1020,59 @@ REPeat
 ======
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  REPeat identifier  or REPeat [identifier](SMS only)              |
+| Syntax   || REPeat identifier  or                                            |
+|          || REPeat [identifier](SMS only)                                    |
 +----------+-------------------------------------------------------------------+
-| Location |  QL ROM                                                           |
+| Location || QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
 
- The SuperBASIC REPeat loop is extremely flexible and provides an
-alternative to the classic FOR loop. It sets up a perpetual loop which
+The SuperBASIC REPeat loop is extremely flexible and provides an
+alternative to the classic FOR loop. 
+
+It sets up a perpetual loop which
 can only be ended (correctly) by means of the EXIT
- command. The syntax of this SuperBASIC structure can take two forms:
-REPeat identifier :statement :sup:`\*`\ [:statement]\ :sup:`\*
-` or REPeat identifier
- :sup:`\*`\ [statements]\ :sup:`\*
-` ... [EXIT identifier] [NEXT identifier] ... END REPeat identifier
- The first of these variants is known as an in-line REPeat
- loop. Provided that there is at least one statement following REPeat,
+command. The syntax of this SuperBASIC structure can take two forms:
+
+REPeat identifier :statement :sup:`\*`\ [:statement]\ :sup:`\*` 
+
+or: 
+
+REPeat identifier :sup:`\*`\ [statements]\ :sup:`\*` ... [EXIT identifier] [NEXT identifier] ... END REPeat identifier
+
+The first of these variants is known as an in-line REPeat loop. Provided that there is at least one statement following REPeat, 
 this line will be repeated forever (unless there is an EXIT statement -
-see below). There is no need for a related END
- REPeat statement and therefore the shortest (practicable) in-line
-REPeat loop possible is: REPeat loop: IF INKEY$=' ' THEN EXIT loop
- If an in-line loop is terminated with EXIT, control will be passed to
+see below). There is no need for a related END REPeat statement and therefore the shortest (practicable) in-line
+REPeat loop possible is::
+
+    REPeat loop: IF INKEY$=' ' THEN EXIT loop
+ 
+If an in-line loop is terminated with EXIT, control will be passed to
 the statement following the corresponding END REPeat
- statement (if one exists), or the next program line. This allows the
-following: REPeat loop: IF INKEY$=' ':EXIT loop: END REPeat loop: PRINT
-'Phew!'
- EXIT is used (in both REPeat loops and FOR loops) to terminate the
+statement (if one exists), or the next program line. This allows the
+following:: 
+
+    REPeat loop: IF INKEY$=' ':EXIT loop: END REPeat loop: PRINT 'Phew!'
+
+EXIT is used (in both REPeat loops and FOR loops) to terminate the
 loop, and the next statement which will be processed is the first
-statement after the corresponding END REPeat (if one exists). NEXT
-forces the program to make another pass of the loop, returning program
+statement after the corresponding END REPeat (if one exists). 
+
+NEXT forces the program to make another pass of the loop, returning program
 control to the statement following REPeat.
 
 **Example**
 
 A short FuNction which waits for a key to be pressed which can be <ESC>
 or any key listed in a string passed as the parameter, and returns the
-CODE of the key pressed: 100 DEFine FuNction Getkey(key$) 105 LOCal
-loop,k$ 110 REPeat loop 120 k$=INKEY$:IF k$='':NEXT loop 130 IF k$ INSTR
-key$&CHR$(27):RETurn CODE(k$) 140 END REPeat loop 150 END DEFine
+CODE of the key pressed::
+
+    100 DEFine FuNction Getkey(key$) 
+    105   LOCal loop,k$ 
+    110   REPeat loop 
+    120     k$=INKEY$:IF k$='':NEXT loop 
+    130     IF k$ INSTR key$&CHR$(27):RETurn CODE(k$) 
+    140   END REPeat loop 
+    150 END DEFine
 
 **NOTE 1**
 
@@ -969,30 +1085,54 @@ the loop without any problems.
 **NOTE 2**
 
 It is actually possible to force a NEXT loop from outside of the loop,
-for example in a program such as: 100 REPeat Getkey 110 AT 0,0:PRINT
-'Looping' 120 a$=INKEY$:IF a$='':NEXT Getkey 130 PRINT a$ 140 IF
-a$=='x':EXIT Getkey 150 END REPeat Getkey 160 PRINT 'You have decided to
-leave the loop' 170 PRINT 'Press a key to return to it' 180 PAUSE 190
-CLS 200 NEXT Getkey
- This is however very bad programming style and should be avoided. It
+for example in a program such as:: 
+
+    100 REPeat Getkey 
+    110   AT 0,0:PRINT 'Looping' 
+    120   a$=INKEY$:IF a$='':NEXT Getkey 
+    130   PRINT a$ 
+    140   IF a$=='x':EXIT Getkey 
+    150 END REPeat Getkey 
+    155 :
+    160 PRINT 'You have decided to leave the loop' 
+    170 PRINT 'Press a key to return to it' 
+    180 PAUSE 
+    190 CLS 
+    195 :
+    200 NEXT Getkey
+
+
+This is however very bad programming style and should be avoided. It
 makes it very difficult to follow programs and no SuperBASIC compilers
 would be able to make sense of it. The above program should be
-re-written: 100 REPeat Getkey 110 AT 0,0:PRINT 'Looping' 120
-a$=INKEY$:IF a$='':NEXT Getkey 130 PRINT a$ 140 IF a$=='x' 150 PRINT
-'You are now still in the loop' 160 PRINT 'Press a key to restart it'
-170 PAUSE 180 CLS 190 END IF 200 END REPeat Getkey
+re-written::
+
+    100 REPeat Getkey 
+    110   AT 0,0:PRINT 'Looping' 
+    120   a$=INKEY$:IF a$='':NEXT Getkey 
+    130   PRINT a$ 
+    140   IF a$=='x' 
+    150     PRINT 'You are now still in the loop' 
+    160     PRINT 'Press a key to restart it' 
+    170     PAUSE 
+    180     CLS 
+    190   END IF 
+    200 END REPeat Getkey
+
 
 **MINERVA NOTES**
 
 This allows string REPeat loops and integer REPeat loops, although the
 use of the former is dubious. You can of course still use the
 identifiers within the loop as variables. Integer REPeat loops do not
-seem to be any quicker than floating point loops. If you do use a string
-identifier, Minerva restricts such strings to a maximum of four
+seem to be any quicker than floating point loops. 
+
+If you do use a string identifier, Minerva restricts such strings to a maximum of four
 characters. If the string identifier is defined as a variable
-beforehand, it will be truncated if necessary - for example, try:
-a$='Hello World':REPeat a$:PRINT a$
- and a$='':REPeat a$:a$=a$&'x':PRINT a$
+beforehand, it will be truncated if necessary - for example, try::
+
+
+    a$='Hello World': REPeat a$: PRINT a$ and a$='': REPeat a$: a$ = a$ & 'x': PRINT a$
 
 String and integer REPeat loops will not safely work on other ROMs
 (except under SMS), even if they will let you type them in!
@@ -1000,7 +1140,7 @@ String and integer REPeat loops will not safely work on other ROMs
 **SMS NOTES**
 
 Like Minerva, SMS allows string REPeat loops and integer REPeat
- loops. However, SMS does not restrict the length of a string loop
+loops. However, SMS does not restrict the length of a string loop
 identifier (except to the normal string length limit of 32767
 characters). SMS also allows you to omit the loop identifier, in which
 case the relative EXIT, NEXT and END REPeat statements must also omit
@@ -1011,7 +1151,7 @@ REPeat.
 
 **CROSS-REFERENCE**
 
-`FOR <KeywordsF.clean.html#for>`__...\ `END FOR <KeywordsE.clean.html#end20for>`__
+`FOR <KeywordsF.clean.html#for>`__...\ `END FOR <KeywordsE.clean.html#end-for>`__
 is the other loop type.
 
 --------------
@@ -1025,18 +1165,31 @@ REPLACE
 | Location |  REPLACE (DIY Toolkit - Vol R)                                    |
 +----------+-------------------------------------------------------------------+
 
- The REPLACE command is intended for use from the interpreter's command
-line and for program development only. The idea of REPLACE is to rename
+The REPLACE command is intended for use from the interpreter's command
+line and for program development only. 
+
+The idea of REPLACE is to rename
 SuperBASIC variables contained in the program which is currently loaded
 into the interpreter. The first and second parameter can be any
 variables, they must not be given as strings ie. inside quotes (this
-leads to error -15: bad parameter). REPLACE will replace oldvar by
+leads to error -15: bad parameter). 
+
+REPLACE will replace oldvar by
 newvar for the whole program (in fact for the whole interpreter).
+
 Acceptable types of parameters are variables and also REPeat loop names
-but not PROCedure or FuNction names. You can even use this to change
-unquoted device names if you wish, such as: LBYTES flp1\_data\_cde
- - you could use REPLACE flp1\_data\_cde,flp2\_data\_cde
- REPLACE is extremely fast, without any noticeable reduction in speed
+but not PROCedure or FuNction names. 
+
+You can even use this to change
+unquoted device names if you wish, such as::
+
+    LBYTES flp1_data_cde
+
+You could use::
+ 
+    REPLACE flp1_data_cde, flp2_data_cde
+    
+REPLACE is extremely fast, without any noticeable reduction in speed
 for large programs due to the fact that the interpreter stores the
 program lines in tokenised format, this means that a line is not stored
 as text but as a set of numbers (tokens) which represent the elements of
@@ -1045,11 +1198,21 @@ name which is identified with a certain token.
 
 **Example**
 
-Enter the following lines: 10 x = 1 20 PRINT SQRT(x)
- Now type REPLACE x,Whatever
- and then LIST or ED, the program now reads 10 Whatever = 1 20 PRINT
-SQRT(Whatever)
- and is functionally identical to the original.
+Enter the following lines::
+
+    10 x = 1 
+    20 PRINT SQRT(x)
+
+Now type::
+
+    REPLACE x, Whatever
+
+and then LIST or ED, the program now reads::
+ 
+    10 Whatever = 1 
+    20 PRINT SQRT(Whatever)
+
+and is functionally identical to the original.
 
 **NOTE 1**
 
@@ -1095,10 +1258,14 @@ REPLY
 | Location |  BTool                                                            |
 +----------+-------------------------------------------------------------------+
 
- The function REPLY reads a character from the keyboard (with the text
-cursor in a window enabled). If keys$ was specified, then REPLY will
+The function REPLY reads a character from the keyboard (with the text
+cursor in a window enabled). 
+
+If keys$ was specified, then REPLY will
 only stop if the pressed key was listed in keys$, this is case-sensitive
-so `and <SHIFT><A> are different. The return of REPLY is the position of
+so <a> and <SHIFT><A> are different. 
+
+The return of REPLY is the position of
 the pressed key in keys$. REPLY behaves very differently if there is no
 keys$ supplied. The return will be the code of the pressed key, just
 like CODE(INKEY$(-1)) except that combinations of <ALT> and any other
@@ -1107,15 +1274,24 @@ returns 256 minus the code of that key.
 
 **Example**
 
-Another version of the game also shown at ASK: 100 CLS: x1 = 0: x2 =
-100 110 PRINT "I am going to find out a number" 120 PRINT
-"from"!x1!"to"!x2!"which only you know." 130 PRINT "Press <S> if the
-proposed number is too small," 140 PRINT "<L> if it's too large or <Y>
-if it's the result." 150 REPeat find\_out 160 x=(x1+x2) DIV 2 170 PRINT
-x;"? "; 180 answer = REPLY("sSlLyY") 190 SELect ON answer 200 =1,2: x1 =
-x + 1: PRINT "too small" 210 =3,4: x2 = x - 1: PRINT "too large" 220
-=5,6: EXIT find\_out 230 END SELect 240 END REPeat find\_out 250 PRINT
-"ok"\\"I am the best."
+Another version of the game also shown at ASK:: 
+
+    100 CLS: x1 = 0: x2 = 100 
+    110 PRINT "I am going to find out a number" 
+    120 PRINT "from"!x1!"to"!x2!"which only you know." 
+    130 PRINT "Press <S> if the proposed number is too small," 
+    140 PRINT "<L> if it's too large or <Y> if it's the result." 
+    150 REPeat find_out 
+    160   x=(x1+x2) DIV 2 
+    170   PRINT x;"? "; 
+    180   answer = REPLY("sSlLyY") 
+    190   SELect ON answer 
+    200     =1,2: x1 = x + 1: PRINT "too small" 
+    210     =3,4: x2 = x - 1: PRINT "too large" 
+    220     =5,6: EXIT find_out 
+    230   END SELect 
+    240 END REPeat find_out 
+    250 PRINT "ok"\"I am the best."
 
 **CROSS-REFERENCE**
 
@@ -1128,13 +1304,14 @@ See `CODE <KeywordsC.clean.html#code>`__ also.
 REPORT
 ======
 
-+----------+-------------------------------------------------------------------+
-| Syntax   |  REPORT [#channel] or REPORT [#channel,][error\_number](Toolkit II, THOR XVI, TinyToolkit, BTool)  |
-+----------+-------------------------------------------------------------------+
-| Location |  QL ROM (post JM), Toolkit II, TinyToolkit, THOR XVI and BTool    |
-+----------+-------------------------------------------------------------------+
++----------+-------------------------------------------------------------------------------+
+| Syntax   || REPORT [#channel] or                                                         |
+|          || REPORT [#channel,][error\_number](Toolkit II, THOR XVI, TinyToolkit, BTool)  |
++----------+-------------------------------------------------------------------------------+
+| Location || QL ROM (post JM), Toolkit II, TinyToolkit, THOR XVI and BTool                |
++----------+-------------------------------------------------------------------------------+
 
- This command will print an error message to the given channel (default
+This command will print an error message to the given channel (default
 #0, the command line). The type of error is identified by the error
 number. If an error number is not supplied, then the last error to have
 occurred is displayed. The error message depends on the machine where
@@ -1182,7 +1359,7 @@ RESAVE
 | Location |  MutiBASIC (DIY Toolkit - Vol M)                                  |
 +----------+-------------------------------------------------------------------+
 
- This command is the same as UNLOAD except that if the specified
+This command is the same as UNLOAD except that if the specified
 program\_name has already been stored in memory, it is overwritten.
 
 **CROSS-REFERENCE**
@@ -1200,7 +1377,7 @@ RESERVE
 | Location |  Timing Toolkit (DIY Toolkit Vol H)                               |
 +----------+-------------------------------------------------------------------+
 
- This function grabs an area of memory in the Common Heap similar to
+This function grabs an area of memory in the Common Heap similar to
 ALCHP. However, the area is not released after a new SuperBASIC program
 is loaded. Standard error returns are returned as values by the function
 and the program can therefore include error trapping. -3 (Out of Memory)
@@ -1222,12 +1399,13 @@ RESET
 =====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  RESET [new\_ramtop](Not SMSQ/E)  or RESET(SMSQ/E only)           |
+| Syntax   || RESET [new\_ramtop](Not SMSQ/E) or                               |
+|          || RESET(SMSQ/E only)                                               |
 +----------+-------------------------------------------------------------------+
-| Location |  TinyToolkit, Beuletools, BTool, SMSQ/E, RES                      |
+| Location || TinyToolkit, Beuletools, BTool, SMSQ/E, RES                      |
 +----------+-------------------------------------------------------------------+
 
- This command performs a system reset. Except under SMSQ/E, this can be
+This command performs a system reset. Except under SMSQ/E, this can be
 used to simulate a system with less memory or to get old games and
 problem software running, you can reduce the available memory (via
 new\_ramtop) to anything between 128K (TinyToolkit: 64K) and RAMTOP in
@@ -1257,8 +1435,8 @@ RESFAST
 | Location |  ATARI\_REXT for QVME (v2.31+)                                    |
 +----------+-------------------------------------------------------------------+
 
- This function allows you to grab a specified number of bytes
- in Atari TT FastRAM and is therefore akin to RESPR and ALCHP. However,
+This function allows you to grab a specified number of bytes
+in Atari TT FastRAM and is therefore akin to RESPR and ALCHP. However,
 note that you can only use LBYTES to load data to this area or SBYTES /
 SEXEC to save data if you are loading a file from or saving a file to a
 RAM disk. You cannot use floppy disks or hard disks with this area of
@@ -1280,13 +1458,15 @@ RESPR
 | Location |  QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
 
- This function sets aside a chunk of resident procedure space for use by
+This function sets aside a chunk of resident procedure space for use by
 a program and returns the address of the start of that memory. Resident
 procedure space is merely an area of RAM which can be used safely by the
 user without fear of the system crashing if values are written to it.
+
 When used, the RESPR function will search for an area in RAM which is
-currently unused and which is at least bytes long. If there is
+currently unused and which is at least 'bytes' long. If there is
 insufficient space in RAM, then an 'Out of Memory' error is reported.
+
 Memory set aside using RESPR cannot later be released and used for other
 purposes (unless you have a Minerva ROM), and thus this command is used
 mainly for linking in Toolkits and other system extensions in a boot
@@ -1294,8 +1474,10 @@ program.
 
 **Example**
 
-A simple boot program might look like this: 100 x=RESPR(10\*1024):LBYTES
-flp1\_Toolkit,x:CALL x 120 EXEC flp1\_Program\_obj
+A simple boot program might look like this::
+
+    100 x=RESPR(10*1024): LBYTES flp1_Toolkit,x: CALL x 
+    120 EXEC flp1_Program_obj
 
 **NOTE 1**
 
@@ -1308,9 +1490,12 @@ space cannot be accessed.
 **NOTE 2**
 
 Normally, the function RESPR(0) will return the address of ramtop, this
-can actually be used to find out the size of memory attached to the QL -
-PRINT RESPR(0)/1024-128. However, this will not work on versions of the
-command which work when tasks are running in memory.
+can actually be used to find out the size of memory attached to the QL::
+
+
+    PRINT RESPR(0)/1024-128. 
+    
+However, this will not work on versions of the command which work when tasks are running in memory.
 
 **NOTE 3**
 
@@ -1343,16 +1528,17 @@ RESTORE
 | Location |  QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
 
- In any program which uses DATA statements, it is necessary to tell the
+In any program which uses DATA statements, it is necessary to tell the
 interpreter where the data begins within the program, so that it knows
 where to look when it encounters a READ command. RESTORE allows you to
 set the data pointer to a specific line number within a SuperBASIC
-program. If line\_no is not specified, then the data pointer is moved to
+program. 
+
+If line\_no is not specified, then the data pointer is moved to
 the start of a program allowing all DATA within a program to be READ.
 line\_no can be either a simple reference to a line number anywhere in a
 SuperBASIC program, or an expression which will be calculated by the
-interpreter when it reaches the RESTORE
- command.
+interpreter when it reaches the RESTORE command.
 
 **NOTE 1**
 
@@ -1386,10 +1572,12 @@ RES\_SIZE
 | Location |  Gold Card                                                        |
 +----------+-------------------------------------------------------------------+
 
- To get the few old programs which still do not work with the Gold
+To get the few old programs which still do not work with the Gold
 Card's 1920K RAM running and to simulate a system with less RAM for
 debugging, RES\_SIZE resets the system and adjusts the RAMTOP to the
-desired value. If you use RES\_SIZE 128, high density and extra density
+desired value. 
+
+If you use RES\_SIZE 128, high density and extra density
 disks cannot be accessed until the next reset. Secondly, the realtime
 clock runs by default in protected mode. Thirdly, the ramdisks cannot be
 accessed by the system. This should simulate the unexpanded, original
@@ -1398,16 +1586,26 @@ temperamental.
 
 **Examples**
 
-RES\_SIZE 640 RES\_SIZE 128 RES\_SIZE 1024
+::
+
+    RES_SIZE 640 
+    RES_SIZE 128 
+    RES_SIZE 1024
 
 **NOTE**
 
 You may find that some programs will still not work following RES\_SIZE,
-especially if they use a line such as: x=RESPR(0):start=RESPR(x-131072)
- This appears to happen because RESPR(0) returns the address of RAMTOP
+especially if they use a line such as:: 
+
+    x=RESPR(0): start=RESPR(x-131072)
+    
+This appears to happen because RESPR(0) returns the address of RAMTOP
 which is still over 2MB even though only 128K is available. Minerva
-users should use CALL 390,x
- instead.
+users should use::
+
+    CALL 390,x 
+    
+instead.
 
 **WARNING**
 
@@ -1415,12 +1613,16 @@ At least up to Gold Card's firmware v2.28, RES\_SIZE does not check the
 range of the supplied parameter. If values lower than 56 or higher than
 1920 are used, this can lead to crashes of a particularly serious
 character. Either the QL hangs during or after the resets, or there will
-not be enough free memory to enter any commands. There is even a danger
+not be enough free memory to enter any commands. 
+
+There is even a danger
 that a fatal crash will occur which can destroy data on hard disks,
 disks or microdrive cartridges, or the realtime clock can be affected or
 even combinations of these different crashes can occur. As hard disk
 drives cannot be removed or protected from any malfunction of the
-operating system or programs, they are in extreme danger. It is also not
+operating system or programs, they are in extreme danger. 
+
+It is also not
 advisable to use values other than multiples of 64 because software
 tends to expect a ramtop which is a multiple of 64 and memory is wasted.
 
@@ -1444,7 +1646,7 @@ RES\_128
 | Location |  Gold Card, Trump Card                                            |
 +----------+-------------------------------------------------------------------+
 
- This command does the same as RES\_SIZE 128.
+This command does the same as RES\_SIZE 128.
 
 **CROSS-REFERENCE**
 
@@ -1457,14 +1659,16 @@ RETRY
 =====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  RETRY  or RETRY [line\_no](Toolkit II and Minerva)               |
+| Syntax   || RETRY  or                                                        |
+|          || RETRY [line\_no](Toolkit II and Minerva)                         |
 +----------+-------------------------------------------------------------------+
-| Location |  QL ROM, Toolkit II                                               |
+| Location || QL ROM, Toolkit II                                               |
 +----------+-------------------------------------------------------------------+
 
- The command RETRY performs the same operation as CONTINUE
- except that interpreting re-starts with the statement at which the
+The command RETRY performs the same operation as CONTINUE
+except that interpreting re-starts with the statement at which the
 error occurred (CONTINUE re-starts the program from the next statement).
+
 If you have Toolkit II or Minerva installed, you will be able to use the
 second variant of this command which allows you to re-start processing
 at a specified line number to help with error trapping. If the parameter
@@ -1473,14 +1677,20 @@ CONTINUE.
 
 **Example**
 
-Take the following short program: 100 REPeat loop 110 INPUT 'Enter a
-number: ';a 120 PRINT 'The number you entered is: ';a 130 END REPeat
-loop
- Now, when prompted to enter a number, enter a letter, which results in
+Take the following short program:: 
+
+    100 REPeat loop 
+    110 INPUT 'Enter a number: ';a 
+    120 PRINT 'The number you entered is: ';a 
+    130 END REPeat loop
+
+Now, when prompted to enter a number, enter a letter, which results in
 the error 'Error in Expression'. If you were to enter the command RETRY,
 the program would re-start at line 110, asking you to enter a number.
 However, if you entered the command CONTINUE, the program would re-start
-at line 120, displaying the message: The number you entered is: \*
+at line 120, displaying the message:: 
+
+    The number you entered is: *
 
 **CROSS-REFERENCE**
 
@@ -1497,24 +1707,35 @@ RETurn
 | Location |  QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
 
- This command has two actual uses. The main use of RETurn is to force an
+This command has two actual uses. The main use of RETurn is to force an
 early return from a PROCedure or FuNction definition block. A FuNction
 must always return a value and therefore a SuperBASIC DEFine FuNction
 block must always contain a RETurn
- statement to return this value. The second use of RETurn is to mark the
+statement to return this value. 
+
+The second use of RETurn is to mark the
 end of a sub-routine which has been called with GO SUB. This is
 implemented in SuperBASIC to make the transition from other
 implementations of BASIC easier.
 
 **Examples**
 
-(1) A PROCedure to report an error more safely than REPORT: 100 DEFine
-PROCedure REPORT\_ERROR(errnumber) 110 IF errnumber>=0 OR errnumber<-21
-120 PRINT #0,'No error' 130 RETurn 140 END IF 150 REPORT errnumber 160
-END DEFine
- (2) A FuNction which returns 1 (true) if a given number is even: 100
-DEFine FuNction CK\_EVEN (x) 110 IF x/2=INT(x/2):RETurn 1 120 RETurn 0
-130 END DEFine
+A PROCedure to report an error more safely than REPORT:: 
+
+    100 DEFine PROCedure REPORT_ERROR(errnumber) 
+    110 IF errnumber>=0 OR errnumber<-21
+    120   PRINT #0,'No error' 
+    130   RETurn 
+    140 END IF 
+    150 REPORT errnumber 
+    160 END DEFine
+
+A FuNction which returns 1 (true) if a given number is even:: 
+
+    100 DEFine FuNction CK_EVEN (x) 
+    110   IF x/2=INT(x/2):RETurn 1 
+    120   RETurn 0 
+    130 END DEFine
 
 **CROSS-REFERENCE**
 
@@ -1533,12 +1754,15 @@ REV$
 | Location |  REV                                                              |
 +----------+-------------------------------------------------------------------+
 
- This function returns the supplied string in reverse order.
+This function returns the supplied string in reverse order.
 
 **Example**
 
-PRINT REV$("Hello World")
- shows dlroW olleH
+::
+
+    PRINT REV$("Hello World")
+
+shows dlroW olleH
 
 **CROSS-REFERENCE**
 
@@ -1552,12 +1776,15 @@ RJOB
 ====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  RJOB jobname [,error] or RJOB jobnr,tag,error  or RJOB job\_id,error  or RJOB [job\_id,error] (BTool only)  |
+| Syntax   || RJOB jobname [,error] or                                         |
+|          || RJOB jobnr,tag,error  or                                         |
+|          || RJOB job\_id,error  or                                           |
+|          || RJOB [job\_id,error] (BTool only)                                |
 +----------+-------------------------------------------------------------------+
-| Location |  Toolkit II, THOR XVI, BTool                                      |
+| Location || Toolkit II, THOR XVI, BTool                                      |
 +----------+-------------------------------------------------------------------+
 
- This command removes a job from memory - all of its channels are
+This command removes a job from memory - all of its channels are
 automatically closed and any memory used by the job is freed. The error
 code is returned to the owner job of the removed job. The BTool variant
 of RJOB allows you to enter the command without any parameters which
@@ -1587,14 +1814,30 @@ RMAR
 | Location |  Beuletools                                                       |
 +----------+-------------------------------------------------------------------+
 
- This function returns the control codes needed to set the right margin
+This function returns the control codes needed to set the right margin
 to n characters (from the left side) on EPSON compatible printers. If
 the right margin is smaller than the left margin, the printer will
-ignore this setting and print to the greatest possible right margin:
-PRINT #ch,RMAR
- is the same as PRINT #ch,CHR$(27)&'Q'&CHR$(n)
- \|- LMAR -\| \|------------ RMAR ----------\|
-+---------------------------------+ \| \| \| ..................... \| \|
+ignore this setting and print to the greatest possible right margin::
+
+    PRINT #ch,RMAR
+    
+is the same as::
+
+    PRINT #ch,CHR$(27) & 'Q' & CHR$(n)
+
+.. COMMENT. What is the following meant to be showing? It doesn't seem to
+   make any sense or be related to the above. I've left it commented out for now.
+   
+   
+.. ::
+..    
+    |- LMAR -|
+    |------------ RMAR ----------|
+    +---------------------------------+
+    |                    |
+    |     .....................     |
+    |   .....................     |
+    |    .....................     |
 
 **CROSS-REFERENCE**
 
@@ -1618,19 +1861,28 @@ RMODE
 | Location |  Fn                                                               |
 +----------+-------------------------------------------------------------------+
 
- The function RMODE returns the current screen mode (of the screen
+The function RMODE returns the current screen mode (of the screen
 belonging to the job which executes RMODE if the Window Manager is
-present). If Minerva or Amiga QDOS v3.23 is present and is in dual
+present). 
+
+If Minerva or Amiga QDOS v3.23 is present and is in dual
 screen mode, then PRINT RMODE(1) will show the current screen mode for
 the Other Screen (see MODE). If Minerva and Amiga QDOS is not present,
 (or dual screen mode is not active), then RMODE(1) will return -19 (for
 'Not Implemented'). Both RMODE and RMODE(0) return the mode of the
 Default Screen on all ROMs:
 
-RMODEmin resolutioncolours
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-2640 x 4002 4512 x 2564 8256 x 2568 12256 x 256 16
++-------+----------------+---------+
+| RMODE | Min Resolution | Colours |
++=======+================+=========+
+| 2     | 640 x 400      |  2      |
++-------+----------------+---------+
+| 4     | 512 x 256      |  4      |
++-------+----------------+---------+
+| 8     | 256 x 256      |  8      |
++-------+----------------+---------+
+| 12    | 256 x 256      | 16      |
++-------+----------------+---------+
 
 **Example**
 
@@ -1639,8 +1891,13 @@ change to that mode at the very beginning. A simple MODE 4 will do, if
 high resolution is needed. But the MODE is executed even if the screen
 was already in the correct mode. It looks better if MODE is only done if
 the mode really has to be changed. CHANGE\_MODE should be used instead
-of MODE: 100 DEFine PROCedure CHANGE\_MODE (mode%) 110 IF
-RMODE(0)<>mode% 120 MODE mode% 130 END IF 140 END DEFine CHANGE\_MODE
+of MODE:: 
+
+    100 DEFine PROCedure CHANGE_MODE (mode%) 
+    110   IF RMODE(0)<> mode% 
+    120     MODE mode% 
+    130   END IF 
+    140 END DEFine CHANGE_MODE
 
 **CROSS-REFERENCE**
 
@@ -1659,25 +1916,41 @@ RND
 | Location |  QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
 
- This function produces a (pseudo) random number. When used without
+This function produces a (pseudo) random number. When used without
 parameters it returns a floating point number between 0 and 1, otherwise
 an integer number lying between the two parameters (including the
 parameters) will be returned.
 
-expressionresults
-~~~~~~~~~~~~~~~~~
-
-x=RND0 < x < 1
- x=RND(max) , where max>=00,1,2,3,...,max
- x=RND(min TO max) , max>=minmin,min+1,...,max-1,max
++-------------------+------------------------------+
+| Expression        | Results                      |
++===================+==============================+
+| x=RND             | 0 < x < 1                    |
++-------------------+------------------------------+
+| x=RND(max)        | 0, 1, 2, 3, ..., max         |
+| where max >= 0    |                              |
++-------------------+------------------------------+
+| x=RND(min TO max) | min, min+1, ..., max-1, max  |
+| where max >= min  |                              |
++-------------------+------------------------------+
 
 **Example**
 
-100 CLS: PRINT "RND Statistics" 110 n=1000: m=10: DIM h%(m) 120 FOR i=1
-TO n 130 k=RND(1 TO m) 140 h%(k)=h%(k)+1 150 AT 2,5: PRINT i 160 END FOR
-i 170 PRINT: avdiff=0 180 FOR k=1 TO m 190 diff=n/m-h%(k) 200 PRINT k;TO
-6;h%(k);TO 12;INT(diff) 210 avdiff=avdiff+ABS(diff/n\*m) 220 END FOR k
-230 PRINT\\"average difference:"!INT(100\*avdiff/m);"%"
+::
+
+    100 CLS: PRINT "RND Statistics" 
+    110 n = 1000: m = 10: DIM h%(m) 
+    120 FOR i=1 TO n 
+    130   k = RND(1 TO m) 
+    140   h%(k) = h%(k )+ 1 
+    150   AT 2,5: PRINT i 
+    160 END FOR i 
+    170 PRINT: avdiff = 0 
+    180 FOR k = 1 TO m 
+    190   diff = n / m - h%(k) 
+    200   PRINT k; TO 6; h%(k); TO 12; INT(diff) 
+    210   avdiff = avdiff + ABS(diff / n * m) 
+    220 END FOR k 
+    230 PRINT\"average difference:" ! INT(100 * avdiff / m);"%"
 
 **NOTE**
 
@@ -1704,16 +1977,48 @@ ROM
 | Location |  TinyToolkit                                                      |
 +----------+-------------------------------------------------------------------+
 
- This function returns the address im memory where additional ROMs can
+This function returns the address in memory where additional ROMs can
 be placed. The parameter specifies the number of the slot you wish to
 look at (it must be in the range 0...16). The possible values are:
 
-nROM(n)
-~~~~~~~
++----+--------------------+
+| n  | ROM(n)             |
++====+====================+
+| 0  | 49152 (EPROM-Port) |
++----+--------------------+
+| 1  | 786432             |
++----+--------------------+
+| 2  | 802816             |
++----+--------------------+
+| 3  | 819200             |
++----+--------------------+
+| 4  | 835584             |
++----+--------------------+
+| 5  | 851968             |
++----+--------------------+
+| 6  | 868352             |
++----+--------------------+
+| 7  | 884736             |
++----+--------------------+
+| 8  | 901120             |
++----+--------------------+
+| 9  | 917504             |
++----+--------------------+
+| 10 | 933888             |
++----+--------------------+
+| 11 | 950272             |
++----+--------------------+
+| 12 | 966656             |
++----+--------------------+
+| 13 | 983040             |
++----+--------------------+
+| 14 | 999424             |
++----+--------------------+
+| 15 | 1015808            |
++----+--------------------+
+| 16 | 1032192            |
++----+--------------------+
 
-049152 (EPROM-Port) 1786432 2802816 3819200 4835584 5851968 6868352
-7884736 8901120 9917504 10933888 11950272 12966656 13983040 14999424
-151015808 161032192
 
 **CROSS-REFERENCE**
 
@@ -1732,7 +2037,7 @@ ROM\_EXT
 | Location |  ATARI\_REXT                                                      |
 +----------+-------------------------------------------------------------------+
 
- This command activates any EPROMs in a standard QL format which have
+This command activates any EPROMs in a standard QL format which have
 been plugged into the ROM port on the Atari ST. The code contained in
 the EPROMs is initialised just as it would be on the QL.
 
@@ -1758,7 +2063,7 @@ ROM\_LOAD
 | Location |  ATARI\_REXT (pre v1.21 only)                                     |
 +----------+-------------------------------------------------------------------+
 
- On later versions of the Emulator, this has been renamed EPROM\_LOAD.
+On later versions of the Emulator, this has been renamed EPROM\_LOAD.
 
 --------------
 
@@ -1771,7 +2076,7 @@ ROMs
 | Location |  Beuletools                                                       |
 +----------+-------------------------------------------------------------------+
 
- This command lists all ROM headers of plugged in ROMs to the given
+This command lists all ROM headers of plugged in ROMs to the given
 channel (default #1), provided the ROMs conform to the Sinclair
 standard. This will recognise, for example, Trumpcard, Atari QL-Emulator
 and anything plugged into the QL's ROMport.
@@ -1791,7 +2096,7 @@ RTP\_R
 | Location |  PTRRTP                                                           |
 +----------+-------------------------------------------------------------------+
 
- The function RTP\_R takes a given rectangular co-ordinate and returns
+The function RTP\_R takes a given rectangular co-ordinate and returns
 the so-called module (ie. the radius in polar co-ordinates). The result
 of RTP\_R is always strictly positive and is not affected by the sign of
 the imag and real parameters, because of the symmetries of a circle.
@@ -1799,20 +2104,31 @@ the imag and real parameters, because of the symmetries of a circle.
 **Example 1**
 
 Draw a rectangular pattern in green and the corresponding polar pattern
-again displayed as rectangular co-ordinates in white: 100 SCALE
-10,-5,-5: PAPER 0: CLS 110 FOR x = -3 TO 3 STEP .4 120 FOR y = -3 TO 3
-STEP 5E-2 130 INK 4: POINT x, y 140 INK 7: POINT RTP\_R(x,y),
-RTP\_T(x,y) 150 END FOR y 160 END FOR x
+again displayed as rectangular co-ordinates in white:: 
+
+    100 SCALE 10,-5,-5: PAPER 0: CLS 
+    110 FOR x = -3 TO 3 STEP .4 
+    120   FOR y = -3 TO 3 STEP 5E-2 
+    130     INK 4: POINT x, y 
+    140     INK 7: POINT RTP_R(x,y), RTP_T(x,y) 
+    150   END FOR y 
+    160 END FOR x
 
 **Example 2**
 
 The same as the above example but the polar co-ordinates are treated
 even more unusually. If you correct the program and exchange a and b in
 line 140 then the two patterns will match exactly - this reveals what
-the RTP\_... functions are actually doing: 100 SCALE 10,-5,-5: PAPER 0:
-CLS 110 FOR x = -3 TO 3 STEP .4 120 FOR y = -3 TO 3 STEP 2E-2 130 INK 4:
-POINT x, y 140 a = RTP\_R(x,y): b = RTP\_T(x,y) 145 INK 7: POINT b \*
-COS(a), b \* SIN(a) 150 END FOR y 160 END FOR x
+the RTP\_... functions are actually doing:: 
+
+    100 SCALE 10,-5,-5: PAPER 0: CLS 
+    110   FOR x = -3 TO 3 STEP .4 
+    120   FOR y = -3 TO 3 STEP 2E-2 
+    130     INK 4: POINT x, y 
+    140     a = RTP_R(x,y): b = RTP_T(x,y) 
+    145     INK 7: POINT b * COS(a), b * SIN(a) 
+    150   END FOR y 
+    160 END FOR x
 
 **CROSS-REFERENCE**
 
@@ -1832,7 +2148,7 @@ RTP\_T
 | Location |  PTRRTP                                                           |
 +----------+-------------------------------------------------------------------+
 
- The function RTP\_T takes rectangular co-ordinates and returns the
+The function RTP\_T takes rectangular co-ordinates and returns the
 corresponding argument, (the angle used in polar co-ordinates) in
 radians. See RTP\_R for further information.
 
@@ -1847,14 +2163,28 @@ RUN
 | Location |  QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
 
- There is one command which can be found in any BASIC language: RUN.
+There is one command which can be found in any BASIC language::
+
+    RUN
+    
 Issuing RUN may actually be a little closer to the truth than you like
 to admit, but you should be happy with BASIC. Assembly language is much
 more terrifying, and if you have not yet reached that point of knowledge
-and understanding which it is most frustrating to reach... However, RUN
-line is identical to GOTO line and RUN without a parameter could be
-replaced by GOTO 1. Unlike some implementations of BASIC, the variables
-and the DATA pointer are not reset when you enter RUN.
+and understanding which it is most frustrating to reach... However:: 
+
+    RUN line 
+    
+is identical to:: 
+
+    GOTO line 
+
+and:: 
+
+    RUN 
+
+without a parameter, could be replaced by GOTO 1. 
+
+Unlike some implementations of BASIC, the variables and the DATA pointer are not reset when you enter RUN.
 
 **NOTE**
 
