@@ -35,8 +35,7 @@ Contents:
    Keywords O                                <KeywordsO.clean>
    Keywords P                                <KeywordsP.clean>
    Keywords Q                                <KeywordsQ.clean>
-
-..      Keywords R                                <KeywordsR.clean>
+   Keywords R                                <KeywordsR.clean>
 
 ..      Keywords S                                <KeywordsS.clean>
 
