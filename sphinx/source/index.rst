@@ -36,8 +36,7 @@ Contents:
    Keywords P                                <KeywordsP.clean>
    Keywords Q                                <KeywordsQ.clean>
    Keywords R                                <KeywordsR.clean>
-
-..      Keywords S                                <KeywordsS.clean>
+   Keywords S                                <KeywordsS.clean>
 
 
    Appendices Introduction                   <AppendicesIntro.clean>

@@ -1,3 +1,12 @@
+==========
+Keywords S
+==========
+
+TODO
+====
+
+- There are multiple SET commands all with the same URL.
+
 SAR
 ===
 
@@ -7,25 +16,31 @@ SAR
 | Location |  ARRAY                                                            |
 +----------+-------------------------------------------------------------------+
 
- The command SAR allows you to save a given array quickly (so that it
+The command SAR allows you to save a given array quickly (so that it
 can later be reloaded) as a whole to a specified file. The Toolkit II
 default data device for the file name is supported, although an existing
 file is not overwritten (use SARO) - the error 'Already exists' will be
 generated instead. array is stored in an internal coded but portable
 format, which makes it extremely fast to save and load arrays when
 compared to storage by writing and reading each individual element of an
-array. The file format is quite simple, it is basically the same as the
+array. 
+
+The file format is quite simple, it is basically the same as the
 way in which SuperBASIC itself would store the array. The first four
 bytes of the stored array are the characters WLAF. SAR will identify
 dimensions and the type of array on its own and accordingly store it.
+
 Sub-arrays are handled, but please note that, since stored data can only
 be reloaded into a readily dimensioned array (see LAR), it is important
 to remember the dimensions and type of the array before loading.
 
 **Example**
 
-Save and load an array: 100 DIM a%(1000) 110 SAR file$, a% 120 LAR
-file$, a%
+Save and load an array::
+
+    100 DIM a%(1000) 
+    110 SAR file$, a% 
+    120 LAR file$, a%
 
 **NOTE**
 
@@ -51,7 +66,7 @@ SARO
 | Location |  ARRAY                                                            |
 +----------+-------------------------------------------------------------------+
 
- SARO is almost the same as SAR except that it overwrites an existing
+SARO is almost the same as SAR except that it overwrites an existing
 file without reporting an error.
 
 --------------
@@ -65,7 +80,7 @@ SAUTO
 | Location |  Ecran Manager                                                    |
 +----------+-------------------------------------------------------------------+
 
- This is yet another screen saver.... It is activated by specifying how
+This is yet another screen saver.... It is activated by specifying how
 many seconds the computer should wait for a key to be pressed before it
 turns the screen blank. Once the screen is blank, any key will display
 the screen again. Negative seconds de-acticate this most useful of all
@@ -73,12 +88,15 @@ computer utilities.
 
 **Example**
 
-SAUTO 180
- blanks the display if no key is pressed for three minutes.
+::
+
+    SAUTO 180
+
+blanks the display if no key is pressed for three minutes.
 
 **NOTE 1**
 
-seconds = 0 gives an annoying flashing screen, so avoid it.
+If seconds = 0 then an annoying flashing screen results, so avoid it.
 
 **NOTE 2**
 
@@ -94,13 +112,15 @@ See SSAVE.
 SAVE
 ====
 
-+----------+-------------------------------------------------------------------+
-| Syntax   |  SAVE device\_filename :sup:`\*`\ [,range]\ :sup:`\* ` or SAVE [device\_] filename :sup:`\*`\ [,range]\ :sup:`\*`\ (Toolkit II only)  or SAVE(SMS only)  |
-+----------+-------------------------------------------------------------------+
-| Location |  QL ROM, Toolkit II                                               |
-+----------+-------------------------------------------------------------------+
++----------+---------------------------------------------------------------------------------+
+| Syntax   || SAVE device\_filename :sup:`\*`\ [,range]\ :sup:`\*` or                        |
+|          || SAVE [device\_] filename :sup:`\*`\ [,range]\ :sup:`\*`\ (Toolkit II only)  or |
+|          || SAVE(SMS only)                                                                 |
++----------+---------------------------------------------------------------------------------+
+| Location || QL ROM, Toolkit II                                                             |
++----------+---------------------------------------------------------------------------------+
 
- If no line range is given, this command saves the whole of the
+If no line range is given, this command saves the whole of the
 currently loaded SuperBASIC program to the given directory device, under
 the given filename. However, a range of lines can be given (as with
 LIST), in which case only the given lines will be saved. If the filename
@@ -109,7 +129,9 @@ unless you have Toolkit II present, in which case, a prompt will be
 printed in #0 asking you whether it is okay to overwrite that file. If
 the device is already full, the 'Device Full' error is reported,
 however, the effects should the drive become full during the actual SAVE
-command, depends upon the implementation (see below). The file is saved
+command, depends upon the implementation (see below). 
+
+The file is saved
 in pure ASCII format, which means that it can be COPYed to the screen or
 a printer (using COPY\_N). The Toolkit II variant of the command will
 add the data default directory to the filename if it cannot find the
@@ -118,12 +140,19 @@ given device, or no device is specified.
 **Examples**
 
 Save the whole of the current program to microdrive 1 with the filename
-BOOT: SAVE mdv1\_BOOT
- Save the whole of the current program to the current data default
-directory with the filename prog\_bas: SAVE prog\_bas
- Save lines 1, 100 to 150 (inclusive) and 300 to the end of the program
-to the current data default directory with the filename cut\_bas: SAVE
-cut\_bas,1,100 TO 150,300 TO
+BOOT:: 
+
+    SAVE mdv1_BOOT
+    
+Save the whole of the current program to the current data default
+directory with the filename prog\_bas::
+
+    SAVE prog_bas
+    
+Save lines 1, 100 to 150 (inclusive) and 300 to the end of the program
+to the current data default directory with the filename cut\_bas::
+
+    SAVE cut_bas,1,100 TO 150,300 TO
 
 **NOTE 1**
 
@@ -146,11 +175,13 @@ will repeatedly ask if it is OK to overwrite that file until you answer
 
 The third variant of the command will allow you to SAVE the program in
 memory under the same filename as when LOAD or QLOAD
- was last used (with the \_BAS suffix appended if necessary). If the
+was last used (with the \_BAS suffix appended if necessary). If the
 original filename used when the program was LOADed ended in \_SAV, then
 SAVE will alter this to be the \_BAS suffix. This variant will also take
 the version number of the file when it was LOADed (or QLOADed) and then
-increase this by one. If you SAVE a file on a disk, then use DELETE to
+increase this by one. 
+
+If you SAVE a file on a disk, then use DELETE to
 remove that file, and then change the disk before issuing the SAVE
 command without a filename being specified, SMSQ/E fails to recognise
 that the disk has been swapped and repeatedly tries to write out the
@@ -171,12 +202,14 @@ SAVE\_O
 =======
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  SAVE\_O device\_filename \*[,range]\*(THOR XVI)  or SAVE\_O [device\_] filename \*[,range]\*(Toolkit II)  or SAVE\_O (SMS only)  |
+| Syntax   || SAVE\_O device\_filename \*[,range]\*(THOR XVI)  or              |
+|          || SAVE\_O [device\_] filename \*[,range]\*(Toolkit II)  or         |
+|          || SAVE\_O (SMS only)                                               |
 +----------+-------------------------------------------------------------------+
-| Location |  THOR XVI, Toolkit II                                             |
+| Location || THOR XVI, Toolkit II                                             |
 +----------+-------------------------------------------------------------------+
 
- This command operates in exactly the same manner as SAVE, except that
+This command operates in exactly the same manner as SAVE, except that
 the file is automatically overwritten if it already exists.
 
 **NOTE**
@@ -199,11 +232,15 @@ SAVEPIC
 | Location |  PICEXT                                                           |
 +----------+-------------------------------------------------------------------+
 
- This command saves the screen contents (from $20000) to the specified
+This command saves the screen contents (from $20000) to the specified
 file, which has to be given as a string and must include the full
-filename. The file which will be created is 32K long. SBYTES
-file$,SCREEN,32768
- does exactly the same.
+filename. The file which will be created is 32K long. 
+
+::
+
+    SBYTES file$, SCREEN, 32768
+    
+does exactly the same.
 
 **NOTE**
 
@@ -225,7 +262,7 @@ SB\_THING
 | Location |  SMSQ                                                             |
 +----------+-------------------------------------------------------------------+
 
- This command is found in versions of SMSQ which do not have the Hotkey
+This command is found in versions of SMSQ which do not have the Hotkey
 System II built in (most QXL versions of SMSQ). It is used to create the
 SBASIC Executable Thing so that you can start SBASIC up from a Hotkey or
 by using the EXEC set of commands.
@@ -247,28 +284,40 @@ SBASIC
 ======
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  SBASIC [pos] or SBASIC pos$                                      |
+| Syntax   || SBASIC [pos] or                                                  |
+|          || SBASIC pos$                                                      |
 +----------+-------------------------------------------------------------------+
-| Location |  SMS                                                              |
+| Location || SMS                                                              |
 +----------+-------------------------------------------------------------------+
 
- This command is used to start up a Multiple SBASIC interpreter, which
+This command is used to start up a Multiple SBASIC interpreter, which
 is nearly an exact copy of the main interpreter (Job 0) and will contain
 a copy of all of the toolkit commands used by the parent Job when this
 command is invoked. Any toolkits subsequently loaded into the new SBASIC
 interpreter cannot be used by its parent and vice versa. In its simplest
-form: SBASIC
- a new Interpreter will be started up which has windows #0,#1 and #2
-open as per Job 0. You can however pass either a one or two digit number
+form::
+
+    SBASIC
+    
+a new Interpreter will be started up which has windows #0,#1 and #2
+open as per Job 0. 
+
+You can however pass either a one or two digit number
 (either as a numeric pos or a string pos$), in which case only #0 will
 be opened and its position will depend upon the number which has been
 passed as a parameter. This enables you to start up a new SBASIC
-Interpreter without its windows overlapping existing programs. If only
+Interpreter without its windows overlapping existing programs. 
+
+If only
 one digit is passed, this is taken to be the SBASIC row number. Row 0 is
 at the top of the screen, Row 1 is 64 pixels from the top, Row 2 128
-pixels from the top and so on... If two digits are passed, the first
+pixels from the top and so on... 
+
+If two digits are passed, the first
 digit is taken to be the SBASIC column number, the second becomes the
-SBASIC row number (see above). The column number is calculated as,
+SBASIC row number (see above). 
+
+The column number is calculated as,
 Column 0 being the left hand side of the screen, Column 1 is 256 pixels
 from the left, Column 2 512 pixels from the left and so on....
 
@@ -289,16 +338,21 @@ a SBASIC Job.
 SBYTES
 ======
 
-+----------+-------------------------------------------------------------------+
-| Syntax   |  SBYTES device\_file,start,length  or SBYTES device\_file,start[,length[,data[,extra[,type]]] (Minerva v1.80+)  or SBYTES [device\_]file,start,length(Toolkit II)  or SBYTES #channel,start,length(SMS only)  |
-+----------+-------------------------------------------------------------------+
-| Location |  QL ROM, Toolkit II                                               |
-+----------+-------------------------------------------------------------------+
++----------+-------------------------------------------------------------------------------+
+| Syntax   || SBYTES device\_file,start,length  or                                         |
+|          || SBYTES device\_file,start[,length[,data[,extra[,type]]] (Minerva v1.80+)  or |
+|          || SBYTES [device\_]file,start,length(Toolkit II)  or                           |
+|          || SBYTES #channel,start,length(SMS only)                                       |
++----------+-------------------------------------------------------------------------------+
+| Location || QL ROM, Toolkit II                                                           |
++----------+-------------------------------------------------------------------------------+
 
- It can sometimes be useful to save part of the QL's memory to a file so
+It can sometimes be useful to save part of the QL's memory to a file so
 that it can be loaded back into the computer at a later date. The area
 of memory saved may for example, contain a program, some machine code or
-some data. The command SBYTES allows you to save length number of bytes
+some data. 
+
+The command SBYTES allows you to save length number of bytes
 from the QL's memory, starting from the specified start address. The
 area of memory is saved to the specified file which must include the
 name of the device to be used, unless Toolkit II is present, in which
@@ -308,23 +362,49 @@ exists.
 
 **Example**
 
-(1) To save the currently displayed screen on a standard QL, use the
-command: SBYTES flp1\_Example\_scr,SCREEN,32768
- Or under SMS, you can save any size screen using: SBYTES
-flp1\_Example\_scr,SCR\_BASE,SCR\_LLEN\*SCR\_YLIM
- (2) The start of a program which was protected by a password could be
-written along the lines of this:- 100 a=ALCHP(100) 110 IF
-FTEST(flp1\_pass)=0 120 LBYTES flp1\_pass,a 130 END IF 140 pass$='' 150
-PAPER#0,0:CLS#0:INK#0,7 160 PRINT #0,'Enter Password :'; 170 FOR
-letter=1 TO 4 180 pass$=pass$&INKEY$(-1) 190 PRINT#0,'\*'; 200 END FOR
-letter 210 PRINT #0 220 IF PEEK(a)=0 230 offset=RND(1 TO 50) 240 POKE
-a,offset 250 FOR i=1 TO 4 260 POKE a+i,CODE(pass$(i))+i+offset 270 END
-FOR i 280 FOR i=5 TO 100:POKE a+i,RND(100) 290 SBYTES flp1\_pass,a,100
-300 ELSE 310 offset=PEEK(a) 320 FOR i=1 TO 4
+To save the currently displayed screen on a standard QL, use the
+command:: 
 
-330 IF CODE(pass$(i))<>PEEK(a+i)-i-offset 340 PRINT 'Access
-Denied':RECHP a:STOP 350 END IF 360 END FOR i 370 END IF 380 PRINT
-'Access Granted' 390 RECHP a
+    SBYTES flp1_Example_scr,SCREEN,32768
+    
+Or under SMS, you can save any size screen using::
+
+    SBYTES flp1_Example_scr, SCR_BASE, SCR_LLEN * SCR_YLIM
+
+
+The start of a program which was protected by a password could be
+written along the lines of this::
+
+    100 a=ALCHP(100) 
+    110 IF FTEST(flp1_pass)=0 
+    120   LBYTES flp1_pass,a 
+    130 END IF 
+    140 pass$='' 
+    150 PAPER#0,0:CLS#0:INK#0,7 
+    160 PRINT #0,'Enter Password :'; 
+    170 FOR letter=1 TO 4 
+    180   pass$=pass$&INKEY$(-1) 
+    190   PRINT#0,'*'; 
+    200 END FOR letter 
+    210 PRINT #0 
+    220 IF PEEK(a)=0 
+    230   offset=RND(1 TO 50) 
+    240   POKE a,offset 
+    250   FOR i=1 TO 4 
+    260     POKE a+i,CODE(pass$(i))+i+offset 
+    270   END FOR i 
+    280   FOR i=5 TO 100:POKE a+i,RND(100) 
+    290   SBYTES flp1_pass,a,100 
+    300 ELSE 
+    310   offset=PEEK(a) 
+    320   FOR i=1 TO 4 
+    330     IF CODE(pass$(i))<>PEEK(a+i)-i-offset 
+    340       PRINT 'Access Denied':RECHP a:STOP 
+    350     END IF 
+    360   END FOR i 
+    370 END IF 
+    380 PRINT 'Access Granted' 390 RECHP a
+
 
 **NOTE 1**
 
@@ -348,31 +428,48 @@ On Minerva v1.80 (or later) the commands SBYTES and SEXEC have
 practically become interchangeable, as both support exactly the same
 parameters. All of the parameters except for the start address and
 device\_file where the data is to be stored, are optional and will
-default to 0 if not specified. These additional parameters have the
-following uses: extraThis sets the value which is normally returned with
-FXTRA (which would normally have to be altered with SetHEAD). typeThis
-allows you to set two file attributes: (a) the file type - this is
-normally 0 for data, or 1 for executable programs. This is calculated by
-PRINT type && 255. (b) the file access key - it is generally used by
-Toolkits such as QL-System to store various file attributes (such as
-whether a file is read-only). This is calculated by PRINT type DIV 256.
-The only problem with using this extended version of SBYTES
- instead of using SEXEC is that you must remember to specify a file type
-of 1 if the file is later to be EXECuted (as this defaults to 0 in the
-case of SBYTES!). For example, both of these are the same:- SBYTES
-ram1\_test\_exe,code\_start,20000,500,0,1
- SEXEC ram1\_test\_exe,code\_start,20000,500
+default to 0 if not specified. 
+
+These additional parameters have the
+following uses: 
+
+- Extra This sets the value which is normally returned with FXTRA (which would normally have to be altered with SetHEAD). 
+- Type This allows you to set two file attributes: 
+  
+  - the file type - this is normally 0 for data, or 1 for executable programs. This is calculated by PRINT type && 255. 
+  - the file access key - it is generally used by Toolkits such as QL-System to store various file attributes (such as whether a file is read-only). This is calculated by PRINT type DIV 256.
+  
+The only problem with using this extended version of SBYTES instead of using SEXEC is that you must remember to specify a file type of 1 if the file is later to be EXECuted (as this defaults to 0 in the
+case of SBYTES!). 
+
+For example, both of these are the same::
+
+    SBYTES ram1_test_exe, code_start, 20000, 500, 0, 1
+    SEXEC ram1_test_exe, code_start, 20000, 500
 
 **SMS NOTE**
 
 The fourth variant of the command allows you to save the bytes to an
 existing channel which is already OPEN to a file, thus allowing you to
 work more efficiently. You can use the following to error trap the
-saving routine: 100 REPeat loop 110 ch=FOP\_NEW (ram1\_test\_bin) 120 IF
-ch<0 130 REPORT ch 140 PRINT "Press <y> to retry, <n> to stop" 150
-REPeat kLoop 160 key$=INKEY$(-1) 170 IF key$ INSTR 'yn':EXIT kLoop 180
-END REPeat kLoop 190 IF key$=='y':NEXT loop 200 STOP 210 END IF 220
-SBYTES #ch,131072,32768 230 EXIT loop 240 END REPeat loop 250 CLOSE #ch
+saving routine:: 
+
+    100 REPeat loop 
+    110   ch=FOP_NEW (ram1_test_bin) 
+    120   IF ch<0 
+    130     REPORT ch 
+    140     PRINT "Press <y> to retry, <n> to stop" 
+    150     REPeat kLoop 
+    160       key$=INKEY$(-1) 
+    170       IF key$ INSTR 'yn':EXIT kLoop 
+    180     END REPeat kLoop 
+    190     IF key$=='y':NEXT loop 
+    200     STOP 
+    210   END IF 
+    220   SBYTES #ch,131072,32768 
+    230   EXIT loop 
+    240 END REPeat loop 
+    250 CLOSE #ch
 
 **CROSS-REFERENCE**
 
@@ -389,12 +486,14 @@ SBYTES\_O
 =========
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  SBYTES\_O [device\_]file,start,length(Toolkit II only)  or SBYTES\_O device\_file,start,length (THOR XVI)  or SBYTES\_O #channel,start,length (SMS only)  |
+| Syntax   || SBYTES\_O [device\_]file,start,length(Toolkit II only)  or       |
+|          || SBYTES\_O device\_file,start,length (THOR XVI)  or               |
+|          || SBYTES\_O #channel,start,length (SMS only)                       |
 +----------+-------------------------------------------------------------------+
 | Location |  Toolkit II, THOR XVI                                             |
 +----------+-------------------------------------------------------------------+
 
- This command is exactly the same as SBYTES except that it will
+This command is exactly the same as SBYTES except that it will
 automatically overwrite an existing file of the same name.
 
 **NOTE**
@@ -411,42 +510,63 @@ SCALE
 =====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  SCALE [#ch,] size,x,y  or SCALE [#ch,] -size,x,y (Minerva v1.76+)  |
+| Syntax   || SCALE [#ch,] size,x,y  or                                       |
+|          || SCALE [#ch,] -size,x,y (Minerva v1.76+)                          |
 +----------+-------------------------------------------------------------------+
-| Location |  QL ROM                                                           |
+| Location || QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
 
- Many of the QL's graphics commands rely upon the graphics co-ordinate
+Many of the QL's graphics commands rely upon the graphics co-ordinate
 system to dictate whereabouts in a window they should appear. The
 command SCALE allows you to set the graphics scale in a specified window
-(default #1). size dictates the graphics scale for that window by
+(default #1). 
+
+Size dictates the graphics scale for that window by
 representing the length of a line which would be drawn from the bottom
 left hand corner of a window to the top left hand corner, hence the
 larger the size, the more information which can appear on screen
 (although this is somewhat limited by the actual resolution of the
-screen!). The default size is 100. The co-ordinates x,y specify the
+screen!). The default size is 100. 
+
+The co-ordinates x,y specify the
 co-ordinate which appears in the bottom left hand corner of the screen.
 When a window is opened, the scale is reset with the equivalent of SCALE
-#ch,100,0,0. Although a line drawn up the side of a window will be size
- units long, the length required to draw a line along the whole of the
+#ch,100,0,0. 
+
+Although a line drawn up the side of a window will be size
+units long, the length required to draw a line along the whole of the
 bottom of the window, not only depends on the value of size, but also on
-the screen resolution and the shape of the given window. size\| y\| \|
-\| \| \|
-\|\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-(0,0) size\*factor
- x
+the screen resolution and the shape of the given window. 
+
+::
+
+    size|
+       y|
+        |
+        |
+        |
+        |
+        |__________________________________
+    (0,0) size*factor                     x
+
 
 **Example**
 
 The following short program will draw a diagonal cross through the
-middle of any given size of window, on any given screen resolution:- 100
-INPUT 'Screen Resolution Width :'!ScreenX 110 INPUT 'Screen Resolution
-Height :'!ScreenY 120 INPUT 'Window Width : ';wid 130 INPUT 'Window
-Height : ';hi 140 INPUT 'Scale : ';size 150 WINDOW wid,hi,32,16 160
-PAPER 2:INK 7:CLS 170 SCALE size,0,0 180
-Xratio=ScreenX/512:Yratio=ScreenY/256 190
-line\_diff=(101\*Yratio/hi)\*wid/('135.5041505'\*Xratio) 200 LINE 0,0 TO
-size\*line\_diff,size 210 LINE 0,size TO size\*line\_diff,0
+middle of any given size of window, on any given screen resolution::
+
+    100 INPUT 'Screen Resolution Width :'!ScreenX 
+    110 INPUT 'Screen Resolution Height :'!ScreenY 
+    120 INPUT 'Window Width : ';wid 
+    130 INPUT 'Window Height : ';hi 
+    140 INPUT 'Scale : ';size 
+    150 WINDOW wid,hi,32,16 
+    160 PAPER 2:INK 7:CLS 
+    170 SCALE size,0,0 
+    180 Xratio=ScreenX/512:Yratio=ScreenY/256 
+    190 line_diff=(101*Yratio/hi)*wid/('135.5041505'*Xratio) 
+    200 LINE 0,0 TO size*line_diff,size 
+    210 LINE 0,size TO size*line_diff,0
 
 **NOTE 1**
 
@@ -462,8 +582,10 @@ can be drawn upwards in a window is slightly larger than size.
 
 On JSU ROMs, the screen ratio is different to other ROMs, presumably due
 to the different number of lines on American TVs - you would need to
-change line 190 in the above example to read: 190
-line\_diff=(101\*Yratio/hi)\*wid/('159.593001'\*Xratio)
+change line 190 in the above example to read::
+
+    90 line_diff=(101*Yratio/hi)*wid/('159.593001'*Xratio)
+
 
 **MINERVA NOTES**
 
@@ -471,37 +593,73 @@ Minerva ROMs (v1.76 or later) allow you to use a negative SCALE, so that
 you may easily draw a picture upside down without altering all of the
 different drawing commands. This is achieved by using the second syntax
 of the SCALE command. Before trying to use this new variant of the
-command, you will have to give your drawing some careful thought. For
+command, you will have to give your drawing some careful thought. 
+
+For
 instance, when designing a screen, it is best to draw this using the
 normal SCALE command, and then to use Minerva's new syntax at that
-stage. For example, take the following short demonstration drawing: 100
-MODE 8 110 WINDOW 448,200,32,16 120 SCALE 100,0,0:PAPER 0:CLS 130 INK
-2:FILL 1 140 LINE 0,0 TO 0,10 150 LINE 0,10 TO 40,30 TO 60,27 160 LINE
-60,27 TO 40,24 TO 10,0 TO 0,0 170 FILL 1 180 LINE 166,0 TO 166,10 190
-LINE 166,10 TO 126,30 TO 106,27 200 LINE 106,27 TO 126,24 TO 156,0 TO
-166,0 210 INK 4,3 220 FILL 1:CIRCLE 83,50,32:FILL 0
- Now, to turn it upside down on Minerva, try changing line 120 to read:
-120 SCALE -100,0,0:PAPER 0:CLS
- If you now try running the program, you will find that your picture no
-longer appears! This is because instead of Minerva moving the graphics
+stage. For example, take the following short demonstration drawing::
+
+    100 MODE 8 
+    110 WINDOW 448,200,32,16 
+    120 SCALE 100,0,0:PAPER 0:CLS 
+    130 INK 2:FILL 1 
+    140 LINE 0,0 TO 0,10 
+    150 LINE 0,10 TO 40,30 TO 60,27 
+    160 LINE 60,27 TO 40,24 TO 10,0 TO 0,0 
+    170 FILL 1 
+    180 LINE 166,0 TO 166,10 
+    190 LINE 166,10 TO 126,30 TO 106,27 
+    200 LINE 106,27 TO 126,24 TO 156,0 TO 166,0 
+    210 INK 4,3 
+    220 FILL 1:CIRCLE 83,50,32:FILL 0
+
+Now, to turn it upside down on Minerva, try changing line 120 to read::
+ 
+    120 SCALE -100,0,0:PAPER 0:CLS
+    
+If you now try running the program, you will find that your picture no
+longer appears! 
+
+This is because instead of Minerva moving the graphics
 origin to the top right hand corner of the window (as you might have
 expected), Minerva has in effect turned the graphics output around by
 180 degrees about the graphics origin (ie. the bottom left hand corner
-of the window). This means that to get your picture to re-appear on
+of the window). 
+
+This means that to get your picture to re-appear on
 screen, you will need to redefine the graphics origin so that it has the
 same values as you would expect to be in the top right hand corner of
 the screen before it was turned around. Thus, the following diagram will
-explain the current layout of the screen:- -size\| y\| \| \| \| \|
-\|\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ (0,0)
--size\*factor
- -x In other words, in the above example, you will need to alter line
-120 to read: 120 SCALE -100,166,100:PAPER 0:CLS
- The program will now display the picture upside down, having now
-altered the orientation of the display to the following diagram:- x
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_(0,0)
-size\| \| \| \| \|\| \| \| \|\| \|\| y
-\|\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\|
-(166,100) size\*factor
+explain the current layout of the screen::
+
+    -size|
+         |
+         |
+         |
+         |
+         |
+         |_____________________________
+     (0,0) -size*factor              -x
+
+
+In other words, in the above example, you will need to alter line
+120 to read:: 
+
+    120 SCALE -100,166,100:PAPER 0:CLS
+    
+The program will now display the picture upside down, having now
+altered the orientation of the display to the following diagram::
+
+    x    ______________________________________(0,0)
+    size|                                      |
+        |                                      |
+        |                                      |
+        |                                      |
+        |                                      |
+        |                                      | y
+        |______________________________________|
+(166,100)           size*factor
 
 **CROSS-REFERENCE**
 
@@ -520,7 +678,7 @@ SCLR
 | Location |  Fast PLOT/DRAW Toolkit                                           |
 +----------+-------------------------------------------------------------------+
 
- This command causes the screen (pointed to by SCRBASE) to be cleared
+This command causes the screen (pointed to by SCRBASE) to be cleared
 with the given colour. This colour ranges from 0 (black) to 7 (white).
 There is no default.
 
@@ -529,8 +687,12 @@ There is no default.
 Run this small program and watch how your screen seems to change size.
 The greater the difference in apparent size, the worse your monitor
 (there are more intelligent criteria as to the capability of your
-monitor, for example radiance): 100 MODE 4:SCRBASE 110 REPeat
-screen\_test 120 FOR n=0,2,4,6: SCLR n 130 END REPeat screen\_test
+monitor, for example radiance)::
+
+100 MODE 4:SCRBASE 
+110 REPeat screen_test 
+120   FOR n=0,2,4,6: SCLR n 
+130 END REPeat screen_test
 
 **NOTE**
 
@@ -558,7 +720,7 @@ SCRBASE
 | Location |  Fast PLOT/DRAW Toolkit                                           |
 +----------+-------------------------------------------------------------------+
 
- All commands belonging to the fast graphics Toolkit use the specified
+All commands belonging to the fast graphics Toolkit use the specified
 parameter set with this command as the base address for their
 operations: SCLR, PLOT, DRAW and REFRESH. This is intended to allow
 background drawing. The default address is the address of the visible
@@ -566,31 +728,58 @@ screen, SCREEN.
 
 **Example 1**
 
-A simple demonstration and an animated version. 100 SCRBASE
-ALCHP(32768): SCLR 0 110 FOR t=0 TO 2\*PI STEP PI/32 120
-x1=188\*SIN(t)+255: y1=127\*COS(t)+127 130 x2=188\*SIN(t+PI)+255:
-y2=127\*SIN(t+PI)+127 140 DRAW x1,y1 TO x2,y2 ,7 150 END FOR t 160
-REFRESH: CLCHP 100 Pics=INT((FREE\_MEM-4096)/32768) 110 DIM base(Pics)
-120 FOR c=2\*PI/Pics TO 2\*PI STEP 2\*PI/Pics 130
-base(c/2/PI\*Pics)=ALCHP(32768) 140 SCRBASE base(c/2/PI\*Pics): SCLR 0
-150 FOR t=0 TO 2\*PI STEP PI/4 160 x1=188\*SIN(t)+255:
-y1=127\*COS(t)+127 170 x2=188\*SIN(t+c)+255: y2=127\*SIN(t+c)+127 180
-DRAW x1,y1 TO x2,y2 ,7 190 END FOR t 200 END FOR c 210 : 220 REPeat
-Animation 230 FOR c=1 TO Pics: SCRBASE base(c): REFRESH 240 IF
-KEYROW(1)=8 THEN EXIT Animation 250 END REPeat Animation 260 CLCHP
+A simple demonstration and an animated version:: 
+
+    100 SCRBASE ALCHP(32768): SCLR 0 
+    110 FOR t=0 TO 2*PI STEP PI/32 
+    120   x1=188*SIN(t)+255: y1=127*COS(t)+127 
+    130   x2=188*SIN(t+PI)+255: y2=127*SIN(t+PI)+127 
+    140   DRAW x1,y1 TO x2,y2 ,7 
+    150 END FOR t 
+    160 REFRESH: CLCHP 
+
+    100 Pics=INT((FREE_MEM-4096)/32768) 
+    110 DIM base(Pics) 
+    120 FOR c=2*PI/Pics TO 2*PI STEP 2*PI/Pics 
+    130   base(c/2/PI*Pics)=ALCHP(32768) 
+    140   SCRBASE base(c/2/PI*Pics): SCLR 0 
+    150   FOR t=0 TO 2*PI STEP PI/4 
+    160     x1=188*SIN(t)+255: y1=127*COS(t)+127 
+    170     x2=188*SIN(t+c)+255: y2=127*SIN(t+c)+127 
+    180     DRAW x1,y1 TO x2,y2 ,7 
+    190   END FOR t 
+    200 END FOR c 
+    210 : 
+    220 REPeat Animation 
+    230 FOR c=1 TO Pics: SCRBASE base(c): REFRESH 
+    240   IF KEYROW(1)=8 THEN EXIT Animation 
+    250 END REPeat Animation 
+    260 CLCHP
 
 **Example 2**
 
 Varying the base address by steps equal to the value of SCRINC (normally
 128) simulates vertical scrolling. The first program views memory, the
-other one loads an uncompressed 32K screen and then 'scrolls it in'. 100
-FOR A=0 TO 786432 STEP 128 110 SCRBASE A 120 REFRESH 130 END FOR A
- The second program appears on the next page. 100
-SCRFILE$="MDV1\_SCREEN\_SCR" 110 SCROLLSPEED=4 120 : 130
-ADR=ALCHP(65536) 140 LBYTES SCRFILE$,ADR+32768 150 POKE$
-ADR,FILL$(CHR$(0),32767): POKE SCREEN+32766,0 160 FOR A=ADR TO ADR+32768
-STEP SCROLLSPEED\*SCRINC 170 SCRBASE A 180 REFRESH 190 END FOR A 200
-RECHP ADR
+other one loads an uncompressed 32K screen and then 'scrolls it in'. 
+
+::
+
+100 FOR A=0 TO 786432 STEP 128 110 SCRBASE A 120 REFRESH 130 END FOR A
+
+The second program appears on the next page. 
+
+::
+
+    100 SCRFILE$="MDV1_SCREEN_SCR" 
+    110 SCROLLSPEED=4 120 : 
+    130 ADR=ALCHP(65536) 
+    140 LBYTES SCRFILE$,ADR+32768 
+    150 POKE$ ADR,FILL$(CHR$(0),32767): POKE SCREEN+32766,0 
+    160 FOR A=ADR TO ADR+32768 STEP SCROLLSPEED*SCRINC 
+    170   SCRBASE A 
+    180   REFRESH 
+    190 END FOR A 
+    200 RECHP ADR
 
 **CROSS-REFERENCE**
 
@@ -605,14 +794,15 @@ and display animated displays. Compare
 
 SCREEN
 ======
+*** You Are Here ***
++----------+-------------------------------------------------------------------+
+| Syntax   || SCREEN  or                                                       |
+|          || SCREEN [(#ch)] (FN Toolkit only)                                 |
++----------+-------------------------------------------------------------------+
+| Location || Beuletools, Fn                                                   |
++----------+-------------------------------------------------------------------+
 
-+----------+-------------------------------------------------------------------+
-| Syntax   |  SCREEN  or SCREEN [(#ch)] (FN Toolkit only)                      |
-+----------+-------------------------------------------------------------------+
-| Location |  Beuletools, Fn                                                   |
-+----------+-------------------------------------------------------------------+
-
- The visible screen on a standard QL is actually 32K of memory. The
+The visible screen on a standard QL is actually 32K of memory. The
 start address of the screen is normally 131072, but can change on
 Minerva and higher resolution implementations of the QL, so the start
 address should be determined before accessing the screen directly. The
@@ -643,7 +833,7 @@ SCRINC
 | Location |  Fn                                                               |
 +----------+-------------------------------------------------------------------+
 
- The screen width is not fixed on QDOS computers, QL Emulators and
+The screen width is not fixed on QDOS computers, QL Emulators and
 future hardware expansions (graphic cards) offer different screen modes
 with different resolutions. The function SCRINC returns the screen width
 relating to the screen upon which the given channel (default #0) is
@@ -673,7 +863,7 @@ SCROLL
 | Location |  QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
 
- This command allows you to move the contents of a given window (default
+This command allows you to move the contents of a given window (default
 #1) up or down by a specified number of pixels (distance). A positive
 value for distance will move the contents of the window downwards,
 whereas a negative distance will move them upwards. As the contents are
@@ -743,7 +933,7 @@ SCROF
 | Location |  Ecran Manager                                                    |
 +----------+-------------------------------------------------------------------+
 
- This command forces the current screen to become invisible - the effect
+This command forces the current screen to become invisible - the effect
 of SCROF lasts until the next task switch under the Pointer Environment
 or until one of the standard MODE commands (ie. not dealing with dual
 screen mode) or NEW are issued.
@@ -771,7 +961,7 @@ SCRON
 | Location |  Ecran Manager                                                    |
 +----------+-------------------------------------------------------------------+
 
- The SCRON command makes the screen visible once again after it has been
+The SCRON command makes the screen visible once again after it has been
 disabled with SCROF.
 
 **Example**
@@ -797,7 +987,7 @@ SCR2DIS
 | Location |  Super Gold Card                                                  |
 +----------+-------------------------------------------------------------------+
 
- Some programs make use of the QL's ability to support a second screen
+Some programs make use of the QL's ability to support a second screen
 (on a standard QL this is normally stored at $28000 (hex) - it
 overwrites the system variables which are moved to another area in
 memory). You can therefore see why it is important never to make
@@ -833,7 +1023,7 @@ SCR2EN
 | Location |  Super Gold Card                                                  |
 +----------+-------------------------------------------------------------------+
 
- This command is the complementary command to SCR2DIS - it enables the
+This command is the complementary command to SCR2DIS - it enables the
 QL's second screen and is also memorised by the Super Gold Card so that
 the second screen will always be available for use by programs.
 
@@ -859,7 +1049,7 @@ SCR\_BASE
 | Location |  ATARI\_REXT (v2.25+), SMSQ/E                                     |
 +----------+-------------------------------------------------------------------+
 
- This function returns the base address of the screen linked to the
+This function returns the base address of the screen linked to the
 specified channel (default #0), this is normally 131072 on standard QLs
 but can alter on other resolutions or if dual screen mode is supported.
 On machines which support higher resolutions, the screen base will only
@@ -896,7 +1086,7 @@ SCR\_LLEN
 | Location |  ATARI\_REXT (v2.25+), SMSQ/E                                     |
 +----------+-------------------------------------------------------------------+
 
- This function returns the number of bytes required to hold one line of
+This function returns the number of bytes required to hold one line of
 pixels on the current screen resolution attached to the specified
 channel (default #0). On a standard QL 512x256 resolution, this is
 normally 128 bytes but can alter on other resolutions.
@@ -933,7 +1123,7 @@ SCR\_REFRESH
 | Location |  SuperWindow Toolkit                                              |
 +----------+-------------------------------------------------------------------+
 
- This command copies a screen (or a portion of a screen) which has been
+This command copies a screen (or a portion of a screen) which has been
 saved in memory at the specified address using SCR\_STORE back to the
 same position on the visible display screen.
 
@@ -961,7 +1151,7 @@ SCR\_SAVE
 | Location |  MutiBASIC v4.0+ (DIY Toolkit - Vol M)                            |
 +----------+-------------------------------------------------------------------+
 
- This command is used to specify whether the current screen display and
+This command is used to specify whether the current screen display and
 mode should be stored along with the program when the UNLOAD or RESAVE
 commands are used. The setting depends on the value of flag: 0 Do not
 store the screen display and mode. 1 (This is the default). Store the
@@ -985,12 +1175,13 @@ SCR\_SIZE
 =========
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  SCR\_SIZE [(#channel)] or SCR\_SIZE (width\_x,width\_y [[,pos\_x],pos\_y] )  |
+| Syntax   || SCR\_SIZE [(#channel)] or                                        |
+|          || SCR\_SIZE (width\_x,width\_y [[,pos\_x],pos\_y] )                |
 +----------+-------------------------------------------------------------------+
-| Location |  SuperWindow Toolkit                                              |
+| Location || SuperWindow Toolkit                                              |
 +----------+-------------------------------------------------------------------+
 
- This function will return the space in bytes, a window (default #1) or
+This function will return the space in bytes, a window (default #1) or
 rectangle on the screen, needs to be stored with SCR\_STORE. Windows are
 specified just by reference to their channel number, whereas rectangles
 by their width and height. Naturally, the size of any shape is
@@ -1018,12 +1209,13 @@ SCR\_STORE
 ==========
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  SCR\_STORE [#channel,] address  or SCR\_STORE width,height,x,y TO address  |
+| Syntax   || SCR\_STORE [#channel,] address  or                               |
+|          || SCR\_STORE width,height,x,y TO address                           |
 +----------+-------------------------------------------------------------------+
-| Location |  SuperWindow Toolkit                                              |
+| Location || SuperWindow Toolkit                                              |
 +----------+-------------------------------------------------------------------+
 
- This command allows you to store a part of the screen at the given
+This command allows you to store a part of the screen at the given
 address in RAM. The section of the screen to be stored can be either a
 window channel number (default #1) or the dimensions of a rectangle. The
 amount of memory SCR\_STORE needs is returned by SCR\_SIZE. SCR\_STORE
@@ -1072,7 +1264,7 @@ SCR\_XLIM
 | Location |  SMSQ/E                                                           |
 +----------+-------------------------------------------------------------------+
 
- This function is the same as QFLIM(#ch,0) except that the channel
+This function is the same as QFLIM(#ch,0) except that the channel
 parameter is optional (it defaults to #0).
 
 **NOTE**
@@ -1099,7 +1291,7 @@ SCR\_YLIM
 | Location |  SMSQ/E                                                           |
 +----------+-------------------------------------------------------------------+
 
- This function is the same as QFLIM(#ch,1) except that the channel
+This function is the same as QFLIM(#ch,1) except that the channel
 parameter is optional (it defaults to #0).
 
 **NOTE**
@@ -1122,12 +1314,15 @@ SDATE
 =====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  SDATE year,month,day,hours,minutes,seconds  or SDATE year,month,day,hours,minutes (SMS v2.57+)  or SDATE time (Minerva, SMS)  or SDATE TO time (THOR XVI)  |
+| Syntax   || SDATE year,month,day,hours,minutes,seconds                       |
+|          || SDATE year,month,day,hours,minutes (SMS v2.57+)                  |
+|          || SDATE time (Minerva, SMS)  or                                    |
+|          || SDATE TO time (THOR XVI)                                         |
 +----------+-------------------------------------------------------------------+
-| Location |  QL ROM                                                           |
+| Location || QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
 
- The QL has an internal clock which contains the current date and time.
+The QL has an internal clock which contains the current date and time.
 Unfortunately, this clock is corrupted every time that the QL is
 switched on and off (and even in some cases when the QL is reset). This
 means that the clock has to be set manually every time that the system
@@ -1194,7 +1389,7 @@ SDP\_DEV
 | Location |  Gold Card, Trump Card, SDUMP\_REXT, ST/QL                        |
 +----------+-------------------------------------------------------------------+
 
- The command SDP\_DEV allows you to dictate where output from the SDUMP
+The command SDP\_DEV allows you to dictate where output from the SDUMP
 device should be sent. Initially, all output is sent to ser, however you
 may wish to alter this. Under SMS, you will need to LRESPR SDUMP\_REXT
 provided on the distribution disk.
@@ -1218,11 +1413,10 @@ SDP\_KEY
 +----------+-------------------------------------------------------------------+
 | Syntax   |  SDP\_KEY [key$]                                                  |
 +----------+-------------------------------------------------------------------+
-| Location |  Gold Card, Trump Card, SDUMP\_REXT,                              |
+| Location |  Gold Card, Trump Card, SDUMP\_REXT, ST/QL                        |
 +----------+-------------------------------------------------------------------+
 
-ST/QL
- In order to facilitate easy screen dumps, the command SDP\_KEY will set
+In order to facilitate easy screen dumps, the command SDP\_KEY will set
 up a hotkey which when pressed together with <ALT> will cause the whole
 of the screen starting at $20000 to be sent to the SDUMP device. Under
 SMS, you will first need to LRESPR SDUMP\_REXT provided on the
@@ -1250,11 +1444,10 @@ SDP\_SET
 +----------+-------------------------------------------------------------------+
 | Syntax   |  SDP\_SET printer [,scale [,inverse [,random]]]                   |
 +----------+-------------------------------------------------------------------+
-| Location |  Gold                                                             |
+| Location |  Gold Card, Trump Card, SDUMP\_REXT, ST/QL                        |
 +----------+-------------------------------------------------------------------+
 
-Card, Trump Card, SDUMP\_REXT, ST/QL
- SDP\_SET allows you to choose the type of printer attached to the
+SDP\_SET allows you to choose the type of printer attached to the
 output device, together with how the output is to appear. Under SMS, you
 will first need to LRESPR SDUMP\_REXT provided on the distribution disk
 to use this command. There are currently 23 types of printer supported,
@@ -1601,13 +1794,15 @@ SDUMP
 =====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  SDUMP #ch  or SDUMP [width,height,xpos,ypos] or SDUMP [{address \| address,width,height,xpos,ypos}] |
+| Syntax   || SDUMP #ch  or                                                    |
+|          || SDUMP [width,height,xpos,ypos] or                                |
+|          || SDUMP [{address \| address,width,height,xpos,ypos}]              |
 +----------+-------------------------------------------------------------------+
-| Location |  Gold Card, Trump Card,                                           |
+| Location |  Gold Card, Trump Card, SDUMP\_REXT, ST/QL                        |
 +----------+-------------------------------------------------------------------+
 
-SDUMP\_REXT, ST/QL
- The command SDUMP allows you to dump a screen (or part of a screen) to
+
+The command SDUMP allows you to dump a screen (or part of a screen) to
 a printer (or a file), using one of the in-built formats (one of which
 will hopefully work on your printer!) - see SDP\_SET. Under SMS, you
 will first need to LRESPR SDUMP\_REXT provided on the distribution disk
@@ -1669,16 +1864,17 @@ SEARCH
 ======
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  SEARCH (add1 TO add2, tofind$)  or SEARCH (add1 TO add2, tofind$ [!] )(BTool only)  |
+| Syntax   || SEARCH (add1 TO add2, tofind$)  or                               |
+|          || SEARCH (add1 TO add2, tofind$ [!] )(BTool only)                  |
 +----------+-------------------------------------------------------------------+
-| Location |  TinyToolkit, BTool                                               |
+| Location || TinyToolkit, BTool                                               |
 +----------+-------------------------------------------------------------------+
 
- This function scans RAM memory from address add1 to add2 for the given
+This function scans RAM memory from address add1 to add2 for the given
 string tofind$ and returns the address of its first occurrence or zero
 if it was not found. The search is not case-dependent in the TinyToolkit
 version whilst BTool introduces an optional switch: a '!' after tofind$
- disables case-sensitivity and reduces speed.
+disables case-sensitivity and reduces speed.
 
 **Example**
 
@@ -1716,7 +1912,7 @@ SEARCH
 | Location |  ARRAY                                                            |
 +----------+-------------------------------------------------------------------+
 
- The function SEARCH searches in a two or three-dimensional string array
+The function SEARCH searches in a two or three-dimensional string array
 array$ for the string tofind$. The search is not case-sensitive but
 nevertheless very fast (as the example shows). SEARCH will always look
 at one row only - there is just one if the array is two-dimensional but
@@ -1768,7 +1964,7 @@ SEARCH\_MEM
 | Location |  MSEARCH (DIY Toolkit - Vol X)                                    |
 +----------+-------------------------------------------------------------------+
 
- This function is very similar to the main MSEARCH function provided by
+This function is very similar to the main MSEARCH function provided by
 this toolkit. It is however limited to case- dependent searches and
 therefore is even quicker than MSEARCH.
 
@@ -1789,7 +1985,7 @@ SELect
 | Location |  QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
 
- This keyword forms an integral part of the SELect ON structure
+This keyword forms an integral part of the SELect ON structure
 identifier and has no use on its own. If you try to enter it on its own,
 the error 'Bad Name' will be generated.
 
@@ -1808,7 +2004,7 @@ SELect ON
 | Location |  QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
 
- This command is used to mark the start of a SuperBASIC structure which
+This command is used to mark the start of a SuperBASIC structure which
 is an extremely quick means of testing for various values of a variable
 and taking a different course of action in a program according to those
 values. Unfortunately, the standard form of this command only allows you
@@ -1960,7 +2156,7 @@ SEND\_EVENT
 | Location |  SMSQ/E v2.71+                                                    |
 +----------+-------------------------------------------------------------------+
 
- With v1.51 of the Window Manager (and v2.71 of SMSQ/E), the possibilty
+With v1.51 of the Window Manager (and v2.71 of SMSQ/E), the possibilty
 of Job Events was introduced. This is basically a simple way of making
 one program wait until it receives notification from another Job that up
 to eight different events has occured. The events are undefined and
@@ -1992,7 +2188,7 @@ SERMAWS
 | Location |  SERMouse                                                         |
 +----------+-------------------------------------------------------------------+
 
- This command is used to set two parameters which control the effect
+This command is used to set two parameters which control the effect
 that moving the serial mouse has on the on-screen pointer under the
 Pointer Environment. The first parameter sets the speed at which the
 pointer will accelerate across the screen (this can be any value in the
@@ -2019,7 +2215,7 @@ SERMCUR
 | Location |  SERMouse                                                         |
 +----------+-------------------------------------------------------------------+
 
- The SERMouse driver allows you to use a Mouse to control either the
+The SERMouse driver allows you to use a Mouse to control either the
 Pointer (under the Pointer Environment) or the Basic cursor (used in
 INPUT commands or similar). This command forces the mouse to control the
 Basic cursor provided that the following condition is met: There is a
@@ -2045,7 +2241,7 @@ SERMOFF
 | Location |  SERMouse                                                         |
 +----------+-------------------------------------------------------------------+
 
- This command removes the Serial Mouse Driver.
+This command removes the Serial Mouse Driver.
 
 **CROSS-REFERENCE**
 
@@ -2063,7 +2259,7 @@ SERMON
 | Location |  SERMouse                                                         |
 +----------+-------------------------------------------------------------------+
 
- The serial mouse driver must always be loaded into Resident Procedure
+The serial mouse driver must always be loaded into Resident Procedure
 Space (for example with RESPR or LRESPR) before any Jobs are EXECuted.
 However, if you have Hermes or SuperHermes fitted, you can configure the
 Serial Mouse driver so that it does not automatically start up after
@@ -2090,7 +2286,7 @@ SERMPTR
 | Location |  SERMouse                                                         |
 +----------+-------------------------------------------------------------------+
 
- This command switches the Serial Mouse Driver into Pointer Mode, so
+This command switches the Serial Mouse Driver into Pointer Mode, so
 that the movements of the Serial Mouse affect the Pointer on screen,
 allowing you to control programs which make use of the Pointer
 Environment. This is the default mode following loading the driver or a
@@ -2111,7 +2307,7 @@ SERMRESET
 | Location |  SERMouse                                                         |
 +----------+-------------------------------------------------------------------+
 
- This command should never really be needed, particularly if you are
+This command should never really be needed, particularly if you are
 using the Serial Mouse with Hermes or SuperHermes. This command resets
 the chip which controls the serial ports and should only be necessary if
 you notice the Pointer or Cursor moving on screen uncontrollably.
@@ -2131,11 +2327,10 @@ SERMSPEED
 +----------+-------------------------------------------------------------------+
 | Syntax   |  SERMSPEED mul%, div%, acc% [,cursormul%, cursordiv%]             |
 +----------+-------------------------------------------------------------------+
-| Location |                                                                   |
+| Location |  SERMouse                                                         |
 +----------+-------------------------------------------------------------------+
 
-SERMouse
- This command allows you to set various parameters to dictate the speed
+This command allows you to set various parameters to dictate the speed
 and resolution of the mouse. As a mouse moves, it sends a stream of data
 to the computer containing details of the direction moved and the
 distance moved. These details are sent every few microseconds and
@@ -2176,7 +2371,7 @@ SERMWAIT
 | Location |  SERMouse                                                         |
 +----------+-------------------------------------------------------------------+
 
- This command can be used to suspend the Serial Mouse Driver. You may
+This command can be used to suspend the Serial Mouse Driver. You may
 wish to do this for example, if your system does not support dual BAUD
 rates and you need to change the baud rate for a Modem or Printer.
 
@@ -2197,7 +2392,7 @@ SERNET
 | Location |  SMSQ/E, ATARI Emulators                                          |
 +----------+-------------------------------------------------------------------+
 
- A file SERNET\_rext is provided with SMSQ/E, QXL and the Emulators for
+A file SERNET\_rext is provided with SMSQ/E, QXL and the Emulators for
 the Atari computers which allows you to set up a Network using the
 Serial ports provided. Once the Network has been set up with the
 necessary leads, and SERNET\_rext been loaded on all computers in the
@@ -2228,7 +2423,7 @@ SER\_ABORT
 | Location |  ST/QL, SMSQ/E                                                    |
 +----------+-------------------------------------------------------------------+
 
- This command is similar to PAR\_ABORT except that it clears out all of
+This command is similar to PAR\_ABORT except that it clears out all of
 the closed SER buffers and then sends an 'aborted' message, to the SER
 device. If port is specified, on machines which support more than one
 serial port, this allows you to specify the port number to be affected
@@ -2246,11 +2441,10 @@ SER\_BUFF
 +----------+-------------------------------------------------------------------+
 | Syntax   |  SER\_BUFF [port, ] output\_size [,input\_size]                   |
 +----------+-------------------------------------------------------------------+
-| Location |  ST/QL,                                                           |
+| Location |  ST/QL, SMSQ/E                                                    |
 +----------+-------------------------------------------------------------------+
 
-SMSQ/E
- Used with one parameter, this is the same as PAR\_BUFF except that it
+Used with one parameter, this is the same as PAR\_BUFF except that it
 sets the size of the output buffer attached to each SER channel. The
 input buffer is normally a dynamic buffer, unless input\_size is
 specified. The output buffer should be a minimum of 5 to avoid confusion
@@ -2300,7 +2494,7 @@ SER\_CDEOF
 | Location |  ST/QL (Level D00 +), SMSQ/E                                      |
 +----------+-------------------------------------------------------------------+
 
- Serial ports are able to both send and receive data. It is therefore
+Serial ports are able to both send and receive data. It is therefore
 imperative that the System can detect when data is no longer being sent
 to a port which is being used to receive the data. Normally, the System
 will wait until it receives an End Of File character (CTRL Z or EOF).
@@ -2339,7 +2533,7 @@ SER\_CLEAR
 | Location |  ST/QL, SMSQ/E                                                    |
 +----------+-------------------------------------------------------------------+
 
- This is similar to PAR\_CLEAR except that it clears out all current SER
+This is similar to PAR\_CLEAR except that it clears out all current SER
 buffers. For machines with more than one serial port, you can specify
 the number of the serial port to be affected (default SER1).
 
@@ -2358,7 +2552,7 @@ SER\_FLOW
 | Location |  ST/QL, SMSQ/E                                                    |
 +----------+-------------------------------------------------------------------+
 
- Because of the variety of equipment which can be connected to a QL
+Because of the variety of equipment which can be connected to a QL
 system through a serial port, the System has to support several types of
 handshaking. Handshaking is basically a means of checking if the data
 received through a serial port is the same as the data which has been
@@ -2385,7 +2579,7 @@ SER\_PAUSE
 | Location |  SMSQ/E for Gold Card                                             |
 +----------+-------------------------------------------------------------------+
 
- On standard QL serial ports, you may find that some characters which
+On standard QL serial ports, you may find that some characters which
 are sent by the QL through the serial ports get lost or the device to
 which they are sent (for example a printer) prints undefined characters.
 This problem may be caused by the fact that the stop bit which is sent
@@ -2416,7 +2610,7 @@ SER\_ROOM
 | Location |  ST/QL, SMSQ/E                                                    |
 +----------+-------------------------------------------------------------------+
 
- Although handshaking should ensure that serial input is safe,
+Although handshaking should ensure that serial input is safe,
 unfortunately some devices carry on sending data even though they have
 been told to stop. This may be caused by a buffer attached between the
 sending and receiving equipment, for example. This is known as 'serial
@@ -2453,7 +2647,7 @@ SER\_USE
 | Location |  ST/QL, SMSQ/E                                                    |
 +----------+-------------------------------------------------------------------+
 
- As with PAR\_USE, this command allows the SER port to emulate the
+As with PAR\_USE, this command allows the SER port to emulate the
 parallel printer port. Any three letter extension is allowed, you are
 not restricted to SER or PAR.
 
@@ -2472,7 +2666,7 @@ SET
 | Location |  HCO                                                              |
 +----------+-------------------------------------------------------------------+
 
- SET does the same as PLOT with SCRBASE 131072 set, ie. it does not
+SET does the same as PLOT with SCRBASE 131072 set, ie. it does not
 support virtual screens. x ranges from 0 to 511, y from 0 to 255. The
 colour (col) is specified by an integer from 0 to 3, representing the
 four colours available in MODE 4: 0 ... black 1 ... red 2 ... green 3
@@ -2513,7 +2707,7 @@ SET
 | Location |  SET, ALTER (DIY Toolkit - Vol U)                                 |
 +----------+-------------------------------------------------------------------+
 
- This command allows you to set up various universal constants which
+This command allows you to set up various universal constants which
 allow programs to read various values which are set by other programs.
 This is similar to creating machine code functions which return constant
 values. The constants to be set up appear as variable in the command.
@@ -2568,7 +2762,7 @@ SetHEAD
 | Location |  HEADER (DIY Toolkit - Vol F)                                     |
 +----------+-------------------------------------------------------------------+
 
- The command SetHEAD is the counterpart of GetHEAD and is normally used
+The command SetHEAD is the counterpart of GetHEAD and is normally used
 in conjunction with it. So please refer to GetHEAD for further
 information about the syntax and usage. There is just one difference you
 must keep in mind: whilst GetHEAD does not care in which mode (read only
@@ -2591,7 +2785,7 @@ SET\_CLOCK
 | Location |  THOR range                                                       |
 +----------+-------------------------------------------------------------------+
 
- This command sets the THOR's battery backed clock to the current system
+This command sets the THOR's battery backed clock to the current system
 time (set with SDATE).
 
 **NOTE**
@@ -2612,12 +2806,13 @@ SET\_FBKDT
 ==========
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  SET\_FBKDT #channel [,time] or SET\_FBKDT \\file [,time]         |
+| Syntax   || SET\_FBKDT #channel [,time] or                                   |
+|          || SET\_FBKDT \\file [,time]                                        |
 +----------+-------------------------------------------------------------------+
-| Location |  Level-2 drivers                                                  |
+| Location || Level-2 drivers                                                  |
 +----------+-------------------------------------------------------------------+
 
- The command SET\_FBKDT sets the date when a file was last backed-up.
+The command SET\_FBKDT sets the date when a file was last backed-up.
 The time specified, must be in the number of seconds since 1st January
 1961, ie. the number returned by DATE. If time is not specified or is 0,
 then the current DATE setting is used. If time=1 this has no effect on
@@ -2643,16 +2838,17 @@ SET\_FUPDT
 ==========
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  SET\_FUPDT #channel [,time] or SET\_FUPDT \\file [,time]         |
+| Syntax   || SET\_FUPDT #channel [,time] or                                   |
+|          || SET\_FUPDT \\file [,time]                                        |
 +----------+-------------------------------------------------------------------+
-| Location |  Level-2 drivers                                                  |
+| Location || Level-2 drivers                                                  |
 +----------+-------------------------------------------------------------------+
 
- The command SET\_FUPDT sets the date on which a file was last altered.
+The command SET\_FUPDT sets the date on which a file was last altered.
 This is always set to the current system DATE when a file is SAVEd, or
 CLOSEd after having been written to. If time is not specified (or is 0),
 then the current DATE is used. If time
- is set to 1, then this command will have no effect on the file. COPY
+is set to 1, then this command will have no effect on the file. COPY
 sets the update time on the file being created to the current DATE. For
 a SuperBASIC 'backup' function which gives the newly created file the
 same update time as the original and alters the backup time, see FBKDT.
@@ -2676,12 +2872,13 @@ SET\_FVERS
 ==========
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  SET\_FVERS #channel [,version] or SET\_FVERS \\file [,version]   |
+| Syntax   || SET\_FVERS #channel [,version] or                                |
+|          || SET\_FVERS \\file [,version]                                     |
 +----------+-------------------------------------------------------------------+
-| Location |  Level-2 drivers                                                  |
+| Location || Level-2 drivers                                                  |
 +----------+-------------------------------------------------------------------+
 
- The command SET\_FVERS sets the version number of a file - versions
+The command SET\_FVERS sets the version number of a file - versions
 higher than 65535 or smaller than 0 are regarded as version MOD 65536,
 version=0 (or if version is omitted) means that the version number will
 not be updated when the channel to that file is closed. This command
@@ -2710,7 +2907,7 @@ SET\_GREEN
 | Location |  Windows (DIY Toolkit - Vol W)                                    |
 +----------+-------------------------------------------------------------------+
 
- This command allows you to change the colours used within a specified
+This command allows you to change the colours used within a specified
 window channel very quickly. In order to use this, you really need a
 good understanding of the way in which the QL display works - see the QL
 Display Appendix for some details. The effect that this command has on
@@ -2748,7 +2945,7 @@ SET\_RED
 | Location |  Windows (DIY Toolkit - Vol W)                                    |
 +----------+-------------------------------------------------------------------+
 
- This command is similar to SET\_GREEN - the only difference is that
+This command is similar to SET\_GREEN - the only difference is that
 instead of affecting green bits, it alters the red bits. The effect that
 this command has on the specified window depends upon the value of
 operation:
@@ -2770,12 +2967,13 @@ SET\_LANGUAGE
 =============
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  SET\_LANGUAGE country$  or SET\_LANGUAGE [country$] (THOR XVI v6.41 only)  |
+| Syntax   || SET\_LANGUAGE country$  or                                       |
+|          || SET\_LANGUAGE [country$] (THOR XVI v6.41 only)                   |
 +----------+-------------------------------------------------------------------+
-| Location |  THOR range                                                       |
+| Location || THOR range                                                       |
 +----------+-------------------------------------------------------------------+
 
- The command SET\_LANGUAGE takes a string or name parameter and attempts
+The command SET\_LANGUAGE takes a string or name parameter and attempts
 to change the keyboard layout to the first one with a name of which the
 given parameter is an abbreviation (this comparison is
 case-independent). If the parameter is an empty string (or not
@@ -2832,19 +3030,22 @@ languages for messages and errors. See also
 SEXEC
 =====
 
-+----------+-------------------------------------------------------------------+
-| Syntax   |  SEXEC device\_file,start,length,data  or SEXEC device\_file,start[,length[,data[,extra[,type]]] (Minerva v1.80+)  or SEXEC [device\_]file,start,length,data (Toolkit II)  or SEXEC #channel,start,length,data (SMS only)  |
-+----------+-------------------------------------------------------------------+
-| Location |  QL ROM, Toolkit II                                               |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------------------+
+| Syntax   || SEXEC device\_file,start,length,data  or                                    |
+|          || SEXEC device\_file,start[,length[,data[,extra[,type]]] (Minerva v1.80+)  or |
+|          || SEXEC [device\_]file,start,length,data (Toolkit II)  or                     |
+|          || SEXEC #channel,start,length,data (SMS only)                                 |
++----------+------------------------------------------------------------------------------+
+| Location || QL ROM, Toolkit II                                                          |
++----------+------------------------------------------------------------------------------+
 
- In order for a program to be stored as an executable Job, it is
+In order for a program to be stored as an executable Job, it is
 necessary to store the machine code in a specified format on disk. The
 command SEXEC allows you to do this, taking a specified amount of code
 from memory and storing it in the specified file in a form which can
 later be EXECuted. You will need to specify the start address of the
 machine code, the length of the code to be stored and the amount of data
- space to be given to the program when it is loaded back into memory
+space to be given to the program when it is loaded back into memory
 (the data space represents the amount of working memory which is linked
 with the program when it is loaded, either for storing data at the end
 of the program or for the user stack - see a good QL machine code book
@@ -2909,12 +3110,14 @@ SEXEC\_O
 ========
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  SEXEC\_O [device\_]file,start,length(Toolkit II)  or SEXEC\_O device\_file,start,length (THOR XVI)  or SEXEC\_O #channel,start,length (SMS only)  |
+| Syntax   || SEXEC\_O [device\_]file,start,length(Toolkit II)  or             | 
+|          || SEXEC\_O device\_file,start,length (THOR XVI)  or                |
+|          || SEXEC\_O #channel,start,length (SMS only)                        |
 +----------+-------------------------------------------------------------------+
-| Location |  Toolkit II, THOR XVI                                             |
+| Location || Toolkit II, THOR XVI                                             |
 +----------+-------------------------------------------------------------------+
 
- This command is exactly the same as SEXEC except that it will
+This command is exactly the same as SEXEC except that it will
 automatically overwrite an existing file of the same name.
 
 **NOTE**
@@ -2936,12 +3139,13 @@ SGN%
 ~~~~
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  SGN (x)  and SGN% (x)                                            |
+| Syntax   || SGN (x)  and                                                     |
+|          || SGN% (x)                                                         |
 +----------+-------------------------------------------------------------------+
-| Location |  Math Package (SGN) and SGN (SGN%)                                |
+| Location || Math Package (SGN) and SGN (SGN%)                                |
 +----------+-------------------------------------------------------------------+
 
- Both functions work identically and return the sign of any valid
+Both functions work identically and return the sign of any valid
 number. The sign is defined as 1 for positive numbers, -1 for negative
 and 0 if the number is zero. Any number is allowed as a parameter.
 
@@ -2960,7 +3164,7 @@ SHOOT
 | Location |  ST/QL, QSound                                                    |
 +----------+-------------------------------------------------------------------+
 
- This command produces the sound of single gun shot.
+This command produces the sound of single gun shot.
 
 **CROSS-REFERENCE**
 
@@ -2978,7 +3182,7 @@ SI
 | Location |  Beuletools                                                       |
 +----------+-------------------------------------------------------------------+
 
- This function contains the control codes needed to switch on condensed
+This function contains the control codes needed to switch on condensed
 print on an EPSON compatible printer: PRINT SI
  is the same as: PRINT CHR$(15)
 
@@ -3004,7 +3208,7 @@ SIGN
 | Location |  BTool                                                            |
 +----------+-------------------------------------------------------------------+
 
- See SGN!
+See SGN!
 
 --------------
 
@@ -3017,7 +3221,7 @@ SIN
 | Location |  QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
 
- This function returns the sine of the given angle (in radians ranging
+This function returns the sine of the given angle (in radians ranging
 from -PI/2 to PI/2). In a right-angled triangle, the sine is the ratio
 of the length of the side opposite to the angle, to the length of the
 hypotenuse. A negative angle indicates that the hypotenuse appears below
@@ -3067,9 +3271,9 @@ SINH
 | Location |  Hyper, Hyperbola                                                 |
 +----------+-------------------------------------------------------------------+
 
- This function returns the hyperbolic sine (sinus hyperbolicus). The
+This function returns the hyperbolic sine (sinus hyperbolicus). The
 function is equivalent to: ( EXP(x) - EXP(-x) ) / 2
- where the angle x (in fact a ratio) is a small floating point value.
+where the angle x (in fact a ratio) is a small floating point value.
 
 **Example**
 
@@ -3093,13 +3297,13 @@ SINT
 | Location |  BTool                                                            |
 +----------+-------------------------------------------------------------------+
 
- The range of SuperBASIC integers is -32768 to 32767 - these are called
+The range of SuperBASIC integers is -32768 to 32767 - these are called
 signed integers because they can be negative. This compares to unsigned
 integers which have a different range, from 0 to 65535. The function
 SINT converts unsigned integers to signed integers, which is not a very
 difficult task apart from the need to check the valid range: signed% =
 unsigned - 2^16
- or signed% = SINT(unsigned)
+or signed% = SINT(unsigned)
 
 **CROSS-REFERENCE**
 
@@ -3111,12 +3315,14 @@ SIZE
 ====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  SIZE ( array [{% \| $}] )  or SIZE ( variable [{% \| $}] )  or SIZE ( value)  |
+| Syntax   || SIZE ( array [{% \| $}] )  or                                    |
+|          || SIZE ( variable [{% \| $}] )  or                                 |
+|          || SIZE ( value)                                                    |
 +----------+-------------------------------------------------------------------+
-| Location |  Math Package                                                     |
+| Location || Math Package                                                     |
 +----------+-------------------------------------------------------------------+
 
- The function SIZE can take any kind of variable, array or constant. The
+The function SIZE can take any kind of variable, array or constant. The
 returned value depends very much on the type of parameter: If a simple
 variable was passed, the function returns either 0 or 1, 1 if the
 variable points to any value or 0 if it does not, ie. if PRINT variable
@@ -3190,12 +3396,13 @@ SJOB
 ====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  SJOB jobnr,timeout  or SJOB jobname,timeout                      |
+| Syntax   || SJOB jobnr,timeout  or                                           |
+|          || SJOB jobname,timeout                                             |
 +----------+-------------------------------------------------------------------+
-| Location |  TinyToolkit                                                      |
+| Location || TinyToolkit                                                      |
 +----------+-------------------------------------------------------------------+
 
- There are three ways in which a job can be made to do nothing: (1)
+There are three ways in which a job can be made to do nothing: (1)
 remove the job, (2) set the job's priority to 0, or (3) suspend the job.
 This command suspends the specified job for a specified period of time,
 which can be identified either by its jobnr (see JOBS) or by -1 (meaning
@@ -3256,9 +3463,10 @@ SLOAD
 +----------+-------------------------------------------------------------------+
 | Syntax   |  SLOAD adr                                                        |
 +----------+-------------------------------------------------------------------+
-| Location |  Ecran Manager This command takes part of a screen which has      |
+| Location |  Ecran Manager                                                    |
 +----------+-------------------------------------------------------------------+
 
+This command takes part of a screen which has
 been saved with SSAVE and copies it to the visible screen, removing it
 from memory. SLOAD works like SSHOW with the sole difference that it can
 only be called once.
@@ -3279,10 +3487,10 @@ SLUG
 +----------+-------------------------------------------------------------------+
 | Syntax   |  SLUG msecs                                                       |
 +----------+-------------------------------------------------------------------+
-| Location |  Gold Card (v2.24+), SMS A disadvantage of the speed              |
+| Location |  Gold Card (v2.24+), SMS                                          |
 +----------+-------------------------------------------------------------------+
 
-improvements by Gold Card (and later expansion boards) is that most
+A disadvantage of the speed improvements by Gold Card (and later expansion boards) is that most
 games become simply too fast. The command SLUG can slow down the whole
 system by advising the operating system to read the keyboard less often
 (other solutions install background interrupts but some games suspend
@@ -3320,10 +3528,10 @@ SMOVE
 +----------+-------------------------------------------------------------------+
 | Syntax   |  SMOVE scrno, adr [,xpos, ypos]                                   |
 +----------+-------------------------------------------------------------------+
-| Location |  Ecran Manager The                                                |
+| Location |  Ecran Manager                                                    |
 +----------+-------------------------------------------------------------------+
 
-command SMOVE will copy a stored screen (saved with SSAVE, where adr
+The command SMOVE will copy a stored screen (saved with SSAVE, where adr
 comes from) to the first (scrno=0) or second screen (scrno=1) - the
 latter is only possible if your system supports a dual screen mode.
 Optionally, it is possible to specify a location where the screen part's
@@ -3347,10 +3555,10 @@ SND\_EXT
 +----------+-------------------------------------------------------------------+
 | Syntax   |  SND\_EXT                                                         |
 +----------+-------------------------------------------------------------------+
-| Location |  ATARI\_REXT (v1.24 to v2.15) The ST-QL Emulators contain new     |
+| Location |  ATARI\_REXT (v1.24 to v2.15)                                     |
 +----------+-------------------------------------------------------------------+
 
-extensions (based upon the QSound device) to enable programs to use the
+The ST-QL Emulators contain new extensions (based upon the QSound device) to enable programs to use the
 ST's sound facilities. Unfortunately, these extensions clash with the
 Turbo SuperBASIC compiler from Digital Precision. When the Emulator is
 started up, these sound extensions are switched off. SND\_EXT will
@@ -3379,10 +3587,10 @@ SNET
 +----------+-------------------------------------------------------------------+
 | Syntax   |  SNET no                                                          |
 +----------+-------------------------------------------------------------------+
-| Location |  SMSQ/E, ATARI Emulators This command is similar to the NET       |
+| Location |  SMSQ/E, ATARI Emulators                                          |
 +----------+-------------------------------------------------------------------+
 
-command in that it sets the Network Station number of the machine on
+This command is similar to the NET command in that it sets the Network Station number of the machine on
 which it is issued. The only difference is that here it sets the station
 number for the SERNET Network (as opposed to the QNet Network).
 
@@ -3402,10 +3610,10 @@ SNET%
 +----------+-------------------------------------------------------------------+
 | Syntax   |  SNET%                                                            |
 +----------+-------------------------------------------------------------------+
-| Location |  SMSQ/E, ATARI Emulators This function returns the current        |
+| Location |  SMSQ/E, ATARI Emulators                                          |
 +----------+-------------------------------------------------------------------+
 
-station number of the computer as set with SNET .
+This function returns the current station number of the computer as set with SNET .
 
 **CROSS-REFERENCE**
 
@@ -3420,11 +3628,11 @@ SNET\_ROPEN
 +----------+-------------------------------------------------------------------+
 | Syntax   |  SNET\_ROPEN                                                      |
 +----------+-------------------------------------------------------------------+
-| Location |  SMSQ/E, ATARI Emulators This command reopens the serial ports    |
+| Location |  SMSQ/E, ATARI Emulators                                          |
 +----------+-------------------------------------------------------------------+
 
-for use by the SERNET
- driver in case they have been closed by other programs.
+This command reopens the serial ports for use by the SERNET
+driver in case they have been closed by other programs.
 
 **CROSS-REFERENCE**
 
@@ -3438,10 +3646,10 @@ SNET\_S%
 +----------+-------------------------------------------------------------------+
 | Syntax   |  SNET\_S% (station)                                               |
 +----------+-------------------------------------------------------------------+
-| Location |  SMSQ/E, ATARI Emulators This function enables you to check       |
+| Location |  SMSQ/E, ATARI Emulators                                          |
 +----------+-------------------------------------------------------------------+
 
-whether a machine with the specified station number is connected to the
+This function enables you to check  whether a machine with the specified station number is connected to the
 SERNET . This can be useful to prevent the problem of the Network
 re-trying several times before failing when asked to send or read data
 from a Network station which does not exist.
@@ -3458,10 +3666,10 @@ SNET\_USE
 +----------+-------------------------------------------------------------------+
 | Syntax   |  SNET\_USE id                                                     |
 +----------+-------------------------------------------------------------------+
-| Location |  SMSQ/E, ATARI Emulators Due to the fact that SERNET Networks     |
+| Location |  SMSQ/E, ATARI Emulators                                          |
 +----------+-------------------------------------------------------------------+
 
-can be run on computers alongside MIDINET Networks and even QNET
+Due to the fact that SERNET Networks can be run on computers alongside MIDINET Networks and even QNET
 Networks, it may be necessary to alter the identification letter used to
 access facilties on other computers in the Network. The default letter
 id is s, but this can be set to any other single letter by using this
@@ -3497,10 +3705,10 @@ SORT
 +----------+-------------------------------------------------------------------+
 | Syntax   |  SORT array$, offset [,row]                                       |
 +----------+-------------------------------------------------------------------+
-| Location |  ARRAY The SORT command                                           |
+| Location |  ARRAY                                                            |
 +----------+-------------------------------------------------------------------+
 
-takes a two or three-dimensional string array and sorts it in ascending
+The SORT command takes a two or three-dimensional string array and sorts it in ascending
 order. offset is an even number which allows you to apply different sort
 criteria by telling SORT to compare the sub-strings to the right of
 position offset+1. The third, optional parameter is only necessary for
@@ -3548,10 +3756,10 @@ SOUNDEX
 +----------+-------------------------------------------------------------------+
 | Syntax   |  SOUNDEX (word$)                                                  |
 +----------+-------------------------------------------------------------------+
-| Location |  �hnlichkeiten This function returns an integer which           |
+| Location |  Ähnlichkeiten                                                    |
 +----------+-------------------------------------------------------------------+
 
-represents the word contained in the string passed as a parameter, in
+This function returns an integer which represents the word contained in the string passed as a parameter, in
 such a way that for two English words which sound similar, the same
 results are returned. Internally, each character is replaced by a cipher
 and then all double (triple etc) ciphers are removed.
@@ -3576,13 +3784,16 @@ phonetic difference between the parameters.
 SPJOB
 =====
 
-+----------+-------------------------------------------------------------------+
-| Syntax   |  SPJOB jobname,priority  (Toolkit II, TinyToolkit pre v1.10 and THOR only)  or SPJOB jobnr,tag,priority (Toolkit II and THOR only)  or SPJOB jobID,priority  or SPJOB jobnr,priority(TinyToolkit pre v1.10)  |
-+----------+-------------------------------------------------------------------+
-| Location |  Toolkit II, THOR XVI, TinyToolkit (pre v1.10), BTool             |
-+----------+-------------------------------------------------------------------+
++----------+--------------------------------------------------------------------------------+
+| Syntax   || SPJOB jobname,priority  (Toolkit II, TinyToolkit pre v1.10 and THOR only)  or |
+|          || SPJOB jobnr,tag,priority (Toolkit II and THOR only)  or                       |
+|          || SPJOB jobID,priority  or                                                      |
+|          || SPJOB jobnr,priority(TinyToolkit pre v1.10)                                   |
++----------+--------------------------------------------------------------------------------+
+| Location || Toolkit II, THOR XVI, TinyToolkit (pre v1.10), BTool                          |
++----------+--------------------------------------------------------------------------------+
 
- The specified job (described by either its jobname, its job number and
+The specified job (described by either its jobname, its job number and
 tag, or its job identification number) is set to the given priority
 (which should be in the range 0 to 127 to maintain compatability with
 Minerva). A priority of zero will ensure that the job waits until it is
@@ -3646,11 +3857,10 @@ SPL
 +----------+-------------------------------------------------------------------+
 | Syntax   |  SPL {input \| #ch} [TO {output \| #ch}]                          |
 +----------+-------------------------------------------------------------------+
-| Location |  Toolkit II,                                                      |
+| Location |  Toolkit II, THOR XVI                                             |
 +----------+-------------------------------------------------------------------+
 
-THOR XVI
- It can sometimes be useful to copy a file in the background. The
+It can sometimes be useful to copy a file in the background. The
 command SPL sets up a small Job which runs at a low priority and acts as
 a print spooler, reading the whole of the input data from the given
 input device as quickly as possible and then just outputting the data
@@ -3693,11 +3903,10 @@ SPLF
 +----------+-------------------------------------------------------------------+
 | Syntax   |  SPLF {input \| #ch} [TO {output \| #ch}]                         |
 +----------+-------------------------------------------------------------------+
-| Location |  Toolkit II,                                                      |
+| Location |  Toolkit II, THOR XVI                                             |
 +----------+-------------------------------------------------------------------+
 
-THOR XVI
- This is exactly the same as SPL except that at the end of sending the
+This is exactly the same as SPL except that at the end of sending the
 output, a form feed symbol, CHR$(12) is sent. SPLF is obviously intended
 for use with printers.
 
@@ -3716,7 +3925,7 @@ SPL\_USE
 | Location |  Toolkit II, THOR XVI                                             |
 +----------+-------------------------------------------------------------------+
 
- This command sets the default destination device and therefore has a
+This command sets the default destination device and therefore has a
 similar effect to DEST\_USE. However, this command is slightly improved,
 in that if the supplied name does not end in an underscore, this is
 taken to be an external device port (such as SER) and no underscore is
@@ -3755,7 +3964,7 @@ SP\_JOB
 | Location |  TinyToolkit (v1.10+)                                             |
 +----------+-------------------------------------------------------------------+
 
- Acts just like SPJOB.
+Acts just like SPJOB.
 
 **NOTE**
 
@@ -3780,7 +3989,7 @@ SQR
 | Location |  Math Package                                                     |
 +----------+-------------------------------------------------------------------+
 
- See SQRT below!
+See SQRT below!
 
 --------------
 
@@ -3793,7 +4002,7 @@ SQRT
 | Location |  QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
 
- This function returns the square root of the given parameter. The
+This function returns the square root of the given parameter. The
 opposite of this function is x^2. The given parameter can be zero or any
 positive value.
 
@@ -3827,7 +4036,7 @@ SSAVE
 | Location |  Ecran Manager                                                    |
 +----------+-------------------------------------------------------------------+
 
- The function SSAVE reserves memory and saves a part of the screen to
+The function SSAVE reserves memory and saves a part of the screen to
 it, the saved block's left upper corner is the point (xpos,ypos) in
 absolute co-ordinates, the width is xsiz and the height ysiz. xpos may
 range from 0 to 511 and ypos from 0 to 255, so SSAVE
@@ -3859,7 +4068,7 @@ SSHOW
 | Location |  Ecran Manager                                                    |
 +----------+-------------------------------------------------------------------+
 
- This command restores a screen part saved with SSAVE, therefore the
+This command restores a screen part saved with SSAVE, therefore the
 parameter adr must be the value returned by the SSAVE function. The
 memory area where the picture is saved is unaffected, so SSHOW can be
 executed any number of times.
@@ -3886,7 +4095,7 @@ SSTAT
 | Location |  Ecran Manager                                                    |
 +----------+-------------------------------------------------------------------+
 
- The function SSTAT returns either 0 or 1, corresponding to the first or
+The function SSTAT returns either 0 or 1, corresponding to the first or
 second screen. The function is used to find out which of these screens
 is currently the visible screen. Unless you have Minerva or Amiga QDOS
 set up in dual screen mode, this is always 0.
@@ -3914,11 +4123,10 @@ SSTEP
 +----------+-------------------------------------------------------------------+
 | Syntax   |  SSTEP [{#ch \| device\_file}] [; [first] [TO [last]]]            |
 +----------+-------------------------------------------------------------------+
-| Location |                                                                   |
+| Location |  Minerva (TRACE)                                                  |
 +----------+-------------------------------------------------------------------+
 
-Minerva (TRACE)
- Minerva is supplied with a very simple trace routine on the utility
+Minerva is supplied with a very simple trace routine on the utility
 disk supplied with Minerva, stored in the file trace\_bin. Before using
 the trace function, you will need to link in trace\_bin with the line:
 LRESPR flp1\_trace\_bin
@@ -3956,7 +4164,7 @@ STAMP
 | Location |  STAMP                                                            |
 +----------+-------------------------------------------------------------------+
 
- This command is the same as FORCE\_TYPE !
+This command is the same as FORCE\_TYPE !
 
 --------------
 
@@ -3964,13 +4172,13 @@ STAT
 ====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  STAT [#channel,] [device] or STAT \\file [,device]               |
+| Syntax   || STAT [#channel,] [device] or                                     |
+|          || STAT \\file [,device]                                            |
 +----------+-------------------------------------------------------------------+
-| Location |                                                                   |
+| Location || Toolkit II, THOR XVI                                             |
 +----------+-------------------------------------------------------------------+
 
-Toolkit II, THOR XVI
- This command prints the name of a medium inserted into the given device
+This command prints the name of a medium inserted into the given device
 and the available sectors to the given channel
  (default #1), or file. The device must be a directory device, such as
 FLP1\_ (but not PAR or CON). If no device is stated, then the default
@@ -3993,8 +4201,8 @@ directory devices.
 
 --------------
 
-` <>`__.. STEP
-==============
+STEP
+====
 
 +----------+-------------------------------------------------------------------+
 | Syntax   |  .. STEP stepwidth                                                |
@@ -4002,7 +4210,7 @@ directory devices.
 | Location |  QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
 
- This keyword forms part of the FOR structure and has no meaning on its
+This keyword forms part of the FOR structure and has no meaning on its
 own. Any attempt to enter it on its own will result in a 'Bad Line'
 error.
 
@@ -4021,7 +4229,7 @@ STOP
 | Location |  QL ROM, Toolkit II                                               |
 +----------+-------------------------------------------------------------------+
 
- This command forces an interpreted program to be terminated at the
+This command forces an interpreted program to be terminated at the
 position where STOP appears in the listing. The program can then be
 continued (provided that the message 'PROC/FN cleared' has not appeared)
 by using the command CONTINUE. Compiled programs terminate and remove
@@ -4058,7 +4266,7 @@ STRIP
 | Location |  QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
 
- Whenever a character is printed to the QL screen, it is made up of two
+Whenever a character is printed to the QL screen, it is made up of two
 components - the character itself which appears in the current INK
 colour, and the rectangular block on which the character has been
 formed. The latter is known as the 'strip' of the character and the size
@@ -4099,8 +4307,8 @@ details of standard and composite colours. See also
 
 --------------
 
-` <>`__... SUB
-==============
+SUB
+===
 
 +----------+-------------------------------------------------------------------+
 | Syntax   |  ... SUB line                                                     |
@@ -4108,7 +4316,7 @@ details of standard and composite colours. See also
 | Location |  QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
 
- This keyword forms part of the SuperBASIC keyword GO SUB and has no
+This keyword forms part of the SuperBASIC keyword GO SUB and has no
 purpose on its own. Any attempt to use it on its own will cause a 'Bad
 Line' error.
 
@@ -4127,7 +4335,7 @@ SUSJOB
 | Location |  BTool                                                            |
 +----------+-------------------------------------------------------------------+
 
- See SJOB.
+See SJOB.
 
 --------------
 
@@ -4135,12 +4343,13 @@ SWAP
 ====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  SWAP var1,var2  or SWAP var1$,var2$                              |
+| Syntax   || SWAP var1,var2  or                                               |
+|          || SWAP var1$,var2$                                                 |
 +----------+-------------------------------------------------------------------+
-| Location |  SWAP, Math Package                                               |
+| Location || SWAP, Math Package                                               |
 +----------+-------------------------------------------------------------------+
 
- This command exchanges the values of the two variables. The parameters
+This command exchanges the values of the two variables. The parameters
 can be either numeric variables (integer and floating point) or strings.
 Arrays are not allowed and both variables have to be the same type: SWAP
 a$,b is illegal, even if a$ contained a valid number. Also, constant
@@ -4183,7 +4392,7 @@ SXTRAS
 | Location |  TinyToolkit                                                      |
 +----------+-------------------------------------------------------------------+
 
- This command lists all machine code SuperBASIC extensions in alphabetic
+This command lists all machine code SuperBASIC extensions in alphabetic
 order to the given channel (default #1). If a character is specified,
 then only those commands which appear later alphabetically will be
 listed - if character is longer than one character, only the first
@@ -4210,7 +4419,7 @@ SYNCH%
 | Location |  KMOUSE, MOUSE (DIY Toolkit - Vol I)                              |
 +----------+-------------------------------------------------------------------+
 
- This function is only used to debug the DIY Toolkit mouse drivers. It
+This function is only used to debug the DIY Toolkit mouse drivers. It
 returns a value which is in the range 1...3 for a two button mouse and
 1...5 for a three button mouse. The value indicates which byte of the
 mouse message is due next and therefore when being used, you should see
@@ -4236,7 +4445,7 @@ SYSBASE
 | Location |  QBASE (DIY Toolkit - Vol Q)                                      |
 +----------+-------------------------------------------------------------------+
 
- The function SYSBASE is identical to SYS\_BASE, see below. Don't
+The function SYSBASE is identical to SYS\_BASE, see below. Don't
 forget: never assume that the System Variables are located at 163840
 ($28000). They can move!!
 
@@ -4251,7 +4460,7 @@ SYS\_BASE
 | Location |  SYSBASE, Fn                                                      |
 +----------+-------------------------------------------------------------------+
 
- The function SYS\_BASE returns the base address of the system
+The function SYS\_BASE returns the base address of the system
 variables.
 
 **Example**
@@ -4289,7 +4498,7 @@ SYS\_VARS
 | Location |  THOR (all models)                                                |
 +----------+-------------------------------------------------------------------+
 
- The function SYS\_VARS returns the base address of the system
+The function SYS\_VARS returns the base address of the system
 variables, which can move around on the THOR range of computers, in much
 the same way as they can move on other implementations - it is therefore
 imperative that any program which uses the system variables works
@@ -4319,7 +4528,7 @@ S\_FONT
 | Location |  FONTS                                                            |
 +----------+-------------------------------------------------------------------+
 
- This command is exactly the same as CHAR\_USE.
+This command is exactly the same as CHAR\_USE.
 
 **CROSS-REFERENCE**
 
@@ -4337,7 +4546,7 @@ S\_LOAD
 | Location |  TinyToolkit                                                      |
 +----------+-------------------------------------------------------------------+
 
- S\_LOAD takes an address (adr) returned by S\_SAVE and displays the
+S\_LOAD takes an address (adr) returned by S\_SAVE and displays the
 saved screen just like S\_SHOW does. Additionally, the reserved memory
 to which adr points is released so that it can be used for other
 purposes. S\_LOAD therefore only works once on a given address.
@@ -4370,7 +4579,7 @@ S\_SAVE
 | Location |  TinyToolkit                                                      |
 +----------+-------------------------------------------------------------------+
 
- This function causes the contents of the window #wind to be stored in
+This function causes the contents of the window #wind to be stored in
 memory and the address is then returned. Do not forget the return value!
 #wind must be a window or a bad parameter error (-15) is reported.
 
@@ -4407,8 +4616,8 @@ S\_SHOW
 | Location |  TinyToolkit                                                      |
 +----------+-------------------------------------------------------------------+
 
- adr must be a value returned by S\_SAVE: the command S\_SHOW
- displays the screen information stored by S\_SAVE. The screen is
+Adr must be a value returned by S\_SAVE: the command S\_SHOW
+displays the screen information stored by S\_SAVE. The screen is
 however retained in memory for future access.
 
 **NOTE**
