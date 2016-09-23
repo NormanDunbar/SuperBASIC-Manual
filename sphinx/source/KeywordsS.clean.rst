@@ -510,7 +510,7 @@ SCALE
 =====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   || SCALE [#ch,] size,x,y  or                                       |
+| Syntax   || SCALE [#ch,] size,x,y  or                                        |
 |          || SCALE [#ch,] -size,x,y (Minerva v1.76+)                          |
 +----------+-------------------------------------------------------------------+
 | Location || QL ROM                                                           |
@@ -541,13 +541,14 @@ the screen resolution and the shape of the given window.
 ::
 
     size|
-       y|
+    Y   |
         |
         |
         |
         |
         |__________________________________
-    (0,0) size*factor                     x
+        (0,0)        size*factor
+                          X
 
 
 **Example**
@@ -634,13 +635,14 @@ the screen before it was turned around. Thus, the following diagram will
 explain the current layout of the screen::
 
     -size|
-         |
+     Y   |
          |
          |
          |
          |
          |_____________________________
-     (0,0) -size*factor              -x
+         (0,0)    -size*factor
+                       -X
 
 
 In other words, in the above example, you will need to alter line
@@ -651,15 +653,16 @@ In other words, in the above example, you will need to alter line
 The program will now display the picture upside down, having now
 altered the orientation of the display to the following diagram::
 
-    x    ______________________________________(0,0)
+         X
+         ______________________________________(0,0)
     size|                                      |
         |                                      |
         |                                      |
         |                                      |
         |                                      |
-        |                                      | y
+        |                                      | Y
         |______________________________________|
-(166,100)           size*factor
+        (166,100)           size*factor
 
 **CROSS-REFERENCE**
 
@@ -689,10 +692,10 @@ The greater the difference in apparent size, the worse your monitor
 (there are more intelligent criteria as to the capability of your
 monitor, for example radiance)::
 
-100 MODE 4:SCRBASE 
-110 REPeat screen_test 
-120   FOR n=0,2,4,6: SCLR n 
-130 END REPeat screen_test
+    100 MODE 4:SCRBASE 
+    110 REPeat screen_test 
+    120   FOR n=0,2,4,6: SCLR n 
+    130 END REPeat screen_test
 
 **NOTE**
 
@@ -737,6 +740,8 @@ A simple demonstration and an animated version::
     140   DRAW x1,y1 TO x2,y2 ,7 
     150 END FOR t 
     160 REFRESH: CLCHP 
+    
+::    
 
     100 Pics=INT((FREE_MEM-4096)/32768) 
     110 DIM base(Pics) 
@@ -764,7 +769,10 @@ other one loads an uncompressed 32K screen and then 'scrolls it in'.
 
 ::
 
-100 FOR A=0 TO 786432 STEP 128 110 SCRBASE A 120 REFRESH 130 END FOR A
+    100 FOR A=0 TO 786432 STEP 128 
+    110   SCRBASE A 
+    120   REFRESH 
+    130 END FOR A
 
 The second program appears on the next page. 
 
@@ -794,7 +802,7 @@ and display animated displays. Compare
 
 SCREEN
 ======
-*** You Are Here ***
+
 +----------+-------------------------------------------------------------------+
 | Syntax   || SCREEN  or                                                       |
 |          || SCREEN [(#ch)] (FN Toolkit only)                                 |
@@ -838,8 +846,11 @@ future hardware expansions (graphic cards) offer different screen modes
 with different resolutions. The function SCRINC returns the screen width
 relating to the screen upon which the given channel (default #0) is
 located. The width is returned as the number of bytes needed to store a
-line of pixels: the standard QL mode 4 and mode 8 therefore always
-return 128 = 512/4. However, it is not always true that the number of
+line of pixels. 
+
+The standard QL mode 4 and mode 8 always return 128 = 512/4. 
+
+However, it is not *always* true that the number of
 bytes required to store a line of pixels is equal to the number of
 pixels DIV 4 and you should therefore use this function or similar.
 
@@ -864,50 +875,82 @@ SCROLL
 +----------+-------------------------------------------------------------------+
 
 This command allows you to move the contents of a given window (default
-#1) up or down by a specified number of pixels (distance). A positive
+#1) up or down by a specified number of pixels (distance). 
+
+A positive
 value for distance will move the contents of the window downwards,
-whereas a negative distance will move them upwards. As the contents are
+whereas a negative distance will move them upwards. 
+
+As the contents are
 moved, if they move outside of the limits of the window, they will be
 lost. The space left by the movement of the window's contents, will be
-filled with the current PAPER colour. If you use the third parameter
+filled with the current PAPER colour. 
+
+If you use the third parameter
 (area), you can specify that only part of the window is to be moved, by
-using the following values:- 0 This is the default - move whole window.
-1 Move the area above the text cursor line. 2 Move the area below the
-text cursor line. If you wish to move other areas of a window, the
+using the following values: 
+
+- 0 This is the default - move whole window.
+- 1 Move the area above the text cursor line. 
+- 2 Move the area below the text cursor line. 
+
+If you wish to move other areas of a window, the
 easiest method is to open another window over that part of the window
 which you want to move, and then use SCROLL and/or PAN on that new
 window (see example below).
 
 **Example**
 
-A short demonstration routine of SCROLL and PAN: 100 MODE 4 110 WINDOW
-440,200,32,16:PAPER 2:CLS 120 INK 7:CSIZE 3,1 130 AT 0,6:PRINT 'QL
-KEYWORD MANUAL' 140 OPEN #3,scr\_448x200a32x16:PAPER#3,2 150 AT
-5,6:PRINT 'QL KEYWORD MANUAL' 160 FOR i=1 TO 37 170 WINDOW
-#3,40,200,432,16 180 SCROLL #3,20 190 PAUSE 5 200 WINDOW #3,440,20,32,16
-210 PAN #3,40 220 PAUSE 5 230 WINDOW #3,40,200,32,16 240 SCROLL #3,-20
-250 PAUSE 5 260 WINDOW #3,440,20,32,196 270 PAN #3,-40 280 PAUSE 5 290
-END FOR i 300 CSIZE 0,0
+A short demonstration routine of SCROLL and PAN::
+
+    100 MODE 4 
+    110 WINDOW 440,200,32,16: PAPER 2: CLS 
+    120 INK 7: CSIZE 3,1 
+    130 AT 0,6: PRINT 'QL KEYWORD MANUAL' 
+    140 OPEN #3,scr_448x200a32x16: PAPER#3,2 
+    150 AT 5,6: PRINT 'QL KEYWORD MANUAL' 
+    160 FOR i=1 TO 37 
+    170   WINDOW #3,40,200,432,16 
+    180   SCROLL #3,20 
+    190   PAUSE 5 
+    200   WINDOW #3,440,20,32,16 
+    210   PAN #3,40 
+    220   PAUSE 5 
+    230   WINDOW #3,40,200,32,16 
+    240   SCROLL #3,-20 
+    250   PAUSE 5 
+    260   WINDOW #3,440,20,32,196 
+    270   PAN #3,-40 
+    280   PAUSE 5 
+    290 END FOR i 
+    300 CSIZE 0,0
 
 **NOTE**
 
 QL ROMs (other than v6.41 of THOR XVI, SMS and v1.63/v1.64 of Minerva)
 allow SCROLL to be used to access various direct TRAP #3 calls to the
-operating system (as with PAN and CLS). The first parameter to be
+operating system (as with PAN and CLS). 
+
+The first parameter to be
 supplied represents the D1 parameter in machine code, whereas the second
 parameter represents D0. In any case, both parameters must be integers
-(ie. in the range -32768..32767). Normally to find out number to give
+(ie. in the range -32768..32767). 
+
+Normally to find out number to give
 D0, take the routine's D0 value and subtract 24 (eg. IOG.DOT=48,
 48-24=24). However, if the routine's value is 24 or less, subtract 24
-and then add this negative value to 128. Some useful routines which can
-be accessed are: SCROLL #3,0,121 moves the cursor to column 0 in #3
-(IOW.SCOL, D0=$11) SCROLL 0,24 has the same effect as CLS 16, ie. it
-calls (IOG.DOT - D0=$30), which effectively carries out the command
-POINT 0,0. SCROLL x,17 sets the ink colour to x
- (IOW.SINK,D0=$29) SCROLL #3,n%,42 sets the file pointer in #3 to n%
- (IOF.POSA,D0=$42) SCROLL #3,n%,43 should move the file pointer in #3 on
-n%
- places (IOF.POSR,D0=$43) Unfortunately, not all values for both
+and then add this negative value to 128. 
+
+Some useful routines which can
+be accessed are: 
+
+- SCROLL #3,0,121 moves the cursor to column 0 in #3 (IOW.SCOL, D0=$11) 
+- SCROLL 0,24 has the same effect as CLS 16, ie. it calls (IOG.DOT - D0=$30), which effectively carries out the command POINT 0,0. 
+- SCROLL x,17 sets the ink colour to x  (IOW.SINK,D0=$29) 
+- SCROLL #3,n%,42 sets the file pointer in #3 to n% (IOF.POSA,D0=$42) 
+- SCROLL #3,n%,43 should move the file pointer in #3 on n%  places (IOF.POSR,D0=$43) 
+
+Unfortunately, not all values for both
 parameters will work on all ROMs and this is a hit and miss way of
 programming the QL. Luckily, the wealth of Toolkits available should
 mean that there is a legal means of accessing these routines, using
@@ -940,7 +983,9 @@ screen mode) or NEW are issued.
 
 **Example**
 
-SCROF
+::
+
+    SCROF
 
 **NOTE**
 
@@ -966,7 +1011,9 @@ disabled with SCROF.
 
 **Example**
 
-SCRON
+::
+
+    SCRON
 
 **NOTE**
 
@@ -992,13 +1039,17 @@ Some programs make use of the QL's ability to support a second screen
 overwrites the system variables which are moved to another area in
 memory). You can therefore see why it is important never to make
 assumptions about the location of the screen or system variables in
-memory (use SCREEN or SYS\_BASE instead). Minerva extends this second
+memory (use SCREEN or SYS\_BASE instead). 
+
+Minerva extends this second
 screen even further, allowing you to operate the computer in two-screen
 mode, with programs being started up on one of two screens (thus
 allowing you to have completely different displays on each screen) see
 MODE. The main problem with this second screen is that it slows down the
 operation of the computer and therefore if you do not intend to use the
-second screen, you may wish to disable it. You can disable the second
+second screen, you may wish to disable it. 
+
+You can disable the second
 screen with the command SCR2DIS - this setting will be stored in memory
 by the Gold Card and the second screen will henceforth always be
 disabled.
@@ -1115,7 +1166,7 @@ CHAN\_B%(#1,104) <KeywordsP.clean.html#print20chan-b(#1,104)>`__.
 --------------
 
 SCR\_REFRESH
-~~~~~~~~~~~~
+============
 
 +----------+-------------------------------------------------------------------+
 | Syntax   |  SCR\_REFRESH address                                             |
@@ -1153,11 +1204,11 @@ SCR\_SAVE
 
 This command is used to specify whether the current screen display and
 mode should be stored along with the program when the UNLOAD or RESAVE
-commands are used. The setting depends on the value of flag: 0 Do not
-store the screen display and mode. 1 (This is the default). Store the
-screen display and mode so that it is redisplayed when RELOAD is used.
--1This tells RELOAD to ignore the screen details (if any) stored with
-the program - use SCR\_SAVE 1 if you want to see them.
+commands are used. The setting depends on the value of flag: 
+
+- 0 Do not store the screen display and mode. 
+- 1 (This is the default). Store the screen display and mode so that it is redisplayed when RELOAD is used.
+- -1 This tells RELOAD to ignore the screen details (if any) stored with the program - use SCR\_SAVE 1 if you want to see them.
 
 **NOTE**
 
@@ -1231,17 +1282,34 @@ can easily be read like this: width = PEEK\_W (adress) height = PEEK\_W
 The SCR\_STORE and SCR\_REFRESH commands are ideal tools to create and
 show animations. The actual speed of SCR\_REFRESH is independent from
 the contents of the screen, so it does not matter how long it took to
-create the pictures... Enjoy it. 100 wx=70: wy=70: px=100: py=100 110
-OPEN#3,"scr\_"&wx&"x"&wy&"a"&px&"x"&py: CLS#3 120 size=SCR\_SIZE(wx,wy):
-DIM adr(20) 130 bx=2: by=2: pmax=10 140 : 150 FOR p=1 TO pmax 160
-adr(p)=ALCHP(size) 170 FOR x=0 TO wx-bx STEP bx 180
-a=2\*SQRT(p)\*x/wx-SQRT(p) 190 FOR y=0 TO wy-by STEP by 200
-b=2\*SQRT(p)\*y/wy-SQRT(p) 210 z=((a\*a+b\*b)^^(a\*b-b\*b)) MOD 7 220
-BLOCK#3,bx,by,x,y,z 230 END FOR y 240 END FOR x 250 SCR\_STORE
-wx,wy,px,py TO adr(p) 260 END FOR p 270 : 280 REPeat Animation 290 FOR
-p=1 TO pmax: SCR\_REFRESH adr(p) 300 FOR p=pmax-1 TO 2 STEP -1:
-SCR\_REFRESH adr(p) 310 IF KEYROW(1)=8 THEN EXIT Animation 320 END
-REPeat Animation 330 CLCHP
+create the pictures... Enjoy it. 
+
+::
+
+    100 wx=70: wy=70: px=100: py=100 
+    110 OPEN#3,"scr_" & wx & "x" & wy & "a" & px & "x" & py: CLS#3 
+    120 size=SCR_SIZE(wx, wy): DIM adr(20) 
+    130 bx=2: by=2: pmax=10 
+    140 : 
+    150 FOR p=1 TO pmax 
+    160   adr(p)=ALCHP(size) 
+    170   FOR x=0 TO wx-bx STEP bx 
+    180     a=2*SQRT(p)*x/wx-SQRT(p) 
+    190     FOR y=0 TO wy-by STEP by 
+    200       b=2*SQRT(p)*y/wy-SQRT(p) 
+    210       z=((a*a+b*b)^^(a*b-b*b)) MOD 7 
+    220       BLOCK#3,bx,by,x,y,z 
+    230     END FOR y 
+    240   END FOR x 
+    250 SCR_STORE wx,wy,px,py TO adr(p) 
+    260 END FOR p 
+    270 : 
+    280 REPeat Animation 
+    290   FOR p=1 TO pmax: SCR_REFRESH adr(p) 
+    300   FOR p=pmax-1 TO 2 STEP -1: SCR_REFRESH adr(p) 
+    310   IF KEYROW(1)=8 THEN EXIT Animation 
+    320 END REPeat Animation 
+    330 CLCHP
 
 **CROSS-REFERENCE**
 
@@ -1329,22 +1397,36 @@ means that the clock has to be set manually every time that the system
 is re-booted. Because of this, various battery-backed clocks have
 appeared on the market which retain the time whilst the QL is turned off
 and then the QL clock is generally reset to the same time as the battery
-backed clock when it is switched back on. This command allows you to set
+backed clock when it is switched back on. 
+
+This command allows you to set
 the internal QL clock to a specified date and time. Each parameter in
-the first syntax must be a numeric value. The second syntax is similar
+the first syntax must be a numeric value. 
+
+The second syntax is similar
 to the first, but is only supported on later versions of SMS. This
 variant accepts just five parameters and assumes that the seconds is to
-be set to zero. The third and fourth syntaxes allow you to set the time
+be set to zero. 
+
+The third and fourth syntaxes allow you to set the time
 and date by the number of seconds since Midnight on 1st January 1961.
 This thus allows you to copy the date from one QL to another very simply
-over the Network: 100 temp\_file$='n1\_ram1\_temp' 110
-er=FOP\_NEW(temp\_file$) 120 IF er>0 130 CLOSE #er:SDATE TO
-FUPDT(\\temp\_file$) 140 DELETE temp\_file$ 150 END IF
+over the Network:: 
+
+    100 temp_file$='n1_ram1_temp' 
+    110 er=FOP_NEW(temp_file$) 
+    120 IF er>0 
+    130 CLOSE #er:SDATE TO FUPDT(\temp_file$) 
+    140 DELETE temp_file$ 
+    150 END IF
 
 **Example**
 
-SDATE 1993,1,1,0,0,0
- sets the internal clock to the start of 1993.
+::
+
+    SDATE 1993,1,1,0,0,0
+
+sets the internal clock to the start of 1993.
 
 **NOTE 1**
 
@@ -1396,8 +1478,7 @@ provided on the distribution disk.
 
 **Example**
 
-SDP\_DEV n1\_flp1\_Dump
- will cause all future output from the SDUMP device to be sent to a file
+SDP\_DEV n1\_flp1\_Dump  will cause all future output from the SDUMP device to be sent to a file
 flp1\_Dump on the machine with NetID=1 in the Network.
 
 **CROSS-REFERENCE**
@@ -1427,8 +1508,11 @@ parameters inhibits the hotkey.
 
 **Example**
 
-SDP\_KEY p
- will cause the screen to be dumped each time that <ALT><P> is pressed.
+::
+
+    SDP_KEY p
+
+will cause the screen to be dumped each time that <ALT><P> is pressed.
 
 **CROSS-REFERENCE**
 
@@ -1451,17 +1535,22 @@ SDP\_SET allows you to choose the type of printer attached to the
 output device, together with how the output is to appear. Under SMS, you
 will first need to LRESPR SDUMP\_REXT provided on the distribution disk
 to use this command. There are currently 23 types of printer supported,
-numbered 1...23. You can also specify the print scale to be used and
+numbered 1...23. 
+
+You can also specify the print scale to be used and
 whether or not the screen is to be printed in inverse colours (by
 setting the inverse parameter to 1). You can even specify that a random
 element is to be taken into account in converting the colours to gray
-shades on the printer (again by setting the random parameter to 1). The
-effects of these different parameters all depend upon the printer
+shades on the printer (again by setting the random parameter to 1). 
+
+The effects of these different parameters all depend upon the printer
 attached to the output port and the size and shape of the area being
 dumped. The scale will affect the density of the dots on the printed
 page. Unfortunately, this does mean that at some of the lower densities,
 not all of the screen can be printed on an 80 column printer (See the
-columns headed Max Width in the table below). If any one of the
+columns headed Max Width in the table below). 
+
+If any one of the
 parameters is not specified, that particular setting will remain
 unchanged. If you do not have one of the printers currently supported,
 try out the various dump routines to see which one best suits your
@@ -1469,302 +1558,127 @@ needs. For example, users of the Epson Inkjet range of printers will
 find that the Epson LQ2500 24 pin colour driver is very effective. The
 range of printers and scales currently supported is as follows:
 
-MODE 4 SCREENS MODE 8 SCREENS PrinterScaleDotsLines\|DotMax
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
---------------
-
-Ratio\|DotMax
-~~~~~~~~~~~~~
-
---------------
-
-Ratio Per InPer In\|RatioWidth\|RatioWidth
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-1 Epson MX80112072\|1x1512
-
---------------
-
-1.23\| or similar16072\|\|1x1256
-
---------------
-
-1.23 26072\|1x2480
-
---------------
-
-1.23\|2x2240
-
---------------
-
-1.23 312072\|2x2480
-
---------------
-
-1.23\|4x2240
-
---------------
-
-1.23 \|\| 2 Epson FX8019072\|1x1512
-
---------------
-
-0.92\| additional16072\|\|1x1256
-
---------------
-
-1.23 formats29072\|1x1512
-
---------------
-
-0.92\|2x1256
-
---------------
-
-0.92 39072\|2x2360
-
---------------
-
-0.92\|4x2180
-
---------------
-
-0.92 \|\| 3 Epson FX10019072\|1x1512
-
---------------
-
-0.92\| wide16072\|\|1x1256
-
---------------
-
-1.23 carriage290 72 \| 1x1512 0.92 \| 2x1 256
-
---------------
-
-0.92 390 72 \| 2x2512
-
---------------
-
-0.92\| 4x2 256
-
---------------
-
-0.92
-
-MODE 4 SCREENS MODE 8 SCREENS PrinterScaleDotsLines\|DotMax
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
---------------
-
-Ratio\|DotMax
-~~~~~~~~~~~~~
-
---------------
-
-Ratio Per InPer In\|RatioWidth\|RatioWidth
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-4 Epson JX80190 72 \| 1x1512 0.92 \| 160 72 \| \|1x1256
-
---------------
-
-1.23 290 72 \| 1x1512
-
---------------
-
-0.92\| 2x1256
-
---------------
-
-0.92 39072 \| 2x2360
-
---------------
-
-0.92 \| 4x2 180
-
---------------
-
-0.92 \|\| 5 Epson LQ250018060 \| 1x1512
-
---------------
-
-0.99 \| 8 pin160 60 \| \| 1x1 256
-
---------------
-
-1.48 2120 60 \| 2x1512
-
---------------
-
-0.74 \| \|\| 5 Epson LQ250028060 \| \| 2x1 256
-
---------------
-
-0.99 8 pin380 60 \| 2x2512
-
---------------
-
-0.99 \| 4x2 256
-
---------------
-
-0.99 \|\| 6 Epson LQ25001120180 \| 1x2512
-
---------------
-
-0.99 \| 1x1 256
-
---------------
-
-0.99 24 pin2180 180 \| 2x3512
-
---------------
-
-1.11 \| 3x2 256
-
---------------
-
-0.99 3180 180 \| 3x4512
-
---------------
-
-0.99 \| 6x4 256
-
---------------
-
-0.99 \|\| 7 Epson LQ2500180 60 \| 1x1512
-
---------------
-
-0.99 \| 8 pin 160 60 \| \| 1x1256
-
---------------
-
-1.48 colour 2120 60 \| 2x1512
-
---------------
-
-0.74 \| 28060 \| \| 2x1256
-
---------------
-
-0.99 380 60 \| 2x2512
-
---------------
-
-0.99 \| 4x2 256 0.99 \|\| 8 Epson LQ25001120 180 \| 1x2512 0.99 \| 1x1
-256 0.99 24 pin 2180180 \| 2x3 512 1.11 \| 3x2 256
-
---------------
-
-0.99 colour 3180 180 \| 3x4512 0.99 \| 6x4 256
-
---------------
-
-0.99 \|\| 9 Brother HR4112072 \| 1x1512
-
---------------
-
-1.23 \| 16072 \| \| 1x1 256
-
---------------
-
-1.23 26072 \| 1x2480
-
---------------
-
-1.23 \| 2x2 240 1.23 3120 72 \| 2x2480
-
---------------
-
-1.23 \| 4x2 240 1.23 \|\| 10 Olivetti 1110 72 \| 1x1512
-
---------------
-
-1.13 \| JP101 1110 108\| \|1x1256
-
---------------
-
-0.75 2110 108 \| 1x1 512
-
---------------
-
-0.75 \| 3x2 256
-
---------------
-
-1.00 3110 72 \| 2x2 440 1.13\|4x2 220 1.13 \|\| 11 Seikosha 16063 \|
-1x1480
-
---------------
-
-0.70 \| 1x1 256
-
---------------
-
-1.41 GP-100A 260 63 \| 1x2 480 1.41 \| 2x2 240 1.41 \|\| 12 Seikosha 160
-72 \| 1x1 480 0.61 \| 1x1256
-
---------------
-
-1.23 GP-250X 260 72 \| 1x2 480 1.23 \| 2x2 240 1.23 \|\| 13 Seikosha 180
-80 \| 1x1 512 0.74 \| 1x1256 1.48 GP-700A 280 80 \| 1x2 512 1.48 \| 2x2
-256 1.48 380 80 \| 1x2512 1.48 \| 3x2 212 0.99 \|\| 14 Canon180 80 \|
-1x1 512 0.74 \| 1x1 256 1.48 PJ1080A 280 80 \| 1x2 512 1.48 \| 2x2 256
-
---------------
-
-1.48 38080 \| 1x2 512 1.48 \| 3x2 212 0.99 \|\| 15 Centronics 17572 \|
-1x1 512 0.77 \| 1x1 256 1.42 739 275 72 \| 1x1 512 0.77 \| 2x1 256 0.77
-375 72 \| 2x2 300
-
---------------
-
-0.77 \| 3x2 200 1.03 \|\|
-
-MODE 4 SCREENS MODE 8 SCREENS PrinterScaleDotsLines\|DotMax
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
---------------
-
-Ratio\|DotMax
-~~~~~~~~~~~~~
-
---------------
-
-Ratio Per InPer In\|RatioWidth\|RatioWidth
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-16 C.Itoh 7500112072 \| 1x1 512 1.23 \| 160 72 \| \| 1x1 256 1.23 2160
-72 \| 2x1512 0.82 \| 2120 72 \| \| 2x1 256 1.23 3120 72 \|2x2 480 1.23
-\| 4x2 240 1.23 \|\| 17 Toshiba 1180 180 \| 1x2 512
-
---------------
-
-1.48 \| 2x2 256 1.48 TH 2100H2180 180 \| 2x3 512 1.11 \| 3x2 256 0.72 24
-pin 3180 180 \| 3x4 512 0.99 \| 6x4 256 0.99 \|\| 18 Brother170 72 \|
-1x1 512 0.72 \| 1x1 256 1.44 8056270 72 \| 1x1 512 0.72 \| 2x1 256 0.72
-370 72 \| 2x2 280 0.72 \| 3x2 186 0.96 \|\| 19 Epson MX1001120 72 \| 1x1
-512 1.23 \| or similar 160 72 \| \| 1x1 256 1.23 260 72 \| 1x2512 1.23
-\| 2x2 256 1.23 3120 72 \| 2x2 512 1.23 \| 4x2 256 1.23 \|\| 20 Tandy
-1100 72 \| 1x1 512 1.03\| DMP 105 160 72 \| \| 1x1 256 1.23 260 72 \|
-1x2 512 1.23\| 2100 72 \| \| 2x1 256
-
---------------
-
-1.03 3100 72 \| 2x2 400 1.03 \| 4x2 200 1.03 \|\| 21 OKI 1100 66 \| 1x1
-512 1.12 \| Microline 160 66 \| \| 1x1256
-
---------------
-
-1.35 82 /84 2100 66 \| 1x1 512 1.12 \| 2x1 256 1.12 OK Writer3100 66 \|
-2x2 400 1.12 \| 4x2 200 1.12 \|\| 22 Fastext 80 172 72 \| 1x1512 0.74 \|
-160 72 \| \| 1x1 256 1.23 260 72 \| 1x2 480 1.23 \| 2x2 240 1.23 372 72
-\| 2x3 288 1.11 \| 3x2 192 0.99 \|\| 23 MT-80185 82 \| 1x1 512 0.77 \|
-1x1 256 1.53 2170 82 \| 2x1 512 0.77 \| 3x1 256 1.02 3170 82 \| 3x2 425
-1.02 \| 6x2 212 1.02
- The resultant dump will depend both on the current screen mode and the
++-----------------+--------+---------+---------+--------+--------+--------+--------+---------+--------+
+||                                             || MODE 4 SCREENS          || MODE 8 SCREENS           |
++-----------------+--------+---------+---------+--------+--------+--------+--------+---------+--------+
+|| Printer        || Scale || Dots   || Lines  || Dot   || Max   || Ratio || Dot   || Max    || Ratio |
+||                ||       || Per In || Per In || Ratio || Width ||       || Ratio || Width  ||       |
++=================+========+=========+=========+========+========+========+========+=========+========+
+|| 1 Epson MX 80  ||  1    || 120    || 72     || 1x1   || 512   || 1.23  ||       ||        ||       |
+|| or similar     ||  1    || 60     || 72     ||       ||       ||       || 1x1   || 256    || 1.23  | 
+||                ||  2    || 60     || 72     || 1x2   || 480   || 1.23  || 2x2   || 240    || 1.23  |
+||                ||  3    || 120    || 72     || 2x2   || 480   || 1.23  || 4x2   || 240    || 1.23  |
++-----------------+--------+---------+---------+--------+--------+--------+--------+---------+--------+
+|| 2 Epson FX80   || 1     || 90     || 72     || 1x1   || 512   || 0.92  ||       ||        ||       |  
+|| additional     || 1     || 60     || 72     ||       ||       ||       || 1x1   || 256    || 1.23  | 
+|| formats        || 2     || 90     || 72     || 1x1   || 512   || 0.92  || 2x1   || 256    || 0.92  | 
+||                || 3     || 90     || 72     || 2x2   || 360   || 0.92  || 4x2   || 180    || 0.92  | 
++-----------------+--------+---------+---------+--------+--------+--------+--------+---------+--------+
+|| 3 Epson FX100  || 1     || 90     || 72     || 1x1   || 512   || 0.92  ||       ||        ||       |
+|| wide           || 1     || 60     || 72     ||       ||       ||       || 1x1   || 256    || 1.23  |
+|| carriage       || 2     || 90     || 72     || 1x1   || 512   || 0.92  || 2x1   || 256    || 0.92  | 
+||                || 3     || 90     || 72     || 2x2   || 512   || 0.92  || 4x2   || 256    || 0.92  |
++-----------------+--------+---------+---------+--------+--------+--------+--------+---------+--------+
+|| 3 Epson FX100  || 1     || 90     || 72     || 1x1   || 512   || 0.92  ||       ||        ||       |
+|| wide           || 1     || 60     || 72     ||       ||       ||       || 1x1   || 256    || 1.23  |
+|| carriage       || 2     || 90     || 72     || 1x1   || 512   || 0.92  || 2x1   || 256    || 0.92  | 
+||                || 3     || 90     || 72     || 2x2   || 512   || 0.92  || 4x2   || 256    || 0.92  |
++-----------------+--------+---------+---------+--------+--------+--------+--------+---------+--------+
+|| 4 Epson JX80   || 1     || 90     || 72     || 1x1   || 512   || 0.92  ||       ||        ||       |
+||                || 1     || 60     || 72     ||       ||       ||       || 1x1   || 256    || 1.23  |
+||                || 2     || 90     || 72     || 1x1   || 512   || 0.92  || 2x1   || 256    || 0.92  | 
+||                || 3     || 90     || 72     || 2x2   || 512   || 0.92  || 4x2   || 256    || 0.92  |
++-----------------+--------+---------+---------+--------+--------+--------+--------+---------+--------+
+|| 5 Epson LQ2500 || 1     || 80     || 60     || 1x1   || 512   || 0.99  ||       ||        ||       |
+|| 8 pin          || 1     || 60     || 60     ||       ||       ||       || 1x1   || 256    || 1.48  |
+||                || 2     || 120    || 60     || 2x1   || 512   || 0.74  ||       ||        ||       |
++-----------------+--------+---------+---------+--------+--------+--------+--------+---------+--------+
+|| 5 Epson LQ2500 || 2     || 80     || 60     ||       ||       ||       || 2x1   || 256    || 0.99  |
+|| 8 pin          || 3     || 80     || 60     || 2x2   || 512   || 0.99  || 4x2   || 256    || 0.99  |
++-----------------+--------+---------+---------+--------+--------+--------+--------+---------+--------+
+|| 6 Epson LQ2500 || 1     || 120    || 180    || 1x2   || 512   || 0.99  || 1x1   || 256    || 0.99  |
+|| 24 pin         || 2     || 180    || 180    || 2x3   || 512   || 1.11  || 3x3   || 256    || 0.99  |
+||                || 3     || 180    || 180    || 3x4   || 512   || 0.99  || 6x4   || 256    || 0.99  |
++-----------------+--------+---------+---------+--------+--------+--------+--------+---------+--------+
+|| 7 Epson LQ2500 || 1     || 80     || 60     || 1x1   || 512   || 0.99  ||       ||        ||       |
+|| 8 pin          || 1     || 60     || 60     ||       ||       ||       || 1x1   || 256    || 1.48  |
+|| colour         || 2     || 120    || 60     || 2x1   || 512   || 0.74  ||       ||        ||       |
+||                || 2     || 80     || 60     ||       ||       ||       || 2x1   || 256    || 0.99  |
+||                || 3     || 80     || 60     || 2x2   || 512   || 0.99  || 4x2   || 256    || 0.99  |
++-----------------+--------+---------+---------+--------+--------+--------+--------+---------+--------+
+|| 8 Epson LQ2500 || 1     || 120    || 180    || 1x2   || 512   || 0.99  || 1x1   || 256    || 0.99  |
+|| 24 pin         || 2     || 180    || 180    || 2x3   || 512   || 1.11  || 3x3   || 256    || 0.99  |
+|| colour         || 3     || 180    || 180    || 3x4   || 512   || 0.99  || 6x4   || 256    || 0.99  |
++-----------------+--------+---------+---------+--------+--------+--------+--------+---------+--------+
+|| 9 Brother HR4  || 1     || 120    || 72     ||       ||       ||       || 1x1   || 512    || 1.23  |
+||                || 1     || 60     || 72     ||       ||       ||       || 1x1   || 256    || 1.23  |
+||                || 2     || 60     || 72     || 1x2   || 480   || 1.23  || 2x2   || 240    || 1.23  |
+||                || 3     || 120    || 72     || 2x2   || 480   || 1.23  || 4x2   || 240    || 1.23  |
++-----------------+--------+---------+---------+--------+--------+--------+--------+---------+--------+
+|| 10 Olivetti    || 1     || 110    || 72     || 1x1   || 512   || 1.13  ||       ||        ||       |
+|| JP101          || 1     || 110    || 108    ||       ||       ||       || 1x1   || 256    || 0.75  |
+||                || 2     || 110    || 108    || 1x1   || 512   || 0.75  || 3x3   || 256    || 1.00  |
+||                || 3     || 110    || 72     || 2x2   || 440   || 1.13  || 4x2   || 220    || 1.13  |
++-----------------+--------+---------+---------+--------+--------+--------+--------+---------+--------+
+|| 11 Seikosha    || 1     || 60     || 63     || 1x1   || 480   || 0.70  || 1x1   || 256    || 1.41  |
+|| GP-100A        || 2     || 60     || 63     || 1x2   || 480   || 1.41  || 2x2   || 240    || 1.41  |
++-----------------+--------+---------+---------+--------+--------+--------+--------+---------+--------+
+|| 12 Seikosha    || 1     || 60     || 72     || 1x1   || 480   || 0.61  || 1x1   || 256    || 1.23  |
+|| GP-250X        || 2     || 60     || 72     || 1x2   || 480   || 1.23  || 2x2   || 240    || 1.23  |
++-----------------+--------+---------+---------+--------+--------+--------+--------+---------+--------+
+|| 13 Seikosha    || 1     || 80     || 80     || 1x1   || 512   || 0.74  || 1x1   || 256    || 1.48  |
+|| GP-700A        || 2     || 80     || 80     || 1x2   || 512   || 1.48  || 2x2   || 256    || 1.48  |
+||                || 3     || 80     || 80     || 1x2   || 512   || 1.48  || 3x3   || 212    || 0.99  |
++-----------------+--------+---------+---------+--------+--------+--------+--------+---------+--------+
+|| 14 Canon       || 1     || 80     || 80     || 1x1   || 512   || 0.74  || 1x1   || 256    || 1.48  |
+|| PJ 1080A       || 2     || 80     || 80     || 1x2   || 512   || 1.48  || 2x2   || 256    || 1.48  |
+||                || 3     || 80     || 80     || 1x2   || 512   || 1.48  || 3x3   || 212    || 0.99  |
++-----------------+--------+---------+---------+--------+--------+--------+--------+---------+--------+
+|| 15 Centronics  || 1     || 75     || 72     || 1x1   || 512   || 0.77  || 1x1   || 256    || 1.42  |
+|| 739            || 2     || 75     || 72     || 1x1   || 512   || 0.77  || 2x1   || 256    || 0.77  |
+||                || 3     || 75     || 72     || 2x2   || 300   || 0.77  || 3x3   || 200    || 1.03  |
++-----------------+--------+---------+---------+--------+--------+--------+--------+---------+--------+
+|| 16 C.Itoh 7500 || 1     || 120    || 72     || 1x1   || 512   || 1.23  ||       ||        ||       |
+||                || 1     || 60     || 72     ||       ||       ||       || 1x1   || 256    || 1.23  |
+||                || 2     || 160    || 72     || 2x1   || 512   || 0.82  ||       ||        ||       |
+||                || 2     || 120    || 72     ||       ||       ||       || 2x1   || 256    || 1.23  |
+||                || 3     || 120    || 72     || 2x2   || 480   || 1.23  || 4x2   || 240    || 1.23  |
++-----------------+--------+---------+---------+--------+--------+--------+--------+---------+--------+
+|| 17 Toshiba     || 1     || 180    || 180    || 1x2   || 512   || 1.48  || 2x2   || 256    || 1.48  |
+|| TH2100H        || 2     || 180    || 180    || 2x3   || 512   || 1.11  || 3x3   || 256    || 0.72  |
+|| 24 pin         || 3     || 180    || 180    || 3x4   || 512   || 0.99  || 6x4   || 256    || 0.99  |
++-----------------+--------+---------+---------+--------+--------+--------+--------+---------+--------+
+|| 18 Brother     || 1     || 70     || 72     || 1x1   || 512   || 0.72  || 1x1   || 256    || 1.44  |
+|| 8056           || 2     || 70     || 72     || 1x1   || 512   || 0.72  || 2x1   || 256    || 0.72  |
+||                || 3     || 70     || 72     || 2x2   || 280   || 0.72  || 3x3   || 186    || 0.96  |
++-----------------+--------+---------+---------+--------+--------+--------+--------+---------+--------+
+|| 19 Epson MX100 || 1     || 120    || 72     || 1x1   || 512   || 1.23  ||       ||        ||       | 
+|| or similar     || 1     || 60     || 72     ||       ||       ||       || 1x1   || 256    || 1.23  |
+||                || 2     || 60     || 72     || 1x2   || 512   || 1.23  || 2x2   || 256    || 1.23  |
+||                || 3     || 120    || 72     || 2x2   || 512   || 1.23  || 4x2   || 256    || 1.23  |
++-----------------+--------+---------+---------+--------+--------+--------+--------+---------+--------+
+|| 20 Tandy       || 1     || 100    || 72     || 1x1   || 512   || 1.03  ||       ||        ||       |
+|| DMP 105        || 1     || 60     || 72     ||       ||       ||       || 1x1   || 256    || 1.23  |
+||                || 2     || 60     || 72     || 1x2   || 512   || 1.23  ||       ||        ||       | 
+||                || 2     || 100    || 72     ||       ||       ||       || 2x1   || 256    || 1.03  |
+||                || 3     || 100    || 72     || 2x2   || 400   || 1.03  || 4x2   || 200    || 1.03  |
++-----------------+--------+---------+---------+--------+--------+--------+--------+---------+--------+
+|| 21 OKI         || 1     || 100    || 66     || 1x1   || 512   || 1.12  ||       ||        ||       |
+|| Microline      || 1     || 60     || 66     ||       ||       ||       || 1x1   || 256    || 1.35  |
+|| 82/84          || 2     || 100    || 66     || 1x1   || 512   || 1.12  || 2x1   || 256    || 1.12  |
+|| OK Writer      || 3     || 100    || 66     || 2x2   || 400   || 1.12  || 4x2   || 200    || 1.12  |
++-----------------+--------+---------+---------+--------+--------+--------+--------+---------+--------+
+|| 22 Fastext 80  || 1     || 72     || 72     || 1x1   || 512   || 0.74  ||       ||        ||       | 
+||                || 1     || 60     || 72     ||       ||       ||       || 1x1   || 256    || 1.23  |
+||                || 2     || 60     || 72     || 1x2   || 480   || 1.23  || 2x2   || 240    || 1.23  |
+||                || 3     || 72     || 72     || 2x3   || 288   || 1.11  || 3x3   || 192    || 0.99  |
++-----------------+--------+---------+---------+--------+--------+--------+--------+---------+--------+
+|| 23 MT-80       || 1     || 85     || 82     || 1x1   || 512   || 0.77  || 1x1   || 256    || 1.53  |
+||                || 2     || 170    || 82     || 2x1   || 512   || 0.77  || 3x1   || 256    || 1.02  |
+||                || 3     || 170    || 82     || 3x3   || 425   || 1.02  || 6x2   || 212    || 1.02  |
++-----------------+--------+---------+---------+--------+--------+--------+--------+---------+--------+
+
+The resultant dump will depend both on the current screen mode and the
 chosen scale. The dot ratio column shown above represents the size of
 the resultant picture as a ratio of the original. For example, if the
 Dot ratio is 1x1 and you are outputting a screen of 512x256 pixels at
@@ -1772,7 +1686,9 @@ Dot ratio is 1x1 and you are outputting a screen of 512x256 pixels at
 picture to be 512/120 inches across by 256/72 inches down. If however,
 the Dot ratio was 1x2 (with the same number of dots per inch and lines
 per inch as above), then the resultant picture will be 512/120 inches
-across by 2\*256/72 inches down. The ratio column in the above table
+across by 2\*256/72 inches down. 
+
+The ratio column in the above table
 shows the resultant ratio between the vertical size/horizontal size. The
 nearer that this ratio is to 1.00, the more circular your screen circles
 will appear on paper. The default is printer 1, scale 1, inverse 1,
@@ -1789,6 +1705,7 @@ the correct number of parameters.
 chosen format.
 
 --------------
+**** YOU ARE HERE ****
 
 SDUMP
 =====
