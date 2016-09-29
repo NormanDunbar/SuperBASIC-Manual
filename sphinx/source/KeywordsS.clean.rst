@@ -1556,127 +1556,227 @@ unchanged. If you do not have one of the printers currently supported,
 try out the various dump routines to see which one best suits your
 needs. For example, users of the Epson Inkjet range of printers will
 find that the Epson LQ2500 24 pin colour driver is very effective. The
-range of printers and scales currently supported is as follows:
+range of printers and scales currently supported are detailed in the following tables.
 
-+-----------------+--------+---------+---------+--------+--------+--------+--------+---------+--------+
-||                                             || MODE 4 SCREENS          || MODE 8 SCREENS           |
-+-----------------+--------+---------+---------+--------+--------+--------+--------+---------+--------+
-|| Printer        || Scale || Dots   || Lines  || Dot   || Max   || Ratio || Dot   || Max    || Ratio |
-||                ||       || Per In || Per In || Ratio || Width ||       || Ratio || Width  ||       |
-+=================+========+=========+=========+========+========+========+========+=========+========+
-|| 1 Epson MX 80  ||  1    || 120    || 72     || 1x1   || 512   || 1.23  ||       ||        ||       |
-|| or similar     ||  1    || 60     || 72     ||       ||       ||       || 1x1   || 256    || 1.23  | 
-||                ||  2    || 60     || 72     || 1x2   || 480   || 1.23  || 2x2   || 240    || 1.23  |
-||                ||  3    || 120    || 72     || 2x2   || 480   || 1.23  || 4x2   || 240    || 1.23  |
-+-----------------+--------+---------+---------+--------+--------+--------+--------+---------+--------+
-|| 2 Epson FX80   || 1     || 90     || 72     || 1x1   || 512   || 0.92  ||       ||        ||       |  
-|| additional     || 1     || 60     || 72     ||       ||       ||       || 1x1   || 256    || 1.23  | 
-|| formats        || 2     || 90     || 72     || 1x1   || 512   || 0.92  || 2x1   || 256    || 0.92  | 
-||                || 3     || 90     || 72     || 2x2   || 360   || 0.92  || 4x2   || 180    || 0.92  | 
-+-----------------+--------+---------+---------+--------+--------+--------+--------+---------+--------+
-|| 3 Epson FX100  || 1     || 90     || 72     || 1x1   || 512   || 0.92  ||       ||        ||       |
-|| wide           || 1     || 60     || 72     ||       ||       ||       || 1x1   || 256    || 1.23  |
-|| carriage       || 2     || 90     || 72     || 1x1   || 512   || 0.92  || 2x1   || 256    || 0.92  | 
-||                || 3     || 90     || 72     || 2x2   || 512   || 0.92  || 4x2   || 256    || 0.92  |
-+-----------------+--------+---------+---------+--------+--------+--------+--------+---------+--------+
-|| 3 Epson FX100  || 1     || 90     || 72     || 1x1   || 512   || 0.92  ||       ||        ||       |
-|| wide           || 1     || 60     || 72     ||       ||       ||       || 1x1   || 256    || 1.23  |
-|| carriage       || 2     || 90     || 72     || 1x1   || 512   || 0.92  || 2x1   || 256    || 0.92  | 
-||                || 3     || 90     || 72     || 2x2   || 512   || 0.92  || 4x2   || 256    || 0.92  |
-+-----------------+--------+---------+---------+--------+--------+--------+--------+---------+--------+
-|| 4 Epson JX80   || 1     || 90     || 72     || 1x1   || 512   || 0.92  ||       ||        ||       |
-||                || 1     || 60     || 72     ||       ||       ||       || 1x1   || 256    || 1.23  |
-||                || 2     || 90     || 72     || 1x1   || 512   || 0.92  || 2x1   || 256    || 0.92  | 
-||                || 3     || 90     || 72     || 2x2   || 512   || 0.92  || 4x2   || 256    || 0.92  |
-+-----------------+--------+---------+---------+--------+--------+--------+--------+---------+--------+
-|| 5 Epson LQ2500 || 1     || 80     || 60     || 1x1   || 512   || 0.99  ||       ||        ||       |
-|| 8 pin          || 1     || 60     || 60     ||       ||       ||       || 1x1   || 256    || 1.48  |
-||                || 2     || 120    || 60     || 2x1   || 512   || 0.74  ||       ||        ||       |
-+-----------------+--------+---------+---------+--------+--------+--------+--------+---------+--------+
-|| 5 Epson LQ2500 || 2     || 80     || 60     ||       ||       ||       || 2x1   || 256    || 0.99  |
-|| 8 pin          || 3     || 80     || 60     || 2x2   || 512   || 0.99  || 4x2   || 256    || 0.99  |
-+-----------------+--------+---------+---------+--------+--------+--------+--------+---------+--------+
-|| 6 Epson LQ2500 || 1     || 120    || 180    || 1x2   || 512   || 0.99  || 1x1   || 256    || 0.99  |
-|| 24 pin         || 2     || 180    || 180    || 2x3   || 512   || 1.11  || 3x3   || 256    || 0.99  |
-||                || 3     || 180    || 180    || 3x4   || 512   || 0.99  || 6x4   || 256    || 0.99  |
-+-----------------+--------+---------+---------+--------+--------+--------+--------+---------+--------+
-|| 7 Epson LQ2500 || 1     || 80     || 60     || 1x1   || 512   || 0.99  ||       ||        ||       |
-|| 8 pin          || 1     || 60     || 60     ||       ||       ||       || 1x1   || 256    || 1.48  |
-|| colour         || 2     || 120    || 60     || 2x1   || 512   || 0.74  ||       ||        ||       |
-||                || 2     || 80     || 60     ||       ||       ||       || 2x1   || 256    || 0.99  |
-||                || 3     || 80     || 60     || 2x2   || 512   || 0.99  || 4x2   || 256    || 0.99  |
-+-----------------+--------+---------+---------+--------+--------+--------+--------+---------+--------+
-|| 8 Epson LQ2500 || 1     || 120    || 180    || 1x2   || 512   || 0.99  || 1x1   || 256    || 0.99  |
-|| 24 pin         || 2     || 180    || 180    || 2x3   || 512   || 1.11  || 3x3   || 256    || 0.99  |
-|| colour         || 3     || 180    || 180    || 3x4   || 512   || 0.99  || 6x4   || 256    || 0.99  |
-+-----------------+--------+---------+---------+--------+--------+--------+--------+---------+--------+
-|| 9 Brother HR4  || 1     || 120    || 72     ||       ||       ||       || 1x1   || 512    || 1.23  |
-||                || 1     || 60     || 72     ||       ||       ||       || 1x1   || 256    || 1.23  |
-||                || 2     || 60     || 72     || 1x2   || 480   || 1.23  || 2x2   || 240    || 1.23  |
-||                || 3     || 120    || 72     || 2x2   || 480   || 1.23  || 4x2   || 240    || 1.23  |
-+-----------------+--------+---------+---------+--------+--------+--------+--------+---------+--------+
-|| 10 Olivetti    || 1     || 110    || 72     || 1x1   || 512   || 1.13  ||       ||        ||       |
-|| JP101          || 1     || 110    || 108    ||       ||       ||       || 1x1   || 256    || 0.75  |
-||                || 2     || 110    || 108    || 1x1   || 512   || 0.75  || 3x3   || 256    || 1.00  |
-||                || 3     || 110    || 72     || 2x2   || 440   || 1.13  || 4x2   || 220    || 1.13  |
-+-----------------+--------+---------+---------+--------+--------+--------+--------+---------+--------+
-|| 11 Seikosha    || 1     || 60     || 63     || 1x1   || 480   || 0.70  || 1x1   || 256    || 1.41  |
-|| GP-100A        || 2     || 60     || 63     || 1x2   || 480   || 1.41  || 2x2   || 240    || 1.41  |
-+-----------------+--------+---------+---------+--------+--------+--------+--------+---------+--------+
-|| 12 Seikosha    || 1     || 60     || 72     || 1x1   || 480   || 0.61  || 1x1   || 256    || 1.23  |
-|| GP-250X        || 2     || 60     || 72     || 1x2   || 480   || 1.23  || 2x2   || 240    || 1.23  |
-+-----------------+--------+---------+---------+--------+--------+--------+--------+---------+--------+
-|| 13 Seikosha    || 1     || 80     || 80     || 1x1   || 512   || 0.74  || 1x1   || 256    || 1.48  |
-|| GP-700A        || 2     || 80     || 80     || 1x2   || 512   || 1.48  || 2x2   || 256    || 1.48  |
-||                || 3     || 80     || 80     || 1x2   || 512   || 1.48  || 3x3   || 212    || 0.99  |
-+-----------------+--------+---------+---------+--------+--------+--------+--------+---------+--------+
-|| 14 Canon       || 1     || 80     || 80     || 1x1   || 512   || 0.74  || 1x1   || 256    || 1.48  |
-|| PJ 1080A       || 2     || 80     || 80     || 1x2   || 512   || 1.48  || 2x2   || 256    || 1.48  |
-||                || 3     || 80     || 80     || 1x2   || 512   || 1.48  || 3x3   || 212    || 0.99  |
-+-----------------+--------+---------+---------+--------+--------+--------+--------+---------+--------+
-|| 15 Centronics  || 1     || 75     || 72     || 1x1   || 512   || 0.77  || 1x1   || 256    || 1.42  |
-|| 739            || 2     || 75     || 72     || 1x1   || 512   || 0.77  || 2x1   || 256    || 0.77  |
-||                || 3     || 75     || 72     || 2x2   || 300   || 0.77  || 3x3   || 200    || 1.03  |
-+-----------------+--------+---------+---------+--------+--------+--------+--------+---------+--------+
-|| 16 C.Itoh 7500 || 1     || 120    || 72     || 1x1   || 512   || 1.23  ||       ||        ||       |
-||                || 1     || 60     || 72     ||       ||       ||       || 1x1   || 256    || 1.23  |
-||                || 2     || 160    || 72     || 2x1   || 512   || 0.82  ||       ||        ||       |
-||                || 2     || 120    || 72     ||       ||       ||       || 2x1   || 256    || 1.23  |
-||                || 3     || 120    || 72     || 2x2   || 480   || 1.23  || 4x2   || 240    || 1.23  |
-+-----------------+--------+---------+---------+--------+--------+--------+--------+---------+--------+
-|| 17 Toshiba     || 1     || 180    || 180    || 1x2   || 512   || 1.48  || 2x2   || 256    || 1.48  |
-|| TH2100H        || 2     || 180    || 180    || 2x3   || 512   || 1.11  || 3x3   || 256    || 0.72  |
-|| 24 pin         || 3     || 180    || 180    || 3x4   || 512   || 0.99  || 6x4   || 256    || 0.99  |
-+-----------------+--------+---------+---------+--------+--------+--------+--------+---------+--------+
-|| 18 Brother     || 1     || 70     || 72     || 1x1   || 512   || 0.72  || 1x1   || 256    || 1.44  |
-|| 8056           || 2     || 70     || 72     || 1x1   || 512   || 0.72  || 2x1   || 256    || 0.72  |
-||                || 3     || 70     || 72     || 2x2   || 280   || 0.72  || 3x3   || 186    || 0.96  |
-+-----------------+--------+---------+---------+--------+--------+--------+--------+---------+--------+
-|| 19 Epson MX100 || 1     || 120    || 72     || 1x1   || 512   || 1.23  ||       ||        ||       | 
-|| or similar     || 1     || 60     || 72     ||       ||       ||       || 1x1   || 256    || 1.23  |
-||                || 2     || 60     || 72     || 1x2   || 512   || 1.23  || 2x2   || 256    || 1.23  |
-||                || 3     || 120    || 72     || 2x2   || 512   || 1.23  || 4x2   || 256    || 1.23  |
-+-----------------+--------+---------+---------+--------+--------+--------+--------+---------+--------+
-|| 20 Tandy       || 1     || 100    || 72     || 1x1   || 512   || 1.03  ||       ||        ||       |
-|| DMP 105        || 1     || 60     || 72     ||       ||       ||       || 1x1   || 256    || 1.23  |
-||                || 2     || 60     || 72     || 1x2   || 512   || 1.23  ||       ||        ||       | 
-||                || 2     || 100    || 72     ||       ||       ||       || 2x1   || 256    || 1.03  |
-||                || 3     || 100    || 72     || 2x2   || 400   || 1.03  || 4x2   || 200    || 1.03  |
-+-----------------+--------+---------+---------+--------+--------+--------+--------+---------+--------+
-|| 21 OKI         || 1     || 100    || 66     || 1x1   || 512   || 1.12  ||       ||        ||       |
-|| Microline      || 1     || 60     || 66     ||       ||       ||       || 1x1   || 256    || 1.35  |
-|| 82/84          || 2     || 100    || 66     || 1x1   || 512   || 1.12  || 2x1   || 256    || 1.12  |
-|| OK Writer      || 3     || 100    || 66     || 2x2   || 400   || 1.12  || 4x2   || 200    || 1.12  |
-+-----------------+--------+---------+---------+--------+--------+--------+--------+---------+--------+
-|| 22 Fastext 80  || 1     || 72     || 72     || 1x1   || 512   || 0.74  ||       ||        ||       | 
-||                || 1     || 60     || 72     ||       ||       ||       || 1x1   || 256    || 1.23  |
-||                || 2     || 60     || 72     || 1x2   || 480   || 1.23  || 2x2   || 240    || 1.23  |
-||                || 3     || 72     || 72     || 2x3   || 288   || 1.11  || 3x3   || 192    || 0.99  |
-+-----------------+--------+---------+---------+--------+--------+--------+--------+---------+--------+
-|| 23 MT-80       || 1     || 85     || 82     || 1x1   || 512   || 0.77  || 1x1   || 256    || 1.53  |
-||                || 2     || 170    || 82     || 2x1   || 512   || 0.77  || 3x1   || 256    || 1.02  |
-||                || 3     || 170    || 82     || 3x3   || 425   || 1.02  || 6x2   || 212    || 1.02  |
-+-----------------+--------+---------+---------+--------+--------+--------+--------+---------+--------+
+**Note:** In the original manual, this was a single table covering both Mode 4 and Mode 8 screens. Due to the width of a PDF page, the table is far too wide and I've split it into two tables, one for Mode 4 and the other for Mode 8.
+
+.. DO NOT add a double pipe at the start of the first line. If you do then the whole table is 
+   completely useless in the rendered output. As it is, each time we build, we get a Latex error
+   for the ||, but pressing ENTER seems to get past it. Plus, it builds! [NDunbar]
+
+.. The following directive only affects LaTeX output and defines widths for the columns in the table, stop it flowing off the right side of the page!
+
+.. tabularcolumns::   |p{0.35\linewidth}| p{0.05\linewidth}| p{0.08\linewidth}| p{0.08\linewidth}| p{0.05\linewidth}| p{0.05\linewidth}| p{0.05\linewidth}|
+
+..  table::
+    :class: longtable
+
+    +----------------------------+--------+---------+---------+--------+--------+--------+
+    | **Mode 4 Screens**                                                                 |
+    +----------------------------+--------+---------+---------+--------+--------+--------+
+    || **Printer**               || Scale || Dots   || Lines  || Dot   || Max   || Ratio |
+    |                            ||       || Per In || Per In || Ratio || Width ||       |
+    +============================+========+=========+=========+========+========+========+
+    || 1 Epson MX 80 or similar  || 1     || 120    || 72     || 1x1   || 512   || 1.23  |
+    |                            || 2     || 60     || 72     || 1x2   || 480   || 1.23  |
+    |                            || 3     || 120    || 72     || 2x2   || 480   || 1.23  |
+    +----------------------------+--------+---------+---------+--------+--------+--------+
+    || 2 Epson FX80 additional   || 1     || 90     || 72     || 1x1   || 512   || 0.92  |
+    |  formats                   || 2     || 90     || 72     || 1x1   || 512   || 0.92  |
+    |                            || 3     || 90     || 72     || 2x2   || 360   || 0.92  |
+    +----------------------------+--------+---------+---------+--------+--------+--------+
+    || 3 Epson FX100 wide        || 1     || 90     || 72     || 1x1   || 512   || 0.92  |
+    |  carriage                  || 2     || 90     || 72     || 1x1   || 512   || 0.92  |
+    |                            || 3     || 90     || 72     || 2x2   || 512   || 0.92  |
+    +----------------------------+--------+---------+---------+--------+--------+--------+
+    || 4 Epson JX80              || 1     || 90     || 72     || 1x1   || 512   || 0.92  |
+    |                            || 2     || 90     || 72     || 1x1   || 512   || 0.92  |
+    |                            || 3     || 90     || 72     || 2x2   || 512   || 0.92  |
+    +----------------------------+--------+---------+---------+--------+--------+--------+
+    || 5 Epson LQ2500 8 pin      || 1     || 80     || 60     || 1x1   || 512   || 0.99  |
+    |                            || 2     || 120    || 60     || 2x1   || 512   || 0.74  |
+    |                            || 3     || 80     || 60     || 2x2   || 512   || 0.99  |
+    +----------------------------+--------+---------+---------+--------+--------+--------+
+    || 6 Epson LQ2500 24 pin     || 1     || 120    || 180    || 1x2   || 512   || 0.99  |
+    |                            || 2     || 180    || 180    || 2x3   || 512   || 1.11  |
+    |                            || 3     || 180    || 180    || 3x4   || 512   || 0.99  |
+    +----------------------------+--------+---------+---------+--------+--------+--------+
+    || 7 Epson LQ2500            || 1     || 80     || 60     || 1x1   || 512   || 0.99  |
+    |  8 pin colour              || 2     || 120    || 60     || 2x1   || 512   || 0.74  |
+    |                            || 3     || 80     || 60     || 2x2   || 512   || 0.99  |
+    +----------------------------+--------+---------+---------+--------+--------+--------+
+    || 8 Epson LQ2500            || 1     || 120    || 180    || 1x2   || 512   || 0.99  |
+    |  24 pin                    || 2     || 180    || 180    || 2x3   || 512   || 1.11  |
+    |  colour                    || 3     || 180    || 180    || 3x4   || 512   || 0.99  |
+    +----------------------------+--------+---------+---------+--------+--------+--------+
+    || 9 Brother HR4             || 2     || 60     || 72     || 1x2   || 480   || 1.23  |
+    |                            || 3     || 120    || 72     || 2x2   || 480   || 1.23  |
+    +----------------------------+--------+---------+---------+--------+--------+--------+
+    || 10 Olivetti               || 1     || 110    || 72     || 1x1   || 512   || 1.13  |
+    |  JP101                     || 2     || 110    || 108    || 1x1   || 512   || 0.75  |
+    |                            || 3     || 110    || 72     || 2x2   || 440   || 1.13  |
+    +----------------------------+--------+---------+---------+--------+--------+--------+
+    || 11 Seikosha               || 1     || 60     || 63     || 1x1   || 480   || 0.70  |
+    |  GP-100A                   || 2     || 60     || 63     || 1x2   || 480   || 1.41  |
+    +----------------------------+--------+---------+---------+--------+--------+--------+
+    || 12 Seikosha               || 1     || 60     || 72     || 1x1   || 480   || 0.61  |
+    |  GP-250X                   || 2     || 60     || 72     || 1x2   || 480   || 1.23  |
+    +----------------------------+--------+---------+---------+--------+--------+--------+
+    || 13 Seikosha               || 1     || 80     || 80     || 1x1   || 512   || 0.74  |
+    |  GP-700A                   || 2     || 80     || 80     || 1x2   || 512   || 1.48  |
+    |                            || 3     || 80     || 80     || 1x2   || 512   || 1.48  |
+    +----------------------------+--------+---------+---------+--------+--------+--------+
+    || 14 Canon                  || 1     || 80     || 80     || 1x1   || 512   || 0.74  |
+    |  PJ 1080A                  || 2     || 80     || 80     || 1x2   || 512   || 1.48  |
+    |                            || 3     || 80     || 80     || 1x2   || 512   || 1.48  |
+    +----------------------------+--------+---------+---------+--------+--------+--------+
+    || 15 Centronics             || 1     || 75     || 72     || 1x1   || 512   || 0.77  |
+    |  739                       || 2     || 75     || 72     || 1x1   || 512   || 0.77  |
+    |                            || 3     || 75     || 72     || 2x2   || 300   || 0.77  |
+    +----------------------------+--------+---------+---------+--------+--------+--------+
+    || 16 C.Itoh 7500            || 1     || 120    || 72     || 1x1   || 512   || 1.23  |
+    |                            || 2     || 160    || 72     || 2x1   || 512   || 0.82  |
+    |                            || 3     || 120    || 72     || 2x2   || 480   || 1.23  |
+    +----------------------------+--------+---------+---------+--------+--------+--------+
+    || 17 Toshiba                || 1     || 180    || 180    || 1x2   || 512   || 1.48  |
+    |  TH2100H                   || 2     || 180    || 180    || 2x3   || 512   || 1.11  |
+    |  24 pin                    || 3     || 180    || 180    || 3x4   || 512   || 0.99  |
+    +----------------------------+--------+---------+---------+--------+--------+--------+
+    || 18 Brother                || 1     || 70     || 72     || 1x1   || 512   || 0.72  |
+    |  8056                      || 2     || 70     || 72     || 1x1   || 512   || 0.72  |
+    |                            || 3     || 70     || 72     || 2x2   || 280   || 0.72  |
+    +----------------------------+--------+---------+---------+--------+--------+--------+
+    || 19 Epson MX100            || 1     || 120    || 72     || 1x1   || 512   || 1.23  |
+    |  or similar                || 2     || 60     || 72     || 1x2   || 512   || 1.23  |
+    |                            || 3     || 120    || 72     || 2x2   || 512   || 1.23  |
+    +----------------------------+--------+---------+---------+--------+--------+--------+
+    || 20 Tandy                  || 1     || 100    || 72     || 1x1   || 512   || 1.03  |
+    |  DMP 105                   || 2     || 60     || 72     || 1x2   || 512   || 1.23  |
+    |                            || 3     || 100    || 72     || 2x2   || 400   || 1.03  |
+    +----------------------------+--------+---------+---------+--------+--------+--------+
+    || 21 OKI Microline 82/84    || 1     || 100    || 66     || 1x1   || 512   || 1.12  |
+    |  OK writer                 || 2     || 100    || 66     || 1x1   || 512   || 1.12  |
+    |                            || 3     || 100    || 66     || 2x2   || 400   || 1.12  |
+    +----------------------------+--------+---------+---------+--------+--------+--------+
+    || 22 Fastext 80             || 1     || 72     || 72     || 1x1   || 512   || 0.74  |
+    |                            || 2     || 60     || 72     || 1x2   || 480   || 1.23  |
+    |                            || 3     || 72     || 72     || 2x3   || 288   || 1.11  |
+    +----------------------------+--------+---------+---------+--------+--------+--------+
+    || 23 MT-80                  || 1     || 85     || 82     || 1x1   || 512   || 0.77  |
+    |                            || 2     || 170    || 82     || 2x1   || 512   || 0.77  |
+    |                            || 3     || 170    || 82     || 3x3   || 425   || 1.02  |
+    +----------------------------+--------+---------+---------+--------+--------+--------+
+
+
+.. DO NOT add a double pipe at the start of the first line. If you do then the whole table is 
+   completely useless in the rendered output. As it is, each time we build, we get a Latex error
+   for the ||, but pressing ENTER seems to get past it. Plus, it builds! [NDunbar]
+
+.. The following directive only affects LaTeX output and defines widths for the columns in the table, stop it flowing off the right side of the page!
+   
+.. tabularcolumns::   |p{0.35\linewidth}| p{0.05\linewidth}| p{0.08\linewidth}| p{0.08\linewidth}| p{0.05\linewidth}| p{0.05\linewidth}| p{0.05\linewidth}|
+
+..  table::
+    :class: longtable
+
+    +----------------------------+--------+---------+---------+--------+--------+--------+
+    | **Mode 8 Screens**                                                                 |
+    +----------------------------+--------+---------+---------+--------+--------+--------+
+    || **Printer**               || Scale || Dots   || Lines  || Dot   || Max   || Ratio |
+    |                            ||       || Per In || Per In || Ratio || Width ||       |
+    +============================+========+=========+=========+========+========+========+
+    || 1 Epson MX 80             || 1     || 60     || 72     || 1x1   || 256   || 1.23  | 
+    |  or similar                || 2     || 60     || 72     || 2x2   || 240   || 1.23  |
+    |                            || 3     || 120    || 72     || 4x2   || 240   || 1.23  |
+    +----------------------------+--------+---------+---------+--------+--------+--------+
+    || 2 Epson FX80              || 1     || 60     || 72     || 1x1   || 256   || 1.23  | 
+    |  additional                || 2     || 90     || 72     || 2x1   || 256   || 0.92  | 
+    |  formats                   || 3     || 90     || 72     || 4x2   || 180   || 0.92  | 
+    +----------------------------+--------+---------+---------+--------+--------+--------+
+    || 3 Epson FX100             || 1     || 60     || 72     || 1x1   || 256   || 1.23  |
+    |  wide                      || 2     || 90     || 72     || 2x1   || 256   || 0.92  | 
+    |  carriage                  || 3     || 90     || 72     || 4x2   || 256   || 0.92  |
+    +----------------------------+--------+---------+---------+--------+--------+--------+
+    || 4 Epson JX80              || 1     || 60     || 72     || 1x1   || 256   || 1.23  |
+    |                            || 2     || 90     || 72     || 2x1   || 256   || 0.92  | 
+    |                            || 3     || 90     || 72     || 4x2   || 256   || 0.92  |
+    +----------------------------+--------+---------+---------+--------+--------+--------+
+    || 5 Epson LQ2500            || 1     || 60     || 60     || 1x1   || 256   || 1.48  |
+    +----------------------------+--------+---------+---------+--------+--------+--------+
+    || 5 Epson LQ2500            || 2     || 80     || 60     || 2x1   || 256   || 0.99  |
+    |  8 pin                     || 3     || 80     || 60     || 4x2   || 256   || 0.99  |
+    +----------------------------+--------+---------+---------+--------+--------+--------+
+    || 6 Epson LQ2500            || 1     || 120    || 180    || 1x1   || 256   || 0.99  |
+    |  24 pin                    || 2     || 180    || 180    || 3x3   || 256   || 0.99  |
+    |                            || 3     || 180    || 180    || 6x4   || 256   || 0.99  |
+    +----------------------------+--------+---------+---------+--------+--------+--------+
+    || 7 Epson LQ2500            || 1     || 60     || 60     || 1x1   || 256   || 1.48  |
+    |  8 pin colour              || 2     || 80     || 60     || 2x1   || 256   || 0.99  |
+    |                            || 3     || 80     || 60     || 4x2   || 256   || 0.99  |
+    +----------------------------+--------+---------+---------+--------+--------+--------+
+    || 8 Epson LQ2500            || 1     || 120    || 180    || 1x1   || 256   || 0.99  |
+    |  24 pin                    || 2     || 180    || 180    || 3x3   || 256   || 0.99  |
+    |  colour                    || 3     || 180    || 180    || 6x4   || 256   || 0.99  |
+    +----------------------------+--------+---------+---------+--------+--------+--------+
+    || 9 Brother HR4             || 1     || 120    || 72     || 1x1   || 512   || 1.23  |
+    |                            || 1     || 60     || 72     || 1x1   || 256   || 1.23  |
+    |                            || 2     || 60     || 72     || 2x2   || 240   || 1.23  |
+    |                            || 3     || 120    || 72     || 4x2   || 240   || 1.23  |
+    +----------------------------+--------+---------+---------+--------+--------+--------+
+    || 10 Olivetti               || 1     || 110    || 108    || 1x1   || 256   || 0.75  |
+    |  JP101                     || 2     || 110    || 108    || 3x3   || 256   || 1.00  |
+    |                            || 3     || 110    || 72     || 4x2   || 220   || 1.13  |
+    +----------------------------+--------+---------+---------+--------+--------+--------+
+    || 11 Seikosha               || 1     || 60     || 63     || 1x1   || 256   || 1.41  |
+    |  GP-100A                   || 2     || 60     || 63     || 2x2   || 240   || 1.41  |
+    +----------------------------+--------+---------+---------+--------+--------+--------+
+    || 12 Seikosha               || 1     || 60     || 72     || 1x1   || 256   || 1.23  |
+    |  GP-250X                   || 2     || 60     || 72     || 2x2   || 240   || 1.23  |
+    +----------------------------+--------+---------+---------+--------+--------+--------+
+    || 13 Seikosha               || 1     || 80     || 80     || 1x1   || 256   || 1.48  |
+    |  GP-700A                   || 2     || 80     || 80     || 2x2   || 256   || 1.48  |
+    |                            || 3     || 80     || 80     || 3x3   || 212   || 0.99  |
+    +----------------------------+--------+---------+---------+--------+--------+--------+
+    || 14 Canon                  || 1     || 80     || 80     || 1x1   || 256   || 1.48  |
+    |  PJ 1080A                  || 2     || 80     || 80     || 2x2   || 256   || 1.48  |
+    |                            || 3     || 80     || 80     || 3x3   || 212   || 0.99  |
+    +----------------------------+--------+---------+---------+--------+--------+--------+
+    || 15 Centronics             || 1     || 75     || 72     || 1x1   || 256   || 1.42  |
+    |  739                       || 2     || 75     || 72     || 2x1   || 256   || 0.77  |
+    |                            || 3     || 75     || 72     || 3x3   || 200   || 1.03  |
+    +----------------------------+--------+---------+---------+--------+--------+--------+
+    || 16 C.Itoh 7500            || 1     || 60     || 72     || 1x1   || 256   || 1.23  |
+    |                            || 2     || 120    || 72     || 2x1   || 256   || 1.23  |
+    |                            || 3     || 120    || 72     || 4x2   || 240   || 1.23  |
+    +----------------------------+--------+---------+---------+--------+--------+--------+
+    || 17 Toshiba                || 1     || 180    || 180    || 2x2   || 256   || 1.48  |
+    |  TH2100H                   || 2     || 180    || 180    || 3x3   || 256   || 0.72  |
+    |  24 pin                    || 3     || 180    || 180    || 6x4   || 256   || 0.99  |
+    +----------------------------+--------+---------+---------+--------+--------+--------+
+    || 18 Brother                || 1     || 70     || 72     || 1x1   || 256   || 1.44  |
+    |  8056                      || 2     || 70     || 72     || 2x1   || 256   || 0.72  |
+    |                            || 3     || 70     || 72     || 3x3   || 186   || 0.96  |
+    +----------------------------+--------+---------+---------+--------+--------+--------+
+    || 19 Epson MX100            || 1     || 60     || 72     || 1x1   || 256   || 1.23  |
+    |  or similar                || 2     || 60     || 72     || 2x2   || 256   || 1.23  |
+    |                            || 3     || 120    || 72     || 4x2   || 256   || 1.23  |
+    +----------------------------+--------+---------+---------+--------+--------+--------+
+    || 20 Tandy                  || 1     || 60     || 72     || 1x1   || 256   || 1.23  |
+    |  DMP 105                   || 2     || 100    || 72     || 2x1   || 256   || 1.03  |
+    |                            || 3     || 100    || 72     || 4x2   || 200   || 1.03  |
+    +----------------------------+--------+---------+---------+--------+--------+--------+
+    || 21 OKI                    || 1     || 60     || 66     || 1x1   || 256   || 1.35  |
+    |  Microline                 || 2     || 100    || 66     || 2x1   || 256   || 1.12  |
+    |  82/84 OK Writer           || 3     || 100    || 66     || 4x2   || 200   || 1.12  |
+    +----------------------------+--------+---------+---------+--------+--------+--------+
+    || 22 Fastext 80             || 1     || 60     || 72     || 1x1   || 256   || 1.23  |
+    |                            || 2     || 60     || 72     || 2x2   || 240   || 1.23  |
+    |                            || 3     || 72     || 72     || 3x3   || 192   || 0.99  |
+    +----------------------------+--------+---------+---------+--------+--------+--------+
+    || 23 MT-80                  || 1     || 85     || 82     || 1x1   || 256   || 1.53  |
+    |                            || 2     || 170    || 82     || 3x1   || 256   || 1.02  |
+    |                            || 3     || 170    || 82     || 6x2   || 212   || 1.02  |
+    +----------------------------+--------+---------+---------+--------+--------+--------+
 
 The resultant dump will depend both on the current screen mode and the
 chosen scale. The dot ratio column shown above represents the size of
@@ -1721,12 +1821,18 @@ SDUMP
 
 The command SDUMP allows you to dump a screen (or part of a screen) to
 a printer (or a file), using one of the in-built formats (one of which
-will hopefully work on your printer!) - see SDP\_SET. Under SMS, you
+will hopefully work on your printer!) - see SDP\_SET. 
+
+Under SMS, you
 will first need to LRESPR SDUMP\_REXT provided on the distribution disk
-to use this command. The first variant is the simplest, it will dump the
+to use this command. 
+
+The first variant is the simplest, it will dump the
 whole of the contents of the specified window #ch to the printer. If the
 second variant is used, SDUMP will dump the whole of the screen defined
-by widthXheightAxposXypos (using absolute pixel co-ordinates). If no
+by widthXheightAxposXypos (using absolute pixel co-ordinates). 
+
+If no
 parameters are supplied, SDUMP will dump the whole screen. The third
 variant of the command is intended to dump a screen which has been
 stored under the Pointer Environment's PSAVE function. The address
@@ -1738,9 +1844,14 @@ specify an area of the screen to be dumped.
 
 **Example**
 
-OPEN #3,scr\_448x200a32x16:SDUMP #3:CLOSE #3
- and SDUMP 448,200,32,16
- are the same.
+::
+
+    OPEN #3,scr_448x200a32x16:SDUMP #3:CLOSE #3
+and::
+
+    SDUMP 448,200,32,16
+    
+are the same.
 
 **NOTE 1**
 
@@ -1797,13 +1908,20 @@ disables case-sensitivity and reduces speed.
 
 The following small program will scan the whole memory, ROM included,
 from adr onwards for string$. Tiny-Toolkit SEARCH is assumed, PHYSTOP is
-also necessary: 100 string$="dev v" : REMark what we are looking for 110
-add=0 : REMark start address 120 MODE 4: CSIZE 0,0: PAPER 0: INK 5: CLS
-130 REPeat searching 140 add=SEARCH(add+1,PHYSTOP-add,string$) 150 IF
-NOT add THEN EXIT searching 160 PRINT \\"Address ="!add 170 PRINT
-PEEK$(add-20,19); 180 INK 7: PRINT PEEK$(add,LEN(string$)); 190 INK 5:
-PRINT PEEK$(add+LEN(string$),20) 200 END REPeat searching 210 PRINT
-"That's all."
+also necessary:: 
+
+    100 string$="dev v" : REMark what we are looking for 
+    110 add=0 : REMark start address 
+    120 MODE 4: CSIZE 0,0: PAPER 0: INK 5: CLS 
+    130 REPeat searching 
+    140   add=SEARCH(add+1,PHYSTOP-add,string$) 
+    150   IF NOT add THEN EXIT searching 
+    160   PRINT \"Address ="!add 
+    170   PRINT PEEK$(add-20,19); 
+    180   INK 7: PRINT PEEK$(add,LEN(string$)); 
+    190   INK 5: PRINT PEEK$(add+LEN(string$),20) 
+    200 END REPeat searching 
+    210 PRINT "That's all."
 
 **NOTE**
 
@@ -1838,10 +1956,12 @@ two-dimensions of strings because the third dimension is the maximum
 string length) the optional row parameter which defaults to the first
 row can be used to select a certain row. The start parameter allows you
 to tell SEARCH from which element in the row onwards it should look
-(remember that the first element is indexed with 0). compare specifies
+(remember that the first element is indexed with 0). Compare specifies
 the number of characters at the start of each entry to ignore, so 0 will
 search the whole entry for tofind$. The search stops if tofind$ was
-found in an entry but not if the entry and tofind$ are identical. SEARCH
+found in an entry but not if the entry and tofind$ are identical. 
+
+SEARCH
 returns the entry index or -1 if no suitable entry was found.
 
 **Example**
@@ -1853,15 +1973,29 @@ scanned for the string QL and all occurrences are listed. If you want to
 check out the tremendous speed of SEARCH, amend line 100, set n to 10000
 and assure that at least 100K of memory is free for the huge array: you
 will be surprised, even the 10000 entries are searched in next to no
-time! 100 n = 1000: DIM name$(n,10) 110 FOR i = 1 TO n 120 name$(i) = ""
-130 FOR j = 1 TO 10 140 name$(i) = name$(i) & CHR$(RND(65 TO 90)) 150 IF
-j > 3 AND NOT RND(5) THEN EXIT j 160 END FOR j 170 END FOR i 180 : 190
-first = 1 200 REPeat loop 210 found = SEARCH(name$, "QL", first, 0) 220
-IF found < 0 THEN EXIT loop 230 PRINT name$(found) 240 IF found = n THEN
-EXIT loop: ELSE first = found + 1 250 END REPeat loop
+time! 
+
+::
+
+    100 n = 1000: DIM name$(n,10) 
+    110 FOR i = 1 TO n 
+    120   name$(i) = "" 
+    130   FOR j = 1 TO 10 
+    140     name$(i) = name$(i) & CHR$(RND(65 TO 90)) 
+    150     IF j > 3 AND NOT RND(5) THEN EXIT j 
+    160   END FOR j 
+    170 END FOR i 
+    180 : 
+    190 first = 1 
+    200 REPeat loop 
+    210   found = SEARCH(name$, "QL", first, 0) 
+    220   IF found < 0 THEN EXIT loop 
+    230   PRINT name$(found) 
+    240   IF found = n THEN EXIT loop: ELSE first = found + 1 
+    250 END REPeat loop
 
 Minerva and SMS users can use integers for n, i, j, first
- and found to speed up things, so replace them by n%, i%, j%, first% and
+and found to speed up things, so replace them by n%, i%, j%, first% and
 found%.
 
 **CROSS-REFERENCE**
@@ -1882,7 +2016,7 @@ SEARCH\_MEM
 +----------+-------------------------------------------------------------------+
 
 This function is very similar to the main MSEARCH function provided by
-this toolkit. It is however limited to case- dependent searches and
+this toolkit. It is however limited to case-dependent searches and
 therefore is even quicker than MSEARCH.
 
 **CROSS-REFERENCE**
@@ -1926,61 +2060,99 @@ is an extremely quick means of testing for various values of a variable
 and taking a different course of action in a program according to those
 values. Unfortunately, the standard form of this command only allows you
 to test for different values of a numeric variable (eg. SELect ON a$ is
-not allowed). There are actually two forms of the SuperBASIC structure:
-SELect ON var=range: statement
-:sup:`\*`\ [:statement]\ :sup:`\*\*`\ [:=range:statement
-:sup:`\*`\ [:statement]\ :sup:`\*`]\ :sup:`\*
-` or SELect ON var
- :sup:`\*`\ [[ON var] = range:statement
-:sup:`\*`\ [:statement]\ :sup:`\*` ]\ :sup:`\*
-` .. END SELect
- range can be any one, or mixtures of, the following: expression
- expression TO expression
- REMAINDER
- The first of these variants (in this and all SuperBASIC structures) is
+not allowed). 
+
+There are actually two forms of the SuperBASIC structure:
+
+SELect ON var=range: statement :sup:`\*`\ [:statement]\ :sup:`\*\*`\ [:=range:statement
+:sup:`\*`\ [:statement]\ :sup:`\*`]\ :sup:`\*` 
+
+or 
+
+SELect ON var :sup:`\*`\ [[ON var] = range:statement :sup:`\*`\ [:statement]\ :sup:`\*` ]\ :sup:`\*` .. END SELect
+
+Range can be any one, or mixtures of, the following: 
+
+- Expression
+- Expression TO Expression
+- REMAINDER
+
+The first of these two SELect variants (in this and all SuperBASIC structures) is
 known as an in-line structure, as the entire structure appears on the
 same program line. This does not need END SELect to mark the end of the
-structure. After the main SELect ON var statement, the interpreter looks
+structure. 
+
+After the main SELect ON var statement, the interpreter looks
 for a list of possible values, and then if the value of the given
 variable falls within the range of possible values, the program takes
 action according to the statements which follow that value in the list.
+
 The interpreter will use the first range of values into which it can fit
 the variable and once found, all statements up until (but excluding) the
 next range in the list will be treated as applying to that range
 (whether they appear on the same line or not). Once all of the
 statements applying to that range have been executed, control passes to
 the statement following the END SELect
- statement (or if the in-line form of the structure is used, and END
+statement (or if the in-line form of the structure is used, and END
 SELect does not appear on that line, then control passes to the next
-line). The way in which matches are made when checking whether a value
-falls within a range depends on whether range is a single number (eg. ON
-var=10) or various values (eg. ON var=10 to 20). If the former, the
+line). 
+
+The way in which matches are made when checking whether a value
+falls within a range depends on whether range is a single number eg::
+
+    ON var = 100
+
+or various values eg::
+
+    ON var = 90 TO 100
+    
+If the former, the
 value need only be approximately equal to range (ie. to within 1 part in
 10\ :sup:`7`, for instance: 100.0000045==100!). However, if the latter
-format is used (eg. SELect ON a=90 TO 100), a match will only be found
+format is used, a match will only be found
 if the given value is within the absolute range (eg. in the above
-example, 100.0000045 would not be matched!). If the long form of the
+example, 100.0000045 would not be matched!). 
+
+If the long form of the
 structure is used, and ON var is used within the body of the structure,
 this must be the same variable as that used in the initial SELect ON
 statement.
 
 **Example 1**
 
-10 SELect ON x=1,10 TO 100,500:PRINT 'x'
+::
+
+    10 SELect ON x=1,10 TO 100,500:PRINT 'x'
 
 **Example 2**
 
-100 SELect ON test 110 =0,2,4,6,8,10:PRINT 'Even Number' 120
-=REMAINDER:PRINT 'Odd Number' 130 END SELect
+::
+
+    100 SELect ON test 
+    110   = 0,2,4,6,8,10: PRINT 'Even Number' 
+    120   = REMAINDER: PRINT 'Odd Number' 
+    130 END SELect
 
 **Example 3**
 
-A re-write of the example given for ON...GO SUB: 100 no\_of\_locations=3
-110 start=0 120 PRINT\_LOC 2 130 DEFine PROCedure PRINT\_LOC(xa) 135
-xa=xa+start 140 SELect ON xa 150 =1:PRINT 'This is location 1' 160 =2
-165 PRINT 'This is location 2' 170 =3:PRINT 'This is location 3' 180
-=REMAINDER:PRINT 'Undefined Location' 185 RETurn 190 END SELect 200
-PRINT 'What now?:RETurn 210 END DEFine
+A re-write of the example given for ON...GO SUB::
+
+    100 no_of_locations=3 
+    110 start=0 
+    120 PRINT_LOC 2
+    125 : 
+    130 DEFine PROCedure PRINT_LOC(xa) 
+    135   xa=xa+start 
+    140   SELect ON xa 
+    150     = 1: PRINT 'This is location 1' 
+    160     =2 
+    165       PRINT 'This is location 2' 
+    170     =3: PRINT 'This is location 3' 
+    180     = REMAINDER: PRINT 'Undefined Location' 
+    185       RETurn 
+    190   END SELect 
+    200   PRINT 'What now?:RETurn 
+    210 END DEFine
 
 **NOTE 1**
 
@@ -2012,34 +2184,69 @@ common matches appear at the start of the definition block.
 **NOTE 5**
 
 Except under SMS, SELect ON can only cope with simple variables, for
-example: SELect ON a
- is acceptable. Compare: SELect ON a(2) SELect ON s\*10
- or SELect ON CODE(a$)
- All of these are acceptable on SMS but cannot currently be compiled.
-Although lines such as: SELect ON CODE and SELect ON INKEY$
- might be accepted by the interpreter, the lines contained within the
+example::
+
+    SELect ON a
+    
+is acceptable. Compare::
+
+    SELect ON a(2) 
+    SELect ON s*10
+    SELect ON CODE(a$)
+    
+All of these are acceptable on SMS but cannot currently be compiled.
+
+Although lines such as:: 
+
+    SELect ON CODE 
+    
+and::
+
+    SELect ON INKEY$
+    
+might be accepted by the interpreter, the lines contained within the
 block will be ignored (other than =REMAINDER matches). On SMS both of
 these give an 'error in expression' when RUN.
 
 **MINERVA NOTES**
 
 Minerva supports string and variables in SELect ON statements. The check
-for characters is normally case independent. For example: SELect ON
-a$:='hello'
- will find both a$='HeLLo' and a$='hello'. If however, you want the
-match to be exact (case dependent), then something along the lines of:
-SELect ON a$:='hello' TO 'hello'
- must be used. Unfortunately, you still cannot SELect ON machine code
+for characters is normally case independent. For example::
+
+    SELect ON a$: ='hello'
+
+will find both a$='HeLLo' and a$='hello'. If however, you want the
+match to be exact (case dependent), then something along the lines of::
+
+    SELect ON a$: ='hello' TO 'hello'
+    
+must be used. Unfortunately, you still cannot SELect ON machine code
 functions (for example, INKEY$), which will have no effect, or slice the
 string, which will cause a 'bad line' error. A short example of the
 additional flexibility is a check for a response to a simple question
-{eg. Overwrite (y/n)?}: 100 REPeat loop 110 A$=INKEY$(-1) 120 SELect ON
-A$ 130 ='yn'&chr$(27):EXIT loop 140 END SELect 150 END REPeat loop
- is the same as: 100 REPeat loop
- 110 A=CODE(INKEY$(-1)) 120 SELect ON A: 130 =89,121,78,110,27:EXIT loop
-140 END SELect 150 END REPeat loop
- Minerva also supports integer variables, such as: SELect ON a%. This is
-an extremely fast means of testing a condition. However, due to the
+{eg. Overwrite (y/n)?}::
+
+    100 REPeat loop 
+    110   A$=INKEY$(-1) 
+    120   SELect ON A$ 
+    130     ='yn'&chr$(27):EXIT loop 
+    140   END SELect 
+    150 END REPeat loop  
+
+is the same as:: 
+
+    100 REPeat loop  
+    110   A=CODE(INKEY$(-1)) 
+    120   SELect ON A: 
+    130     =89,121,78,110,27:EXIT loop
+    140   END SELect 
+    150 END REPeat loop 
+
+Minerva also supports integer variables, such as::
+
+    SELect ON a%
+    
+This is an extremely fast means of testing a condition. However, due to the
 nature of integers, tests will only match the integer part of range.
 
 **SMS NOTE**
@@ -2048,9 +2255,11 @@ This has greatly extended the flexibility of SELect ON - see in
 particular Note 5 above. It will also allow integer variables as the
 SELect, but unfortunately not string SELect variables at present. If you
 try to do so, the error 'Incorrectly structured SELect clause' will be
-reported. It will however, even support things like: SELect ON
-CODE(INKEY$(#1))
- Unfortunately, SMS pre v2.90 had problems in dealing with in-line
+reported. It will however, even support things like:: 
+
+    SELect ON CODE(INKEY$(#1))
+
+Unfortunately, SMS pre v2.90 had problems in dealing with in-line
 SELect ON statements. Prior to v2.89 an error would be generated if an
 END SELect statement did not appear in an in-line definition, and v2.89
 reported an error if END SELect did appear!!
@@ -2076,18 +2285,26 @@ SEND\_EVENT
 With v1.51 of the Window Manager (and v2.71 of SMSQ/E), the possibilty
 of Job Events was introduced. This is basically a simple way of making
 one program wait until it receives notification from another Job that up
-to eight different events has occured. The events are undefined and
+to eight different events has occured. 
+
+The events are undefined and
 simply represented by the eight numbers : 1, 2, 4, 8, 16, 32, 64, 128.
 This command allows you to tell a specified job that those events have
 occured - several events may be notified by adding together the various
 values of event. The job to be notified can be represented by either
-its: (1) Jobname (eg. 'SBASIC') (2) Job ID number (returned by OJOB for
-example). (3) Job number and Job Tag (returned by JOBS).
+its: 
+
+#. Jobname (eg. 'SBASIC') 
+#. Job ID number (returned by OJOB for example). 
+#. Job number and Job Tag (returned by JOBS).
 
 **Example**
 
-SEND\_EVENT OJOB(1),2+8
- Notifies the current job's owner that events 2 and 8 have occured.
+::
+
+    SEND_EVENT OJOB(1), 2+8
+    
+Notifies the current job's owner that events 2 and 8 have occured.
 
 **CROSS-REFERENCE**
 
@@ -2180,7 +2397,9 @@ The serial mouse driver must always be loaded into Resident Procedure
 Space (for example with RESPR or LRESPR) before any Jobs are EXECuted.
 However, if you have Hermes or SuperHermes fitted, you can configure the
 Serial Mouse driver so that it does not automatically start up after
-being linked into BASIC. This command can be used to initialise and
+being linked into BASIC. 
+
+This command can be used to initialise and
 startup the driver either following a SERMOFF command or if you have
 configured the driver not to automatically start up after being linked
 into BASIC. SERMON should also be used to reactivate the driver
@@ -2252,19 +2471,26 @@ and resolution of the mouse. As a mouse moves, it sends a stream of data
 to the computer containing details of the direction moved and the
 distance moved. These details are sent every few microseconds and
 converted by the driver to x,y coordinates on screen. The speed at which
-these details are sent is known as the resolution of the mouse. This
-command allows you to alter the resolution of the mouse so that you do
+these details are sent is known as the resolution of the mouse. 
+
+This command allows you to alter the resolution of the mouse so that you do
 not have to move the mouse as far to get the pointer (or cursor) on
-screen to move across the whole screen. The mul% and div% parameters can
-be in the range 0..127 (with 0 disabling this feature - the default).
+screen to move across the whole screen. 
+
+The mul% and div% parameters can be in the range 0..127 (with 0 disabling this feature - the default).
+
 The distance sent by the mouse is multiplied by the mul% factor and
 divided by the div% factor - with these both set to 0, only two-thirds
 of the distance moved by the mouse is passed to the Pointer Interface to
-be translated into movements of the Pointer. The acc% parameter can be
+be translated into movements of the Pointer. 
+
+The acc% parameter can be
 in the range (0...8) and defaults to 4 - this is used to calculate an
 acceleration factor, so that the faster that the mouse is moved the
 quicker the details sent by the mouse are passed on to the Pointer
-Interface (thus making the Pointer move in bigger and bigger steps). The
+Interface (thus making the Pointer move in bigger and bigger steps). 
+
+The
 last two parameters are optional and are only relevant when the Mouse
 Driver is used in Cursor Mode (see SERMCUR). These two parameters affect
 the resolution of the mouse when being used to move the Basic Cursor -
@@ -2315,7 +2541,9 @@ Serial ports provided. Once the Network has been set up with the
 necessary leads, and SERNET\_rext been loaded on all computers in the
 Network, the command SERNET should be issued to start up the fileserver
 Job on each computer. This creates a background Job called 'SERNET'
-which is similar to the 'Server' Job created by FSERVE. The two
+which is similar to the 'Server' Job created by FSERVE. 
+
+The two
 fileservers are very similar in operation in that they both allow other
 computers to access the resources of the Master machine over the
 Network. As with MIDINET, SERNET has built-in protection for files which
@@ -2365,19 +2593,31 @@ Used with one parameter, this is the same as PAR\_BUFF except that it
 sets the size of the output buffer attached to each SER channel. The
 input buffer is normally a dynamic buffer, unless input\_size is
 specified. The output buffer should be a minimum of 5 to avoid confusion
-with the port number. You can also use SER\_BUFF to alter the size of
-the input buffer, by using the form: SER\_BUFF output\_size,input\_size
- Although you will need to specify the output\_size, you can set this to
+with the port number. 
+
+You can also use SER\_BUFF to alter the size of
+the input buffer, by using the form::
+
+    SER_BUFF output_size, input_size
+
+Although you will need to specify the output\_size, you can set this to
 0 to enable a dynamic output buffer. You can also specify which serial
 port number is to be used to allow this command to work on machines with
 more than one serial port (this defaults to SER1).
 
 **Examples**
 
-SER\_BUFF 200
- Set the output buffer size to 200 bytes, with a dynamic input buffer.
-SER\_BUFF 200,500
- Have an output buffer of 200 bytes, with an input buffer of 500 bytes.
+::
+
+    SER_BUFF 200
+    
+Set the output buffer size to 200 bytes, with a dynamic input buffer.
+
+::
+
+    SER_BUFF 200,500
+    
+Have an output buffer of 200 bytes, with an input buffer of 500 bytes.
 
 **NOTE 1**
 
@@ -2401,6 +2641,7 @@ See `PAR\_BUFF <KeywordsP.clean.html#par-buff>`__! You should also refer to
 `SER\_ROOM <KeywordsS.clean.html#ser-room>`__.
 
 --------------
+**** YOU ARE HERE ****
 
 SER\_CDEOF
 ==========
