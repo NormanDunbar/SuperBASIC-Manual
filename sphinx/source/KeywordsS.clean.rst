@@ -6,6 +6,7 @@ TODO
 ====
 
 - There are multiple SET commands all with the same URL.
+- There are multiple SGN[%] commands all with the same URL.
 
 SAR
 ===
@@ -2657,11 +2658,14 @@ imperative that the System can detect when data is no longer being sent
 to a port which is being used to receive the data. Normally, the System
 will wait until it receives an End Of File character (CTRL Z or EOF).
 However, it can be useful to specify a time limit, whereby if no data is
-received during that time, the System assumes End Of File. The command
+received during that time, the System assumes End Of File. 
+
+The command
 SER\_CDEOF time allows you to specify the number of frames for which the
-System will wait for more data. If time
- equals 0, then the System will wait indefinitely until it receives an
-explicit End Of File character. The time should be more than 5 in order
+System will wait for more data. If time  equals 0, then the System will 
+wait indefinitely until it receives an explicit End Of File character. 
+
+The time should be more than 5 in order
 to distinguish it from the port number. For machines with more than one
 serial port, you can specify the number of the serial port this command
 is to apply to (default SER1).
@@ -2717,8 +2721,13 @@ received through a serial port is the same as the data which has been
 sent. Normally, handshaking can be specified when a port is opened (see
 the Appendix concerning device drivers). However, it can also be useful
 to preset the handshaking by using the command SER\_FLOW. flow can have
-one of three values: h Enable handshaking i Ignore handshaking - do not
-bother to check data x XON/XOFF detection. To enable flexibility on
+one of three values:
+
+- h Enable handshaking 
+- i Ignore handshaking - do not bother to check data 
+- x XON/XOFF detection. 
+
+To enable flexibility on
 machines with more than one serial port, you can also specify the number
 of the serial port to be affected by this command (default SER1).
 
@@ -2740,12 +2749,14 @@ SER\_PAUSE
 On standard QL serial ports, you may find that some characters which
 are sent by the QL through the serial ports get lost or the device to
 which they are sent (for example a printer) prints undefined characters.
+
 This problem may be caused by the fact that the stop bit which is sent
 by the QL serial ports may be too short for the device at the other end.
+
 The SER\_PAUSE command allows you to set the length of the stop bit in
 microseconds - it effectively causes a short pause between each
 character sent through the serial ports. If port
- is not specified, this command will affect both serial ports, otherwise
+is not specified, this command will affect both serial ports, otherwise
 it will only affect the specified serial port. The higher the value of
 time, the longer the stop bit will be and hence the slower the serial
 transfer rate.
@@ -2773,13 +2784,16 @@ unfortunately some devices carry on sending data even though they have
 been told to stop. This may be caused by a buffer attached between the
 sending and receiving equipment, for example. This is known as 'serial
 overrun' and can have unfortunate consequences, as the receiving
-equipment may not have room to store the additional information. Where
-the system is acting as the receiver, you can use the command SER\_ROOM
+equipment may not have room to store the additional information. 
+
+Where the system is acting as the receiver, you can use the command SER\_ROOM
 to specify a minimum amount of memory which must be left in the input
 buffer when the System uses handshaking to check on the validity of the
 data received. SER\_ROOM sets aside bytes in the input buffer which can
 be used to store information received after the System has told the
-sending equipment to stop. If you still find that some data is lost due
+sending equipment to stop. 
+
+If you still find that some data is lost due
 to serial overrun, try increasing the amount of space. For machines with
 more than one serial port, you can specify the number of the serial port
 to be affected by this command (default SER1).
@@ -2844,7 +2858,7 @@ position in memory. SET also assumes a resolution of 512 x 256 pixels.
 
 SET does not check for the existance of the parameters (this means for
 example that it will not report 'bad parameter' for SET x, y), it may
-crash if any of the parameters is omitted.
+crash if any of the parameters are omitted.
 
 **CROSS-REFERENCE**
 
@@ -2868,27 +2882,46 @@ SET
 This command allows you to set up various universal constants which
 allow programs to read various values which are set by other programs.
 This is similar to creating machine code functions which return constant
-values. The constants to be set up appear as variable in the command.
+values. 
+
+The constants to be set up appear as 'variable' in the command syntax above.
+
 They can be string, floating point or integer but must not have
 previously been used in the program (otherwise the error 'In Use' will
 be reported). They must also not appear in quotes. The constants should
 be SET from SuperBASIC Job 0, otherwise they do not seem to work (at
 least on Minerva). However, other programs can use ALTER to change the
 value of the constants and also read the constants as if they were
-predefined variables. As an added bonus, if the variable is prefixed by
-a hash sign, then this is taken to a pointer to a system variable, which
+predefined variables. 
+
+As an added bonus, if the variable is prefixed by
+a hash sign, then this is taken to be a pointer to a system variable, which
 will always point to that system variable even if the system variables
-move. For example to read the Network number, you could use: SET
-#NET\_ID TO HEX('37') PRINT PEEK (NET\_ID)
- instead of: SET NET\_ID TO HEX('37') PRINT PEEK (SYS\_VARS+NET\_ID)
+move. For example to read the Network number, you could use::
+
+    SET #NET_ID TO HEX('37') 
+    PRINT PEEK (NET_ID)
+
+instead of::
+
+    SET NET_ID TO HEX('37') 
+    PRINT PEEK (SYS_VARS + NET_ID)
 
 **Example**
 
-Set the following from SuperBASIC: 10 SET FALSE TO 0 : SET TRUE TO 1 20
-SET YES$ TO 'Yy' : SET NO$ TO 'Nn' 30 SET DEF\_DRIVE$ TO 'flp1\_'
- Any other program can then just use lines such as: IF INKEY$(1) INSTR
-YES$ : PRINT 'Yes has been selected'
- and LBYTES DEF\_DRIVE$&'prog\_data',space
+Set the following from SuperBASIC::
+
+    10 SET FALSE TO 0 : SET TRUE TO 1 
+    20 SET YES$ TO 'Yy' : SET NO$ TO 'Nn' 
+    30 SET DEF_DRIVE$ TO 'flp1_'
+
+Any other program can then just use lines such as::
+
+    IF INKEY$(1) INSTR YES$ : PRINT 'Yes has been selected'
+
+and::
+
+    LBYTES DEF_DRIVE$ & 'prog_data', space
 
 **NOTE 1**
 
@@ -2980,8 +3013,11 @@ DATA\_USE).
 
 **Example**
 
- SET\_FBKDT \\BOOT,DATE
- sets the backup date on the file BOOT in the current data default
+::
+
+    SET_FBKDT \BOOT, DATE
+    
+sets the backup date on the file BOOT in the current data default
 directory to the current time and date.
 
 **CROSS-REFERENCE**
@@ -3044,7 +3080,9 @@ supports the current default data directory (see DATAD$).
 
 **Example**
 
-SET\_FVERS \\BOOT,13
+::
+
+    SET_FVERS \BOOT, 13
 
 **CROSS-REFERENCE**
 
@@ -3071,12 +3109,16 @@ good understanding of the way in which the QL display works - see the QL
 Display Appendix for some details. The effect that this command has on
 the specified window depends upon the value of operation:
 
-operationEffect
-~~~~~~~~~~~~~~~
 
-0Clear all Green bits (remove any Green from the screen). 1Set all Green
-bits. -1If the Red bit for a pixel is set, Set the Green bit, otherwise
-clear it.
++-----------+---------------------------------------------------------------------------+
+| Operation | Effect                                                                    |
++===========+===========================================================================+
+| 0         | Clear all Green bits (remove any Green from the screen).                  |
++-----------+---------------------------------------------------------------------------+
+| 1         | Set all Green bits.                                                       |
++-----------+---------------------------------------------------------------------------+
+| -1        | If the Red bit for a pixel is set, Set the Green bit, otherwise clear it. |
++-----------+---------------------------------------------------------------------------+
 
 **NOTE 1**
 
@@ -3108,12 +3150,15 @@ instead of affecting green bits, it alters the red bits. The effect that
 this command has on the specified window depends upon the value of
 operation:
 
-operationEffect
-~~~~~~~~~~~~~~~
-
-0Clear all Red bits (remove any Red from the screen). 1Set all Red bits.
--1If the Green bit for a pixel is set, Set the Red bit, otherwise clear
-it.
++-----------+---------------------------------------------------------------------------+
+| Operation | Effect                                                                    |
++===========+===========================================================================+
+| 0         | Clear all Red bits (remove any Red from the screen).                      |
++-----------+---------------------------------------------------------------------------+
+| 1         | Set all Red bits.                                                         |
++-----------+---------------------------------------------------------------------------+
+| -1        | If the Green bit for a pixel is set, Set the Red bit, otherwise clear it. |
++-----------+---------------------------------------------------------------------------+
 
 **CROSS-REFERENCE**
 
@@ -3142,18 +3187,41 @@ Danish (Dansk) keyboard layout would be adopted rather than the German
 (Deutsch) layout, unless the Danish layout was already selected. The
 current keyboard layouts are supported:
 
-NumberCountry$Language
-~~~~~~~~~~~~~~~~~~~~~~
-
-1 InternationalNone specific 2 BritishEnglish 3 Dansk Danish 4 Deutsch
-German 5 Espanol Spanish (v4.20+ only) 6 Fran�ais French 7 HELLAS Greek
-8 Suisse Swiss 9 Svensk Swedish (v4.20+ only)
++--------+---------------+-----------------------+
+| Number | Country$      | Language              |
++--------+---------------+-----------------------+
+| 1      | International | None specific         |
++--------+---------------+-----------------------+
+| 2      | British       | English               |
++--------+---------------+-----------------------+
+| 3      | Dansk         | Danish                |
++--------+---------------+-----------------------+
+| 4      | Deutsch       | German                |
++--------+---------------+-----------------------+
+| 5      | Espanol       | Spanish (v4.20+ only) |
++--------+---------------+-----------------------+
+| 6      | Français      | French                |
++--------+---------------+-----------------------+
+| 7      | HELLAS        | Greek                 |
++--------+---------------+-----------------------+
+| 8      | Suisse        | Swiss                 |
++--------+---------------+-----------------------+
+| 9      | Svensk        | Swedish (v4.20+ only) |
++--------+---------------+-----------------------+
 
 **Examples**
 
-SET\_LANGUAGE ""
- jump to next keyboard layout in list. SET\_LANGUAGE 'Esp'
- set layout to Spanish layout.
+::
+
+    SET_LANGUAGE ""
+
+jump to next keyboard layout in list. 
+
+::
+
+    SET_LANGUAGE 'Esp'
+    
+set layout to Spanish layout.
 
 **NOTE 1**
 
@@ -3163,7 +3231,7 @@ TRA 1.
 
 **NOTE 2**
 
-On THOR's equipped with a JS ROM, Fran�ais must be enclosed in quotation
+On THOR's equipped with a JS ROM, Français must be enclosed in quotation
 marks as it is an invalid variable name.
 
 **NOTE 3**
@@ -3201,24 +3269,29 @@ In order for a program to be stored as an executable Job, it is
 necessary to store the machine code in a specified format on disk. The
 command SEXEC allows you to do this, taking a specified amount of code
 from memory and storing it in the specified file in a form which can
-later be EXECuted. You will need to specify the start address of the
+later be EXECuted. 
+
+You will need to specify the start address of the
 machine code, the length of the code to be stored and the amount of data
 space to be given to the program when it is loaded back into memory
 (the data space represents the amount of working memory which is linked
 with the program when it is loaded, either for storing data at the end
 of the program or for the user stack - see a good QL machine code book
 for more details). The specified file name must include the name of the
-device
- to be used, unless Toolkit II is present, in which case the default
+device to be used, unless Toolkit II is present, in which case the default
 program device is supported. If Toolkit II is present and the file
 already exists, you will be given the option of overwriting the file.
 
 **Example**
 
-To amend a given executable program, you may need to do the following:
-100 length=FLEN(\\example\_exe) 110 datasp=FDAT(\\example\_exe) 120
-start=RESPR(length) 130 LBYTES example\_exe,start 140 POKE
-start+1024,100 150 SEXEC flp1\_example\_exe,start,length,datasp
+To amend a given executable program, you may need to do the following::
+
+    100 length=FLEN(\example_exe) 
+    110 datasp=FDAT(\example_exe) 
+    120 start=RESPR(length) 
+    130 LBYTES example_exe, start 
+    140 POKE start + 1024, 100 
+    150 SEXEC flp1_example_exe, start, length, datasp
 
 **NOTE 1**
 
@@ -3289,12 +3362,7 @@ See `SEXEC <KeywordsS.clean.html#sexec>`__.
 --------------
 
 SGN
-~~~
-
---------------
-
-SGN%
-~~~~
+===
 
 +----------+-------------------------------------------------------------------+
 | Syntax   || SGN (x)  and                                                     |
@@ -3310,6 +3378,13 @@ and 0 if the number is zero. Any number is allowed as a parameter.
 **CROSS-REFERENCE**
 
 `SIGN <KeywordsS.clean.html#sign>`__ is the same.
+
+--------------
+
+SGN%
+===
+
+See `SGN <KeywordsS.clean.html#sgn>`__ above.
 
 --------------
 
@@ -3341,8 +3416,13 @@ SI
 +----------+-------------------------------------------------------------------+
 
 This function contains the control codes needed to switch on condensed
-print on an EPSON compatible printer: PRINT SI
- is the same as: PRINT CHR$(15)
+print on an EPSON compatible printer::
+
+    PRINT SI
+    
+is the same as::
+
+    PRINT CHR$(15)
 
 **CROSS-REFERENCE**
 
@@ -3388,27 +3468,36 @@ the base line.
 **Example**
 
 A procedure to draw a sector of a circle with the centre at x,y and
-radius r. a is the angle between the first straight side of the sector
-and a vertical line on the screen, b is the angle between the two
-straight sides. Both angles have to be given in radians, b should be
-between 0 and 2\*PI. ch specifies the window to be used and cannot be
-omitted: 100 DEFine PROCedure SECTOR (ch,x,y,r,a,b) 110 LOCal
-x1,x2,y1,y2 120 x1=x+r\*SIN(a): x2=x+r\*SIN(a+b) 130 y1=y+r\*COS(a):
-y2=y+r\*COS(a+b) 140 LINE#ch,x1,y1 TO x,y TO x2,y2 150 ARC#ch,x2,y2 TO
-x1,y1 ,b 160 END DEFine SECTOR
- SECTOR #1,50,50,10,PI/4,PI/2
+radius r. 
+
+- A is the angle between the first straight side of the sector
+and a vertical line on the screen, 
+- B is the angle between the two straight sides. 
+- Both angles have to be given in radians, b should be between 0 and 2\*PI. 
+- Ch specifies the window to be used and cannot be omitted. 
+
+::
+
+    100 DEFine PROCedure SECTOR (ch, x, y, r, a, b) 
+    110   LOCal x1, x2, y1, y2 
+    120   x1 = x + r * SIN(a): x2 = x + r *SIN(a + b) 
+    130   y1 = y + r * COS(a): y2 = y + r *COS(a + b) 
+    140   LINE# ch, x1, y1 TO x, y TO x2, y2 
+    150   ARC# ch, x2, y2 TO x1, y1 ,b 
+    160 END DEFine SECTOR  
+    
+    SECTOR #1, 50, 50, 10, PI/4, PI/2 
 
 **NOTE 1**
 
-SIN (PI)==0 on all ROMs. This should in fact equal zero - only the
+SIN (PI)==0 (approximately zero) on all ROMs. This should in fact equal zero - only the
 Lightning maths package and SMS get this right.
 
 **NOTE 2**
 
 On Minerva v1.96+ SIN with very large values for radian return 0. On
 other implementations it returns an overflow error. You should therefore
-check the range of the angle
- parameter.
+check the range of the angle parameter.
 
 **CROSS-REFERENCE**
 
@@ -3435,9 +3524,14 @@ where the angle x (in fact a ratio) is a small floating point value.
 
 **Example**
 
-Draw a hyperbola and its asymptotes: 100 SCALE 10,-7,-5: PAPER 0: CLS:
-INK 3 110 LINE -4,-4 TO 4,4, -4,4 TO 4,-4: INK 7 120 FOR t = -2 TO 2
-STEP 2E-2 130 x = COSH(t): y = SINH(t) 140 POINT x,y, -x,y 150 END FOR t
+Draw a hyperbola and its asymptotes:: 
+
+    100 SCALE 10, -7, -5: PAPER 0: CLS: INK 3 
+    110 LINE -4, -4 TO 4, 4, -4, 4 TO 4, -4: INK 7 
+    120 FOR t = -2 TO 2 STEP 2E-2 
+    130 x = COSH(t): y = SINH(t) 
+    140 POINT x, y, -x, y 
+    150 END FOR t
 
 **CROSS-REFERENCE**
 
@@ -3450,7 +3544,7 @@ SINT
 ====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  SINT (x) x=0..65535                                              |
+| Syntax   |  SINT (x) where x=0..65535                                        |
 +----------+-------------------------------------------------------------------+
 | Location |  BTool                                                            |
 +----------+-------------------------------------------------------------------+
@@ -3459,9 +3553,13 @@ The range of SuperBASIC integers is -32768 to 32767 - these are called
 signed integers because they can be negative. This compares to unsigned
 integers which have a different range, from 0 to 65535. The function
 SINT converts unsigned integers to signed integers, which is not a very
-difficult task apart from the need to check the valid range: signed% =
-unsigned - 2^16
-or signed% = SINT(unsigned)
+difficult task apart from the need to check the valid range::
+
+    signed% = unsigned - 2^16
+    
+or::
+
+    signed% = SINT(unsigned)
 
 **CROSS-REFERENCE**
 
@@ -3486,43 +3584,104 @@ variable was passed, the function returns either 0 or 1, 1 if the
 variable points to any value or 0 if it does not, ie. if PRINT variable
 would show an asterisk to show that variable is not yet defined. Note
 that even though on SMS an unset variable does not show an asterisk when
-you use PRINT
- variable, this does not prevent this function from returning the
-correct value. The return for a constant parameter such as: PRINT
-SIZE(-22.3)
- or PRINT SIZE("QL") is always 1. The return for arrays is entirely
-different. Passing an array tells SIZE to count its elements. Note the
-existence of a zero element, eg. DIM a(2,2) gives a nine elements in
-all: a(0,0), a(0,1), a(0,2) a(1,0), a(1,1), a(1,2) a(2,0), a(2,1),
-a(2,2)
- SIZE handles string arrays differently in that it returns the number of
+you use PRINT  variable, this does not prevent this function from returning the
+correct value. 
+
+The return for a constant parameter such as:: 
+
+    PRINT SIZE(-22.3)
+    
+or::
+
+    PRINT SIZE("QL")
+
+is always 1. 
+
+The return for arrays is entirely different. Passing an array tells SIZE to count its elements. Note the existence of a zero element, for example::
+
+    DIM a(2,2) 
+    
+gives a nine elements in all::
+
+    a(0,0) a(0,1) a(0,2)
+    a(1,0) a(1,1) a(1,2)
+    a(2,0) a(2,1) a(2,2)
+
+SIZE handles string arrays differently in that it returns the number of
 strings, not the number of characters, eg. for DIM a$(2,2), SIZE(a$)
-will not give 3\*3=9 but 3. Generally the return value of SIZE does not
+will not give 3 *3 = 9 but 3. 
+
+Generally the return value of SIZE does not
 depend on the actual contents of the passed object. SIZE recognises if
 part of an object (especially strings and arrays) was passed.
 
 **Examples**
 
-DIM numbers(1,2,3,4,5)
- PRINT SIZE(numbers) returns 2\*3\*4\*5\*6=720 yippie$="what a wonderful
-world"
- PRINT SIZE(yippie$) returns 1 CLEAR PRINT SIZE(eeek) returns 0 DIM
-string$(12,7,10) PRINT SIZE(string$) returns 13\*8=104; and PRINT
-SIZE(string$(1 TO)) returns 12\*8=96
+::
+
+    DIM numbers(1,2,3,4,5)
+    PRINT SIZE(numbers) 
+
+returns 2*3*4*5*6=720.
+
+::
+
+    yippie$="what a wonderful world"
+    PRINT SIZE(yippie$) 
+
+returns 1.
+
+::
+
+    CLEAR PRINT SIZE(eeek) 
+
+returns 0 
+
+::
+
+    DIM string$(12,7,10) 
+    PRINT SIZE(string$) 
+
+returns 13*8=104
+
+::
+
+    PRINT SIZE(string$(1 TO)) 
+
+returns 12*8=96.
 
 **NOTE 1**
 
 String arrays also contain numeric values - the first element (which is
 character zero) of a string contains the size of the string. For
-instance, take the above string$ and then enter: string$(4,4)
-="knocking"
- Now PRINT string$(4,4) and you will see 'knocking' in #1. PRINT
-string$(4,4,5) gives the fifth character of knocking, the k, and PRINT
-string$(4,4,1) the first one, again a k. And PRINT string$(4,4,0)? There
-is no character before the first, instead you will get the integer
-number 8 because LEN(string$(4,4))=8. This is tricky and not really
-necessary to know about as you can use LEN... just in case you come
-across the phenomenon and have wondered about it. See also DIM for a
+instance, take the above string$ array and then enter::
+
+    string$(4,4) = "knocking"
+
+Now::
+
+    PRINT string$(4,4) 
+    
+and you will see 'knocking' in #1. 
+
+::
+
+    PRINT string$(4,4,5) 
+    
+gives the fifth character of knocking, the k, and::
+
+    PRINT string$(4,4,1) 
+
+the first one, again a k. And::
+
+    PRINT string$(4,4,0)
+    
+There is no character before the first, instead you will get the integer
+number 8 because::
+
+    LEN(string$(4,4))=8
+    
+This is tricky and not really necessary to know about as you can use LEN... just in case you come across the phenomenon and have wondered about it. See also DIM for a
 further explanation of strings.
 
 **NOTE 2**
@@ -3533,9 +3692,12 @@ arrays.
 
 **NOTE 3**
 
-If the parameter is a single dimension string array, for example: DIM
-a$(10) PRINT SIZE (a$)
- the value returned is 0. It is hoped that this will be fixed in a
+If the parameter is a single dimension string array, for example:: 
+
+    DIM a$(10) 
+    PRINT SIZE (a$)
+
+the value returned is 0. It is hoped that this will be fixed in a
 future version so that the value returned is 1.
 
 **CROSS-REFERENCE**
@@ -3560,8 +3722,12 @@ SJOB
 | Location || TinyToolkit                                                      |
 +----------+-------------------------------------------------------------------+
 
-There are three ways in which a job can be made to do nothing: (1)
-remove the job, (2) set the job's priority to 0, or (3) suspend the job.
+There are three ways in which a job can be made to do nothing: 
+
+#. Remove the job; 
+#. Set the job's priority to 0;
+#. Suspend the job.
+
 This command suspends the specified job for a specified period of time,
 which can be identified either by its jobnr (see JOBS) or by -1 (meaning
 the current job) or by its name (which need not be in quotes). Although
@@ -3574,10 +3740,29 @@ approximately 9 minutes, 6 seconds.
 
 **Example 1**
 
-SJOB "Quill",-1(suspend Quill indefinitely) SJOB Quill,-1is the same
-even if there is a variable called Quill. SJOB -1,100suspend the current
-job for approx. 2 seconds SJOB 10,100suspend Job number 10 for approx. 2
-seconds
+::
+
+    SJOB "Quill", -1
+    
+will suspend Quill indefinitely.
+
+::
+
+    SJOB Quill,-1 
+    
+is the same even if there is a variable called Quill. 
+
+::
+
+    SJOB -1, 100
+
+will suspend the current job for approx. 2 seconds. 
+
+::
+
+    SJOB 10, 100
+
+will suspend Job number 10 for approx. 2 seconds
 
 **Example 2**
 
@@ -3585,19 +3770,30 @@ A background Job which carries out work which is not time consuming,
 should not slow the whole system down, otherwise it is a complete waste
 of the computer's available time. Unfortunately, a priority of 1 is too
 high for a simple action such as checking the clock or updating key
-macros (See ALTKEY). SJOB is useful to slow this job down to the desired
+macros (See ALTKEY). 
+
+SJOB is useful to slow this job down to the desired
 speed. SJOB is also useful for setting PAUSEs independently of the
 machine's speed. The following program demonstrates both uses of SJOB
 and has to be compiled and executed as a multitasking job (ie. EXEC).
-The priority of the job does not really matter, because the job only
-wakes up once a minute, looks at the clock and then drops off again. 100
-REPeat Tower 110 d$=DATE$: minute=d$(16 TO 17) 120 SELect ON minute 130
-=30:BEEP 20000,0,100,1000,0 140 =0:hour=d$(13 TO 14) MOD 12:IF
-hour=0:hour=12 150 FOR h=1 to hour: BEEP 10000,h,10,100,1: SJOB
-Q\_MYJOB,65 160 =15:BEEP 5000,0,10,20,5000 170 END SELect
 
-180 SJOB Q\_MYJOB,3000 190 END REPeat Tower
- This example needs Qliberator's Q\_MYJOB function.
+The priority of the job does not really matter, because the job only
+wakes up once a minute, looks at the clock and then drops off again. 
+
+::
+
+    100 REPeat Tower 
+    110   d$=DATE$: minute=d$(16 TO 17) 
+    120   SELect ON minute 
+    130     =30:BEEP 20000,0,100,1000,0 
+    140     =0:hour=d$(13 TO 14) MOD 12:IF hour=0:hour=12 
+    150         FOR h=1 to hour: BEEP 10000,h,10,100,1: SJOB Q_MYJOB,65 
+    160     =15:BEEP 5000,0,10,20,5000 
+    170   END SELect 
+    180   SJOB Q_MYJOB,3000 
+    190 END REPeat Tower
+
+This example needs Qliberator's Q\_MYJOB function.
 
 **NOTE**
 
@@ -3648,7 +3844,8 @@ SLUG
 | Location |  Gold Card (v2.24+), SMS                                          |
 +----------+-------------------------------------------------------------------+
 
-A disadvantage of the speed improvements by Gold Card (and later expansion boards) is that most
+A disadvantage of the speed improvements by Gold Card (and later expansion 
+boards) is that most
 games become simply too fast. The command SLUG can slow down the whole
 system by advising the operating system to read the keyboard less often
 (other solutions install background interrupts but some games suspend
@@ -3661,8 +3858,11 @@ so much. Only keyboard access is slowed down.
 
 **Example**
 
-100 FOR n=0 to 1000 STEP 10 110 SLUG n 120 PRINT n 130 dummy=KEYROW(0)
-140 END FOR n
+    100 FOR n=0 to 1000 STEP 10 
+    110   SLUG n 
+    120   PRINT n 
+    130   dummy=KEYROW(0)
+    140 END FOR n
 
 **NOTE**
 
@@ -3692,6 +3892,7 @@ SMOVE
 The command SMOVE will copy a stored screen (saved with SSAVE, where adr
 comes from) to the first (scrno=0) or second screen (scrno=1) - the
 latter is only possible if your system supports a dual screen mode.
+
 Optionally, it is possible to specify a location where the screen part's
 upper left corner (absolute co-ordinates) should be placed; SMOVE will
 correct the xpos and ypos automatically if the restored picture would
@@ -3716,14 +3917,19 @@ SND\_EXT
 | Location |  ATARI\_REXT (v1.24 to v2.15)                                     |
 +----------+-------------------------------------------------------------------+
 
-The ST-QL Emulators contain new extensions (based upon the QSound device) to enable programs to use the
+The ST-QL Emulators contain new extensions (based upon the QSound device) to 
+enable programs to use the
 ST's sound facilities. Unfortunately, these extensions clash with the
 Turbo SuperBASIC compiler from Digital Precision. When the Emulator is
 started up, these sound extensions are switched off. SND\_EXT will
 switch them back on. This command was replaced in v2.15 by ATARI\_EXT.
+
 You can test if the QSOUND interface (or these commands) are present by
-using: PEEK\_L(!! HEX('164'))
- which will be 0 unless the commands are present (Turbo may also alter
+using:: 
+
+    PEEK_L(!! HEX('164'))
+
+which will be 0 unless the commands are present (Turbo may also alter
 this figure whilst it is compiling a program).
 
 **WARNING**
@@ -3748,7 +3954,8 @@ SNET
 | Location |  SMSQ/E, ATARI Emulators                                          |
 +----------+-------------------------------------------------------------------+
 
-This command is similar to the NET command in that it sets the Network Station number of the machine on
+This command is similar to the NET command in that it sets the Network Station 
+number of the machine on
 which it is issued. The only difference is that here it sets the station
 number for the SERNET Network (as opposed to the QNet Network).
 
@@ -3807,7 +4014,8 @@ SNET\_S%
 | Location |  SMSQ/E, ATARI Emulators                                          |
 +----------+-------------------------------------------------------------------+
 
-This function enables you to check  whether a machine with the specified station number is connected to the
+This function enables you to check  whether a machine with the specified 
+station number is connected to the
 SERNET . This can be useful to prevent the problem of the Network
 re-trying several times before failing when asked to send or read data
 from a Network station which does not exist.
@@ -3827,7 +4035,8 @@ SNET\_USE
 | Location |  SMSQ/E, ATARI Emulators                                          |
 +----------+-------------------------------------------------------------------+
 
-Due to the fact that SERNET Networks can be run on computers alongside MIDINET Networks and even QNET
+Due to the fact that SERNET Networks can be run on computers alongside MIDINET 
+Networks and even QNET
 Networks, it may be necessary to alter the identification letter used to
 access facilties on other computers in the Network. The default letter
 id is s, but this can be set to any other single letter by using this
@@ -3836,8 +4045,12 @@ first letter in another device driver (see DEVLIST).
 
 **Example**
 
-SNET\_USE c DEV\_USE 3,c2\_win1\_
- Redefine DEV3\_ so that it refers to win1\_ on station number 2 in the
+::
+
+    SNET_USE c 
+    DEV_USE 3,c2_win1_
+    
+Redefine DEV3\_ so that it refers to win1\_ on station number 2 in the
 SERNET Network. This can be useful to allow some programs to access data
 over the Network. However note the file protection implemented in SERNET
 and MIDINET.
@@ -3866,13 +4079,15 @@ SORT
 | Location |  ARRAY                                                            |
 +----------+-------------------------------------------------------------------+
 
-The SORT command takes a two or three-dimensional string array and sorts it in ascending
-order. offset is an even number which allows you to apply different sort
-criteria by telling SORT to compare the sub-strings to the right of
+The SORT command takes a two or three-dimensional string array and sorts it 
+in ascending order. offset is an even number which allows you to apply different 
+sort criteria by telling SORT to compare the sub-strings to the right of
 position offset+1. The third, optional parameter is only necessary for
 three-dimensional arrays: it selects the row to be sorted.
 
 **Example**
+
+************ YOU ARE HERE ******************
 
 CAT lists a sorted directory, including deleted files, to window #1.
 Sorting the directory in fact requires just one line here (390), the
@@ -3886,21 +4101,44 @@ directory (the j loop from line 240 to 280) quite slow. If you are
 wondering why the file header is stored twice, both as a string
 (header$) and for direct memory access (header), this is for getting the
 best out of basic QL facilities, namely PEEK\_W, PEEK\_L and string
-slicing (line 310). 100 DEFine PROCedure CAT (dir$) 110 LOCal ch%,
-entries%, header, header$(64) 120 LOCal c%, l%, i 130 PRINT "Directory
-of"!dir$;": "; 140 ch% = FOP\_DIR(dir$) 150 IF ch% < 0 THEN 160 PRINT
-\\"Cannot open directory,"\\"because "; 170 REPORT#1, ch%: RETurn 180
-END IF 190 entries% = FLEN(#ch%) / 64 200 DIM entry$(entries%, 45) 210
-header = ALCHP(64) 220 FOR i = 0 TO entries% - 1 230 header$ = "" 240
-FOR j = 0 TO 63 250 BGET#ch%, c% 260 POKE header+j, c% 270 header$ =
-header$ & CHR$(c%) 280 END FOR j 290 l% = PEEK\_W(header + 14) 300 IF l%
-THEN 310 entry$(i) = header$(17 TO 16 + l%) & FILL$(" ", 37 - l%) 320
-entry$(i) = entry$(i) & (PEEK\_L(header) - 64) 330 ELSE
+slicing (line 310). 
 
-340 entry$(i) = "(deleted)" & FILL$(" ", 28) & "n.a." 350 END IF 360
-PRINT "."; 370 END FOR i 380 CLOSE#ch%: RECHP header: PRINT 390 SORT
-entry$, 36 400 FOR i = 0 TO entries% - 1 410 PRINT entry$(i) 420 END FOR
-i 430 END DEFine CAT
+::
+
+    100 DEFine PROCedure CAT (dir$) 
+    110   LOCal ch%, entries%, header, header$(64) 
+    120   LOCal c%, l%, i 
+    130   PRINT "Directory of"!dir$;": "; 
+    140   ch% = FOP_DIR(dir$) 
+    150   IF ch% < 0 THEN 
+    160     PRINT \"Cannot open directory,"\"because "; 
+    170     REPORT#1, ch%: RETurn 
+    180   END IF 
+    190   entries% = FLEN(#ch%) / 64 
+    200   DIM entry$(entries%, 45) 
+    210   header = ALCHP(64) 
+    220   FOR i = 0 TO entries% - 1 
+    230     header$ = "" 
+    240     FOR j = 0 TO 63 
+    250       BGET#ch%, c% 
+    260       POKE header+j, c% 
+    270       header$ = header$ & CHR$(c%) 
+    280     END FOR j 
+    290     l% = PEEK_W(header + 14) 
+    300     IF l% THEN 
+    310       entry$(i) = header$(17 TO 16 + l%) & FILL$(" ", 37 - l%) 
+    320       entry$(i) = entry$(i) & (PEEK_L(header) - 64) 
+    330     ELSE 
+    340       entry$(i) = "(deleted)" & FILL$(" ", 28) & "n.a." 
+    350     END IF 
+    360     PRINT "."; 
+    370   END FOR i 
+    380   CLOSE#ch%: RECHP header: PRINT 
+    390   SORT entry$, 36 
+    400   FOR i = 0 TO entries% - 1 
+    410     PRINT entry$(i) 
+    420   END FOR i 
+    430 END DEFine CAT
 
 **CROSS-REFERENCE**
 
@@ -3924,7 +4162,9 @@ and then all double (triple etc) ciphers are removed.
 
 **Examples**
 
-SOUNDEX ("user")=26 SOUNDEX ("looser")=426 SOUNDEX ("l'user")=426
+    SOUNDEX ("user"): REMark 26 
+    SOUNDEX ("looser"): REMark 426 
+    SOUNDEX ("l'user"): REMark 426
 
 **NOTE**
 
@@ -3972,7 +4212,9 @@ Although on other ROMs, a priority higher than 127 can be assigned to a
 job, on Minerva, the permitted priority range is actually -128...127 (if
 a priority is stated to be higher than 127, you must subtract the
 difference between this number and 256 from 0 to get the negative
-priority). The idea behind these negative priorities is that they are
+priority). 
+
+The idea behind these negative priorities is that they are
 for 'background tasks' which will only run when no tasks with a positive
 priority are running. However, the effect is slightly more complex
 because these negative priorities are split into eight levels, each of
@@ -3983,12 +4225,25 @@ processor time depending on their priorities {a job with a lower
 priority (eg. -15) will get more processing time than a job with a
 higher priority (eg. -1)}.
 
-LevelPriority RangeOverall value
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-0-1...-15-1...-15 1-1...-15-16...-31 2-1...-15-32...-47
-3-1...-15-48...-63 4-1...-15-64...-79 5-1...-15-80...-95
-6-1...-15-96...-111 7-1...-15-112...-127
++-------+----------------+---------------+
+| Level | Priority Range | Overall Value |
++-------+----------------+---------------+
+| 0     | -1 ... -15     | -1 ... -15    |
++-------+----------------+---------------+
+| 1     | -1 ... -15     | -16 ... -31   |
++-------+----------------+---------------+
+| 2     | -1 ... -15     | -32 ... -47   |
++-------+----------------+---------------+
+| 3     | -1 ... -15     | -48 ... -63   |
++-------+----------------+---------------+
+| 4     | -1 ... -15     | -64 ... -79   |
++-------+----------------+---------------+
+| 5     | -1 ... -15     | -80 ... -95   |
++-------+----------------+---------------+
+| 6     | -1 ... -15     | -96 ... -111  |
++-------+----------------+---------------+
+| 7     | -1 ... -15     | -112 ... -127 |
++-------+----------------+---------------+
 
 **WARNING**
 
@@ -4024,21 +4279,32 @@ a print spooler, reading the whole of the input data from the given
 input device as quickly as possible and then just outputting the data
 when it can. Although control is returned to the calling program quite
 quickly, both the input and output files are left open until SPL
- has completed its job. SPL is mainly for outputting files to a printer
+has completed its job. 
+
+SPL is mainly for outputting files to a printer
 in the background (allowing you to carry on other work in the meantime).
+
 If however, a file is specified as the output, the SPL
- command acts like COPY\_O, except in the background. If output is not
+command acts like COPY\_O, except in the background. If output is not
 specified, the SPL command uses the default destination device. Existing
 channel numbers may also be specified as the input
- and output names, provided that both channels are already open for
+and output names, provided that both channels are already open for
 input and output respectively.
 
 **Examples**
 
-(1) SPL flp1\_Example\_txt TO SER
- prints the file flp1\_Example\_txt in the background. (2) SPL\_USE
-SER:SPL flp1\_Example\_txt
- this is the same as example 1.
+::
+
+SPL flp1_Example_txt TO SER
+
+prints the file flp1\_Example\_txt in the background. 
+
+::
+
+    SPL_USE SER:
+    SPL flp1_Example_txt
+
+this is the same as example 1.
 
 **WARNING**
 
