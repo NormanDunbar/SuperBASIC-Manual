@@ -1806,7 +1806,6 @@ the correct number of parameters.
 chosen format.
 
 --------------
-**** YOU ARE HERE ****
 
 SDUMP
 =====
@@ -1848,6 +1847,7 @@ specify an area of the screen to be dumped.
 ::
 
     OPEN #3,scr_448x200a32x16:SDUMP #3:CLOSE #3
+
 and::
 
     SDUMP 448,200,32,16
@@ -2642,7 +2642,6 @@ See `PAR\_BUFF <KeywordsP.clean.html#par-buff>`__! You should also refer to
 `SER\_ROOM <KeywordsS.clean.html#ser-room>`__.
 
 --------------
-**** YOU ARE HERE ****
 
 SER\_CDEOF
 ==========
@@ -3470,8 +3469,7 @@ the base line.
 A procedure to draw a sector of a circle with the centre at x,y and
 radius r. 
 
-- A is the angle between the first straight side of the sector
-and a vertical line on the screen, 
+- A is the angle between the first straight side of the sector and a vertical line on the screen, 
 - B is the angle between the two straight sides. 
 - Both angles have to be given in radians, b should be between 0 and 2\*PI. 
 - Ch specifies the window to be used and cannot be omitted. 
@@ -3609,7 +3607,7 @@ gives a nine elements in all::
 
 SIZE handles string arrays differently in that it returns the number of
 strings, not the number of characters, eg. for DIM a$(2,2), SIZE(a$)
-will not give 3 *3 = 9 but 3. 
+will not give 3\*3 = 9 but 3. 
 
 Generally the return value of SIZE does not
 depend on the actual contents of the passed object. SIZE recognises if
@@ -4087,15 +4085,20 @@ three-dimensional arrays: it selects the row to be sorted.
 
 **Example**
 
-************ YOU ARE HERE ******************
-
 CAT lists a sorted directory, including deleted files, to window #1.
 Sorting the directory in fact requires just one line here (390), the
 entries are sorted by file length because the format of each entry is as
-follows: 1 10 20 30 37 45
-\|--------\|--------\|---------\|-------\|-------\| filename length
-Changing the SORT in line 390 to: 390 SORT entry$, 0
- will sort the list alphabetically. The other parts of the example
+follows::
+
+    1        10       20        30      37      45
+    |--------|--------|---------|-------|-------| 
+    filename                            length
+
+Changing the SORT in line 390 to::
+
+    390 SORT entry$, 0
+
+will sort the list alphabetically. The other parts of the example
 PROCedure are written to require only Toolkit II, that makes reading the
 directory (the j loop from line 240 to 280) quite slow. If you are
 wondering why the file header is stored twice, both as a string
@@ -4162,6 +4165,8 @@ and then all double (triple etc) ciphers are removed.
 
 **Examples**
 
+::
+
     SOUNDEX ("user"): REMark 26 
     SOUNDEX ("looser"): REMark 426 
     SOUNDEX ("l'user"): REMark 426
@@ -4227,7 +4232,7 @@ higher priority (eg. -1)}.
 
 +-------+----------------+---------------+
 | Level | Priority Range | Overall Value |
-+-------+----------------+---------------+
++=======+================+===============+
 | 0     | -1 ... -15     | -1 ... -15    |
 +-------+----------------+---------------+
 | 1     | -1 ... -15     | -16 ... -31   |
@@ -4295,7 +4300,7 @@ input and output respectively.
 
 ::
 
-SPL flp1_Example_txt TO SER
+    SPL flp1_Example_txt TO SER
 
 prints the file flp1\_Example\_txt in the background. 
 
@@ -4357,10 +4362,17 @@ added.
 
 **Examples**
 
-(1) DEST\_USE flp2\_Quill:COPY ram2\_Letter\_doc
- will copy the file ram2\_letter\_doc to flp2\_Quill\_letter\_doc. (2)
-SPL\_USE ser:COPY ram2\_Letter\_txt
- will copy the file ram2\_Letter\_txt to the serial port, ser.
+::
+
+    DEST_USE flp2_Quill: COPY ram2_Letter_doc
+    
+will copy the file ram2\_letter\_doc to flp2\_Quill\_letter\_doc.
+
+::
+
+    SPL_USE ser: COPY ram2_Letter_txt
+    
+will copy the file ram2\_Letter\_txt to the serial port, ser.
 
 **NOTE**
 
@@ -4432,7 +4444,9 @@ positive value.
 
 **Example**
 
-PRINT SQRT(32768\*2) will return 256.
+::
+
+    PRINT SQRT(32768*2) will return 256.
 
 **NOTE 1**
 
@@ -4441,8 +4455,11 @@ fastest version of this command which we have seen anywhere!
 
 **NOTE 2**
 
-On Minerva pre v1.96, SQRT(4^x\*(12^31)) was returning the negative
-square root. It now returns the positive square root.
+On Minerva pre v1.96:: 
+
+    SQRT(4^x*(12^31)) 
+    
+was returning the negative square root. It now returns the positive square root.
 
 **CROSS-REFERENCE**
 
@@ -4464,7 +4481,7 @@ The function SSAVE reserves memory and saves a part of the screen to
 it, the saved block's left upper corner is the point (xpos,ypos) in
 absolute co-ordinates, the width is xsiz and the height ysiz. xpos may
 range from 0 to 511 and ypos from 0 to 255, so SSAVE
- is not suitable for resolutions other than 512x256 pixels. The reserved
+is not suitable for resolutions other than 512x256 pixels. The reserved
 memory can only be released with SLOAD. The first parameter scrno can be
 either 0 or 1 - it is used under dual screen mode to select the first or
 second screen, scrno=1 is only available under dual screen mode, on
@@ -4527,7 +4544,9 @@ set up in dual screen mode, this is always 0.
 **Example**
 
 Force the second screen to be displayed (this only works in Minerva or
-Amiga QDOS): IF SSTAT = 0 THEN MODE 80,-1
+Amiga QDOS)::
+
+    IF SSTAT = 0 THEN MODE 80,-1
 
 **NOTE**
 
@@ -4552,16 +4571,20 @@ SSTEP
 
 Minerva is supplied with a very simple trace routine on the utility
 disk supplied with Minerva, stored in the file trace\_bin. Before using
-the trace function, you will need to link in trace\_bin with the line:
-LRESPR flp1\_trace\_bin
- or something similar. Having done this, you can turn on the tracing
+the trace function, you will need to link in trace\_bin with the line::
+
+    LRESPR flp1_trace_bin
+
+or something similar. Having done this, you can turn on the tracing
 function with SSTEP which will print to the given channel (default #0)
 or file, each line number and statement just before it is performed in
-the format: line\_no : statement\_no
- You can also supply the trace function with a line range, so that it
+the format: line\_no : statement\_no.
+
+You can also supply the trace function with a line range, so that it
 will only report on statements being executed within the given line
-range. The line range defaults to: 1 TO 32767
- Whilst the trace function is enabled and the program is running within
+range. The line range defaults to: 1 TO 32767.
+
+Whilst the trace function is enabled and the program is running within
 the given range, the interpreter will wait for a key to be pressed
 between each statement. As each command in each statement is executed, a
 single character is shown by the trace routine to represent the type of
@@ -4604,14 +4627,20 @@ STAT
 
 This command prints the name of a medium inserted into the given device
 and the available sectors to the given channel
- (default #1), or file. The device must be a directory device, such as
+(default #1), or file. The device must be a directory device, such as
 FLP1\_ (but not PAR or CON). If no device is stated, then the default
 data device is used.
 
 **Examples**
 
-STAT STAT ram1\_ STAT n2\_win1\_ STAT #3,flp2\_ STAT #0 STAT \\mdv2\_
-STAT \_dat STAT \\ram5\_TMP,mdv1\_
+::
+
+    STAT STAT ram1_ 
+    STAT n2_win1_ 
+    STAT #3,flp2_ 
+    STAT #0 STAT \mdv2_
+    STAT _dat 
+    STAT \ram5_TMP,mdv1_
 
 **CROSS-REFERENCE**
 
@@ -4628,11 +4657,11 @@ directory devices.
 STEP
 ====
 
-+----------+-------------------------------------------------------------------+
-| Syntax   |  .. STEP stepwidth                                                |
-+----------+-------------------------------------------------------------------+
-| Location |  QL ROM                                                           |
-+----------+-------------------------------------------------------------------+
++----------+--------------------------------------------------------------------+
+| Syntax   |  ... STEP stepwidth                                                |
++----------+--------------------------------------------------------------------+
+| Location |  QL ROM                                                            |
++----------+--------------------------------------------------------------------+
 
 This keyword forms part of the FOR structure and has no meaning on its
 own. Any attempt to enter it on its own will result in a 'Bad Line'
@@ -4664,8 +4693,15 @@ themselves when STOP is encountered.
 This program will print 1 and 2 to channel #1 and stop at line 120. If
 it runs under the interpreter, CONTINUE will restart at line 130 (after
 STOP) and print 3 and 4. RETRY does not continue here because it tries
-to re-run line 120 and stops again. 100 PRINT 1 110 PRINT 2 120 STOP 130
-PRINT 3 140 PRINT 4
+to re-run line 120 and stops again. 
+
+::
+
+    100 PRINT 1 
+    110 PRINT 2 
+    120 STOP 
+    130 PRINT 3 
+    140 PRINT 4
 
 **NOTE**
 
@@ -4695,7 +4731,9 @@ components - the character itself which appears in the current INK
 colour, and the rectangular block on which the character has been
 formed. The latter is known as the 'strip' of the character and the size
 of this strip depends on the current character size and spacing (see
-CSIZE). Normally, when you set the PAPER colour of a window, the
+CSIZE). 
+
+Normally, when you set the PAPER colour of a window, the
 character STRIP is set to the same colour. However, you may wish to
 print characters on a different background colour in order to make them
 stand out. STRIP allows you to alter the colour of the character
@@ -4707,12 +4745,23 @@ for more details).
 
 **Example**
 
-A simple routine for printing out a Title on screen: 1 WINDOW
-512,256,0,0:PAPER 4 2 MODE 4:CLS 3 TITLE #1,'This is a Title',120,95 100
-DEFine PROCedure TITLE(ch,text$,x,y) 110 CSIZE 2,1:OVER 0 120 CURSOR
-#ch,x-2,y+1 130 STRIP #ch,0:PRINT #ch,FILL$(' ',LEN(text$)) 140 CURSOR
-#ch,x,y 150 STRIP #ch,2:INK #ch,7 160 PRINT #ch,text$ 170 CURSOR
-#ch,x-2,y+1 180 OVER 1:INK#ch,0 190 PRINT #ch,text$ 200 END DEFine
+A simple routine for printing out a Title on screen::
+
+    10 WINDOW 512, 256, 0, 0: PAPER 4 
+    20 MODE 4: CLS 
+    30 TITLE #1,'This is a Title', 120, 95 
+    40 :
+    100 DEFine PROCedure TITLE(ch,text$,x,y) 
+    110   CSIZE 2,1: OVER 0 
+    120   CURSOR #ch,x-2,y+1 
+    130   STRIP #ch,0: PRINT #ch,FILL$(' ',LEN(text$)) 
+    140   CURSOR #ch,x,y 
+    150   STRIP #ch,2: INK #ch,7 
+    160   PRINT #ch,text$ 
+    170   CURSOR #ch,x-2,y+1 
+    180   OVER 1: INK#ch,0 
+    190   PRINT #ch,text$ 
+    200 END DEFine
 
 **NOTE**
 
@@ -4759,7 +4808,7 @@ SUSJOB
 | Location |  BTool                                                            |
 +----------+-------------------------------------------------------------------+
 
-See SJOB.
+See `SJOB <KeywordsS.clean.html#sjob>`__.
 
 --------------
 
@@ -4787,16 +4836,28 @@ variant also allows you to swap whole arrays.
 In most kinds of sorting routines, a lot of swapping is necessary and an
 assembler routine which takes over this work makes the process quicker.
 Here is a Quicksort algorithm as a general subroutine. field$ is sorted
-from the left element to the right. 100 DEFine PROCedure QSort
-(field$,left,right) 110 LOCal i,j,last$ 120 i=left: j=right:
-last$=field$(j) 130 REPeat SortLoop1 140 REPeat SortLoop2:IF
-field$(i)<last$:i=i+1:ELSE EXIT SortLoop2 150 REPeat SortLoop2:IF
-field$(j)>last$:j=j-1:ELSE EXIT SortLoop2 160 IF i<=j THEN 170
-f1$=field$(i): f2$=field$(j): SWAP f1$,f2$ 180 field$(i)=f1$:
-field$(j)=f2$ 190 i=i+1: j=j-1 200 END IF 210 IF i>j THEN EXIT SortLoop1
-220 END REPeat SortLoop1 230 IF left<j THEN QSort field$,left,j 240 IF
-right>i THEN QSort field$,i,right 250 END DEFine QSort
- Compilers have a fixed stack size - you might have to raise this
+from the left element to the right. 
+
+::
+
+    100 DEFine PROCedure QSort (field$,left,right) 
+    110   LOCal i,j,last$ 
+    120   i=left: j=right: last$=field$(j) 
+    130   REPeat SortLoop1 
+    140     REPeat SortLoop2:IF field$(i)<last$:i=i+1:ELSE EXIT SortLoop2 
+    150     REPeat SortLoop2:IF field$(j)>last$:j=j-1:ELSE EXIT SortLoop2 
+    160     IF i<=j THEN 
+    170       f1$=field$(i): f2$=field$(j): SWAP f1$,f2$ 
+    180       field$(i)=f1$: field$(j)=f2$ 
+    190       i=i+1: j=j-1 
+    200     END IF 
+    210     IF i>j THEN EXIT SortLoop1 
+    220   END REPeat SortLoop1 
+    230   IF left<j THEN QSort field$,left,j 
+    240   IF right>i THEN QSort field$,i,right 
+    250 END DEFine QSort
+
+Compilers have a fixed stack size - you might have to raise this
 because this procedure iterates (ie. calls itself), which is something
 which eats up the stack very quickly. The SuperBASIC interpreter uses a
 flexible stack.
@@ -4889,8 +4950,12 @@ variables.
 
 **Example**
 
-POKE\_W SYS\_BASE+140,8 POKE\_W SYS\_BASE+142,3
- Sets the key repeat delay.
+::
+
+    POKE_W SYS_BASE+140,8 
+    POKE_W SYS_BASE+142,3
+    
+Sets the key repeat delay.
 
 **NOTE 1**
 
@@ -4930,8 +4995,11 @@ relative to the address returned by this function.
 
 **Example**
 
-POKE SYS\_VARS+133,-1
- switches off the THOR XVI's windowing facilities for windows opened
+::
+
+    POKE SYS_VARS+133,-1
+
+switches off the THOR XVI's windowing facilities for windows opened
 after this command.
 
 **CROSS-REFERENCE**
@@ -5009,9 +5077,16 @@ memory and the address is then returned. Do not forget the return value!
 
 **Example**
 
-100 CLS 110 PRINT PEEK$(0,1000) 120 adr1 = S\_SAVE(#1) 130 CLS 140 PRINT
-PEEK$(100,1000) 150 adr2 = S\_SAVE(#1) 160 FOR n=1 TO 20: S\_SHOW adr1:
-S\_SHOW adr2 170 S\_LOAD adr1: S\_LOAD adr2
+::
+
+    100 CLS 
+    110 PRINT PEEK$(0,1000) 
+    120 adr1 = S_SAVE(#1) 
+    130 CLS 
+    140 PRINT PEEK$(100,1000) 
+    150 adr2 = S_SAVE(#1) 
+    160 FOR n=1 TO 20: S_SHOW adr1: S_SHOW adr2 
+    170 S_LOAD adr1: S_LOAD adr2
 
 **NOTE**
 
