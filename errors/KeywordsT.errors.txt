@@ -1,0 +1,97 @@
+line 22 column 13 - Warning: discarding unexpected </hr>
+line 50 column 13 - Warning: discarding unexpected </hr>
+line 73 column 156 - Warning: replacing invalid UTF-8 bytes (char. code U+0003)
+line 88 column 26 - Warning: replacing invalid UTF-8 bytes (char. code U+0000)
+line 88 column 31 - Warning: replacing invalid UTF-8 bytes (char. code U+0000)
+line 129 column 500 - Warning: <a> discarding newline in URI reference
+line 174 column 23 - Warning: unescaped & which should be written as &amp;
+line 174 column 27 - Warning: unescaped & or unknown entity "&dev"
+line 200 column 500 - Warning: <a> discarding newline in URI reference
+line 347 column 500 - Warning: <a> discarding newline in URI reference
+line 453 column 13 - Warning: missing </span> before </h3>
+line 454 column 10 - Warning: inserting implicit <span>
+line 497 column 13 - Warning: missing </span> before </h3>
+line 498 column 10 - Warning: inserting implicit <span>
+line 532 column 63 - Warning: replacing invalid UTF-8 bytes (char. code U+00A9)
+line 564 column 60 - Warning: unescaped & or unknown entity "&CHR"
+line 596 column 29 - Warning: unescaped & or unknown entity "&CHR"
+line 596 column 38 - Warning: unescaped & which should be written as &amp;
+line 597 column 15 - Warning: replacing invalid UTF-8 bytes (char. code U+00A9)
+line 604 column 65 - Warning: replacing invalid UTF-8 bytes (char. code U+00A3)
+line 615 column 65 - Warning: replacing invalid UTF-8 bytes (char. code U+00A3)
+line 620 column 29 - Warning: replacing invalid UTF-8 bytes (char. code U+00A3)
+line 624 column 63 - Warning: replacing invalid UTF-8 bytes (char. code U+00A3)
+line 629 column 74 - Warning: unescaped & which should be written as &amp;
+line 629 column 76 - Warning: replacing invalid UTF-8 bytes (char. code U+00A3)
+line 629 column 78 - Warning: unescaped & or unknown entity "&CHR"
+line 642 column 27 - Warning: replacing invalid UTF-8 bytes (char. code U+00A3)
+line 710 column 9 - Warning: missing </span> before </h3>
+line 711 column 10 - Warning: inserting implicit <span>
+line 759 column 27 - Warning: replacing invalid UTF-8 bytes (char. code U+00A3)
+line 760 column 27 - Warning: replacing invalid UTF-8 bytes (char. code U+00A3)
+line 814 column 59 - Warning: <a> discarding whitespace in URI reference
+line 814 column 59 - Warning: <a> discarding whitespace in URI reference
+line 814 column 59 - Warning: <a> discarding whitespace in URI reference
+line 814 column 59 - Warning: <a> discarding whitespace in URI reference
+line 816 column 5 - Warning: <a> discarding newline in URI reference
+line 818 column 1 - Warning: <a> discarding whitespace in URI reference
+line 818 column 1 - Warning: <a> discarding newline in URI reference
+line 816 column 5 - Warning: missing </a> before <a>
+line 820 column 1 - Warning: <a> discarding newline in URI reference
+line 818 column 1 - Warning: missing </a> before <a>
+line 880 column 288 - Warning: <a> discarding newline in URI reference
+line 891 column 42 - Warning: <a> discarding newline in URI reference
+line 1063 column 30 - Warning: unescaped & or unknown entity "&CHR"
+line 1063 column 38 - Warning: unescaped & or unknown entity "&CHR"
+line 1063 column 46 - Warning: unescaped & or unknown entity "&CHR"
+line 1064 column 30 - Warning: unescaped & or unknown entity "&CHR"
+line 1064 column 38 - Warning: unescaped & or unknown entity "&CHR"
+line 1064 column 48 - Warning: unescaped & or unknown entity "&CHR"
+line 1132 column 256 - Warning: <a> discarding newline in URI reference
+line 1168 column 178 - Warning: <a> discarding newline in URI reference
+line 1226 column 268 - Warning: <a> discarding newline in URI reference
+line 1659 column 258 - Warning: <a> discarding newline in URI reference
+line 382 column 46 - Warning: <a> escaping malformed URI reference
+line 405 column 9 - Warning: <a> escaping malformed URI reference
+line 814 column 59 - Warning: <a> escaping malformed URI reference
+line 816 column 5 - Warning: <a> escaping malformed URI reference
+line 818 column 1 - Warning: <a> escaping malformed URI reference
+line 820 column 1 - Warning: <a> escaping malformed URI reference
+line 454 column 10 - Warning: trimming empty <span>
+line 498 column 10 - Warning: trimming empty <span>
+line 711 column 10 - Warning: trimming empty <span>
+line 2 column 1 - Warning: <html> proprietary attribute "xmlns:v"
+Info: Doctype given is "-//W3C//DTD HTML 4.0 Transitional//EN"
+Info: Document content looks like HTML 4.01 Strict
+Info: No system identifier in emitted doctype
+Tidy found 63 warnings and 0 errors!
+
+Character codes for UTF-8 must be in the range: U+0000 to U+10FFFF.
+The definition of UTF-8 in Annex D of ISO/IEC 10646-1:2000 also
+allows for the use of five- and six-byte sequences to encode
+characters that are outside the range of the Unicode character set;
+those five- and six-byte sequences are illegal for the use of
+UTF-8 as a transformation of Unicode characters. ISO/IEC 10646
+does not allow mapping of unpaired surrogates, nor U+FFFE and U+FFFF
+(but it does allow other noncharacters). For more information please refer to
+http://www.unicode.org/ and http://www.cl.cam.ac.uk/~mgk25/unicode.html
+
+URIs must be properly escaped, they must not contain unescaped
+characters below U+0021 including the space character and not
+above U+007E. Tidy escapes the URI for you as recommended by
+HTML 4.01 section B.2.1 and XML 1.0 section 4.2.2. Some user agents
+use another algorithm to escape such URIs and some server-sided
+scripts depend on that. If you want to depend on that, you must
+escape the URI on your own. For more information please refer to
+http://www.w3.org/International/O-URL-and-ident.html
+
+About HTML Tidy: https://github.com/htacg/tidy-html5
+Bug reports and comments: https://github.com/htacg/tidy-html5/issues
+Official mailing list: https://lists.w3.org/Archives/Public/public-htacg/
+Latest HTML specification: http://dev.w3.org/html5/spec-author-view/
+Validate your HTML documents: http://validator.w3.org/nu/
+Lobby your company to join the W3C: http://www.w3.org/Consortium
+
+Do you speak a language other than English, or a different variant of 
+English? Consider helping us to localize HTML Tidy. For details please see 
+https://github.com/htacg/tidy-html5/blob/master/README/LOCALIZE.md
