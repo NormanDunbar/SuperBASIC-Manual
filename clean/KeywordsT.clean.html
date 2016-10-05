@@ -1,0 +1,2357 @@
+    
+<H1><A name="TAN" id="TAN"></A>TAN</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">TAN (angle)</SPAN> <SPAN style="font-style: italic;">angle &lt;&gt; (2n+1) * �/2 (n=0,1,2,...)<BR></SPAN> Location: <SPAN style="font-style: italic;">QL ROM<BR></SPAN>
+    This function calculates the tangent of an angle given in
+    radians. The solution of <SPAN style="font-style: italic;">TAN(PI/2)</SPAN> is not actually defined
+    because the definition of <SPAN style="font-style: italic;">TAN</SPAN> is <SPAN style="font-style: italic;">TAN(x)=SIN(x)/COS(x)</SPAN> and <SPAN style="font-style: italic;">COS(PI/2)=0</SPAN>. In
+    practice, most ROM implementations will return a value of
+    about 1E10 instead of an error because they calculate
+    <SPAN style="font-style: italic;">COS(PI/2)&lt;&gt;0</SPAN>.
+    
+    Due to the periodic nature of this function function,
+    values for <SPAN style="font-style: italic;">angle</SPAN> should really be in the range <SPAN style="font-style: italic;">-PI/2 &lt; angle &lt; PI/2</SPAN>.
+    
+    
+<H3>Example:</H3>
+
+<P><SPAN style="font-style: italic;">100 WINDOW 448,200,32,16: PAPER 3: CLS
+    110 SCALE 8,-.2,-.2: INK 7
+    120 INPUT "Angle (0�..90�):"!angle
+    130 INPUT "Speed (..11 m/s):"!speed
+    140 angle=RAD(angle): c1=TAN(angle)
+    150 c2=9.81 / 2 / speed^2 / COS(angle)^2
+    160 :
+    170 FOR x=0 TO c1/c2 STEP c1/c2/20
+    180 y=c1 * x - c2 * x^2
+    190 FILL 1: CIRCLE x,y,.2: FILL 0
+    200 END FOR x<BR></SPAN>
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">TAN(PI)==0</SPAN> on all implementations - this should be zero. Only
+    SMS currently corrects this.
+    
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    On Minerva v1.96+ large values of <SPAN style="font-style: italic;">angle</SPAN> return 0. On other
+    ROMs it produces an overflow error.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsS.html#SIN">SIN</A>, <A style="font-style: italic;" href="KeywordsC.html#COS">COS</A>, <A style="font-style: italic;" href="KeywordsC.html#COT">COT</A>, <A style="font-style: italic;" href="KeywordsA.html#ASIN">ASIN</A>, <A style="font-style: italic;" href="KeywordsA.html#ACOS">ACOS</A>, <A style="font-style: italic;" href="KeywordsA.html#ATAN">ATAN</A> and <A style="font-style: italic;" href="KeywordsA.html#ACOT">ACOT</A> are other common
+    trigonometrical functions.
+    
+    <A style="font-style: italic;" href="KeywordsR.html#RAD">RAD</A> converts degrees into radians, <A style="font-style: italic;" href="KeywordsD.html#DEG">DEG</A> vice-versa.
+    
+    Please also refer to the Mathematics section of the
+    Appendix.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="TANH" id="TANH"></A>TANH</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">TANH (x)<BR></SPAN> Location: <SPAN style="font-style: italic;">Hyper, Hyperbola<BR></SPAN>
+    This function is analogous to the tangent (<SPAN style="font-style: italic;">TAN</SPAN>) - the
+    hyperbolic tangent (<SPAN style="font-style: italic;">TANH</SPAN>) is the hyperbolic sine divided by the
+    hyperbolic cosine:
+    
+    <SPAN style="font-style: italic;">TANH(x) = SINH(x) / COSH(x)<BR></SPAN>
+    resulting in the following formula (if <SPAN style="font-style: italic;">SINH</SPAN> and <SPAN style="font-style: italic;">COSH</SPAN> are
+    replaced by their definitions):
+    
+    <SPAN style="font-style: italic;">TANH(x) = (EXP(x) - EXP(-x)) / (EXP(x) + EXP(-x))<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsA.html#ARTANH">ARTANH</A> is the inverse function of <A style="font-style: italic;" href="KeywordsT.html#TANH">TANH</A>, <A style="font-style: italic;" href="KeywordsC.html#COTH">COTH</A> a complementary
+    function to <A style="font-style: italic;" href="KeywordsT.html#TANH">TANH</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="TCA" id="TCA"></A>TCA</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">TCA (i,n)<BR></SPAN> Location: <SPAN style="font-style: italic;">Toolfin<BR></SPAN>
+    The function <SPAN style="font-style: italic;">TCA</SPAN> returns the value of:
+    
+    <SPAN style="font-style: italic;">i/(1-(1+i)<SUP>-n</SUP>)<BR></SPAN>
+    where <SPAN style="font-style: italic;">i</SPAN> and <SPAN style="font-style: italic;">n</SPAN> can be any floating point numbers (see <SPAN style="font-style: italic;">MT</SPAN> for
+    error handling).
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsM.html#MT">MT</A>, <A style="font-style: italic;" href="KeywordsV.html#VA">VA</A>, <A style="font-style: italic;" href="KeywordsV.html#VFR">VFR</A>, <A style="font-style: italic;" href="KeywordsV.html#VAR">VAR</A>, <A style="font-style: italic;" href="KeywordsT.html#TNC">TNC</A>, <A style="font-style: italic;" href="KeywordsT.html#TEE">TEE</A>, <A style="font-style: italic;" href="KeywordsR.html#RAE">RAE</A>, <A style="font-style: italic;" href="KeywordsR.html#RAFE">RAFE</A>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="TCONNECT" id="TCONNECT"></A>TCONNECT</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">TCONNECT #pipechan TO #anychan<BR></SPAN> Location: <SPAN style="font-style: italic;">TinyToolkit<BR></SPAN>
+    Pipes are serial devices for buffered data transfer, they
+    have two sides: the input pipe which puts any data into the
+    buffer until it's full and the output pipe which reads the
+    data from the buffer:
+    
+    input pipe ---&gt; buffer ---&gt; output pipe
+    
+    There are two kinds of pipes on the QL: Standard pipes are
+    part of the original QL ROM, the input pipe device name is
+    pipe_&lt;buffer&gt; where &lt;buffer&gt; is the buffer size in bytes
+    (1..32767). It is necessary to know the <SPAN style="font-style: italic;">CHANID</SPAN> of the input pipe
+    to open the output pipe, see <SPAN style="font-style: italic;">FILE_OPEN</SPAN>.
+    
+    The second type are named pipes which have the same concept
+    except that the output pipe can be identified by name: The
+    input pipe is pipe_&lt;name&gt;_&lt;buffer&gt; and the output pipe
+    pipe_&lt;name&gt;. See the Appendix on Device Drivers regarding
+    Pipes for more information.
+    
+    <SPAN style="font-style: italic;">TCONNECT</SPAN> makes standard pipes useable: the command expects
+    two opened channels where the first, <SPAN style="font-style: italic;">#pipechan</SPAN>, must be an input
+    pipe and the second, <SPAN style="font-style: italic;">#anychan</SPAN> can be anything. <SPAN style="font-style: italic;">TCONNECT</SPAN> changes the
+    internal meaning of <SPAN style="font-style: italic;">#anychan</SPAN> so that it becomes an output pipe
+    connected to the input pipe <SPAN style="font-style: italic;">#pipechan</SPAN>:
+    
+    Before <SPAN style="font-style: italic;">TCONNECT</SPAN>:
+    
+    <SPAN style="font-style: italic;">#pipechan -&gt; input pipe -&gt; buffer
+    
+    scr_2x2 &lt;- #anychan<BR></SPAN>
+    After <SPAN style="font-style: italic;">TCONNECT</SPAN>:
+    
+    <SPAN style="font-style: italic;">#pipechan -&gt; input pipe -&gt; buffer -&gt; output pipe -&gt; #anychan<BR></SPAN>
+    
+<H3>Example:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">DEVLIST$</SPAN> returns the devices listed by <SPAN style="font-style: italic;">DEVLIST</SPAN> in a string,
+    separated by spaces. <SPAN style="font-style: italic;">ISDEVICE</SPAN> takes a device and checks with the
+    help of <SPAN style="font-style: italic;">DEVLIST$</SPAN> if it is a legal device:
+    <SPAN style="font-style: italic;">100 DEFine FuNction DEVLIST$
+    110 LOCal list$,dev$: list$=""
+    120 OPEN#3,pipe_80
+    130 OPEN#4,scr_
+    140 TCONNECT #3 TO #4
+    150 DEVLIST#3
+    160 INPUT#4,dev$\dev$
+    170 REPeat read_devs
+    180 IF NOT PEND(#4) THEN EXIT read_devs
+    190 INPUT#4,dev$
+    200 list$=list$&amp;" "&amp;dev$
+    210 END REPeat read_devs
+    220 CLOSE#3: CLOSE#4
+    230 RETurn list$
+    240 END DEFine DEVLIST$<BR></SPAN>
+    A legal drive device consists of three letters (the device
+    name), a drive number (1..8) and an underscore:
+    <SPAN style="font-style: italic;">260 DEFine FuNction ISDEVICE(dev$)
+    270 IF LEN(dev$)&lt;&gt;5 THEN RETurn 0
+    280 IF dev$(5)&lt;&gt;"_" THEN RETurn 0
+    290 IF dev$(4)&lt;"1" OR dev$(4)&gt;"8" THEN RETurn 0
+    300 IF NOT (dev$(1 TO 3) INSTR DEVLIST$) THEN RETurn 0
+    310 RETurn 1
+    320 END DEFine ISDEVICE<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsF.html#FILE_OPEN">FILE_OPEN</A>, <A style="font-style: italic;" href="KeywordsC.html#CHANID">CHANID</A>, <A style="font-style: italic;" href="KeywordsP.html#PIPES">PIPES</A> and especially <A style="font-style: italic;" href="KeywordsP.html#PEND">PEND</A>. Some more
+    examples appear at <A style="font-style: italic;" href="KeywordsF.html#FILE_LEN">FILE_LEN</A> and <A style="font-style: italic;" href="KeywordsF.html#FUPDT">FUPDT</A>.
+    
+    <A style="font-style: italic;" href="KeywordsQ.html#QLINK">QLINK</A> is the same.
+    
+    Qliberator gives the <A style="font-style: italic;" href="KeywordsQ.html#QCONNECT">QCONNECT</A> command which is the same.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="TEE" id="TEE"></A>TEE</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">TEE (i,n)<BR></SPAN> Location: <SPAN style="font-style: italic;">Toolfin<BR></SPAN>
+    The function <SPAN style="font-style: italic;">TEE</SPAN> returns the value of
+    
+    <SPAN style="font-style: italic;">(1+(i/n)<SUP>n</SUP>-1)<BR></SPAN>
+    where <SPAN style="font-style: italic;">i</SPAN> and <SPAN style="font-style: italic;">n</SPAN> can be any floating point numbers (see <SPAN style="font-style: italic;">MT</SPAN> for
+    error handling).
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsM.html#MT">MT</A>, <A style="font-style: italic;" href="KeywordsV.html#VA">VA</A>, <A style="font-style: italic;" href="KeywordsV.html#VFR">VFR</A>, <A style="font-style: italic;" href="KeywordsV.html#VAR">VAR</A>, <A style="font-style: italic;" href="KeywordsT.html#TCA">TCA</A>, <A style="font-style: italic;" href="KeywordsT.html#TNC">TNC</A>, <A style="font-style: italic;" href="KeywordsR.html#RAE">RAE</A>, <A style="font-style: italic;" href="KeywordsR.html#RAFE">RAFE</A>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="THEN" id="THEN"></A>THEN</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">THEN</SPAN> [<SPAN style="font-style: italic;">statement</SPAN>] <SUP>*</SUP>[<SPAN style="font-style: italic;">:statement</SPAN>]<SUP>*<BR></SUP> Location: <SPAN style="font-style: italic;">QL ROM<BR></SPAN>
+    This keyword is optional and is used as part of the
+    <SPAN style="font-style: italic;">IF..END IF</SPAN> structure. It has no use on its own.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsI.html#IF">IF</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="THING" id="THING"></A>THING</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">THING (thingname$)<BR></SPAN> Location: <SPAN style="font-style: italic;">Fn<BR></SPAN>
+    This function is used to check whether a Thing is present
+    in memory (ie. whether a given item appears on the Thing
+    list). If the Thing is present, then the function will return
+    0, otherwise it will return -7 (not found).
+    
+    
+<H3>Examples:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">PRINT THING('Button_sleep')
+    
+    PRINT THING('HOTKEY')<BR></SPAN>
+    
+<H3>NOTE:</H3>
+
+<P>
+    In versions earlier than v1.02, this function may sometimes
+    return a value greater than zero if the Thing exists.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsT.html#TH_VER$">TH_VER$</A> explains what Things are.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="TH_FIX" id="TH_FIX"></A>TH_FIX</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">TH_FIX<BR></SPAN> Location: <SPAN style="font-style: italic;">SMSQ/E and ST/QL Level B-11 drivers onwards<BR></SPAN>
+    This command fixes some programs which were written before
+    the current Thing List was standardised (in the Level B-10
+    drivers for the ST/QL Emulator) and allows them to work under
+    current versions by adopting the old style Thing List. You
+    should really update the problem program.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="TH_VER$" id="TH_VER$"></A>TH_VER$</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">TH_VER$ (thingname$)<BR></SPAN> Location: <SPAN style="font-style: italic;">Fn<BR></SPAN>
+    Things in QDOS terms refer to an extension of QDOS which
+    was introduced by the Thing System provided by Qjump's
+    Extended Pointer Interface and was also implemented (although
+    slightly differently) on the THOR XVI computer. It is an
+    universal storage method for named resources.
+    
+    A Thing List is created by the Thing System which lists all
+    of these named resources, which can range from a piece of
+    machine code to a printer driver (and much more). The idea is
+    that any program which wants to access a specified utility or
+    driver need only search in this list to see if the Thing is
+    installed in the current system, and then pointers contained
+    in this list allows the program to access the Thing (if
+    available).
+    
+    Each Thing can be useable by several users at the same time
+    or can be restricted so that it can only be accessed if
+    nothing else is using it. Things are identified by their name
+    and have a version number which is returned by the function
+    <SPAN style="font-style: italic;">TH_VER$</SPAN>.
+    
+    The version number of a Thing can be something like 1.03,
+    or it can actually be representative of the functions provided
+    in this version (eg. 1001100) - although it is not certain if
+    this second type of 'version number' will be correctly
+    returned by the current version of <SPAN style="font-style: italic;">TH_VER$</SPAN>, since at the time of
+    writing we have not come across anything which uses this.
+    
+    If a Thing was not found in memory or another error
+    occurred, <SPAN style="font-style: italic;">TH_VER$</SPAN> will return the standard error code (see
+    <SPAN style="font-style: italic;">ERNUM</SPAN>).
+    
+    
+<H3>Example:</H3>
+
+<P>
+    The Hotkey System (HOT_REXT), a part of the Extended
+    Pointer Environment (regarded as standard today), is installed
+    as a Thing. Get its version with:
+    
+    <SPAN style="font-style: italic;">PRINT TH_VER$ ("HOTKEY")<BR></SPAN>
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    In versions prior to version 1.02, this function could
+    return the wrong value for some Things.
+    
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    The current version of this command will not work on a THOR
+    XVI computer.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsT.html#THING">THING</A>, <A style="font-style: italic;" href="KeywordsT.html#TH_FIX">TH_FIX</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="TINY_EXT" id="TINY_EXT"></A>TINY_EXT</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">TINY_EXT<BR></SPAN> Location: <SPAN style="font-style: italic;">TinyToolkit<BR></SPAN>
+    This command installs/updates the extensions provided by
+    the Tiny Toolkit.
+    
+    TinyToolkit and Toolkit II have some commands in common
+    (eg. <SPAN style="font-style: italic;">REPORT</SPAN>). If you prefer to use Toolkit II's <SPAN style="font-style: italic;">REPORT</SPAN> command you
+    will generally need to install <SPAN style="font-style: italic;">TK2_EXT</SPAN> after <SPAN style="font-style: italic;">TINY_EXT</SPAN> (on post JM
+    ROMs the Toolkit which was installed second will have
+    priority!).
+    
+    Prior to JS ROMs, the first version of a command loaded as
+    a toolkit has priority.
+    
+    
+<H3>NOTE:</H3>
+
+<P>
+    Updating TinyToolkit is different from updating other
+    Toolkits with <SPAN style="font-style: italic;">_EXT</SPAN> type commands, in that TinyToolkit simply
+    adds its commands' names to the name list and does not check
+    to see if they were already present. <SPAN style="font-style: italic;">SXTRAS</SPAN> and <SPAN style="font-style: italic;">EXTRAS</SPAN> will list
+    commands twice (or more) and each time that <SPAN style="font-style: italic;">TINY_EXT</SPAN> is issued,
+    memory will be used up (max. 1 KB).
+    
+    Actually, the Toolkit is only present in one place in
+    memory because duplicated commands are stored at the same
+    place in RAM. This problem can be cured with <SPAN style="font-style: italic;">TINY_RMV</SPAN>.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsT.html#TK2_EXT">TK2_EXT</A> updates Toolkit II, <A style="font-style: italic;" href="KeywordsB.html#Beule_EXT">Beule_EXT</A> the Beule Toolkit.
+    
+    <A style="font-style: italic;" href="KeywordsT.html#TINY_RMV">TINY_RMV</A> removes most extensions of TinyToolkit from the name
+    list.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="TINY_RMV" id="TINY_RMV"></A>TINY_RMV</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">TINY_RMV<BR></SPAN> Location: <SPAN style="font-style: italic;">TinyToolkit<BR></SPAN>
+    This command removes most of TinyToolkit's commands.
+    
+    
+<H3>NOTE:</H3>
+
+<P>
+    You should not really use <SPAN style="font-style: italic;">TINY_RMV</SPAN> because the extensions are
+    not removed from the Name List but overwritten with undefined
+    strings. Depending on the operating system and programming
+    environment it may not be possible to re-activate TinyToolkit
+    and internal system conflicts are possible.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    Re-activate the Toolkit with <A style="font-style: italic;" href="KeywordsT.html#TINY_EXT">TINY_EXT</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="TK2_EXT" id="TK2_EXT"></A>TK2_EXT</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">TK2_EXT<BR></SPAN> Location: <SPAN style="font-style: italic;">Toolkit II<BR></SPAN>
+    As with other Toolkits, Toolkit II has to be linked into
+    the computer (except on the ST/QL Emulator and under SMSQ/E
+    where it is automatically linked in when the computer is
+    started).
+    
+    This command forces all of the Toolkit II commands to link
+    themselves into the operating system, overwriting existing
+    definitions of any commands with the same name.
+    
+    
+<H3>NOTE:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">TK2_EXT</SPAN> contains special code to enable Toolkit II commands
+    to be used on JM (and earlier) ROMs in the same program as the
+    <SPAN style="font-style: italic;">TK2_EXT</SPAN> command.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsT.html#TINY_EXT">TINY_EXT</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="TK_VER$" id="TK_VER$"></A>TK_VER$</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">TK_VER$<BR></SPAN> Location: <SPAN style="font-style: italic;">Turbo Toolkit<BR></SPAN>
+    This function returns the version ID of the Turbo Toolkit,
+    eg. 3e27
+    
+    
+<H3>NOTE:</H3>
+
+<P>
+    Before v3.00 the Turbo Toolkit did not install properly
+    under Minerva and SMS.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="TNC" id="TNC"></A>TNC</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">TNC (i,n)<BR></SPAN> Location: <SPAN style="font-style: italic;">Toolfin<BR></SPAN>
+    The function <SPAN style="font-style: italic;">TNC</SPAN> returns the value of:
+    
+    <SPAN style="font-style: italic;">n*((1+i)<SUP>1/n</SUP>-1)<BR></SPAN>
+    where <SPAN style="font-style: italic;">i</SPAN> and <SPAN style="font-style: italic;">n</SPAN> can be any floating point numbers (see <SPAN style="font-style: italic;">MT</SPAN> for
+    error handling).
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsM.html#MT">MT</A>, <A style="font-style: italic;" href="KeywordsV.html#VA">VA</A>, <A style="font-style: italic;" href="KeywordsV.html#VFR">VFR</A>, <A style="font-style: italic;" href="KeywordsV.html#VAR">VAR</A>, <A style="font-style: italic;" href="KeywordsT.html#TCA">TCA</A>, <A style="font-style: italic;" href="KeywordsT.html#TEE">TEE</A>, <A style="font-style: italic;" href="KeywordsR.html#RAE">RAE</A>, <A style="font-style: italic;" href="KeywordsR.html#RAFE">RAFE</A>
+    
+<H3></H3>
+
+<P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="TO" id="TO"></A>TO</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">.. TO line</SPAN> (<SPAN style="font-style: italic;">GO TO</SPAN>)
+    
+    or <SPAN style="font-style: italic;">TO column</SPAN> (Separator) Location: <SPAN style="font-style: italic;">QL ROM<BR></SPAN>
+    This keyword has two uses.
+    
+    The first syntax operates as part of the keyword <SPAN style="font-style: italic;">GO TO</SPAN>.
+    
+    The second syntax is used as a separator in the commands
+    <SPAN style="font-style: italic;">PRINT</SPAN> and <SPAN style="font-style: italic;">INPUT</SPAN> (and also in some toolkit extensions). We shall
+    only deal with the use of <SPAN style="font-style: italic;">TO</SPAN> for <SPAN style="font-style: italic;">PRINT</SPAN> and <SPAN style="font-style: italic;">INPUT</SPAN> here:
+    
+    As a separator, <SPAN style="font-style: italic;">TO</SPAN> can be very useful for placing data into
+    columns. Its effect is to place the text cursor onto the
+    specified column, or if the text cursor is already at or past
+    that column, then the text cursor is moved one column to the
+    right. This means for instance that:
+    
+    <SPAN style="font-style: italic;">PRINT TO 0<BR></SPAN>
+    will always leave the leftmost column blank!
+    
+    <SPAN style="font-style: italic;">TO</SPAN> is also affected by the <SPAN style="font-style: italic;">WIDTH</SPAN> setting on non-screen
+    devices. If the specified column is greater than the <SPAN style="font-style: italic;">WIDTH<BR></SPAN> value, the text cursor will be placed onto the next line. On
+    screen devices, if the specified column is too great to fit in
+    the window, the text cursor is placed onto the next line
+    rather than causing an error - note however, that <SPAN style="font-style: italic;">TO</SPAN> carries on
+    counting!!.
+    
+    <SPAN style="font-style: italic;">TO</SPAN> has no meaning on its own and will cause the error 'Bad
+    Line' if entered on its own.
+    
+    
+<H3>NOTE:</H3>
+
+<P>
+    On the THOR XVI, if the cursor is already at or past the
+    given column, the text cursor is not moved, in contrast to all
+    other implementations. Programs compiled with Turbo will
+    however display the text as per the standard QL
+    implementation.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsG.html#GO%20TO">GO TO</A> and <A style="font-style: italic;" href="KeywordsP.html#PRINT">PRINT</A>, <A style="font-style: italic;" href="KeywordsI.html#INPUT">INPUT</A>.
+    
+    <A style="font-style: italic;" href="KeywordsA.html#AT">AT</A> and <A style="font-style: italic;" href="KeywordsC.html#CURSOR">CURSOR</A> allow you to position the text cursor more
+    precisely.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="TOP_WINDOW" id="TOP_WINDOW"></A>TOP_WINDOW</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">TOP_WINDOW</SPAN> [<SPAN style="font-style: italic;">#ch</SPAN>] Location: <SPAN style="font-style: italic;">all THORs<BR></SPAN>
+    This command is similar to the <SPAN style="font-style: italic;">PICK</SPAN> command provided by
+    Qjump's QPTR package on the QL.
+    
+    This command brings the specified window (default #1) to
+    the top of the display pile. Under the THOR's windowing system
+    (when this is enabled), as with the Pointer Environment, a
+    program cannot access a window which is partly or fully hidden
+    from view. This command allows the program to force the given
+    window to the top of the pile, thus allowing it to be seen on
+    screen and therefore open to access.
+    
+    If possible, the keyboard queue is also connected to the
+    window, so it is as if the Job has been 'picked' using the
+    keys CTRL C.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsW.html#WINDOW">WINDOW</A> allows you to re-position a window.
+    
+    <A style="font-style: italic;" href="KeywordsP.html#PIE_ON">PIE_ON</A> allows programs to continue even though their windows
+    are buried under the Pointer Interface.
+    
+    <A style="font-style: italic;" href="KeywordsP.html#PICK%">PICK%</A> is similar.
+    
+    <A style="font-style: italic;" href="KeywordsP.html#POKE%20SYS_VARS+133">POKE SYS_VARS+133</A> allows you to enable / disable the THOR's
+    windowing system.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="TPFree" id="TPFree"></A>TPFree</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">TPFree<BR></SPAN> Location: <SPAN style="font-style: italic;">BTool<BR></SPAN>
+    The function <SPAN style="font-style: italic;">TPFree</SPAN> returns a slightly larger or equal value
+    than <SPAN style="font-style: italic;">FREE</SPAN> and <SPAN style="font-style: italic;">FREE_MEM</SPAN>. The reported free memory is available for
+    new jobs.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="TRA" id="TRA"></A>TRA</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">TRA table1</SPAN> [<SPAN style="font-style: italic;">,table2</SPAN>]
+    
+    or <SPAN style="font-style: italic;">TRA</SPAN> [<SPAN style="font-style: italic;">table1</SPAN>] <SPAN style="font-style: italic;">,table2<BR></SPAN> Location: <SPAN style="font-style: italic;">QL ROM (post JM Version)<BR></SPAN>
+    This command allows you to perform various translations on
+    data that is passing through the serial ports. It is however
+    one of the most difficult commands in SuperBASIC to use.
+    
+    The use of <SPAN style="font-style: italic;">TRA</SPAN> will (on non-SMS implementations) affect all
+    data which is sent through the serial ports after the command
+    has been issued, translating bytes whether they are screen
+    dumps, printer control codes, or letters of the alphabet.
+    
+    The two parameters are addresses of two tables, <SPAN style="font-style: italic;">table1</SPAN> which
+    contains details of translations to be carried out on both
+    incoming and outgoing data and <SPAN style="font-style: italic;">table2</SPAN> which contains details of
+    various messages used by the system. Both tables are
+    recognised by the word 19195 ($4AFB) at their start.
+    
+    If either parameter is not specified, then the default
+    value of -1 is assumed, which tells QDOS to leave that
+    translation table alone.
+    
+    When QDOS is first initiated translation is not enabled,
+    which means that data passing through the serial ports is
+    unaffected. You can revert to this situation by using the
+    command <SPAN style="font-style: italic;">TRA 0</SPAN>. You can also revert to the original error
+    messages with <SPAN style="font-style: italic;">TRA ,1</SPAN> (use <SPAN style="font-style: italic;">TRA 0,1</SPAN> to reset both to their original
+    status).
+    
+    The English character set is used in all ROM
+    implementations of the QL (no matter which country the machine
+    is set up for). However, you can select to use the 'local'
+    character set for serial communication purposes if you wish by
+    using the command <SPAN style="font-style: italic;">TRA 1</SPAN> which tells QDOS to use the 'local'
+    translation table (this has no effect on UK ROMs).
+    
+    The two translation tables have different formats and uses,
+    depending on whether the serial ports are being used for
+    transmission or receipt of data. We therefore deal with each
+    table separately.
+    
+    Note that <SPAN style="font-style: italic;">TRA</SPAN> is implemented differently on THORs and SMS
+    see the separate notes on the makeup of their translation
+    tables.
+    
+    
+<H3><SPAN style="font-style: italic;">Table1<BR></SPAN></H3><SPAN style="font-style: italic;">Table1</SPAN> is actually split into two lists:
+    Transa contains a list of single character
+    conversions
+    Transb which contains a list of multiple character
+    conversions.
+    
+    As to which list is used depends on whether the channel is
+    sending or receiving data:
+    
+    (1)If the channel is sending data, the outgoing character
+    is first translated according to <SPAN style="font-style: italic;">Transa</SPAN>, using the
+    character code as an index.
+    
+    If the resulting value is a zero, <SPAN style="font-style: italic;">Transb</SPAN> is scanned for
+    the proper entry. However, if the resulting value is
+    non-zero, then this is used as a replacement for the
+    byte to be sent.
+    
+    (2)When receiving, only <SPAN style="font-style: italic;">Transa</SPAN> is used.
+    
+    The table is scanned cyclically starting at the
+    received character's position until a position is found
+    containing the received value. The translated value
+    will be this position index. If the received value is
+    not found in the table, the value itself is used.
+    
+    The physical format of <SPAN style="font-style: italic;">table1</SPAN> is as follows:
+    <SPAN style="font-style: italic;">table1</SPAN>Word19195
+    WordOffset of <SPAN style="font-style: italic;">Transa</SPAN> from <SPAN style="font-style: italic;">Table1<BR></SPAN> (<SPAN style="font-style: italic;">Transa-Table1</SPAN>)
+    WordOffset of <SPAN style="font-style: italic;">Transb</SPAN> from <SPAN style="font-style: italic;">Table1<BR></SPAN> (<SPAN style="font-style: italic;">Transb-Table1</SPAN>)
+    <SPAN style="font-style: italic;">Transa</SPAN>256 bytes(see below)
+    <SPAN style="font-style: italic;">Transb</SPAN>ByteNumber of multiple translations
+    or 0
+    x bytes(see below)
+    <SPAN style="font-style: italic;">Transa</SPAN>is a 256 byte list of character substitute codes for
+    each character code from 0 to 255. If you wish to use
+    multiple translates for a given character, then you
+    will need to insert 0 in the appropriate place in this
+    list.
+    <SPAN style="font-style: italic;">Transb</SPAN> is a table of multiple translations (which can only be
+    used in transmit mode). It is made up of four bytes for
+    each translate, being the code to be translated,
+    followed by three replacement codes.
+    If you do not need three replacement codes, the unused
+    ones should be zero. Unfortunately, you cannot combine
+    the effects of these various translations (see the
+    second example below).
+    
+    
+<H3><SPAN style="font-style: italic;">Table2<BR></SPAN></H3>
+
+<P>
+    <SPAN style="font-style: italic;">Table2</SPAN> allows you to set the various system and error
+    messages used by QDOS (for example to implement other
+    languages). The format of <SPAN style="font-style: italic;">Table2</SPAN> is even more complex and
+    appears on the next page:
+    <SPAN style="font-style: italic;">Table2</SPAN>Word19195
+    WordOffset of <SPAN style="font-style: italic;">error1</SPAN> from <SPAN style="font-style: italic;">Table2</SPAN> (<SPAN style="font-style: italic;">error1-Table2</SPAN>)
+    WordOffset of <SPAN style="font-style: italic;">error2</SPAN> from <SPAN style="font-style: italic;">Table2</SPAN> (<SPAN style="font-style: italic;">error2-Table2</SPAN>)
+    WordOffset of <SPAN style="font-style: italic;">error3</SPAN> from <SPAN style="font-style: italic;">Table2</SPAN> (<SPAN style="font-style: italic;">error3-Table2</SPAN>)
+    . . . . . .
+    . . . . . .
+    . . . . . .
+    WordOffset of <SPAN style="font-style: italic;">error20</SPAN> from <SPAN style="font-style: italic;">Table2</SPAN> (<SPAN style="font-style: italic;">error20-Table2</SPAN>)
+    Word Offset of <SPAN style="font-style: italic;">error21</SPAN> from <SPAN style="font-style: italic;">Table2</SPAN> (<SPAN style="font-style: italic;">error21-Table2</SPAN>)
+    Word Offset of <SPAN style="font-style: italic;">mess1</SPAN> from <SPAN style="font-style: italic;">Table2</SPAN> (<SPAN style="font-style: italic;">mess1-Table2</SPAN>)
+    Word Offset of <SPAN style="font-style: italic;">mess2</SPAN> from <SPAN style="font-style: italic;">Table2</SPAN> (<SPAN style="font-style: italic;">mess2-Table2</SPAN>)
+    . . . . . .
+    . . . . . .
+    Word Offset of <SPAN style="font-style: italic;">mess7</SPAN> from <SPAN style="font-style: italic;">Table2</SPAN> (<SPAN style="font-style: italic;">mess7-Table2</SPAN>)
+    Word Offset of <SPAN style="font-style: italic;">mess8</SPAN> from <SPAN style="font-style: italic;">Table2</SPAN> (<SPAN style="font-style: italic;">mess8-Table2</SPAN>)
+    <SPAN style="font-style: italic;">error1</SPAN>Word Length of string
+    x Bytes String forming message for 'not complete'
+    <SPAN style="font-style: italic;">error2</SPAN>Word Length of string
+    x Bytes String forming message for 'invalid job'
+    .
+    .
+    <SPAN style="font-style: italic;">error21</SPAN>WordLength of string
+    x Bytes String forming message for 'Bad Line'
+    <SPAN style="font-style: italic;">mess1</SPAN>WordLength of string
+    x BytesString to replace <SPAN style="font-style: italic;">'At line ' *<BR></SPAN> <SPAN style="font-style: italic;">mess2</SPAN>Word Length of string
+    x Bytes String to replace <SPAN style="font-style: italic;">' sectors'<BR></SPAN> <SPAN style="font-style: italic;">mess3</SPAN>WordLength of string
+    BytesString to replace <SPAN style="font-style: italic;">'F1 .. monitor F2 .. TV '*<BR></SPAN> <SPAN style="font-style: italic;">mess4</SPAN>WordLength of string
+    BytesString to replace <SPAN style="font-style: italic;">'�1983 Sinclair Research Ltd'*<BR></SPAN> <SPAN style="font-style: italic;">mess5</SPAN>WordLength of string
+    Bytes String to replace <SPAN style="font-style: italic;">'during WHEN processing'<BR></SPAN> <SPAN style="font-style: italic;">mess6</SPAN>Word Length of string
+    Bytes String to replace <SPAN style="font-style: italic;">'PROC/FN cleared'<BR></SPAN> <SPAN style="font-style: italic;">mess7</SPAN>Bytes String to replace <SPAN style="font-style: italic;">'SunMonTueWedThuFriSat'*<BR></SPAN> <SPAN style="font-style: italic;">mess8</SPAN>BytesString to replace
+    <SPAN style="font-style: italic;">'JanFebMarAprMayJunJulAugSepOctNovDec'*<BR></SPAN>
+    Please note that all strings other than those marked (*)
+    must end with a newline, CHR$(10). Also please also note the
+    differing format of <SPAN style="font-style: italic;">mess7</SPAN> and <SPAN style="font-style: italic;">mess8</SPAN>.
+    
+    Although the THOR computers support both of the above table
+    formats, the THOR has extended the usefulness of <SPAN style="font-style: italic;">TRA</SPAN> in order
+    to allow you to send longer strings of characters for each
+    translation.
+    
+    On the other hand, SMS has implemented a different way of
+    amending the messages generated by the operating system (see
+    below).
+    
+    Examples of the standard format follow:
+    
+    
+<H3>Example 1:</H3>
+
+<P>
+    A program to change all of the error messages to more
+    meaningful messages:
+    <SPAN style="font-style: italic;">100 Chk$=VER$
+    105 IF Chk$='AH' OR Chk$='JM':PRINT'Not supported'
+    110 table2=ALCHP(1024)
+    120 RESTORE
+    130 POKE_W table2,19195
+    140 mess_add=table2+30*2
+    150 FOR errx=1 TO 29
+    160 POKE_W table2+errx*2,mess_add-table2
+    170 READ mess$
+    180 IF errx&lt;28
+    190 SELect ON errx:=1 TO 21,23,26 TO 27:mess$=mess$&amp;CHR$(10)
+    200 POKE_W mess_add,LEN(mess$):mess_add=mess_add+2
+    210 END IF
+    220 FOR move_mess=1 TO LEN(mess$)
+    230 POKE mess_add,CODE(mess$(move_mess)):mess_add=mess_add+1
+    240 END FOR move_mess
+    250 overf=mess_add/2:IF overf&lt;&gt;INT(overf):mess_add=mess_add+1
+    260 END FOR errx
+    270 TRA 0,table2
+    280 DATA 'Operation Not Complete'
+    290 DATA 'Job Does Not Exist'
+    300 DATA 'Insufficient Memory'
+    310 DATA 'Parameter Outside Permitted Range'
+    320 DATA 'Buffer Full'
+    330 DATA 'Channel Not Open'
+    340 DATA 'File or Device Not Found'
+    350 DATA 'File Already Exists'
+    360 DATA 'File or Device In Use'
+    370 DATA 'End of File'
+    380 DATA 'Drive Full'
+    390 DATA 'Invalid File or Device Name'
+    400 DATA 'Transmit Error'
+    410 DATA 'Format Failed'
+    420 DATA 'Invalid Parameter'
+    430 DATA 'Filing System Medium Check Failed'
+    440 DATA 'Invalid Expression'
+    450 DATA 'Maths Overflow'
+    460 DATA 'Operation Not Implemented'
+    470 DATA 'Read Only Device'
+    480 DATA 'Invalid Syntax'
+    490 DATA 'At line '
+    500 DATA ' sectors'
+    510 DATA 'F1 .. monitor'&amp;CHR$(10)&amp;'F2 .. TV'
+    520 DATA '�1983 Sinclair Research Ltd.'
+    530 DATA 'During WHEN processing'
+    540 DATA 'PROC/FN Definition Cleared'
+    550 DATA 'SunMonTueWedThuFriSat'
+    560 DATA 'JanFebMarAprMayJunJulAugSepOctNovDec'<BR></SPAN>
+    
+<H3>
+    
+    Example 2:</H3>
+
+<P>
+    A short program to allow you to print pound signs (�) from
+    SuperBASIC (this assumes an Epson compatible printer which is
+    set up in US ASCII mode):
+    <SPAN style="font-style: italic;">100 table1=ALCHP(1024)
+    110 POKE_W table1,19195
+    120 Transa=table1+6
+    130 Transb=Transa+256
+    140 FOR i=0 TO 255:POKE Transa+i,i
+    150 POKE_W table1+2,Transa-table1
+    160 POKE_W table1+4,Transb-table1
+    170 POKE Transb,3
+    175 POKE Transa+128,0: POKE Transa+129,0: POKE Transa+CODE('�'),0
+    180 POKE Transb+1,128
+    190 POKE Transb+2,27: POKE Transb+3,CODE('R'): POKE Transb+4,3
+    200 POKE Transb+5,129
+    210 POKE Transb+6,27: POKE Transb+7,CODE('R'): POKE Transb+8,0
+    215 POKE Transb+9,CODE('�')
+    216 POKE Transb+10,128: POKE Transb+11,CODE('#'): POKE Transb+12,129
+    220 TRA table1,0<BR></SPAN>
+    Unfortunately, despite lines 215 and 216, the command:
+    <SPAN style="font-style: italic;">OPEN #3,ser1: PRINT #3,'�'<BR></SPAN>
+    will still fail to produce a pound sign on your printer
+    (you will get a single quote mark normally). This demonstrates
+    the fact that you cannot link translates. To get a pound sign,
+    you will need to use the line:
+    
+    <SPAN style="font-style: italic;">OPEN #3,ser1: PRINT#3,CHR$(128)&amp;'�'&amp;CHR$(129)<BR></SPAN>
+    Indeed, because of the nature of the translation tables,
+    the following has exactly the same effect as the above
+    program:
+    <SPAN style="font-style: italic;">100 table1=ALCHP(1024)
+    110 POKE_W table1,19195
+    120 Transa=table1+6
+    130 Transb=Transa+256
+    140 FOR i=0 TO 255:POKE Transa+i,i
+    150 POKE_W table1+2,Transa-table1
+    160 POKE_W table1+4,Transb-table1
+    170 POKE Transb,2
+    180 POKE Transa+128,0:POKE Transa+129,0
+    190 POKE Transa+CODE('�'),CODE('#')
+    200 POKE Transb+1,128
+    210 POKE Transb+2,27: POKE Transb+3,CODE('R'):POKE Transb+4,3
+    220 POKE Transb+5,129
+    230 POKE Transb+6,27: POKE Transb+7,CODE('R'):POKE Transb+8,0
+    240 TRA table1,0<BR></SPAN>
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    An extended serial driver is available in the public domain
+    which enables Minerva machines and Amiga QDOS to use a
+    translation table the same as the extended translation table
+    provided on the THOR XVI.
+    
+    
+<H3>
+    
+    NOTE 2:</H3>
+
+<P>
+    On Minerva ROMs (v1.83 or earlier), there are problems when
+    using <SPAN style="font-style: italic;">TRA</SPAN> with only one parameter.
+    
+    
+<H3>NOTE 3:</H3>
+
+<P>
+    JS ROMs have problems in translating characters above
+    <SPAN style="font-style: italic;">CHR$(127)<BR></SPAN>
+    
+<H3>SMS NOTES:</H3>
+
+<P>
+    SMS supports the standard format <SPAN style="font-style: italic;">table1</SPAN>. However, the
+    messages cannot be altered using <SPAN style="font-style: italic;">table2</SPAN> - use <SPAN style="font-style: italic;">LANG_USE</SPAN> for this.
+    
+    As with the original version, if <SPAN style="font-style: italic;">table1</SPAN> is specified to be 0,
+    this will deactivate the translation. However, it does not
+    smash the pointer to a user-defined translation routine which
+    can then be re-activated with <SPAN style="font-style: italic;">TRA 1</SPAN> (compare the original
+    version where you would need to re-run the program setting up
+    the user-defined translation table).
+    
+    SMS also allows you to have language dependent translation
+    tables (linked to one of the languages currently loaded - see
+    <SPAN style="font-style: italic;">LANG_USE</SPAN>). To enable these, use the command:
+    
+    <SPAN style="font-style: italic;">TRA 1,lang<BR></SPAN>
+    where <SPAN style="font-style: italic;">lang</SPAN> is the Car Registration Code or Language code of
+    the country.
+    
+    <SPAN style="font-style: italic;">TRA 0,lang<BR></SPAN>
+    will set up the relevent translation table, ready to be
+    enabled with <SPAN style="font-style: italic;">TRA 1</SPAN>.
+    
+    There are also several in-built language independent
+    translate tables which are accessed by setting <SPAN style="font-style: italic;">table1</SPAN> to small
+    values. The dip-switches on your printer need to be set to
+    USA.
+    
+    Currently there are only two language independent translate
+    tables supported (so far as we are aware):
+    
+    <SPAN style="font-style: italic;">TRA 3</SPAN>Enable IBM Graphics translation table. QDOS
+    <SPAN style="font-style: italic;">CHR$(HEX('C0'))</SPAN> to <SPAN style="font-style: italic;">CHR$(HEX('DF'))</SPAN> and <SPAN style="font-style: italic;">CHR$(HEX('F0'))</SPAN> to
+    <SPAN style="font-style: italic;">CHR$(HEX('FF'))</SPAN> are passed through the channel
+    unchanged. <SPAN style="font-style: italic;">CHR$(HEX('E0'))</SPAN> to <SPAN style="font-style: italic;">CHR$(HEX('EF'))</SPAN> are
+    translated to represent <SPAN style="font-style: italic;">CHR$(HEX('B0'))</SPAN> to <SPAN style="font-style: italic;">CHR$(HEX('BF'))<BR></SPAN> respectively. As from v2.50, the paragraph sign,
+    <SPAN style="font-style: italic;">CHR$(HEX('15'))</SPAN> is also passed through unaffected.
+    
+    <SPAN style="font-style: italic;">TRA 5</SPAN>Enable GEM VDI translation table. Here QDOS
+    <SPAN style="font-style: italic;">CHR$(HEX('C0'))</SPAN> to <SPAN style="font-style: italic;">CHR$(HEX('FF'))</SPAN> are passed through the
+    port unchanged.
+    
+    Also please note that under SMS, <SPAN style="font-style: italic;">TRA</SPAN> will only affect
+    channels which are <SPAN style="font-style: italic;">OPEN</SPAN>ed after the <SPAN style="font-style: italic;">TRA</SPAN> command, or channels
+    which have already been <SPAN style="font-style: italic;">OPEN</SPAN>ed with <SPAN style="font-style: italic;">TRA</SPAN> active. In any case, <SPAN style="font-style: italic;">TRA 0<BR></SPAN> never affects <SPAN style="font-style: italic;">OPEN</SPAN> channels. <SPAN style="font-style: italic;">TRA address</SPAN> will also not affect <SPAN style="font-style: italic;">OPEN<BR></SPAN> channels which have been affected by <SPAN style="font-style: italic;">TRA 0</SPAN>. Note however that
+    changing the <SPAN style="font-style: italic;">BAUD</SPAN> rate will affect the translate on ALL
+    channels.
+    
+    
+<H3>SMS Example:</H3>
+
+<P><SPAN style="font-style: italic;">TRA 1</SPAN>Enable translate table for Country set up
+    by default.
+    <SPAN style="font-style: italic;">TRA 1,F</SPAN>Enable French Translation table
+    <SPAN style="font-style: italic;">TRA 0</SPAN> Disable Translate Tables.
+    <SPAN style="font-style: italic;">TRA 1</SPAN>Re-enable French Translation Table
+    
+    
+<H3>THOR XVI NOTES:</H3>
+
+<P>
+    The THOR XVI supports both the standard translation format
+    above and also an expanded Translation Table, which replaces
+    <SPAN style="font-style: italic;">Table1</SPAN> by a larger table in the following format:
+    
+<H3><SPAN style="font-style: italic;">
+    Table1<BR></SPAN></H3>
+
+<P>
+    The format of the new expanded Translation Table is:
+    <SPAN style="font-style: italic;">table1</SPAN>$4AFB0001Distinguishes the new table from the old
+    one.
+    Word Offset of <SPAN style="font-style: italic;">Transa</SPAN> from <SPAN style="font-style: italic;">table1</SPAN> (<SPAN style="font-style: italic;">Transa-table1</SPAN>)
+    WordOffset of <SPAN style="font-style: italic;">Transb</SPAN> from <SPAN style="font-style: italic;">table1</SPAN> (<SPAN style="font-style: italic;">Transb-table1</SPAN>)
+    LongwordOffset of <SPAN style="font-style: italic;">Pream</SPAN> from <SPAN style="font-style: italic;">table1</SPAN> (<SPAN style="font-style: italic;">Pream-table1</SPAN>)
+    LongwordOffset of <SPAN style="font-style: italic;">Post</SPAN> from <SPAN style="font-style: italic;">table1</SPAN> (<SPAN style="font-style: italic;">Post-table1</SPAN>)
+    <SPAN style="font-style: italic;">Transa</SPAN>256 Bytes(See below)
+    <SPAN style="font-style: italic;">Transb</SPAN>x Bytes(See below)
+    <SPAN style="font-style: italic;">Pream</SPAN>Word Length of preamble string
+    x BytesString to be sent when channel is opened
+    <SPAN style="font-style: italic;">Post</SPAN>WordLength of postamble string
+    x Bytes String to be sent when channel is closed
+    
+    The format of <SPAN style="font-style: italic;">Transa</SPAN> and <SPAN style="font-style: italic;">Transb</SPAN> is slightly different from the
+    standard translation table:
+    <SPAN style="font-style: italic;">Transa</SPAN>is a 256 byte list of one character conversions,
+    with an entry of zero if <SPAN style="font-style: italic;">Transb</SPAN> is to be used.
+    <SPAN style="font-style: italic;">Transb</SPAN>is however much more complex as each entry is
+    made up of the following (allowing a string of up
+    to 255 characters to be sent as a replacement for
+    the given character):
+    <SPAN style="font-style: italic;">Transb</SPAN>ByteCharacter to be replaced
+    ByteLength of a string to replace character
+    x BytesA string (up to 255 characters long) to
+    replace the given character.
+    
+    The last entry in this list must be 0,1,0 to allow nul
+    characters to be sent. <SPAN style="font-style: italic;">Transb</SPAN> is generally therefore in the
+    following format:
+    <SPAN style="font-style: italic;">Transb</SPAN>x Bytesch1,len1,'text1'
+    x Bytesch2,len2,'text2'
+    .
+    .
+    x Bytes chn,lenn,'textn'
+    x Bytes 0,1,0
+    
+    
+<H3>THOR Example:</H3>
+
+<P>
+    For example, following upon our earlier example, one entry
+    in <SPAN style="font-style: italic;">Transb</SPAN> would allow for trouble-free translation of the pound
+    sign. This could therefore be achieved by the program listed
+    below:
+    <SPAN style="font-style: italic;">100 table1=ALCHP(1024)
+    110 POKE_L table1,HEX('4AFB0001')
+    120 Transa=table1+16
+    130 Transb=Transa+256
+    140 FOR i=0 TO 255:POKE Transa+i,i
+    150 POKE_W table1+4,Transa-table1
+    160 POKE_W table1+6,Transb-table1
+    170 POKE_L table1+8,0
+    180 POKE_L table1+12,0
+    190 POKE Transa+CODE('�'),0
+    200 POKE Transb,CODE('�')
+    210 POKE Transb+1,7
+    220 POKE Transb+2,27: POKE Transb+3,CODE('R'):POKE Transb+4,3
+    230 POKE Transb+5,CODE('#')
+    240 POKE Transb+6,27: POKE Transb+7,CODE('R'):POKE Transb+8,0
+    250 POKE Transb+9,0:POKE Transb+10,1:POKE Transb+11,0
+    260 TRA table1,0<BR></SPAN>
+    The preamble and postamble entries allow you to set up the
+    printer when the channel is opened or closed. These can both
+    be up to 32767 characters long.
+    
+    From version 6.41, the TRA command has been enhanced to
+    make extra use of the various different character sets
+    supplied as standard on this QDOS implementation. The Russian,
+    Russisk and Greek language set-ups now use a table converting
+    $80 ... $BF to $60 ... $DF to allow use with down-loaded
+    character sets or Brother/HP Laser Jet + laser printers, where
+    codes $80 ... $9F are often treated as control codes.
+    
+    The default translate table (<SPAN style="font-style: italic;">TRA 1</SPAN>) now works reasonably
+    with ISO codes, allowing printers to be set in the appropriate
+    language range. This works okay with the French, Danish,
+    Spanish, Japanese, and German set-ups (except for the
+    paragraph character in German). On the Swedish language
+    set-up, only U/u umlaut does not work and the Italian language
+    set-up fails on e grave, u and a acute, due to the conflict
+    with French. A special extended translation table will always
+    be required for the Russisk, Russian and Greek language
+    set-ups, depending on the type of printer connected to the
+    system.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    Please refer to the Appendix concerning serial and parallel
+    device drivers.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="TRIM$" id="TRIM$"></A>TRIM$</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">TRIM$ (string$)<BR></SPAN> Location: <SPAN style="font-style: italic;">TRIM<BR></SPAN>
+    The function strips off all preceding and appended spaces
+    from a string and returns the result of this. Any string can
+    be used as a parameter.
+    
+    
+<H3>Examples:</H3>
+
+<P><SPAN style="font-style: italic;">TRIM$(" Hello World")="Hello World"
+    TRIM$("second try ")="second try"
+    TRIM$(" ")=""
+    TRIM$("")=""
+    TRIM$(CHR$(27))=CHR$(27)<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsL.html#LEN">LEN</A> returns the length of a string.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="TRINT" id="TRINT"></A>TRINT</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">TRINT (x)<BR></SPAN> Location: <SPAN style="font-style: italic;">TRIPRODRO<BR></SPAN>
+    The function <SPAN style="font-style: italic;">TRINT</SPAN> gives the integer part of a floating
+    point number, it differs from <SPAN style="font-style: italic;">INT</SPAN> for negative numbers only:
+    <SPAN style="font-style: italic;">INT</SPAN> always returns the next lowest integer, this is the same as
+    the integer part for positive numbers; however below zero <SPAN style="font-style: italic;">INT<BR></SPAN> always returns one less than <SPAN style="font-style: italic;">TRINT</SPAN>. For example, <SPAN style="font-style: italic;">INT(-PI) = -4</SPAN> and
+    <SPAN style="font-style: italic;">TRINT(-PI) = -3</SPAN>.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    The fact that <A style="font-style: italic;" href="Keywordsx.html#x%20=%20TRINT(x)%20+%20FRACT(x)">x = TRINT(x) + FRACT(x)</A> can be exploited to
+    substitute one of the two functions by the other, for example:
+    <A style="font-style: italic;" href="Keywords1.html#100%20DEFine%20FuNction%20MYTRINT%20(x)">100 DEFine FuNction MYTRINT (x)</A> <A href="Keywords1.html#110%20RETurn%20x%20-%20FRACT(x)">110 RETurn x - FRACT(x)</A> <A href="Keywords1.html#120%20END%20DEFine%20MYTRINT">120 END DEFine MYTRINT</A>
+    If you want to round numbers, refer to <A style="font-style: italic;" href="KeywordsD.html#DROUND">DROUND</A> and <A style="font-style: italic;" href="KeywordsP.html#PROUND">PROUND</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="TROFF" id="TROFF"></A>TROFF</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">TROFF<BR></SPAN> Location: <SPAN style="font-style: italic;">Minerva (TRACE)<BR></SPAN>
+    This command turns off the trace function and closes any
+    file associated with the trace output.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsT.html#TRON">TRON</A> and <A style="font-style: italic;" href="KeywordsS.html#SSTEP">SSTEP</A> turn the trace function on.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="TRON" id="TRON"></A>TRON</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">TRON</SPAN> [ {<SPAN style="font-style: italic;">#ch</SPAN> | <SPAN style="font-style: italic;">device_file</SPAN>}] [<SPAN style="font-style: italic;">;</SPAN> [<SPAN style="font-style: italic;">first</SPAN>] [<SPAN style="font-style: italic;">TO</SPAN> [<SPAN style="font-style: italic;">last</SPAN>]]] Location: <SPAN style="font-style: italic;">Minerva (TRACE)<BR></SPAN>
+    This command is very similar to <SPAN style="font-style: italic;">SSTEP</SPAN> except that it does
+    not wait for a key to be pressed before each statement is
+    executed.
+    
+    
+<H3>NOTE:</H3>
+
+<P>
+    Minerva's TRACE Toolkit is quite useful but is still just a
+    simple demonstration of an extension which has been internally
+    added to the SuperBASIC code.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsT.html#TROFF">TROFF</A> and <A style="font-style: italic;" href="KeywordsS.html#SSTEP">SSTEP</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="TRUE%" id="TRUE%"></A>TRUE%</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">TRUE%<BR></SPAN> Location: <SPAN style="font-style: italic;">TRUFA<BR></SPAN>
+    <SPAN style="font-style: italic;">TRUE%</SPAN> is the constant 1. It is used to write programs which
+    are more legible or which adopt habits from the PASCAL
+    language.
+    
+    
+<H3>Example:</H3>
+
+<P><SPAN style="font-style: italic;">
+    IF QuATARI=TRUE% THEN</SPAN> ...
+    
+    is the same as
+    <SPAN style="font-style: italic;">
+    IF QuATARI THEN</SPAN> ...
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsF.html#FALSE%">FALSE%</A> is 0.
+    
+    <A style="font-style: italic;" href="KeywordsS.html#SET">SET</A> can be used to create constants as resident keywords.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="TRUNCATE" id="TRUNCATE"></A>TRUNCATE</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">TRUNCATE #channel</SPAN> [<SPAN style="font-style: italic;">\position</SPAN>]
+    
+    or <SPAN style="font-style: italic;">TRUNCATE<BR></SPAN> Location: <SPAN style="font-style: italic;">Toolkit II, THOR XVI<BR></SPAN>
+    Every file has a certain length, measured in bytes, which
+    can be reduced with the command <SPAN style="font-style: italic;">TRUNCATE</SPAN>.
+    
+    If <SPAN style="font-style: italic;">TRUNCATE</SPAN> is used without the <SPAN style="font-style: italic;">position</SPAN> parameter, the end of
+    the file will be moved to the current file pointer position,
+    meaning that for most purposes, the last byte of the file is
+    the byte which was being pointed to.
+    
+    If you supply a second parameter, then the file pointer is
+    set to the given <SPAN style="font-style: italic;">position</SPAN> before the file is <SPAN style="font-style: italic;">TRUNCATE</SPAN>d. Note that
+    any data after the new 'end of file' will be lost.
+    
+    <SPAN style="font-style: italic;">TRUNCATE</SPAN> returns error -15 (invalid parameter) if the
+    specified channel is not actually linked to a file. A <SPAN style="font-style: italic;">position<BR></SPAN> greater than the actual file length, such as <SPAN style="font-style: italic;">position&gt;=FLEN(#channel)<BR></SPAN> has no effect.
+    
+    <SPAN style="font-style: italic;">TRUNCATE</SPAN> without any parameters uses #3 as the default
+    channel and is therefore the same as <SPAN style="font-style: italic;">TRUNCATE#3</SPAN>.
+    
+    
+<H3>NOTE:</H3>
+
+<P>
+    The syntax <SPAN style="font-style: italic;">TRUNCATE \position</SPAN> is not valid, error -17 (error in
+    expression) will be reported. You have to specify a channel
+    number if you intend to set the file pointer before truncating
+    the file.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsF.html#FLEN">FLEN</A> and <A style="font-style: italic;" href="KeywordsF.html#FILE_LEN">FILE_LEN</A> return the length of a file, <A style="font-style: italic;" href="KeywordsF.html#FPOS">FPOS</A> and <A style="font-style: italic;" href="KeywordsF.html#FILE_POS">FILE_POS</A> the current file pointer position, <A style="font-style: italic;" href="KeywordsF.html#FILE_PTRA">FILE_PTRA</A> and <A style="font-style: italic;" href="KeywordsF.html#FILE_PTRR">FILE_PTRR</A> move the
+    file pointer as do <A style="font-style: italic;" href="KeywordsG.html#GET">GET</A>, <A style="font-style: italic;" href="KeywordsP.html#PUT">PUT</A>, <A style="font-style: italic;" href="KeywordsB.html#BGET">BGET</A> and <A style="font-style: italic;" href="KeywordsB.html#BPUT">BPUT</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="TTALL" id="TTALL"></A>TTALL</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">TTALL (space</SPAN> [<SPAN style="font-style: italic;">,jobid</SPAN>] <SPAN style="font-style: italic;">)<BR></SPAN> Location: <SPAN style="font-style: italic;">QView Tiny Toolkit<BR></SPAN>
+    This function is the same as <SPAN style="font-style: italic;">ALCHP</SPAN> but memory allocated with
+    <SPAN style="font-style: italic;">TTALL</SPAN> cannot be cleared with <SPAN style="font-style: italic;">CLCHP</SPAN> or <SPAN style="font-style: italic;">RECHP</SPAN>: <SPAN style="font-style: italic;">TTREL</SPAN> must be used on
+    the return value of <SPAN style="font-style: italic;">TTALL</SPAN>; see <SPAN style="font-style: italic;">TTFINDM</SPAN> for an example.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsT.html#TTREL">TTREL</A>
+    See also <A style="font-style: italic;" href="KeywordsR.html#RESERVE">RESERVE</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="TTEDELETE" id="TTEDELETE"></A>TTEDELETE</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">TTEDELETE (file$)<BR></SPAN> Location: <SPAN style="font-style: italic;">QView Tiny Toolkit<BR></SPAN>
+    This is a function analagous to the command <SPAN style="font-style: italic;">DELETE</SPAN> - it will
+    return the QDOS error code. The default device is not
+    supported, ie. the file name must be specified absolutely.
+    
+    
+<H3>NOTE:</H3>
+
+<P>
+    In contrast to <SPAN style="font-style: italic;">DELETE</SPAN>, <SPAN style="font-style: italic;">TTEDELETE</SPAN> will return the value -7 if the
+    file did not exist.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsD.html#DELETE">DELETE</A> of course.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="TTEFP" id="TTEFP"></A>TTEFP</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">TTEFP (floatvar, floatstr$)<BR></SPAN> Location: <SPAN style="font-style: italic;">QView Tiny Toolkit<BR></SPAN>
+    This function tries to convert the string given as the
+    second parameter into a floating point number and assign this
+    value to the floating point variable given as the first
+    argument.
+    
+    There is no difference to the assignment:
+    
+    <SPAN style="font-style: italic;">floatvar = floatstr$<BR></SPAN>
+    except where an error occurs, ie. if <SPAN style="font-style: italic;">floatstr$</SPAN> cannot be
+    converted to a float. Whereas the assignment above will break
+    with an error, <SPAN style="font-style: italic;">TTEFP</SPAN> will allow you to track that down by
+    checking its return; the number returned by <SPAN style="font-style: italic;">TTEFP</SPAN> is the QDOS
+    error code (or 0 if the assignment was successful).
+    
+    
+<H3>Example:</H3>
+
+<P>
+    A piece of code which asks for the age of the user would
+    look similar to this:
+    <SPAN style="font-style: italic;">100 CLS
+    110 REPeat question
+    120 INPUT "How old are you?"!age$
+    130 ec = TTEFP(age, age$)
+    140 SELect ON ec
+    150 =0: IF age &lt; 13 OR age &gt; 100 THEN
+    160 PRINT "You're surely kidding!!"
+    170 ELSE EXIT question
+    180 END IF
+    190 =-17: PRINT "Digits, not letters, ok?"
+    200 =-18: PRINT "Reasonable numbers, please."
+    210 =REMAINDER : PRINT "What's this about?"
+    220 END SELect
+    230 END REPeat question
+    240 PRINT "So you are"!age!"years old... :-)"<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsC.html#CHECK%">CHECK%</A>, <A style="font-style: italic;" href="KeywordsC.html#CHECKF">CHECKF</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="TTEOPEN" id="TTEOPEN"></A>TTEOPEN</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">TTEOPEN (#channel</SPAN> [<SPAN style="font-style: italic;">,openmode</SPAN>]<SPAN style="font-style: italic;">, device$)<BR></SPAN> Location: <SPAN style="font-style: italic;">QView Tiny Toolkit<BR></SPAN>
+    The <SPAN style="font-style: italic;">TTEOPEN</SPAN> function opens the specified <SPAN style="font-style: italic;">#channel</SPAN> to any device
+    given as a string.
+    
+    The type of open is optional and ranges from 0 to 4 - the
+    meaning is the same as for Minerva's extended <SPAN style="font-style: italic;">OPEN</SPAN> or <SPAN style="font-style: italic;">FILE_OPEN</SPAN>.
+    
+    If <SPAN style="font-style: italic;">TTEOPEN</SPAN> is called from the interpreter (Multiple BASICs
+    included) then <SPAN style="font-style: italic;">channel</SPAN> must either be an existing channel number
+    (which would be then closed by <SPAN style="font-style: italic;">TTEOPEN</SPAN> prior to being reopened)
+    or lower than the highest channel number currently used:
+    <SPAN style="font-style: italic;">TTEOPEN</SPAN> will break with 'bad parameter' if that is not the case.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsO.html#OPEN">OPEN</A>, <A style="font-style: italic;" href="KeywordsF.html#FILE_OPEN">FILE_OPEN</A>, <A style="font-style: italic;" href="KeywordsF.html#FOP_">FOP_</A>...
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="TTET3" id="TTET3"></A>TTET3</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">TTET3 (</SPAN> [<SPAN style="font-style: italic;">#ch,</SPAN>] [<SPAN style="font-style: italic;">timeout%,</SPAN>] <SPAN style="font-style: italic;">trapno%, bufadr)<BR></SPAN> Location: <SPAN style="font-style: italic;">QView Tiny Toolkit<BR></SPAN>
+    This is a really extraordinary function because it allows
+    you to call the TRAP #3 operating system calls which handle
+    screen devices, so you would not theoretically need many other
+    commands other than this one to manipulate windows, if the use
+    of <SPAN style="font-style: italic;">TTET3</SPAN> were not complicated by the nature of its design.
+    
+    The function <SPAN style="font-style: italic;">TTET3</SPAN> should only be used by experienced users
+    (except for some fool-proof usages shown in the examples), so
+    do not worry if you do not understand the following...
+    although we have tried to keep it simple:
+    
+    Let's first turn to the syntax: the channel <SPAN style="font-style: italic;">#ch</SPAN> (default #1)
+    must refer to a window (con_ or scr_).
+    
+    The <SPAN style="font-style: italic;">timeout</SPAN> for the machine code call trap is optional, the
+    default is -1 (that means the operating system will try
+    indefinitely to execute the trap) which is fine for most
+    purposes.
+    
+    <SPAN style="font-style: italic;">trapno%</SPAN> is a small positive integer that identifies the trap.
+    
+    <SPAN style="font-style: italic;">bufadr</SPAN> must point to a piece of memory at least 16 bytes
+    long. Since this toolkit provides its own buffer starting at
+    <SPAN style="font-style: italic;">TTV</SPAN>, it is recommended and safe to use this for <SPAN style="font-style: italic;">bufadr</SPAN>.
+    
+    The required 16 bytes buffer is used to communicate with
+    the processor, the registers D1, D2, A1 and A2 occupy four
+    bytes (one longword) each within the buffer - they are copied
+    to the processor when the trap is executed and after the trap
+    has finished will hold any return values and be copied back
+    into the buffer so that they may be read with the lines:
+    
+    <SPAN style="font-style: italic;">D1=PEEK_L(bufadr)
+    
+    D2=PEEK_L(bufadr+4)
+    
+    A1=PEEK_L(bufadr+8)
+    
+    A2=PEEK_L(bufadr+12)<BR></SPAN>
+    
+<H3>Example 1:</H3>
+
+<P>
+    Superfluous with <SPAN style="font-style: italic;">CLS</SPAN> but <SPAN style="font-style: italic;">x=TTET3(#2,32,TTV)</SPAN> does a <SPAN style="font-style: italic;">CLS#2</SPAN>.
+    
+    
+<H3>Example 2:</H3>
+
+<P>
+    The procedure <SPAN style="font-style: italic;">SD_ENQUIRE</SPAN> reads the window size and cursor
+    position, the values are placed in the passed integer
+    variables. You can test if anything went wrong (eg. <SPAN style="font-style: italic;">#ch</SPAN> does
+    not refer to a window) by checking if any of the values
+    returned are negative.
+    
+    The parameter <SPAN style="font-style: italic;">what%</SPAN> determines the units, <SPAN style="font-style: italic;">what%=0</SPAN> will have the
+    effect that <SPAN style="font-style: italic;">wsx%</SPAN> and <SPAN style="font-style: italic;">wsy%</SPAN> are the window width and height in
+    pixels and that (<SPAN style="font-style: italic;">cpx%, cpy%</SPAN>) is the position of the text cursor in
+    screen pixels; <SPAN style="font-style: italic;">what%&lt;&gt;0</SPAN> will give the same information but in
+    characters.
+    <SPAN style="font-style: italic;">100 FOR i = 0, 1
+    110 SD_ENQUIRE #2, i, a%, b%, c%, d%
+    120 PRINT a%, b%, c%, d%
+    130 END FOR i
+    140 :
+    150 DEFine PROCedure SD_ENQUIRE (ch, what%, wsx%, wsy%, cpx%, cpy%)
+    160 LOCal trapno%
+    170 POKE_L TTV+8, TTV+16
+    180 trapno% = 10 + NOT(NOT what%)
+    190 IF TTET3(#ch, 100, trapno%, TTV) THEN
+    200 wsx% = -1: wsy% = -1: cpx% = -1: cpy% = -1
+    210 RETurn
+    220 END IF
+    230 wsx% = PEEK_W(TTV+16): wsy% = PEEK_W(TTV+18)
+    240 cpx% = PEEK_W(TTV+20): cpy% = PEEK_W(TTV+22)
+    250 END DEFine SD_ENQUIRE<BR></SPAN>
+    On Minerva, you can write <SPAN style="font-style: italic;">NOT (NOT what%)</SPAN> without brackets.
+    
+    <SPAN style="font-style: italic;">SD_ENQUIRE</SPAN> is absolutely clean, there is no danger at all that
+    the system might crash, that it does not run on all QDOS
+    machines or anything like that. - All other machine code traps
+    available through <SPAN style="font-style: italic;">TTET3</SPAN> are covered by commands in this manual,
+    but <SPAN style="font-style: italic;">TTET3</SPAN> can be used to avoid the need to link in a Toolkit.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    Please refer to system documentation for details on each
+    trap!
+    
+    See also <A style="font-style: italic;" href="KeywordsI.html#IO_TRAP">IO_TRAP</A>, <A style="font-style: italic;" href="KeywordsQ.html#QTRAP">QTRAP</A> and <A style="font-style: italic;" href="KeywordsM.html#MTRAP">MTRAP</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="TTEX" id="TTEX"></A>TTEX</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">TTEX file$</SPAN> [<SPAN style="font-style: italic;">;cmd$</SPAN>] Location: <SPAN style="font-style: italic;">QView Tiny Toolkit<BR></SPAN>
+    This command is analogous to <SPAN style="font-style: italic;">EXEC</SPAN> - like <SPAN style="font-style: italic;">EX</SPAN>, a command string
+    can be passed to the program. However, unlike <SPAN style="font-style: italic;">EX</SPAN>, default
+    devices, pipes and channel passing are not supported.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsT.html#TTEX_W">TTEX_W</A> and <A style="font-style: italic;" href="KeywordsE.html#EX">EX</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="TTEX_W" id="TTEX_W"></A>TTEX_W</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">TTEX_W file$</SPAN> [<SPAN style="font-style: italic;">;cmd$</SPAN>] Location: <SPAN style="font-style: italic;">QView Tiny Toolkit<BR></SPAN>
+    This bares the same relation to <SPAN style="font-style: italic;">EXEC_W</SPAN> and <SPAN style="font-style: italic;">EW</SPAN> as <SPAN style="font-style: italic;">TTEX</SPAN> does to
+    <SPAN style="font-style: italic;">EXEC</SPAN> and <SPAN style="font-style: italic;">EX</SPAN>.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsT.html#TTEX">TTEX</A> and <A style="font-style: italic;" href="KeywordsE.html#EW">EW</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="TTFINDM" id="TTFINDM"></A>TTFINDM</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">TTFINDM (addr, length, tosearch$)<BR></SPAN> Location: <SPAN style="font-style: italic;">QView Tiny Toolkit<BR></SPAN>
+    This function will search for a given string in memory, see
+    <SPAN style="font-style: italic;">SEARCH</SPAN>, <SPAN style="font-style: italic;">MSEARCH</SPAN> and <SPAN style="font-style: italic;">BLOOK</SPAN>.
+    
+    Memory is scanned from address <SPAN style="font-style: italic;">addr</SPAN> for <SPAN style="font-style: italic;">length</SPAN> bytes onwards.
+    The search is case-sensitive.
+    
+    <SPAN style="font-style: italic;">TTFINDM</SPAN> returns zero if the string was not found or the
+    positive relative address plus one where the string first
+    occurs.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    Old or badly written programs and Toolkits require the
+    screen located at address $20000 and the System Variables at
+    $28000, this causes great problems an Minerva in Dual Screen
+    Mode and other advanced systems as well. Our demonstration for
+    <SPAN style="font-style: italic;">TTFINDM</SPAN> loads a file into memory and scans it for the occurrence
+    of the two mentioned numbers in their internal format. This
+    method of checking code is pretty reliable for hand-written
+    machine code. The problem$ values have been computed with
+    <SPAN style="font-style: italic;">MKL$(HEX("20000"))</SPAN> and <SPAN style="font-style: italic;">MKL$(HEX("28000"))</SPAN>.
+    <SPAN style="font-style: italic;">100 file$ = "flp2_tool_shape_cde"
+    110 length = FLEN(\file$)
+    120 DIM problem$(2,4)
+    130 problem$(1) = CHR$(0)&amp;CHR$(2)&amp;CHR$(0)&amp;CHR$(0)
+    140 problem$(2) = CHR$(0)&amp;CHR$(2)&amp;CHR$(128)&amp;CHR$(0)
+    150 :
+    160 PAPER 3: CLS: INK 7
+    170 PRINT "Allocating memory...";
+    180 adr = TTALL(length): PRINT "done"
+    190 IF adr = 0 THEN PRINT "No memory.": STOP
+    200 PRINT "Loading"!file$;"...";
+    210 LBYTES file$ TO adr: PRINT "done"
+    220 FOR test = 1 TO DIMN(problem$)
+    230 PRINT "Test"!test;"...";
+    240 found = TTFINDM(adr, length, problem$(test))
+    250 IF found THEN
+    260 PRINT "failed"
+    270 DUMPIT adr+found-1, 4, 20
+    280 ELSE PRINT "ok"
+    290 END IF
+    300 END FOR test
+    310 PRINT "Releasing memory...";
+    320 TTREL adr: PRINT "done"
+    330 :
+    340 DEFine PROCedure DUMPIT (adr, length%, surr%)
+    350 INK 4: PRINT TTPEEK$(adr-surr%, surr%);
+    360 INK 7: PRINT TTPEEK$(adr, length%);
+    370 INK 4: PRINT TTPEEK$(adr+length%, surr%): INK 7
+    380 END DEFine DUMPIT<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsS.html#SEARCH">SEARCH</A>, <A style="font-style: italic;" href="KeywordsB.html#BLOOK">BLOOK</A>, <A style="font-style: italic;" href="KeywordsM.html#MSEARCH">MSEARCH</A> are all similar.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="TTINC" id="TTINC"></A>TTINC</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">TTINC #ch, xsp%, ysp%<BR></SPAN> Location: <SPAN style="font-style: italic;">QViewTiny Toolkit<BR></SPAN>
+    This command is identical to <SPAN style="font-style: italic;">CHAR_INC</SPAN>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="TTME%" id="TTME%"></A>TTME%</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">TTME%<BR></SPAN> Location: <SPAN style="font-style: italic;">QView Tiny Toolkit<BR></SPAN>
+    This function gives the job number of the current job.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsJ.html#JOBS">JOBS</A> for information about <A style="font-style: italic;" href="KeywordsT.html#TTME%">TTME%</A>'s return.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="TTMODE%" id="TTMODE%"></A>TTMODE%</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">TTMODE%<BR></SPAN> Location: <SPAN style="font-style: italic;">QView Tiny Toolkit<BR></SPAN>
+    This is the same as <SPAN style="font-style: italic;">RMODE</SPAN>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="TTPEEK$" id="TTPEEK$"></A>TTPEEK$</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">TTPEEK$ (adr, length)<BR></SPAN> Location: <SPAN style="font-style: italic;">QView Tiny Toolkit<BR></SPAN>
+    See <SPAN style="font-style: italic;">PEEK$</SPAN>.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">PRINT TTPEEK$(TTV-2,2)</SPAN> always shows the letters QV.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="TTPOKEM" id="TTPOKEM"></A>TTPOKEM</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">TTPOKEM adr2</SPAN> { <SPAN style="font-style: italic;">,</SPAN> | <SPAN style="font-style: italic;">!</SPAN> | <SPAN style="font-style: italic;">TO</SPAN> } <SPAN style="font-style: italic;">adr1, bytes<BR></SPAN> Location: <SPAN style="font-style: italic;">QView Tiny Toolkit<BR></SPAN>
+    The command <SPAN style="font-style: italic;">TTPOKEM</SPAN> moves any amount of bytes in memory from
+    address <SPAN style="font-style: italic;">adr1</SPAN> to <SPAN style="font-style: italic;">adr2</SPAN>. The choice of the separator only makes a
+    difference if the source memory area overlaps with the
+    destination.
+    
+    The separator has the following effects:
+    <SPAN style="font-style: italic;">,</SPAN> the move is non-destructive, meaning that the memory
+    area from <SPAN style="font-style: italic;">adr1</SPAN> has been copied to <SPAN style="font-style: italic;">adr2</SPAN> so that it
+    is identical to the area which was previously located
+    at <SPAN style="font-style: italic;">adr1</SPAN> (the area at <SPAN style="font-style: italic;">adr1</SPAN> has changed of course if the
+    areas overlap).
+    <SPAN style="font-style: italic;">!</SPAN>The move is destructive and the overlapping parts of
+    <SPAN style="font-style: italic;">or TO</SPAN>both blocks will be messed up, that is because the
+    first few bytes stored at <SPAN style="font-style: italic;">adr1</SPAN> will be stored at <SPAN style="font-style: italic;">adr2<BR></SPAN> onwards, thus overwriting the last few bytes of <SPAN style="font-style: italic;">adr1<BR></SPAN> which should have been copied.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsB.html#BMOVE">BMOVE</A>, <A style="font-style: italic;" href="KeywordsC.html#COPY_B">COPY_B</A>, <A style="font-style: italic;" href="KeywordsC.html#COPY_L">COPY_L</A>, <A style="font-style: italic;" href="KeywordsC.html#COPY_W">COPY_W</A>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="TTPOKE$" id="TTPOKE$"></A>TTPOKE$</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">TTPOKE$ adr, string$<BR></SPAN> Location: <SPAN style="font-style: italic;">QView Tiny Toolkit<BR></SPAN>
+    This is the same as <SPAN style="font-style: italic;">POKE$</SPAN>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="TTREL" id="TTREL"></A>TTREL</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">TTREL adr<BR></SPAN> Location: <SPAN style="font-style: italic;">QView Tiny Toolkit<BR></SPAN>
+    This is similar to the <SPAN style="font-style: italic;">RECHP</SPAN> command, except that it will
+    only remove areas set aside with <SPAN style="font-style: italic;">TTALL</SPAN>.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsT.html#TTALL">TTALL</A>. See also <A style="font-style: italic;" href="KeywordsD.html#DISCARD">DISCARD</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="TTRENAME" id="TTRENAME"></A>TTRENAME</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">TTRENAME file1$, file2$<BR></SPAN> Location: <SPAN style="font-style: italic;">QView Tiny Toolkit<BR></SPAN>
+    This command is similar to <SPAN style="font-style: italic;">RENAME</SPAN> except that no default
+    devices are supported.
+    
+    Toolkit II (which apart from providing the SuperBASIC
+    keyword <SPAN style="font-style: italic;">RENAME</SPAN> adds an operating system extension to rename
+    files) is not required.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="TTSUS" id="TTSUS"></A>TTSUS</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">TTSUS frames<BR></SPAN> Location: <SPAN style="font-style: italic;">QView Tiny Toolkit<BR></SPAN>
+    The command <SPAN style="font-style: italic;">TTSUS</SPAN> will cause the current job to be suspended
+    for <SPAN style="font-style: italic;">frames/50</SPAN> seconds (<SPAN style="font-style: italic;">frames/60</SPAN> on some QLs), ie. the job will wait
+    at the <SPAN style="font-style: italic;">TTSUS</SPAN> command for the specified time and then continue
+    with the next command.
+    
+    It is suggested that <SPAN style="font-style: italic;">TTSUS</SPAN> is used as an alternative to the
+    <SPAN style="font-style: italic;">PAUSE</SPAN> command (same parameter) because it does not require an
+    open channel - it's a good idea, but please take into account
+    that pressing a key will not break the pause generated by
+    <SPAN style="font-style: italic;">TTSUS</SPAN>.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsS.html#SJOB">SJOB</A>, <A style="font-style: italic;" href="KeywordsP.html#PRIO">PRIO</A>, <A style="font-style: italic;" href="KeywordsP.html#PAUSE">PAUSE</A>
+    
+<H3></H3>
+
+<P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="TTV" id="TTV"></A>TTV</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">TTV</SPAN> [ <SPAN style="font-style: italic;">( x1</SPAN> <SUP>*</SUP>[<SPAN style="font-style: italic;">,x</SPAN><SUP>i</SUP>]<SUP>*</SUP> <SPAN style="font-style: italic;">)</SPAN>] Location: <SPAN style="font-style: italic;">QView Tiny Toolkit<BR></SPAN>
+    The function <SPAN style="font-style: italic;">TTV</SPAN> returns the address of the QView Toolkit
+    workspace, which is a piece of shared memory of 176 bytes
+    which can be accessed from any job. The idea is that this
+    workspace is used for communication between different parts of
+    the same program.
+    
+    By default, these bytes are set to zero, so that you can
+    freely <SPAN style="font-style: italic;">POKE</SPAN> to them without the danger of crashes. Note that the
+    value of <SPAN style="font-style: italic;">TTV</SPAN> is the same for all jobs.
+    
+    The parameters are (more or less) just for fun, their sum
+    is added to the start address of the QView Toolkit workspace
+    before that address is returned. So:
+    
+    <SPAN style="font-style: italic;">TTV = TTV(0)
+    
+    TTV(10) = TTV+10 = TTV(3,3,3,1)<BR></SPAN>
+    
+<H3>Example:</H3>
+
+<P>
+    The workspace is preceded by 64 bytes for QView Toolkit's
+    internal use. There is however one value that is interesting
+    to look at: <SPAN style="font-style: italic;">PEEK_L(TTV-64)</SPAN> is a very precise counter, it increases
+    once every frame. This is ideal for checking program speed
+    without the need for long lasting benchmarks, the following
+    programs demonstrates the difference in speed between some
+    different types of <SPAN style="font-style: italic;">FOR</SPAN> constructions:
+    <SPAN style="font-style: italic;">100 TIMER_START
+    110 FOR i = 1 TO 10000
+    120 REMark
+    130 END FOR i
+    140 TIMER_STOP
+    150 :
+    160 TIMER_START
+    170 FOR i = 1 TO 10000: REMark
+    180 TIMER_STOP
+    190 :
+    200 TIMER_START
+    210 FOR i% = 1 TO 10000: REMark
+    220 TIMER_STOP
+    230 :
+    240 :
+    250 DEFine PROCedure TIMER_START
+    260 POKE_L TTV(-64),0
+    270 END DEFine TIMER_START
+    280 :
+    290 DEFine PROCedure TIMER_STOP
+    300 LOCal count
+    310 count = PEEK_L(TTV-64)
+    320 PRINT INT (count/5) /10;"s"
+    330 END DEFine TIMER_STOP<BR></SPAN>
+    
+<H3></H3>
+
+<P>
+    The third test (lines 200 to 220) works on Minerva and SMS
+    only, and is the fatest: 78% faster than the first test! Some
+    QLs (mainly those in the UK using TV's) will need to amend
+    line 320 to read:
+    <SPAN style="font-style: italic;">320 PRINT INT (count/6 )/10;'s'<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsT.html#T_ON">T_ON</A>, <A style="font-style: italic;" href="KeywordsT.html#T_OFF">T_OFF</A>, <A style="font-style: italic;" href="KeywordsT.html#T_START">T_START</A> and <A style="font-style: italic;" href="KeywordsT.html#T_STOP">T_STOP</A>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="TT$" id="TT$"></A>TT$</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">TT$<BR></SPAN> Location: <SPAN style="font-style: italic;">QView Tiny Toolkit<BR></SPAN>
+    This function returns the version ID of the QView Tiny
+    Toolkit, eg. QVTK1.3
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="TURBO_diags" id="TURBO_diags"></A>TURBO_diags</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">TURBO_diags "</SPAN> [ <SPAN style="font-style: italic;">d</SPAN> | <SPAN style="font-style: italic;">i</SPAN> | <SPAN style="font-style: italic;">o</SPAN> ] <SPAN style="font-style: italic;">"<BR></SPAN> Location: <SPAN style="font-style: italic;">Turbo Toolkit v3.00+<BR></SPAN>
+    This is a directive for the TURBO compiler and should be
+    located at the start of your program before any active program
+    lines.
+    
+    A program can be compiled with line numbers included, which
+    increases the amount of memory and dataspace required by a
+    program, but does mean that if an error occurs, the line
+    number will be displayed. If you do not include line numbers,
+    any errors will report 'at line 0' and <SPAN style="font-style: italic;">ERLIN%</SPAN> will return 0.
+    
+    This directive accepts a single character string which
+    should be one of the following values:
+    
+    <SPAN style="font-style: italic;">d</SPAN>Display line numbers during compilation process
+    but do not include them in final code.
+    
+    <SPAN style="font-style: italic;">i</SPAN>Include line numbers in final code.
+    
+    <SPAN style="font-style: italic;">o</SPAN>Omit line numbers all together.
+    
+    As with other compiler directives, this value can be
+    changed by configuring the parser_task program or by entering
+    a different value on the Parser's front panel.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">5 TURBO_diags "i"<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsT.html#TURBO_F">TURBO_F</A>,<A style="font-style: italic;" href="KeywordsT.html#TURBO_locstr">TURBO_locstr</A>, <A style="font-style: italic;" href="KeywordsT.html#TURBO_model">TURBO_model</A>, <A style="font-style: italic;" href="KeywordsT.html#TURBO_objdat">TURBO_objdat</A>, <A style="font-style: italic;" href="KeywordsT.html#TURBO_objdat">TURBO_objdat</A>,<A style="font-style: italic;" href="KeywordsT.html#TURBO_objfil">TURBO_objfil</A>,
+    <A style="font-style: italic;" href="KeywordsT.html#TURBO_optim">TURBO_optim</A>,<A style="font-style: italic;" href="KeywordsT.html#TURBO_repfil">TURBO_repfil</A>, <A style="font-style: italic;" href="KeywordsT.html#TURBO_struct">TURBO_struct</A>, <A style="font-style: italic;" href="KeywordsT.html#TURBO_taskn">TURBO_taskn</A> and <A style="font-style: italic;" href="KeywordsT.html#TURBO_window">TURBO_window</A> for other
+    directives
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="TURBO_F" id="TURBO_F"></A>TURBO_F</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">TURBO_F<BR></SPAN> Location: <SPAN style="font-style: italic;">Turbo Toolkit v3.00+<BR></SPAN>
+    This directive forms part of the <SPAN style="font-style: italic;">EXTERNAL</SPAN> and <SPAN style="font-style: italic;">GLOBAL</SPAN> Turbo
+    directives and is used to specify the names of FuNctions
+    contained in another compiled module for a program where that
+    program is loaded as several linked modules (using <SPAN style="font-style: italic;">LINK_LOAD</SPAN>)
+    rather than one huge program.
+    
+    
+<H3>NOTE:</H3>
+
+<P>
+    Before v3.00, this directive was called <SPAN style="font-style: italic;">FUNCTION</SPAN> which caused
+    problems with installing Turbo Toolkit under Minerva and SMS.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsT.html#TURBO_locstr">TURBO_locstr</A> and <A style="font-style: italic;" href="KeywordsT.html#TURBO_P">TURBO_P</A> for other directives
+    
+    Refer to <A style="font-style: italic;" href="KeywordsE.html#EXTERNAL">EXTERNAL</A> for more information.
+    
+    Use <A style="font-style: italic;" href="KeywordsT.html#TK_VER$">TK_VER$</A> to check on the version of TURBO toolkit.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="TURBO_locstr" id="TURBO_locstr"></A>TURBO_locstr</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">TURBO_locstr "</SPAN> [ <SPAN style="font-style: italic;">i</SPAN> | <SPAN style="font-style: italic;">r</SPAN> | <SPAN style="font-style: italic;">c</SPAN> ] <SPAN style="font-style: italic;">"<BR></SPAN> Location: <SPAN style="font-style: italic;">Turbo Toolkit v3.00+<BR></SPAN>
+    This is a directive for the TURBO compiler and should be
+    located at the start of your program before any active program
+    lines.
+    
+    All strings used within a compiled program should be
+    dimensioned so that the compiler knows the maximum amount of
+    memory which needs to be set aside to store a string. Any
+    attempt to assign a longer value to the string than that set
+    with a <SPAN style="font-style: italic;">DIM</SPAN> or <SPAN style="font-style: italic;">LOCal</SPAN> command will be cut to the appropriate
+    length.
+    
+    If TURBO has to automatically <SPAN style="font-style: italic;">DIM</SPAN>ension a string, it assumes
+    a length of 100 characters (unless configured otherwise).
+    
+    The <SPAN style="font-style: italic;">TURBO_locstr</SPAN> directive relates to the way in which TURBO
+    should deal with <SPAN style="font-style: italic;">LOCal</SPAN> strings or string parameters. It accepts
+    a single character string which should be one of the following
+    values:
+    
+    <SPAN style="font-style: italic;">i</SPAN>Ignore any strings which are used in the program
+    but not dimensioned. TURBO assumes that you know
+    what you are doing with them.
+    
+    <SPAN style="font-style: italic;">r</SPAN>Report any undimensioned strings - do nothing
+    with them.
+    
+    <SPAN style="font-style: italic;">c</SPAN>Create a <SPAN style="font-style: italic;">DIM</SPAN> statement for any undimensioned
+    strings, making them global sizes for the whole
+    program.
+    
+    As with other compiler directives, this value can be
+    changed by configuring the parser_task program or by entering
+    a different value on the Parser's front panel.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">5 TURBO_locstr "c"<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsT.html#TURBO_diags">TURBO_diags</A>, <A style="font-style: italic;" href="KeywordsT.html#TURBO_model">TURBO_model</A>, <A style="font-style: italic;" href="KeywordsT.html#TURBO_objdat">TURBO_objdat</A>,<A style="font-style: italic;" href="KeywordsT.html#TURBO_objfil">TURBO_objfil</A>, <A style="font-style: italic;" href="KeywordsT.html#TURBO_optim">TURBO_optim</A>,
+    <A style="font-style: italic;" href="KeywordsT.html#TURBO_repfil">TURBO_repfil</A>, <A style="font-style: italic;" href="KeywordsT.html#TURBO_struct">TURBO_struct</A>, <A style="font-style: italic;" href="KeywordsT.html#TURBO_taskn">TURBO_taskn</A> and <A style="font-style: italic;" href="KeywordsT.html#TURBO_window">TURBO_window</A> for other directives
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="TURBO_model" id="TURBO_model"></A>TURBO_model</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">TURBO_model "</SPAN> [ <SPAN style="font-style: italic;">&lt;</SPAN> | <SPAN style="font-style: italic;">&gt;</SPAN> ] <SPAN style="font-style: italic;">"<BR></SPAN> Location: <SPAN style="font-style: italic;">Turbo Toolkit v3.00+<BR></SPAN>
+    This is a directive for the TURBO compiler and should be
+    located at the start of your program before any active program
+    lines.
+    
+    The TURBO compiler is able to generate code using either 16
+    bit addressing or 32 bit addressing. The former produces
+    more compact and slightly faster code than the latter, but
+    runs into problems if the compiled version of your program
+    (excluding dataspace) is larger than 64K. You should
+    therefore experiment with this setting - if your program is
+    too large to be compiled with 16 bit addressing, the TURBO
+    compiler will report an error during the code generation stage
+    to the effect that the program is 'too large for optimistion'.
+    
+    This does not overcome the problem with running TURBO
+    compiled programs on systems which have a lot of memory or
+    which do not have the system variables stored at $28000. To
+    cover these programs, it is necessary to run them through the
+    TurboPatch program supplied with later versions of the TURBO
+    toolkit.
+    
+    The <SPAN style="font-style: italic;">TURBO_model</SPAN> directive accepts a single character string
+    which should be one of the following values:
+    
+    <SPAN style="font-style: italic;">&lt;</SPAN>Generate code using 16-bit addressing (shown as
+    &lt;64K on screen).
+    
+    <SPAN style="font-style: italic;">&gt;</SPAN>Generate code using 32-bit addressing.
+    
+    As with other compiler directives, this value can be
+    changed by configuring the parser_task program or by entering
+    a different value on the Parser's front panel.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">5 TURBO_model "&lt;"<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsT.html#TURBO_diags">TURBO_diags</A>, <A style="font-style: italic;" href="KeywordsT.html#TURBO_locstr">TURBO_locstr</A>, <A style="font-style: italic;" href="KeywordsT.html#TURBO_objdat">TURBO_objdat</A>, <A style="font-style: italic;" href="KeywordsT.html#TURBO_objfil">TURBO_objfil</A>, <A style="font-style: italic;" href="KeywordsT.html#TURBO_optim">TURBO_optim</A>,
+    <A style="font-style: italic;" href="KeywordsT.html#TURBO_repfil">TURBO_repfil</A>, <A style="font-style: italic;" href="KeywordsT.html#TURBO_struct">TURBO_struct</A>, <A style="font-style: italic;" href="KeywordsT.html#TURBO_taskn">TURBO_taskn</A> and <A style="font-style: italic;" href="KeywordsT.html#TURBO_window">TURBO_window</A> for other directives
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="TURBO_objdat" id="TURBO_objdat"></A>TURBO_objdat</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">TURBO_objdat sizesize=0...850<BR></SPAN> Location: <SPAN style="font-style: italic;">Turbo Toolkit v3.00+<BR></SPAN>
+    This directive is exactly the same as <SPAN style="font-style: italic;">DATA_AREA</SPAN>.
+    
+    
+<H3>NOTE:</H3>
+
+<P>
+    This setting will override a previous <SPAN style="font-style: italic;">DATA_AREA</SPAN> directive in
+    the same program. It will also be overridden by a later
+    <SPAN style="font-style: italic;">DATA_AREA</SPAN> directive in the same program.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsT.html#TURBO_diags">TURBO_diags</A>, <A style="font-style: italic;" href="KeywordsT.html#TURBO_locstr">TURBO_locstr</A>, <A style="font-style: italic;" href="KeywordsT.html#TURBO_model">TURBO_model</A>, <A style="font-style: italic;" href="KeywordsT.html#TURBO_objfil">TURBO_objfil</A>, <A style="font-style: italic;" href="KeywordsT.html#TURBO_optim">TURBO_optim</A>,
+    <A style="font-style: italic;" href="KeywordsT.html#TURBO_repfil">TURBO_repfil</A>, <A style="font-style: italic;" href="KeywordsT.html#TURBO_struct">TURBO_struct</A>, <A style="font-style: italic;" href="KeywordsT.html#TURBO_taskn">TURBO_taskn</A> and <A style="font-style: italic;" href="KeywordsT.html#TURBO_window">TURBO_window</A> for other directives
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="TURBO_objfil" id="TURBO_objfil"></A>TURBO_objfil</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">TURBO_objfil filename$<BR></SPAN> Location: <SPAN style="font-style: italic;">Turbo Toolkit v3.00+<BR></SPAN>
+    This is a directive for the TURBO compiler and should be
+    located at the start of your program before any active program
+    lines.
+    
+    This directive expects you to specify a string which will
+    form the filename of the compiled program produced by TURBO.
+    
+    The full filename (including device) should be specified in
+    quote marks.
+    
+    As with other compiler directives, this value can be
+    changed by configuring the parser_task program or by entering
+    a different value on the Parser's front panel.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">5 TURBO_objfil "ram1_CT_exe"<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsT.html#TURBO_diags">TURBO_diags</A>, <A style="font-style: italic;" href="KeywordsT.html#TURBO_locstr">TURBO_locstr</A>, <A style="font-style: italic;" href="KeywordsT.html#TURBO_model">TURBO_model</A>, <A style="font-style: italic;" href="KeywordsT.html#TURBO_objdat">TURBO_objdat</A>, <A style="font-style: italic;" href="KeywordsT.html#TURBO_optim">TURBO_optim</A>,
+    <A style="font-style: italic;" href="KeywordsT.html#TURBO_repfil">TURBO_repfil</A>, <A style="font-style: italic;" href="KeywordsT.html#TURBO_struct">TURBO_struct</A>, <A style="font-style: italic;" href="KeywordsT.html#TURBO_taskn">TURBO_taskn</A> and <A style="font-style: italic;" href="KeywordsT.html#TURBO_window">TURBO_window</A> for other directives
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="TURBO_optim" id="TURBO_optim"></A>TURBO_optim</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">TURBO_optim "</SPAN> [ <SPAN style="font-style: italic;">b</SPAN> | <SPAN style="font-style: italic;">r</SPAN> | <SPAN style="font-style: italic;">f</SPAN> ] <SPAN style="font-style: italic;">"<BR></SPAN> Location: <SPAN style="font-style: italic;">Turbo Toolkit v3.00+<BR></SPAN>
+    This is a directive for the TURBO compiler and should be
+    located at the start of your program before any active program
+    lines.
+    
+    The way in which TURBO compiles a program can be optimised
+    using a trade off between speed and code size.
+    
+    The <SPAN style="font-style: italic;">TURBO_optim</SPAN> directive allows you to dictate how the
+    compiled program is to be optimised and accepts a single
+    character string which should be one of the following values:
+    
+    <SPAN style="font-style: italic;">b</SPAN>Generate BRIEF code, which ensures that the
+    program uses as little memory as possible. This
+    generates the slowest programs.
+    
+    <SPAN style="font-style: italic;">r</SPAN>Optimise code according to <SPAN style="font-style: italic;">REMark</SPAN>s in the program.
+    Normally this will generate BRIEF code unless you
+    include a line containing <SPAN style="font-style: italic;">REMark +</SPAN> in your program
+    which tells TURBO to switch to FAST code. The
+    code will then be optimised for speed until a
+    line containing <SPAN style="font-style: italic;">REMark -</SPAN> is encountered.
+    
+    <SPAN style="font-style: italic;">f</SPAN>Generate FAST code, which ensures that the
+    program runs as quickly as possible. This may
+    however cause the program to need a lot more
+    memory.
+    
+    As with other compiler directives, this value can be
+    changed by configuring the parser_task program or by entering
+    a different value on the Parser's front panel.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">5 TURBO_optim "b"<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsT.html#TURBO_diags">TURBO_diags</A>, <A style="font-style: italic;" href="KeywordsT.html#TURBO_locstr">TURBO_locstr</A>, <A style="font-style: italic;" href="KeywordsT.html#TURBO_model">TURBO_model</A>, <A style="font-style: italic;" href="KeywordsT.html#TURBO_objdat">TURBO_objdat</A>, <A style="font-style: italic;" href="KeywordsT.html#TURBO_objfil">TURBO_objfil</A>,
+    <A style="font-style: italic;" href="KeywordsT.html#TURBO_repfil">TURBO_repfil</A>, <A style="font-style: italic;" href="KeywordsT.html#TURBO_struct">TURBO_struct</A>, <A style="font-style: italic;" href="KeywordsT.html#TURBO_taskn">TURBO_taskn</A> and <A style="font-style: italic;" href="KeywordsT.html#TURBO_window">TURBO_window</A> for other directives
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="TURBO_P" id="TURBO_P"></A>TURBO_P</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">TURBO_P<BR></SPAN> Location: <SPAN style="font-style: italic;">Turbo Toolkit v3.00+<BR></SPAN>
+    This directive forms part of the <SPAN style="font-style: italic;">EXTERNAL</SPAN> and <SPAN style="font-style: italic;">GLOBAL</SPAN> Turbo
+    directives and is used to specify the names of <SPAN style="font-style: italic;">PROCedure</SPAN>s
+    contained in another compiled module for a program where that
+    program is loaded as several linked modules (using <SPAN style="font-style: italic;">LINK_LOAD</SPAN>)
+    rather than one huge program.
+    
+    
+<H3>NOTE:</H3>
+
+<P>
+    Before version 3.00 of the Turbo Toolkit, this directive
+    was called <SPAN style="font-style: italic;">PROCEDURE</SPAN> which would cause problems with installing
+    the Turbo Toolkit under Minerva and SMS.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsT.html#TURBO_locstr">TURBO_locstr</A> and <A style="font-style: italic;" href="KeywordsT.html#TURBO_F">TURBO_F</A> for other directives
+    
+    Refer to <A style="font-style: italic;" href="KeywordsE.html#EXTERNAL">EXTERNAL</A> for more information.
+    
+    Use <A style="font-style: italic;" href="KeywordsT.html#TK_VER$">TK_VER$</A> to check on the version of TURBO toolkit.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="TURBO_repfil" id="TURBO_repfil"></A>TURBO_repfil</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">TURBO_repfil filename$<BR></SPAN> Location: <SPAN style="font-style: italic;">Turbo Toolkit v3.00+<BR></SPAN>
+    This is a directive for the TURBO compiler and should be
+    located at the start of your program before any active program
+    lines.
+    
+    This directive expects you to specify a filename as a
+    string. TURBO will use this file to produce a report on the
+    compilation process, which can be useful to track down
+    compilation errors and warnings.
+    
+    If no filename is specified, then all errors and warnings
+    are merely shown on screen.
+    
+    The full filename (including device) should be specified in
+    quote marks.
+    
+    As with other compiler directives, this value can be
+    changed by configuring the parser_task program or by entering
+    a different value on the Parser's front panel.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">5 TURBO_repfil "ram2_CT_report"<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsT.html#TURBO_diags">TURBO_diags</A>, <A style="font-style: italic;" href="KeywordsT.html#TURBO_locstr">TURBO_locstr</A>, <A style="font-style: italic;" href="KeywordsT.html#TURBO_model">TURBO_model</A>, <A style="font-style: italic;" href="KeywordsT.html#TURBO_objdat">TURBO_objdat</A>, <A style="font-style: italic;" href="KeywordsT.html#TURBO_objfil">TURBO_objfil</A>,
+    <A style="font-style: italic;" href="KeywordsT.html#TURBO_optim">TURBO_optim</A>, <A style="font-style: italic;" href="KeywordsT.html#TURBO_struct">TURBO_struct</A>, <A style="font-style: italic;" href="KeywordsT.html#TURBO_taskn">TURBO_taskn</A> and <A style="font-style: italic;" href="KeywordsT.html#TURBO_window">TURBO_window</A> for other directives
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="TURBO_struct" id="TURBO_struct"></A>TURBO_struct</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">TURBO_struct "</SPAN> [ <SPAN style="font-style: italic;">s</SPAN> | <SPAN style="font-style: italic;">f</SPAN> ] <SPAN style="font-style: italic;">"<BR></SPAN> Location: <SPAN style="font-style: italic;">Turbo Toolkit v3.00+<BR></SPAN>
+    This is a directive for the TURBO compiler and should be
+    located at the start of your program before any active program
+    lines.
+    
+    TURBO is able to compile a wide variety of programs.
+    However, if the program does not follow strict programming
+    rules, it will take longer to compile and will run more slowly
+    (even if TURBO can manage to compile it).
+    
+    Programs which follow the programming rules are known as
+    Structured. These programming rules are set out below:
+    
+    1The main section of the program must appear at
+    the start and not contain any <SPAN style="font-style: italic;">PROCedure</SPAN> or <SPAN style="font-style: italic;">FuNction<BR></SPAN> definitions.
+    
+    2At the end of the main section appears only
+    <SPAN style="font-style: italic;">PROCedure</SPAN> and <SPAN style="font-style: italic;">FuNction</SPAN> definitions without any other
+    lines between the end of one definition and start
+    of another except for <SPAN style="font-style: italic;">REMark</SPAN>s.
+    
+    3All <SPAN style="font-style: italic;">FOR</SPAN>, <SPAN style="font-style: italic;">REPeat</SPAN>, <SPAN style="font-style: italic;">IF</SPAN>, <SPAN style="font-style: italic;">SELect ON</SPAN>, <SPAN style="font-style: italic;">WHEN</SPAN>, strutures are
+    contained within each section (either the main
+    section or a <SPAN style="font-style: italic;">PROCedure</SPAN> / <SPAN style="font-style: italic;">FuNction</SPAN> definition) of the
+    program and not referenced from outside that
+    section.
+    
+    All other programs are known as Freeform.
+    
+    The <SPAN style="font-style: italic;">TURBO_struct</SPAN> directive allows you to specify the type of
+    programming style used in the program which is to be compiled.
+    It accepts a single character string which should be one of
+    the following values:
+    
+    <SPAN style="font-style: italic;">f</SPAN>The program is Freeform.
+    
+    <SPAN style="font-style: italic;">s</SPAN>The program is Structured.
+    
+    As with other compiler directives, this value can be
+    changed by configuring the parser_task program or by entering
+    a different value on the Parser's front panel.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">5 TURBO_struct "s"<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsT.html#TURBO_diags">TURBO_diags</A>, <A style="font-style: italic;" href="KeywordsT.html#TURBO_locstr">TURBO_locstr</A>, <A style="font-style: italic;" href="KeywordsT.html#TURBO_model">TURBO_model</A>, <A style="font-style: italic;" href="KeywordsT.html#TURBO_objdat">TURBO_objdat</A>, <A style="font-style: italic;" href="KeywordsT.html#TURBO_objfil">TURBO_objfil</A>,
+    <A style="font-style: italic;" href="KeywordsT.html#TURBO_optim">TURBO_optim</A>, <A style="font-style: italic;" href="KeywordsT.html#TURBO_repfil">TURBO_repfil</A>, <A style="font-style: italic;" href="KeywordsT.html#TURBO_taskn">TURBO_taskn</A> and <A style="font-style: italic;" href="KeywordsT.html#TURBO_window">TURBO_window</A> for other directives
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="TURBO_taskn" id="TURBO_taskn"></A>TURBO_taskn</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">TURBO_taskn name$<BR></SPAN> Location: <SPAN style="font-style: italic;">Turbo Toolkit v3.00+<BR></SPAN>
+    This is a directive for the TURBO compiler and should be
+    located at the start of your program before any active program
+    lines.
+    
+    This directive allows you to specify the name for the
+    compiled program which will appear in its header and appear
+    when <SPAN style="font-style: italic;">JOBS</SPAN> is used for example.
+    
+    The full name should be specified in quote marks.
+    
+    As with other compiler directives, this value can be
+    changed by configuring the parser_task program or by entering
+    a different value on the Parser's front panel.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">5 TURBO_taskn "Main v1.2"<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsT.html#TURBO_diags">TURBO_diags</A>, <A style="font-style: italic;" href="KeywordsT.html#TURBO_locstr">TURBO_locstr</A>, <A style="font-style: italic;" href="KeywordsT.html#TURBO_model">TURBO_model</A>, <A style="font-style: italic;" href="KeywordsT.html#TURBO_objdat">TURBO_objdat</A>, <A style="font-style: italic;" href="KeywordsT.html#TURBO_objfil">TURBO_objfil</A>,
+    <A style="font-style: italic;" href="KeywordsT.html#TURBO_optim">TURBO_optim</A>, <A style="font-style: italic;" href="KeywordsT.html#TURBO_repfil">TURBO_repfil</A>, <A style="font-style: italic;" href="KeywordsT.html#TURBO_struct">TURBO_struct</A> and <A style="font-style: italic;" href="KeywordsT.html#TURBO_window">TURBO_window</A> for other directives
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="TURBO_window" id="TURBO_window"></A>TURBO_window</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">TURBO_window number<BR></SPAN> Location: <SPAN style="font-style: italic;">Turbo Toolkit v3.00+<BR></SPAN>
+    This is a directive for the TURBO compiler and should be
+    located at the start of your program before any active program
+    lines.
+    
+    This tells the TURBO parser to copy across <SPAN style="font-style: italic;">number</SPAN> windows
+    from the existing channel structure into the compiled program.
+    If <SPAN style="font-style: italic;">number=1</SPAN> only window <SPAN style="font-style: italic;">#1</SPAN> will appear in the compiled program.
+    Any greater value for <SPAN style="font-style: italic;">number</SPAN> will copy window <SPAN style="font-style: italic;">#0</SPAN> also.
+    
+    It is usually better to ensure that your compiled program
+    opens all of its own windows, using commands such as:
+    
+    <SPAN style="font-style: italic;">100 OPEN #1,'con_448x200a32x16'<BR></SPAN>
+    This reduces the amount of memory used up by each channel
+    and also ensures that your program only opens the windows
+    which it actually needs to work.
+    
+    As with other compiler directives, this value can be
+    changed by configuring the parser_task program or by entering
+    a different value on the Parser's front panel.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">5 TURBO_window 0<BR></SPAN>
+    
+<H3>NOTE:</H3>
+
+<P>
+    Only the active area of a window is copied across to the
+    compiled program, so if a <SPAN style="font-style: italic;">BORDER</SPAN> has been specified, this will
+    not appear in the compiled program (only the area inside the
+    border will be copied across). If your compiled program then
+    defines its own <SPAN style="font-style: italic;">BORDER</SPAN> on that window, the size of the window
+    will be further reduced.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsT.html#TURBO_diags">TURBO_diags</A>,<A style="font-style: italic;" href="KeywordsT.html#TURBO_locstr">TURBO_locstr</A>, <A style="font-style: italic;" href="KeywordsT.html#TURBO_model">TURBO_model</A>, <A style="font-style: italic;" href="KeywordsT.html#TURBO_objdat">TURBO_objdat</A>, <A style="font-style: italic;" href="KeywordsT.html#TURBO_objdat">TURBO_objdat</A>,
+    <A style="font-style: italic;" href="KeywordsT.html#TURBO_objfil">TURBO_objfil</A>, <A style="font-style: italic;" href="KeywordsT.html#TURBO_optim">TURBO_optim</A>,<A style="font-style: italic;" href="KeywordsT.html#TURBO_repfil">TURBO_repfil</A>, <A style="font-style: italic;" href="KeywordsT.html#TURBO_struct">TURBO_struct</A>, and <A style="font-style: italic;" href="KeywordsT.html#TURBO_taskn">TURBO_taskn</A> for other
+    directives
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="TURN" id="TURN"></A>TURN</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">TURN</SPAN> [<SPAN style="font-style: italic;">#ch,</SPAN>] <SPAN style="font-style: italic;">degrees<BR></SPAN> Location: <SPAN style="font-style: italic;">QL ROM<BR></SPAN>
+    This command is part of the QL's turtle graphics set and
+    alters the current direction of the turtle in the specified
+    window (default #1).
+    
+    When a window is first opened, the turtle will be facing
+    the right hand side of the window (this is zero degrees). <SPAN style="font-style: italic;">TURN<BR></SPAN> will force the turtle to turn anti-clockwise by the specified
+    number of <SPAN style="font-style: italic;">degrees</SPAN> (note that this does not work in radians!). If
+    a negative number of <SPAN style="font-style: italic;">degrees</SPAN> is specified, the turtle will be
+    turned in a clockwise direction.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsT.html#TURNTO">TURNTO</A> forces the turtle to face in an absolute direction.
+    
+    Please also see <A style="font-style: italic;" href="KeywordsM.html#MOVE">MOVE</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="TURNTO" id="TURNTO"></A>TURNTO</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">TURNTO</SPAN> [<SPAN style="font-style: italic;">#ch,</SPAN>] <SPAN style="font-style: italic;">angle<BR></SPAN> Location: <SPAN style="font-style: italic;">QL ROM<BR></SPAN>
+    This command, in contrast to <SPAN style="font-style: italic;">TURN</SPAN> forces the turtle in the
+    specified window (default #1) to face in the direction
+    specified by <SPAN style="font-style: italic;">angle</SPAN>.
+    
+    If <SPAN style="font-style: italic;">angle=0</SPAN>, the turtle will face the right hand edge of the
+    window, whereas an <SPAN style="font-style: italic;">angle</SPAN> of 90 will force the turtle to point
+    towards the top of the window.
+    
+    A negative value of <SPAN style="font-style: italic;">angle</SPAN> will cause the turtle to turn
+    clockwise, so that <SPAN style="font-style: italic;">angle=-90</SPAN> is the same as <SPAN style="font-style: italic;">angle=270</SPAN>.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    Please refer to <A style="font-style: italic;" href="KeywordsM.html#MOVE">MOVE</A> and <A style="font-style: italic;" href="KeywordsT.html#TURN">TURN</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="TXTRAS" id="TXTRAS"></A>TXTRAS</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">TXTRAS</SPAN> [<SPAN style="font-style: italic;">#ch</SPAN>] Location: <SPAN style="font-style: italic;">TinyToolkit<BR></SPAN>
+    This command lists extensions to SuperBASIC in the
+    specified channel #ch (default #1). Apart from printing the
+    mere keyword name, it will also report the type, ie. whether
+    it is a function or command.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">TXTRAS</SPAN> might print:
+    <SPAN style="font-style: italic;">Proc RUN
+    Proc STOP
+    Proc OPEN
+    Proc CLOSE<BR></SPAN>
+    
+<H3>
+    NOTE:</H3>
+
+<P>
+    On pre 1.10 versions of TinyToolkit, <SPAN style="font-style: italic;">TXTRAS</SPAN> was named <SPAN style="font-style: italic;">EXTRAS</SPAN>.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsE.html#EXTRAS">EXTRAS</A>, <A style="font-style: italic;" href="KeywordsS.html#SXTRAS">SXTRAS</A> and <A style="font-style: italic;" href="KeywordsV.html#VOCAB">VOCAB</A> are all similar.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="TYPE" id="TYPE"></A>TYPE</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">TYPE (name$)<BR></SPAN> Location: <SPAN style="font-style: italic;">TinyToolkit, BTool<BR></SPAN>
+    The function <SPAN style="font-style: italic;">TYPE</SPAN> returns the internal identification number
+    of any variable, device name, keyword, command, function etc.
+    as a decimal number. Each type corresponds to a certain
+    number:
+    
+<H3><SPAN style="font-style: italic;">TYPE HexDecType</SPAN>
+    Example</H3>
+
+<P>11undefined string<SPAN style="font-style: italic;">
+    Name$<BR></SPAN> 22undefined floating point<SPAN style="font-style: italic;">Size<BR></SPAN> 3 3undefined intege<SPAN style="font-style: italic;">rAge%<BR></SPAN> 201513string variable <SPAN style="font-style: italic;">Name$="Smith"<BR></SPAN> 202514floating point number <SPAN style="font-style: italic;">Size=1.85<BR></SPAN> 203515integer number <SPAN style="font-style: italic;">Age%=38<BR></SPAN> 301769string array <SPAN style="font-style: italic;">DIM a$(10,20)<BR></SPAN> 302770floating point array<SPAN style="font-style: italic;">DIM a(221)<BR></SPAN> 303771integer array <SPAN style="font-style: italic;">DIM a%(10000)<BR></SPAN> 4001024BASIC PROCedure<SPAN style="font-style: italic;">DEFine PROCedure QUIT<BR></SPAN> 5011281BASIC string FuNction<SPAN style="font-style: italic;">DEFine FuNction Who$<BR></SPAN> 5021282BASIC floating point FuNction<SPAN style="font-style: italic;">DEFine FuNction Tm(day)<BR></SPAN> 5031283BASIC integer FuNction<SPAN style="font-style: italic;">
+    DEFine FuNction Age%<BR></SPAN> 6021538REPeat loop name <SPAN style="font-style: italic;">REPeat forever<BR></SPAN> 7021794FOR loop name<SPAN style="font-style: italic;">FOR i=1 TO n<BR></SPAN> 8002048machine code procedure<SPAN style="font-style: italic;">RUN</SPAN>, <SPAN style="font-style: italic;">ED</SPAN>, <SPAN style="font-style: italic;">NEW<BR></SPAN> 9002304machine code function<SPAN style="font-style: italic;">QDOS$</SPAN>, <SPAN style="font-style: italic;">VER$</SPAN>, <SPAN style="font-style: italic;">FILL$<BR></SPAN>
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    Parameters must be given in quotes if you want to find out
+    the type of the actual name, eg. <SPAN style="font-style: italic;">PRINT TYPE ('RUN')</SPAN>. If quote marks
+    are not used, then the value of the parameter is passed
+    instead - eg. <SPAN style="font-style: italic;">name$="RUN": PRINT TYPE(name$)</SPAN> will not return the type of
+    <SPAN style="font-style: italic;">name$</SPAN> but the type of <SPAN style="font-style: italic;">RUN</SPAN>.
+    
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">TYPE</SPAN> can also take any kind of expression, whether or not
+    they are valid.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsK.html#KEY_ADD">KEY_ADD</A> and <A style="font-style: italic;" href="KeywordsE.html#ELIS">ELIS</A> return the address where a machine code
+    keyword is stored.
+    
+    <A style="font-style: italic;" href="KeywordsD.html#DEFINED">DEFINED</A> checks if a variable is set.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="TYPE_IN" id="TYPE_IN"></A>TYPE_IN</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">TYPE_IN string$<BR></SPAN> Location: <SPAN style="font-style: italic;">BTool<BR></SPAN>
+    Same as <SPAN style="font-style: italic;">FORCE_TYPE</SPAN>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="T_COUNT" id="T_COUNT"></A>T_COUNT</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">T_COUNT</SPAN> [ <SPAN style="font-style: italic;">(watch)</SPAN> ] Location: <SPAN style="font-style: italic;">Timings (DIY Toolkit - Vol H)<BR></SPAN>
+    This function reads the time elapsed on the specified stop-
+    watch (default 1).
+    
+    If the watch has not been started, the value 2,147,483,647
+    is returned by this function.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsT.html#T_START">T_START</A> and <A style="font-style: italic;" href="KeywordsT.html#T_STOP">T_STOP</A>.
+    
+    <A style="font-style: italic;" href="KeywordsT.html#T_ON">T_ON</A> contains a general description of the stop-watches.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="T_OFF" id="T_OFF"></A>T_OFF</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">T_OFF<BR></SPAN> Location: <SPAN style="font-style: italic;">Timings (DIY Toolkit - Vol H)<BR></SPAN>
+    This command removes all of the stop-watches from memory,
+    although they can be re-enabled with <SPAN style="font-style: italic;">T_ON</SPAN>.
+    
+    
+<H3>NOTE:</H3>
+
+<P>
+    None of the times on the stop-watches are reset and can
+    therefore be continued once <SPAN style="font-style: italic;">T_ON</SPAN> has been used.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsT.html#T_ON">T_ON</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="T_ON" id="T_ON"></A>T_ON</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">T_ON<BR></SPAN> Location: <SPAN style="font-style: italic;">Timings (DIY Toolkit - Vol H)<BR></SPAN>
+    This toolkit provides the QL with five independent stop-
+    watches which can be used to make accurate timings (more
+    accurate than using <SPAN style="font-style: italic;">DATE</SPAN>). The stop-watches are linked into the
+    QL's 'polled list' of small routines which are run every frame
+    on the computer (1/50 second on a British QL, 1/60 on most
+    foreign QLs).
+    
+    There is a slight disadvantage in using the polled
+    interrupts in that they are sometimes disabled by machine code
+    routines, for example when accessing microdrives and disks.
+    Because of this, these commands are not much for timing
+    programs which depend heavily on external hardware.
+    
+    These stop-watches are however very useful for comparing
+    the speed of various program routines without having to make
+    thousands of loops in order to show any difference in speed.
+    
+    This command enables all the stop-watches. This must be
+    issued before <SPAN style="font-style: italic;">T_START</SPAN> can be used.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsT.html#TTV">TTV</A>, <A style="font-style: italic;" href="KeywordsT.html#T_START">T_START</A>, <A style="font-style: italic;" href="KeywordsT.html#T_STOP">T_STOP</A>, <A style="font-style: italic;" href="KeywordsT.html#T_RESTART">T_RESTART</A>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="T_RESTART" id="T_RESTART"></A>T_RESTART</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">T_RESTART</SPAN> [<SPAN style="font-style: italic;">watch</SPAN>] Location: <SPAN style="font-style: italic;">Timings (DIY Toolkit - Vol H)<BR></SPAN>
+    This command restarts a specified stop-watch (default 1)
+    once it has been stopped, without resetting the initial time
+    to zero.
+    
+    This command can have spurious effects if the stop-watch
+    has not previously been used.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsT.html#T_STOP">T_STOP</A> stops a stop watch.
+    
+    See <A style="font-style: italic;" href="KeywordsT.html#T_START">T_START</A> also.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="T_START" id="T_START"></A>T_START</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">T_START</SPAN> [<SPAN style="font-style: italic;">watch</SPAN>] Location: <SPAN style="font-style: italic;">Timings (DIY Toolkit - Vol H)<BR></SPAN>
+    This command starts the specified stop-watch (default 1),
+    setting the initial time to zero.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    You need to have used <A style="font-style: italic;" href="KeywordsT.html#T_ON">T_ON</A> before <A style="font-style: italic;" href="KeywordsT.html#T_START">T_START</A> can be used.
+    
+    See also <A style="font-style: italic;" href="KeywordsT.html#T_STOP">T_STOP</A> and <A style="font-style: italic;" href="KeywordsT.html#T_RESTART">T_RESTART</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="T_STOP" id="T_STOP"></A>T_STOP</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">T_STOP</SPAN> [<SPAN style="font-style: italic;">watch</SPAN>] Location: <SPAN style="font-style: italic;">Timings (DIY Toolkit - Vol H)<BR></SPAN>
+    This command stops the specified stop-watch (default 1)
+    from running.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsT.html#T_RESTART">T_RESTART</A> restarts a stop-watch.
+    
+    <A style="font-style: italic;" href="KeywordsT.html#T_START">T_START</A> starts a stop-watch from afresh.
+</BODY>
+</HTML>
