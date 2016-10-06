@@ -1,0 +1,313 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html xmlns:v="urn:schemas-microsoft-com:vml">
+  <head>
+    <meta http-equiv="content-type" content="text/html;
+      charset=ISO-8859-1">
+    <link rel="stylesheet" type="text/css" href="css/QLManualStyle.css" media="all" />
+    <title>Sinclair QL SuperBASIC/SBASIC Reference Manual - Keywords U</title>
+</head>
+<body>
+<div id="header">
+  SBASIC/SuperBASIC Reference Manual Online (c) RWAP Software
+  <br />
+  The Online Guide to programming the Sinclair QL Home Computer in SuperBASIC
+</div>
+<div id="sideBar">
+    <ul>
+        <li><a href="Foreword.html">Foreword</a></li>
+        <li><a href="Introduction.html">Introduction</a></li>
+        <li><a href="Credits.html">Credits</a></li>        
+        <li><a href="Structure.html">Structure</a></li>
+        <li><a href="WritingPrograms.html">Writing Programs</a></li>
+        <hr></hr>
+        <li><a href="KeywordsA.html">Keywords - A</a></li>
+        <li><a href="KeywordsB.html">Keywords - B</a></li>
+        <li><a href="KeywordsC.html">Keywords - C</a></li>
+        <li><a href="KeywordsD.html">Keywords - D</a></li>
+        <li><a href="KeywordsE.html">Keywords - E</a></li>
+        <li><a href="KeywordsF.html">Keywords - F</a></li>
+        <li><a href="KeywordsG.html">Keywords - G</a></li>
+        <li><a href="KeywordsH.html">Keywords - H</a></li>
+        <li><a href="KeywordsI.html">Keywords - I</a></li>
+        <li><a href="KeywordsJ.html">Keywords - J</a></li>
+        <li><a href="KeywordsK.html">Keywords - K</a></li>
+        <li><a href="KeywordsL.html">Keywords - L</a></li>
+        <li><a href="KeywordsM.html">Keywords - M</a></li>
+        <li><a href="KeywordsN.html">Keywords - N</a></li>
+        <li><a href="KeywordsO.html">Keywords - O</a></li>
+        <li><a href="KeywordsP.html">Keywords - P</a></li>
+        <li><a href="KeywordsQ.html">Keywords - Q</a></li>
+        <li><a href="KeywordsR.html">Keywords - R</a></li>
+        <li><a href="KeywordsS.html">Keywords - S</a></li>
+        <li><a href="KeywordsT.html">Keywords - T</a></li>
+        <li><a href="KeywordsU.html">Keywords - U</a></li>
+        <li><a href="KeywordsV.html">Keywords - V</a></li>
+        <li><a href="KeywordsW.html">Keywords - W</a></li>
+        <li><a href="KeywordsX.html">Keywords - X</a></li>
+        <li><a href="KeywordsY.html">Keywords - Y</a></li>
+        <li><a href="KeywordsZ.html">Keywords - Z</a></li>
+        <li><a href="Keywords_.html">Keywords - Other</a></li>
+        <hr></hr>
+        <li><a href="AppendicesIntro.html">Appendices Introduction</a></li>
+        <li><a href="Appendix01.html">Appendix 1 - Minerva</a></li>
+        <li><a href="Appendix02.html">Appendix 2 - SMSQE</a></li>
+        <li><a href="Appendix03.html">Appendix 3 - Emulators</a></li>
+        <li><a href="Appendix04.html">Appendix 4 - THOR Computers</a></li>
+        <li><a href="Appendix05.html">Appendix 5 - Expansion Boards</a></li>
+        <li><a href="Appendix06.html">Appendix 6 - Compatability</a></li>
+        <li><a href="Appendix07.html">Appendix 7 - Multiple BASICs</a></li>
+        <li><a href="Appendix08.html">Appendix 8 - Error Messages</a></li>
+        <li><a href="Appendix09.html">Appendix 9 - Character Set / Keyboard</a></li>
+        <li><a href="Appendix10.html">Appendix 10 - Fonts</a></li>
+        <li><a href="Appendix11.html">Appendix 11 - Mathematics</a></li>
+        <li><a href="Appendix12.html">Appendix 12 - Device Drivers</a></li>
+        <li><a href="Appendix13.html">Appendix 13 - Extended Pointer Environment</a></li>
+        <li><a href="Appendix14.html">Appendix 14 - Coercion</a></li>
+        <li><a href="Appendix15.html">Appendix 15 - Mouse Drivers</a></li>
+        <li><a href="Appendix16.html">Appendix 16 - The QL Display</a></li>
+        <li><a href="Appendix17.html">Appendix 17 - Networks</a></li>
+        <li><a href="Appendix18.html">Appendix 18 - Configuring Programs</a></li>
+    </ul>
+</div>
+<div id="mainText">
+<h1><a name="UINT"></a>UINT</h1><br>Syntax: <span style="font-style: italic;">UINT (x%)
+<br></span>Location: <span style="font-style: italic;">BTool
+<br></span><br>The function <span style="font-style: italic;">UINT</span> returns the unsigned value of a (signed)
+<br>integer:
+<br><br><span style="font-style: italic;">unsigned = signed% + 2^16
+<br></span><br>or
+<br><br><span style="font-style: italic;">unsigned = UINT(signed%)
+<br></span><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsS.html#SINT
+">SINT
+</a><br><h3>
+<br></h3><hr style="width: 100%; height: 2px;"><h1><a name="UNDER"></a>UNDER</h1><br>Syntax: <span style="font-style: italic;">UNDER </span>[<span style="font-style: italic;">#ch,</span>] <span style="font-style: italic;">switch
+<br></span>Location: <span style="font-style: italic;">QL ROM
+<br></span><br>This command switches underlining in the specified window
+<br>(default #1) either on or off. Underlining is enabled if <span style="font-style: italic;">switch=1
+<br></span>or disabled if <span style="font-style: italic;">switch=0</span>. Other values of <span style="font-style: italic;">switch</span> will return a 'bad
+<br>parameter' error.
+<br><br>If underlining is enabled, whenever anything is <span style="font-style: italic;">PRINT</span>ed, a
+<br>line will be drawn in the current <span style="font-style: italic;">INK</span> colour in the bottom but
+<br>one row of the character.
+<br><br>If <span style="font-style: italic;">FLASH</span> is enabled, although the character will continue to
+<br>flash,  the  underline  itself  will  not.  <span style="font-style: italic;">MODE</span>  will  disable
+<br>underlining.
+<br><br><h3>Example 1:
+<br></h3><br><span style="font-style: italic;">UNDER 1: PRINT 'Title:'!: UNDER 0: PRINT !'QL SuperBASIC'
+<br></span><br><h3>Example 2:
+<br></h3><br>If you don't like the line which is drawn by underline than
+<br><br>you can use <span style="font-style: italic;">OVER</span> to draw your own line with a different
+<br><br>colour. Note however that this line ought to be drawn
+<br><br>before the underlined text since the line should not
+<br><br>overlap letters like g, p, q and j.
+<br><span style="font-style: italic;">100 DEFine PROCedure PRNT_UNDL (ch, x, y, text$, col1, col2)
+<br>110  AT#ch,x,y: INK#ch,col2: OVER#ch,0
+<br>120  PRINT#ch,FILL$("_",LEN(text$))
+<br>130  AT#ch,x,y: INK#ch,col1: OVER#ch,1
+<br>140  PRINT#ch,text$
+<br>150  OVER#ch,0
+<br>160 END DEFine PRNT_UNDL
+<br></span><span style="font-style: italic;">PAPER 3: CLS
+<br>PRNT_UNDL #1,3,3,"Looking good.",7,0
+<br></span><br><h3>NOTE:
+<br></h3><br><span style="font-style: italic;">MODE</span> will reset the current underline mode in all windows.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsI.html#INK">INK</a> sets the current ink colour for the specified channel,
+<br><a style="font-style: italic;" href="KeywordsP.html#PRINT">PRINT</a> prints out characters.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="UNJOB"></a>UNJOB</h1><br>Syntax: <span style="font-style: italic;">UNJOB drive_filename
+<br></span>Location: <span style="font-style: italic;">UNJOB
+<br></span><br>This command sets the file type of the given file (the full
+<br>filename must be supplied) to zero.
+<br><br>The reason for this command is that certain assemblers and
+<br>tools set the file type to 1 (executable file) even though the
+<br>file cannot be started as a job. Since commands like <span style="font-style: italic;">EX</span> or <span style="font-style: italic;">EXEC
+<br></span>check the file type to decide whether a file can be executed,
+<br>they will try to start such a file and crash the system in
+<br>most cases. A simple <span style="font-style: italic;">UNJOB</span> prevents this in the long term.
+<br><br><h3>NOTE:
+<br></h3><br>v1.00 of this command did not work on most QL ROM versions,
+<br>giving a bad parameter error.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>Each file has a file type which can be found with the <a style="font-style: italic;" href="KeywordsF.html#FTYP
+">FTYP
+</a>and <a style="font-style: italic;" href="KeywordsF.html#FILE_TYP">FILE_TYP</a> functions or directly by looking at the file header
+<br>(<a style="font-style: italic;" href="KeywordsH.html#HEADR">HEADR</a>). It is also possible to set the file type by rewriting
+<br>the whole file header with <a style="font-style: italic;" href="KeywordsH.html#HEADS">HEADS</a>; alternatively, <a style="font-style: italic;" href="KeywordsU.html#UNJOB">UNJOB</a> does the
+<br>same.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="UNL"></a>UNL</h1><br>Syntax: <span style="font-style: italic;">UNL
+<br></span>Location: <span style="font-style: italic;">Beuletools
+<br></span><br>This function returns the control codes needed to switch on
+<br>underline printing on an EPSON compatible printer, <span style="font-style: italic;">PRINT UNL</span> is
+<br>the same as:
+<br><br><span style="font-style: italic;">PRINT CHR$(27)&"-"&CHR$(1)
+<br></span><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsN.html#NORM">NORM</a>, <a style="font-style: italic;" href="KeywordsB.html#BLD">BLD</a>, <a style="font-style: italic;" href="KeywordsE.html#EL">EL</a>, <a style="font-style: italic;" href="KeywordsD.html#DBL">DBL</a>, <a style="font-style: italic;" href="KeywordsE.html#ENL">ENL</a>, <a style="font-style: italic;" href="KeywordsP.html#PRO">PRO</a>, <a style="font-style: italic;" href="KeywordsS.html#SI">SI</a>, <a style="font-style: italic;" href="KeywordsN.html#NRM">NRM</a>, <a style="font-style: italic;" href="KeywordsA.html#ALT">ALT</a>, <a style="font-style: italic;" href="KeywordsE.html#ESC">ESC</a>, <a style="font-style: italic;" href="KeywordsF.html#FF">FF</a>, <a style="font-style: italic;" href="KeywordsL.html#LMAR">LMAR</a>, <a style="font-style: italic;" href="KeywordsR.html#RMAR">RMAR</a>, <a style="font-style: italic;" href="KeywordsP.html#PAGDIS">PAGDIS</a>,
+<br><a style="font-style: italic;" href="KeywordsP.html#PAGLEN">PAGLEN</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="UNLOAD"></a>UNLOAD</h1><br>Syntax: <span style="font-style: italic;">UNLOAD program_name
+<br></span>Location: <span style="font-style: italic;">MutiBASIC (DIY Toolkit - Vol M)
+<br></span><br>Despite the name, this toolkit is completely different to
+<br>the MultiBASICs which are provided on Minerva ROMs.  This
+<br>toolkit actually provides a quick means of saving and loading
+<br>programs in memory - this allows you to load a program which
+<br>you are working on, store it in memory and then alter the
+<br>program.  If the new alterations to the program do not work
+<br>out as planned and you want to revert to the original version,
+<br>you can simply <span style="font-style: italic;">RELOAD</span> the original version from program in a
+<br>matter of seconds (rather than the minutes which it would take
+<br>to <span style="font-style: italic;">LOAD</span> the original version from disk).
+<br><br>This can be very useful for program development, or, for
+<br>example, if you have a SuperBASIC utility program which you
+<br>use a lot.
+<br><br>This command allows you to store the currently loaded
+<br>SuperBASIC program in memory.  You have to supply a name for
+<br>the program (similar to the name which you could use with the
+<br><span style="font-style: italic;">SAVE</span> command, except there is no need for a device name and the
+<br>program name can be up to 127 characters long).  The program
+<br>is then stored - details of the programs which have been
+<br>stored with this command are available from the jobs list (see
+<br><span style="font-style: italic;">JOBS</span>).
+<br><br>When the program is stored in memory, the contents of all
+<br>variables and pointers are also stored, which makes certain
+<br>that if you <span style="font-style: italic;">UNLOAD</span> a program whilst it is <span style="font-style: italic;">RUN</span>ning, you can later
+<br><span style="font-style: italic;">RELOAD</span> it and re-start it from the same place (with <span style="font-style: italic;">CONTINUE</span>).
+<br><br>v4.0+ of the toolkit, allows you to store the current
+<br>screen display and mode along with the program, so that when
+<br>the program is <span style="font-style: italic;">RELOAD</span>ed, the display is in a known layout.
+<br><br>To further extend the usefulness of this toolkit, any
+<br>commands  which  appear  after  <span style="font-style: italic;">UNLOAD</span>  will  be  automatically
+<br>executed when the program is <span style="font-style: italic;">RELOAD</span>ed, for example:
+<br><br><span style="font-style: italic;">UNLOAD test : RUN
+<br></span><br>will always <span style="font-style: italic;">RUN</span> the program when you:
+<br><br><span style="font-style: italic;">RELOAD test
+<br></span><br><h3>NOTE 1:
+<br></h3><br>The toolkit expects the display to be located at 131072 and
+<br>be 512x256 pixels and so you should switch off the screen
+<br>storage facility if you are using a higher resolution display
+<br>or a dual screen system.
+<br><br><h3>NOTE 2:
+<br></h3><br>If a job already exists with the name which you have given
+<br>to the program, 'Already Exists' will be reported.
+<br><br><h3>NOTE 3:
+<br></h3><br>Although the toolkit can be used to store programs from a
+<br>Minerva  MultiBASIC,  you  cannot  load  the  toolkit  from  a
+<br>Multiple    BASIC    -    an    'incomplete'    error    is
+<br>reported.
+<br><br><h3>NOTE 4:
+<br></h3><br>The current channel details are not stored when you use
+<br><span style="font-style: italic;">UNLOAD</span> - you may therefore need to re-open the channels when the
+<br>program is <span style="font-style: italic;">RELOAD</span>ed, or use something akin to:
+<br><br><span style="font-style: italic;">UNLOAD 'watch' : OPEN #3,con_448x200a32x16
+<br></span><br>which will always ensure that #3 is <span style="font-style: italic;">OPEN</span> whenever the
+<br>program is <span style="font-style: italic;">RELOAD</span>ed.
+<br><br><h3>NOTE 5:
+<br></h3><br>If a program uses <span style="font-style: italic;">ALCHP</span> to grab some memory, unless you
+<br>intend to always <span style="font-style: italic;">RUN</span> the program from the start when you <span style="font-style: italic;">RELOAD
+<br></span>it, do not use any command which will release this area of
+<br>common heap memory before you <span style="font-style: italic;">RELOAD</span> the program.  Commands
+<br>which do this include: <span style="font-style: italic;">CLCHP</span>, <span style="font-style: italic;">CLEAR</span>, <span style="font-style: italic;">NEW</span> or <span style="font-style: italic;">LOAD</span>.
+<br><br><h3>WARNING 1:
+<br></h3><br>This toolkit does not work on SMSQ/E and can crash the
+<br>computer.
+<br><br><h3>WARNING 2:
+<br></h3><br>Unfortunately, attempts to use this toolkit to <span style="font-style: italic;">UNLOAD</span> files
+<br>from one interpreter and then <span style="font-style: italic;">RELOAD</span> the files into another
+<br>Multiple BASIC will crash that Multiple BASIC (or have other
+<br>various undesirable effects).
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsS.html#SCR_SAVE">SCR_SAVE</a> allows you to dictate whether the screen display and
+<br>mode should be stored together with the program.
+<br><br><a style="font-style: italic;" href="KeywordsR.html#RESAVE">RESAVE</a> is similar.
+<br><br><a style="font-style: italic;" href="KeywordsR.html#REMOVE">REMOVE</a> allows you to remove a program stored in memory with
+<br>this command.
+<br><br>See also <a style="font-style: italic;" href="KeywordsR.html#RELOAD">RELOAD</a> and <a style="font-style: italic;" href="KeywordsQ.html#QSAVE">QSAVE</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="UNLOCK"></a>UNLOCK</h1><br>Syntax: <span style="font-style: italic;">UNLOCK file,code$,code
+<br></span>Location: <span style="font-style: italic;">CRYPTAGE
+<br></span><br>See <span style="font-style: italic;">LOCK</span> !
+<br><br><h3>Example:
+<br></h3><br><span style="font-style: italic;">UNLOCK ram1_secret_txt,"Phew",7241
+<br></span><br><h3>
+<br></h3><hr style="width: 100%; height: 2px;"><h1><a name="UNSET"></a>UNSET</h1><br>Syntax: <span style="font-style: italic;">UNSET (variable)
+<br></span>Location: <span style="font-style: italic;">PARAMS (DIY Toolkit - Vol P)
+<br></span><br>This is the same as <span style="font-style: italic;">DEFINED</span> and suffers from the same
+<br>problem!
+<br><hr style="width: 100%; height: 2px;"><h1><a name="UPC$"></a>UPC$</h1><br>Syntax: <span style="font-style: italic;">UPC$ (string$)
+<br></span>Location: <span style="font-style: italic;">LWCUPC
+<br></span><br>This is the same as <span style="font-style: italic;">UPPER$</span> !
+<br><hr style="width: 100%; height: 2px;"><h1><a name="UPPER$"></a>UPPER$</h1><br>Syntax: <span style="font-style: italic;">UPPER$ (string$)
+<br></span>Location: <span style="font-style: italic;">TinyToolkit, Function (DIY Toolkit - Vol R)
+<br></span><br>This function takes the given string and converts any lower
+<br>case letters to capitals and then returns the whole string.
+<br>Normally, only the ASCII alphabet is catered for, which means
+<br>that no national characters are converted, ie. the function
+<br>only works with A..Z and a..z.
+<br><br>The DIY Toolkit version will cope with accented characters,
+<br>but you may have to modify the source code in order for this
+<br>function to work with some international character sets which
+<br>use an extended alphabet.
+<br><br><h3>Example:
+<br></h3><br>This is not quite an example for <span style="font-style: italic;">UPPER$</span> but a replacement
+<br><br>which converts all characters where an upper character is
+<br><br>available:
+<br><span style="font-style: italic;">100 DEFine FuNction UPPER_$ (string$)
+<br>110  LOCal i,c,u,u$: u$=""
+<br>120  FOR i=1 TO LEN(string$)
+<br>130    c=CODE(string$(i)): u=c
+<br>140    SELect ON c=97 TO 122: u=c-32:=128 TO 139: u=c+32
+<br>150    u$=u$ & CHR$(u)
+<br>160  END FOR i
+<br>170  RETurn u$
+<br>180 END DEFine UPPER_$
+<br></span><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsU.html#UPC$">UPC$</a> returns the same as <a style="font-style: italic;" href="KeywordsU.html#UPPER$">UPPER$</a>.
+<br><br>See also <a style="font-style: italic;" href="KeywordsC.html#CONVCASE">CONVCASE</a> and <a style="font-style: italic;" href="KeywordsL.html#LOWER$">LOWER$</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="UPUT"></a>UPUT</h1><br>Syntax:<span style="font-style: italic;"> UPUT</span> [<span style="font-style: italic;">#ch\position,</span>] [<span style="font-style: italic;">item </span><sup>*</sup>[<span style="font-style: italic;">,item</span><sup>i</sup>]<sup>*</sup> ..]
+<br><br>or<span style="font-style: italic;"> UPUT</span> [<span style="font-style: italic;">#ch,</span>] [<span style="font-style: italic;">item</span><sup> *</sup>[<span style="font-style: italic;">,item</span><sup>i</sup>]<sup>*</sup> ..]
+Location: <span style="font-style: italic;">SMSQ/E v2.55+
+<br></span><br>This command is the same as <span style="font-style: italic;">BPUT</span>, except that any bytes sent
+<br>by it to the specified channel (default #3) are not affected
+<br>by the <span style="font-style: italic;">TRA</span> command.
+<br><br>This  command  is  therefore  useful  for  sending  printer
+<br>control codes.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsB.html#BPUT">BPUT</a>, <a style="font-style: italic;" href="KeywordsW.html#WPUT">WPUT</a> and <a style="font-style: italic;" href="KeywordsL.html#LPUT">LPUT</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="USE"></a>USE</h1><br>Syntax: <span style="font-style: italic;">USE </span>[<span style="font-style: italic;"> #channel</span> ]
+Location: <span style="font-style: italic;">USE (DIY Toolkit - Vol C)
+<br></span><br>Many commands and functions which are described in this
+<br>manual, expect a channel number to be passed to them and if
+<br>one is not supplied, will default to a specific channel.
+<br><br>This command can be used to re-direct all machine code
+<br>commands and functions which normally default to #1. After
+<br>using this command, if a channel parameter is not specified,
+<br>the commands and functions will then default to the channel
+<br>specified by <span style="font-style: italic;">USE</span> instead of #1.
+<br><br>Also, if you explicitly pass a channel number #1 as a
+<br>parameter to a command or function, then the command or
+<br>function will still be re-directed to the channel specified by
+<br><span style="font-style: italic;">USE</span>.
+<br><br>If no parameter is specified, then this is equivalent to
+<br><span style="font-style: italic;">USE #1</span>.
+<br><br><h3>Example:
+<br></h3><br><span style="font-style: italic;">PRINT 'This is channel #1':USE #2:PRINT 'This is using Channel #2'
+<br><br>PRINT #1,'This is still channel #2'
+<br><br>USE: PRINT 'This is channel #1 again!'
+<br></span><br><h3>NOTE:
+<br></h3><br>There is a slight difficulty in using this command in that
+<br>when you <span style="font-style: italic;">USE #1</span> some of the information used by SuperBASIC for
+<br>the channel which you have been using as the default will be
+<br>lost.  This is the last graphics co-ordinates, turtle graphics
+<br>direction, pen status, character position on line and line
+<br>width for files (set with <span style="font-style: italic;">WIDTH</span>) will be lost.
+<br><br>You will also lose the original values for these offsets
+<br>for channel #1 (ie. the values which were in use prior to the
+<br><span style="font-style: italic;">USE #ch</span> command).
+<br><br>Instead, the values are set to pen up, position 0,0, width
+<br>80, direction left-to-right.
+<br><br>You can use <span style="font-style: italic;">PEEK_W(\48\chan*40+offset)</span> to store these values before
+<br>the <span style="font-style: italic;">USE</span> call and then restore them with <span style="font-style: italic;">POKE</span>.  Refer to QDOS/SMS
+<br>Reference Manual Section 18.4.1 to find out how these values
+<br>are stored.
+<br><h3><br>WARNING:
+<br></h3><br>If used from within a SMS SBASIC, v0.2 (at least) of this
+<br>command will crash the computer when output is redirected to
+<br>#1 using either <span style="font-style: italic;">USE</span> or <span style="font-style: italic;">USE#1</span>. The problem only occurs when you
+<br>try to send output to #1.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsP.html#PRINT">PRINT</a>,<a style="font-style: italic;" href="KeywordsC.html#CSIZE">CSIZE</a>,<a style="font-style: italic;" href="KeywordsI.html#INK">INK</a>,<a style="font-style: italic;" href="KeywordsP.html#PAPER ">PAPER </a>and<a style="font-style: italic;" href="KeywordsS.html#STRIP ">STRIP </a>are just a few of the commands
+<br>which default  to  #1  and are  therefore  affected  by  this
+<br>command.
+<br></div>
+</body>
+</html>

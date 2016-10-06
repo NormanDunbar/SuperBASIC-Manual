@@ -1,0 +1,414 @@
+    
+<H1><A name="UINT" id="UINT"></A>UINT</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">UINT (x%)<BR></SPAN> Location: <SPAN style="font-style: italic;">BTool<BR></SPAN>
+    The function <SPAN style="font-style: italic;">UINT</SPAN> returns the unsigned value of a (signed)
+    integer:
+    
+    <SPAN style="font-style: italic;">unsigned = signed% + 2^16<BR></SPAN>
+    or
+    
+    <SPAN style="font-style: italic;">unsigned = UINT(signed%)<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsS.html#SINT">SINT</A>
+    
+<H3></H3>
+
+<P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="UNDER" id="UNDER"></A>UNDER</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">UNDER</SPAN> [<SPAN style="font-style: italic;">#ch,</SPAN>] <SPAN style="font-style: italic;">switch<BR></SPAN> Location: <SPAN style="font-style: italic;">QL ROM<BR></SPAN>
+    This command switches underlining in the specified window
+    (default #1) either on or off. Underlining is enabled if <SPAN style="font-style: italic;">switch=1<BR></SPAN> or disabled if <SPAN style="font-style: italic;">switch=0</SPAN>. Other values of <SPAN style="font-style: italic;">switch</SPAN> will return a 'bad
+    parameter' error.
+    
+    If underlining is enabled, whenever anything is <SPAN style="font-style: italic;">PRINT</SPAN>ed, a
+    line will be drawn in the current <SPAN style="font-style: italic;">INK</SPAN> colour in the bottom but
+    one row of the character.
+    
+    If <SPAN style="font-style: italic;">FLASH</SPAN> is enabled, although the character will continue to
+    flash, the underline itself will not. <SPAN style="font-style: italic;">MODE</SPAN> will disable
+    underlining.
+    
+    
+<H3>Example 1:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">UNDER 1: PRINT 'Title:'!: UNDER 0: PRINT !'QL SuperBASIC'<BR></SPAN>
+    
+<H3>Example 2:</H3>
+
+<P>
+    If you don't like the line which is drawn by underline than
+    
+    you can use <SPAN style="font-style: italic;">OVER</SPAN> to draw your own line with a different
+    
+    colour. Note however that this line ought to be drawn
+    
+    before the underlined text since the line should not
+    
+    overlap letters like g, p, q and j.
+    <SPAN style="font-style: italic;">100 DEFine PROCedure PRNT_UNDL (ch, x, y, text$, col1, col2)
+    110 AT#ch,x,y: INK#ch,col2: OVER#ch,0
+    120 PRINT#ch,FILL$("_",LEN(text$))
+    130 AT#ch,x,y: INK#ch,col1: OVER#ch,1
+    140 PRINT#ch,text$
+    150 OVER#ch,0
+    160 END DEFine PRNT_UNDL<BR></SPAN> <SPAN style="font-style: italic;">PAPER 3: CLS
+    PRNT_UNDL #1,3,3,"Looking good.",7,0<BR></SPAN>
+    
+<H3>NOTE:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">MODE</SPAN> will reset the current underline mode in all windows.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsI.html#INK">INK</A> sets the current ink colour for the specified channel,
+    <A style="font-style: italic;" href="KeywordsP.html#PRINT">PRINT</A> prints out characters.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="UNJOB" id="UNJOB"></A>UNJOB</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">UNJOB drive_filename<BR></SPAN> Location: <SPAN style="font-style: italic;">UNJOB<BR></SPAN>
+    This command sets the file type of the given file (the full
+    filename must be supplied) to zero.
+    
+    The reason for this command is that certain assemblers and
+    tools set the file type to 1 (executable file) even though the
+    file cannot be started as a job. Since commands like <SPAN style="font-style: italic;">EX</SPAN> or <SPAN style="font-style: italic;">EXEC<BR></SPAN> check the file type to decide whether a file can be executed,
+    they will try to start such a file and crash the system in
+    most cases. A simple <SPAN style="font-style: italic;">UNJOB</SPAN> prevents this in the long term.
+    
+    
+<H3>NOTE:</H3>
+
+<P>
+    v1.00 of this command did not work on most QL ROM versions,
+    giving a bad parameter error.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    Each file has a file type which can be found with the <A style="font-style: italic;" href="KeywordsF.html#FTYP">FTYP</A> and <A style="font-style: italic;" href="KeywordsF.html#FILE_TYP">FILE_TYP</A> functions or directly by looking at the file header
+    (<A style="font-style: italic;" href="KeywordsH.html#HEADR">HEADR</A>). It is also possible to set the file type by rewriting
+    the whole file header with <A style="font-style: italic;" href="KeywordsH.html#HEADS">HEADS</A>; alternatively, <A style="font-style: italic;" href="KeywordsU.html#UNJOB">UNJOB</A> does the
+    same.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="UNL" id="UNL"></A>UNL</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">UNL<BR></SPAN> Location: <SPAN style="font-style: italic;">Beuletools<BR></SPAN>
+    This function returns the control codes needed to switch on
+    underline printing on an EPSON compatible printer, <SPAN style="font-style: italic;">PRINT UNL</SPAN> is
+    the same as:
+    
+    <SPAN style="font-style: italic;">PRINT CHR$(27)&amp;"-"&amp;CHR$(1)<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsN.html#NORM">NORM</A>, <A style="font-style: italic;" href="KeywordsB.html#BLD">BLD</A>, <A style="font-style: italic;" href="KeywordsE.html#EL">EL</A>, <A style="font-style: italic;" href="KeywordsD.html#DBL">DBL</A>, <A style="font-style: italic;" href="KeywordsE.html#ENL">ENL</A>, <A style="font-style: italic;" href="KeywordsP.html#PRO">PRO</A>, <A style="font-style: italic;" href="KeywordsS.html#SI">SI</A>, <A style="font-style: italic;" href="KeywordsN.html#NRM">NRM</A>, <A style="font-style: italic;" href="KeywordsA.html#ALT">ALT</A>, <A style="font-style: italic;" href="KeywordsE.html#ESC">ESC</A>, <A style="font-style: italic;" href="KeywordsF.html#FF">FF</A>, <A style="font-style: italic;" href="KeywordsL.html#LMAR">LMAR</A>, <A style="font-style: italic;" href="KeywordsR.html#RMAR">RMAR</A>, <A style="font-style: italic;" href="KeywordsP.html#PAGDIS">PAGDIS</A>,
+    <A style="font-style: italic;" href="KeywordsP.html#PAGLEN">PAGLEN</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="UNLOAD" id="UNLOAD"></A>UNLOAD</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">UNLOAD program_name<BR></SPAN> Location: <SPAN style="font-style: italic;">MutiBASIC (DIY Toolkit - Vol M)<BR></SPAN>
+    Despite the name, this toolkit is completely different to
+    the MultiBASICs which are provided on Minerva ROMs. This
+    toolkit actually provides a quick means of saving and loading
+    programs in memory - this allows you to load a program which
+    you are working on, store it in memory and then alter the
+    program. If the new alterations to the program do not work
+    out as planned and you want to revert to the original version,
+    you can simply <SPAN style="font-style: italic;">RELOAD</SPAN> the original version from program in a
+    matter of seconds (rather than the minutes which it would take
+    to <SPAN style="font-style: italic;">LOAD</SPAN> the original version from disk).
+    
+    This can be very useful for program development, or, for
+    example, if you have a SuperBASIC utility program which you
+    use a lot.
+    
+    This command allows you to store the currently loaded
+    SuperBASIC program in memory. You have to supply a name for
+    the program (similar to the name which you could use with the
+    <SPAN style="font-style: italic;">SAVE</SPAN> command, except there is no need for a device name and the
+    program name can be up to 127 characters long). The program
+    is then stored - details of the programs which have been
+    stored with this command are available from the jobs list (see
+    <SPAN style="font-style: italic;">JOBS</SPAN>).
+    
+    When the program is stored in memory, the contents of all
+    variables and pointers are also stored, which makes certain
+    that if you <SPAN style="font-style: italic;">UNLOAD</SPAN> a program whilst it is <SPAN style="font-style: italic;">RUN</SPAN>ning, you can later
+    <SPAN style="font-style: italic;">RELOAD</SPAN> it and re-start it from the same place (with <SPAN style="font-style: italic;">CONTINUE</SPAN>).
+    
+    v4.0+ of the toolkit, allows you to store the current
+    screen display and mode along with the program, so that when
+    the program is <SPAN style="font-style: italic;">RELOAD</SPAN>ed, the display is in a known layout.
+    
+    To further extend the usefulness of this toolkit, any
+    commands which appear after <SPAN style="font-style: italic;">UNLOAD</SPAN> will be automatically
+    executed when the program is <SPAN style="font-style: italic;">RELOAD</SPAN>ed, for example:
+    
+    <SPAN style="font-style: italic;">UNLOAD test : RUN<BR></SPAN>
+    will always <SPAN style="font-style: italic;">RUN</SPAN> the program when you:
+    
+    <SPAN style="font-style: italic;">RELOAD test<BR></SPAN>
+    
+<H3>NOTE 1:</H3>
+
+<P>
+    The toolkit expects the display to be located at 131072 and
+    be 512x256 pixels and so you should switch off the screen
+    storage facility if you are using a higher resolution display
+    or a dual screen system.
+    
+    
+<H3>NOTE 2:</H3>
+
+<P>
+    If a job already exists with the name which you have given
+    to the program, 'Already Exists' will be reported.
+    
+    
+<H3>NOTE 3:</H3>
+
+<P>
+    Although the toolkit can be used to store programs from a
+    Minerva MultiBASIC, you cannot load the toolkit from a
+    Multiple BASIC - an 'incomplete' error is
+    reported.
+    
+    
+<H3>NOTE 4:</H3>
+
+<P>
+    The current channel details are not stored when you use
+    <SPAN style="font-style: italic;">UNLOAD</SPAN> - you may therefore need to re-open the channels when the
+    program is <SPAN style="font-style: italic;">RELOAD</SPAN>ed, or use something akin to:
+    
+    <SPAN style="font-style: italic;">UNLOAD 'watch' : OPEN #3,con_448x200a32x16<BR></SPAN>
+    which will always ensure that #3 is <SPAN style="font-style: italic;">OPEN</SPAN> whenever the
+    program is <SPAN style="font-style: italic;">RELOAD</SPAN>ed.
+    
+    
+<H3>NOTE 5:</H3>
+
+<P>
+    If a program uses <SPAN style="font-style: italic;">ALCHP</SPAN> to grab some memory, unless you
+    intend to always <SPAN style="font-style: italic;">RUN</SPAN> the program from the start when you <SPAN style="font-style: italic;">RELOAD<BR></SPAN> it, do not use any command which will release this area of
+    common heap memory before you <SPAN style="font-style: italic;">RELOAD</SPAN> the program. Commands
+    which do this include: <SPAN style="font-style: italic;">CLCHP</SPAN>, <SPAN style="font-style: italic;">CLEAR</SPAN>, <SPAN style="font-style: italic;">NEW</SPAN> or <SPAN style="font-style: italic;">LOAD</SPAN>.
+    
+    
+<H3>WARNING 1:</H3>
+
+<P>
+    This toolkit does not work on SMSQ/E and can crash the
+    computer.
+    
+    
+<H3>WARNING 2:</H3>
+
+<P>
+    Unfortunately, attempts to use this toolkit to <SPAN style="font-style: italic;">UNLOAD</SPAN> files
+    from one interpreter and then <SPAN style="font-style: italic;">RELOAD</SPAN> the files into another
+    Multiple BASIC will crash that Multiple BASIC (or have other
+    various undesirable effects).
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsS.html#SCR_SAVE">SCR_SAVE</A> allows you to dictate whether the screen display and
+    mode should be stored together with the program.
+    
+    <A style="font-style: italic;" href="KeywordsR.html#RESAVE">RESAVE</A> is similar.
+    
+    <A style="font-style: italic;" href="KeywordsR.html#REMOVE">REMOVE</A> allows you to remove a program stored in memory with
+    this command.
+    
+    See also <A style="font-style: italic;" href="KeywordsR.html#RELOAD">RELOAD</A> and <A style="font-style: italic;" href="KeywordsQ.html#QSAVE">QSAVE</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="UNLOCK" id="UNLOCK"></A>UNLOCK</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">UNLOCK file,code$,code<BR></SPAN> Location: <SPAN style="font-style: italic;">CRYPTAGE<BR></SPAN>
+    See <SPAN style="font-style: italic;">LOCK</SPAN> !
+    
+    
+<H3>Example:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">UNLOCK ram1_secret_txt,"Phew",7241<BR></SPAN>
+    
+<H3></H3>
+
+<P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="UNSET" id="UNSET"></A>UNSET</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">UNSET (variable)<BR></SPAN> Location: <SPAN style="font-style: italic;">PARAMS (DIY Toolkit - Vol P)<BR></SPAN>
+    This is the same as <SPAN style="font-style: italic;">DEFINED</SPAN> and suffers from the same
+    problem!
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="UPC$" id="UPC$"></A>UPC$</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">UPC$ (string$)<BR></SPAN> Location: <SPAN style="font-style: italic;">LWCUPC<BR></SPAN>
+    This is the same as <SPAN style="font-style: italic;">UPPER$</SPAN> !
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="UPPER$" id="UPPER$"></A>UPPER$</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">UPPER$ (string$)<BR></SPAN> Location: <SPAN style="font-style: italic;">TinyToolkit, Function (DIY Toolkit - Vol R)<BR></SPAN>
+    This function takes the given string and converts any lower
+    case letters to capitals and then returns the whole string.
+    Normally, only the ASCII alphabet is catered for, which means
+    that no national characters are converted, ie. the function
+    only works with A..Z and a..z.
+    
+    The DIY Toolkit version will cope with accented characters,
+    but you may have to modify the source code in order for this
+    function to work with some international character sets which
+    use an extended alphabet.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    This is not quite an example for <SPAN style="font-style: italic;">UPPER$</SPAN> but a replacement
+    
+    which converts all characters where an upper character is
+    
+    available:
+    <SPAN style="font-style: italic;">100 DEFine FuNction UPPER_$ (string$)
+    110 LOCal i,c,u,u$: u$=""
+    120 FOR i=1 TO LEN(string$)
+    130 c=CODE(string$(i)): u=c
+    140 SELect ON c=97 TO 122: u=c-32:=128 TO 139: u=c+32
+    150 u$=u$ &amp; CHR$(u)
+    160 END FOR i
+    170 RETurn u$
+    180 END DEFine UPPER_$<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsU.html#UPC$">UPC$</A> returns the same as <A style="font-style: italic;" href="KeywordsU.html#UPPER$">UPPER$</A>.
+    
+    See also <A style="font-style: italic;" href="KeywordsC.html#CONVCASE">CONVCASE</A> and <A style="font-style: italic;" href="KeywordsL.html#LOWER$">LOWER$</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="UPUT" id="UPUT"></A>UPUT</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">UPUT</SPAN> [<SPAN style="font-style: italic;">#ch\position,</SPAN>] [<SPAN style="font-style: italic;">item</SPAN> <SUP>*</SUP>[<SPAN style="font-style: italic;">,item</SPAN><SUP>i</SUP>]<SUP>*</SUP> ..]
+    
+    or <SPAN style="font-style: italic;">UPUT</SPAN> [<SPAN style="font-style: italic;">#ch,</SPAN>] [<SPAN style="font-style: italic;">item</SPAN> <SUP>*</SUP>[<SPAN style="font-style: italic;">,item</SPAN><SUP>i</SUP>]<SUP>*</SUP> ..] Location: <SPAN style="font-style: italic;">SMSQ/E v2.55+<BR></SPAN>
+    This command is the same as <SPAN style="font-style: italic;">BPUT</SPAN>, except that any bytes sent
+    by it to the specified channel (default #3) are not affected
+    by the <SPAN style="font-style: italic;">TRA</SPAN> command.
+    
+    This command is therefore useful for sending printer
+    control codes.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsB.html#BPUT">BPUT</A>, <A style="font-style: italic;" href="KeywordsW.html#WPUT">WPUT</A> and <A style="font-style: italic;" href="KeywordsL.html#LPUT">LPUT</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="USE" id="USE"></A>USE</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">USE</SPAN> [ <SPAN style="font-style: italic;">#channel</SPAN> ] Location: <SPAN style="font-style: italic;">USE (DIY Toolkit - Vol C)<BR></SPAN>
+    Many commands and functions which are described in this
+    manual, expect a channel number to be passed to them and if
+    one is not supplied, will default to a specific channel.
+    
+    This command can be used to re-direct all machine code
+    commands and functions which normally default to #1. After
+    using this command, if a channel parameter is not specified,
+    the commands and functions will then default to the channel
+    specified by <SPAN style="font-style: italic;">USE</SPAN> instead of #1.
+    
+    Also, if you explicitly pass a channel number #1 as a
+    parameter to a command or function, then the command or
+    function will still be re-directed to the channel specified by
+    <SPAN style="font-style: italic;">USE</SPAN>.
+    
+    If no parameter is specified, then this is equivalent to
+    <SPAN style="font-style: italic;">USE #1</SPAN>.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">PRINT 'This is channel #1':USE #2:PRINT 'This is using Channel #2'
+    
+    PRINT #1,'This is still channel #2'
+    
+    USE: PRINT 'This is channel #1 again!'<BR></SPAN>
+    
+<H3>NOTE:</H3>
+
+<P>
+    There is a slight difficulty in using this command in that
+    when you <SPAN style="font-style: italic;">USE #1</SPAN> some of the information used by SuperBASIC for
+    the channel which you have been using as the default will be
+    lost. This is the last graphics co-ordinates, turtle graphics
+    direction, pen status, character position on line and line
+    width for files (set with <SPAN style="font-style: italic;">WIDTH</SPAN>) will be lost.
+    
+    You will also lose the original values for these offsets
+    for channel #1 (ie. the values which were in use prior to the
+    <SPAN style="font-style: italic;">USE #ch</SPAN> command).
+    
+    Instead, the values are set to pen up, position 0,0, width
+    80, direction left-to-right.
+    
+    You can use <SPAN style="font-style: italic;">PEEK_W(\48\chan*40+offset)</SPAN> to store these values before
+    the <SPAN style="font-style: italic;">USE</SPAN> call and then restore them with <SPAN style="font-style: italic;">POKE</SPAN>. Refer to QDOS/SMS
+    Reference Manual Section 18.4.1 to find out how these values
+    are stored.
+    
+<H3>
+    WARNING:</H3>
+
+<P>
+    If used from within a SMS SBASIC, v0.2 (at least) of this
+    command will crash the computer when output is redirected to
+    #1 using either <SPAN style="font-style: italic;">USE</SPAN> or <SPAN style="font-style: italic;">USE#1</SPAN>. The problem only occurs when you
+    try to send output to #1.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsP.html#PRINT">PRINT</A>,<A style="font-style: italic;" href="KeywordsC.html#CSIZE">CSIZE</A>,<A style="font-style: italic;" href="KeywordsI.html#INK">INK</A>,<A style="font-style: italic;" href="KeywordsP.html#PAPER">PAPER</A> and<A style="font-style: italic;" href="KeywordsS.html#STRIP">STRIP</A> are just a few of the commands
+    which default to #1 and are therefore affected by this
+    command.
+</BODY>
+</HTML>
