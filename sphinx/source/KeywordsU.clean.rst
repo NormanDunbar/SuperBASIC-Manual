@@ -1,3 +1,8 @@
+==========
+Keywords U
+==========
+
+
 UINT
 ====
 
@@ -7,9 +12,13 @@ UINT
 | Location |  BTool                                                            |
 +----------+-------------------------------------------------------------------+
 
- The function UINT returns the unsigned value of a (signed) integer:
-unsigned = signed% + 2^16
- or unsigned = UINT(signed%)
+The function UINT returns the unsigned value of a (signed) integer::
+
+    unsigned = signed% + 2^16
+    
+or::
+
+    unsigned = UINT(signed%)
 
 **CROSS-REFERENCE**
 
@@ -26,30 +35,46 @@ UNDER
 | Location |  QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
 
- This command switches underlining in the specified window (default #1)
+This command switches underlining in the specified window (default #1)
 either on or off. Underlining is enabled if switch=1
- or disabled if switch=0. Other values of switch will return a 'bad
-parameter' error. If underlining is enabled, whenever anything is
+or disabled if switch=0. Other values of switch will return a 'bad
+parameter' error. 
+
+If underlining is enabled, whenever anything is
 PRINTed, a line will be drawn in the current INK colour in the bottom
-but one row of the character. If FLASH is enabled, although the
+but one row of the character. 
+
+If FLASH is enabled, although the
 character will continue to flash, the underline itself will not. MODE
 will disable underlining.
 
 **Example 1**
 
-UNDER 1: PRINT 'Title:'!: UNDER 0: PRINT !'QL SuperBASIC'
+::
+
+    UNDER 1: PRINT 'Title:'!: UNDER 0: PRINT !'QL SuperBASIC'
 
 **Example 2**
 
 If you don't like the line which is drawn by underline than you can use
 OVER to draw your own line with a different colour. Note however that
 this line ought to be drawn before the underlined text since the line
-should not overlap letters like g, p, q and j. 100 DEFine PROCedure
-PRNT\_UNDL (ch, x, y, text$, col1, col2) 110 AT#ch,x,y: INK#ch,col2:
-OVER#ch,0 120 PRINT#ch,FILL$("\_",LEN(text$)) 130 AT#ch,x,y:
-INK#ch,col1: OVER#ch,1 140 PRINT#ch,text$ 150 OVER#ch,0 160 END DEFine
-PRNT\_UNDL
- PAPER 3: CLS PRNT\_UNDL #1,3,3,"Looking good.",7,0
+should not overlap letters like g, p, q and j. 
+
+::
+
+    100 DEFine PROCedure PRNT_UNDL (ch, x, y, text$, col1, col2) 
+    110   AT#ch,x,y: INK#ch,col2: OVER#ch,0 
+    120   PRINT#ch,FILL$("_",LEN(text$)) 
+    130   AT#ch,x,y: INK#ch,col1: OVER#ch,1 
+    140   PRINT#ch,text$ 
+    150   OVER#ch,0 
+    160 END DEFine PRNT_UNDL  
+
+::
+
+    PAPER 3: CLS 
+    PRNT_UNDL #1,3,3,"Looking good.",7,0
 
 **NOTE**
 
@@ -72,12 +97,11 @@ UNJOB
 | Location |  UNJOB                                                            |
 +----------+-------------------------------------------------------------------+
 
- This command sets the file type of the given file (the full filename
+This command sets the file type of the given file (the full filename
 must be supplied) to zero. The reason for this command is that certain
 assemblers and tools set the file type to 1 (executable file) even
 though the file cannot be started as a job. Since commands like EX or
-EXEC
- check the file type to decide whether a file can be executed, they will
+EXEC check the file type to decide whether a file can be executed, they will
 try to start such a file and crash the system in most cases. A simple
 UNJOB prevents this in the long term.
 
@@ -107,9 +131,10 @@ UNL
 | Location |  Beuletools                                                       |
 +----------+-------------------------------------------------------------------+
 
- This function returns the control codes needed to switch on underline
-printing on an EPSON compatible printer, PRINT UNL is the same as: PRINT
-CHR$(27)&"-"&CHR$(1)
+This function returns the control codes needed to switch on underline
+printing on an EPSON compatible printer, PRINT UNL is the same as::
+
+    PRINT CHR$(27) & "-" & CHR$(1)
 
 **CROSS-REFERENCE**
 
@@ -133,7 +158,7 @@ UNLOAD
 | Location |  MutiBASIC (DIY Toolkit - Vol M)                                  |
 +----------+-------------------------------------------------------------------+
 
- Despite the name, this toolkit is completely different to the
+Despite the name, this toolkit is completely different to the
 MultiBASICs which are provided on Minerva ROMs. This toolkit actually
 provides a quick means of saving and loading programs in memory - this
 allows you to load a program which you are working on, store it in
@@ -141,9 +166,13 @@ memory and then alter the program. If the new alterations to the program
 do not work out as planned and you want to revert to the original
 version, you can simply RELOAD the original version from program in a
 matter of seconds (rather than the minutes which it would take to LOAD
-the original version from disk). This can be very useful for program
+the original version from disk). 
+
+This can be very useful for program
 development, or, for example, if you have a SuperBASIC utility program
-which you use a lot. This command allows you to store the currently
+which you use a lot. 
+
+This command allows you to store the currently
 loaded SuperBASIC program in memory. You have to supply a name for the
 program (similar to the name which you could use with the SAVE command,
 except there is no need for a device name and the program name can be up
@@ -152,13 +181,20 @@ programs which have been stored with this command are available from the
 jobs list (see JOBS). When the program is stored in memory, the contents
 of all variables and pointers are also stored, which makes certain that
 if you UNLOAD a program whilst it is RUNning, you can later RELOAD it
-and re-start it from the same place (with CONTINUE). v4.0+ of the
+and re-start it from the same place (with CONTINUE). 
+
+Version 4.0+ of the
 toolkit, allows you to store the current screen display and mode along
 with the program, so that when the program is RELOADed, the display is
 in a known layout. To further extend the usefulness of this toolkit, any
 commands which appear after UNLOAD will be automatically executed when
-the program is RELOADed, for example: UNLOAD test : RUN
- will always RUN the program when you: RELOAD test
+the program is RELOADed, for example::
+
+    UNLOAD test: RUN
+    
+will always RUN the program when you::
+
+    RELOAD test
 
 **NOTE 1**
 
@@ -181,17 +217,25 @@ MultiBASIC, you cannot load the toolkit from a Multiple BASIC - an
 
 The current channel details are not stored when you use UNLOAD - you may
 therefore need to re-open the channels when the program is RELOADed, or
-use something akin to: UNLOAD 'watch' : OPEN #3,con\_448x200a32x16
- which will always ensure that #3 is OPEN whenever the program is
+use something akin to::
+
+    UNLOAD 'watch': OPEN #3,con_448x200a32x16
+    
+which will always ensure that #3 is OPEN whenever the program is
 RELOADed.
 
 **NOTE 5**
 
 If a program uses ALCHP to grab some memory, unless you intend to always
 RUN the program from the start when you RELOAD
- it, do not use any command which will release this area of common heap
-memory before you RELOAD the program. Commands which do this include:
-CLCHP, CLEAR, NEW or LOAD.
+it, do not use any command which will release this area of common heap
+memory before you RELOAD the program. Commands which do this include::
+
+
+    CLCHP
+    CLEAR
+    NEW
+    LOAD
 
 **WARNING 1**
 
@@ -223,11 +267,13 @@ UNLOCK
 | Location |  CRYPTAGE                                                         |
 +----------+-------------------------------------------------------------------+
 
- See LOCK !
+See `LOCK <KeywordsL.clean.html#lock>`__.
 
 **Example**
 
-UNLOCK ram1\_secret\_txt,"Phew",7241
+::
+
+    UNLOCK ram1_secret_txt,"Phew",7241
 
 --------------
 
@@ -240,7 +286,7 @@ UNSET
 | Location |  PARAMS (DIY Toolkit - Vol P)                                     |
 +----------+-------------------------------------------------------------------+
 
- This is the same as DEFINED and suffers from the same problem!
+This is the same as `DEFINED <KeywordsD.clean.html#defined>`__ and suffers from the same problem!
 
 --------------
 
@@ -253,7 +299,7 @@ UPC$
 | Location |  LWCUPC                                                           |
 +----------+-------------------------------------------------------------------+
 
- This is the same as UPPER$ !
+This is the same as `UPPER$ <KeywordsU.clean.html#upper>`__.
 
 --------------
 
@@ -266,11 +312,13 @@ UPPER$
 | Location |  TinyToolkit, Function (DIY Toolkit - Vol R)                      |
 +----------+-------------------------------------------------------------------+
 
- This function takes the given string and converts any lower case
+This function takes the given string and converts any lower case
 letters to capitals and then returns the whole string. Normally, only
 the ASCII alphabet is catered for, which means that no national
 characters are converted, ie. the function only works with A..Z and
-a..z. The DIY Toolkit version will cope with accented characters, but
+a..z. 
+
+The DIY Toolkit version will cope with accented characters, but
 you may have to modify the source code in order for this function to
 work with some international character sets which use an extended
 alphabet.
@@ -278,11 +326,17 @@ alphabet.
 **Example**
 
 This is not quite an example for UPPER$ but a replacement which converts
-all characters where an upper character is available: 100 DEFine
-FuNction UPPER\_$ (string$) 110 LOCal i,c,u,u$: u$="" 120 FOR i=1 TO
-LEN(string$) 130 c=CODE(string$(i)): u=c 140 SELect ON c=97 TO 122:
-u=c-32:=128 TO 139: u=c+32 150 u$=u$ & CHR$(u) 160 END FOR i 170 RETurn
-u$ 180 END DEFine UPPER\_$
+all characters where an upper character is available:: 
+
+    100 DEFine FuNction UPPER_$ (string$) 
+    110   LOCal i,c,u,u$: u$="" 
+    120   FOR i=1 TO LEN(string$) 
+    130   c=CODE(string$(i)): u=c 
+    140   SELect ON c=97 TO 122: u=c-32:=128 TO 139: u=c+32 
+    150   u$=u$ & CHR$(u) 
+    160   END FOR i 
+    170   RETurn u$ 
+    180 END DEFine UPPER_$
 
 **CROSS-REFERENCE**
 
@@ -296,13 +350,14 @@ u$ 180 END DEFine UPPER\_$
 UPUT
 ====
 
-+----------+-------------------------------------------------------------------+
-| Syntax   |  UPUT [#ch\\position,] [item :sup:`\*`\ [,item\ :sup:`i`]\ :sup:`\*` ..] or UPUT [#ch,] [item :sup:`\*`\ [,item\ :sup:`i`]\ :sup:`\*` ..] |
-+----------+-------------------------------------------------------------------+
-| Location |  SMSQ/E v2.55+                                                    |
-+----------+-------------------------------------------------------------------+
++----------+-----------------------------------------------------------------------------+
+| Syntax   || UPUT [#ch\\position,] [item :sup:`\*`\ [,item\ :sup:`i`]\ :sup:`\*` ..] or |
+|          || UPUT [#ch,] [item :sup:`\*`\ [,item\ :sup:`i`]\ :sup:`\*` ..]              |
++----------+-----------------------------------------------------------------------------+
+| Location || SMSQ/E v2.55+                                                              |
++----------+-----------------------------------------------------------------------------+
 
- This command is the same as BPUT, except that any bytes sent by it to
+This command is the same as BPUT, except that any bytes sent by it to
 the specified channel (default #3) are not affected by the TRA command.
 This command is therefore useful for sending printer control codes.
 
@@ -322,21 +377,24 @@ USE
 | Location |  USE (DIY Toolkit - Vol C)                                        |
 +----------+-------------------------------------------------------------------+
 
- Many commands and functions which are described in this manual, expect
+Many commands and functions which are described in this manual, expect
 a channel number to be passed to them and if one is not supplied, will
 default to a specific channel. This command can be used to re-direct all
-machine code commands and functions which normally default to #1. After
-using this command, if a channel parameter is not specified, the
+machine code commands and functions which normally default to #1. 
+
+After using this command, if a channel parameter is not specified, the
 commands and functions will then default to the channel specified by USE
-instead of #1. Also, if you explicitly pass a channel number #1 as a
+instead of #1. Also, *even* if you explicitly pass a channel number #1 as a
 parameter to a command or function, then the command or function will
-still be re-directed to the channel specified by USE. If no parameter is
+*still* be re-directed to the channel specified by USE. If no parameter is
 specified, then this is equivalent to USE #1.
 
 **Example**
 
-PRINT 'This is channel #1':USE #2:PRINT 'This is using Channel #2' PRINT
-#1,'This is still channel #2' USE: PRINT 'This is channel #1 again!'
+::
+
+    PRINT 'This is channel #1': USE #2: PRINT 'This is using Channel #2' 
+    PRINT #1, 'This is still channel #2' USE: PRINT 'This is channel #1 again!'
 
 **NOTE**
 
@@ -348,7 +406,11 @@ on line and line width for files (set with WIDTH) will be lost. You will
 also lose the original values for these offsets for channel #1 (ie. the
 values which were in use prior to the USE #ch command). Instead, the
 values are set to pen up, position 0,0, width 80, direction
-left-to-right. You can use PEEK\_W(\\48\\chan\*40+offset) to store these
+left-to-right. You can use::
+
+    PEEK_W(\48\chan*40+offset) 
+    
+to store these
 values before the USE call and then restore them with POKE. Refer to
 QDOS/SMS Reference Manual Section 18.4.1 to find out how these values
 are stored.
