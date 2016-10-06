@@ -1,0 +1,1357 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html xmlns:v="urn:schemas-microsoft-com:vml">
+  <head>
+    <meta http-equiv="content-type" content="text/html;
+      charset=ISO-8859-1">
+    <link rel="stylesheet" type="text/css" href="css/QLManualStyle.css" media="all" />
+    <title>Sinclair QL SuperBASIC/SBASIC Reference Manual - Keywords W</title>
+</head>
+<body>
+<div id="header">
+  SBASIC/SuperBASIC Reference Manual Online (c) RWAP Software
+  <br />
+  The Online Guide to programming the Sinclair QL Home Computer in SuperBASIC
+</div>
+<div id="sideBar">
+    <ul>
+        <li><a href="Foreword.html">Foreword</a></li>
+        <li><a href="Introduction.html">Introduction</a></li>
+        <li><a href="Credits.html">Credits</a></li>        
+        <li><a href="Structure.html">Structure</a></li>
+        <li><a href="WritingPrograms.html">Writing Programs</a></li>
+        <hr></hr>
+        <li><a href="KeywordsA.html">Keywords - A</a></li>
+        <li><a href="KeywordsB.html">Keywords - B</a></li>
+        <li><a href="KeywordsC.html">Keywords - C</a></li>
+        <li><a href="KeywordsD.html">Keywords - D</a></li>
+        <li><a href="KeywordsE.html">Keywords - E</a></li>
+        <li><a href="KeywordsF.html">Keywords - F</a></li>
+        <li><a href="KeywordsG.html">Keywords - G</a></li>
+        <li><a href="KeywordsH.html">Keywords - H</a></li>
+        <li><a href="KeywordsI.html">Keywords - I</a></li>
+        <li><a href="KeywordsJ.html">Keywords - J</a></li>
+        <li><a href="KeywordsK.html">Keywords - K</a></li>
+        <li><a href="KeywordsL.html">Keywords - L</a></li>
+        <li><a href="KeywordsM.html">Keywords - M</a></li>
+        <li><a href="KeywordsN.html">Keywords - N</a></li>
+        <li><a href="KeywordsO.html">Keywords - O</a></li>
+        <li><a href="KeywordsP.html">Keywords - P</a></li>
+        <li><a href="KeywordsQ.html">Keywords - Q</a></li>
+        <li><a href="KeywordsR.html">Keywords - R</a></li>
+        <li><a href="KeywordsS.html">Keywords - S</a></li>
+        <li><a href="KeywordsT.html">Keywords - T</a></li>
+        <li><a href="KeywordsU.html">Keywords - U</a></li>
+        <li><a href="KeywordsV.html">Keywords - V</a></li>
+        <li><a href="KeywordsW.html">Keywords - W</a></li>
+        <li><a href="KeywordsX.html">Keywords - X</a></li>
+        <li><a href="KeywordsY.html">Keywords - Y</a></li>
+        <li><a href="KeywordsZ.html">Keywords - Z</a></li>
+        <li><a href="Keywords_.html">Keywords - Other</a></li>
+        <hr></hr>
+        <li><a href="AppendicesIntro.html">Appendices Introduction</a></li>
+        <li><a href="Appendix01.html">Appendix 1 - Minerva</a></li>
+        <li><a href="Appendix02.html">Appendix 2 - SMSQE</a></li>
+        <li><a href="Appendix03.html">Appendix 3 - Emulators</a></li>
+        <li><a href="Appendix04.html">Appendix 4 - THOR Computers</a></li>
+        <li><a href="Appendix05.html">Appendix 5 - Expansion Boards</a></li>
+        <li><a href="Appendix06.html">Appendix 6 - Compatability</a></li>
+        <li><a href="Appendix07.html">Appendix 7 - Multiple BASICs</a></li>
+        <li><a href="Appendix08.html">Appendix 8 - Error Messages</a></li>
+        <li><a href="Appendix09.html">Appendix 9 - Character Set / Keyboard</a></li>
+        <li><a href="Appendix10.html">Appendix 10 - Fonts</a></li>
+        <li><a href="Appendix11.html">Appendix 11 - Mathematics</a></li>
+        <li><a href="Appendix12.html">Appendix 12 - Device Drivers</a></li>
+        <li><a href="Appendix13.html">Appendix 13 - Extended Pointer Environment</a></li>
+        <li><a href="Appendix14.html">Appendix 14 - Coercion</a></li>
+        <li><a href="Appendix15.html">Appendix 15 - Mouse Drivers</a></li>
+        <li><a href="Appendix16.html">Appendix 16 - The QL Display</a></li>
+        <li><a href="Appendix17.html">Appendix 17 - Networks</a></li>
+        <li><a href="Appendix18.html">Appendix 18 - Configuring Programs</a></li>
+    </ul>
+</div>
+<div id="mainText">
+<h1><a name="WAIT_EVENT"></a>WAIT_EVENT</h1><br>Syntax: <span style="font-style: italic;">WAIT_EVENT (event </span>[<span style="font-style: italic;">,timeout</span>]<span style="font-style: italic;"> )
+<br></span>Location: <span style="font-style: italic;">SMSQ/E v2.71+
+<br></span><br>This function access the Event Accumulator for the current
+<br>job and checks whether the specified <span style="font-style: italic;">event</span> (or events) have
+<br>occured.
+<br><br>If you want to check for the occurence of several events,
+<br>you merely need to add together the numbers of the events.  If
+<br>any one of the specified events has already occured then the
+<br>function will return the total value of the specified events
+<br>which have occured.
+<br><br>If none of the specified events have occured, then this
+<br>function will suspend the current program until one of those
+<br>events has occured or the specified <span style="font-style: italic;">timeout</span> (if any) has elapsed.
+<br>If <span style="font-style: italic;">timeout</span> is not specified then the function will wait forever.
+<br><br>If the reason for the function returning was that the <span style="font-style: italic;">timeout
+<br></span>has elapsed (and none of the specified events have occured)
+<br>then the returned value will be 0.
+<br><br><h3>Example:
+<br></h3><br><span style="font-style: italic;">PRINT WAIT_EVENT(12)
+<br></span><br>This wait for event numbers 4 and 8 (4+8=12).  If event 8
+<br><br>was notified as having occured, then the value 8 would be
+<br><br>shown on screen.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsS.html#SEND_EVENT">SEND_EVENT</a> notifies a Job's Event Accumulator that one or more
+<br>events have occured.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="WBASE"></a>WBASE</h1><br>Syntax: <span style="font-style: italic;">WBASE </span>[<span style="font-style: italic;">(#channel)</span>]
+Location: <span style="font-style: italic;">Tiny Toolkit
+<br></span><br>This function is exactly the same as <span style="font-style: italic;">WIN_BASE</span>.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See<a style="font-style: italic;" href="KeywordsW.html#WIN_BASE">WIN_BASE</a>!
+<br><hr style="width: 100%; height: 2px;"><h1><a name="WCOPY"></a>WCOPY</h1><br>Syntax: <span style="font-style: italic;">WCOPY </span>[<span style="font-style: italic;">#ch,</span>] [<span style="font-style: italic;">wild1</span>] [<span style="font-style: italic;">TO wild2</span>]<span style="font-style: italic;">(Toolkit II)
+<br></span><br>or <span style="font-style: italic;">WCOPY </span>[<span style="font-style: italic;">#ch,</span>] <span style="font-style: italic;">wild1 TO wild2</span><span style="font-style: italic;">(THOR)
+<br></span>Location: <span style="font-style: italic;">Toolkit II, THORs
+<br></span><br>The command <span style="font-style: italic;">WCOPY</span> is intended to allow you to copy several
+<br>files with a common root from one device to another, quickly
+<br>and easily. It is however necessary to understand the way in
+<br>which Toolkit II's wildcards work, as <span style="font-style: italic;">WCOPY</span> uses these wildcards
+<br>to find the required files.
+<br><br>A wildcard is a means of finding several files which have
+<br>similar names. The first thing which any wildcard command does
+<br>is to look at the supplied parameter and then compare this
+<br>against each entry in the directory of the given device. If
+<br>any of the filenames match exactly, or if the parameter forms
+<br>the start of any filenames, those files are marked as chosen.
+<br><br>For example,
+<br><br><span style="font-style: italic;">WCOPY flp1_D TO flp2_
+<br></span><br>would copy all files whose names are either 'D' or begin
+<br>with  the  letter  'D'  to  flp2_  (the  comparison  is  case
+<br>independent).
+<br><br>However, wildcards can be much more complex and wonderful
+<br>on the QL. If you place two underscores ('_') together as part
+<br>of <span style="font-style: italic;">wild1</span>, this is taken to be a wildcard and can in fact be
+<br>replaced by  any  string  of characters  in  order  to  match
+<br>filenames with <span style="font-style: italic;">wild1</span>.
+<br><br>Wildcards are further complicated by the fact that if a
+<br>device name is not provided as part of <span style="font-style: italic;">wild1</span>, then the default
+<br>device will be added (which ends with an underscore, so if <span style="font-style: italic;">wild1
+<br></span>begins with an underscore, you will have a wildcard symbol!!)
+<br><br>A few examples of wildcards (assuming default device is
+<br>'<span style="font-style: italic;">flp1_</span>'):
+<br><h3><span style="font-style: italic;">Wild1</span>wild card nameFile matches
+<br></h3>tflp1_tflp1_testa
+<br>            flp1_test_v1.00_bas
+<br>_tflp1__tflp1_testa
+<br>              flp1_test_v1.00_bas
+<br>             flp1_old_v0.01_test_bas
+<br>flp1_old__flp1_old__flp1_old_v0.01_test_bas
+<br>                        flp1_old_v1.00_exe
+<br>                         flp1_old_data
+<br><br><span style="font-style: italic;">WCOPY</span> uses both wildcards for ascertaining the names of the
+<br>files to be copied, and the files to be created. However, both
+<br><span style="font-style: italic;">wild1</span> and <span style="font-style: italic;">wild2</span> are dealt with distinctively.
+<br><br><span style="font-style: italic;">WCOPY</span> will use the rules on wildcards to search for files
+<br>which match with <span style="font-style: italic;">wild1</span> on the specified device, or the default
+<br>data device if no device is specified.
+<br><br>However,  the  rules  for  determining  the  destination
+<br>parameter <span style="font-style: italic;">wild2</span> are complex:
+<br><br>(1)If no device is given, but a <span style="font-style: italic;">filename</span> is specified,
+<br><span style="font-style: italic;">WCOPY</span> looks at <span style="font-style: italic;">wild1</span>. The destination device is then
+<br>assumed to be the same as the source device (ie. the
+<br>device name specified as part of <span style="font-style: italic;">wild1</span>, or if omitted,
+<br><span style="font-style: italic;">DATAD$</span>).
+<br><br>(2)If the second parameter is omitted, then again <span style="font-style: italic;">WCOPY
+<br></span>looks at <span style="font-style: italic;">wild1</span>. If a device is given in the first
+<br>parameter, then this is used as the destination device.
+<br>On the other hand, if no device was specified, then the
+<br>default destination device will be used (see <span style="font-style: italic;">DESTD$</span>).
+<br><br>(3)If a second parameter is given which includes a device
+<br>name, then this is used!
+<br><br>Having decided upon the device to which the files are to be
+<br>copied, <span style="font-style: italic;">WCOPY</span> then looks at the remainder of<span style="font-style: italic;"> wild2</span> to ascertain
+<br>what to do with the filenames it has found. Before trying to
+<br>understand how this works, it is essential to realise that
+<br>there is an implicit wildcard placed at the end of both <span style="font-style: italic;">wild1
+<br></span>and <span style="font-style: italic;">wild2</span>.
+<br><br><span style="font-style: italic;">WCOPY</span> will look at <span style="font-style: italic;">wild2</span> and compare each filename that it has
+<br>found using the wildcards in <span style="font-style: italic;">wild1</span> in turn. If a wildcard in <span style="font-style: italic;">wild1
+<br></span>is matched by a wildcard in <span style="font-style: italic;">wild2</span>, then that part of the source
+<br>filename will  be  inserted into  the  destination  filename.
+<br>However, beyond this, <span style="font-style: italic;">WCOPY</span> will use the rest of <span style="font-style: italic;">wild2</span> as the
+<br>actual destination filename.
+<br><br>Any additional sections in <span style="font-style: italic;">wild1</span> or <span style="font-style: italic;">wild2</span> will be inserted
+<br>after the drive name in the destination filename. See the
+<br>examples below!
+<br><br>Having decided which files are to be copied and the names
+<br>they are to be given on the device where they are being copied
+<br>to, <span style="font-style: italic;">WCOPY</span> will then request confirmation in the specified
+<br>channel (default #0) for each file, by printing the following
+<br>message in the channel:-
+<br><br><span style="font-style: italic;">source_file TO destination_file..Y/N/A/Q?
+<br></span><br>You will then need to press &lt;Y&gt; to copy that file across,
+<br>&lt;N&gt; to miss that file out, &lt;A&gt; to copy all files which match
+<br>with <span style="font-style: italic;">wild1</span>, or &lt;Q&gt; to leave <span style="font-style: italic;">WCOPY</span>. In this instance, &lt;ESC&gt; and
+<br>&lt;CTRL&gt;&lt;SPACE&gt; both act as &lt;Q&gt;.
+<br><br>If the destination file already exists, another prompt will
+<br>be shown in the form:
+<br><br><span style="font-style: italic;">OK to overwrite..Y/N/A/Q?
+<br></span><br>You will then need to press &lt;Y&gt; to overwrite that file, &lt;N&gt;
+<br>to go onto the next file, &lt;A&gt; to overwrite this and all other
+<br>files being copied if they already exist, or &lt;Q&gt; to stop <span style="font-style: italic;">WCOPY</span>.
+<br>Again, &lt;ESC&gt; and &lt;CTRL&gt;&lt;SPACE&gt; act as &lt;Q&gt;.
+<br><br><h3>Examples:
+<br></h3><br>Assuming that the default data device is flp1_ and the
+<br><br>default destination device is ram2_:
+<br>(1) <span style="font-style: italic;">WCOPY
+<br></span>Copies all files on flp1_ to ram2_
+<br>(2) <span style="font-style: italic;">WCOPY flp1_test TO ram2_ol</span>d
+<br>Copies: <span style="font-style: italic;">flp1_testa to ram2_olda
+<br></span><span style="font-style: italic;">flp1_test_v1.00_bas to ram2_old_v1.00_bas
+<br></span>(3) <span style="font-style: italic;">WCOPY flp1_test,ram2_old_
+<br></span>Copies: <span style="font-style: italic;">flp1_testa to ram2_old_testa
+<br></span><span style="font-style: italic;">flp1_test_v1.00_bas to ram2_old_test_v1.00_bas
+<br></span>(4) <span style="font-style: italic;">WCOPY _bas to ram2_
+<br></span>Copies: <span style="font-style: italic;">ram1_test_v1.00_bas to ram2_bas
+<br></span><span style="font-style: italic;">ram1_old_v0.01_test_bas to ram2_bas
+<br></span>(5) <span style="font-style: italic;">WCOPY _bas,ram2__
+<br></span>Copies:<span style="font-style: italic;">ram1_test_v1.00_bas to ram2_test_v1.00_bas
+<br></span><span style="font-style: italic;">ram1_old_v0.01_test_bas to ram2_old_v0.01_test_bas
+<br></span>(6) <span style="font-style: italic;">WCOPY old__ TO ram2_
+<br></span>Copies: <span style="font-style: italic;">ram1_old_v0.01_test_bas to ram2_v0.01_test_bas
+<br>ram1_old_v1.00_exe to ram2_v1.00_exe
+<br> ram1_old_data to ram2_data
+<br></span><br><h3>NOTE 1:
+<br></h3><br>The <span style="font-style: italic;">TO</span> in the syntax can be replaced by a comma '<span style="font-style: italic;">,</span>'.
+<br><br><h3>NOTE 2:
+<br></h3><br>On the THOR range (v4.02+) the <span style="font-style: italic;">TO</span> in the prompts is
+<br>replaced by the symbol =>
+<br><br><h3>NOTE 3:
+<br></h3><br>On the THOR range, the prompt message are altered from
+<br><span style="font-style: italic;">Y/N/A/Q</span> to <span style="font-style: italic;">Yes/No/All/Quit</span>.
+<br><br><h3>NOTE 4:
+<br></h3><br>As with <span style="font-style: italic;">COPY</span>, <span style="font-style: italic;">WCOPY</span> does not copy the header to serial devices
+<br>(eg. ser) if this is specified as the destination. However,
+<br>the THOR variant of this command actually looks to see whether
+<br>the  file-type  or  file  dependent  information  fields  are
+<br>non-zero in which case the header is always copied.
+<br><br><h3>NOTE 5:
+<br></h3><br>If you have level-2 device drivers, any sub-directories in
+<br>the  specified  source  directory  are  ignored  by  <span style="font-style: italic;">WCOPY</span>.  For
+<br>example, if <span style="font-style: italic;">DIR flp1_</span> gave the following result:
+<br><br>Psion Disk
+<br><br>400/1440 sectors
+<br><br>QUILL->
+<br><br>ABACUS->
+<br><br><span style="font-style: italic;">WCOPY flp1_</span> would have no effect. However, compare <span style="font-style: italic;">WCOPY flp1_QUILL_
+<br></span>which would copy all of the files in the sub-directory 'QUILL'
+<br>to the current destination device.
+<br><br><h3>NOTE 6:
+<br></h3><br>Both parameters must be supplied for the THOR variant of
+<br>this command, otherwise the error 'Bad Parameter' will be
+<br>reported.
+<br><br><h3>NOTE 7:
+<br></h3><br>Current versions (at least up to v2.85) of <span style="font-style: italic;">WCOPY</span> do not work
+<br>correctly with the <span style="font-style: italic;">DEV</span> device when this is pointing at a
+<br>sub-directory (eg. <span style="font-style: italic;">DEV_USE 1,flp1_QUILL_:WCOPY DEV1_</span>).
+<br><span style="font-style: italic;"><br>WCOPY</span> will however work if the DEV device is pointing at a
+<br>root directory, eg. <span style="font-style: italic;">DEV_USE 1,flp1_</span>.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsS.html#SPL_USE">SPL_USE</a> and <a style="font-style: italic;" href="KeywordsD.html#DEST_USE">DEST_USE</a> set the destination device. See <a style="font-style: italic;" href="KeywordsC.html#COPY">COPY</a>, <a style="font-style: italic;" href="KeywordsW.html#WCOPY_F
+">WCOPY_F
+</a>and <a style="font-style: italic;" href="KeywordsW.html#WCOPY_O">WCOPY_O</a> which are all similar. <a style="font-style: italic;" href="KeywordsW.html#WREN">WREN</a>, <a style="font-style: italic;" href="KeywordsW.html#WDIR">WDIR</a>, <a style="font-style: italic;" href="KeywordsW.html#WSTAT">WSTAT</a> and <a style="font-style: italic;" href="KeywordsW.html#WDEL">WDEL</a> all use
+<br>wildcards.  <a style="font-style: italic;" href="KeywordsC.html#COPY">COPY</a> and <a style="font-style: italic;" href="KeywordsS.html#SPL">SPL</a> allow you to copy specific files.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="WCOPY_F"></a>WCOPY_F</h1><br>Syntax: <span style="font-style: italic;">WCOPY_F </span>[<span style="font-style: italic;">#ch,</span>] <span style="font-style: italic;">wild1 TO wild2
+<br></span>Location: <span style="font-style: italic;">THORs
+<br></span><br>This command works in a similar way to <span style="font-style: italic;">WCOPY</span>. However,
+<br>although it lists the files being copied to the given channel
+<br>(default #0), the user is not prompted to confirm that each
+<br>file should be copied. The user will however be asked to
+<br>confirm should the destination filename already exist.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsW.html#WCOPY">WCOPY</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="WCOPY_O"></a>WCOPY_O</h1><br>Syntax: <span style="font-style: italic;">WCOPY_O </span>[<span style="font-style: italic;">#ch,</span>] <span style="font-style: italic;">wild1 TO wild2
+<br></span>Location: <span style="font-style: italic;">THORs
+<br></span><br><span style="font-style: italic;">WCOPY_O</span> is the same as <span style="font-style: italic;">WCOPY_F</span> except that any existing files
+<br>are automatically overwritten without any prompting.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsW.html#WCOPY_F">WCOPY_F</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="WDEL"></a>WDEL</h1><br>Syntax: <span style="font-style: italic;">WDEL </span>[<span style="font-style: italic;">#ch,</span>] [<span style="font-style: italic;">wild</span>]
+Location: <span style="font-style: italic;">Toolkit II, THORs
+<br></span><br><span style="font-style: italic;">WDEL</span> allows you to delete several files which match the
+<br>given wildcard at the same time.
+<br><br>If <span style="font-style: italic;">wild</span> contains a device name, then each file on that
+<br>device is checked to see if its name matches the wildcard,
+<br>otherwise the files on the default data directory are checked.
+<br><br>If any files are found which match the wildcard, a prompt
+<br>will appear in the specified window (default #0) to the
+<br>effect:-
+<br><br><span style="font-style: italic;">filename..Y/N/A/Q?
+<br></span><br>You must then either press &lt;Y&gt; to delete the offered file,
+<br>&lt;N&gt; to leave that file, &lt;A&gt; to delete that file and all other
+<br>files which match the wildcard, or &lt;Q&gt; to stop <span style="font-style: italic;">WDEL</span>. &lt;ESC&gt; and
+<br>&lt;CTRL&gt;&lt;SPACE&gt; will have the same effect as &lt;Q&gt;.
+<br><br><h3>Example:
+<br></h3><br><span style="font-style: italic;">WDEL win1_v1_</span> will delete all files in the sub-directory v1.
+<br><br><h3>NOTE 1:
+<br></h3><br>The THOR variant of <span style="font-style: italic;">WDEL</span> has amended the prompt to read:
+<br>'<span style="font-style: italic;">Yes/No/All/Quit</span>'
+<br><br><h3>NOTE 2:
+<br></h3><br>Current versions of <span style="font-style: italic;">WDEL</span> (at least up to v2.88) do not work
+<br>with the <span style="font-style: italic;">DEV</span> device when this is pointing to a sub-directory.
+<br>Even if you can persuade <span style="font-style: italic;">WDEL</span> to offer you the filename for
+<br>deletion, when you press &lt;Y&gt; or &lt;A&gt;, <span style="font-style: italic;">WDEL</span> fails to delete the
+<br>file!
+<br><br><h3>NOTE 3:
+<br></h3><br>If you try to use WDEL on a write protected disk, it will
+<br>ask you whether you want to delete each file in turn reporting
+<br>for each filename that the disk is write-protected, rather
+<br>than stopping altogether.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsW.html#WCOPY">WCOPY</a> provides details about wildcards.
+<br><br href="KeywordsD.html#DELETE">DELETE</a> allows you to delete single files.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="WDEL_F"></a>WDEL_F</h1><br>Syntax: <span style="font-style: italic;">WDEL_F </span>[<span style="font-style: italic;">#ch,</span>] [<span style="font-style: italic;">wild</span>]
+Location: <span style="font-style: italic;">THORs
+<br></span><br><span style="font-style: italic;">WDEL_F</span> is exactly the same as <span style="font-style: italic;">WDEL</span> except no prompts or
+<br>information about the files being deleted is shown on screen.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsW.html#WDEL">WDEL</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="WDIR"></a>WDIR</h1><br>Syntax: <span style="font-style: italic;">WDIR </span>[<span style="font-style: italic;">#ch,</span>] [<span style="font-style: italic;">wild</span>]
+<br><br>or <span style="font-style: italic;">WDIR \file </span>[<span style="font-style: italic;">,wild</span>]   <span style="font-style: italic;">(Toolkit II only)
+<br></span>Location: <span style="font-style: italic;">Toolkit II, THORs
+<br></span><br><span style="font-style: italic;">WDIR</span> allows you to produce a list of all of the filenames on
+<br>a given medium which match with the specified wildcard. If <span style="font-style: italic;">wild
+<br></span>contains a device name, then a list of all of the files on
+<br>that device which match with the wildcard is printed out to
+<br>the specified channel (default #1). If however, a device is
+<br>not specified, the default data device is used.
+<br><br>The second variant is only supported by Toolkit II and
+<br>allows you to send the results to the specified<span style="font-style: italic;"> file</span> instead of
+<br>sending it to a channel. If <span style="font-style: italic;">file</span> does not include a valid
+<br>device, the default data device is used, and if the <span style="font-style: italic;">file</span> already
+<br>exists, you will be asked whether or not you wish to overwrite
+<br>it. The <span style="font-style: italic;">file</span> is then opened by the <span style="font-style: italic;">WDIR</span> command, the list of
+<br>files written to it and then closed again.
+<br><br><h3>Examples:
+<br></h3><br><span style="font-style: italic;">WDIR \ser1,flp1___scr
+<br></span><br>will produce a list of all of the files on flp1_ whose
+<br><br>names end with <span style="font-style: italic;">_scr</span>.
+<br><br><span style="font-style: italic;">WDIR my
+<br></span><br>lists all files in the current directory which start with
+<br><br><span style="font-style: italic;">my</span>.
+<br><br><span style="font-style: italic;">WDIR _my
+<br></span><br>lists files which start with my or contain <span style="font-style: italic;">_my</span> somewhere.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsD.html#DIR">DIR</a> will produce a list of all of the files on a given
+<br>medium.
+<br><br href="KeywordsW.html#WCOPY">WCOPY</a> contains details of how wildcards operate.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="WGET"></a>WGET</h1><br>Syntax:<span style="font-style: italic;"> WGET</span> [<span style="font-style: italic;">#ch\position,</span>] [<span style="font-style: italic;">item </span><sup>*</sup>[<span style="font-style: italic;">,item</span><sup>i</sup>]<sup>*</sup> ..]
+<br><br>or<span style="font-style: italic;"> WGET</span> [<span style="font-style: italic;">#ch,</span>] [<span style="font-style: italic;">item</span><sup> *</sup>[<span style="font-style: italic;">,item</span><sup>i</sup>]<sup>*</sup> ..]
+Location: <span style="font-style: italic;">SMSQ/E
+<br></span><br>This command is very similar to <span style="font-style: italic;">BGET</span>, except that this
+<br>fetches a word (in the range 0..65535) from the given channel
+<br>(default #3).
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsW.html#WPUT">WPUT</a> and <a style="font-style: italic;" href="KeywordsB.html#BGET">BGET</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="WHEN condition"></a>WHEN condition</h1><br>Syntax: <span style="font-style: italic;">WHEN condition
+<br></span>Location: <span style="font-style: italic;">QL ROM (post JM), THOR XVI, Not SMSQ/E
+<br></span><br><span style="font-style: italic;">WHEN</span> is used to identify the start of a SuperBASIC structure
+<br>which is used to surround lines of SuperBASIC code which
+<br>should be executed whenever the given <span style="font-style: italic;">condition</span> is met. The
+<br><span style="font-style: italic;">condition</span> is not checked when a variable is <span style="font-style: italic;">READ</span>, or INPUT.
+<br><br>The syntax of the SuperBASIC structure can take two forms:
+<br><br><span style="font-style: italic;">WHEN condition:statement </span><sup>*</sup>[<span style="font-style: italic;">:statement</span>]<sup>*
+<br></sup><br>or
+<br><br><span style="font-style: italic;">WHEN condition
+<br></span><br><sup>*</sup>[<span style="font-style: italic;">statements</span>]<sup>*
+<br></sup><br>..
+<br><br><span style="font-style: italic;">END WHEN
+<br></span><br>The <span style="font-style: italic;">condition</span> can be anything which is accepted by the <span style="font-style: italic;">IF
+<br></span>command, provided that it begins with the name of a variable
+<br>(for example, <span style="font-style: italic;">WHEN a-10=b</span> is acceptable, but <span style="font-style: italic;">WHEN 10-a=b</span> is not). The
+<br>variable cannot be an array.
+<br><br>When a program is run, the interpreter will make a note of
+<br>the variable being tested and then jump to the statement
+<br>following the <span style="font-style: italic;">END WHEN</span> statement (unless the in-line format is
+<br>used when control jumps to the next line if <span style="font-style: italic;">END WHEN</span> does not
+<br>appear on that line).
+<br><br>Great care must however, be taken where the condition
+<br>refers to more than one variable, as an 'error in expression'
+<br>will be reported if a variable is not defined when the
+<br>condition is tested, for example, the following stops with
+<br>'error in expression' at line 4:
+<br><span style="font-style: italic;">4 WHEN x>1 AND y>1
+<br>5 x=x+1:PRINT 'hello'
+<br>6 END WHEN
+<br>7 PRINT 'Start'
+<br>100 FOR x=1 TO 2
+<br>110   FOR y=1 TO 2
+<br>120     PRINT x,y;'  ';
+<br>130   END FOR y
+<br>140 END FOR x
+<br></span><br>This is because when line 100 is processed, the interpreter
+<br>jumps to the <span style="font-style: italic;">WHEN</span> clause. At this stage, <span style="font-style: italic;">y</span> is undefined, hence
+<br>the error. The program will work if you add the line:
+<br><span style="font-style: italic;">1 y=0
+<br></span><br>Although blocks can be specified which check for various
+<br>conditions of the same variable, if the conditions overlap,
+<br>there is no guarantee as to which <span style="font-style: italic;">WHEN</span> statement will be
+<br>executed first.
+<br><br>Blocks cannot be mixed together. In the following example,
+<br>although if <span style="font-style: italic;">a$='me'</span> the messages 'hello' and 'who' will be
+<br>printed, and if <span style="font-style: italic;">a=2</span> the only message which will be printed is
+<br>'A is 2' - when the program is <span style="font-style: italic;">RUN</span>, the first <span style="font-style: italic;">END WHEN</span> command is
+<br>matched with line 1, thus the message 'who' is also printed
+<br>when the program is run (it is extremely bad programming
+<br>practice in any event to mix program structures of this sort).
+<br><span style="font-style: italic;">1 WHEN a$='me'
+<br>2   PRINT 'hello'
+<br>3   WHEN a=2
+<br>4     PRINT 'A is 2'
+<br>5   END WHEN
+<br>6   PRINT 'Who'
+<br>7 END WHEN
+<br></span><br><span style="font-style: italic;">WHEN</span> processing is turned off by the command <span style="font-style: italic;">WHEN anything</span>, and
+<br>also when the <span style="font-style: italic;">NEW</span>, <span style="font-style: italic;">CLEAR</span>, <span style="font-style: italic;">LOAD</span>, <span style="font-style: italic;">LRUN</span>, <span style="font-style: italic;">MERGE</span>, and <span style="font-style: italic;">MRUN</span> commands are
+<br>issued. You can also switch off <span style="font-style: italic;">WHEN</span> processing on a given
+<br>variable (eg. <span style="font-style: italic;">b</span>) by the command <span style="font-style: italic;">WHEN b</span> (in the following
+<br>example).
+<br><br><h3>Example:
+<br></h3><span style="font-style: italic;">110 WHEN a>100 AND a<1000: PRINT 'A is now in the range 100-1000': a=a+100
+<br>120 WHEN b=a
+<br>130   PRINT 'B is now the same as A ': PRINT B,A: A=A+50
+<br>140 END WHEN
+<br>150 WHEN b MOD 100=0: b=b+200
+<br>160 LET a=100: b=a
+<br>170 a=10
+<br>180 REPeat Loop
+<br>190   a=a+1: b=b-1
+<br>200   AT 0,0: PRINT 'A='!a\'B='!b
+<br>210 END REPeat Loop
+<br></span><br><h3>NOTE 1:
+<br></h3><br>This command does not  work reliably on  any QL versions
+<br>other  than  Minerva  v1.77  or  later:  although  Toolkit  II
+<br>improves the reliability, problems include calling the block
+<br>more than once, and reporting 'bad name' when the block is
+<br>called.  <span style="font-style: italic;">WHEN</span> clauses will also remain in force despite <span style="font-style: italic;">NEW</span>,
+<br><span style="font-style: italic;">CLEAR</span>, <span style="font-style: italic;">LRUN</span>, <span style="font-style: italic;">LOAD</span>, <span style="font-style: italic;">MERGE</span> and <span style="font-style: italic;">MRUN</span>, unless Toolkit II is present.
+<br><br><h3>NOTE 2:
+<br></h3><br>A <span style="font-style: italic;">WHEN</span> clause will not be called if it is already active,
+<br>even though the program may have jumped out of the actual <span style="font-style: italic;">WHEN
+<br></span>clause. For example:
+<br><span style="font-style: italic;">100 WHEN a=100: PRINT 'A=100': GOTO 400
+<br>110 a=10
+<br>120 REPeat loop
+<br>130 a=a+10: PRINT a
+<br>140 END REPeat loop
+<br>150 STOP
+<br>400 FOR a=10 TO 200 STEP 30
+<br>410   PRINT a
+<br>420 END FOR a
+<br></span><br><h3>
+<br></h3><br><h3>NOTE 3:
+<br></h3><br>On JS MG and THOR XVI ROMs, a maximum of 20 <span style="font-style: italic;">WHEN</span> clauses can
+<br>be active at any time.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>Other SuperBASIC structures are <a style="font-style: italic;" href="KeywordsW.html#WHEN ERRor">WHEN ERRor</a>, <a style="font-style: italic;" href="KeywordsS.html#SELect ON">SELect ON</a> and <a style="font-style: italic;" href="KeywordsI.html#IF">IF</a>..<a style="font-style: italic;" href="KeywordsE.html#END
+">END
+<br href="KeywordsI.html#IF">IF</a>. <a style="font-style: italic;" href="KeywordsE.html#END WHEN">END WHEN</a> defines the end of a <a style="font-style: italic;" href="KeywordsW.html#WHEN">WHEN</a> structure.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="WHEN ERRor"></a>WHEN ERRor</h1><br>Syntax: <span style="font-style: italic;">WHEN ERRor
+<br></span>Location: <span style="font-style: italic;">QL ROM (post JM), THOR XVI
+<br></span><br>This  command  marks  the  beginning  of  the  SuperBASIC
+<br>structure which is used to surround lines of SuperBASIC code
+<br>which should be executed whenever an error is generated whilst
+<br>error trapping is active. Error trapping is activated as soon
+<br>as the interpreter reads a line containing <span style="font-style: italic;">WHEN ERRor</span>. It is
+<br>therefore not activated by a <span style="font-style: italic;">WHEN ERRor</span> command being entered into
+<br>the command window (#0) - indeed this has a special purpose
+<br>(see below).
+<br><br>The syntax of the SuperBASIC structure can take two forms:
+<br><br><span style="font-style: italic;">WHEN ERROR: statement </span><sup>*</sup>[<span style="font-style: italic;">:statement</span>]<sup>*
+<br></sup><br>or
+<br><br><span style="font-style: italic;">WHEN ERROR
+<br><br></span><sup>*</sup>[<span style="font-style: italic;">statements</span>]<sup>*
+<br></sup><span style="font-style: italic;"><br>..
+<br><br>END WHEN
+<br></span><br>In the normal course of progress, the <span style="font-style: italic;">WHEN ERRor</span> block would
+<br>appear at  the  start  of a  SuperBASIC  program,  and  error
+<br>trapping would therefore be enabled as soon as a program is
+<br><span style="font-style: italic;">RUN</span>.
+<br><br>Once error trapping is enabled, whenever an error is
+<br>generated, control is passed to the <span style="font-style: italic;">WHEN ERRor</span> clause, allowing
+<br>you to specify how it the error to be dealt with.
+<br><br>It must however be borne in mind that whilst active, errors
+<br>will trigger the <span style="font-style: italic;">WHEN ERRor</span> clause whether they are generated
+<br>whilst the program is being <span style="font-style: italic;">RUN</span> or at some other stage (eg. if
+<br>a direct command causes an error).
+<br><br>If the interpreter comes across more than one <span style="font-style: italic;">WHEN ERRor
+<br></span>block, then the latest one is used to trap errors. Errors
+<br>generated within the <span style="font-style: italic;">WHEN ERRor</span> block itself are reported as
+<br>normal, although  the  message 'during  WHEN  processing'  is
+<br>displayed along with the error message.
+<br><br>Unless you include a <span style="font-style: italic;">STOP</span> statement in the <span style="font-style: italic;">WHEN ERRor</span> clause,
+<br>after going through all of the lines within the clause, the
+<br>program will continue running from the statement following the
+<br>one which caused the error. You can force this to happen with
+<br><span style="font-style: italic;">CONTINUE</span>, whereas <span style="font-style: italic;">RETRY</span> can be used to re-execute the command which
+<br>caused the error.
+<br><br>Error trapping is turned off by the command <span style="font-style: italic;">WHEN ERRor</span> (when
+<br>entered as a direct command), and also when the <span style="font-style: italic;">NEW</span>, <span style="font-style: italic;">CLEAR</span>, <span style="font-style: italic;">LOAD</span>,
+<br><span style="font-style: italic;">LRUN</span>, <span style="font-style: italic;">MERGE</span>, and <span style="font-style: italic;">MRUN</span> commands are issued.
+<br><br><h3>Example:
+<br></h3><br>A program which provides a fully error trapped educational
+<br><br>aid:
+<br><span style="font-style: italic;">100 WHEN ERRor
+<br>110   STRIP#0,2
+<br>120   IF ERR_XP
+<br>130     PRINT#0,'Please enter a number!'\'Press a key'
+<br>140     PAUSE:STRIP #0,0:RETRY 320
+<br>150   END IF
+<br>160   IF ERR_OV
+<br>170     PRINT#0,'Divide by zero is undefined!'\'Press a key'
+<br>180     PAUSE:STRIP #0,0:RETRY 320
+<br>190   END IF
+<br>200   STRIP #0,0
+<br>210   PRINT #0,'At line: ';ERLIN:REPORT:STOP
+<br>220 END WHEN
+<br>230 MODE 8
+<br>240 WINDOW 448,200,32,16:PAPER 0:INK 6:CLS
+<br>250 WINDOW #0,448,40,32,216:PAPER#0,0:INK#0,7:CLS#0
+<br>260 CSIZE 2,0:AT 8,8:PRINT 'Maths Division Tutor'
+<br>270 CSIZE 1,0
+<br>280 REPeat loop
+<br>290   y=RND(1 TO 10):x=RND(1 TO 10)*y
+<br>300   IF y>x:ya=x:x=y:y=ya
+<br>310   IF RND>.9:x=0:y=0
+<br>320   REPeat answer
+<br>330     AT 10,0:CLS 2:AT 11,0:CLS#0
+<br>340     INPUT 'Enter number to divide'!(x)!'by to give'!(y)!': ';a
+<br>350     IF x/a=y THEN EXIT answer
+<br>360     PRINT \\'Wrong - Please try again'\'Press a key'
+<br>370     PAUSE
+<br>380   END REPeat answer
+<br>390   PRINT \\'Correct - Another one...'\'Press a key'
+<br>400   PAUSE
+<br>410 END REPeat loop
+<br></span><br><h3>NOTE 1:
+<br></h3><br>This SuperBASIC  structure does  not  work very reliably on
+<br>any QL versions other than Minerva v1.77 (or later), SMS or
+<br>the THOR XVI: although Toolkit II improves the reliability,
+<br>problems include crashing the machine if an error is generated
+<br>inside a function whilst error trapping is enabled {eg. <span style="font-style: italic;">PRINT
+<br>SQRT(-1)</span>}, or if you try to carry out <span style="font-style: italic;">INKEY$</span> at the end of a file.
+<br><span style="font-style: italic;">WHEN ERRor</span> clauses will also remain in force despite <span style="font-style: italic;">NEW</span>, <span style="font-style: italic;">CLEAR</span>, <span style="font-style: italic;">LRUN</span>,
+<br><span style="font-style: italic;">LOAD</span>, <span style="font-style: italic;">MERGE</span> and <span style="font-style: italic;">MRUN</span>.
+<br><br><h3>NOTE 2:
+<br></h3><br><span style="font-style: italic;">WHEN ERRor</span> cannot trap the Break key &lt;CTRL&gt;&lt;SPACE&gt; (and &lt;ESC&gt;
+<br>on Minerva), which will continue to stop a SuperBASIC program.
+<br><br><h3>NOTE 3:
+<br></h3><br>You should not try to nest several <span style="font-style: italic;">WHEN ERRor</span> clauses - under
+<br>SMS the error 'WHEN clauses may not be nested' is reported.
+<br><br><h3>SMS NOTE:
+<br></h3><br>Even in the in-line version of <span style="font-style: italic;">WHEN ERRor</span> it is imperative
+<br>that <span style="font-style: italic;">END WHEN</span> is specified, otherwise the error 'Incomplete WHEN
+<br>clause' will be reported.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsE.html#ERLIN">ERLIN</a> returns the line number on which the error occurred.
+<br><br href="KeywordsE.html#ERNUM">ERNUM</a> returns the error number itself.
+<br><br>There are several functions in the form <a style="font-style: italic;" href="KeywordsE.html#ERR_xx">ERR_xx</a> which return 1
+<br>if the given error has occurred.
+<br><br href="KeywordsB.html#BREAK_OFF">BREAK_OFF</a> allows you to turn the Break key off.
+<br><br href="KeywordsE.html#END WHEN">END WHEN</a> defines the end of the error handling block.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="WIDTH"></a>WIDTH</h1><br>Syntax: <span style="font-style: italic;">WIDTH </span>[<span style="font-style: italic;">#channel,</span>]<span style="font-style: italic;"> x
+<br></span>Location: <span style="font-style: italic;">QL ROM
+<br></span><br>The <span style="font-style: italic;">WIDTH</span> command is an output formatting command which
+<br>allows the user to specify the width of a device which is
+<br>being used by the QL for output (such as a printer) on the
+<br>given <span style="font-style: italic;">channel</span> (default #1). This can only be used on non-screen
+<br>(ie. not scr_ or con_) channels and only has any effect if you
+<br>use one of the separators exclamation mark (<span style="font-style: italic;">!</span>); comma (<span style="font-style: italic;">,</span>) or <span style="font-style: italic;">TO
+<br></span>when <span style="font-style: italic;">PRINT</span>ing.
+<br><br>The value of <span style="font-style: italic;">x</span> should represent the number of characters
+<br>wide which the output device is to use (the default is 80
+<br>characters).
+<br><br><h3>Example:
+<br></h3><br>A short procedure to output text to a non-screen device of
+<br><br>a given width without chopping off any words at the end of
+<br><br>each line:
+<br><span style="font-style: italic;">100 OPEN_NEW #3,ram2_junk
+<br>110 DUMP_TEXT #3,'The way in which the WIDTH command works is very particular to the QL and
+<br>is really only suited for specific types of work. If you do not use the separators ! or ,
+<br>then the text will still be output at the default width of 80',80
+<br>120 DUMP_TEXT #3,'The way in which the WIDTH command works is very particular to the QL and
+<br>is really only suited for specific types of work. If you do not use the separators ! or ,
+<br>then the text will still be output at the default width of 80',40
+<br>130 CLOSE#3
+<br>1000 DEFine PROCedure DUMP_TEXT(chan,str$,wid)
+<br>1010 LOCal word$
+<br>1020 WIDTH #chan,wid
+<br>1030 IF str$="" THEN RETurn
+<br>1040 word_start=1
+<br>1050 REPeat word_loop
+<br>1060   word_end=(' ' INSTR str$)-1
+<br>1070   IF word_end>=word_start
+<br>1080     word$=str$(word_start TO word_end)
+<br>1090   ELSE
+<br>1100     word$=str$(word_start TO )
+<br>1110   END IF
+<br>1120   PRINT #chan;!word$!:PRINT !word$!:PAUSE
+<br>1130   IF word_end+2>LEN(str$) OR word_end=-1:EXIT word_loop
+<br>1140   str$=str$(word_end+2 TO )
+<br>1150 END REPeat word_loop
+<br>1160 END DEFine
+<br></span><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsO.html#OPEN">OPEN</a> and <a style="font-style: italic;" href="KeywordsP.html#PRINT">PRINT</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="WINDOW"></a>WINDOW</h1><br>Syntax: <span style="font-style: italic;">WINDOW </span>[<span style="font-style: italic;">#ch,</span>] <span style="font-style: italic;">x, y, posx, posy
+<br></span><br>or <span style="font-style: italic;">WINDOW </span>[<span style="font-style: italic;">#ch,</span>] <span style="font-style: italic;">x, y, posx, posy </span>[<span style="font-style: italic;">\border</span>]
+<br><span style="font-style: italic;"><br>(Minerva v1.79+, THOR XVI)
+<br></span>Location: <span style="font-style: italic;">QL ROM, Minerva, THOR XVI
+<br></span><br>This command redefines the given screen window (default #1)
+<br>by specifying the new size and position of the window. The
+<br>values must all be calculated in the pixel co-ordinate system,
+<br>which means that <span style="font-style: italic;">x</span> and <span style="font-style: italic;">posx</span> can be in the range <span style="font-style: italic;">0...XLIM</span> (in both
+<br><span style="font-style: italic;">MODE 4</span> and <span style="font-style: italic;">MODE 8</span>), provided that <span style="font-style: italic;">x+posx<=XLIM</span> and <span style="font-style: italic;">y</span> and <span style="font-style: italic;">posy</span> can be in
+<br>the range <span style="font-style: italic;">0..YLIM</span>, provided that <span style="font-style: italic;">y+posy<=YLIM</span>.
+<br><br>On a standard QL resolution screen (ie. 512x256 pixels),
+<br>due to the shape of the screen, a window which measures
+<br>100x100 pixels will not appear square. You will need to use a
+<br>size of 137x100 pixels instead!
+<br><br>The Minerva and THOR XVI variants allow you to specify a
+<br>border to be drawn around the window at the same time, by the
+<br>addition of up to a further four parameters in the form:
+<br><br>[<span style="font-style: italic;">\border_size </span>[<span style="font-style: italic;">,colour </span>[<span style="font-style: italic;">,colour2 </span>[<span style="font-style: italic;">,stipple </span>]]]]
+<br><br>This therefore allows you to combine the <span style="font-style: italic;">WINDOW</span> and <span style="font-style: italic;">BORDER
+<br></span>commands. For example,
+<br><br><span style="font-style: italic;">WINDOW 448,200,32,16\2,2
+<br></span><br>is the same as
+<br><br><span style="font-style: italic;">WINDOW 448,200,32,16:BORDER 2,2.
+<br></span><br><h3>Example:
+<br></h3><br><span style="font-style: italic;">WINDOW 448,200,32,16</span> is similar to <span style="font-style: italic;">OPEN #1,CON
+<br></span><br><h3>NOTE 1:
+<br></h3><br>Although the '\' separator is not checked for on the
+<br>Minerva and THOR XVI implementations, it is recommended to
+<br>ensure that this is present to ensure future compatibility.
+<br>Older ROM versions did not check the number of parameters,
+<br>which could result in some software causing problems unless
+<br>the separator is actually checked for.
+<br><br><h3>NOTE 2:
+<br></h3><br>You cannot have a gap of one pixel between windows, even in
+<br><span style="font-style: italic;">MODE 4</span> - this is to ensure compatibility between <span style="font-style: italic;">MODE 4</span> and <span style="font-style: italic;">MODE 8</span>.
+<br>Any odd parameters will be rounded down.
+<br><br><h3>MINERVA NOTE:
+<br></h3><br>In a MultiBasic, both channel #0 and #1 are inextricably
+<br>linked. Unfortunately, this means that in certain cases both
+<br>channel #0  and  channel  #1  must have  the  same  size  and
+<br>position: any attempt to re-size #0 will re-size #1 and vice
+<br>versa. See the MultiBasic appendix for further details.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsO.html#OPEN">OPEN</a> allows you to open a window ready for use. <a style="font-style: italic;" href="KeywordsB.html#BORDER">BORDER</a> allows
+<br>you to set an implicit border.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="WINF$"></a>WINF$</h1><br>Syntax: <span style="font-style: italic;">WINF$
+<br></span>Location: <span style="font-style: italic;">Fn
+<br></span><br>This is the same as<span style="font-style: italic;"> WMAN$</span> !
+<br><hr style="width: 100%; height: 2px;"><h1><a name="WIN2"></a>WIN2</h1><br>Syntax: <span style="font-style: italic;">WIN2 directory
+<br></span>Location: <span style="font-style: italic;">Gold Card, THOR XVI and ST/QL (Level C-19+)
+<br></span><br>This command simulates the drive <span style="font-style: italic;">win2_</span> if only one harddisk
+<br>(win1_) is present. All access to <span style="font-style: italic;">win2_</span> will be redirected to
+<br><span style="font-style: italic;">directory</span>.
+<br><br><h3>Example:
+<br></h3><br><span style="font-style: italic;">WIN2 system:DIR win2_
+<br></span><br>will  produce  a  listing  of  the  files  held  in  the
+<br><br>sub-directory <span style="font-style: italic;">win1_system</span> (this is equivalent to <span style="font-style: italic;">DIR win1_system</span>).
+<br><br><h3>NOTE:
+<br></h3><br>Do not specify the device as part of <span style="font-style: italic;">directory</span>.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsD.html#DEV_USE">DEV_USE</a> is much more flexible.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="WIN_BASE"></a>WIN_BASE</h1><br>Syntax: <span style="font-style: italic;">WIN_BASE </span>[<span style="font-style: italic;">(#channel)</span>]
+Location: <span style="font-style: italic;">Fn
+<br></span><br>This function returns the start address of the definition
+<br>block for the specified window (default #1).
+<br><br>If an error occurs <span style="font-style: italic;">WIN_BASE</span> returns the appropriate QDOS
+<br>error code, eg. -15 if the channel does not apply to a window
+<br>or -6 if the channel is not open.
+<br><br><h3>Example:
+<br></h3><br>Some information about the internal structure of QDOS is
+<br><br>necessary to make use of <span style="font-style: italic;">WIN_BASE</span> from SuperBASIC. This
+<br><br>function returns the <span style="font-style: italic;">PAPER</span> background colour of a window:
+<br><span style="font-style: italic;">100 DEFine FuNction GET_PAPER (winchan)
+<br>110  IF WIN_BASE(#winchan)<0 THEN
+<br>120    PRINT#0,"GET_PAPER: ";:REPORT#0,WIN_BASE(#winchan)
+<br>130    PAUSE 800: STOP
+<br>140  END IF
+<br>150  RETurn PEEK(WIN_BASE(#winchan)+68)
+<br>160 END DEFine GET_PAPER
+<br></span><br><h3>NOTE:
+<br></h3><br>The  Window  Manager  changes  the  structure  of  window
+<br>definition blocks.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsS.html#SYS_BASE">SYS_BASE</a>, <a style="font-style: italic;" href="KeywordsS.html#SET
+">SET
+</a><br><h3>
+<br></h3><hr style="width: 100%; height: 2px;"><h1><a name="WIN_DRIVE"></a>WIN_DRIVE</h1><br>Syntax: <span style="font-style: italic;">WIN_DRIVE driveno </span>[<span style="font-style: italic;">, unit, disk</span>]
+<br><br>or <span style="font-style: italic;">WIN_DRIVE driveno, unit </span>[<span style="font-style: italic;">,disk</span>] [<span style="font-style: italic;">,partition</span> ]<span style="font-style: italic;">(SMSQ/E only)
+<br></span><br>or <span style="font-style: italic;">WIN_DRIVE driveno, path$</span><span style="font-style: italic;">(QPC & QXL SMSQ/E only)
+<br></span>Location: <span style="font-style: italic;">ST/QL, SMSQ/E for Atari and QXL / QPC
+<br></span><br>It is possible not only to have several hard disk units
+<br>attached to the Atari ST, but each hard disk unit can also
+<br>have more than one drive in it (for example, you might own a
+<br>hard disk unit which has both a standard hard disk and a
+<br>changeable hard disk inside).
+<br><br>The normal chain of events is that each WIN drive would
+<br>attach itself to the equivalent hard disk unit, for example,
+<br><span style="font-style: italic;">WIN1_</span> would be connected to hard disk unit 0, <span style="font-style: italic;">WIN2_</span> to hard disk
+<br>unit 1 and so on...
+<br><br>However, so that you may link the WIN drives to specific
+<br>disks within each unit, the <span style="font-style: italic;">WIN_DRIVE</span> command exists.
+<br><br><span style="font-style: italic;">WIN_DRIVE</span> takes the WIN drive number supplied by <span style="font-style: italic;">driveno</span> and
+<br>will attach this to the specified disk which is housed in the
+<br>specified unit.
+<br><br><span style="font-style: italic;">driveno</span> must be in the range 1...8 - this corresponds to the
+<br>number which will be attached to WIN to refer to the relevant
+<br>drive (eg. <span style="font-style: italic;">WIN4_</span>).  If a <span style="font-style: italic;">unit</span> and <span style="font-style: italic;">disk</span> are not specified, this
+<br>command will remove the definition attached to the specified
+<br><span style="font-style: italic;">driveno</span>.
+<br><br><span style="font-style: italic;">unit</span> should be in the range 0...7 and represents the number
+<br>of  the  disk  drive  controller.  An  internal  disk  drive
+<br>controller is normally unit 0, but external controller unit
+<br>numbers will depend upon the setting of the switches on the
+<br>back of the box.  If you are running SMSQ/E on the TT and wish
+<br>to access a SCSI disk controller, then you will need to add 8
+<br>to the value of unit.
+<br><br><span style="font-style: italic;">disk</span> can be in the range 0...7 and represents the number of
+<br>the disk drive actually addressed by the given controller.  It
+<br>is however rare in the Atari world to have more than one disk
+<br>drive per controller and so this value is normally either 0 or
+<br>1.  The default is 0.
+<br><br>Finally, each disk can be partitioned, so that an area of
+<br>each disk is set aside for specific uses (eg. for QDOS or for
+<br>GEM).  You therefore need to specify the number of the <span style="font-style: italic;">partition</span>.
+<br>Default is 0.
+<br><br>Although you can configure SMSQ/E to start from a specific
+<br>drive and partition, it normally looks for a BOOT file in any
+<br>partition on unit 0 (on the TT it will look at SCSI unit 0 and
+<br>then ASCI unit 0).  If found, <span style="font-style: italic;">WIN1_</span> will be set to this
+<br>partition.
+<br><br>In current versions of SMSQ/E WIN2_ will not be linked to
+<br>anything until you use the <span style="font-style: italic;">WIN_DRIVE</span> command.
+<br><br><h3>Example:
+<br></h3><br>Assuming that you have two hard disk units plugged into the
+<br><br>Atari ST, the first one of which (unit 0) contains a normal
+<br><br>hard disk unit (disk 0) and a changeable hard disk unit
+<br><br>(disk 1). On starting the Emulator, <span style="font-style: italic;">WIN1_</span> would refer to the
+<br><br>normal hard disk in unit 0 and <span style="font-style: italic;">WIN2_</span> would be undefined. You
+<br><br>could not therefore access the changeable hard disk from
+<br><br>the Emulator. To avoid this, use the commands:
+<br><br><span style="font-style: italic;">WIN_DRIVE 2,0,1,0
+<br><br>WIN_DRIVE 3,1,0,2
+<br></span><br>This will link <span style="font-style: italic;">WIN2_</span> to the changeable hard disk (this is
+<br><br>disk number 1 in unit 0, partition 0) and <span style="font-style: italic;">WIN3_</span> would then
+<br><br>point to the hard disk in the second unit (disk 0 in unit
+<br><br>1, partition 2).
+<br><br><h3>NOTE:
+<br></h3><br><span style="font-style: italic;">disk</span> must be specified unless it is 0.  - this means that if
+<br>three parameters are specified, the third parameter is taken
+<br>to be the <span style="font-style: italic;">partition</span> number.
+<br><br><h3>QPC / QXL NOTE:
+<br></h3><br>From  v2.89  of  SMSQ/E,<span style="font-style: italic;">  WIN_DRIVE</span>  is  implemented  slightly
+<br>differently on these emulators.  For each <span style="font-style: italic;">driveno</span>, you can
+<br>specify a PC related path for the hard disk (the hard disk
+<br>under QPC and QXL is implemented as a single file stored on
+<br>the PC's hard disks).  For example, use:
+<br><br><span style="font-style: italic;">WIN_DRIVE 2,'D:\qxl.win'
+<br></span><br>to make <span style="font-style: italic;">win2_</span> on the QL emulator look use the file qxl.win
+<br>on the PC's D: drive.  In this way, CD-ROMs and DVD-RAMs can
+<br>be used on the PC as a hard drive for the QL emulator.
+<br><br>Although QPC allows you to have several QL hard disk files
+<br>on each PC device, QXL only allows one qxl.win file per PC
+<br>device!!
+<br><br><h3>WARNING 1:
+<br></h3><br>You must not make the QDOS WIN drive point to another
+<br>physical drive if that WIN device has been accessed already.
+<br>For example, if you wanted to follow the above example, but
+<br>had just loaded a program from <span style="font-style: italic;">WIN2_</span> you must not use:
+<br><br><span style="font-style: italic;">WIN_DRIVE 2,0,1</span>.
+<br><br><h3>WARNING 2:
+<br></h3><br>Do not attempt to make two WIN drives point to the same
+<br>physical drive!
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsW.html#WIN_DRIVE$">WIN_DRIVE$</a> returns the parameters already associated with a
+<br>WIN drive.
+<br><br><a style="font-style: italic;" href="KeywordsW.html#WIN_FORMAT">WIN_FORMAT</a> allows you to format a hard disk.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="WIN_DRIVE$"></a>WIN_DRIVE$</h1><br>Syntax: <span style="font-style: italic;">WIN_DRIVE$ (drive)
+<br></span>Location: <span style="font-style: italic;">SMSQ/E for Atari and QXL / QPC
+<br></span><br>On SMSQ/E for the Atari, this function returns a string
+<br>containing the unit, disk and partition numbers addressed by
+<br>the specified WIN drive.
+<br><br>Under SMSQ/E for the QXL and QPC (v2.89+), this function
+<br>will return a string indicating the file on the PC which is
+<br>used as that hard drive.
+<br><br>If  the  specified  drive  has  not  been  linked  to  any
+<br>particular hard disk partition, an empty string is returned.
+<br><br><h3>Atari Examples:
+<br></h3><br><span style="font-style: italic;">WIN_DRIVE 2,0,1,0
+<br><br>PRINT WIN_DRIVE$(2)</span>will print 0,1,0
+<br><br><h3>QXL / QPC Examples:
+<br></h3><br><span style="font-style: italic;">WIN_DRIVE 2,'C:\qxlback.win'
+<br><br>PRINT WIN_DRIVE$(2)</span>will print C:\qxlback.win
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsW.html#WIN_DRIVE">WIN_DRIVE</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="WIN_FORMAT"></a>WIN_FORMAT</h1><br>Syntax: <span style="font-style: italic;">WIN_FORMAT drive </span>[<span style="font-style: italic;">,protect</span>]
+Location: <span style="font-style: italic;">SMSQ/E (v2.73+) for Atari and QXL / QPC
+<br></span><br>In order to prevent you from accidentally formatting your
+<br>hard disk (or a partition of your hard disk) and overwriting
+<br>important  information,  SMSQ/E  has  implemented  a  form  of
+<br>protection.
+<br><br>Before formatting a QDOS partition, you will first of all
+<br>need to create that partition using either the Atari's or the
+<br>PC's  operating  system  (see  the  SMSQ/E  documentation  for
+<br>details).
+<br><br>You must then use the <span style="font-style: italic;">WIN_DRIVE</span> command, followed by <span style="font-style: italic;">WIN_FORMAT
+<br></span>to allow the <span style="font-style: italic;">FORMAT</span> command to work on the hard disk.
+<br><br><span style="font-style: italic;">protect</span> is a flag - if it is omitted, this removes the
+<br>protection from the partition pointed to by the specified WIN
+<br>drive.  <span style="font-style: italic;">protect=1</span> sets the protection again after <span style="font-style: italic;">FORMAT</span>ting.
+<br><br><h3>Example:
+<br></h3><br>To format a QDOS partition called PROGS, pointed to by WIN2
+<br><br>on unit 1, partition 1:
+<br><span style="font-style: italic;">WIN_DRIVE 2,1,1
+<br>WIN_FORMAT 2
+<br>FORMAT win2_PROGS
+<br>WIN_FORMAT 2,1
+<br></span><br><h3>NOTE:
+<br></h3><br>Earlier versions of SMSQ/E did not include this command and
+<br>the <span style="font-style: italic;">FORMAT</span> command would work once <span style="font-style: italic;">WIN_DRIVE</span> had been used to set
+<br>up the WIN drive name.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsF.html#FORMAT">FORMAT</a> and <a style="font-style: italic;" href="KeywordsW.html#WIN_DRIVE">WIN_DRIVE</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="WIN_REMV"></a>WIN_REMV</h1><br>Syntax: <span style="font-style: italic;">WIN_REMV driveno, flag</span>    <span style="font-style: italic;">    (SMSQ/E & ST/QL Level C-24+)
+<br></span><br>or <span style="font-style: italic;">WIN_REMV driveno
+<br></span><br>Location:<span style="font-style: italic;"> ST/QL (Level C-20+), SMSQ/E for Atari, QXL / QPC
+<br></span><br>The advent of changeable hard disk drives caused a lot of
+<br>problems, since it is just about feasible that you might try
+<br>to remove the hard disk unit whilst it is being accessed,
+<br>which can cause serious damage to the drive unit.
+<br><br>Although the drives attempt to warn the computer when they
+<br>are and are not removeable, it is next to impossible to ensure
+<br>that when the drive says it can be removed, it is not actually
+<br>powering up or down.
+<br><br>The command<span style="font-style: italic;"> WIN_REMV</span> tells the system that the drive connected
+<br>to the specified port is a removeable hard disk drive - the
+<br>door on the unit will then remain firmly locked as long as any
+<br>files on the hard disk are open.
+<br><br>Note that <span style="font-style: italic;">driveno</span> must be in the range 1...8.
+<br><br>SMSQ/E allows the first variant -<span style="font-style: italic;"> flag</span> can be omitted which
+<br>is equivalent to 1 (signifies a removeable hard disk).  It can
+<br>also be one of the following values:
+<br><br>0Clear the removeable flag from the drive
+<br><br>VMark the drive as being a VORTEX drive
+<br><br><h3>Example:
+<br></h3><br><span style="font-style: italic;">WIN_REMV 2</span> denotes win2_ as a removeable disk drive.
+<br><br><h3>NOTE:
+<br></h3><br>It is essential that <span style="font-style: italic;">WIN_REMV</span> is used as early as possible -
+<br>either before the drive is first accessed or as the first line
+<br>of your boot program if the Emulator is being booted from the
+<br>hard disk in question.
+<br><br><h3>SMSQ/E NOTE:
+<br></h3><br>SMSQ/E manages to detect removeable hard disks 100% on SCSI
+<br>ports. It is also normally successful in detecting removeable
+<br>hard disks connected to ASCI ports unless you configure it to
+<br>ignore them, therefore this command is only really needed on
+<br>ASCI drives.
+<br><br><h3>QPC NOTE:
+<br></h3><br>You need v1.43+ of QPC to use removeable drives.
+<br><br><h3>WARNING:
+<br></h3><br>Never try to remove a hard disk (removeable or otherwise!)
+<br>whilst it is running.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsW.html#WIN_STOP">WIN_STOP</a> will park the head on the drive prior to removal.
+<br><br><a style="font-style: italic;" href="KeywordsD.html#DMEDIUM_REMOVE">DMEDIUM_REMOVE</a> can tell you if the given device is a removeable
+<br>hard disk.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="WIN_SLUG"></a>WIN_SLUG</h1><br>Syntax: <span style="font-style: italic;">WIN_SLUG x
+<br></span>Location: <span style="font-style: italic;">ST/QL, SMSQ/E for Atari
+<br></span><br>Some winchester (hard disk) ASCI drives, in particular the
+<br>Megafile and Vortex drives, need a special parameter to be
+<br>passed to them before they can be accessed by the QL due to
+<br>timing faults in their controllers.
+<br><br><span style="font-style: italic;">WIN_SLUG</span> allows you to set this parameter. The value of <span style="font-style: italic;">x</span> will
+<br>depend upon the drive being used, and can be anything in the
+<br>range 0...255.  It is measured in units which are 0.8ms.
+<br><br>This parameter sets the minimum time that must elapse
+<br>between operations on the ASCI bus.  Most controllers work
+<br>with the default setting of 30 (which equates to a time of
+<br>2.5ms).
+<br><br>Refer to the disk documentation for further details.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="WIN_START"></a>WIN_START</h1><br>Syntax: <span style="font-style: italic;">WIN_START driveno
+<br></span>Location: <span style="font-style: italic;">ST/QL, SMSQ/E for Atari and QPC / QXL
+<br></span><br>After the head on a changeable hard disk drive has been
+<br>parked, it is necessary to tell it to release its head before
+<br>you can access the drive.  <span style="font-style: italic;">WIN_START</span> issues the command to do
+<br>this. The parameter driveno is the number of the hard disk to
+<br>be told to release the head.
+<br><br><span style="font-style: italic;">driveno</span> must be in the range 1...8.
+<br><br><h3>Example:
+<br></h3><br><span style="font-style: italic;">WIN_START 1</span> releases the head on win1_.
+<br><br><h3>NOTE:
+<br></h3><br>Some hard disk drives will not release the head even after
+<br><span style="font-style: italic;">WIN_START</span> unless the power to the drive is switched off and back
+<br>on.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See also <a style="font-style: italic;" href="KeywordsW.html#WIN_DRIVE">WIN_DRIVE</a> and <a style="font-style: italic;" href="KeywordsW.html#WIN_STOP">WIN_STOP</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="WIN_STOP"></a>WIN_STOP</h1><br>Syntax: <span style="font-style: italic;">WIN_STOP driveno
+<br></span>Location: <span style="font-style: italic;">ST/QL, SMSQ/E for Atari and QPC / QXL
+<br></span><br>If you are going to move a computer around, or swap over a
+<br>changeable hard disk drive, it is essential that you make sure
+<br>that the head on the hard disk drive is parked. This basically
+<br>means that the drive locks the head away and ensures that it
+<br>cannot be banged onto the surface of the hard disk drive. Some
+<br>hard disk interfaces (such as the Miracle Hard Disk system for
+<br>the QL) automatically park the head if the drive has not been
+<br>accessed for  a  while.  However, on  other  systems,  it  is
+<br>necessary to do this explicitly.
+<br><br><span style="font-style: italic;">WIN_STOP</span> tells the hard disk in the specified drive to park
+<br>its head.
+<br><br><span style="font-style: italic;">driveno</span> must be in the range 1...8.
+<br><br><h3>Example:
+<br></h3><br><span style="font-style: italic;">WIN_STOP 2
+<br></span><br>will park the head in win2_.
+<br><br><h3>WARNING 1:
+<br></h3><br>Never move a hard disk about unless its head is parked as
+<br>this can cause permanent damage to the drive.
+<br><br><h3>WARNING 2:
+<br></h3><br>Some hard disk drives require that you park the head before
+<br>disconnecting  the  power  to  the  drive.  Refer  to  the
+<br>instructions for the hard disk which you are using.
+<br><br><h3>WARNING 3:
+<br></h3><br>You may find that some drives will refuse to respond to
+<br>access calls if stopped accidentally, or when using this
+<br>command.  If <span style="font-style: italic;">WIN_START</span> does not revive them, then unfortunately
+<br>the only thing to do is to reset the system (switching the
+<br>power back and back on).
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsW.html#WIN_START">WIN_START</a> releases the head so that the drive can be used
+<br>again.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="WIN_USE"></a>WIN_USE</h1><br>Syntax: <span style="font-style: italic;">WIN_USE </span>[<span style="font-style: italic;">device</span>]
+<br><br>Location:<span style="font-style: italic;"> THOR XVI, ST/QL, Hard disk driver, SMSQ/E for
+<br>Atari and QXL / QPC
+<br></span><br>As with <span style="font-style: italic;">FLP_USE</span> this allows you to assign another three
+<br>letter description to the WIN device driver, so that it can be
+<br>accessed by programs which do not allow you to alter their
+<br>devices.
+<br><br>If no device is specified, then the device name is returned
+<br>to the default win.
+<br><br><h3>Example:
+<br></h3><br><span style="font-style: italic;">WIN_USE mdv
+<br></span><br>will ensure that any further attempt to access mdv1_ will
+<br><br>actually access win1_. If you later use the command:
+<br><br><span style="font-style: italic;">WIN_USE
+<br></span><br>or
+<br><br><span style="font-style: italic;">WIN_USE win
+<br></span><br>then you will once again be able to use the microdrives as
+<br><br>well as win1_.
+<br><br><h3>NOTE:
+<br></h3><br>The  QL's  operating  system  tests  for  directory  device
+<br>drivers in a fixed order: DEV, FLP, RAM, WIN and MDV.  This
+<br>means that if you rename a driver to three letters which refer
+<br>to a device driver earlier in the list, that original device
+<br>driver will be used in preference.
+<br><br>For example:
+<br><br><span style="font-style: italic;">WIN_USE flp
+<br></span><br>will not work (attempts to read a file from flp1_ will
+<br>still try to read floppy disk drive number one) - you will
+<br>need to also rename the floppy disk driver:
+<br><br><span style="font-style: italic;">FLP_USE flp
+<br></span><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsF.html#FLP_USE">FLP_USE</a>, <a style="font-style: italic;" href="KeywordsR.html#RAM_USE">RAM_USE</a>, <a style="font-style: italic;" href="KeywordsD.html#DEV_USE">DEV_USE</a> are similar.
+<br><br><a style="font-style: italic;" href="KeywordsD.html#DMEDIUM_TYPE">DMEDIUM_TYPE</a> can be used to find out the type of device which a
+<br>name actually refers to.
+<br><br><a style="font-style: italic;" href="KeywordsD.html#DMEDIUM_NAME">DMEDIUM_NAME</a> will return the default name of a device.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="WIN_WP"></a>WIN_WP</h1><br>Syntax: <span style="font-style: italic;">WIN_WP drive, protect
+<br></span><br>Location:<span style="font-style: italic;"> SMSQ/E for Atari and QXL / QPC
+<br></span><br>This command allows you to mark a specified WIN drive as
+<br>read only
+<br><br><span style="font-style: italic;">protect=1</span> will write protect the hard disk.
+<br><br><span style="font-style: italic;">protect=0</span> (the default) will remove the write protection.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsD.html#DMEDIUM_RDONLY">DMEDIUM_RDONLY</a> will tell you if a device is read only.
+<br><br>See also <a style="font-style: italic;" href="KeywordsW.html#WIN_REMV">WIN_REMV</a> and <a style="font-style: italic;" href="KeywordsW.html#WIN_FORMAT">WIN_FORMAT</a> for other types of protection.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="WIPE"></a>WIPE</h1><br>Syntax: <span style="font-style: italic;">WIPE
+<br></span>Location: <span style="font-style: italic;">BeuleTools, WIPE
+<br></span><br>This  command  clears  the  whole  screen  so  that  it  is
+<br>completely black. <span style="font-style: italic;">WIPE</span> is an alternative to:
+<br><br><span style="font-style: italic;">OPEN#11,scr_512x256a0x0: CLS#11: CLOSE#11
+<br></span><br>or
+<br><br><span style="font-style: italic;">SCRBASE SCREEN: SCLR 0
+<br></span><br><h3>NOTE:
+<br></h3><br>This command presumes that the screen starts at 131072 and
+<br>measures 512x256 - it will therefore not work on higher
+<br>resolutions.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsC.html#CLS">CLS</a> clears a window in its current paper colour, <a style="font-style: italic;" href="KeywordsS.html#SCLR">SCLR</a> the
+<br>(background) screen in a given colour. <a style="font-style: italic;" href="KeywordsC.html#CLS_A">CLS_A</a> is a global <a style="font-style: italic;" href="KeywordsC.html#CLS">CLS</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="WLD"></a>WLD</h1><br>Syntax: <span style="font-style: italic;">WLD (word1$, word2$ </span>[<span style="font-style: italic;">,dummy</span>]<span style="font-style: italic;"> )
+<br></span><br>or <span style="font-style: italic;">WLD (word1$, word2$, w1, w2, w3 </span>[<span style="font-style: italic;">,dummy</span>] <span style="font-style: italic;">)
+<br></span>Location: <span style="font-style: italic;">Ähnlichkeiten
+<br></span><br>This function calculates the  weighted levenstein phonetic
+<br>distance between two strings: the smaller the result, the more
+<br>that the two strings are phonetically similar. If two strings
+<br>are found to be identical, then 0 is returned, otherwise a
+<br>postive integer is returned.
+<br><br>The value of the <span style="font-style: italic;">dummy</span> parameter does not actually matter -
+<br>if it is present then the function will not distinguish
+<br>between upper and lower case characters. The three additional
+<br>parameters of  the  second  syntax allow  you  to  alter  the
+<br>importance of three possible factors used to calculate the
+<br>difference between the strings - each parameter should have a
+<br>positive value:
+<br><br><span style="font-style: italic;">w1</span>: wrong letters
+<br><br><span style="font-style: italic;">w2</span>: strings too short
+<br><br><span style="font-style: italic;">w3</span>: strings too long
+<br><br><h3>Example:
+<br></h3><span style="font-style: italic;">100 a$="Sinclair QL": b$="IBM PC": CLS
+<br>110 PRINT a$;" <-> ";b$
+<br>120 PRINT\WLD(a$,b$), WLD(a$,b$,0)
+<br>130 PRINT WLD(a$,b$,1,1,1), WLD(a$,b$,1,1,1,0)
+<br>140 PRINT WLD(a$,b$,0,0,0)
+<br>150 PRINT WLD(a$,b$,1,2,3), WLD(a$,b$,3,2,1)
+<br></span><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsS.html#SOUNDEX">SOUNDEX</a>, <a style="font-style: italic;" href="KeywordsP.html#PHONEM">PHONEM</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="WM"></a>WM</h1><br>Syntax: <span style="font-style: italic;">WM
+<br></span>Location: <span style="font-style: italic;">WM
+<br></span><br>QPAC2 uses a Button Frame which is normally situated across
+<br>the top of the screen.  The command <span style="font-style: italic;">WM</span> sets up the three basic
+<br>windows #0, #1 and #2 so that there is space for two rows of
+<br>buttons. At the same time, the window attributes are reset to
+<br>the status they would have been in had you reset the system
+<br>and  pressed  &lt;F1&gt;  for  monitor  mode.  The  current  screen
+<br>resolution mode is not affected.
+<br><br><h3>NOTE:
+<br></h3><br>QPAC2 and the Pointer Environment are not necessary to use
+<br><span style="font-style: italic;">WM</span>.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsW.html#WMON">WMON</a> restores the original monitor windows and <a style="font-style: italic;" href="KeywordsW.html#WTV">WTV</a> the TV
+<br>mode.
+<br><br>Use <a style="font-style: italic;" href="KeywordsI.html#INK">INK</a>, <a style="font-style: italic;" href="KeywordsP.html#PAPER">PAPER</a>, <a style="font-style: italic;" href="KeywordsB.html#BORDER">BORDER</a> and <a style="font-style: italic;" href="KeywordsS.html#STRIP">STRIP</a> to change window attributes.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="WMAN$"></a>WMAN$</h1><br>Syntax: <span style="font-style: italic;">WMAN$
+<br></span>Location: <span style="font-style: italic;">TinyToolkit, BTool
+<br></span><br>This function returns the version number of the Window
+<br>Manager. If no Window Manager is present, <span style="font-style: italic;">WMAN$</span> returns an empty
+<br>string.
+<br><br><h3>Example 1:
+<br></h3><br><span style="font-style: italic;">SCR_SIZE</span> is incompatible with the Window Manager because the
+<br><br>channel definition blocks for windows are different from
+<br><br>those used when no Window Manager is present, causing
+<br><br><span style="font-style: italic;">SCR_SIZE</span> to return wrong values or produce errors. But
+<br><br>calculating the result of <span style="font-style: italic;">SCR_SIZE</span> is so simple that it can
+<br><br>be replaced by a BASIC procedure to be used whenever the
+<br><br>Window Manager is detected. <span style="font-style: italic;">w_width</span> and <span style="font-style: italic;">w_height</span> define the
+<br><br>window size.
+<br><span style="font-style: italic;">100 IF LEN(WMAN$) THEN
+<br>110   size=8+w_width*w_height/8
+<br>120   ELSE size=SCR_SIZE
+<br>130 END IF
+<br></span><br><h3>Example 2:
+<br></h3><br>Non-destructible windows can be simulated by programs if
+<br><br>there is no Window Manager present to take over that work.
+<br><span style="font-style: italic;">100 OPEN#3,con_200x50a100x50
+<br>110 IF WMAN$="" THEN ScrTmp=S_SAVE(#3)
+<br>120 BORDER#3,1,4: PAPER#3,3: CLS#3
+<br>......
+<br>(main program using #3)
+<br>...
+<br>800 CLOSE#3
+<br>810 IF WMAN$="" THEN S_LOAD ScrTmp
+<br>820 STOP
+<br></span><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsQ.html#QRAM$">QRAM$</a> returns the version number of the Pointer Interface.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="WMON"></a>WMON</h1><br>Syntax: <span style="font-style: italic;">WMON </span>[<span style="font-style: italic;">mode</span>]
+<br><br>or <span style="font-style: italic;">WMON </span>[<span style="font-style: italic;">mode</span>] [<span style="font-style: italic;">, xoff</span>] [<span style="font-style: italic;">, yoff</span>]<span style="font-style: italic;">(SMS Only)
+<br></span>Location: <span style="font-style: italic;">THOR 8, THOR XVI, Toolkit II
+<br></span><br>When the QL is first started up in Monitor mode, the
+<br>windows #0, #1 and #2 are opened in the following sizes and
+<br>positions, with the following borders:-
+<br><br>#0   con_512x50a0x206    (no border)
+<br><br>#1   con_256x202a256x0   (<span style="font-style: italic;">BORDER #1,1,7,0</span>)
+<br><br>#2   con_256x202a0x0     (<span style="font-style: italic;">BORDER #2,1,7,0</span>)
+<br><br>As with <span style="font-style: italic;">WTV</span>, this command resets the three default windows
+<br>to the above sizes, positions and borders.  If one parameter
+<br>is passed, this will alter the screen <span style="font-style: italic;">MODE</span>.
+<br><br>The second variant allows you to move the SuperBASIC
+<br>windows, by  specifying  an  offset which  will  be  used  to
+<br>calculate the top left hand position of the windows.  If only
+<br>one parameter (other than the <span style="font-style: italic;">MODE</span>) is specified, then this will
+<br>be taken to be both the <span style="font-style: italic;">x</span> and <span style="font-style: italic;">y</span> offset, otherwise you can
+<br>specify both.  This will only work on higher resolution
+<br>displays.
+<br><br>Also, if the second variant is used, if an outline has
+<br>previously been defined (for example with <span style="font-style: italic;">OUTLN</span>), then the
+<br>contents of the three windows will be retained and moved to
+<br>the new position - this is equivalent to following the <span style="font-style: italic;">WMON
+<br></span>command with an <span style="font-style: italic;">OUTLN</span> command with the details of the new
+<br>position and size.
+<br><br><h3>Example:
+<br></h3><span style="font-style: italic;">WMON 4</span>Reset standard windows, <span style="font-style: italic;">MODE 4
+<br></span><span style="font-style: italic;">WMON , 50</span>Reset standard windows, current <span style="font-style: italic;">MODE</span>, as
+<br>follows:
+<br>#0   con_512x50a50x256(<span style="font-style: italic;">BORDER #0,1,7,0</span>)
+<br>#1   con_256x202a306x50(<span style="font-style: italic;">BORDER #1,1,7,0</span>)
+<br>#2   con_256x202a50x50(<span style="font-style: italic;">BORDER #2,1,7,0</span>)
+<br><span style="font-style: italic;">WMON 4,50,50</span>Is the same except it forces <span style="font-style: italic;">MODE 4</span>.
+<br><br><h3>NOTE 1:
+<br></h3><br><span style="font-style: italic;">WMON</span> does not reset the <span style="font-style: italic;">PAPER</span> and <span style="font-style: italic;">INK</span> colours of the three
+<br>windows.
+<br><br><h3>NOTE 2:
+<br></h3><br>On some versions of Minerva (pre v1.78) and Toolkit II, if
+<br>you do not specify the mode, this command will have no effect.
+<br><br><h3>NOTE 3:
+<br></h3><br>On versions of the THOR 8 (pre v4.01) #0 appeared one pixel
+<br>too far up the screen following <span style="font-style: italic;">WMON</span>.
+<br><br><h3>NOTE 4:
+<br></h3><br>On SMS prior to v2.53 <span style="font-style: italic;">WMON</span> would set an <span style="font-style: italic;">OUTLN</span> if one had not
+<br>already been set.
+<br><br><h3>SMS NOTE:
+<br></h3><br>As well as adding the second variant, SMS adds a border to
+<br>#0 (see example above). v2.67+ has also fixed various problems
+<br>with this command.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>Also see <a style="font-style: italic;" href="KeywordsW.html#WTV">WTV</a>, <a style="font-style: italic;" href="KeywordsW.html#WM">WM</a>, <a style="font-style: italic;" href="KeywordsW.html#WSET">WSET</a>, <a style="font-style: italic;" href="KeywordsW.html#WMOV">WMOV</a> and <a style="font-style: italic;" href="KeywordsM.html#MODE">MODE</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="WMOV"></a>WMOV</h1><br>Syntax: <span style="font-style: italic;">WMOV </span>[<span style="font-style: italic;">#</span>] <span style="font-style: italic;">channel</span> [<span style="font-style: italic;">!</span>]
+Location: <span style="font-style: italic;">PEX</span> (v20+)
+<br><br>This command allows you to interactively alter the size and
+<br>position of the specified Window <span style="font-style: italic;">channel</span> by using the following
+<br>keys:
+<br>&lt;cursor keys&gt;Move the Origin
+<br>&lt;SHIFT&gt;&lt;cursors&gt;Alter the size of the Window (see below)
+<br>&lt;ESC&gt;Leave the procedure - do not alter Window
+<br>size and position
+<br>&lt;ENTER&gt;Accept the new size and position
+<br><br>Note that &lt;ALT&gt; plus the &lt;cursor keys&gt; or &lt;SHIFT&gt;&lt;cursors&gt;
+<br>allows you to move more quickly.
+<br><br>You can use this command to re-size a specified BASIC
+<br>window (use # before <span style="font-style: italic;">channel</span>) or a window used by another Job.
+<br>If you wish to do the latter, then you will need to omit the #
+<br>and <span style="font-style: italic;">channel</span> must be the QDOS Channel number (see <span style="font-style: italic;">CHANNELS</span>).
+<br><br>PEX22 onwards ensured that when you use this command to
+<br>alter the size and position of the primary window of a job
+<br>(set with <span style="font-style: italic;">OUTL</span>), the sizes and relative origins of all secondary
+<br>windows are preserved.
+<br><br>PEX22 onwards also allows you to place an exclamation mark
+<br>(!) after the channel number, in which case the window sizes
+<br>cannot be altered - only their position.
+<br><br><h3>WARNING:
+<br></h3><br>Do not press &lt;CTRL&gt;&lt;C&gt; or change Jobs whilst using this
+<br>command - it can crash the system!!
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>Also see <a style="font-style: italic;" href="KeywordsW.html#WTV">WTV</a>, <a style="font-style: italic;" href="KeywordsW.html#WMON">WMON</a>, <a style="font-style: italic;" href="KeywordsP.html#PICK%">PICK%</a>, and <a style="font-style: italic;" href="KeywordsO.html#OUTL">OUTL</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="WPUT"></a>WPUT</h1><br>Syntax:<span style="font-style: italic;"> WPUT</span> [<span style="font-style: italic;">#ch\position,</span>] [<span style="font-style: italic;">item </span><sup>*</sup>[<span style="font-style: italic;">,item</span><sup>i</sup>]<sup>*</sup> ..]
+<br><br>or<span style="font-style: italic;"> WPUT</span> [<span style="font-style: italic;">#ch,</span>] [<span style="font-style: italic;">item</span><sup> *</sup>[<span style="font-style: italic;">,item</span><sup>i</sup>]<sup>*</sup> ..]
+Location: <span style="font-style: italic;">SMSQ/E
+<br></span><br>This command is very similar to <span style="font-style: italic;">BPUT</span>, except that this sends
+<br>a word (in the range 0..65535) to the given channel (default
+<br>#3).
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsW.html#WGET">WGET</a> and <a style="font-style: italic;" href="KeywordsB.html#BPUT">BPUT</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="WREN"></a>WREN</h1><br>Syntax: <span style="font-style: italic;">WREN </span>[<span style="font-style: italic;">#ch,</span>] [<span style="font-style: italic;">wild1</span>] [<span style="font-style: italic;">TO wild2</span>]
+Location: <span style="font-style: italic;">Toolkit II
+<br></span><br>This command allows you to rename several files at the same
+<br>time. It allows wildcards on both the source and destination
+<br>parameters.
+<br><br>If the source parameter (<span style="font-style: italic;">wild1</span>) does not include a valid
+<br>device, the default data device will be used. However, the way
+<br>in which <span style="font-style: italic;">wild2</span> is calculated, is even more complex than normal:
+<br><br>(1)If <span style="font-style: italic;">wild2</span> is not specified, rename each file using the
+<br>default destination directory.
+<br><br>(2)If <span style="font-style: italic;">wild2</span> is specified and contains a device, use that
+<br>device.
+<br><br>(3)If <span style="font-style: italic;">wild2</span> does not include a device, use the same device
+<br>as for <span style="font-style: italic;">wild1</span> (ie. the device specified as part of <span style="font-style: italic;">wild1</span> or
+<br><span style="font-style: italic;">DATAD$</span>).
+<br><br>Beyond this, <span style="font-style: italic;">WREN</span> acts in a similar way to <span style="font-style: italic;">WCOPY</span>, listing each
+<br>file that is being renamed to the specified channel (default
+<br>#0). However, instead of moving the old file, the header is
+<br>merely amended to reflect the new name.
+<br><br><h3>Examples:
+<br></h3><br><span style="font-style: italic;">WREN flp1_QUILL_ TO flp1_
+<br></span><br>could be used to take all of the Quill files out of a
+<br><br>sub-directory into the main directory, by deleting the
+<br><br>sub-directory prefix.
+<br><br><span style="font-style: italic;">DEST_USE flp1_QUILL_
+<br><br>DATA_USE flp1_
+<br><br>WREN
+<br></span><br>would have the opposite effect.
+<br><br><h3>NOTE:
+<br></h3><br>Any attempt to rename a file across to a different device
+<br>will report the error 'Bad Name'.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsR.html#RENAME">RENAME</a> renames one file at a time.
+<br><br href="KeywordsW.html#WCOPY">WCOPY</a> contains details of wildcards.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="WSET"></a>WSET</h1><br>Syntax: <span style="font-style: italic;">WSET type </span>[<span style="font-style: italic;">,mode</span>]
+Location: <span style="font-style: italic;">ATARI_REXT
+<br></span><br>This command resets the windows #0, #1, and #2 to a
+<br>pre-defined size and position. There are a set of eight
+<br>definitions built into the Emulator, which can be chosen by
+<br>setting <span style="font-style: italic;">type</span> to a value in the range 0...7.
+<br><br><span style="font-style: italic;">WSET -1</span> will reset the three windows to the size and
+<br>positions specified with the <span style="font-style: italic;">WSET_DEF</span> command.
+<br><br>If the optional parameter <span style="font-style: italic;">mode</span> is supplied, this will alter
+<br>the display <span style="font-style: italic;">mode</span> to that specified, otherwise, the screen mode
+<br>remains unchanged.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsW.html#WMON">WMON</a> and <a style="font-style: italic;" href="KeywordsW.html#WTV">WTV</a> are similar commands under Toolkit II. Normally,
+<br>you would use <a style="font-style: italic;" href="KeywordsM.html#MODE">MODE</a> to alter the screen mode only.
+<br><br>See also <a style="font-style: italic;" href="KeywordsW.html#WSET_DEF">WSET_DEF</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="WSET_DEF"></a>WSET_DEF</h1><br>Syntax: <span style="font-style: italic;">WSET_DEF x0,y0,a0,b0, x1,y1,a1,b1, x2,y2,a2,b2
+<br></span>Location: <span style="font-style: italic;">ATARI_REXT
+<br></span><br>The command <span style="font-style: italic;">WSET_DEF</span> allows you to set up a user-defined size
+<br>and position for each of the three default windows, #0, #1 and
+<br>#2. Each set of four parameters is used to specify the size <span style="font-style: italic;">x,y
+<br></span>and position <span style="font-style: italic;">(a,b)</span> of each window.
+<br><br><h3>Example:
+<br></h3><span style="font-style: italic;">WSET_DEF 448,40,32,216,448,200,32,16,448,200,32,16
+<br>WSET -1,8
+<br></span><br>is the same as <span style="font-style: italic;">WTV 8
+<br></span><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsW.html#WSET">WSET</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="WSTAT"></a>WSTAT</h1><br>Syntax: <span style="font-style: italic;">WSTAT </span>[<span style="font-style: italic;">#ch,</span>] [<span style="font-style: italic;">wild</span>]
+<br><br>or <span style="font-style: italic;">WSTAT \file </span>[<span style="font-style: italic;">,wild</span>]   <span style="font-style: italic;">(Toolkit II only)
+<br></span>Location: <span style="font-style: italic;">Toolkit II, THORs
+<br></span><br>The command <span style="font-style: italic;">WSTAT</span> works in a very similar way to <span style="font-style: italic;">WDIR</span> except
+<br>that alongside the filenames, it lists the length of each file
+<br>and the update time.
+<br><br><h3>Example:
+<br></h3><br><span style="font-style: italic;">WSTAT _QUILL
+<br></span><br>will produce a list of all of the files on the data device
+<br><br>which are in the QUILL sub-directory.
+<br><br><h3>NOTE:
+<br></h3><br>In current versions of Toolkit II (up to v2.85 at least),
+<br><span style="font-style: italic;">WSTAT</span> cannot cope with the DEV device where this is pointing to
+<br>a sub-directory.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsD.html#DIR">DIR</a> will produce a list of all of the files on a given
+<br>medium.
+<br><br href="KeywordsW.html#WCOPY">WCOPY</a> contains details of how wildcards operate.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="WTV"></a>WTV</h1><br>Syntax: <span style="font-style: italic;">WTV </span>[<span style="font-style: italic;">mode</span>]
+<br><br>or <span style="font-style: italic;">WTV </span>[<span style="font-style: italic;">mode</span>] [<span style="font-style: italic;">, xoff</span>] [<span style="font-style: italic;">, yoff</span>]<span style="font-style: italic;">(SMS Only)
+<br></span>Location: <span style="font-style: italic;">THOR 8 (v4.20+), THOR XVI, Toolkit II
+<br></span><br>When the QL is first started up in TV mode, the windows #0,
+<br>#1 and #2 are opened in the following sizes and positions,
+<br>without any borders:-
+<br><br>#0    448x40a32x216
+<br><br>#1    448x200a32x16
+<br><br>#2    448x200a32x16
+<br><br>Whilst testing programs, it is all too easy for these three
+<br>windows to be redefined (especially #1 which is the default
+<br>window).
+<br><br>The command <span style="font-style: italic;">WTV</span> allows you to easily set those three windows
+<br>to their default size and position as well as taking an
+<br>additional parameter for setting the mode in the same way as
+<br>the <span style="font-style: italic;">MODE</span> command (default <span style="font-style: italic;">MODE 4</span>).
+<br><br>Any border attached to each window is switched off, except
+<br>under SMS (see below).
+<br><br>Also, if the second variant is used, if an outline has
+<br>previously been defined (for example with <span style="font-style: italic;">OUTLN</span>), then the
+<br>contents of the three windows will be retained and moved to
+<br>the new position - this is equivalent to following the <span style="font-style: italic;">WTV
+<br></span>command with an <span style="font-style: italic;">OUTLN</span> command with the details of the new
+<br>position and size.
+<br><br><h3>NOTE 1:
+<br></h3><br><span style="font-style: italic;">WTV</span> does not reset the <span style="font-style: italic;">PAPER</span> and <span style="font-style: italic;">INK</span> colours of the three
+<br>windows.
+<br><br><h3>NOTE 2:
+<br></h3><br>On some versions of Minerva (pre v1.78) and Toolkit II, if
+<br>you do not specify the <span style="font-style: italic;">mode</span>, this command will have no effect.
+<br><br><h3>NOTE 3:
+<br></h3><br>On SMS prior to v2.53 <span style="font-style: italic;">WTV</span> would create an <span style="font-style: italic;">OUTLN</span> if one does
+<br>not exist.
+<br><br><h3>SMS NOTE:
+<br></h3><br>The SMS version of the command adds a border to #0, #1 and
+<br>#2 (as with <span style="font-style: italic;">WMON</span>) and also allows you to reposition the main
+<br>windows (see <span style="font-style: italic;">WMON</span>).  v2.67+ also fixed several problems with
+<br>this command.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>Also see <a style="font-style: italic;" href="KeywordsW.html#WMON">WMON</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="W_CRUNCH"></a>W_CRUNCH</h1><br>Syntax: <span style="font-style: italic;">W_CRUNCH ( #channel, colour )
+<br></span>Location: <span style="font-style: italic;">Windows (DIY Toolkit - Vol W)
+<br></span><br>This toolkit is designed (like the SuperWindow Toolkit) to
+<br>provide you with facilities for storing parts of the QL's
+<br>screen in memory so that you can recall them at a later date,
+<br>thus providing the QL with non-destructible windows inside
+<br>programs.
+<br><br>Whilst the Pointer Environment provides programs with non-
+<br>destructible windows, this only ensures that when a program
+<br>ends, the area of the screen which was occupied by that
+<br>program is restored so that it looks the same as when the
+<br>program started.  Also, when you switch to another program,
+<br>the whole of that program's display area appears on screen,
+<br>overwriting anything else (see <span style="font-style: italic;">OUTLN</span>) - the display covered by
+<br>the newly activated program is then stored in memory to be
+<br>recalled at a later date.
+<br><br>However, unless you use specific functions (for example
+<br>those supplied as part of the Qptr Toolkit, or supplied with
+<br>this toolkit), if a program <span style="font-style: italic;">OPEN</span>s one window over the top of
+<br>another window owned by that program, when that second window
+<br>is <span style="font-style: italic;">CLOSE</span>d, the area underneath is not restored (see the example
+<br>below).
+<br><br>This  function  allows  you  to  store  the  area  under  a
+<br>specified window channel in memory in a compressed form.
+<br>Ideally the window should be a number of pixels wide which is
+<br>divisible by eight and also have its left boundary (after
+<br>taking any <span style="font-style: italic;">BORDER</span> into account) on a pixel which is divisible by
+<br>eight (if not then this function will store a slightly larger
+<br>area of the screen than that covered by the window).
+<br><br>This function compresses the screen by reference to the
+<br><span style="font-style: italic;">colour</span> parameter - this should either be 4 to store the green
+<br>pixels or 2 to store the red pixels.  The function is
+<br>therefore only really of use in <span style="font-style: italic;">MODE 4</span> since other <span style="font-style: italic;">MODE</span>s may use a
+<br>lot more colours.  Other pixels are ignored and will therefore
+<br>not be copied back onto the screen with <span style="font-style: italic;">W_SHOW</span>.  Since most
+<br>screens have text in one colour on top of another background,
+<br>this function is ideal for those circumstances.
+<br><br>This function is also very useful for storing Icons and
+<br>other  symbols,  since  the  image,  once  stored  with  this
+<br>function, can be copied back to the screen with <span style="font-style: italic;">W_SHOW</span> again and
+<br>again.
+<br><br>The value returned by <span style="font-style: italic;">W_CRUNCH</span> is the address of the area in
+<br>memory where the copy of the screen is stored - you will need
+<br>to keep this address for use by the other functions in the
+<br>toolkit.
+<br><br><h3>Example:
+<br></h3><br>Try the short program which appears on the next page and
+<br><br>note how when you press &lt;ENTER&gt; to close the temporary
+<br><br>window, the display does not alter:
+<br><span style="font-style: italic;">100 OPEN #2,con_448x200a32x16:PAPER #2,0:CLS #2:INK #2,2
+<br>110 FOR i=1 TO 15
+<br>120 PRINT #2,'This is window #2 - Line number ';i
+<br>130 END FOR i
+<br>140 INK #2,4:PRINT #2,'PRESS A KEY TO OPEN TEMPORARY WINDOW'
+<br>150 PAUSE
+<br>160 OPEN #3,con_230x40a80x100:PAPER #3,2:CLS #3
+<br>170 INK #3,7:PRINT #3,'This is a temporary window'
+<br>180 INPUT #3,'Press &lt;ENTER&gt; to close this window ';a$
+<br>190 CLOSE #3
+<br></span><br>Instead, you can use <span style="font-style: italic;">W_CRUNCH</span> to store #2 and then restore it
+<br><br>once #3 has been closed - add the following lines:
+<br><span style="font-style: italic;">155 base=W_CRUNCH(#2,2)
+<br>200 CLS #2
+<br>210 W_SHOW #2,base
+<br></span><br>Note how only the characters which were printed in Red Ink
+<br><br>were stored.  You could have couse have just stored the
+<br><br>area under the temporary window by taking the original
+<br><br>example and adding the lines:
+<br><span style="font-style: italic;">160 OPEN #3,con_230x40a80x100:PAPER #3,2
+<br>165 base=W_CRUNCH(#3,2):CLS #3
+<br>185 PAPER #3,0:CLS #3
+<br>187 W_SHOW #3,base
+<br><br></span>Note the need to store the contents of the window with
+<br><br><span style="font-style: italic;">W_CRUNCH</span> before it is cleared with <span style="font-style: italic;">CLS</span> !!.
+<br><br><h3>NOTE 1:
+<br></h3><br>This function will only work on screen resolutions of
+<br>512x256 pixels.
+<br><br><h3>NOTE 2:
+<br></h3><br>The memory used by the function will be reclaimed by <span style="font-style: italic;">CLCHP</span>,
+<br>or <span style="font-style: italic;">LOAD</span>, <span style="font-style: italic;">LRUN</span> or <span style="font-style: italic;">NEW</span>.  You can also use <span style="font-style: italic;">DISCARD address</span> or <span style="font-style: italic;">RECHP address+4
+<br></span>to remove it specifically (although note the different address
+<br>requirement for <span style="font-style: italic;">RECHP</span>).
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsS.html#SCR_REFRESH">SCR_REFRESH</a> and <a style="font-style: italic;" href="KeywordsS.html#SCR_STORE">SCR_STORE</a>.
+<br><br>See also <a style="font-style: italic;" href="KeywordsW.html#W_STORE">W_STORE</a>, <a style="font-style: italic;" href="KeywordsW.html#W_SHOW">W_SHOW</a>.
+<br><br><a style="font-style: italic;" href="KeywordsW.html#W_SWAP">W_SWAP</a>, <a style="font-style: italic;" href="KeywordsS.html#SET_RED">SET_RED</a> and <a style="font-style: italic;" href="KeywordsS.html#SET_GREEN">SET_GREEN</a> allow you to recolour windows.
+<br><br><h3><br><hr style="width: 100%; height: 2px;">W_SHOW<br></h3><br>Syntax: <span style="font-style: italic;">W_SHOW #channel, address
+<br></span>Location: <span style="font-style: italic;">Windows (DIY Toolkit - Vol W)
+<br></span><br>This command takes an image stored at the specified <span style="font-style: italic;">address
+<br></span>using either the <span style="font-style: italic;">W_CRUNCH</span> or <span style="font-style: italic;">W_STORE</span> functions and then copies it
+<br>across to the specified window <span style="font-style: italic;">channel</span>.
+<br><br><h3>NOTE 1:
+<br></h3><br>This command will only work on screen resolutions of
+<br>512x256 pixels.
+<br><br><h3>NOTE 2:
+<br></h3><br>The memory used by <span style="font-style: italic;">W_CRUNCH</span> or <span style="font-style: italic;">W_STORE</span> is not released, so that
+<br>you can re-display the screen again in the future.
+<br><br><h3>NOTE 3:
+<br></h3><br>An out of range error will be reported if the stored image
+<br>will not fit within the specified window.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsS.html#SCR_REFRESH">SCR_REFRESH</a> and <a style="font-style: italic;" href="KeywordsS.html#SCR_STORE">SCR_STORE</a>.
+<br><br>See also <a style="font-style: italic;" href="KeywordsW.html#W_STORE">W_STORE</a>, <a style="font-style: italic;" href="KeywordsW.html#W_CRUNCH">W_CRUNCH</a>.
+<br><br><a style="font-style: italic;" href="KeywordsW.html#W_SWOP">W_SWOP</a>, <a style="font-style: italic;" href="KeywordsS.html#SET_RED">SET_RED</a> and <a style="font-style: italic;" href="KeywordsS.html#SET_GREEN">SET_GREEN</a> allow you to recolour windows.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="W_STORE"></a>W_STORE</h1><br>Syntax: <span style="font-style: italic;">W_STORE ( #channel )
+<br></span>Location: <span style="font-style: italic;">Windows (DIY Toolkit - Vol W)
+<br></span><br>This function is very similar to <span style="font-style: italic;">W_CRUNCH</span> except that it
+<br>stores the whole of the contents of the specified window (not
+<br>in compressed form).  It also stores all of the colours, not
+<br>just green or red.
+<br><br><h3>NOTE:
+<br></h3><br>Refer to the notes for <span style="font-style: italic;">W_CRUNCH</span>.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsW.html#W_CRUNCH">W_CRUNCH</a>!
+<br><hr style="width: 100%; height: 2px;"><h1><a name="W_SWAP"></a>W_SWAP</h1><br>Syntax: <span style="font-style: italic;">W_SWAP #channel
+<br></span>Location: <span style="font-style: italic;">Windows (DIY Toolkit - Vol W)
+<br></span><br>This command looks at the specified window channel and
+<br>swaps over red and green bits on the display, effectively
+<br>changing the colours on screen.
+<br><br><h3>NOTE 1:
+<br></h3><br>This command will only work on screen resolutions of
+<br>512x256 pixels.
+<br><br><h3>NOTE 2:
+<br></h3><br>This command should not really be used in <span style="font-style: italic;">MODE 8</span>.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsW.html#W_SWOP">W_SWOP</a> is exactly the same.
+<br><br><a style="font-style: italic;" href="KeywordsR.html#RECOL">RECOL</a>, <a style="font-style: italic;" href="KeywordsS.html#SET_RED">SET_RED</a> and <a style="font-style: italic;" href="KeywordsS.html#SET_GREEN">SET_GREEN</a> also allow you to recolour a window.
+<br><br>Refer to the QL display Appendix.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="W_SWOP"></a>W_SWOP</h1><br>Syntax: <span style="font-style: italic;">W_SWOP #channel
+<br></span>Location: <span style="font-style: italic;">Windows (DIY Toolkit - Vol W)
+<br></span><br>This command is exactly the same as <span style="font-style: italic;">W_SWAP</span>.
+<br></div>
+</body>
+</html>
