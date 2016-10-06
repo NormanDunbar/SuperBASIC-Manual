@@ -1,0 +1,426 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html xmlns:v="urn:schemas-microsoft-com:vml">
+  <head>
+    <meta http-equiv="content-type" content="text/html;
+      charset=ISO-8859-1">
+    <link rel="stylesheet" type="text/css" href="css/QLManualStyle.css" media="all" />
+    <title>Sinclair QL SuperBASIC/SBASIC Reference Manual - Keywords V</title>
+</head>
+<body>
+<div id="header">
+  SBASIC/SuperBASIC Reference Manual Online (c) RWAP Software
+  <br />
+  The Online Guide to programming the Sinclair QL Home Computer in SuperBASIC
+</div>
+<div id="sideBar">
+    <ul>
+        <li><a href="Foreword.html">Foreword</a></li>
+        <li><a href="Introduction.html">Introduction</a></li>
+        <li><a href="Credits.html">Credits</a></li>        
+        <li><a href="Structure.html">Structure</a></li>
+        <li><a href="WritingPrograms.html">Writing Programs</a></li>
+        <hr></hr>
+        <li><a href="KeywordsA.html">Keywords - A</a></li>
+        <li><a href="KeywordsB.html">Keywords - B</a></li>
+        <li><a href="KeywordsC.html">Keywords - C</a></li>
+        <li><a href="KeywordsD.html">Keywords - D</a></li>
+        <li><a href="KeywordsE.html">Keywords - E</a></li>
+        <li><a href="KeywordsF.html">Keywords - F</a></li>
+        <li><a href="KeywordsG.html">Keywords - G</a></li>
+        <li><a href="KeywordsH.html">Keywords - H</a></li>
+        <li><a href="KeywordsI.html">Keywords - I</a></li>
+        <li><a href="KeywordsJ.html">Keywords - J</a></li>
+        <li><a href="KeywordsK.html">Keywords - K</a></li>
+        <li><a href="KeywordsL.html">Keywords - L</a></li>
+        <li><a href="KeywordsM.html">Keywords - M</a></li>
+        <li><a href="KeywordsN.html">Keywords - N</a></li>
+        <li><a href="KeywordsO.html">Keywords - O</a></li>
+        <li><a href="KeywordsP.html">Keywords - P</a></li>
+        <li><a href="KeywordsQ.html">Keywords - Q</a></li>
+        <li><a href="KeywordsR.html">Keywords - R</a></li>
+        <li><a href="KeywordsS.html">Keywords - S</a></li>
+        <li><a href="KeywordsT.html">Keywords - T</a></li>
+        <li><a href="KeywordsU.html">Keywords - U</a></li>
+        <li><a href="KeywordsV.html">Keywords - V</a></li>
+        <li><a href="KeywordsW.html">Keywords - W</a></li>
+        <li><a href="KeywordsX.html">Keywords - X</a></li>
+        <li><a href="KeywordsY.html">Keywords - Y</a></li>
+        <li><a href="KeywordsZ.html">Keywords - Z</a></li>
+        <li><a href="Keywords_.html">Keywords - Other</a></li>
+        <hr></hr>
+        <li><a href="AppendicesIntro.html">Appendices Introduction</a></li>
+        <li><a href="Appendix01.html">Appendix 1 - Minerva</a></li>
+        <li><a href="Appendix02.html">Appendix 2 - SMSQE</a></li>
+        <li><a href="Appendix03.html">Appendix 3 - Emulators</a></li>
+        <li><a href="Appendix04.html">Appendix 4 - THOR Computers</a></li>
+        <li><a href="Appendix05.html">Appendix 5 - Expansion Boards</a></li>
+        <li><a href="Appendix06.html">Appendix 6 - Compatability</a></li>
+        <li><a href="Appendix07.html">Appendix 7 - Multiple BASICs</a></li>
+        <li><a href="Appendix08.html">Appendix 8 - Error Messages</a></li>
+        <li><a href="Appendix09.html">Appendix 9 - Character Set / Keyboard</a></li>
+        <li><a href="Appendix10.html">Appendix 10 - Fonts</a></li>
+        <li><a href="Appendix11.html">Appendix 11 - Mathematics</a></li>
+        <li><a href="Appendix12.html">Appendix 12 - Device Drivers</a></li>
+        <li><a href="Appendix13.html">Appendix 13 - Extended Pointer Environment</a></li>
+        <li><a href="Appendix14.html">Appendix 14 - Coercion</a></li>
+        <li><a href="Appendix15.html">Appendix 15 - Mouse Drivers</a></li>
+        <li><a href="Appendix16.html">Appendix 16 - The QL Display</a></li>
+        <li><a href="Appendix17.html">Appendix 17 - Networks</a></li>
+        <li><a href="Appendix18.html">Appendix 18 - Configuring Programs</a></li>
+    </ul>
+</div>
+<div id="mainText">
+<h1><a name="VA"></a>VA</h1><br>Syntax: <span style="font-style: italic;">VA (i,n)
+<br></span>Location: <span style="font-style: italic;">Toolfin
+<br></span><br>The function <span style="font-style: italic;">VA</span> returns the value of <span style="font-style: italic;">(1+i)<sup>-n</span></sup> = <span style="font-style: italic;">1/MT(i,n)</span> where <span style="font-style: italic;">i
+<br></span>and <span style="font-style: italic;">n</span> can be any floating point numbers (see <span style="font-style: italic;">MT</span> for error
+<br>handling).
+<br><br><h3>Example:
+<br></h3><br><span style="font-style: italic;">VA</span> allows you to find out about base capital which will
+<br><br>grow to a certain higher <span style="font-style: italic;">(i>0)</span> capital at the interest rate <span style="font-style: italic;">i
+<br></span><br>over <span style="font-style: italic;">n</span> periods.
+<br><br>Assume that you want to buy an expensive car for <span style="font-style: italic;">$80000</span> in
+<br><br>two years and your investment returns an annual gain of 10%
+<br><br>(not bad), then you need to invest
+<br><br><span style="font-style: italic;">80000 * VA(1/10, 2) = 66115.7
+<br></span><br><h3>CROSS-REFERENCE:<br></h3><br>You can check the result of the above example with:
+<br><br href="Keywords6.html#66115.7 * MT(1/10, 2) = 80000
+">66115.7 * MT(1/10, 2) = 80000
+</a><br>See also <a style="font-style: italic;" href="KeywordsV.html#VFR">VFR</a>, <a style="font-style: italic;" href="KeywordsV.html#VAR">VAR</a>, <a style="font-style: italic;" href="KeywordsT.html#TCA">TCA</a>, <a style="font-style: italic;" href="KeywordsT.html#TNC">TNC</a>, <a style="font-style: italic;" href="KeywordsT.html#TEE">TEE</a>, <a style="font-style: italic;" href="KeywordsR.html#RAE">RAE</a>, <a style="font-style: italic;" href="KeywordsR.html#RAFE">RAFE</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="VAR"></a>VAR</h1><br>Syntax: <span style="font-style: italic;">VAR (i,n)
+<br></span>Location: <span style="font-style: italic;">Toolfin
+<br></span><br>The function <span style="font-style: italic;">VAR</span> returns the value of:
+<br><br><span style="font-style: italic;">((1+i)<sup>n</sup>-1) / (i* (1+i)<sup>n</sup>)
+<br></span><br>where <span style="font-style: italic;">i</span> and <span style="font-style: italic;">n</span> can be any floating point numbers (see <span style="font-style: italic;">MT</span> for
+<br>error handling).
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsM.html#MT">MT</a>, <a style="font-style: italic;" href="KeywordsV.html#VA">VA</a>, <a style="font-style: italic;" href="KeywordsV.html#VFR">VFR</a>, <a style="font-style: italic;" href="KeywordsT.html#TCA">TCA</a>, <a style="font-style: italic;" href="KeywordsT.html#TNC">TNC</a>, <a style="font-style: italic;" href="KeywordsT.html#TEE">TEE</a>, <a style="font-style: italic;" href="KeywordsR.html#RAE">RAE</a>, <a style="font-style: italic;" href="KeywordsR.html#RAFE
+">RAFE
+</a><br><h3>
+<br></h3><hr style="width: 100%; height: 2px;"><h1><a name="VER$"></a>VER$</h1><br>Syntax: <span style="font-style: italic;">VER$
+<br></span><br>or <span style="font-style: italic;">VER$</span> [<span style="font-style: italic;">(n)</span>]  with <span style="font-style: italic;">n=1, 0, -1, -2(Minerva and SMS only)
+<br></span>Location: <span style="font-style: italic;">QL ROM
+<br></span><br>The function <span style="font-style: italic;">VER$</span>, which is the same as <span style="font-style: italic;">VER$(0)</span> returns a
+<br>short identification code for the version of the current
+<br>system ROM. Here are most of the possible values (in order of
+<br>development):    
+<br><h3><span style="font-style: italic;">VER$</span>    Explanation
+<br></h3>original ROMs:
+<br>FBThis is the first ROM sold in April 1984, QDOS
+<br>version 1.00.  It comes with a 'Dongle' - a
+<br>board which needed to be plugged into the QL's
+<br>ROM port.  It is very unreliable and should be
+<br>replaced!!
+<br>PMThese three ROMs were developed during the
+<br>following two months.
+<br>EL
+<br>TB
+<br>AHReleased as the "definitive" version in June
+<br>1984.
+<br>JMBritish QL, QDOS v1.03, the first version which
+<br>was exported.
+<br>JSReleased in spring 1985, QDOS v1.10.
+<br>Also found on early Thors and patched in ST/QL
+<br>and early Amiga Emulators.
+<br>JSU    American QL.
+<br>MGDDanish\
+<br>MGE    Spanish |
+<br>MGF    French      |           These versions were
+<br>MGG    German  |           only sold in the
+<br>MGI    Italian   |        respective countries.
+<br>MGN    Norwegian |  ...  QL
+<br>MGS    Swedish   |   QDOS v1.13
+<br>MGB    Swedish   |
+<br>MGY    Finish    |
+<br>MG$    Greek     |
+<br>$FP    Greek/
+<br>Patches:
+<br>MGUK   A version of the MGx ROM produced independently
+<br>for the UK market.
+<br>MG     Another patched version, mainly distributed in
+<br>Germany.
+<br>MGUS   Out of the three patches, this is the only legal
+<br>one and was produced for the United States
+<br>New developments:
+<br>CS
+<br>PT     Different ROMs used on the THOR XVI
+<br>PO
+<br>JSL1   QL with Minerva ROM, a very much debugged and
+<br>enhanced version of the JS ROM, available in all
+<br>languages for all kinds of QLs.
+<br>HBA  Either the SMSQ or SMSQ/E replacement operating
+<br>system for QXLs, Atari ST/STE and TT series
+<br>computers and the Miracle Gold Card family of
+<br>add-on cards.
+<br><br><h3>NOTE 1:
+<br></h3><br><span style="font-style: italic;">VER$</span> can be used to write flexible programs which adapt
+<br>themselves  to  specific  features  of  computers  and  ROM
+<br>implementations. However, if you intend to test <span style="font-style: italic;">VER$</span>, for
+<br>example:
+<br><br><span style="font-style: italic;">IF VER$= 'JM'
+<br></span><br>to retain compatibility with the different ROM versions,
+<br>you  must first assign the contents of <span style="font-style: italic;">VER$</span> to a variable:
+<br><span style="font-style: italic;">100 a$=VER$
+<br>110 IF a$(1 TO 2)='MG':PRINT 'MG ROM'
+<br></span><br><h3>NOTE 2:
+<br></h3><br>The names of the original ROMs were derived from names of
+<br>Clive Sinclair's secretaries, taxi drivers he met and so on.
+<br>(Just in case you are looking for any sense behind the
+<br>abbreviations.)
+<br><br><h3>MINERVA NOTES:
+<br></h3><br>On Minerva, <span style="font-style: italic;">VER$</span> accepts a parameter:
+<br><br><span style="font-style: italic;">VER$(0)</span>as per above VER$.
+<br><br><span style="font-style: italic;">VER$(-2)</span>returns the base address of the system variables
+<br>(normally $28000 = 163840 on a standard QL).
+<br><br><span style="font-style: italic;">VER$(-1)</span>returns the current job identification number.
+<br><br><span style="font-style: italic;">VER$(1)</span>returns the version of QDOS (see also QDOS$).
+<br><br><h3>SMS NOTES:
+<br></h3><br><span style="font-style: italic;">VER$</span> has been amended to provide the same facilities as on
+<br>Minerva.
+<br><br><h3>WARNING:
+<br></h3><br>If you fail to assign <span style="font-style: italic;">VER$</span> to a variable before testing its
+<br>value, then you can crash a JS (or JSU) ROM. This will also
+<br>happen on Minerva ROMs (pre v1.77) with Minerva's extended
+<br>variant <span style="font-style: italic;">VER$(n)</span>.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsQ.html#QDOS$">QDOS$</a> returns the version number of QDOS in the same way as
+<br><a style="font-style: italic;" href="KeywordsV.html#VER$(1)">VER$(1)</a>.  See also <a style="font-style: italic;" href="KeywordsM.html#MACHINE">MACHINE</a> and <a style="font-style: italic;" href="KeywordsP.html#PROCESSOR">PROCESSOR</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="VFR"></a>VFR</h1><br>Syntax: <span style="font-style: italic;">VFR (i,n)
+<br></span>Location: <span style="font-style: italic;">Toolfin
+<br></span><br>The function <span style="font-style: italic;">VFR</span> returns the value of:
+<br><br><span style="font-style: italic;">((1+i)<sup>n</sup>-1)/i
+<br></span><br>where <span style="font-style: italic;">i</span> and <span style="font-style: italic;">n</span> can be any floating point numbers (see <span style="font-style: italic;">MT</span> for
+<br>error handling).
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsM.html#MT">MT</a>, <a style="font-style: italic;" href="KeywordsV.html#VA">VA</a>, <a style="font-style: italic;" href="KeywordsV.html#VAR">VAR</a>, <a style="font-style: italic;" href="KeywordsT.html#TCA">TCA</a>, <a style="font-style: italic;" href="KeywordsT.html#TNC">TNC</a>, <a style="font-style: italic;" href="KeywordsT.html#TEE">TEE</a>, <a style="font-style: italic;" href="KeywordsR.html#RAE">RAE</a>, <a style="font-style: italic;" href="KeywordsR.html#RAFE
+">RAFE
+</a><hr style="width: 100%; height: 2px;"><h1><a name="VG_HOCH"></a>VG_HOCH</h1><br>Syntax: <span style="font-style: italic;">VG_HOCH (fontnr)</span>    <span style="font-style: italic;">fontnr=0..15
+<br></span>Location: <span style="font-style: italic;">BGI
+<br></span><br>This function returns the maximum height of the specified
+<br>font (<span style="font-style: italic;">fontnr=0..15</span>) in pixels if printed with the current size
+<br>settings of <span style="font-style: italic;">VG_PARA</span>.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsV.html#VG_PARA">VG_PARA</a> and <a style="font-style: italic;" href="KeywordsV.html#VG_LOAD">VG_LOAD</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="VG_LOAD"></a>VG_LOAD</h1><br>Syntax: <span style="font-style: italic;">VG_LOAD fontnr, file$</span> <span style="font-style: italic;">fontnr=0..15
+<br></span>Location: <span style="font-style: italic;">BGI
+<br></span><br>This toolkit allows the QL to use BGI vector fonts (common
+<br>on the PC) to draw on the screen.  There are now numerous
+<br>fonts available in this format for the QL, being the same
+<br>format as used by the PROWESS programming system from PROGS.
+<br><br>The advantage of vector fonts is that they can be drawn on
+<br>screen at any size and angle without affecting the legibility.
+<br>Each character is not made up by a bit-map (as with the
+<br>original QL fonts), but by a description of how each line is
+<br>drawn to make up a character.
+<br><br>This command forces a BGI font <span style="font-style: italic;">file$</span> to be loaded from a
+<br>file into memory. <span style="font-style: italic;">fontnr</span> is the number of the font
+<br><br>Up to 16 fonts can be loaded at the same time; <span style="font-style: italic;">fontnr</span> may
+<br>range from 0 to 15.
+<br><br>The <span style="font-style: italic;">file$</span> can be any font in standard BGI format, for
+<br>example those which are delivered with Turbo Pascal and Turbo
+<br>C by Borland. The format used on the QL with this Toolkit is
+<br>binary compatible.
+<br><br>If <span style="font-style: italic;">VG_LOAD</span> fails to load a file for external reasons (eg. if
+<br>the file is not found), the font which was previously attached
+<br>to <span style="font-style: italic;">fontnr</span> will have been lost.
+<br><br><h3>Example:
+<br></h3><br><span style="font-style: italic;">VG_LOAD 1, "flp1_goth_chr"
+<br></span><br><h3>WARNING:
+<br></h3><br>You have to ensure that file is actually a BGI font.
+<br>Otherwise your machine will almost surely crash.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsV.html#VG_PRINT">VG_PRINT</a> about displaying text using a vector font and
+<br>the other <a style="font-style: italic;" href="KeywordsV.html#VG_">VG_</a>... commands.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="VG_PARA"></a>VG_PARA</h1><br>Syntax: <span style="font-style: italic;">VG_PARA col, xsize, ysize, angle, qlibm, italic, bold
+<br></span>Location: <span style="font-style: italic;">BGI
+<br></span><br>The use of the command <span style="font-style: italic;">VG_PARA</span> is easier than the large
+<br>parameter list may suggest. <span style="font-style: italic;">VG_PARA</span> specifies how text should
+<br>look when printed with <span style="font-style: italic;">VG_PRINT</span>.
+<br><br>The colour <span style="font-style: italic;">col</span> does not allow strips and textures, <span style="font-style: italic;">col</span> may
+<br>only  range  from  0  to  7,  other  values  are  modulated
+<br>appropriately.
+<br><br><span style="font-style: italic;">xsize</span> and <span style="font-style: italic;">ysize</span> determine the size of the font (not in
+<br>pixels!), they can be freely chosen from any non-negative
+<br>values, but sizes smaller than three are usually not readable.
+<br><br><span style="font-style: italic;">angle</span> is the angle (0..359ø) by which the text should be
+<br>rotated.  This  is  different  from  <span style="font-style: italic;">italics</span>  because  the  angle
+<br>parameter rotates the text around the origin point of the text
+<br>whilst <span style="font-style: italic;">italics</span> slopes each character.
+<br><br>The effect of <span style="font-style: italic;">italics</span> is not linear, values between -10 and
+<br>10 give all kinds of slope; negative <span style="font-style: italic;">italics</span> slope to the left
+<br>and positive to the right.
+<br><br>The effect of <span style="font-style: italic;">bold</span> on the other hand is easily described:
+<br><span style="font-style: italic;">bold</span> refers to the thickness of the characters' lines which are
+<br><span style="font-style: italic;">bold+1</span> pixels.
+<br><br><span style="font-style: italic;">qlibm</span> is a switch: any non-negative value will make <span style="font-style: italic;">VG_PRINT
+<br></span>try to find the character which matches best to the one given
+<br>in the text to be printed; this works for IBM fonts only, see
+<br><span style="font-style: italic;">VG_PRINT</span> for further explanation of this point.
+<br><br>The default setting is <span style="font-style: italic;">VG_PARA 7,8,8,0,0,0,0</span> ie. white colour, 8x8
+<br>size, no italics, bold, rotation or conversion.
+<br><br><h3>Examples:
+<br></h3><br>Both examples assume a BGI font loaded to font number 0 and
+<br><br>the default <span style="font-style: italic;">VG_WIND</span> settings (<span style="font-style: italic;">VG_WIND 0,511,0,255</span>). The screen
+<br><br>should be emptied with <span style="font-style: italic;">WIPE</span> or <span style="font-style: italic;">WINDOW 512,256,0,0:CLS</span>.
+<br><span style="font-style: italic;">100 FOR size=1 TO 25
+<br>110   bold = (size=25)
+<br>120   VG_PARA 5.5*size/25,size,size,0,0,-3,bold
+<br>130   VG_PRINT 70-2*size,150-size,0,"Sinclair QL"
+<br>140 END FOR size
+<br></span><span style="font-style: italic;">100 FOR angle=0 TO 3000 STEP 12
+<br>110   xsize=4*SIN(RAD(angle))+8
+<br>120   VG_PARA 7,xsize,10,angle,0,0,0
+<br>130   VG_PRINT 200,120,0,"Yippie"
+<br>140   VG_PARA RND(0 TO 2),xsize,10,angle,0,0,0
+<br>150   VG_PRINT 200,120,0,"Yippie"
+<br>160 END FOR angle
+<br></span><br><h3>
+<br></h3><br><h3>WARNING:
+<br></h3><br>A negative <span style="font-style: italic;">bold</span> parameter will cause <span style="font-style: italic;">VG_PRINT</span> to fall into an
+<br>infinite  loop.  This  hangs  the  job  which  called  <span style="font-style: italic;">VG_PRINT
+<br></span>indefinitely.
+<br><br><h3>NOTE:
+<br></h3><br>Negative sizes lead to strange output but do no harm. BGI
+<br>fonts come in different sizes so that the size settings of
+<br><span style="font-style: italic;">VG_PARA</span> do not necessarily reflect the actual size that text will
+<br>be; check with <span style="font-style: italic;">VG_HOCH</span> for every font.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsV.html#VG_HOCH">VG_HOCH</a> is a function which returns the text sizes.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="VG_PRINT"></a>VG_PRINT</h1><br>Syntax: <span style="font-style: italic;">VG_PRINT x, y, fontnr, text$
+<br></span>Location: <span style="font-style: italic;">BGI
+<br></span><br>The command <span style="font-style: italic;">VG_PRINT</span> prints <span style="font-style: italic;">text$</span> at the absolute position <span style="font-style: italic;">x, y
+<br></span>on the screen. The font which has been applied to <span style="font-style: italic;">fontnr</span> with
+<br><span style="font-style: italic;">VG_LOAD</span> will be used; there will be no output if the font number
+<br>has not been used yet.
+<br><br>If <span style="font-style: italic;">x</span> and <span style="font-style: italic;">y</span> are not inside the area defined with <span style="font-style: italic;">VG_WIND</span> or the
+<br>text is too high to fit, again there will be no output.
+<br><br><span style="font-style: italic;">VG_PRINT</span> works only in high resolution mode (<span style="font-style: italic;">MODE 4</span>).
+<br><br><h3>Example:
+<br></h3><span style="font-style: italic;">VG_LOAD 1,flp1_goth_chr
+<br>VG_WIND 0,511,0,255
+<br>VG_PRINT 100,100,1,"Hello World"
+<br></span><br><h3>NOTE:
+<br></h3><br>Since the BGI fonts will usually originate from another
+<br>computer system which uses a different character set, <span style="font-style: italic;">text$</span> and
+<br>the actual output may differ dramatically if <span style="font-style: italic;">text$</span> contains
+<br>characters which are not standardised in ASCII, especially
+<br>national characters (umlauts, acutes). The following program
+<br>lists the complete character set of a BGI font:
+<br><span style="font-style: italic;">100 VG_LOAD 0,"flp1_goth_chr"
+<br>110 VG_WIND 0,511,0,255
+<br>120 WINDOW 512,256,0,0: PAPER 0: CLS
+<br>130 VG_PARA 7,5,5,0,0,0,0
+<br>140 FOR c=0 TO 255
+<br>150   VG_PRINT 20*(c MOD 20)+50,20*(c DIV 20),0,CHR$(c)
+<br>160 END FOR c
+<br></span><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsV.html#VG_PARA">VG_PARA</a> offers a switch to approximate an identity between
+<br><a style="font-style: italic;" href="Keywordst.html#text$">text$</a> and display as far as possible. Modify line 130 in the
+<br>above listing so that it looks like this now:
+<br><a style="font-style: italic;" href="Keywords1.html#130 VG_PARA 7,5,5,0,1,0,0
+">130 VG_PARA 7,5,5,0,1,0,0
+</a><br>Running the program again shows you <a style="font-style: italic;" href="KeywordsV.html#VG_PRINT">VG_PRINT</a>'s attempts to
+<br>correct the problem.
+<br><br>See also the other <a style="font-style: italic;" href="KeywordsV.html#VG_">VG_</a> keywords!
+<br><hr style="width: 100%; height: 2px;"><h1><a name="VG_RESO"></a>VG_RESO</h1><br>Syntax: <span style="font-style: italic;">VG_RESO scradr, xres, yres
+<br></span>Location: <span style="font-style: italic;">BGI
+<br></span><br>This command defines the screen base address and the screen
+<br>size for printing the BGI fonts. The default is
+<br><br><span style="font-style: italic;">VG_RESO 131072,512,256
+<br></span><br>This will need to be changed if the screen offset is not
+<br><span style="font-style: italic;">131072</span>. A fixed screen address should  never be assumed.
+<br><br><span style="font-style: italic;">VG_RESO</span> can also be used to write to the second screen on a
+<br>dual screen system.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>The settings of <a style="font-style: italic;" href="KeywordsV.html#VG_WIND">VG_WIND</a> are dependent on <a style="font-style: italic;" href="KeywordsV.html#VG_RESO">VG_RESO</a>'s.
+<br><br>See <a style="font-style: italic;" href="KeywordsS.html#SCRBASE">SCRBASE</a>, <a style="font-style: italic;" href="KeywordsP.html#PEEK">PEEK</a> and <a style="font-style: italic;" href="KeywordsM.html#MODE">MODE</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="VG_WIND"></a>VG_WIND</h1><br>Syntax: <span style="font-style: italic;">VG_WIND x1, x2, y1, y2
+<br></span>Location: <span style="font-style: italic;">BGI
+<br></span><br>This command defines a rectangular area of the screen. Only
+<br>text printed inside this window with <span style="font-style: italic;">VG_PRINT</span> (it's not a window
+<br>in SuperBASIC terms) will be visible:
+<br>0                     511
+<br>   0 +-------------------------+
+<br>|               |
+<br>|   x1  x2|
+<br>|  y1+---------+       |
+<br>||    ||
+<br>||BGI Text||
+<br>| |       ||
+<br>|  y2+---------+|
+<br>  255+-------------------------+
+<br><br>It is strongly recommended that you specify a window inside
+<br>the physical screen, so:
+<br><br><span style="font-style: italic;">0 <= x1 < x2 <= 511
+<br></span><br>and
+<br><br><span style="font-style: italic;">0 <= y1 < y2 <= 255
+<br></span><br>(assuming a standard 512x256 pixel screen - replace the
+<br>upper bounds if you have a better graphics card, eg. QVME).
+<br>Note  that  <span style="font-style: italic;">VG_WIND</span>  does  not  check  the  parameters  (this  is
+<br>impossible without the Window Manager).
+<br><br>Default settings are <span style="font-style: italic;">x1=0</span>, <span style="font-style: italic;">x2=511</span>, <span style="font-style: italic;">y1=0</span>, <span style="font-style: italic;">y2=255</span>.
+<br><br><h3>Example:
+<br></h3><br><span style="font-style: italic;">VG_WIND 0,511,0,255</span> restores these defaults.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsV.html#VG_">VG_</a>...,<a style="font-style: italic;" href="KeywordsQ.html#QFLIM">QFLIM</a> can be used to find out about about the size of
+<br>the screen if the Window Manager is loaded.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="VIEW"></a>VIEW</h1><br>Syntax: <span style="font-style: italic;">VIEW </span>[<span style="font-style: italic;">#channel,</span>] <span style="font-style: italic;">text_file
+<br></span><br>or <span style="font-style: italic;">VIEW \channel, text_file
+<br></span>Location: <span style="font-style: italic;">Toolkit II, THOR XVI
+<br></span><br>This command reads the contents of the given <span style="font-style: italic;">text_file</span> line by
+<br>line and prints it to the given channel (default #1). If a
+<br>line is longer than the window, it is not split and continued
+<br>in the next line (as <span style="font-style: italic;">PRINT</span> would do) but truncated.
+<br><br>The second syntax allows you to open a temporary channel to
+<br>which the output will be sent, for example you could use:
+<br><br><span style="font-style: italic;">VIEW \con,text_file
+<br></span><br>or
+<br><br><span style="font-style: italic;">VIEW \ram1_test,flp1_text_file
+<br></span><br>Note that the latter is the same as <span style="font-style: italic;">COPY flp1_text_file TO ram1_test
+<br></span><br>Lines in a text file are separated by line feed characters
+<br>&lt;LF&gt;, ie. <span style="font-style: italic;">CHR$(10)</span>. If output is sent to a window, then when a
+<br>window page is full, <span style="font-style: italic;">VIEW </span>generates a &lt;CTRL&gt;&lt;F5&gt;, and waits for
+<br>a keypress to continue <span style="font-style: italic;">VIEW</span>ing.
+<br><br>Sub-directories and default directories are supported by
+<br>this command, which will look on the default data directory
+<br>for the given file if necessary (see <span style="font-style: italic;">DATAD$</span>).
+<br><br><h3>NOTE:
+<br></h3><br>If the final line in the file being <span style="font-style: italic;">VIEW</span>ed does not contain
+<br>a line feed, it will not appear on screen.
+<br><br><h3>WARNING:
+<br></h3><br>There is a possibility that if a file is longer than 32767
+<br>characters and does not include a newline character, the
+<br>system may crash!
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsS.html#SPL file TO #1">SPL file TO #1</a> copies all kinds of files to a window, for
+<br>example without truncating lines.
+<br><br>Compare <a style="font-style: italic;" href="KeywordsC.html#COPY">COPY</a> and <a style="font-style: italic;" href="KeywordsM.html#MORE">MORE</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="VOCAB"></a>VOCAB</h1><br>Syntax: <span style="font-style: italic;">VOCAB </span>[<span style="font-style: italic;"> #channel</span>, ] <span style="font-style: italic;">type
+<br></span><br>or <span style="font-style: italic;">VOCAB </span>[<span style="font-style: italic;"> #channel </span>] [<span style="font-style: italic;">,type</span>]
+Location: <span style="font-style: italic;">VOCAB (DIY Toolkit, Vol X)
+<br></span><br>This command lists all of the names which fall into a given
+<br>category and are recognised by the SuperBASIC interpreter in
+<br>the given channel (default #1).
+<br><br>If <span style="font-style: italic;">type</span> is not specified, then it is assumed to be <span style="font-style: italic;">type=8</span>.
+<br><br>The names are listed in columns, calculated by reference to
+<br>the width of the specified channel (set by <span style="font-style: italic;">WIDTH</span> for non-window
+<br>devices). Once all of the names of the given <span style="font-style: italic;">type</span> have been
+<br>listed, a line feed is printed to end the list.
+<br><br>The values for <span style="font-style: italic;">type</span> are:
+<br><h3><span style="font-style: italic;"><br>type</span>Category of names listed
+<br></h3><br>0Unset Names
+<br><br>2Simple Variables
+<br><br>3Dimensioned Variables
+<br><br>4SuperBASIC PROCedures
+<br><br>5SuperBASIC FuNctions
+<br><br>6Used REPeat loops
+<br><br>7Used FOR loops
+<br><br>8Machine code Procedures
+<br><br>9Machine code Functions
+<br><br>(Other values or type=1 will report an error or may cause
+<br>junk to appear on screen).
+<br><br><h3>NOTE 1:
+<br></h3><br>For some reason, under SMS, <span style="font-style: italic;">VOCAB 2</span> will report rubbish on
+<br>screen unless a program has been <span style="font-style: italic;">RUN</span> already and even then, the
+<br>last entry may not be an actual variable.  No such problems
+<br>seem to occur on Minerva or other ROMs.
+<br><br><h3>NOTE 2:
+<br></h3><br><span style="font-style: italic;">VOCAB 6</span> and <span style="font-style: italic;">VOCAB 7</span> only list those <span style="font-style: italic;">REPeat</span> and <span style="font-style: italic;">FOR</span> loop names
+<br>which have actually been used in the program when it has been
+<br><span style="font-style: italic;">RUN</span>.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>Use <a style="font-style: italic;" href="KeywordsS.html#SXTRAS">SXTRAS</a> if you have a lot of extensions in memory and you
+<br>are looking for a specific one.
+<br><br>See also <a style="font-style: italic;" href="KeywordsT.html#TXTRAS">TXTRAS</a>, <a style="font-style: italic;" href="KeywordsE.html#EXTRAS">EXTRAS</a> and <a style="font-style: italic;" href="KeywordsT.html#TYPE">TYPE</a>.
+<br></div>
+</body>
+</html>
