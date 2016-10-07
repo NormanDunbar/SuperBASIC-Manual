@@ -99,20 +99,22 @@ SuperBASIC name list safely.
 BASIC\_B
 ========
 
+See `BASIC\_L <KeywordsB.clean.html#basic-l>`__ below.
 
 BASIC\_W
 ========
 
+See `BASIC\_L <KeywordsB.clean.html#basic-l>`__ below.
 
 BASIC\_L
 ========
 
 +----------+-------------------------------------------------------------------+
-| Syntax   | BASIC\_B (offset) and                                             |
-|          | BASIC\_W (offset)                                                 |
-|          | BASIC\_L (offset)                                                 |
+| Syntax   || BASIC\_B (offset) and                                            |
+|          || BASIC\_W (offset)                                                |
+|          || BASIC\_L (offset)                                                |
 +----------+-------------------------------------------------------------------+
-| Location |  TinyToolkit, BTool, Turbo Toolkit (BASIC\_L only)                |
+| Location ||  TinyToolkit, BTool, Turbo Toolkit (BASIC\_L only)               |
 +----------+-------------------------------------------------------------------+
 
 These three functions are modified version of PEEK which return values
@@ -173,20 +175,22 @@ The SuperBASIC variables appear in the QDOS/SMS Reference Manual
 BASIC\_B%
 =========
 
-
-BASIC\_F
-========
-
+See `BASIC\_F <KeywordsB.clean.html#basic-f>`__ below.
 
 BASIC\_W%
 =========
 
+See `BASIC\_F <KeywordsB.clean.html#basic-f>`__ below.
+
+BASIC\_F
+========
+
 +----------+-------------------------------------------------------------------+
-| Syntax   | BASIC\_B% (offset) and                                            |
-|          | BASIC\_W% (offset) and                                            |
-|          | BASIC\_F (offset)                                                 |
+| Syntax   || BASIC\_B% (offset) and                                           |
+|          || BASIC\_W% (offset) and                                           |
+|          || BASIC\_F (offset)                                                |
 +----------+-------------------------------------------------------------------+
-| Location | Turbo Toolkit, BTool, Turbo Toolkit (BASIC_L only)                |
+| Location || Turbo Toolkit, BTool, Turbo Toolkit (BASIC_L only)               |
 +----------+-------------------------------------------------------------------+
 
 The functions BASIC\_B% and BASIC\_W% are similar to BASIC\_B and
@@ -423,9 +427,10 @@ BAUD
 ====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  BAUD bps  or BAUD [port,] bps(SMS and ST/QL only)                |
+| Syntax   || BAUD bps  or                                                     |
+|          || BAUD [port,] bps(SMS and ST/QL only)                             |
 +----------+-------------------------------------------------------------------+
-| Location |  QL ROM                                                           |
+| Location || QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
 
 The serial port(s) use a certain speed to communicate with printers,
@@ -766,12 +771,12 @@ The current keyboard queue can be selected by a dummy
 BEEP
 ====
 
-+----------+----------------------------------------------------------------------------+
-| Syntax   | BEEP length, pitch [,pitch\_2, grd\_x, grd\_y [,wrap [,fuzz [,rndom ]]]] or|
-|          | BEEP                                                                       |
-+----------+----------------------------------------------------------------------------+
-| Location | QL ROM                                                                     |
-+----------+----------------------------------------------------------------------------+
++----------+-----------------------------------------------------------------------------+
+| Syntax   || BEEP length, pitch [,pitch\_2, grd\_x, grd\_y [,wrap [,fuzz [,rndom ]]]] or|
+|          || BEEP                                                                       |
++----------+-----------------------------------------------------------------------------+
+| Location || QL ROM                                                                     |
++----------+-----------------------------------------------------------------------------+
 
 This command allows you to access the QL's rather poor sound generation
 chip. It can be extremely difficult to use this command, and a lot of
@@ -1078,12 +1083,12 @@ as the wallpaper.
 BGET
 ====
 
-+----------+---------------------------------------------------------------------------+
-| Syntax   | BGET [#ch\\position,] [item :sup:`\*`\ [,item\ :sup:`i`]\ :sup:`\*` ..] or|
-|          | BGET [#ch,] [item                                                         |
-+----------+---------------------------------------------------------------------------+
-| Location | Toolkit II, THOR XVI                                                      |
-+----------+---------------------------------------------------------------------------+
++----------+----------------------------------------------------------------------------+
+| Syntax   || BGET [#ch\\position,] [item :sup:`\*`\ [,item\ :sup:`i`]\ :sup:`\*` ..] or|
+|          || BGET [#ch,] [item                                                         |
++----------+----------------------------------------------------------------------------+
+| Location || Toolkit II, THOR XVI                                                      |
++----------+----------------------------------------------------------------------------+
 
 This command is very similar to GET, although this only fetches one byte
 at a time (in the range 0..255) from the given channel (default #3).
@@ -1226,9 +1231,10 @@ BIN
 ===
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  BIN (binary$)  or BIN (binary) where binary=0..111111            |
+| Syntax   || BIN (binary$)  or                                                |
+|          || BIN (binary) where binary=0..111111                              |
 +----------+-------------------------------------------------------------------+
-| Location |  Toolkit II, THOR XVI                                             |
+| Location || Toolkit II, THOR XVI                                             |
 +----------+-------------------------------------------------------------------+
 
 This function returns the decimal value of a binary number (given as a
@@ -1287,9 +1293,10 @@ BIN$
 ====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  BIN$ (decimal,digits)  or BIN$ (decimal [,digits]) (THOR only)   |
+| Syntax   || BIN$ (decimal,digits)  or                                        |
+|          || BIN$ (decimal [,digits]) (THOR only)                             |
 +----------+-------------------------------------------------------------------+
-| Location |  Toolkit II, THOR XVI                                             |
+| Location || Toolkit II, THOR XVI                                             |
 +----------+-------------------------------------------------------------------+
 
 This function converts a signed integer decimal number to the equivalent
@@ -1696,10 +1703,10 @@ BORDER
 ======
 
 +----------+------------------------------------------------------------------+
-| Syntax   | BORDER [#channel,] size [,colour] or                             |
-|          | BORDER [#channel] Location: QL ROM                               |
+| Syntax   || BORDER [#channel,] size [,colour] or                            |
+|          || BORDER [#channel] Location: QL ROM                              |
 +----------+------------------------------------------------------------------+
-| Location | QL ROM                                                           |
+| Location || QL ROM                                                          |
 +----------+------------------------------------------------------------------+
 
 This command allows you to add a coloured border around the inside of
@@ -1787,20 +1794,22 @@ Also see `WINDOW <KeywordsW.clean.html#window>`__.
 BPEEK%
 ======
 
+See `BPEEK\_L <KeywordsB.clean.html#bpeek-l>`__ below.
 
 BPEEK\_W%
 =========
 
+See `BPEEK\_L <KeywordsB.clean.html#bpeek-l>`__ below.
 
 BPEEK\_L
 ========
 
 +----------+---------------------------------------+
-| Syntax   | BPEEK% (offset)    and                |
-|          | BPEEK\_W% (offset) and                |
-|          | BPEEK\_L (offset)                     |
+| Syntax   || BPEEK% (offset)    and               |
+|          || BPEEK\_W% (offset) and               |
+|          || BPEEK\_L (offset)                    |
 +----------+---------------------------------------+
-| Location | BPEEKS, BPOKE (DIY Toolkit - Vol B)   |
+| Location || BPEEKS, BPOKE (DIY Toolkit - Vol B)  |
 +----------+---------------------------------------+
 
 These three functions are exactly the same as BASIC\_B, BASIC\_W and
@@ -1820,18 +1829,22 @@ the values of the SuperBASIC variables.
 BPOKE
 =====
 
+See `BPOKE\_L <KeywordsB.clean.html#bpoke-l>`__ below.
+
 BPOKE\_W
 ========
+
+See `BPOKE\_L <KeywordsB.clean.html#bpoke-l>`__ below.
 
 BPOKE\_L
 ========
 
 +----------+---------------------------------+
-| Syntax   | BPOKE offset, value   and       |
-|          | BPOKE\_W offset, value          |
-|          | BPOKE\_L offset, value          |
+| Syntax   || BPOKE offset, value   and      |
+|          || BPOKE\_W offset, value         |
+|          || BPOKE\_L offset, value         |
 +----------+---------------------------------+
-| Location | BPOKE (DIY Toolkit - Vol B)     |
+| Location || BPOKE (DIY Toolkit - Vol B)    |
 +----------+---------------------------------+
 
 These three commands allow you to alter the value of SuperBASIC
@@ -1857,12 +1870,12 @@ read the values of the SuperBASIC variables.
 BPUT
 ====
 
-+----------+---------------------------------------------------------------------------+
-| Syntax   | BPUT [#ch\\position,] [item :sup:`\*`\ [,item\ :sup:`i`]\ :sup:`\*` ..] or|
-|          | BPUT [#ch,] [item                                                         |
-+----------+---------------------------------------------------------------------------+
-| Location | Toolkit II, THOR XVI                                                      |
-+----------+---------------------------------------------------------------------------+
++----------+----------------------------------------------------------------------------+
+| Syntax   || BPUT [#ch\\position,] [item :sup:`\*`\ [,item\ :sup:`i`]\ :sup:`\*` ..] or|
+|          || BPUT [#ch,] [item                                                         |
++----------+----------------------------------------------------------------------------+
+| Location || Toolkit II, THOR XVI                                                      |
++----------+----------------------------------------------------------------------------+
 
 This command is the complement to BGET, in that it places the byte value
 for each item into the specified channel (default #3) at the current
@@ -1942,14 +1955,17 @@ being translated.
 BREAK\_ON
 =========
 
+See `BREAK\_OFF <KeywordsB.clean.html#break-off>`__ below.
+
+
 BREAK\_OFF
 ==========
 
 +----------+---------------+
-| Syntax   | BREAK\_ON     |
-|          | BREAK\_OFF    |
+| Syntax   || BREAK\_ON    |
+|          || BREAK\_OFF   |
 +----------+---------------+
-| Location | TinyToolkit   |
+| Location || TinyToolkit  |
 +----------+---------------+
 
 The command BREAK\_OFF de-activates the functioning of both
