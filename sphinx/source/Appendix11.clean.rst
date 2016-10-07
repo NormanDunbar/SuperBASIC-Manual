@@ -1,4 +1,4 @@
-A11 MATHEMATICS
+A11 Mathematics
 ===============
 
 A11.1 Degrees and Radians

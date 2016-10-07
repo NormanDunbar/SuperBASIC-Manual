@@ -1,4 +1,4 @@
-A5 EXPANSION BOARDS
+A5 Expansion Boards
 ===================
 
 In this section, we give a brief description of the more common
