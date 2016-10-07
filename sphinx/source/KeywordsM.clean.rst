@@ -1264,9 +1264,9 @@ A program using MATSUM cannot be compiled with Turbo or Super-charge.
 values. `MATPROD <KeywordsM.clean.html#matprod>`__ is very similar to
 `MATSUM <KeywordsM.clean.html#matsum>`__ except that it finds the product of
 an array's elements. `MATMEAN <KeywordsM.clean.html#matmean>`__ finds the mean
-value of a matrix's values directly, so line 330 could be replaced with
-`330 tmed =
-MATMEAN(temp%) <Keywords3.clean.html#33020tmed20=20matmean(temp)>`__
+value of a matrix's values directly, so line 330 could be replaced with::
+
+    330 tmed = MATMEAN(temp%)
 
 --------------
 

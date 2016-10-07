@@ -1421,7 +1421,7 @@ data to disk at the time (or still have some in memory).
 
 On Gold Cards use `RES\_128 <KeywordsR.clean.html#res-128>`__ and
 `RES\_SIZE <KeywordsR.clean.html#res-size>`__ for a faster reset. Minerva
-allows you to use `CALL 390,x <KeywordsC.clean.html#call20390,x>`__ to reset
+allows you to use `CALL <KeywordsC.clean.html#call>`__  390,x to reset
 the system.
 
 --------------
@@ -1629,7 +1629,7 @@ tends to expect a ramtop which is a multiple of 64 and memory is wasted.
 **CROSS-REFERENCE**
 
 `RES\_128 <KeywordsR.clean.html#res-128>`__ is identical to `RES\_SIZE
-128 <KeywordsR.clean.html#res-size20128>`__. See also
+<KeywordsR.clean.html#res-size>`__ 128. See also
 `RESET <KeywordsR.clean.html#reset>`__. See `RAMTOP <KeywordsR.clean.html#ramtop>`__
 and `FREE\_MEM <KeywordsF.clean.html#free-mem>`__ about available and free
 memory. `FLP\_EXT <KeywordsF.clean.html#flp-ext>`__ improves the reliability
@@ -1739,9 +1739,9 @@ A FuNction which returns 1 (true) if a given number is even::
 
 **CROSS-REFERENCE**
 
-See `DEFine PROCedure <KeywordsD.clean.html#define20procedure>`__ and `DEFine
-FuNction <KeywordsD.clean.html#define20function>`__. Please also refer to `GO
-SUB <KeywordsG.clean.html#go20sub>`__.
+See `DEFine PROCedure <KeywordsD.clean.html#define-procedure>`__ and `DEFine
+FuNction <KeywordsD.clean.html#define-function>`__. Please also refer to `GO
+SUB <KeywordsG.clean.html#go-sub>`__.
 
 --------------
 

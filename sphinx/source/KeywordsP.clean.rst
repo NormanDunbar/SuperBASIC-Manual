@@ -539,8 +539,8 @@ TURBO and SuperCHARGE cannot compile programs which use PARNAM$.
 `PARTYP <KeywordsP.clean.html#partyp>`__, `PARUSE <KeywordsP.clean.html#paruse>`__
 and `PARSTR$ <KeywordsP.clean.html#parstr>`__ allow you to find out other
 information about parameters. See also `DEFine
-FuNction <KeywordsD.clean.html#define20function>`__ and `DEFine
-PROCedure <KeywordsD.clean.html#define20procedure>`__.
+FuNction <KeywordsD.clean.html#define-function>`__ and `DEFine
+PROCedure <KeywordsD.clean.html#define-procedure>`__.
 `PARNAME$ <KeywordsP.clean.html#parname>`__ is exactly the same.
 
 --------------
@@ -1434,8 +1434,7 @@ closed.
 See `TCONNECT <KeywordsT.clean.html#tconnect>`__ and
 `FILE\_OPEN <KeywordsF.clean.html#file-open>`__ about connecting two unnamed
 pipes. `EOF <KeywordsE.clean.html#eof>`__ checks if a file is at its end.
-`IO\_PEND% <KeywordsI.clean.html#io-pend>`__ and `NOT
-EOFW <KeywordsN.clean.html#not20eofw>`__ are identical to
+`IO\_PEND% <KeywordsI.clean.html#io-pend>`__ and NOT `EOFW <KeywordsN.clean.html#eofw>`__ are identical to
 `PEND <KeywordsP.clean.html#pend>`__.
 
 --------------
@@ -1559,10 +1558,10 @@ programs refuse to work.
 
 **CROSS-REFERENCE**
 
-See `PEOFF, PIE\_ON <KeywordsP.clean.html#peoff,20pie-on>`__,
+See `PEOFF <KeywordsP.clean.html#peoff>`__, `PIE\_ON <KeywordsP.clean.html#pie-on>`__,
 `PXON <KeywordsP.clean.html#pxon>`__, `PEX\_INI <KeywordsP.clean.html#pex-ini>`__
 and `IS\_PEON <KeywordsI.clean.html#is-peon>`__ for more
-details.\ `IS\_PTRAP <KeywordsI.clean.html#is-ptrap>`__ allows you to enable
+details. `IS\_PTRAP <KeywordsI.clean.html#is-ptrap>`__ allows you to enable
 PEX for specific machine code routines.
 
 --------------
@@ -1811,8 +1810,8 @@ becomes::
 
 Note that conditions have a numeric value, see
 `IF <KeywordsI.clean.html#if>`__, `AND <KeywordsA.clean.html#and>`__ and
-`OR <KeywordsO.clean.html#or>`__ for details. `SELect ON..END
-SELect <KeywordsS.clean.html#select20on..end20select>`__ is a less
+`OR <KeywordsO.clean.html#or>`__ for details. `SELect ON <KeywordsS.clean.html#select-on>`__\ .. END
+SELect <KeywordsS.clean.html#-end-select>`__ is a less
 restrictive alternative to `PICK$ <KeywordsP.clean.html#pick>`__.
 
 --------------
@@ -2101,7 +2100,7 @@ available for the limits of nr and the structure of music$.
 
 **CROSS-REFERENCE**
 
-`RELEASE nr <KeywordsR.clean.html#release20nr>`__ plays a sequence.
+`RELEASE <KeywordsR.clean.html#release>`__ nr plays a sequence.
 `SND\_EXT <KeywordsS.clean.html#snd-ext>`__.
 
 --------------
@@ -3051,9 +3050,9 @@ continue).
 
 `SPJOB <KeywordsS.clean.html#spjob>`__, `SP\_JOB <KeywordsS.clean.html#sp-job>`__,
 and `PJOB <KeywordsP.clean.html#pjob>`__ also deal with job priorities. `SPJOB
--1 <KeywordsS.clean.html#spjob20-1>`__,
+<KeywordsS.clean.html#spjob>`__ -1,
 `priority <Keywordsp.clean.html#priority>`__ is exactly the same as `PRIO
-priority <KeywordsP.clean.html#prio20priority>`__ or
+<KeywordsP.clean.html#prio>`__ priority, or
 `PRIORITISE <KeywordsP.clean.html#prioritise>`__
 `priority <Keywordsp.clean.html#priority>`__.
 
@@ -3791,10 +3790,13 @@ The path device is very similar to the `DEV <KeywordsD.clean.html#dev>`__
 device, please read through `DEV\_USE <KeywordsD.clean.html#dev-use>`__ to
 understand the idea behind both devices. It's pretty useful to set the
 Toolkit II `DATAD$ <KeywordsD.clean.html#datad>`__ and
-`PROGD$ <KeywordsP.clean.html#progd>`__ to `pth1\_ <Keywordsp.clean.html#pth1->`__:
-`DATA\_USE pth1\_ <KeywordsD.clean.html#data-use20pth1->`__ `PROG\_USE
-pth1\_ <KeywordsP.clean.html#prog-use20pth1->`__ Do this preferably in your
-BOOT program. - Look at the other `PTH\_ <KeywordsP.clean.html#pth->`__..
+`PROGD$ <KeywordsP.clean.html#progd>`__ to pth1\_::
+
+    DATA_USE pth1_ 
+    PROG\_USE pth1_ 
+
+Do this preferably in your
+BOOT program. - Look at the other `PTH\_ <KeywordsP.clean.html#pth-add>`__..
 style keywords!
 
 --------------

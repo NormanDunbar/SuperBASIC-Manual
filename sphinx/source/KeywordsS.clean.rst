@@ -326,9 +326,9 @@ from the left, Column 2 512 pixels from the left and so on....
 
 See `MB <KeywordsM.clean.html#mb>`__ and `EW <KeywordsE.clean.html#ew>`__ for other
 ways of starting up additional interpreters. In addition SMS users can
-use `EXEP SBASIC <KeywordsE.clean.html#exep20sbasic>`__ or even use the Exec
+use `EXEP <KeywordsE.clean.html#exep>`__ SBASIC or even use the Exec
 button from QPAC II and Minerva users can use `EX
-PIPEP <KeywordsE.clean.html#ex20pipep>`__. `WMON <KeywordsW.clean.html#wmon>`__ and
+<KeywordsE.clean.html#ex>`__ PIPEP. `WMON <KeywordsW.clean.html#wmon>`__ and
 `WTV <KeywordsW.clean.html#wtv>`__ can be used to reposition the SBASIC
 windows. Also see the appendix on Multiple BASICs.
 `JOB\_NAME <KeywordsJ.clean.html#job-name>`__ can be used to alter the name of
@@ -1124,7 +1124,7 @@ is already on screen.
 `SCR\_LLEN <KeywordsS.clean.html#scr-llen>`__.
 `A\_OLDSCR <KeywordsA.clean.html#a-oldscr>`__ can help some older software to
 work. You can also use `PRINT
-CHAN\_L(#1,50) <KeywordsP.clean.html#print20chan-l(#1,50)>`__ instead of
+<KeywordsP.clean.html#print>`__ CHAN\_L(#1,50) instead of
 `SCR\_BASE <KeywordsS.clean.html#scr-base>`__.
 
 --------------
@@ -1162,7 +1162,7 @@ line is the number of pixels DIV 4 - always use this function instead.
 `SCR\_YLIM <KeywordsS.clean.html#scr-ylim>`__ and
 `SCR\_BASE <KeywordsS.clean.html#scr-base>`__. On QL ROMs after JM, you can
 also use `PRINT
-CHAN\_B%(#1,104) <KeywordsP.clean.html#print20chan-b(#1,104)>`__.
+<KeywordsP.clean.html#print>`__ CHAN\_B%(#1,104) .
 
 --------------
 
@@ -2043,7 +2043,7 @@ the error 'Bad Name' will be generated.
 
 **CROSS-REFERENCE**
 
-Please see `SELect ON <KeywordsS.clean.html#select20on>`__!
+Please see `SELect ON <KeywordsS.clean.html#select-on>`__!
 
 --------------
 
@@ -2267,10 +2267,10 @@ reported an error if END SELect did appear!!
 
 **CROSS-REFERENCE**
 
-A slower means of testing for values is the structure `IF...END
-IF <KeywordsI.clean.html#if...end20if>`__. `END
-SELect <KeywordsE.clean.html#end20select>`__ ends a `SELect
-ON <KeywordsS.clean.html#select20on>`__ structure.
+A slower means of testing for values is the structure `IF <KeywordsI.clean.html#if>`__... END
+IF <KeywordsI.clean.html#end-if>`__. `END
+SELect <KeywordsE.clean.html#end-select>`__ ends a `SELect
+ON <KeywordsS.clean.html#select-on>`__ structure.
 
 --------------
 
@@ -3701,9 +3701,8 @@ future version so that the value returned is 1.
 **CROSS-REFERENCE**
 
 `DIMN <KeywordsD.clean.html#dimn>`__ and `NDIM <KeywordsN.clean.html#ndim>`__ return
-other information about an array, eg: `PRINT SIZE(a$) \* DIMN
-(a$,NDIM(a$)) <KeywordsP.clean.html#print20size(a)20*20dimn20(a,ndim(a))>`__
-gives the total number of characters which can be stored in a string
+other information about an array, eg: `PRINT <KeywordsP.clean.html#print>`__
+SIZE(a$) \* DIMN(a$,NDIM(a$)) gives the total number of characters which can be stored in a string
 array a$. `LEN <KeywordsL.clean.html#len>`__ returns the length of a string.
 `FREE\_MEM <KeywordsF.clean.html#free-mem>`__ allows you to check how much
 memory an array uses.
@@ -4710,7 +4709,7 @@ If Toolkit II is installed, STOP clears WHEN ERRor definitions.
 **CROSS-REFERENCE**
 
 `RUN <KeywordsR.clean.html#run>`__ starts a program and `GO
-TO <KeywordsG.clean.html#go20to>`__ jumps to a specified line. See
+TO <KeywordsG.clean.html#go-to>`__ jumps to a specified line. See
 `CONTINUE <KeywordsC.clean.html#continue>`__,
 `RETRY <KeywordsR.clean.html#retry>`__. Also see
 `QUIT <KeywordsQ.clean.html#quit>`__.
@@ -4795,7 +4794,7 @@ Line' error.
 
 **CROSS-REFERENCE**
 
-See `GO SUB <KeywordsG.clean.html#go20sub>`__!
+See `GO SUB <KeywordsG.clean.html#go-sub>`__!
 
 --------------
 

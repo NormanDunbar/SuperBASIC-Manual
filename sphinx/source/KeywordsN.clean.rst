@@ -192,8 +192,7 @@ an even number of pulses will always be read.
 **CROSS-REFERENCE**
 
 The amount of time that `NETPOLL <KeywordsN.clean.html#netpoll>`__ will wait
-for a pulse is affected by `NETRATE
-0,0,x <KeywordsN.clean.html#netrate200,0,x>`__. See
+for a pulse is affected by `NETRATE <KeywordsN.clean.html#netrate>`__\ 0,0,x. See
 `NETBEEP <KeywordsN.clean.html#netbeep>`__ which sends signal tones along the
 network ports. Also see
 `NETRATE <KeywordsN.clean.html#netrate>`__,\ `NETREAD <KeywordsN.clean.html#netread>`__
@@ -698,8 +697,8 @@ trying to read from it (or vice versa). If this occurs, then an error -9
 `FSERVE <KeywordsF.clean.html#fserve>`__ -
 `NFS\_USE <KeywordsN.clean.html#nfs-use>`__ can be used with these fileservers
 also, provided that you use `SNET\_USE
-n <KeywordsS.clean.html#snet-use20n>`__ or `MNET\_USE
-n <KeywordsM.clean.html#mnet-use20n>`__ to ensure that they are identified by
+<KeywordsS.clean.html#snet-use>`__\ n or `MNET\_USE
+<KeywordsM.clean.html#mnet-use>`__\ n to ensure that they are identified by
 the letter n.
 
 --------------

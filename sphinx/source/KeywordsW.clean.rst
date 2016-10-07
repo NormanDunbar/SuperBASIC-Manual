@@ -747,7 +747,7 @@ error occurred. `ERNUM <KeywordsE.clean.html#ernum>`__ returns the error
 number itself. There are several functions in the form
 `ERR\_xx <KeywordsE.clean.html#err-xx>`__ which return 1 if the given error
 has occurred. `BREAK\_OFF <KeywordsB.clean.html#break-off>`__ allows you to
-turn the Break key off. `END WHEN <KeywordsE.clean.html#end20when>`__ defines
+turn the Break key off. `END WHEN <KeywordsE.clean.html#end-when>`__ defines
 the end of the error handling block.
 
 --------------
