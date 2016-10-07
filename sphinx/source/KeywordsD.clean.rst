@@ -411,13 +411,13 @@ See also `DEV\_USE <KeywordsD.clean.html#dev-use>`__ and
 DATE
 ====
 
-+----------+-------------------------------------------------------------------+
-| Syntax   | DATE or                                                           |
-|          | DATE (year,month,day,hour,minute,second)(Minerva & NewDate)  or   |
-|          | DATE (year,month,day,hour,minute [,second])(SMS v2.57+)           |
-+----------+-------------------------------------------------------------------+
-| Location | QL ROM                                                            |
-+----------+-------------------------------------------------------------------+
++----------+--------------------------------------------------------------------+
+| Syntax   || DATE or                                                           |
+|          || DATE (year,month,day,hour,minute,second)(Minerva & NewDate)  or   |
+|          || DATE (year,month,day,hour,minute [,second])(SMS v2.57+)           |
++----------+--------------------------------------------------------------------+
+| Location || QL ROM                                                            |
++----------+--------------------------------------------------------------------+
 
 
 The function DATE returns the current date and time as the number of
@@ -479,12 +479,12 @@ stop-watches for timing programs.
 DATE$
 =====
 
-+----------+-------------------------------------------------------------------+
-| Syntax   | DATE$ [(date)] or                                                 |
-|          | DATE$ (year,month,day,hour,minute [,second])(SMS v2.57+ only)     |
-+----------+-------------------------------------------------------------------+
-| Location | QL ROM                                                            |
-+----------+-------------------------------------------------------------------+
++----------+--------------------------------------------------------------------+
+| Syntax   || DATE$ [(date)] or                                                 |
+|          || DATE$ (year,month,day,hour,minute [,second])(SMS v2.57+ only)     |
++----------+--------------------------------------------------------------------+
+| Location || QL ROM                                                            |
++----------+--------------------------------------------------------------------+
 
 DATE$ holds the current system date and time as a string in the
 following format: yyyy mmm dd hh:mm:ss. 
@@ -615,12 +615,12 @@ as a short string.
 DAY$
 ====
 
-+----------+-------------------------------------------------------------------+
-| Syntax   | DAY$ [(date)] or                                                  |
-|          | DAY$ (year,month,day,hour,minute [,second]) (SMS v2.57+ only)     |
-+----------+-------------------------------------------------------------------+
-| Location | QL ROM                                                            |
-+----------+-------------------------------------------------------------------+
++----------+--------------------------------------------------------------------+
+| Syntax   || DAY$ [(date)] or                                                  |
+|          || DAY$ (year,month,day,hour,minute [,second]) (SMS v2.57+ only)     |
++----------+--------------------------------------------------------------------+
+| Location || QL ROM                                                            |
++----------+--------------------------------------------------------------------+
 
 DAY$ holds the current day as a three character string: 
 
@@ -1591,12 +1591,12 @@ Appendix.
 DELETE
 ======
 
-+----------+-------------------------------------------------------------------+
-| Syntax   | DELETE file  or                                                   |
-|          | DELETE file :sup:`\*`\ [,file\ :sup:`i`]\ :sup:`\*` (THOR XVI)    |
-+----------+-------------------------------------------------------------------+
-| Location | QL ROM, Toolkit II                                                |
-+----------+-------------------------------------------------------------------+
++----------+--------------------------------------------------------------------+
+| Syntax   || DELETE file  or                                                   |
+|          || DELETE file :sup:`\*`\ [,file\ :sup:`i`]\ :sup:`\*` (THOR XVI)    |
++----------+--------------------------------------------------------------------+
+| Location || QL ROM, Toolkit II                                                |
++----------+--------------------------------------------------------------------+
 
 The command DELETE removes the stated file from a medium (it actually
 only deletes its entry from the directory map, which thus allows these
@@ -2250,13 +2250,13 @@ device works.
 DEV\_USE
 ========
 
-+----------+-------------------------------------------------------------------+
-| Syntax   | DEV\_USE n,drive [,next\_dev] n=1..8 or                           | 
-|          | DEV\_USE [n](SMS v2.70+ only) or                                  |
-|          | DEV\_USE [drivetype]                                              |
-+----------+-------------------------------------------------------------------+
-| Location | DEV device, GOLD CARD, ST/QL, SMS                                 |
-+----------+-------------------------------------------------------------------+
++----------+--------------------------------------------------------------------+
+| Syntax   || DEV\_USE n,drive [,next\_dev] n=1..8 or                           | 
+|          || DEV\_USE [n](SMS v2.70+ only) or                                  |
+|          || DEV\_USE [drivetype]                                              |
++----------+--------------------------------------------------------------------+
+| Location || DEV device, GOLD CARD, ST/QL, SMS                                 |
++----------+--------------------------------------------------------------------+
 
 The DEV device is a universal method of driving devices (MDV, FLP, WIN,
 MOS, ROM), and thus allows old software to recognise default devices/
@@ -3168,11 +3168,12 @@ string.
 DIMN
 ====
 
-+----------+-----------------------------------------------------------------------------------------------------------------+
-| Syntax   |  DIMN (array [,dimension] )  or DIMN (array (dimension\ :sup:`1` :sup:`*`\ [,dimension\ :sup:`i`]\ :sup:`*`\ )) |
-+----------+-----------------------------------------------------------------------------------------------------------------+
-| Location |  QL ROM                                                                                                         |
-+----------+-----------------------------------------------------------------------------------------------------------------+
++----------+----------------------------------------------------------------------------------+
+| Syntax   || DIMN (array [,dimension] )  or                                                  |
+|          || DIMN (array (dimension\ :sup:`1` :sup:`*`\ [,dimension\ :sup:`i`]\ :sup:`*`\ )) |
++----------+----------------------------------------------------------------------------------+
+| Location || QL ROM                                                                          |
++----------+----------------------------------------------------------------------------------+
 
 This function allows you to investigate the size of the given index of
 a specified array. 
@@ -3261,13 +3262,13 @@ held within a string. `DIM <KeywordsD.clean.html#dim>`__ initialises an array.
 DIR
 ===
 
-+----------+-------------------------------------------------------------------+
-| Syntax   | DIR [#channel,] device  or                                        |
-|          | DIR [#channel,] [device] (Toolkit II)  or                         |
-|          | DIR \\file [,device] (Toolkit II)                                 |
-+----------+-------------------------------------------------------------------+
-| Location |QL ROM, Toolkit II                                                 |
-+----------+-------------------------------------------------------------------+
++----------+--------------------------------------------------------------------+
+| Syntax   || DIR [#channel,] device  or                                        |
+|          || DIR [#channel,] [device] (Toolkit II)  or                         |
+|          || DIR \\file [,device] (Toolkit II)                                 |
++----------+--------------------------------------------------------------------+
+| Location || QL ROM, Toolkit II                                                |
++----------+--------------------------------------------------------------------+
 
 This command produces a listing to the specified channel
 (default #1) of all of the files contained on the given device. 
@@ -3890,12 +3891,12 @@ remainder of a division. Compare the other version of
 DLINE
 =====
 
-+----------+------------------------------------------------------------------------+
-| Syntax   | DLINE [#ch,] [range :sup:`\*`\ [,range\ :sup:`i`]\ :sup:`\*`](Not SMS) |  
-| Syntax   | DLINE [range :sup:`\*`\ [,range\ :sup:`i`]\ :sup:`\*`](SMS Only)       |
-+----------+------------------------------------------------------------------------+
-| Location | QL ROM                                                                 |
-+----------+------------------------------------------------------------------------+
++----------+-------------------------------------------------------------------------+
+| Syntax   || DLINE [#ch,] [range :sup:`\*`\ [,range\ :sup:`i`]\ :sup:`\*`](Not SMS) |  
+|          || DLINE [range :sup:`\*`\ [,range\ :sup:`i`]\ :sup:`\*`](SMS Only)       |
++----------+-------------------------------------------------------------------------+
+| Location || QL ROM                                                                 |
++----------+-------------------------------------------------------------------------+
 
 This command deletes a given range of lines from the current SuperBASIC
 program. The range of lines is as per the LIST command. If an empty
@@ -3982,11 +3983,12 @@ PROGD$ and DESTD$ functions.
 DMEDIUM\_DENSITY
 ================
 
-+----------+-------------------------------------------------------------------+
-| Syntax   |  DMEDIUM\_DENSITY [(#channel)] or DMEDIUM\_DENSITY (\\file)       |
-+----------+-------------------------------------------------------------------+
-| Location |  SMSQ/E v2.73+                                                    |
-+----------+-------------------------------------------------------------------+
++----------+--------------------------------------+
+| Syntax   || DMEDIUM\_DENSITY [(#channel)] or    |
+|          || DMEDIUM\_DENSITY (\\file)           |
++----------+--------------------------------------+
+| Location || SMSQ/E v2.73+                       |
++----------+--------------------------------------+
 
 This function returns a number representing the density of the medium
 on which the specified file or directory is located, or to which the
@@ -4023,9 +4025,10 @@ DMEDIUM\_DRIVE$
 ===============
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  DMEDIUM\_DRIVE$ [(#channel)] or DMEDIUM\_DRIVE$ (\\file)         |
+| Syntax   || DMEDIUM\_DRIVE$ [(#channel)] or                                  |
+|          || DMEDIUM\_DRIVE$ (\\file)                                         |
 +----------+-------------------------------------------------------------------+
-| Location |  SMSQ/E v2.73+                                                    |
+| Location || SMSQ/E v2.73+                                                    |
 +----------+-------------------------------------------------------------------+
 
 This function returns the three letter code representing the device
@@ -4078,9 +4081,10 @@ DMEDIUM\_FORMAT
 ===============
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  DMEDIUM\_FORMAT [(#channel)] or DMEDIUM\_FORMAT (\\file)         |
+| Syntax   || DMEDIUM\_FORMAT [(#channel)] or                                  |
+|          || DMEDIUM\_FORMAT (\\file)                                         |
 +----------+-------------------------------------------------------------------+
-| Location |  SMSQ/E v2.73+                                                    |
+| Location || SMSQ/E v2.73+                                                    |
 +----------+-------------------------------------------------------------------+
 
 This function returns a number representing the operating system under
@@ -4117,9 +4121,10 @@ DMEDIUM\_FREE
 =============
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  DMEDIUM\_FREE [(#channel)] or DMEDIUM\_FREE (\\file)             |
+| Syntax   || DMEDIUM\_FREE [(#channel)] or                                    |
+|          || DMEDIUM\_FREE (\\file)                                           |
 +----------+-------------------------------------------------------------------+
-| Location |  SMSQ/E v2.73+                                                    |
+| Location || SMSQ/E v2.73+                                                    |
 +----------+-------------------------------------------------------------------+
 
 This function returns the number of free sectors available on the
@@ -4141,9 +4146,10 @@ DMEDIUM\_NAME$
 ==============
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  DMEDIUM\_NAME$ [(#channel)] or DMEDIUM\_NAME$ (\\file)           |
+|Syntax    || DMEDIUM\_NAME$ [(#channel)] or                                   |
+|          || DMEDIUM\_NAME$ (\\file)                                          |
 +----------+-------------------------------------------------------------------+
-| Location |  SMSQ/E v2.73+                                                    |
+| Location || SMSQ/E v2.73+                                                    |
 +----------+-------------------------------------------------------------------+
 
 This function returns the name which was given to the medium on which
@@ -4210,9 +4216,10 @@ DMEDIUM\_RDONLY
 ===============
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  DMEDIUM\_RDONLY [(#channel)] or DMEDIUM\_RDONLY (\\file)         |
+|Syntax    || DMEDIUM\_RDONLY [(#channel)] or                                  |
+|          || DMEDIUM\_RDONLY (\\file)                                         |
 +----------+-------------------------------------------------------------------+
-| Location |  SMSQ/E v2.73+                                                    |
+| Location || SMSQ/E v2.73+                                                    |
 +----------+-------------------------------------------------------------------+
 
 This function returns the value 1 (true) if the the medium on which the
@@ -4239,9 +4246,10 @@ DMEDIUM\_REMOVE
 ===============
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  DMEDIUM\_REMOVE [(#channel)] or DMEDIUM\_REMOVE (\\file)         |
+| Syntax   || DMEDIUM\_REMOVE [(#channel)] or                                  |
+|          || DMEDIUM\_REMOVE (\\file)                                         |
 +----------+-------------------------------------------------------------------+
-| Location |  SMSQ/E v2.73+                                                    |
+| Location || SMSQ/E v2.73+                                                    |
 +----------+-------------------------------------------------------------------+
 
 This function returns the value 1 (true) if the medium on which the
@@ -4271,9 +4279,10 @@ DMEDIUM\_TOTAL
 ==============
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  DMEDIUM\_TOTAL [(#channel)] or DMEDIUM\_TOTAL (\\file)           |
+| Syntax   || DMEDIUM\_TOTAL [(#channel)] or                                   |
+|          || DMEDIUM\_TOTAL (\\file)                                          |
 +----------+-------------------------------------------------------------------+
-| Location |  SMSQ/E v2.73+                                                    |
+| Location || SMSQ/E v2.73+                                                    |
 +----------+-------------------------------------------------------------------+
 
 This function returns the number of total sectors available on the
@@ -4296,9 +4305,10 @@ DMEDIUM\_TYPE
 =============
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  DMEDIUM\_TYPE [(#channel)] or DMEDIUM\_TYPE (\\file)             |
+| Syntax   || DMEDIUM\_TYPE [(#channel)] or                                    |
+|          || DMEDIUM\_TYPE (\\file)                                           |
 +----------+-------------------------------------------------------------------+
-| Location |  SMSQ/E v2.73+                                                    |
+| Location || SMSQ/E v2.73+                                                    |
 +----------+-------------------------------------------------------------------+
 
 This function returns a number representing the type of drive on which

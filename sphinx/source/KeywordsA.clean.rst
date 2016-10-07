@@ -6,13 +6,12 @@ Keywords A
 ABS
 ===
 
-+----------+------------------------------------------------------------------------+
-| Syntax   |                                                                        | 
-|          | ABS (number) or                                                        |
-|          | ABS (number1 :sup:`\*`\ [,number\ :sup:`x`]\ :sup:`\*`) (Minerva only) | 
-+----------+------------------------------------------------------------------------+
-| Location |  QL ROM                                                                | 
-+----------+------------------------------------------------------------------------+
++----------+-------------------------------------------------------------------------+
+| Syntax   || ABS (number) or                                                        |
+|          || ABS (number1 :sup:`\*`\ [,number\ :sup:`x`]\ :sup:`\*`) (Minerva only) | 
++----------+-------------------------------------------------------------------------+
+| Location || QL ROM                                                                 | 
++----------+-------------------------------------------------------------------------+
 
 This function returns the absolute value of a number - ie. the positive
 difference (or distance) between zero and the number. The absolute value
@@ -287,9 +286,10 @@ ACOT
 ====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  ACOT (x) or ACOT (y,x) (Minerva v1.90+ only)                     |
+| Syntax   || ACOT (x) or                                                      |
+|          || ACOT (y,x) (Minerva v1.90+ only)                                 |
 +----------+-------------------------------------------------------------------+
-| Location |  QL ROM                                                           |
+| Location || QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
 
 The function ACOT, is the arc-cotangent function, that is to say the
@@ -516,9 +516,11 @@ AJOB
 ====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   | AJOB jobname,priority or                                          |
-|          | AJOB jobnr,tag,priority or                                        |
-|          | AJOB job\_id,priority                                             |
+| Syntax   || AJOB jobname,priority or                                         |
+|          || AJOB jobnr,tag,priority or                                       |
+|          || AJOB job\_id,priority                                            |
++----------+-------------------------------------------------------------------+
+| Location || Toolkit II                                                       |
 +----------+-------------------------------------------------------------------+
 
 This command forces the specified job (described by either its jobname,
@@ -586,9 +588,10 @@ ALCHP
 =====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  ALCHP (space) or ALCHP (space [,[jobID]]) (BTool only)           |
+| Syntax   || ALCHP (space) or                                                 |
+|          || ALCHP (space [,[jobID]]) (BTool only)                            |
 +----------+-------------------------------------------------------------------+
-| Location |  Toolkit II, THOR XVI, BTool                                      |
+| Location || Toolkit II, THOR XVI, BTool                                      |
 +----------+-------------------------------------------------------------------+
 
 The function ALCHP allocates space bytes in the common heap and returns
@@ -687,10 +690,10 @@ ALIAS
 =====
 
 +----------+------------------------------------------------------------------+
-| Syntax   | ALIAS old\_keyword$ TO new\_keyword(ALIAS\_CODE) or              |
-|          | ALIAS new\_keyword TO old\_keyword$(SAILA\_CODE)                 |
+| Syntax   || ALIAS old\_keyword$ TO new\_keyword(ALIAS\_CODE) or             |
+|          || ALIAS new\_keyword TO old\_keyword$(SAILA\_CODE)                |
 +----------+------------------------------------------------------------------+
-| Location | ALIAS (DIY Toolkit - Vol A)                                      |
+| Location || ALIAS (DIY Toolkit - Vol A)                                     |
 +----------+------------------------------------------------------------------+
 
 This command is similar to NEW\_NAME and REPLACE.
@@ -987,11 +990,11 @@ ALTKEY
 ======
 
 +----------+-------------------------------------------------------------------+
-| Syntax   | ALTKEY character$,string$ [,string2$ [,string2$... ]]  or         |
-|          | ALTKEY character$  or                                             |
-|          | ALTKEY                                                            |
+| Syntax   || ALTKEY character$,string$ [,string2$ [,string2$... ]]  or        |
+|          || ALTKEY character$  or                                            |
+|          || ALTKEY                                                           |
 +----------+-------------------------------------------------------------------+
-| Location |  Toolkit II                                                       |
+| Location ||  Toolkit II                                                      |
 +----------+-------------------------------------------------------------------+
 
 This command defines a key macro which will be typed into the computer
@@ -1194,7 +1197,7 @@ ARC
 | Syntax   | ARC [#ch][,x\ :sup:`1`\ ,y\ :sup:`1`] TO x\ :sup:`2`\ ,y\ :sup:`2`\ ,angle :sup:`\*`\ [[;x\ :sup:`i`\ ,y\ :sup:`i`] |
 |          | TO x\ :sup:`j`\ ,y\ :sup:`j`\ ,angle\ :sup:`j`]\ :sup:`\*`                                                          |
 +----------+---------------------------------------------------------------------------------------------------------------------+
-| Location |  QL ROM                                                                                                             |
+| Location | QL ROM                                                                                                              |
 +----------+---------------------------------------------------------------------------------------------------------------------+
 
 ARC causes the two points at the co-ordinates
@@ -1209,9 +1212,9 @@ It therefore follows that the greater ABS(angle), the more pronounced is
 the curve on the arc.
 
 Multiple arcs can be draw with the same command by adding extra sets of
-parameters for each additional arc. For example:
+parameters for each additional arc. For example::
 
-ARC 100,10 TO 120,40,3 TO 80,70,3
+    ARC 100,10 TO 120,40,3 TO 80,70,3
 
 will actually draw two arcs, one between the points (100,10) and
 (120,40) with angle=3 and the second between the points (120,40) and
@@ -1219,9 +1222,9 @@ will actually draw two arcs, one between the points (100,10) and
 
 When drawing multiple arcs, there is actually no need for the next arc
 in the series to begin at the end of the previous arc, provided that a
-semicolon ';' is inserted between each set of parameters. For example:
+semicolon ';' is inserted between each set of parameters. For example::
 
-ARC 100,10 TO 120,40,3;30,40 TO 50,60,3
+    ARC 100,10 TO 120,40,3;30,40 TO 50,60,3
 
 Whether the arc is drawn clockwise or anti-clockwise depends upon two
 factors: If y\ :sup:`1`\ >y\ :sup:`2` and angle>0, then the arc will be
@@ -1304,7 +1307,7 @@ ARC\_R
 | Syntax   | ARC\_R [#ch][,x\ :sup:`1`\ ,y\ :sup:`1`] TO x\ :sup:`2`\ ,y\ :sup:`2`\ ,angle :sup:`\*`\ [[;x\ :sup:`i`\ ,y\ :sup:`i`] | 
 |          | TO x\ :sup:`j`\ ,y\ :sup:`j`\ ,angle\ :sup:`j`]\ :sup:`\*`                                                             | 
 +----------+------------------------------------------------------------------------------------------------------------------------+
-| Location |  QL ROM                                                                                                                |
+| Location | QL ROM                                                                                                                 |
 +----------+------------------------------------------------------------------------------------------------------------------------+
 
 This command draws an arc relative to the current graphic cursor. This
@@ -1366,12 +1369,14 @@ ARCOSH
 
 This function returns the arc hyperbolic cosine of the specified value,
 that is to say it will return the value which must be passed to the
-hyperbolic cosine to return the given result, so:
+hyperbolic cosine to return the given result, so::
 
-COSH ( ARCOSH ( x ))=x
+    COSH ( ARCOSH ( x )) = x
 
 The ARCOSH function can be expressed as a combination of SuperBASIC
-keywords: it's the same as LN(x + SQRT(x\*x-1)).
+keywords: it's the same as::
+
+    LN(x + SQRT(x*x-1)).
 
 **CROSS-REFERENCE**
 
@@ -1591,10 +1596,10 @@ AT
 ==
 
 +----------+-------------------------------------------------------------------+
-| Syntax   | AT [#ch,] row, column  or                                         |
-|          | AT [#ch,] column,row (pre AH ROMs only)                           |
+| Syntax   || AT [#ch,] row, column  or                                        |
+|          || AT [#ch,] column,row (pre AH ROMs only)                          |
 +----------+-------------------------------------------------------------------+
-| Location | QL ROM                                                            |
+| Location || QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
 
 This command sets the current print position in the given window
@@ -1674,9 +1679,10 @@ ATAN
 ====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  ATAN (x)  or ATAN (x,y) (Minerva and SMS only)                   |
+| Syntax   || ATAN (x)  or                                                     |
+|          || ATAN (x,y) (Minerva and SMS only)                                | 
 +----------+-------------------------------------------------------------------+
-| Location |  QL ROM                                                           |
+| Location || QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
 
 The function ATAN, is the arc-tangent function, that is to say the
