@@ -1,13 +1,19 @@
+==========
+Keywords Y
+==========
+
+
 YLIM
 ====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  YLIM  or YLIM #ch (v2.08+)                                       |
+| Syntax   || YLIM  or                                                         |
+|          || YLIM #ch (v2.08+)                                                |
 +----------+-------------------------------------------------------------------+
-| Location |  ATARI\_REXT (v1.29+)                                             |
+| Location || ATARI\_REXT (v1.29+)                                             |
 +----------+-------------------------------------------------------------------+
 
- This function returns the vertical size of the screen in pixels. The
+This function returns the vertical size of the screen in pixels. The
 second variant makes this function the same as SCR\_YLIM.
 
 **NOTE**
@@ -29,7 +35,7 @@ Y\_PTR%
 | Location |  KMOUSE, MOUSE (DIY Toolkit - Vol I), Amiga QDOS v3.20+           |
 +----------+-------------------------------------------------------------------+
 
- This function will return the y co-ordinate of the pointer which is
+This function will return the y co-ordinate of the pointer which is
 controlled by the mouse. The value is given in absolute pixel
 co-ordinates, with the point 0,0 being the top left hand corner of the
 screen.
