@@ -44,7 +44,7 @@ Contents:
    Keywords X                                <KeywordsX.clean>
    Keywords Y                                <KeywordsY.clean>
    Keywords Z                                <KeywordsZ.clean>
-   Keywords Other                                <Keywords_.clean>
+   Keywords Other                            <Keywords_.clean>
 
 
    Appendices Introduction                   <AppendicesIntro.clean>
