@@ -1,0 +1,99 @@
+    
+<H1><A name="_DEF%" id="_DEF%"></A>_DEF%</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">_DEF%</SPAN> [ <SPAN style="font-style: italic;">(#channel)</SPAN> ] Location: <SPAN style="font-style: italic;">DEFS (DIY Toolkit - Vol A)<BR></SPAN>
+    This function creates a table of all of the SuperBASIC
+    <SPAN style="font-style: italic;">PROCedure</SPAN>s and <SPAN style="font-style: italic;">FuNction</SPAN>s used within the program currently in
+    memory. The table appears in the specified CONsole <SPAN style="font-style: italic;">channel</SPAN>, if
+    any (default #2). You can use the cursor keys to highlight
+    the required <SPAN style="font-style: italic;">PROCedure</SPAN> or <SPAN style="font-style: italic;">FuNction</SPAN> name and then press &lt;ENTER&gt;, in
+    which case the function will return the line number of the
+    program line which contains the relevant <SPAN style="font-style: italic;">DEFine PROCedure</SPAN> or <SPAN style="font-style: italic;">DEFine
+    FuNction</SPAN>.
+    
+    If you press the &lt;ESC&gt; key an 'Incomplete' error is caused.
+    If no <SPAN style="font-style: italic;">PROCedure</SPAN>s or <SPAN style="font-style: italic;">FuNction</SPAN>s are defined, then a 'Not Found' error
+    is reported.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">ED _DEF%<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="Keywords_.html#_DEF$">_DEF$</A> and <A style="font-style: italic;" href="Keywords_.html#_NAME$">_NAME$</A> are similar.
+    
+    <A style="font-style: italic;" href="KeywordsC.html#CODEVEC">CODEVEC</A> returns the machine code base address of a Machine
+    Code Procedure or Funtion.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="_DEF$" id="_DEF$"></A>_DEF$</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">_DEF$</SPAN> [ <SPAN style="font-style: italic;">(#channel)</SPAN> ] Location: <SPAN style="font-style: italic;">DEFS (DIY Toolkit - Vol A)<BR></SPAN>
+    This function is similar to <SPAN style="font-style: italic;">_DEF%</SPAN> in that it creates a table
+    of all of the SuperBASIC <SPAN style="font-style: italic;">PROCedure</SPAN>s and <SPAN style="font-style: italic;">FuNction</SPAN>s used within the
+    program currently in memory. The table appears in the
+    specified CONsole <SPAN style="font-style: italic;">channel</SPAN> (if any - default #2). You can use the
+    cursor keys to highlight the required <SPAN style="font-style: italic;">PROCedure</SPAN> or <SPAN style="font-style: italic;">FuNction</SPAN> name and
+    then press &lt;ENTER&gt;, in which case the function will return the
+    selected name of the <SPAN style="font-style: italic;">PROCedure</SPAN> or <SPAN style="font-style: italic;">FuNction</SPAN>.
+    
+    If you press the &lt;ESC&gt; key an 'Incomplete' error is caused.
+    If no <SPAN style="font-style: italic;">PROCedure</SPAN>s or <SPAN style="font-style: italic;">FuNction</SPAN>s are defined, then a 'Not Found' error
+    is reported.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="Keywords_.html#_DEF%">_DEF%</A>
+    
+<H3></H3>
+
+<P>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="_NAME$" id="_NAME$"></A>_NAME$</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">_NAME$(offset)<BR></SPAN> Location: <SPAN style="font-style: italic;">DEFS (DIY Toolkit - Vol A)<BR></SPAN>
+    This function can be used to examine the SuperBASIC name
+    list, which contains the names of all machine code Procedures,
+    Functions, variables, SuperBASIC <SPAN style="font-style: italic;">PROCedure</SPAN>s and SuperBASIC <SPAN style="font-style: italic;">FuNction</SPAN>s
+    which are available to SuperBASIC.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    A program to print out the full name list (this only works
+    
+    on Minerva and SMSQ/E):
+    <SPAN style="font-style: italic;">100 nlist_start=PEEK_L (\\ HEX('20'))
+    110 nlist_end=PEEK_L (\\ HEX('24'))
+    120 nlist_len=nlist_end-nlist_start
+    125 names=0
+    130 FOR i=0 TO nlist_len
+    140 x$=_NAME$(i)
+    150 names=names+1+LEN(x$)
+    155 IF names&gt;nlist_len:EXIT i
+    160 PRINT i,x$
+    165 PAUSE
+    170 END FOR i<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    The name list can be tidied up with <A style="font-style: italic;" href="KeywordsC.html#CLEAR">CLEAR</A>.
+    
+    <A style="font-style: italic;" href="KeywordsE.html#EXTRAS">EXTRAS</A> will list all the machine code Procedures and
+    Functions.
+    
+    See also <A style="font-style: italic;" href="KeywordsL.html#LOOKUP%">LOOKUP%</A>.
+</BODY>
+</HTML>

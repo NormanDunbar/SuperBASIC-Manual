@@ -1,0 +1,162 @@
+    
+<H1><A name="XCHANGE" id="XCHANGE"></A>XCHANGE</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">XCHANGE (a1 TO a2, c1 TO c2)<BR></SPAN> Location: <SPAN style="font-style: italic;">BTool<BR></SPAN>
+    The function <SPAN style="font-style: italic;">XCHANGE</SPAN> replaces all occurrences of byte <SPAN style="font-style: italic;">c1</SPAN> by <SPAN style="font-style: italic;">c2<BR></SPAN> from memory locations <SPAN style="font-style: italic;">a1</SPAN> to <SPAN style="font-style: italic;">a2</SPAN> inclusive. The function counts
+    the exchanged bytes and returns the sum.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    Provided that you have enough free memory, this small
+    
+    program replaces line-feed characters <SPAN style="font-style: italic;">CHR$(10)</SPAN> by carriage
+    
+    returns <SPAN style="font-style: italic;">CHR$(13)</SPAN> in ram1_test_txt as quickly as possible:
+    <SPAN style="font-style: italic;">100 ch=FILE_OPEN("ram1_test_txt",0)
+    110 IF ch&lt;0 THEN REPORT ch: STOP
+    120 length=FLEN(#3)
+    130 memory=ALCHP(length)
+    140 IF NOT memory THEN REPORT -3: STOP
+    150 x=LOAD_FILE(#ch,memory,length)
+    160 IF XCHANGE(memory,memory+length-1,13,10) THEN
+    170 GET#ch\0
+    180 SAVE_FILE#ch,memory,x
+    190 TRUNCATE#ch
+    200 END IF
+    210 CLOSE#ch: RECHP memory<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsS.html#SEARCH">SEARCH</A>, <A style="font-style: italic;" href="KeywordsC.html#COPY_B">COPY_B</A>, <A style="font-style: italic;" href="KeywordsC.html#COPY_W">COPY_W</A>, <A style="font-style: italic;" href="KeywordsC.html#COPY_L">COPY_L</A>
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="XDRAW" id="XDRAW"></A>XDRAW</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">XDRAW x1,y1 TO x2,y2<BR></SPAN> Location: <SPAN style="font-style: italic;">HCO<BR></SPAN>
+    The command <SPAN style="font-style: italic;">XDRAW</SPAN> draws lines, just like <SPAN style="font-style: italic;">LDRAW</SPAN>, but it draws
+    the lines in white ink, using the <SPAN style="font-style: italic;">XOR</SPAN> mode; so drawing the same
+    line will remove it again without changing the background.
+    
+    
+<H3>Example:</H3>
+
+<P><SPAN style="font-style: italic;">100 REPeat scan
+    110 w% = RND(1 TO 200)
+    120 FOR x% = 0 TO 511 + w%
+    130 IF x% &lt; 512 THEN
+    140 XDRAW x%,0 TO x%,255
+    150 END IF
+    160 IF x% &gt; w% - 1 THEN
+    170 XDRAW x%-w%,0 TO x%-w%,255
+    180 END IF
+    190 IF KEYROW(1)&amp;&amp;8 THEN EXIT scan
+    200 END FOR x%
+    210 END REPeat scan<BR></SPAN>
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsL.html#LDRAW">LDRAW</A>, <A style="font-style: italic;" href="KeywordsL.html#LINE">LINE</A> with <A style="font-style: italic;" href="KeywordsO.html#OVER">OVER</A>.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="XLIM" id="XLIM"></A>XLIM</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">XLIM<BR></SPAN>
+    or <SPAN style="font-style: italic;">XLIM #ch (v2.08+)<BR></SPAN> Location: <SPAN style="font-style: italic;">ATARI_REXT (v1.29+)<BR></SPAN>
+    This function returns the horizontal size of the screen in
+    pixels. It can therefore be used to ascertain if the Extended
+    Mode-4 is present, and if so, the size of the screen available
+    to the program (ie. 512x256, 768x280 or larger!).
+    
+    The second variant makes this function the same as <SPAN style="font-style: italic;">SCR_XLIM</SPAN>.
+    
+    
+<H3>Example:</H3>
+
+<P>
+    A program may wish to use the whole of the screen for its
+    
+    output, adapting itself accordingly:-
+    <SPAN style="font-style: italic;">100 MAX_WIDTH=XLIM
+    110 MAX_HEIGHT=YLIM
+    120 OPEN #1,'CON_'&amp;MAX_WIDTH&amp;'x'&amp;MAX_HEIGHT&amp;'a0x0'<BR></SPAN>
+    
+<H3>NOTE:</H3>
+
+<P>
+    The Pointer Interface must be present in order for <SPAN style="font-style: italic;">XLIM</SPAN> to
+    work.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsY.html#YLIM">YLIM</A> returns the maximum screen height.
+    
+    <A style="font-style: italic;" href="KeywordsQ.html#QFLIM">QFLIM</A> and <A style="font-style: italic;" href="KeywordsS.html#SCR_XLIM">SCR_XLIM</A> are very similar.
+    
+    Use <A style="font-style: italic;" href="KeywordsQ.html#QRAM$">QRAM$</A> or <A style="font-style: italic;" href="KeywordsW.html#WMAN$">WMAN$</A> to see if the Pointer Environment is
+    available.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="XOR" id="XOR"></A>XOR</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">condition1 XOR condition2<BR></SPAN> Location: <SPAN style="font-style: italic;">QL ROM<BR></SPAN>
+    This combination operator combines two condition tests
+    together and will have the value 0 if both <SPAN style="font-style: italic;">condition1</SPAN> and <SPAN style="font-style: italic;">condition2<BR></SPAN> are true or both are false or 1 if either <SPAN style="font-style: italic;">condition1</SPAN> or <SPAN style="font-style: italic;">condition2<BR></SPAN> are true (but not both).
+    
+    Please note the difference between this and the bitwise <SPAN style="font-style: italic;">XOR<BR></SPAN> operator: <SPAN style="font-style: italic;">x^^y</SPAN>, which compares <SPAN style="font-style: italic;">x</SPAN> and <SPAN style="font-style: italic;">y</SPAN> bit by bit.
+    
+    
+<H3>Examples:</H3>
+
+<P>
+    <SPAN style="font-style: italic;">PRINT 1 XOR 0</SPAN> Returns 1.
+    
+    <SPAN style="font-style: italic;">PRINT 2 XOR 10</SPAN> Returns 0.
+    
+    Compare <SPAN style="font-style: italic;">PRINT 2^^10</SPAN> which returns 8.
+    <SPAN style="font-style: italic;">10 FOR x=1 TO 5
+    20 FOR y=1 TO 5
+    30 IF x=3 XOR y&gt;1 AND y&lt;3:PRINT x;'=&gt;';y,
+    40 END FOR y
+    50 END FOR x<BR></SPAN>
+    produces the following output:
+    
+    1=&gt;2 2=&gt;2 3=&gt;1 3=&gt;3 3=&gt;4 3=&gt;5 4=&gt;2
+    
+    5=&gt;2
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    <A style="font-style: italic;" href="KeywordsA.html#AND">AND</A>, <A style="font-style: italic;" href="KeywordsO.html#OR">OR</A> and <A style="font-style: italic;" href="KeywordsN.html#NOT">NOT</A> are the other combination operators.
+    <HR style="width: 100%; height: 2px;">
+    
+<H1><A name="X_PTR%" id="X_PTR%"></A>X_PTR%</H1>
+
+<P>
+    Syntax: <SPAN style="font-style: italic;">X_PTR%<BR></SPAN> Location: <SPAN style="font-style: italic;">KMOUSE, MOUSE (DIY Toolkit - Vol I), Amiga QDOS
+    v3.20+<BR></SPAN>
+    This function will return the x co-ordinate of the pointer
+    which is controlled by the mouse. The value is given in
+    absolute pixel co-ordinates, with the point 0,0 being the top
+    left hand corner of the screen.
+    
+    
+<H3>CROSS-REFERENCE:</H3>
+
+<P>
+    See <A style="font-style: italic;" href="KeywordsP.html#PTR_LIMITS">PTR_LIMITS</A> and <A style="font-style: italic;" href="KeywordsP.html#PTR_ON">PTR_ON</A>.
+    
+    <A style="font-style: italic;" href="KeywordsY.html#Y_PTR%">Y_PTR%</A> reads the y co-ordinate.
+</BODY>
+</HTML>
