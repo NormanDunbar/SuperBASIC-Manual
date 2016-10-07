@@ -517,7 +517,7 @@ standard QL implementation.
 
 **CROSS-REFERENCE**
 
-See `GO TO <KeywordsG.clean.html#go20to>`__ and
+See `GO TO <KeywordsG.clean.html#go-to>`__ and
 `PRINT <KeywordsP.clean.html#print>`__, `INPUT <KeywordsI.clean.html#input>`__.
 `AT <KeywordsA.clean.html#at>`__ and `CURSOR <KeywordsC.clean.html#cursor>`__ allow
 you to position the text cursor more precisely.
@@ -549,7 +549,7 @@ as if the Job has been 'picked' using the keys CTRL C.
 `PIE\_ON <KeywordsP.clean.html#pie-on>`__ allows programs to continue even
 though their windows are buried under the Pointer Interface.
 `PICK% <KeywordsP.clean.html#pick>`__ is similar. `POKE
-SYS\_VARS+133 <KeywordsP.clean.html#poke20sys-vars+133>`__ allows you to
+<KeywordsP.clean.html#poke>`__ SYS\_VARS+133 allows you to
 enable / disable the THOR's windowing system.
 
 --------------

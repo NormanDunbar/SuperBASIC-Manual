@@ -1205,9 +1205,9 @@ ROMs (ie. a is unset by the LOCal command).
 **CROSS-REFERENCE**
 
 `DIM <KeywordsD.clean.html#dim>`__ sets up arrays normally. `DEFine
-PROCedure <KeywordsD.clean.html#define20procedure>`__, `DEFine
-FuNction <KeywordsD.clean.html#define20function>`__ and `END
-DEFine <KeywordsE.clean.html#end20define>`__ are used to identify definition
+PROCedure <KeywordsD.clean.html#define-procedure>`__, `DEFine
+FuNction <KeywordsD.clean.html#define-function>`__ and `END
+DEFine <KeywordsE.clean.html#end-define>`__ are used to identify definition
 blocks.
 
 --------------
@@ -1340,7 +1340,7 @@ Functions on SMS.
 
 **CROSS-REFERENCE**
 
-See\ `ELIS, KEY\_ADD <KeywordsE.clean.html#elis,20key-add>`__.
+See\ `ELIS <KeywordsE.clean.html#elis>`__, `KEY\_ADD <KeywordsE.clean.html#key-add>`__.
 `\_NAME$ <Keywords_.clean.html#-name>`__ allows you to look at the name list.
 See also `FLIS <KeywordsF.clean.html#flis>`__ and
 `FIND <KeywordsF.clean.html#find>`__.

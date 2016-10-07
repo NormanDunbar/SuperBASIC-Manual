@@ -53,8 +53,8 @@ three letter extension preceded by a dot eg::
 
 `ACOPY <KeywordsA.clean.html#acopy>`__ copies a file from a QL disk to an
 Atari disk. Level-3 device drivers allow you to read and write to Atari
-and IBM format disks anyway. See `AFORMAT and
-AQCONVERT <KeywordsA.clean.html#aformat20and20aqconvert>`__.
+and IBM format disks anyway. See `AFORMAT <KeywordsA.clean.html#aformat>`__ and
+`AQCONVERT <KeywordsA.clean.html#aqconvert>`__.
 
 --------------
 
