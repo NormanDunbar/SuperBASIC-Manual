@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html xmlns:v="urn:schemas-microsoft-com:vml">
+  <head>
+    <meta http-equiv="content-type" content="text/html;
+      charset=ISO-8859-1">
+    <link rel="stylesheet" type="text/css" href="css/QLManualStyle.css" media="all" />
+    <title>Sinclair QL SuperBASIC/SBASIC Reference Manual - Keywords X</title>
+</head>
+<body>
+<div id="header">
+  SBASIC/SuperBASIC Reference Manual Online (c) RWAP Software
+  <br />
+  The Online Guide to programming the Sinclair QL Home Computer in SuperBASIC
+</div>
+<div id="sideBar">
+    <ul>
+        <li><a href="Foreword.html">Foreword</a></li>
+        <li><a href="Introduction.html">Introduction</a></li>
+        <li><a href="Credits.html">Credits</a></li>        
+        <li><a href="Structure.html">Structure</a></li>
+        <li><a href="WritingPrograms.html">Writing Programs</a></li>
+        <hr></hr>
+        <li><a href="KeywordsA.html">Keywords - A</a></li>
+        <li><a href="KeywordsB.html">Keywords - B</a></li>
+        <li><a href="KeywordsC.html">Keywords - C</a></li>
+        <li><a href="KeywordsD.html">Keywords - D</a></li>
+        <li><a href="KeywordsE.html">Keywords - E</a></li>
+        <li><a href="KeywordsF.html">Keywords - F</a></li>
+        <li><a href="KeywordsG.html">Keywords - G</a></li>
+        <li><a href="KeywordsH.html">Keywords - H</a></li>
+        <li><a href="KeywordsI.html">Keywords - I</a></li>
+        <li><a href="KeywordsJ.html">Keywords - J</a></li>
+        <li><a href="KeywordsK.html">Keywords - K</a></li>
+        <li><a href="KeywordsL.html">Keywords - L</a></li>
+        <li><a href="KeywordsM.html">Keywords - M</a></li>
+        <li><a href="KeywordsN.html">Keywords - N</a></li>
+        <li><a href="KeywordsO.html">Keywords - O</a></li>
+        <li><a href="KeywordsP.html">Keywords - P</a></li>
+        <li><a href="KeywordsQ.html">Keywords - Q</a></li>
+        <li><a href="KeywordsR.html">Keywords - R</a></li>
+        <li><a href="KeywordsS.html">Keywords - S</a></li>
+        <li><a href="KeywordsT.html">Keywords - T</a></li>
+        <li><a href="KeywordsU.html">Keywords - U</a></li>
+        <li><a href="KeywordsV.html">Keywords - V</a></li>
+        <li><a href="KeywordsW.html">Keywords - W</a></li>
+        <li><a href="KeywordsX.html">Keywords - X</a></li>
+        <li><a href="KeywordsY.html">Keywords - Y</a></li>
+        <li><a href="KeywordsZ.html">Keywords - Z</a></li>
+        <li><a href="Keywords_.html">Keywords - Other</a></li>
+        <hr></hr>
+        <li><a href="AppendicesIntro.html">Appendices Introduction</a></li>
+        <li><a href="Appendix01.html">Appendix 1 - Minerva</a></li>
+        <li><a href="Appendix02.html">Appendix 2 - SMSQE</a></li>
+        <li><a href="Appendix03.html">Appendix 3 - Emulators</a></li>
+        <li><a href="Appendix04.html">Appendix 4 - THOR Computers</a></li>
+        <li><a href="Appendix05.html">Appendix 5 - Expansion Boards</a></li>
+        <li><a href="Appendix06.html">Appendix 6 - Compatability</a></li>
+        <li><a href="Appendix07.html">Appendix 7 - Multiple BASICs</a></li>
+        <li><a href="Appendix08.html">Appendix 8 - Error Messages</a></li>
+        <li><a href="Appendix09.html">Appendix 9 - Character Set / Keyboard</a></li>
+        <li><a href="Appendix10.html">Appendix 10 - Fonts</a></li>
+        <li><a href="Appendix11.html">Appendix 11 - Mathematics</a></li>
+        <li><a href="Appendix12.html">Appendix 12 - Device Drivers</a></li>
+        <li><a href="Appendix13.html">Appendix 13 - Extended Pointer Environment</a></li>
+        <li><a href="Appendix14.html">Appendix 14 - Coercion</a></li>
+        <li><a href="Appendix15.html">Appendix 15 - Mouse Drivers</a></li>
+        <li><a href="Appendix16.html">Appendix 16 - The QL Display</a></li>
+        <li><a href="Appendix17.html">Appendix 17 - Networks</a></li>
+        <li><a href="Appendix18.html">Appendix 18 - Configuring Programs</a></li>
+    </ul>
+</div>
+<div id="mainText">
+<h1><a name="XCHANGE"></a>XCHANGE</h1><br>Syntax: <span style="font-style: italic;">XCHANGE (a1 TO a2, c1 TO c2)
+<br></span>Location: <span style="font-style: italic;">BTool
+<br></span><br>The function <span style="font-style: italic;">XCHANGE</span> replaces all occurrences of byte <span style="font-style: italic;">c1</span> by <span style="font-style: italic;">c2
+<br></span>from memory locations <span style="font-style: italic;">a1</span> to <span style="font-style: italic;">a2</span> inclusive. The function counts
+<br>the exchanged bytes and returns the sum.
+<br><br><h3>Example:
+<br></h3><br>Provided that you have enough free memory, this small
+<br><br>program replaces line-feed characters <span style="font-style: italic;">CHR$(10)</span> by carriage
+<br><br>returns <span style="font-style: italic;">CHR$(13)</span> in ram1_test_txt as quickly as possible:
+<br><span style="font-style: italic;">100 ch=FILE_OPEN("ram1_test_txt",0)
+<br>110 IF ch<0 THEN REPORT ch: STOP
+<br>120 length=FLEN(#3)
+<br>130 memory=ALCHP(length)
+<br>140 IF NOT memory THEN REPORT -3: STOP
+<br>150 x=LOAD_FILE(#ch,memory,length)
+<br>160 IF XCHANGE(memory,memory+length-1,13,10) THEN
+<br>170   GET#ch\0
+<br>180   SAVE_FILE#ch,memory,x
+<br>190   TRUNCATE#ch
+<br>200 END IF
+<br>210 CLOSE#ch: RECHP memory
+<br></span><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsS.html#SEARCH">SEARCH</a>, <a style="font-style: italic;" href="KeywordsC.html#COPY_B">COPY_B</a>, <a style="font-style: italic;" href="KeywordsC.html#COPY_W">COPY_W</a>, <a style="font-style: italic;" href="KeywordsC.html#COPY_L
+">COPY_L
+</a><hr style="width: 100%; height: 2px;"><h1><a name="XDRAW"></a>XDRAW</h1><br>Syntax: <span style="font-style: italic;">XDRAW x1,y1 TO x2,y2
+<br></span>Location: <span style="font-style: italic;">HCO
+<br></span><br>The command <span style="font-style: italic;">XDRAW</span> draws lines, just like <span style="font-style: italic;">LDRAW</span>, but it draws
+<br>the lines in white ink, using the <span style="font-style: italic;">XOR</span> mode; so drawing the same
+<br>line will remove it again without changing the background.
+<br><br><h3>Example:
+<br></h3><span style="font-style: italic;">100 REPeat scan
+<br>110   w% = RND(1 TO 200)
+<br>120   FOR x% = 0 TO 511 + w%
+<br>130     IF x% < 512 THEN
+<br>140       XDRAW x%,0 TO x%,255
+<br>150     END IF
+<br>160     IF x% > w% - 1 THEN
+<br>170       XDRAW x%-w%,0 TO x%-w%,255
+<br>180     END IF
+<br>190     IF KEYROW(1)&&8 THEN EXIT scan
+<br>200   END FOR x%
+<br>210 END REPeat scan
+<br></span><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsL.html#LDRAW">LDRAW</a>, <a style="font-style: italic;" href="KeywordsL.html#LINE">LINE</a> with <a style="font-style: italic;" href="KeywordsO.html#OVER">OVER</a>.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="XLIM"></a>XLIM</h1><br>Syntax:<span style="font-style: italic;"> XLIM
+<br></span><br>or<span style="font-style: italic;"> XLIM #ch    (v2.08+)
+<br></span>Location: <span style="font-style: italic;">ATARI_REXT (v1.29+)
+<br></span><br>This function returns the horizontal size of the screen in
+<br>pixels. It can therefore be used to ascertain if the Extended
+<br>Mode-4 is present, and if so, the size of the screen available
+<br>to the program (ie. 512x256, 768x280 or larger!).
+<br><br>The second variant makes this function the same as <span style="font-style: italic;">SCR_XLIM</span>.
+<br><br><h3>Example:
+<br></h3><br>A program may wish to use the whole of the screen for its
+<br><br>output, adapting itself accordingly:-
+<br><span style="font-style: italic;">100 MAX_WIDTH=XLIM
+<br>110 MAX_HEIGHT=YLIM
+<br>120 OPEN #1,'CON_'&MAX_WIDTH&'x'&MAX_HEIGHT&'a0x0'
+<br></span><br><h3>NOTE:
+<br></h3><br>The Pointer Interface must be present in order for <span style="font-style: italic;">XLIM</span> to
+<br>work.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsY.html#YLIM">YLIM</a> returns the maximum screen height.
+<br><br><a style="font-style: italic;" href="KeywordsQ.html#QFLIM">QFLIM</a> and <a style="font-style: italic;" href="KeywordsS.html#SCR_XLIM">SCR_XLIM</a> are very similar.
+<br><br>Use <a style="font-style: italic;" href="KeywordsQ.html#QRAM$">QRAM$</a> or <a style="font-style: italic;" href="KeywordsW.html#WMAN$">WMAN$</a> to see if the Pointer Environment is
+<br>available.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="XOR"></a>XOR</h1><br>Syntax: <span style="font-style: italic;">condition1 XOR condition2
+<br></span>Location: <span style="font-style: italic;">QL ROM
+<br></span><br>This combination operator combines two condition tests
+<br>together and will have the value 0 if both <span style="font-style: italic;">condition1</span> and <span style="font-style: italic;">condition2
+<br></span>are true or both are false or 1 if either <span style="font-style: italic;">condition1</span> or <span style="font-style: italic;">condition2
+<br></span>are true (but not both).
+<br><br>Please note the difference between this and the bitwise <span style="font-style: italic;">XOR
+<br></span>operator: <span style="font-style: italic;">x^^y</span>, which compares <span style="font-style: italic;">x</span> and <span style="font-style: italic;">y</span> bit by bit.
+<br><br><h3>Examples:
+<br></h3><br><span style="font-style: italic;">PRINT 1 XOR 0</span>    Returns 1.
+<br><br><span style="font-style: italic;">PRINT 2 XOR 10 </span>   Returns 0.
+<br><br>Compare <span style="font-style: italic;">PRINT 2^^10</span> which returns 8.
+<br><span style="font-style: italic;">10 FOR x=1 TO 5
+<br>20   FOR y=1 TO 5
+<br>30     IF x=3 XOR y>1 AND y<3:PRINT x;'=>';y,
+<br>40   END FOR y
+<br>50 END FOR x
+<br></span><br>produces the following output:
+<br><br>1=>2    2=>2    3=>1    3=>3    3=>4    3=>5    4=>2
+<br><br>5=>2
+<br><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="KeywordsA.html#AND">AND</a>, <a style="font-style: italic;" href="KeywordsO.html#OR">OR</a> and <a style="font-style: italic;" href="KeywordsN.html#NOT">NOT</a> are the other combination operators.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="X_PTR%"></a>X_PTR%</h1><br>Syntax: <span style="font-style: italic;">X_PTR%
+<br></span>Location: <span style="font-style: italic;">KMOUSE, MOUSE (DIY Toolkit - Vol I), Amiga QDOS
+<br>v3.20+
+<br></span><br>This function will return the x co-ordinate of the pointer
+<br>which is controlled by the mouse.  The value is given in
+<br>absolute pixel co-ordinates, with the point 0,0 being the top
+<br>left hand corner of the screen.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="KeywordsP.html#PTR_LIMITS">PTR_LIMITS</a> and <a style="font-style: italic;" href="KeywordsP.html#PTR_ON">PTR_ON</a>.
+<br><br><a style="font-style: italic;" href="KeywordsY.html#Y_PTR%">Y_PTR%</a> reads the y co-ordinate.
+<br></div>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html xmlns:v="urn:schemas-microsoft-com:vml">
+  <head>
+    <meta http-equiv="content-type" content="text/html;
+      charset=ISO-8859-1">
+    <link rel="stylesheet" type="text/css" href="css/QLManualStyle.css" media="all" />
+    <title>Sinclair QL SuperBASIC/SBASIC Reference Manual - Keywords Other</title>
+</head>
+<body>
+<div id="header">
+  SBASIC/SuperBASIC Reference Manual Online (c) RWAP Software
+  <br />
+  The Online Guide to programming the Sinclair QL Home Computer in SuperBASIC
+</div>
+<div id="sideBar">
+    <ul>
+        <li><a href="Foreword.html">Foreword</a></li>
+        <li><a href="Introduction.html">Introduction</a></li>
+        <li><a href="Credits.html">Credits</a></li>        
+        <li><a href="Structure.html">Structure</a></li>
+        <li><a href="WritingPrograms.html">Writing Programs</a></li>
+        <hr></hr>
+        <li><a href="KeywordsA.html">Keywords - A</a></li>
+        <li><a href="KeywordsB.html">Keywords - B</a></li>
+        <li><a href="KeywordsC.html">Keywords - C</a></li>
+        <li><a href="KeywordsD.html">Keywords - D</a></li>
+        <li><a href="KeywordsE.html">Keywords - E</a></li>
+        <li><a href="KeywordsF.html">Keywords - F</a></li>
+        <li><a href="KeywordsG.html">Keywords - G</a></li>
+        <li><a href="KeywordsH.html">Keywords - H</a></li>
+        <li><a href="KeywordsI.html">Keywords - I</a></li>
+        <li><a href="KeywordsJ.html">Keywords - J</a></li>
+        <li><a href="KeywordsK.html">Keywords - K</a></li>
+        <li><a href="KeywordsL.html">Keywords - L</a></li>
+        <li><a href="KeywordsM.html">Keywords - M</a></li>
+        <li><a href="KeywordsN.html">Keywords - N</a></li>
+        <li><a href="KeywordsO.html">Keywords - O</a></li>
+        <li><a href="KeywordsP.html">Keywords - P</a></li>
+        <li><a href="KeywordsQ.html">Keywords - Q</a></li>
+        <li><a href="KeywordsR.html">Keywords - R</a></li>
+        <li><a href="KeywordsS.html">Keywords - S</a></li>
+        <li><a href="KeywordsT.html">Keywords - T</a></li>
+        <li><a href="KeywordsU.html">Keywords - U</a></li>
+        <li><a href="KeywordsV.html">Keywords - V</a></li>
+        <li><a href="KeywordsW.html">Keywords - W</a></li>
+        <li><a href="KeywordsX.html">Keywords - X</a></li>
+        <li><a href="KeywordsY.html">Keywords - Y</a></li>
+        <li><a href="KeywordsZ.html">Keywords - Z</a></li>
+        <li><a href="Keywords_.html">Keywords - Other</a></li>
+        <hr></hr>
+        <li><a href="AppendicesIntro.html">Appendices Introduction</a></li>
+        <li><a href="Appendix01.html">Appendix 1 - Minerva</a></li>
+        <li><a href="Appendix02.html">Appendix 2 - SMSQE</a></li>
+        <li><a href="Appendix03.html">Appendix 3 - Emulators</a></li>
+        <li><a href="Appendix04.html">Appendix 4 - THOR Computers</a></li>
+        <li><a href="Appendix05.html">Appendix 5 - Expansion Boards</a></li>
+        <li><a href="Appendix06.html">Appendix 6 - Compatability</a></li>
+        <li><a href="Appendix07.html">Appendix 7 - Multiple BASICs</a></li>
+        <li><a href="Appendix08.html">Appendix 8 - Error Messages</a></li>
+        <li><a href="Appendix09.html">Appendix 9 - Character Set / Keyboard</a></li>
+        <li><a href="Appendix10.html">Appendix 10 - Fonts</a></li>
+        <li><a href="Appendix11.html">Appendix 11 - Mathematics</a></li>
+        <li><a href="Appendix12.html">Appendix 12 - Device Drivers</a></li>
+        <li><a href="Appendix13.html">Appendix 13 - Extended Pointer Environment</a></li>
+        <li><a href="Appendix14.html">Appendix 14 - Coercion</a></li>
+        <li><a href="Appendix15.html">Appendix 15 - Mouse Drivers</a></li>
+        <li><a href="Appendix16.html">Appendix 16 - The QL Display</a></li>
+        <li><a href="Appendix17.html">Appendix 17 - Networks</a></li>
+        <li><a href="Appendix18.html">Appendix 18 - Configuring Programs</a></li>
+    </ul>
+</div>
+<div id="mainText">
+<h1><a name="_DEF%"></a>_DEF%</h1><br>Syntax: <span style="font-style: italic;">_DEF% </span>[<span style="font-style: italic;"> (#channel)</span> ]
+Location: <span style="font-style: italic;">DEFS (DIY Toolkit - Vol A)
+<br></span><br>This function creates a table of all of the SuperBASIC
+<br><span style="font-style: italic;">PROCedure</span>s and <span style="font-style: italic;">FuNction</span>s used within the program currently in
+<br>memory.  The table appears in the specified CONsole <span style="font-style: italic;">channel</span>, if
+<br>any (default #2).  You can use the cursor keys to highlight
+<br>the required <span style="font-style: italic;">PROCedure</span> or <span style="font-style: italic;">FuNction</span> name and then press &lt;ENTER&gt;, in
+<br>which case the function will return the line number of the
+<br>program line which contains the relevant <span style="font-style: italic;">DEFine PROCedure</span> or <span style="font-style: italic;">DEFine
+<br>FuNction</span>.
+<br><br>If you press the &lt;ESC&gt; key an 'Incomplete' error is caused.
+<br>If no <span style="font-style: italic;">PROCedure</span>s or <span style="font-style: italic;">FuNction</span>s are defined, then a 'Not Found' error
+<br>is reported.
+<br><br><h3>Example:
+<br></h3><br><span style="font-style: italic;">ED _DEF%
+<br></span><br><h3>CROSS-REFERENCE:<br></h3><br><a style="font-style: italic;" href="Keywords_.html#_DEF$">_DEF$</a> and <a style="font-style: italic;" href="Keywords_.html#_NAME$">_NAME$</a> are similar.
+<br><br><a style="font-style: italic;" href="KeywordsC.html#CODEVEC">CODEVEC</a> returns the machine code base address of a Machine
+<br>Code Procedure or Funtion.
+<br><hr style="width: 100%; height: 2px;"><h1><a name="_DEF$"></a>_DEF$</h1><br>Syntax: <span style="font-style: italic;">_DEF$ </span>[<span style="font-style: italic;"> (#channel)</span> ]
+Location: <span style="font-style: italic;">DEFS (DIY Toolkit - Vol A)
+<br></span><br>This function is similar to <span style="font-style: italic;">_DEF%</span> in that it creates a table
+<br>of all of the SuperBASIC <span style="font-style: italic;">PROCedure</span>s and <span style="font-style: italic;">FuNction</span>s used within the
+<br>program currently  in  memory.   The  table  appears  in  the
+<br>specified CONsole <span style="font-style: italic;">channel</span> (if any - default #2).  You can use the
+<br>cursor keys to highlight the required <span style="font-style: italic;">PROCedure</span> or <span style="font-style: italic;">FuNction</span> name and
+<br>then press &lt;ENTER&gt;, in which case the function will return the
+<br>selected name of the <span style="font-style: italic;">PROCedure</span> or <span style="font-style: italic;">FuNction</span>.
+<br><br>If you press the &lt;ESC&gt; key an 'Incomplete' error is caused.
+<br>If no <span style="font-style: italic;">PROCedure</span>s or <span style="font-style: italic;">FuNction</span>s are defined, then a 'Not Found' error
+<br>is reported.
+<br><br><h3>CROSS-REFERENCE:<br></h3><br>See <a style="font-style: italic;" href="Keywords_.html#_DEF%
+">_DEF%
+</a><br><h3>
+<br></h3><hr style="width: 100%; height: 2px;"><h1><a name="_NAME$"></a>_NAME$</h1><br>Syntax: <span style="font-style: italic;">_NAME$(offset)
+<br></span>Location: <span style="font-style: italic;">DEFS (DIY Toolkit - Vol A)
+<br></span><br>This function can be used to examine the SuperBASIC name
+<br>list, which contains the names of all machine code Procedures,
+<br>Functions, variables, SuperBASIC <span style="font-style: italic;">PROCedure</span>s and SuperBASIC <span style="font-style: italic;">FuNction</span>s
+<br>which are available to SuperBASIC.
+<br><br><h3>Example:
+<br></h3><br>A program to print out the full name list (this only works
+<br><br>on Minerva and SMSQ/E):
+<br><span style="font-style: italic;">100 nlist_start=PEEK_L (\\ HEX('20'))
+<br>110 nlist_end=PEEK_L (\\ HEX('24'))
+<br>120 nlist_len=nlist_end-nlist_start
+<br>125 names=0
+<br>130 FOR i=0 TO nlist_len
+<br>140 x$=_NAME$(i)
+<br>150 names=names+1+LEN(x$)
+<br>155 IF names>nlist_len:EXIT i
+<br>160 PRINT i,x$
+<br>165 PAUSE
+<br>170 END FOR i
+<br></span><br><h3>CROSS-REFERENCE:<br></h3><br>The name list can be tidied up with <a style="font-style: italic;" href="KeywordsC.html#CLEAR">CLEAR</a>.
+<br><br><a style="font-style: italic;" href="KeywordsE.html#EXTRAS">EXTRAS</a>  will  list  all  the  machine  code  Procedures  and
+<br>Functions.
+<br><br>See also <a style="font-style: italic;" href="KeywordsL.html#LOOKUP%">LOOKUP%</a>.
+<br></div>
+</body>
+</html>
