@@ -1501,6 +1501,8 @@ have a positive value:
 
 **Example**
 
+::
+
     100 a$="Sinclair QL": b$="IBM PC": CLS 
     110 PRINT a$;" <-> ";b$ 
     120 PRINT\WLD(a$,b$), WLD(a$,b$,0) 
@@ -1647,9 +1649,9 @@ Will reset standard windows and set MODE 4.
     
 Resets the standard windows, in current MODE. The windows are set as follows: 
 
-- #0 con\_512x50a50x256(BORDER #0,1,7,0) 
-- #1 con\_256x202a306x50(BORDER #1,1,7,0) 
-- #2 con\_256x202a50x50(BORDER #2,1,7,0) 
+- #0 is con\_512x50a50x256(BORDER #0,1,7,0) 
+- #1 is con\_256x202a306x50(BORDER #1,1,7,0) 
+- #2 is con\_256x202a50x50(BORDER #2,1,7,0) 
 
 
 ::
@@ -1735,15 +1737,15 @@ Also see `WTV <KeywordsW.clean.html#wtv>`__, `WMON <KeywordsW.clean.html#wmon>`_
 
 WPUT
 ====
-*** YOU ARE HERE ***
 
-+----------+-------------------------------------------------------------------+
-| Syntax   |  WPUT [#ch\\position,] [item :sup:`\*`\ [,item\ :sup:`i`]\ :sup:`\*` ..] or WPUT [#ch,] [item :sup:`\*`\ [,item\ :sup:`i`]\ :sup:`\*` ..] |
-+----------+-------------------------------------------------------------------+
-| Location |  SMSQ/E                                                           |
-+----------+-------------------------------------------------------------------+
++----------+-----------------------------------------------------------------------------+
+| Syntax   || WPUT [#ch\\position,] [item :sup:`\*`\ [,item\ :sup:`i`]\ :sup:`\*` ..] or |
+|          || WPUT [#ch,] [item :sup:`\*`\ [,item\ :sup:`i`]\ :sup:`\*` ..]              |
++----------+-----------------------------------------------------------------------------+
+| Location || SMSQ/E                                                                     |
++----------+-----------------------------------------------------------------------------+
 
- This command is very similar to BPUT, except that this sends a word (in
+This command is very similar to BPUT, except that this sends a word (in
 the range 0..65535) to the given channel (default #3).
 
 **CROSS-REFERENCE**
@@ -1761,26 +1763,38 @@ WREN
 | Location |  Toolkit II                                                       |
 +----------+-------------------------------------------------------------------+
 
- This command allows you to rename several files at the same time. It
+This command allows you to rename several files at the same time. It
 allows wildcards on both the source and destination parameters. If the
 source parameter (wild1) does not include a valid device, the default
 data device will be used. However, the way in which wild2 is calculated,
-is even more complex than normal: (1)If wild2 is not specified, rename
-each file using the default destination directory. (2)If wild2 is
-specified and contains a device, use that device. (3)If wild2 does not
-include a device, use the same device as for wild1 (ie. the device
-specified as part of wild1 or DATAD$). Beyond this, WREN acts in a
+is even more complex than normal: 
+
+#. If wild2 is not specified, rename each file using the default destination directory. 
+#. If wild2 is specified and contains a device, use that device. 
+#. If wild2 does not include a device, use the same device as for wild1 (ie. the device
+   specified as part of wild1 or DATAD$). 
+
+Beyond this, WREN acts in a
 similar way to WCOPY, listing each file that is being renamed to the
 specified channel (default #0). However, instead of moving the old file,
 the header is merely amended to reflect the new name.
 
 **Examples**
 
-WREN flp1\_QUILL\_ TO flp1\_
- could be used to take all of the Quill files out of a sub-directory
-into the main directory, by deleting the sub-directory prefix. DEST\_USE
-flp1\_QUILL\_ DATA\_USE flp1\_ WREN
- would have the opposite effect.
+::
+
+    WREN flp1_QUILL_ TO flp1_
+    
+could be used to take all of the Quill files out of a sub-directory
+into the main directory, by deleting the sub-directory prefix. 
+
+::
+
+    DEST_USE flp1_QUILL_ 
+    DATA_USE flp1_ 
+    WREN
+    
+would have the opposite effect.
 
 **NOTE**
 
@@ -1803,10 +1817,16 @@ WSET
 | Location |  ATARI\_REXT                                                      |
 +----------+-------------------------------------------------------------------+
 
- This command resets the windows #0, #1, and #2 to a pre-defined size
+This command resets the windows #0, #1, and #2 to a pre-defined size
 and position. There are a set of eight definitions built into the
 Emulator, which can be chosen by setting type to a value in the range
-0...7. WSET -1 will reset the three windows to the size and positions
+0...7. 
+
+::
+
+    WSET -1 
+    
+will reset the three windows to the size and positions
 specified with the WSET\_DEF command. If the optional parameter mode is
 supplied, this will alter the display mode to that specified, otherwise,
 the screen mode remains unchanged.
@@ -1829,15 +1849,19 @@ WSET\_DEF
 | Location |  ATARI\_REXT                                                      |
 +----------+-------------------------------------------------------------------+
 
- The command WSET\_DEF allows you to set up a user-defined size and
+The command WSET\_DEF allows you to set up a user-defined size and
 position for each of the three default windows, #0, #1 and #2. Each set
 of four parameters is used to specify the size x,y
- and position (a,b) of each window.
+and position (a,b) of each window.
 
 **Example**
 
-WSET\_DEF 448,40,32,216,448,200,32,16,448,200,32,16 WSET -1,8
- is the same as WTV 8
+::
+
+    WSET_DEF 448,40,32,216, 448,200,32,16, 448,200,32,16 
+    WSET -1,8
+    
+is the same as WTV 8
 
 **CROSS-REFERENCE**
 
@@ -1849,19 +1873,23 @@ WSTAT
 =====
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  WSTAT [#ch,] [wild] or WSTAT \\file [,wild] (Toolkit II only)    |
+| Syntax   || WSTAT [#ch,] [wild] or                                           |
+|          || WSTAT \\file [,wild] (Toolkit II only)                           |
 +----------+-------------------------------------------------------------------+
-| Location |  Toolkit II, THORs                                                |
+| Location || Toolkit II, THORs                                                |
 +----------+-------------------------------------------------------------------+
 
- The command WSTAT works in a very similar way to WDIR except that
+The command WSTAT works in a very similar way to WDIR except that
 alongside the filenames, it lists the length of each file and the update
 time.
 
 **Example**
 
-WSTAT \_QUILL
- will produce a list of all of the files on the data device which are in
+::
+
+    WSTAT QUILL_
+    
+will produce a list of all of the files on the data device which are in
 the QUILL sub-directory.
 
 **NOTE**
@@ -1881,25 +1909,32 @@ WTV
 ===
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  WTV [mode] or WTV [mode] [, xoff] [, yoff](SMS Only)             |
+| Syntax   || WTV [mode] or                                                    |
+|          || WTV [mode] [, xoff] [, yoff](SMS Only)                           |
 +----------+-------------------------------------------------------------------+
-| Location |  THOR 8 (v4.20+), THOR XVI, Toolkit II                            |
+| Location || THOR 8 (v4.20+), THOR XVI, Toolkit II                            |
 +----------+-------------------------------------------------------------------+
 
- When the QL is first started up in TV mode, the windows #0, #1 and #2
+When the QL is first started up in TV mode, the windows #0, #1 and #2
 are opened in the following sizes and positions, without any borders:-
-#0 448x40a32x216 #1 448x200a32x16 #2 448x200a32x16 Whilst testing
+
+- #0 is 448x40a32x216 
+- #1 is 448x200a32x16 
+- #2 is 448x200a32x16 
+
+Whilst testing
 programs, it is all too easy for these three windows to be redefined
 (especially #1 which is the default window). The command WTV allows you
 to easily set those three windows to their default size and position as
 well as taking an additional parameter for setting the mode in the same
-way as the MODE command (default MODE 4). Any border attached to each
+way as the MODE command (default MODE 4). 
+
+Any border attached to each
 window is switched off, except under SMS (see below). Also, if the
 second variant is used, if an outline has previously been defined (for
 example with OUTLN), then the contents of the three windows will be
 retained and moved to the new position - this is equivalent to following
-the WTV
- command with an OUTLN command with the details of the new position and
+the WTV command with an OUTLN command with the details of the new position and
 size.
 
 **NOTE 1**
@@ -1936,10 +1971,12 @@ W\_CRUNCH
 | Location |  Windows (DIY Toolkit - Vol W)                                    |
 +----------+-------------------------------------------------------------------+
 
- This toolkit is designed (like the SuperWindow Toolkit) to provide you
+This toolkit is designed (like the SuperWindow Toolkit) to provide you
 with facilities for storing parts of the QL's screen in memory so that
 you can recall them at a later date, thus providing the QL with
-non-destructible windows inside programs. Whilst the Pointer Environment
+non-destructible windows inside programs. 
+
+Whilst the Pointer Environment
 provides programs with non- destructible windows, this only ensures that
 when a program ends, the area of the screen which was occupied by that
 program is restored so that it looks the same as when the program
@@ -1951,7 +1988,9 @@ specific functions (for example those supplied as part of the Qptr
 Toolkit, or supplied with this toolkit), if a program OPENs one window
 over the top of another window owned by that program, when that second
 window is CLOSEd, the area underneath is not restored (see the example
-below). This function allows you to store the area under a specified
+below). 
+
+This function allows you to store the area under a specified
 window channel in memory in a compressed form. Ideally the window should
 be a number of pixels wide which is divisible by eight and also have its
 left boundary (after taking any BORDER into account) on a pixel which is
@@ -1959,7 +1998,9 @@ divisible by eight (if not then this function will store a slightly
 larger area of the screen than that covered by the window). This
 function compresses the screen by reference to the colour parameter -
 this should either be 4 to store the green pixels or 2 to store the red
-pixels. The function is therefore only really of use in MODE 4 since
+pixels. 
+
+The function is therefore only really of use in MODE 4 since
 other MODEs may use a lot more colours. Other pixels are ignored and
 will therefore not be copied back onto the screen with W\_SHOW. Since
 most screens have text in one colour on top of another background, this
@@ -1972,23 +2013,38 @@ this address for use by the other functions in the toolkit.
 
 **Example**
 
-Try the short program which appears on the next page and note how when
+Try the short program which follows and note how when
 you press <ENTER> to close the temporary window, the display does not
-alter: 100 OPEN #2,con\_448x200a32x16:PAPER #2,0:CLS #2:INK #2,2 110 FOR
-i=1 TO 15 120 PRINT #2,'This is window #2 - Line number ';i 130 END FOR
-i 140 INK #2,4:PRINT #2,'PRESS A KEY TO OPEN TEMPORARY WINDOW' 150 PAUSE
-160 OPEN #3,con\_230x40a80x100:PAPER #3,2:CLS #3 170 INK #3,7:PRINT
-#3,'This is a temporary window' 180 INPUT #3,'Press <ENTER> to close
-this window ';a$ 190 CLOSE #3
- Instead, you can use W\_CRUNCH to store #2 and then restore it once #3
-has been closed - add the following lines: 155 base=W\_CRUNCH(#2,2) 200
-CLS #2 210 W\_SHOW #2,base
- Note how only the characters which were printed in Red Ink were stored.
-You could have couse have just stored the area under the temporary
-window by taking the original example and adding the lines: 160 OPEN
-#3,con\_230x40a80x100:PAPER #3,2 165 base=W\_CRUNCH(#3,2):CLS #3 185
-PAPER #3,0:CLS #3 187 W\_SHOW #3,base
- Note the need to store the contents of the window with W\_CRUNCH before
+alter:: 
+
+    100 OPEN #2,con_448x200a32x16: PAPER #2,0: CLS #2: INK #2,2 
+    110 FOR i=1 TO 15 
+    120   PRINT #2, 'This is window #2 - Line number '; i 
+    130 END FOR i 
+    140 INK #2,4: PRINT #2,'PRESS A KEY TO OPEN TEMPORARY WINDOW' 
+    150 PAUSE
+    160 OPEN #3,con_230x40a80x100: PAPER #3,2: CLS #3 
+    170 INK #3,7: PRINT #3, 'This is a temporary window' 
+    180 INPUT #3, 'Press <ENTER> to close this window ';a$ 
+    190 CLOSE #3
+
+Instead, you can use W\_CRUNCH to store #2 and then restore it once #3
+has been closed - add the following lines:: 
+
+    155 base=W_CRUNCH(#2,2) 
+    200 CLS #2 
+    210 W_SHOW #2,base
+
+Note how only the characters which were printed in Red Ink were stored.
+You could have just stored the area under the temporary
+window by taking the original example and adding the lines::
+
+    160 OPEN #3,con_230x40a80x100: PAPER #3,2 
+    165 base = W_CRUNCH(#3,2): CLS #3 
+    185 PAPER #3,0: CLS #3 
+    187 W_SHOW #3,base
+
+Note the need to store the contents of the window with W\_CRUNCH before
 it is cleared with CLS !!.
 
 **NOTE 1**
@@ -1999,7 +2055,7 @@ This function will only work on screen resolutions of 512x256 pixels.
 
 The memory used by the function will be reclaimed by CLCHP, or LOAD,
 LRUN or NEW. You can also use DISCARD address or RECHP address+4
- to remove it specifically (although note the different address
+to remove it specifically (although note the different address
 requirement for RECHP).
 
 **CROSS-REFERENCE**
@@ -2015,7 +2071,7 @@ See `SCR\_REFRESH <KeywordsS.clean.html#scr-refresh>`__ and
 --------------
 
 W\_SHOW
-~~~~~~~
+=======
 
 +----------+-------------------------------------------------------------------+
 | Syntax   |  W\_SHOW #channel, address                                        |
@@ -2023,8 +2079,8 @@ W\_SHOW
 | Location |  Windows (DIY Toolkit - Vol W)                                    |
 +----------+-------------------------------------------------------------------+
 
- This command takes an image stored at the specified address
- using either the W\_CRUNCH or W\_STORE functions and then copies it
+This command takes an image stored at the specified address
+using either the W\_CRUNCH or W\_STORE functions and then copies it
 across to the specified window channel.
 
 **NOTE 1**
@@ -2062,7 +2118,7 @@ W\_STORE
 | Location |  Windows (DIY Toolkit - Vol W)                                    |
 +----------+-------------------------------------------------------------------+
 
- This function is very similar to W\_CRUNCH except that it stores the
+This function is very similar to W\_CRUNCH except that it stores the
 whole of the contents of the specified window (not in compressed form).
 It also stores all of the colours, not just green or red.
 
@@ -2085,7 +2141,7 @@ W\_SWAP
 | Location |  Windows (DIY Toolkit - Vol W)                                    |
 +----------+-------------------------------------------------------------------+
 
- This command looks at the specified window channel and swaps over red
+This command looks at the specified window channel and swaps over red
 and green bits on the display, effectively changing the colours on
 screen.
 
@@ -2115,4 +2171,4 @@ W\_SWOP
 | Location |  Windows (DIY Toolkit - Vol W)                                    |
 +----------+-------------------------------------------------------------------+
 
- This command is exactly the same as W\_SWAP.
+This command is exactly the same as `W\_SWAP <KeywordsW.clean.html#w-swap>`__.
