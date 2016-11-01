@@ -68,7 +68,7 @@ parameters passed using the command. It first of all has to decide how
 to set up the standard channels (#0 - the primary command channel and #1
 - the primary output channel).
 
-If neither a file nor cmd$ is supplied, for example:
+If neither a file nor cmd$ is supplied, for example::
 
 	EXEC pipep
 
@@ -79,7 +79,7 @@ already running (you can of course redefine #0 and #1 from within the
 MultiBasic by using WINDOW, although as both #0 and #1 use the same
 window, any attempt to redefine #0 will affect #1 and vice versa).
 
-If however, cmd$ is supplied, for example:
+If however, cmd$ is supplied, for example::
 
 	EXEC pipep;'This is a Command String'
 
@@ -88,9 +88,9 @@ interpreter. You can then CLOSE #1 or CLOSE #2 without removing the
 MultiBasic. Sections A7.1.2 to A7.1.4 explain how the command string is
 dealt with.
 
-If one file (or channel) is supplied, for example:
+If one file (or channel) is supplied, for example::
 
-	EXEC pipep,flp1\_inputfile
+	EXEC pipep,flp1_inputfile
 
 Minerva will open both #0 and #1 to access that file, whereas if two
 files are supplied, #0 is opened to access file1 and #1 is opened to
@@ -126,9 +126,9 @@ as a filter.
 
 You will be unable to redefine #0 from within the program, as this will
 stop the MultiBasic from accessing the command file. This could for
-example, be used to test programs:
+example, be used to test programs::
 
-	EXEC pipep;'flp1\_boot>'
+	EXEC pipep;'flp1_boot>'
 
 A7.1.4 What Happens to the Rest of the Command String?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -136,7 +136,7 @@ A7.1.4 What Happens to the Rest of the Command String?
 Having stripped all of the information needed in Section A7.1.2 and
 A7.1.3 from cmd$, any characters left in the string supplied can then be
 read from within a MultiBasic itself by simply accessing CMD$. For
-example:
+example::
 
 	PRINT 'Your Name is :'!CMD$
 
@@ -188,9 +188,9 @@ The second method merely starts up an SBASIC interpreter.
 Because SBASIC is implemented as a Thing under the Hotkey System II, you
 can also set start an SBASIC Interpreter using the third method, or even
 from Qpac 2's Exec Menu. You can even set up a hotkey to start an SBASIC
-interpreter. For example:
+interpreter. For example::
 
-	ERT HOT\_THING ('L','SBASIC')
+	ERT HOT_THING ('L','SBASIC')
 
 will start up a new SBASIC interpreter whenever <ALT><L> is pressed.
 
@@ -216,13 +216,13 @@ a string as a parameter:
 
 - If you pass a string to the interpreter, then no windows are OPENed and
   the string is treated as a command as if it had been entered in the
-  command line (see Section A7.2.7 below!). For example:
+  command line (see Section A7.2.7 below!). For example::
 
-	EXEP 'SBASIC';'LRUN flp1\_PROG\_Bas'
+	EXEP 'SBASIC';'LRUN flp1_PROG_Bas'
 
-is the same as:
+is the same as::
 
-	EXEC flp1\_PROG\_bas
+	EXEC flp1_PROG_bas
 
 If you instead use a command such as EXEC to start up a program under a
 SBASIC interpreter, then no windows will be OPENed by default and the
@@ -256,9 +256,9 @@ A7.2.4 Multitasking an SBASIC Program
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This is much easier than under MultiBASIC and the standard form for
-doing this is to use a command such as:
+doing this is to use a command such as::
 
-	EXEC flp1\_program\_bas
+	EXEC flp1_program_bas
 
 Provided that the name of the program ends in \_bas or \_sav, then this
 BASIC program will be started as a separate multitasking program running
@@ -279,9 +279,9 @@ You can do this by using the command JOB\_NAME from within the SBASIC
 Interpreter.
 
 If you start an SBASIC using the HOT\_THING command, you can also use
-this to define the name of the Job, for example:
+this to define the name of the Job, for example::
 
-	ERT HOT\_THING('L','SBASIC','INT 1')
+	ERT HOT_THING('L','SBASIC','INT 1')
 
 However, all future SBASICs started from the hot key will still be given
 the same name!!

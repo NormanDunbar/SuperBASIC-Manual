@@ -108,8 +108,12 @@ Details of the types of Directory Devices follow:
 Microdrive (MDV)
 ^^^^^^^^^^^^^^^^
 
-Syntax: MDVn\_file (QL ROM) or [MDVn\_]file (Toolkit II only) Location:
-QL ROM, THOR XVI
+
++----------+-------------------------------------------------------+
+| Syntax   | MDVn\_file (QL ROM) or [MDVn\_]file (Toolkit II only) |
++----------+-------------------------------------------------------+
+| Location | QL ROM, THOR XVI                                      |
++----------+-------------------------------------------------------+
 
 This is the only standard directory device driver.
 
@@ -151,31 +155,39 @@ If however, Toolkit II is present, the default devices are supported.
 
 **Examples**
 
-LOAD mdv1\_boot
+::
 
-DIR mdv2\_
+    LOAD mdv1_boot
+
+::
+    
+    DIR mdv2_
 
 Microdrives will allow you to create a file with a null name, which will
 not be revealed on a directory listing, but which will operate in much
 the same way as any other file. For example, the following two lines are
-both acceptable:
+both acceptable::
 
-SAVE mdv1\_Myprog\_bas
-
-SAVE mdv1\_
+    SAVE mdv1_Myprog_bas
+    SAVE mdv1_
 
 Note that Microdrives do not possess Level-2 drivers and sub-directories
-are therefore not supported. For example creating a directory with
+are therefore not supported. For example creating a directory with::
 
-MAKE\_DIR mdv1\_test\_
+    MAKE_DIR mdv1_test_
 
 will produce error -15 and leave the file test on mdv1\_.
+
 
 Floppy Disk (FLP)
 ^^^^^^^^^^^^^^^^^
 
-Syntax: FLPn\_file or [FLPn\_]file (Toolkit II only) Location: Disk
-expansion boards, THOR XVI, QL Emulators
++----------+-------------------------------------------------------+
+| Syntax   | FLPn\_file or [FLPn\_]file (Toolkit II only)          |
++----------+-------------------------------------------------------+
+| Location | Disk expansion boards, THOR XVI, QL Emulators         |
++----------+-------------------------------------------------------+
+
 
 This driver is for what are commonly known as floppy disks. These come
 in various sizes, ranging from 3" to 8", although the QL standard is now
@@ -193,9 +205,13 @@ least part of it) has become standard on disk interfaces.
 
 **Examples**
 
-MERGE flp1\_Simple\_bas
+::
 
-DATA\_USE flp1\_Quill
+    MERGE flp1_Simple_bas
+
+::
+    
+    DATA_USE flp1_Quill
 
 Some boards (such as the Gold Card, QXL, Atari Emulators and SMSQ/E)
 support Level-2 commands and therefore sub-directories. Other expansion
@@ -203,9 +219,9 @@ boards can be fitted with these new drivers by updating a ROM chip.
 Level-2 drivers store the directory details in a separate file for
 simplicity. Unfortunately, the main directory is stored in a file with a
 null name which will automatically overwrite any earlier file with a
-null name. To see the main directory file, use:
+null name. To see the main directory file, use::
 
-COPY flp1\_ TO scr
+    COPY flp1_ TO scr
 
 Sub-directories are stored in files with the name of the sub-directory.
 Such files have a file type of 255 and cannot be deleted or renamed
@@ -218,9 +234,12 @@ Microdrives (see above). On some old drivers FLP may be replaced by FDK.
 RAMdisk (RAM)
 ^^^^^^^^^^^^^
 
-Syntax: RAMn\_file or [RAMn\_]file (Toolkit II only) Location: QJump
-RAMPRT, Expansion Boards, THOR XVI, ST/QL Emulators, SMSQ/E, QXL, QPC,
-Amiga QDOS Emulator
++----------+-------------------------------------------------------+
+| Syntax   | RAMn\_file or [RAMn\_]file (Toolkit II only)          |
++----------+-------------------------------------------------------+
+| Location | QJump RAMPRT, Expansion Boards, THOR XVI, ST/QL       |
+|          | Emulators, SMSQ/E, QXL, QPC, Amiga QDOS Emulator      |
++----------+-------------------------------------------------------+
 
 This driver is used to set up areas of memory which can be used in much
 the same way as a floppy disk. Anything stored in a RAMdisk is lost when
@@ -247,7 +266,9 @@ Microdrive cartridge into them, eg. FORMAT ram1\_mdv1.
 
 **Example**
 
-WCOPY flp1\_,ram2\_
+::
+
+    WCOPY flp1_, ram2_
 
 Level-2 drivers commands and sub-directories are also supported for the
 QJump RAMdisk driver, eg. on Gold Cards and ST/QL Emulators.
@@ -255,8 +276,11 @@ QJump RAMdisk driver, eg. on Gold Cards and ST/QL Emulators.
 Hard Disk (WIN)
 ^^^^^^^^^^^^^^^
 
-Syntax: WINn\_file or [WINn\_]file Location: Hard disk Interfaces, THOR
-XVI, QL Emulators
++----------+-------------------------------------------------------+
+| Syntax   | WINn\_file or [WINn\_]file                            |
++----------+-------------------------------------------------------+
+| Location | Hard disk Interfaces, THOR XVI, QL Emulators          |
++----------+-------------------------------------------------------+
 
 This device driver allows you to access a hard disk drive (including
 removeable hard disks). This operates a lot more quickly than a floppy
@@ -275,8 +299,11 @@ RAM device.
 QL ROMDisq (ROM)
 ^^^^^^^^^^^^^^^^
 
-Syntax: ROM1\_file or [ROM1\_]file (Toolkit II only) Location: QLROMDisq
-board
++----------+-------------------------------------------------------+
+| Syntax   | ROM1\_file or [ROM1\_]file (Toolkit II only)          |
++----------+-------------------------------------------------------+
+| Location | QLROMDisq board                                       |
++----------+-------------------------------------------------------+
 
 This is a board which plugs into the QL's ROM Cartridge port and
 provides a fixed ram disk of either 2 or 8 Megabytes. It is similar to a
@@ -337,7 +364,11 @@ pixel high.
 Console (CON)
 ^^^^^^^^^^^^^
 
-Syntax: CON[<size>][<position>][<buffer>] Location: QL ROM
++----------+-------------------------------------------------------+
+| Syntax   | CON[<size>][<position>][<buffer>]                     |
++----------+-------------------------------------------------------+
+| Location | QL ROM                                                |
++----------+-------------------------------------------------------+
 
 This type of screen device is used for both output to the screen and
 reading the keyboard via a queue attached to that window. Depending on
@@ -386,17 +417,18 @@ type-ahead buffer). Although this can have any value, a value of 128
 bytes tends to be large enough for most tasks, and in fact this is the
 default.
 
-Default Device: CON\_448x200a32x16\_128
+Default Device::
+
+    CON_448x200a32x16_128
 
 **Examples**
 
-OPEN #3,con\_200Open channel #3 as CON\_200x200a32x16\_128
+::
 
-OPEN #3,con\_\_10Open channel #3 as CON\_448x200a32x16\_10
-
-OPEN #3,cona12Open channel #3 as CON\_448x200a12x16\_128
-
-OPEN #3,conax20\_50Open channel #3 as CON\_448x200a32x20\_50
+    OPEN #3,con_200:     REMark Open channel #3 as CON_200x200a32x16_128
+    OPEN #3,con__10:     REMark Open channel #3 as CON_448x200a32x16_10
+    OPEN #3,cona12:      REMark Open channel #3 as CON_448x200a12x16_128
+    OPEN #3,conax20_50: REMark Open channel #3 as CON_448x200a32x20_50
 
 The STE/QL emulator (QVME) and also other other hardware support much
 higher resolutions than 512x256, eg. QVME can go up to 1024x1024 pixels.
@@ -408,7 +440,11 @@ not accessing screen memory directly.
 Screen (SCR)
 ^^^^^^^^^^^^
 
-Syntax: SCR[<size>][<position>] Location: QL ROM
++----------+-------------------------------------------------------+
+| Syntax   | SCR[<size>][<position>]                               |
++----------+-------------------------------------------------------+
+| Location | QL ROM                                                |
++----------+-------------------------------------------------------+
 
 This is very similar to the CONsole driver, except that SCR channels are
 for output to the screen only. No buffer size is required. Trying to
@@ -416,7 +452,9 @@ read input from a SCR channel will give a 'Bad Parameter' (-15) error.
 
 Please see the CON Window Driver.
 
-Default Device: SCR\_448x200a32x16
+Default Device::
+
+    SCR_448x200a32x16
 
 A12.4 Other Device Drivers
 --------------------------
@@ -461,14 +499,17 @@ in order to tell the external hardware that there is no more data.
 Parallel Port (PAR)
 ^^^^^^^^^^^^^^^^^^^
 
-Syntax: PAR<new\_line><trns><ff><buf>(THOR XVI)
-
-or PAR<port><translate><convert><eof>
-
-(SMSQ/E, ST Emulators, Super Gold Card)
-
-or PAR (AMIGA QDOS) Location: THOR XVI, ST Emulators, SMSQ/E, Super Gold
-Card, Amiga QDOS Emulator
++----------+-------------------------------------------------------+
+| Syntax   | PAR<new\_line><trns><ff><buf>  (THOR XVI) or          |
++----------+-------------------------------------------------------+
+|          | PAR<port><translate><convert><eof>                    |
+|          | (SMSQ/E, ST Emulators, Super Gold Card)         or    |
++----------+-------------------------------------------------------+
+|          | PAR (AMIGA QDOS)                                      |
++----------+-------------------------------------------------------+
+| Location | THOR XVI, ST Emulators, SMSQ/E, Super Gold Card,      |
+|          | Amiga QDOS Emulator                                   |
++----------+-------------------------------------------------------+
 
 Various QL implementations now come equipped with a parallel device
 driver for use with their parallel port. Parallel ports can be used for
@@ -538,16 +579,26 @@ The default is \_127.
 
 **Examples**
 
-par\_90k Conversion of LF to CR, LF; translation table used; FF sent at
+::
+
+    par_90k
+
+Conversion of LF to CR, LF; translation table used; FF sent at
 end; buffer length 90 kilobytes.
 
-parrt No conversion; translation table used; no FF sent.
+::
+
+    parrt 
+    
+No conversion; translation table used; no FF sent.
 
 Note the coupling between the <New\_line> and <trns> arguments. This
 means that par is equal to parnt, whereas parr is equal to parrp. The
 translation table used is the one set with TRA.
 
-Default Device: PARnt\_128
+Default Device::
+
+    PARnt_128
 
 ST Emulators, Super Gold Card AND SMSQ/E
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -595,7 +646,9 @@ following values:
 
 PAR1cz is the same as the THOR's PARn
 
-Default Device: PAR1tr
+Default Device::
+
+    PAR1tr
 
 AMIGA-QDOS
 ^^^^^^^^^^
@@ -608,17 +661,15 @@ being altered in any way.
 Serial Ports (SER)
 ^^^^^^^^^^^^^^^^^^
 
-Syntax: SER<prt><par><handshake><protocol>(QL only)
-
-or SER<prt><par><hand><translate><convert><eof>
-
-(ST Emulators, SMSQ/E)
-
-or SER<prt><par><bits><hds><bpso><bpsi><nl><trns><ff><buf>
-
-(THOR XVI only)
-
-Location: QL ROM, ST/QL, THOR XVI
++----------+-----------------------------------------------------------------------------+
+| Syntax   | SER<prt><par><handshake><protocol>(QL only) or                              |
++----------+-----------------------------------------------------------------------------+
+|          | SER<prt><par><hand><translate><convert><eof> (ST Emulators, SMSQ/E)  or     |
++----------+-----------------------------------------------------------------------------+
+|          | SER<prt><par><bits><hds><bpso><bpsi><nl><trns><ff><buf> (THOR XVI only) or  |
++----------+-----------------------------------------------------------------------------+
+| Location | QL ROM, ST/QL, THOR XVI                                                     |
++----------+-----------------------------------------------------------------------------+
 
 The QL, and THOR XVI are each equipped with two serial ports, marked
 SER1 and SER2 on the rear panel. Other implementations of the QL can in
@@ -706,7 +757,7 @@ version being used:
 (a) Output SERial devices
 """""""""""""""""""""""""
 
-Pre-JS ROMs:
+**Pre-JS ROMs**
 
 If the C protocol has been chosen, then if the byte is a LF it is
 converted into a CR. Bit 7 of the byte is then adjusted to suit the
@@ -722,7 +773,7 @@ small CTRL-Z files was sent to the serial channel and then the channel
 was re-opened as SERr. Another problem with the handling of CTRL-Z's was
 that the parity (if required) was not always correct on this final byte.
 
-JS and MG ROMs:
+**JS and MG ROMs**
 
 The serial driver followed the same pattern, except that if enabled by a
 TRA command (or the appropriate machine code call) the byte was
@@ -731,7 +782,7 @@ been adjusted to suit the parity (if required). This meant that bytes
 above CHR$(127) could not always be translated. The problems with CTRL-Z
 persisted.
 
-Minerva ROMs:
+**Minerva ROMs**
 
 The serial driver is much improved, in that if the protocol is C, then
 LF is swapped with CR (and vice-versa). The byte is then translated
@@ -753,7 +804,7 @@ screen mode, characters may be lost on output.
 (b) Input SERial devices
 """"""""""""""""""""""""
 
-Pre-JS ROMs:
+**Pre-JS ROMs**
 
 The 8302 deals with handshaking and then puts the byte which it has read
 into the receive queue. The device driver then reads the byte from the
@@ -763,7 +814,7 @@ the check fails.
 If the C protocol is chosen, then any CRs are converted into LFs and the
 byte returned to the user. Parity is completely ignored on CTRL-Z.
 
-JS and MG ROMs:
+**JS and MG ROMs**
 
 These both still suffer from CTRL-Z.
 
@@ -772,7 +823,7 @@ byte as soon as it is fetched from the receive queue (see TRA). The
 parity is then altered as required, CRs converted into LFs (if
 necessary) and the byte passed onto the user.
 
-Minerva ROMs:
+**Minerva ROMs**
 
 This checks the parity on CTRL-Z if required, along with the parity on
 any other data as soon as each byte is fetched from the receive queue.
@@ -825,7 +876,9 @@ one of the following values:
    of file flag. Note: on Minerva, swap LF with CR on both input and
    output.
 
-Default Device: SER1hr
+Default Device::
+
+    SER1hr
 
 ST Emulators and SMSQ/E
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -978,7 +1031,9 @@ The default is \_127.
 
 **Example 1**
 
-ser2exb75b1200cf
+::
+
+    ser2exb75b1200cf
 
 ser2 with even parity, send 7 bits per byte, XON/XOFF with handshake on,
 set output baud rate at 75 bps and input baud rate at 1200 bps, newline
@@ -987,14 +1042,18 @@ use an output buffer of 127 bytes.
 
 **Example 2**
 
-ser7b1200
+::
+
+    ser7b1200
 
 ser1 with no parity, send 7 bits per byte, normal handshake, both output
 and input baud rate set at 1200, no newline conversion (raw data) but
 use translate table, send form feed at end of file, use output buffer of
 127 bytes.
 
-Default Device: ser18hrt\_127
+Default Device::
+
+    ser18hrt_127
 
 Note the coupling between the <nl> and <trns> arguments. This means that
 'ser1' is equal to 'ser1rt', whereas 'ser1r' is equal to 'ser1rp'. The
@@ -1003,19 +1062,27 @@ translation table used is the one set with TRA.
 Serial Ports (SRX)
 ^^^^^^^^^^^^^^^^^^
 
-Syntax: SRX<prt><par><hand><translate><convert><eof> Location: ST
-Emulators, SMSQ/E
++----------+-------------------------------------------------------+
+| Syntax   | SRX<prt><par><hand><translate><convert><eof>          |
++----------+-------------------------------------------------------+
+| Location | ST Emulators, SMSQ/E                                  |
++----------+-------------------------------------------------------+
 
 This is a dedicated input only serial device, which has the same syntax
 as the ST Emulator's SER device.
 
-Default Device: SRX1htr
+Default Device::
+
+    SRX1htr
 
 Serial Ports (STX)
 ^^^^^^^^^^^^^^^^^^
 
-Syntax: STX<prt><par><hand><translate><convert><eof> Location: ST
-Emulators, SMSQ/E
++----------+-------------------------------------------------------+
+| Syntax   | STX<prt><par><hand><translate><convert><eof>          |
++----------+-------------------------------------------------------+
+| Location | ST Emulators, SMSQ/E                                  |
++----------+-------------------------------------------------------+
 
 This is a dedicated output only serial device, which has the same syntax
 as the ST Emulator's SER device.
@@ -1033,13 +1100,18 @@ you use SER to open both ports then the speed of the input port will be
 unduly affected even though the other port is being used for output
 only. STX gets around this problem.
 
-Default Device: STX1htr
+Default Device::
+
+    STX1htr
 
 Printer Ports (PRT)
 ^^^^^^^^^^^^^^^^^^^
 
-Syntax: PRT Location: Qjump RAMPRT, ST Emulators, SMSQ/E, QXL, Gold
-Card, Trump Card
++----------+----------------------------------------------------------------+
+| Syntax   | PRT                                                            |
++----------+----------------------------------------------------------------+
+| Location | Qjump RAMPRT, ST Emulators, SMSQ/E, QXL, Gold Card, Trump Card |
++----------+----------------------------------------------------------------+
 
 This is an unusual device driver which comes in two forms. However, in
 both forms, the idea is that a user will set up this device to point to
@@ -1064,10 +1136,13 @@ PRT\_USE.
 Memory Driver (MEM)
 """""""""""""""""""
 
-Syntax: MEM\_[adr1[\_adr2]] (IODev)
-
-or MEM[bufnr][\_buflen{p\|t}] (DIY Toolkit) Location: MEM device (DIY
-Toolkit Vol N), IODev (System)
++----------+-------------------------------------------------------+
+| Syntax   | MEM\_[adr1[\_adr2]] (IODev) or                        |
++----------+-------------------------------------------------------+
+|          | MEM[bufnr][\_buflen{p\|t}] (DIY Toolkit)              |
++----------+-------------------------------------------------------+
+| Location | MEM device (DIY Toolkit Vol N), IODev (System)        |
++----------+-------------------------------------------------------+
 
 The memory device allows you to access RAM memory directly via a device.
 This is functionally the same as PEEKing the values with any of PEEK's
@@ -1103,9 +1178,9 @@ the screen from one machine to another:
 
 (1) IODev Variant
 
-This can be easily done with:
+This can be easily done with::
 
-SBYTES n2\_mem\_128,131072,32768
+    SBYTES n2_mem_128,131072,32768
 
 provided that the screen address is located at 131072 (128 \* 1024 =
 131072) on both machines and that both screens are 32k long. The above
@@ -1157,22 +1232,28 @@ least most dangerous. There are always alternatives which avoid MEM.
 Network Drivers (NET)
 ^^^^^^^^^^^^^^^^^^^^^
 
-Syntax: NET<direction><station>(QL ROM)
-
-or NET<direction><station>\_<buffer>(Toolkit II, THOR XVI) Location: QL
-ROM, Toolkit II, THOR XVI
++----------+---------------------------------------------------------+
+| Syntax   | NET<direction><station>(QL ROM) or                      |
++----------+---------------------------------------------------------+
+|          | NET<direction><station>\_<buffer>(Toolkit II, THOR XVI) |
++----------+---------------------------------------------------------+
+| Location | QL ROM, Toolkit II, THOR XVI                            |
++----------+---------------------------------------------------------+
 
 These device drivers are explained separately in the Networks appendix.
 
 Communication Drivers (PIPE)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Syntax: PIPE\_length(standard drivers)
-
-or PIPE[IDin]{X \| P \| T}IDout[\_[length]][K](Minerva v1.97+)
-
-or PIPE\_name[\_length] (named drivers, SMS) Location: QL ROM, named
-pipe drivers, SMS
++----------+----------------------------------------------------------------+
+| Syntax   | PIPE\_length(standard drivers) or                              |
++----------+----------------------------------------------------------------+
+|          | PIPE[IDin]{X \| P \| T}IDout[\_[length]][K](Minerva v1.97+) or |
++----------+----------------------------------------------------------------+
+|          | PIPE\_name[\_length] (named drivers, SMS)                      |
++----------+----------------------------------------------------------------+
+| Location | QL ROM, named pipe drivers, SMS                                |
++----------+----------------------------------------------------------------+
 
 These are basically areas of memory which are set aside to act as
 communication queues. In theory, output data can be placed into the
@@ -1208,9 +1289,9 @@ Standard QL ROM
 
 **(1) Output Pipes**
 
-It is easy to open an output pipe, with the syntax:
+It is easy to open an output pipe, with the syntax::
 
-PIPE\_length
+    PIPE_length
 
 where:
 
@@ -1257,9 +1338,7 @@ Open a pipe between two programs, with a buffer of 10K
     120 pipeID=PEEK_W(\48\PCHAN*40+2)
 
 then in another program, having transferred the pipeID from the above
-program (by example using a temporary file):
-
-::
+program (by example using a temporary file)::
 
     130 OPEN_IN #5,pipe_,pipeID
 
@@ -1325,9 +1404,10 @@ the X, P or T parameter is specified.
 
 **Examples**
 
-OPEN #3,pipe3x\_100Open a read only pipe with a 100 byte buffer.
+::
 
-OPEN #3,pipex3\_100Open the write only end of the above pipe.
+    OPEN #3,pipe3x_100: REMark Open a read only pipe with a 100 byte buffer.
+    OPEN #3,pipex3_100: REMark Open the write only end of the above pipe.
 
 Any easy way to transfer data between two programs:
 
@@ -1389,20 +1469,19 @@ will be thrown away.
 **NOTE 3**
 
 In v1.97 PIPEP and PIPET were the wrong way around when opened as an
-input pipe. You will therefore need to use a line such as:
+input pipe. You will therefore need to use a line such as::
 
-IF VER$(1)='1.97' : OPEN\_IN #3,PIPEP2 : ELSE : OPEN\_IN #3,PIPET2
+    IF VER$(1)='1.97': OPEN_IN #3, PIPEP2: ELSE: OPEN_IN #3, PIPET2
 
 **NOTE 4**
 
 It is recommended that in order to overcome problems with multitasking
 jobs trying to access the same pipe IDs inadvertantly, a Job should use
 its own Job number\*100 plus the pipe ID number. This can be calculated
-with:
+with::
 
-jobID=VER$(-1) : JobNr=JobID-INT(JobID/65536)\*65536
-
-JobID=(PEEK\_L(!!100)-PEEK\_L(!!104)) DIV 4
+    jobID = VER$(-1): JobNr = JobID - INT(JobID/65536)*65536
+    JobID = (PEEK_L(!!100) - PEEK_L(!!104)) DIV 4
 
 Named Pipe Drivers, SMS
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -1427,22 +1506,32 @@ you can then open a new input pipe to read this remaining data.
 SMS v2.79 has further extended the concept of named pipes, allowing you
 to DELETE and DIR pipes.
 
-DIR pipe
+::
+
+    DIR pipe
 
 will list all named pipes which exist
 
-DELETE pipe\_name
+::
+
+    DELETE pipe_name
 
 will delete the specified pipe.
 
-You can also VIEW pipe\_name.
+You can also::
+
+    VIEW pipe_name
 
 In current drivers, a maximum of 15 or 16 named pipes can be open at any
-one time. The syntax of this driver is:
+one time. The syntax of this driver is::
 
-PIPE\_name\_length for an output pipe, or
+    PIPE_name_length
 
-PIPE\_name for an input pipe.
+for an output pipe, or::
+
+    PIPE_name 
+    
+for an input pipe.
 
 where:
 
@@ -1469,25 +1558,35 @@ to be some identification information (see the Minerva examples).
 
 **Examples**
 
-OPEN\_NEW #3,PIPE\_100
+::
+
+    OPEN_NEW #3,PIPE_100
 
 Open a standard output pipe which can hold up to 100 characters at a
 time.
 
-OPEN\_NEW #4,PIPE\_xover\_50
+::
+
+    OPEN_NEW #4,PIPE_xover_50
 
 Open an output pipe named xover which can hold up to 50 characters at a
 time.
 
-OPEN\_IN #5,PIPE\_xover
+::
+
+    OPEN_IN #5,PIPE_xover
 
 Open an input channel to the pipe xover.
 
-OPEN\_NEW #2,PIPE\_quill\_exp\_100
+::
+
+    OPEN_NEW #2,PIPE_quill_exp_100
 
 Open an output pipe named quill\_exp with a buffer for 100 characters.
 
-PIPE\_0
+::
+
+    PIPE_0
 
 Open a general input channel to a pipe - see standard QL version above!
 
@@ -1506,9 +1605,13 @@ immediately be DELETEd.
 Communication Drivers (HISTORY)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Syntax: HISTORY\_name[\_length]
-
-or HISTORY[\_length] Location: SMSQ/E
++----------+----------------------------------------------------------------+
+| Syntax   | HISTORY\_name[\_length] or                                     |
++----------+----------------------------------------------------------------+
+|          | HISTORY[\_length]                                              |
++----------+----------------------------------------------------------------+
+| Location | SMSQ/E                                                         |
++----------+----------------------------------------------------------------+
 
 The first syntax to this device creates a Public History Device - this
 is similar to the named pipes driver on the SMSQ/E except that it works
@@ -1553,15 +1656,11 @@ Grab the name of the last file on a disk:
 Nul Driver (NUL)
 ^^^^^^^^^^^^^^^^
 
-Syntax: NUL
-
-or NULZ
-
-or NULF
-
-or NULL
-
-or NULP Location: ST/QL Emulators and SMS
++----------+----------------------------------------------------------------+
+| Syntax   | NUL or NULZ or NULF or NULL or NULP                            |
++----------+----------------------------------------------------------------+
+| Location | ST/QL Emulators and SMS                                        |
++----------+----------------------------------------------------------------+
 
 A nul device is generally just an empty input only device that can
 consume anything put into it at great speed. It enables you to write
@@ -1619,9 +1718,9 @@ of a disk (for example one utility uses this feature to squeeze extra
 room onto a normal Double Density floppy disk).
 
 To use direct sector access, it is necessary to OPEN a channel to a
-special filename, in the form:
+special filename, in the form::
 
-DRIVEn\_\*Dsd
+    DRIVEn_*Dsd
 
 Where:
 
@@ -1722,9 +1821,9 @@ the following output:-
 This would show that the disk in flp1\_ had the medium name 'Example1'
 (see FORMAT), had a maximum of 1440 sectors (720K) of which 870 remain
 unused, a boot file and a sub-directory called 'PSION' (see MAKE\_DIR).
-You could then use
+You could then use::
 
-DIR flp1\_PSION
+    DIR flp1_PSION
 
 to produce the following:
 
@@ -1772,11 +1871,10 @@ this is not translated to a dot, instead, this underscore is counted as
 one of the 8 characters in the filename.
 
 A slight inconsistency (possibly in the way in which PCs handle
-sub-directories) is that if you make a sub-directory with the command:
+sub-directories) is that if you make a sub-directory with the command::
 
-MAKE\_DIR flp1\_TEST
-
-SAVE flp1\_TEST.BAS
+    MAKE_DIR flp1_TEST
+    SAVE flp1_TEST.BAS
 
 will not actually place this file in the sub-directory - compare SAVE
 flp1\_TEST\_TEST.BAS. You must also be aware that in keeping with PCs,

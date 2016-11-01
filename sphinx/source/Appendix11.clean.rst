@@ -25,17 +25,17 @@ The diagrams make clear why 360 degrees and its multiples (720, 1080,
 A programming hint: If you are calculating angles and receive values for
 them where you have no guarantee that they are properly ranged, then use
 the remainder from the full circle angle instead. Since MOD finds the
-remainder for integers, you have simply to add a line such as
+remainder for integers, you have simply to add a line such as::
 
     degrees = degrees MOD 360
 
-or
+or::
 
     degrees = MOD(degrees,360) (Math Package MOD)
 
-for degrees, or
+for degrees, or::
 
-    radians = radians-2 \*PI \*INT (radians/2/PI)
+    radians = radians-2 *PI *INT(radians/2/PI)
 
 for radians.
 
@@ -44,17 +44,17 @@ performs the same conversion internally or implicitly.
 
 Just to make matters more confusing an angle in radians can be a maximum
 of 2\*PI (which forms a circle). Thus PI is a straight line and PI/2 is
-a right angle. The relation between degrees and radians is:
+a right angle. The relation between degrees and radians is::
 
-    radians = PI \* degrees / 180
+    radians = PI * degrees / 180
 
-or
+or::
 
     radians = RAD(degrees)
 
-    degrees = 180 \* radians / PI
+    degrees = 180 * radians / PI
 
-or
+or::
 
     degrees = DEG(radians)
 
@@ -89,38 +89,32 @@ value of theta is 90 degrees (PI/2).
     (0,0)  x  (x,0)
 
 The following rules will give you an idea of the relationship between
-the various lengths and angles:
+the various lengths and angles::
 
     h^2 = x^2 + y^2
 
-or
+or::
 
-    h = SQRT(x\*x + y\*y)
+    h = SQRT(x*x + y*y)
 
-or h = ABS(x,y) (Minvera only)
+or::
 
-    x = h \* COS(theta)
-
-    y = h \* SIN(theta)
-
+    h = ABS(x,y): REMark Minvera only.
+    x = h * COS(theta)
+    y = h * SIN(theta)
     theta = ATAN (y/x)
 
-or
+or::
 
-    theta = ATAN (x,y) (Minerva and SMS only)
-
+    theta = ATAN (x,y): REMark Minerva and SMS only.
     theta = ACOT (x/y)
 
-or
+or::
 
-    theta = ACOT (y,x) (Minerva only)
-
-    y = x \* TAN(theta)
-
-    x = y \* COT(theta)
-
+    theta = ACOT (y,x): REMark Minerva only.
+    y = x * TAN(theta)
+    x = y * COT(theta)
     theta = ACOS (x/h)
-
     theta = ASIN (y/h)
 
 See the explanations of the keywords for details!

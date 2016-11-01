@@ -107,21 +107,16 @@ The parameters of the NET device have the following meanings:
 <direction>This is the direction in which data is to be sent. There is
 no default and this therefore must be one of the following letters:
 
-I -This is a listening station
+- I - This is a listening station (input only)
+- O - This is a transmitting station (output only)
 
-(input only)
+- <station> This is the number of the station to communicate with and is in
+  the form \_n, where n represents the station number of the other machine
+  you wish to communicate with.
 
-O -This is a transmitting station
+  n=0 is treated as a special case - see below.
 
-(output only)
-
-<station>This is the number of the station to communicate with and is in
-the form \_n, where n represents the station number of the other machine
-you wish to communicate with.
-
-n=0 is treated as a special case - see below.
-
-The default is \_0.
+  The default is \_0.
 
 This Device Driver allows data to either be transmitted to a specific
 machine, or broadcast to any machine which is listening to the Network.
@@ -130,21 +125,21 @@ A17.1.3 Sending / Receiving Data
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To broadcast data (sending it to all machines in the Network) you need
-to open a channel to NETO\_0, for example:
+to open a channel to NETO\_0, for example::
 
-OPEN\_NEW #3,NETO\_0
+    OPEN_NEW #3,NETO_0
 
 To listen to data which is being Broadcast, the listening stations will
-need to open a channel NETI\_0, for example with:
+need to open a channel NETI\_0, for example with::
 
-OPEN\_IN #4,NETI\_0
+    OPEN_IN #4,NETI_0
 
 If you open a net-in channel and specify your own station number, this
 is treated as a general listening station, allowing you to receive any
 data sent to that station by any machine in the Network. For example,
-you could use:
+you could use::
 
-NET 12:OPEN\_IN #4,NETI\_12
+    NET 12: OPEN_IN #4, NETI_12
 
 to set up a general listening station.
 
@@ -152,23 +147,23 @@ If you want to open a net-in channel which will only listen for data
 from a specific machine in the Network, you will need to specify the
 station number of that machine, for example:
 
-On station 3, enter:
+On station 3, enter::
 
-NET 3:OPEN\_NEW #3,NETO\_12
+    NET 3: OPEN_NEW #3, NETO_12
 
 Then on station 12, enter:
 
-NET 12:OPEN\_IN #3,NETI\_3
+    NET 12:OPEN_IN #3, NETI_3
 
 will set up a link between stations 3 and 12 which only those machines
 can use. To allow station 12 to send data to station 3, you will also
-need to open a net-out channel, with:
+need to open a net-out channel, with::
 
-OPEN\_NEW #4,NETO\_3
+    OPEN_NEW #4, NETO_3
 
-and to enable station 3 to listen to it, you could use on station 3:
+and to enable station 3 to listen to it, you could use on station 3::
 
-OPEN\_IN #4,NETI\_3
+    OPEN_IN #4, NETI_3
 
 (this allows station 3 to listen to any messages sent to it over the
 network by any other machine).
@@ -279,7 +274,9 @@ see CLOSE).
 
 **Example**
 
-COPY flp1\_boot TO neto\_2
+::
+
+    COPY flp1_boot TO neto_2
 
 copies the file flp1\_boot to station 2.
 

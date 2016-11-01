@@ -88,6 +88,7 @@ We have covered the commands contained in the following sources:
 -  DIY Toolkit (sold as Cardware) |copyright| Simon Goodwin
 -  AtariDOS and ATARI\_REXT |copyright| Jochen Merz Software
 -  Turbo Toolkit (freeware) |copyright| The Turbo Team, David Gilham & Mark Knight
+-  DJToolkit 1.16 (freeware) |copyright| Norman Dunbar & Dilwyn Jones
 -  As many Public Domain Toolkits as we can find and understand.
 
 We have covered the Toolkit II and Hotkey System II because it is a
@@ -116,20 +117,25 @@ Contributing Authors
 - Franz Herrmann 
 - Peter Jager 
 - Rich Mellor
-- (Norman Dunbar - HTML conversion, tidyup etc)
+- Norman Dunbar - DJToolkit 1.16 additions.
+- (Norman Dunbar - HTML conversion, tidyup etc.)
 
 Installing Toolkits
 -------------------
 
 Most toolkits can be loaded and linked into the QL's operating system as
 an addition to the existing SuperBASIC (or SBASIC) keywords simply by
-using a command similar to one of the following three examples:
+using a command similar to one of the following three examples::
 
-- ``LRESPR flp1_Toolkit_bin``
+    LRESPR flp1_Toolkit_bin
+    
+::
+    
+    A=RESPR(x): LBYTES flp1_Toolkit_bin, A: CALL A
 
-- ``A=RESPR (x) : LBYTES flp1_Toolkit_bin,A: CALL A``
-
-- ``B=ALCHP (x) : LBYTES flp1_Toolkit_bin,B: CALL B``
+::
+    
+    B=ALCHP(x): LBYTES flp1_Toolkit_bin, B: CALL B
 
 (where x is the length of the toolkit code).
 

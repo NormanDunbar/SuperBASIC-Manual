@@ -433,13 +433,13 @@ written for microdrives, either use
 
 ::
 
-    EXCHG flp1\_file,'mdv','flp'
+    EXCHG flp1_file,'mdv','flp'
 
 or
 
 ::
 
-    FLP\_USE 'mdv'.
+    FLP_USE 'mdv'.
 
 BEEP
 ^^^^

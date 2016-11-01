@@ -21,13 +21,13 @@ such as CHR$(2).
 Normally this is not noticeable and when you open a new window (scr\_ or
 con\_), the standard QL fonts are attached to that channel.
 
-Minerva users can use the commands:
+Minerva users can use the commands::
 
-POKE\_L !124!40, font1
+    POKE_L !124!40, font1
 
-and
+and::
 
-POKE\_L !124!44, font2
+    POKE_L !124!44, font2
 
 to alter these default fonts and thereby attach user-defined fonts to
 every single window that is opened after this command.
