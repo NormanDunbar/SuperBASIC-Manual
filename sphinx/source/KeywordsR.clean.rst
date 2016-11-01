@@ -337,6 +337,103 @@ program data.
 
 --------------
 
+
+READ\_HEADER
+============
+
++----------+-------------------------------------------------------------------+
+| Syntax   | error = READ\_HEADER(#channel, buffer)                            |
++----------+-------------------------------------------------------------------+
+| Location | DJToolkit 1.16                                                    |
++----------+-------------------------------------------------------------------+
+
+The file that is opened on the given channel has its header data read into memory starting at the given address (buffer). The buffer address must have been reserved using `RESERVE\_HEAP <KeywordsR.clean.html#reserve-heap>`__, or some similar command.  
+
+The buffer must be at least 64 bytes long or unpredictable results will occur. The function will read the header but any memory beyond the end of the buffer will be overwritten if the buffer is too short. After a successful call to this function, the contents of the buffer will be as follows :
+
++---------------+-----------------+-----------------------------------------------------------------------------+
+| Address       | Value           | Size                                                                        |
++===============+=================+=============================================================================+
+| Buffer + 0    | File length     | 4 bytes long (see `FILE_LENGTH <KeywordsF.clean.html#file-length>`__)       |
++---------------+-----------------+-----------------------------------------------------------------------------+
+| Buffer + 4    | File access     | 1 byte long - currently zero                                                |
++---------------+-----------------+-----------------------------------------------------------------------------+
+| Buffer + 5    | File type       | 1 byte long  (see `FILE_TYPE <KeywordsF.clean.html#file-type>`__)           |
++---------------+-----------------+-----------------------------------------------------------------------------+
+| Buffer + 6    | File dataspace  | 4 bytes long (see `FILE_DATASPACE <KeywordsF.clean.html#file-dataspace>`__) |
++---------------+-----------------+-----------------------------------------------------------------------------+
+| Buffer + 10   | Unused          | 4 bytes long                                                                |
++---------------+-----------------+-----------------------------------------------------------------------------+
+| Buffer + 14   | Name length     | 2 bytes long, size of filename                                              |
++---------------+-----------------+-----------------------------------------------------------------------------+
+| Buffer + 16   | Filename        | 36 bytes long                                                               |
++---------------+-----------------+-----------------------------------------------------------------------------+
+
+Directory devices also have the following additional data :
+
++---------------+-----------------+-----------------------------------------------------------------------------+
+| Address       | Value           | Size                                                                        |
++===============+=================+=============================================================================+
+| Buffer + 52   | Update date     | 4 bytes long (see `FILE_UPDATE <KeywordsF.clean.html#file-update>`__)       |
++---------------+-----------------+-----------------------------------------------------------------------------+
+| Buffer + 56   | Reference date  | 4 bytes long - see below                                                    |
++---------------+-----------------+-----------------------------------------------------------------------------+
+| Buffer + 60   | Backup date     | 4 bytes long (see `FILE_BACKUP <KeywordsF.clean.html#file-backup>`__)       |
++---------------+-----------------+-----------------------------------------------------------------------------+
+
+Miracle Systems hard disc's users and level 2 users will find the files version number stored as the the 2 bytes starting at buffer + 56, the remaining 2 bytes of the reference date seem to be hex 094A or decimal 2378 which has no apparent meaning, this of course may change at some point!
+
+This function returns an error code if something went wrong while attempting to read the file header or zero if everything  went ok.  It can be used as a more efficient method of finding out the details for a particular file rather than calling all the various `FILE\_XXXX <KeywordsF.clean.html#file-backup>`__ functions. Each of these call the READ\_HEADER routine.
+
+To extract data, use `PEEK <KeywordsP.clean.html#peek>`__ for byte values, `PEEK\_W <KeywordsP.clean.html#peek-w>`__ for the filename length and version number (if level 2 drivers are present, see LEVEL2), or `PEEK\_L <KeywordsP.clean.html#peek-l>`__ to extract 4 byte data items.
+
+The filename can be extracted from the buffer by something like::
+
+    f$ = PEEK_STRING(buffer + 16, PEEK_W(buffer + 14)).
+
+**EXAMPLE**
+The following example allows you to change the current dataspace requirements for an `EXEC <KeywordsE.clean.html#exec>`__\ utable file::
+
+    6445 DEFine PROCedure ALTER_DATASPACE
+    6450   LOCal base, loop, f$, ft, nv
+    6455   base = RESERVE_HEAP (64)
+    6460   IF base < 0 THEN 
+    6465     PRINT "ERROR: " & base & ", reserving heap space."
+    6470     RETurn 
+    6475   END IF 
+    6480   REPeat loop
+    6485     INPUT'Enter filename:';f$
+    6490     IF f$ = '' THEN EXIT loop
+    6495     ft = FILE_TYPE(f$)
+    6500     IF ft < 0 THEN 
+    6465       PRINT "ERROR: " & ft & ", reading file type for " & f$ & "."
+    6510     END IF 
+    6515     IF ft <> 1 THEN 
+    6520       PRINT f$ & 'is not an executable file!'
+    6525       NEXT loop
+    6530     END IF 
+    6535     PRINT 'Current dataspace is:'; FILE_DATASPACE(f$)
+    6540     INPUT 'Enter new value:'; nv
+    6545     OPEN #3,f$ : fer = READ_HEADER (#3,base)
+    6550     IF fer < 0 : CLOSE #3 : PRINT "READ_HEADER error: " & fer : NEXT loop
+    6555     POKE_L base + 6,nv
+    6560     fer = SET_HEADER(#3,base)
+    6565     IF fer < 0 : PRINT "SET_HEADER error: " & fer
+    6570     CLOSE #3
+    6575   END REPeat loop
+    6580   RELEASE_HEAP base
+    6585 END DEFine ALTER_DATASPACE
+
+
+**CROSS-REFERENCE**
+
+`SET\_HEADER <KeywordsS.clean.html#set-header>`__, `FILE\_LENGTH <KeywordsF.clean.html#file-length>`__,
+`FILE\_TYPE <KeywordsF.clean.html#file-type>`__, `FILE\_DATASPACE <KeywordsF.clean.html#file-dataspace>`__,
+`FILE\_UPDATE <KeywordsF.clean.html#file-update>`__, `FILE\_BACKUP <KeywordsF.clean.html#file-backup>`__.
+
+
+-------
+
 RECHP
 =====
 
@@ -538,6 +635,27 @@ is 'executed' by RELEASE.
 Beware the other version of `RELEASE <KeywordsR.clean.html#release>`__.
 
 --------------
+
+RELEASE\_HEAP
+=============
+
++----------+-------------------------------------------------------------------+
+| Syntax   | RELEASE\_HEAP address                                             |
++----------+-------------------------------------------------------------------+
+| Location | DJToolkit 1.16                                                    |
++----------+-------------------------------------------------------------------+
+
+The address given is assumed to be the address of a chunk of common heap as allocated earlier in the program by `RESERVE\_HEAP <KeywordsR.clean.html#reserve-heap>`__. In order to avoid crashing the QL when an invalid address is given, RELEASE\_HEAP checks first that there is a flag at address-4 and if so, clears the flag and returns the memory back to the  system.  If the flag is not there, or if the area has already been released, then a bad parameter error will occur.
+
+It is more efficient to RELEASE\_HEAP in the opposite order to that in which it was reserved and will help to avoid heap fragmentation.
+
+
+**CROSS-REFERENCE**
+
+See `RESERVE\_HEAP <KeywordsR.clean.html#reserve-heap>`__\ , below, for an example of use.
+
+
+-------
 
 RELEASE\_TASK
 =============
@@ -1394,6 +1512,46 @@ See `DISCARD <KeywordsD.clean.html#discard>`__ and
 `GRAB <KeywordsG.clean.html#grab>`__.
 
 --------------
+
+
+RESERVE\_HEAP
+=============
+
++----------+-------------------------------------------------------------------+
+| Syntax   | buffer = RESERVE\_HEAP(length)                                    |
++----------+-------------------------------------------------------------------+
+| Location | DJToolkit 1.16                                                    |
++----------+-------------------------------------------------------------------+
+
+This function obtains a chunk of memory for your program to use, the starting address is returned as the result of the call.  Note that the function will ask for 4 bytes more than you require, these are used to store a flag so that calls to `READ\_HEADER <KeywordsR.clean.html#read-header>`__ do not crash the system by attempting to deallocate invalid areas of memory. If you call this function, the returned address is the first byte that your program can use.  
+
+**EXAMPLE**
+
+The following example shows how this function can be used to reserve a buffer for `READ_HEADER <KeywordsR.clean.html#read-header>`__, described elsewhere.
+
+::
+
+    1000 buffer = RESERVE_HEAP(64)
+    1010 IF buffer < 0
+    1020    PRINT 'ERROR allocating buffer, ' & buffer
+    1030    STOP
+    1040 END IF
+    1050 error = READ_HEADER(#3, buffer)
+
+    .....do something with buffer contents here
+
+    2040 REMark Finished with buffer
+    2050 RELEASE_HEAP buffer
+
+
+**CROSS-REFERENCE**
+
+`RELEASE\_HEAP <KeywordsR.clean.html#release-heap>`__, `ALCHP <KeywordsA.clean.html#alchp>`__, 
+`RECHP <KeywordsR.clean.html#rechp>`__, `ALLOCATE <KeywordsA.clean.html#allocate>`__.
+
+
+-------
+
 
 RESET
 =====

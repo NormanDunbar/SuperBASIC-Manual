@@ -1340,6 +1340,89 @@ will print 5.
 
 --------------
 
+MAX\_CON
+========
+
++----------+-------------------------------------------------------------------+
+| Syntax   | error = MAX\_CON(#channel%, x%, y%, xo%, yo%)                     |
++----------+-------------------------------------------------------------------+
+| Location | DJToolkit 1.16                                                    |
++----------+-------------------------------------------------------------------+
+
+If the given channel is a 'CON\_' channel, this function will return a zero in the variable 'error'. The integer variables, 'x%', 'y%', 'xo%' and 'yo%' will be altered by the function, to return the maximum size that the channel can be `WINDOW <KeywordsW.clean.html#window>`__\ 'd to.
+
+'x%' will be set to the maximum width, 'y%' to the maximum depth, 'xo%' and 'yo%' to the minimum x co-ordinate and y co-ordinate respectively.
+
+For the technically minded reader, this function uses the IOP\_FLIM routine in the pointer Environment code, if present. If it is not present, you should get the -15 error code returned. (BAD PARAMETER).
+
+
+**EXAMPLE**
+
+::
+
+    7080 DEFine PROCedure SCREEN_SIZES
+    7090   LOCal w%,h%,x%,y%,fer
+    7100   REMark how to work out maximum size of windows using iop.flim
+    7110   REMark using MAX_CON on primary channel returns screen size
+    7120   REMark secondaries return maximum sizes within outline where
+    7130   REMark pointer environment is used.
+    7140   w% = 512 : REMark width of standard QL screen
+    7150   h% = 256 : REMark height of standard QL screen
+    7160   x% = 0
+    7170   y% = 0
+    7180   :
+    7190   fer = MAX_CON(#0,w%,h%,x%,y%) : REMark primary for basic
+    7200   IF fer < 0 : PRINT #0,'Error ';fer : RETurn 
+    7210   PRINT'#0 : ';w%;',';h%;',';x%;',';y%
+    7220   :
+    7230   fer = MAX_CON(#1,w%,h%,x%,y%) : REMark primary for basic
+    7240   IF fer < 0 : PRINT #0,'Error ';fer : RETurn 
+    7250   PRINT'#1 : ';w%;',';h%;',';x%;',';y%
+    7260   :
+    7270   fer = MAX_CON(#2,w%,h%,x%,y%) : REMark primary for basic
+    7280   IF fer < 0 : PRINT #0,'Error ';fer : RETurn 
+    7290   PRINT'#2 : ';w%;',';h%;',';x%;',';y%
+    7300 END DEFine SCREEN_SIZES
+
+
+-------
+
+
+MAX\_DEVS
+=========
+
++----------+-------------------------------------------------------------------+
+| Syntax   | how_many = MAX\_DEVS                                              |
++----------+-------------------------------------------------------------------+
+| Location | DJToolkit 1.16                                                    |
++----------+-------------------------------------------------------------------+
+
+This function returns the number of installed directory device drivers in your QL. It can be used to `DIM <KeywordsD.clean.html#dim>`__\ ension a string array to hold the device names as follows::
+
+    1000 REMark Count directory devices
+    1010 :
+    1020 how_many = MAX_DEVS
+    1030 :
+    1040 REMark Set up array
+    1050 :
+    1060 DIM device$(how_many, 10)
+    1070 :
+    1080 REMark Now get device names
+    1090 addr = 0
+    1100 FOR devs = 1 to how_many
+    1110   device$(devs) = DEV_NAME(addr)
+    1120   IF addr = 0 THEN EXIT devs: END IF
+    1130 END FOR devs
+
+
+**CROSS-REFERENCE**
+
+`DEV\_NAME <KeywordsD.clean.html#dev-name>`__.
+
+
+-------
+
+
 MAXIMUM
 =======
 
@@ -2655,6 +2738,75 @@ allows the turtle to move without leaving a trail.
 allow you to alter the direction of the turtle.
 
 --------------
+
+MOVE\_MEM
+=========
+
++----------+-------------------------------------------------------------------+
+| Syntax   | MOVE\_MEM destination, length                                     |
++----------+-------------------------------------------------------------------+
+| Location | DJToolkit 1.16                                                    |
++----------+-------------------------------------------------------------------+
+
+This procedure will copy the appropriate number of bytes from the given source address to the destination address. If there is an overlap in the addresses, then the procedure will notice and take the appropriate action to avoid corrupting the data being moved. Most moves will take place from source to destination, but in the event of an overlap, the move will be from (source + length -1) to (destination + length -1).
+
+This procedure tries to do the moving as fast as possible and checks the addresses passed as parameters to see how it will do this as follows :-
+
+- If both addresses are odd, move one byte, increase the source & destination addresses by 1 and drop in to treat them as if both are even, which they now are!
+
+- If both addresses are even, calculate the number of long word moves (4 bytes at a time) that are to be done and do them. Now calculate how many single bytes need to be moved (zero to 3 only) and do them.
+
+- If one address is odd and the other is even the move can only be done one byte at a time, this is quite a lot slower than if long words can be moved.
+
+The calculations to determine which form of move to be done adds a certain overhead to the function and this can be the slowest part of a memory move that is quite small.
+
+
+**EXAMPLE**
+
+::
+
+    MOVE_MEM SCREEN_BASE(#0), SaveScreen_Addr, 32 \* 1024
+
+
+-------
+
+
+MOVE\_POSITION
+==============
+
++----------+-------------------------------------------------------------------+
+| Syntax   | MOVE\_POSITION #channel, relative\_position                       |
++----------+-------------------------------------------------------------------+
+| Location | DJToolkit 1.16                                                    |
++----------+-------------------------------------------------------------------+
+
+This is a similar  procedure to `ABS\_POSITION <KeywordsA.clean.html#abs-position>`__, but the file pointer is set to a position relative to the current one.  The direction given can be positive to move forward in the file, or negative to move backwards. The channel must of course be opened to a file on a directory  device.  If the position given would take you back to before the start of the file, the position is left at the start, position 0.  If the move would take you past the end of file, the file is left at end of file.
+
+After a MOVE\_POSITION command, the next access to the given channel, whether read or write, will take place from the new position.
+
+
+**EXAMPLE**
+
+::
+
+    MOVE_POSITION #3, 0
+    
+moves the current file pointer on channel 3 to the start of the file.    
+
+::
+
+    MOVE_POSITION #3, 6e6
+    
+moves the current file pointer on channel 3 to the end of the file.    
+
+
+**CROSS-REFERENCE**
+
+`ABS\_POSITION <KeywordsA.clean.html#abs-position>`__.
+
+
+-------
+
 
 MRUN
 ====

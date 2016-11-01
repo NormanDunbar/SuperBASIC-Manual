@@ -306,6 +306,28 @@ Please see `CDEC$ <KeywordsC.clean.html#cdec>`__.
 
 --------------
 
+FETCH\_BYTES
+============
+
++----------+-------------------------------------------------------------------+
+| Syntax   | a$ = FETCH\_BYTES(#channel, how\_many)                            |
++----------+-------------------------------------------------------------------+
+| Location | DJToolkit 1.16                                                    |
++----------+-------------------------------------------------------------------+
+
+This function  returns the requested  number of bytes from the given channel which must have been opened for INPUT or INPUT/OUTPUT.  It will work on CON\_ channels as well, but no cursor is shown and the characters typed in are not shown on the screen.  If there is an ENTER character, or a CHR$(10), it will not signal the end of input.  The function will not return until the appropriate number of bytes have been read.
+
+WARNING - JM and AH ROMS will cause a 'Buffer overflow' error if more than 128 bytes are fetched, this is a fault with QDOS and not with DJToolkit. See the demos file, supplied with DJToolkit, for a workaround to this problem.
+
+**EXAMPLE**
+
+::
+
+    LineOfBytes$ = FETCH_BYTES(#4, 256)
+
+
+-------
+
 FEXP$
 =====
 
@@ -637,6 +659,37 @@ representations to actual values.
 
 --------------
 
+FILE\_BACKUP
+============
+
++----------+------------------------------------------------------------------+
+| Syntax   | bk = FILE\_BACKUP(#channel)                                      |
++----------+------------------------------------------------------------------+
+| Syntax   | bk = FILE\_BACKUP('filename')                                    |
++----------+------------------------------------------------------------------+
+| Location | DJToolkit 1.16                                                   |
++----------+------------------------------------------------------------------+
+
+This function reads the backup date from the file header and returns it into the variable bk.  The parameter can either be a channel number for an open channel, or it can be the filename (in quotes) of a closed file.  If the returned value is negative, it is a normal QDOS error code.  If the value returned is positve, it can be  converted to a string be calling DATE$(bk). In normal use, a files backup date is never set by QDOS, however, users who have WinBack or a similar backup utility program will see proper backup dates if the file has been backed up.
+
+**EXAMPLE**
+
+::
+
+    1000 bk = FILE_BACKUP('flp1_boot')
+    1010 IF bk <> 0 THEN
+    1020    PRINT "Flp1_boot was last backed up on " & DATE$(bk)
+    1030 ELSE
+    1040    PRINT "Flp1_boot doesn't appear to have been backed up yet."
+    1050 END IF
+
+**CROSS-REFERENCE**
+
+`FILE\_DATASPACE <KeywordsF.clean.html#file-dataspace>`__, `FILE\_LENGTH <KeywordsF.clean.html#file-length>`__, `FILE\_TYPE <KeywordsF.clean.html#file-type>`__, `FILE\_UPDATE <KeywordsF.clean.html#file-update>`__.
+
+
+-------
+
 FILE\_DAT
 =========
 
@@ -651,6 +704,38 @@ This is the same as FDAT except that default devices and sub-
 directories are not supported.
 
 --------------
+
+FILE\_DATASPACE
+===============
+
++----------+------------------------------------------------------------------+
+| Syntax   | ds = FILE\_DATASPACE(#channel)                                   |
++----------+------------------------------------------------------------------+
+| Syntax   | ds = FILE\_DATASPACE('filename')                                 |
++----------+------------------------------------------------------------------+
+| Location | DJToolkit 1.16                                                   |
++----------+------------------------------------------------------------------+
+
+This function returns the current dataspace requirements for the file opened as #channel or for the file which has the name given, in quotes, as filename.  If the file is an EXEC'able file (See `FILE\_TYPE <KeywordsF.clean.html#file-type>`__) then the value returned will be the amount of dataspace that that program requires to run, if the file is not an EXEC'able file, the result is undefined, meaningless and probably zero.  If the result is negative, there has been an error and the QDOS error code has been returned.
+
+**EXAMPLE**
+
+::
+
+    1000 ds = FILE_DATASPACE('flp1_WinBack_exe')
+    1010 IF ds <= 0 THEN
+    1020    PRINT "WinBack_exe doesn't appear to exist on flp1_, or is not executable."
+    1030 ELSE
+    1040    PRINT "WinBack_exe's dataspace is set to " & ds & " bytes."
+    1050 END IF
+
+
+**CROSS-REFERENCE**
+
+`FILE\_BACKUP <KeywordsF.clean.html#file-backup>`__, `FILE\_LENGTH <KeywordsF.clean.html#file-length>`__, `FILE\_TYPE <KeywordsF.clean.html#file-type>`__, `FILE\_UPDATE <KeywordsF.clean.html#file-update>`__.
+
+
+-------
 
 FILE\_LEN
 =========
@@ -710,6 +795,38 @@ to OPEN\_DIR and FOP\_DIR for a cleaner method.
 `FXTRA <KeywordsF.clean.html#fxtra>`__ hold other information on a file.
 
 --------------
+
+FILE\_LENGTH
+============
+
++----------+------------------------------------------------------------------+
+| Syntax   | fl = FILE\_LENGTH(#channel)                                      |
++----------+------------------------------------------------------------------+
+| Syntax   | fl = FILE\_LENGTH('filename')                                    |
++----------+------------------------------------------------------------------+
+| Location | DJToolkit 1.16                                                   |
++----------+------------------------------------------------------------------+
+
+The file length is returned. The file may be open, in which case simply supply the channel number, or closed, supply the filename in quotes. If the returned value is negative, then it is a QDOS error code.
+
+**EXAMPLE**
+
+::
+
+    1000 fl = FILE_LENGTH('flp1_WinBack_exe')
+    1010 IF fl <= 0 THEN
+    1020    PRINT "Error checking FILE_LENGTH: " & fl
+    1030 ELSE
+    1040    PRINT "WinBack_exe's file size is " & fl & " bytes."
+    1050 END IF
+    
+**CROSS-REFERENCE**
+
+`FILE\_BACKUP <KeywordsF.clean.html#file-backup>`__, `FILE\_DATASPACE <KeywordsF.clean.html#file-dataspace>`__, `FILE\_TYPE <KeywordsF.clean.html#file-type>`__, `FILE\_UPDATE <KeywordsF.clean.html#file-update>`__.
+
+
+-------
+
 
 FILE\_OPEN
 ==========
@@ -789,6 +906,53 @@ This performs the same function as FPOS, although with slightly less
 flexible parameters.
 
 --------------
+
+FILE\_POSITION
+==============
+
++----------+-------------------------------------------------------------------+
+| Syntax   | where = FILE\_POSITION(#channel)                                  |
++----------+-------------------------------------------------------------------+
+| Location | DJToolkit 1.16                                                    |
++----------+-------------------------------------------------------------------+
+
+This function will tell you exactly where you are in the file that has been opened, to a directory device, as #channel, if the result returned is negative it is a QDOS error code.  If the file has just been opened, the result will be zero, if the file is at the very end, the result will be the same as calling FILE\_LENGTH(#channel) - 1, files start at byte zero remember.
+
+**EXAMPLE**
+
+::
+
+    1500 DEFine FuNction OPEN_APPEND(f$)
+    1510   LOCal ch, fp
+    1515   :
+    1520   REMark Open a file at the end, ready for additional
+    1530   REMark data to be appended.
+    1540   REMark Returns the channel number. (Or error)
+    1545   :
+    1550   ch = DJ_OPEN(f$)
+    1560   IF ch < 0 THEN
+    1570      PRINT "Error: " & ch & " Opening file: " & f$
+    1580      RETurn ch
+    1590   END IF
+    1595   :
+    1600   MOVE_POSITION #ch, 6e6
+    1610   fp = FILE_POSITION(#ch)
+    1620   IF fp < 0 THEN
+    1630      PRINT "Error: " & fp & " reading file position on: " & f$
+    1640      CLOSE #ch
+    1650      RETurn fp
+    1660   END IF
+    1665   :
+    1670   PRINT "File position set to EOF at: " & fp & " on file: " &f$
+    1680   RETurn ch
+    1690 END DEFine  
+
+**CROSS-REFERENCE**
+
+`ABS\_POSITION <KeywordsA.clean.html#abs-position>`__, `MOVE\_POSITION <KeywordsM.clean.html#move-position>`__.
+
+
+-------
 
 FILE\_PTRA
 ==========
@@ -871,6 +1035,82 @@ Note that on Minerva, Integer Tokenisation will need to be disabled.
 `GET <KeywordsG.clean.html#get>`__.
 
 --------------
+
+FILE\_TYPE
+==========
+
++----------+------------------------------------------------------------------+
+| Syntax   | ft = FILE\_TYPE(#channel)                                        |
++----------+------------------------------------------------------------------+
+| Syntax   | ft = FILE\_TYPE('filename')                                      |
++----------+------------------------------------------------------------------+
+| Location | DJToolkit 1.16                                                   |
++----------+------------------------------------------------------------------+
+
+This function returns the files type byte. The various types currently known to me are :
+
+- 0 = BASIC, CALL'able machine code, an extensions file or a DATA file.
+- 1 = EXEC'able file.
+- 2 = SROFF file used by linkers etc, a C68 Library file etc.
+- 3 = THOR hard disc directory file. (I think!)
+- 4 = A font file in The Painter
+- 5 = A pattern file in The Painter
+- 6 = A compressed MODE 4 screen in The Painter
+- 11 = A compressed MODE 8 screen in The Painter
+- 255 = Level 2 driver directory or sub-directory file, Miracle hard disc directory file.
+
+There *may* be others.
+
+**EXAMPLE**
+
+::
+
+    1000 ft = FILE_TYPE('flp1_boot')
+    1010 IF ft <= 0 THEN
+    1020    PRINT "Error checking FILE_TYPE: " & ft
+    1030 ELSE
+    1040    PRINT "Flp1_boot's file type is " & ft & "."
+    1050 END IF
+
+**CROSS-REFERENCE**
+
+`FILE\_BACKUP <KeywordsF.clean.html#file-backup>`__, `FILE\_DATASPACE <KeywordsF.clean.html#file-dataspace>`__, `FILE\_LENGTH <KeywordsF.clean.html#file-length>`__, `FILE\_UPDATE <KeywordsF.clean.html#file-update>`__.
+
+
+-------
+
+
+FILE\_UPDATE
+============
+
++----------+------------------------------------------------------------------+
+| Syntax   | fu = FILE\_UPDATE(#channel)                                      |
++----------+------------------------------------------------------------------+
+| Syntax   | fu = FILE\_UPDATE('filename')                                    |
++----------+------------------------------------------------------------------+
+| Location | DJToolkit 1.16                                                   |
++----------+------------------------------------------------------------------+
+
+This function  returns the date that the appropriate  file was last updated, either by printing to it, saving it or editing it using an editor etc.  This date is set in all known QLs and emulators etc.
+
+**EXAMPLE**
+
+::
+
+    1000 fu = FILE_UPDATE('flp1_boot')
+    1010 IF fu <> 0 THEN
+    1020    PRINT "Flp1_boot was last written/saved/updated on " & DATE$(fu)
+    1030 ELSE
+    1040    PRINT "Cannot read lates UPDATE date from flp1_boot. Error: " & fu & "."
+    1050 END IF
+
+**CROSS-REFERENCE**
+
+`FILE\_DATASPACE <KeywordsF.clean.html#file-dataspace>`__, `FILE\_LENGTH <KeywordsF.clean.html#file-length>`__, `FILE\_TYPE <KeywordsF.clean.html#file-type>`__, `FILE\_TYPE <KeywordsF.clean.html#file-type>`__.
+
+
+-------
+
 
 FILL
 ====
@@ -1062,6 +1302,84 @@ depends on the ROM version - see the Compatability Appendix.
 Refer to `DIM <KeywordsD.clean.html#dim>`__ about strings in general.
 
 --------------
+
+FILLMEM\_B
+==========
+
++----------+-------------------------------------------------------------------+
+| Syntax   | FILLMEM\_B start\_address, how\_many, value                       |
++----------+-------------------------------------------------------------------+
+| Location | DJToolkit 1.16                                                    |
++----------+-------------------------------------------------------------------+
+
+Fill memory with a byte value. See `FILLMEM\_L <KeywordsF.clean.html#fillmem-l>`__ below.
+
+**CROSS-REFERENCE**
+
+`FILLMEM\_L <KeywordsF.clean.html#fillmem-l>`__, `FILLMEM\_W <KeywordsF.clean.html#fillmem-w>`__.
+
+
+-------
+
+
+FILLMEM\_W
+==========
+
++----------+-------------------------------------------------------------------+
+| Syntax   | FILLMEM\_W start\_address, how\_many, value                       |
++----------+-------------------------------------------------------------------+
+| Location | DJToolkit 1.16                                                    |
++----------+-------------------------------------------------------------------+
+
+Fill memory with a 16 bit word value . See `FILLMEM\_L <KeywordsF.clean.html#fillmem-l>`__ below.
+
+**CROSS-REFERENCE**
+
+`FILLMEM\_L <KeywordsF.clean.html#fillmem-l>`__, `FILLMEM\_B <KeywordsF.clean.html#fillmem-b>`__.
+
+
+-------
+
+
+FILLMEM\_L
+==========
+
++----------+-------------------------------------------------------------------+
+| Syntax   | FILLMEM\_L start\_address, how\_many, value                       |
++----------+-------------------------------------------------------------------+
+| Location | DJToolkit 1.16                                                    |
++----------+-------------------------------------------------------------------+
+
+Fill memory with a long (32 bit) value. 
+
+
+**EXAMPLE**
+
+The screen memory is 32 kilobytes long. To fill it all black, try this::
+
+    1000 FILLMEM_B SCREEN_BASE(#0), 32 * 1024, 0
+
+or this::
+
+    1010 FILLMEM_W SCREEN_BASE(#0), 16 * 1024, 0
+
+or this::
+
+    1020 FILLMEM_L SCREEN_BASE(#0), 8 * 1024, 0
+
+and the screen will change to all black. Note how the second parameter is halved each time? This is because there are half as many words as bytes and half as many longs as words.
+
+The fastest is FILLMEM\_L and the slowest is `FILLMEM\_B <KeywordsF.clean.html#fillmem-b>`__. When you use `FILLMEM\_W <KeywordsF.clean.html#fillmem-w>`__ or FILLMEM\_L you must make sure that the start\_address is even or you will get a bad parameter error. `FILLMEM\_B <KeywordsF.clean.html#fillmem-b>`__ does not care about its start_address being even or not.
+
+`FILLMEM\_B <KeywordsF.clean.html#fillmem-b>`__ truncates the value to the lowest 8 bits, `FILLMEM\_W <KeywordsF.clean.html#fillmem-w>`__ to the lowest 16 bits and FILLMEM\_L uses the lowest 32 bits of the value. Note that some values may be treated as negatives when `PEEK <KeywordsP.clean.html#peek>`__\ 'd back from memory. This is due to the QL treating words and long words as signed numbers.
+
+**CROSS-REFERENCE**
+
+`FILLMEM\_B <KeywordsF.clean.html#fillmem-b>`__, `FILLMEM\_W <KeywordsF.clean.html#fillmem-w>`__.
+
+
+-------
+
 
 FIND
 ====
@@ -1685,6 +2003,33 @@ used to flush the Networks.
 See `OPEN <KeywordsO.clean.html#open>`__ and `CLOSE <KeywordsC.clean.html#close>`__.
 
 --------------
+
+FLUSH\_CHANNEL
+==============
+
++----------+-------------------------------------------------------------------+
+| Syntax   | FLUSH\_CHANNEL #channel                                           |
++----------+-------------------------------------------------------------------+
+| Location | DJToolkit 1.16                                                    |
++----------+-------------------------------------------------------------------+
+
+This procedure  makes sure that all data written to the given channel number has been 'flushed' out to the appropriate device. This means that if a power cut occurs, then no data will be lost.
+
+**EXAMPLE**
+
+::
+
+    1000 DEFine PROCedure SaveSettings
+    1010   OPEN_OVER #3, "flp1_settings.cfg"
+    1020   FOR x = 1 to 100
+    1030     PRINT #3, Setting$(x), Value$(x)
+    1040   END FOR x
+    1050   FLUSH_CHANNEL #3
+    1060   CLOSE #3
+    1070 END DEFine    
+
+
+-------
 
 FMAKE\_DIR
 ==========

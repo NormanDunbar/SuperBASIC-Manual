@@ -833,6 +833,64 @@ See `SCR\_BASE <KeywordsS.clean.html#scr-base>`__.
 
 --------------
 
+
+SCREEN\_BASE
+============
+
++----------+-------------------------------------------------------------------+
+| Syntax   | screen = SCREEN\_BASE(#channel)                                   |
++----------+-------------------------------------------------------------------+
+| Location | DJToolkit 1.16                                                    |
++----------+-------------------------------------------------------------------+
+
+This function is handy for Minerva  users, who have 2 screens to play with. The function returns the address of the start of the screen  memory for the appropriate channel.
+
+If the returned address is negative, consider it to be a QDOS error code. (-6 means channel not open & -15 means not a SCR\_ or CON\_ channel.)
+
+SCREEN\_BASE  allows you to write  programs  that need not make guesses about the whereabouts of the screen memory, or assume that if `VER$ <KeywordsV.clean.html#ver>`__ gives a certain result, that a Minerva ROM is being used, this may not always be the case. Regardless of the ROM in use, this function will always return the screen address for the given channel.
+
+**EXAMPLE**
+
+::
+
+    PRINT HEX$(SCREEN_BASE(#0), 24)
+    
+
+-------
+
+
+SCREEN\_MODE
+============
+
++----------+-------------------------------------------------------------------+
+| Syntax   | current_mode = SCREEN\_MODE                                       |
++----------+-------------------------------------------------------------------+
+| Location | DJToolkit 1.16                                                    |
++----------+-------------------------------------------------------------------+
+
+This function can help in your programs where you need to be in a specific mode.  If you call this function you can find out if a mode change needs to be made or not.  As the `MODE <KeywordsM.clean.html#mode>`__ call changes the mode for every program running in the QL, use this function before setting the appropriate mode. 
+
+The value returned can be 4 or 8 for normal QLs, 2 for Atari ST/QL Extended mode 4 or any other value deemed appropriate by the hardware being used. Never assume that your programs will only be run on a QL!
+
+**EXAMPLE**
+
+::
+
+    1000 REMark Requires MODE 4 for best results so ...
+    1010 IF SCREEN_MODE <> 4
+    1020    MODE 4
+    1030 END IF
+    1040 :
+    1050 REMark Rest of program ....
+
+**CROSS-REFERENCE**
+
+`MODE <KeywordsM.clean.html#mode>`__.
+
+
+-------
+
+
 SCRINC
 ======
 
@@ -2007,6 +2065,79 @@ implementation of `SEARCH <KeywordsS.clean.html#search>`__.
 
 --------------
 
+
+SEARCH\_C
+=========
+
++----------+-------------------------------------------------------------------+
+| Syntax   | address = SEARCH\_C(start, length, what_for$)                     |
++----------+-------------------------------------------------------------------+
+| Location | DJToolkit 1.16                                                    |
++----------+-------------------------------------------------------------------+
+
+See `SEARCH\_I <KeywordsS.clean.html#search-i>`__ for details.
+
+**CROSS-REFERENCE**
+
+`SEARCH\_I <KeywordsS.clean.html#search-i>`__.
+
+
+-------
+
+
+SEARCH\_I
+=========
+
++----------+-------------------------------------------------------------------+
+| Syntax   | address = SEARCH\_I(start, length, what_for$)                     |
++----------+-------------------------------------------------------------------+
+| Location | DJToolkit 1.16                                                    |
++----------+-------------------------------------------------------------------+
+
+This function, and `SEARCH\_C <KeywordsS.clean.html#search-c>`__ above, search through memory looking for the given string. `SEARCH\_C <KeywordsS.clean.html#search-c>`__ searches for an EXACT match whereas SEARCH\_I ignores the difference between lower & UPPER case letters.
+
+If the address  returned is zero, the string was not found,  otherwise it is the address where the first character of what_for$ was found, or negative for any errors that may have occurred.
+
+If the string  being  searched for is empty ("") then zero will be returned, if the length of the buffer is negative or 0, you will get a 'bad parameter' error (-15).  The address is considered to be unsigned, so negative addresses will be considered to be very large positive addresses, this allows for any future enhancements which will allow the QL to use a lot more memory than it does now!
+
+**EXAMPLE**
+
+::
+
+    1000 PRINT SEARCH_C(0, 48 * 1024, 'sinclair')
+    1010 PRINT SEARCH_I(0, 48 * 1024, 'sinclair')
+    1020 PRINT
+    1030 PRINT SEARCH_C(0, 48 * 1024, 'Sinclair')
+    1040 PRINT SEARCH_I(0, 48 * 1024, 'Sinclair')
+
+The above fragment, on my Gold Card JS QL, prints::
+
+    0
+    47314
+    
+    47314
+    47314
+
+Looking into the ROM at that address using 
+
+::
+
+    PEEK_STRING(47314, 21) 
+    
+gives::
+
+    Sinclair Research Ltd
+
+which is part of the copyright notice that comes up when you switch on your QL. The reason for zero in line 1000 is because the 's' is lower case, case is significant and the ROM has a capital 'S', so the text was not found in the ROM.
+
+
+**CROSS-REFERENCE**
+
+`SEARCH_C <KeywordsS.clean.html#search-c>`__.
+
+
+-------
+
 SEARCH\_MEM
 ===========
 
@@ -2966,6 +3097,28 @@ See `GetHEAD <KeywordsG.clean.html#gethead>`__.
 
 --------------
 
+SET\_HEADER
+===========
+
++----------+-------------------------------------------------------------------+
+| Syntax   | error = SET\_HEADER(#channel, buffer)                             |
++----------+-------------------------------------------------------------------+
+| Location | DJToolkit 1.16                                                    |
++----------+-------------------------------------------------------------------+
+
+This function  returns the error code that occurred when trying to set the header of the file on the given  channel, to the contents of the 64 byte buffer stored at the given address.  If the result is zero then you can assume that it worked ok, otherwise the result will be a negative QDOS error code.  On normal QLs, the three dates at the end of a file header cannot be set.
+
+**EXAMPLE**
+
+See the example for `READ\_HEADER <KeywordsR.clean.html#read-header>`__.
+
+**CROSS-REFERENCE**
+
+`READ\_HEADER <KeywordsR.clean.html#read-header>`__.
+
+
+-------
+
 SET\_CLOCK
 ==========
 
@@ -3251,6 +3404,55 @@ languages for messages and errors. See also
 `KBD\_TABLE <KeywordsK.clean.html#kbd-table>`__.
 
 --------------
+
+
+SET\_XINC
+=========
+
++----------+-------------------------------------------------------------------+
+| Syntax   | SET\_XINC #channel, increment                                     |
++----------+-------------------------------------------------------------------+
+| Location | DJToolkit 1.16                                                    |
++----------+-------------------------------------------------------------------+
+
+See `SET\_YINC <KeywordsS.clean.html#set-yinc>`__\ , below, for details.
+
+
+-------
+
+
+SET\_YINC
+=========
+
++----------+-------------------------------------------------------------------+
+| Syntax   | SET\_YINC #channel, increment                                     |
++----------+-------------------------------------------------------------------+
+| Location | DJToolkit 1.16                                                    |
++----------+-------------------------------------------------------------------+
+
+These two functions change the spacing between characters horozontally, `SET\_XINC <KeywordsS.clean.html#set-xinc>`__, or vertically, SET\_YINC. This allows slightly more information to be displayed on the screen. `SET\_XINC <KeywordsS.clean.html#set-xinc>`__ allows adjacent characters on a line of the screen to be positioned closer or further apart as desired. SET\_YINC varies the spacing between the current line of characters and the next.
+
+By choosing silly values, you can have a real messy screen, but try experimenting with `OVER <KeywordsO.clean.html#over>`__ as well to see what happens. Use of the `MODE <KeywordsM.clean.html#mode>`__ or `CSIZE <KeywordsC.clean.html#csize>`__ commands in SuperBasic will overwrite your new values.
+
+
+**EXAMPLE**
+
+::
+
+    SET_XINC #2, 22
+    SET_YINC #2, 16
+    PRINT #2, "This is a line of text"
+    PRINT #2, "This is another line of text"
+    PRINT #2, "This is yet another!"
+
+
+**CROSS-REFERENCE**
+
+`SET\_XINC <KeywordsS.clean.html#set-xinc>`__.
+
+
+-------
+
 
 SEXEC
 =====
@@ -5131,3 +5333,23 @@ A wrong address leads to serious crashes.
 `S\_SAVE <KeywordsS.clean.html#s-save>`__
 
 
+-------
+
+SYSTEM\_VARIABLES
+=================
+
++----------+-------------------------------------------------------------------+
+| Syntax   | sys_vars = SYSTEM\_VARIABLES                                      |
++----------+-------------------------------------------------------------------+
+| Location | DJToolkit 1.16                                                    |
++----------+-------------------------------------------------------------------+
+
+This function returns the current address of the QL's system variables.  For most purposes, this will be hex 28000, decimal 163840, but Minerva users will probably get a different value due to the double screen.  *Do not* assume that all QLs, current or future, will have their system variables at a fixed point in memory, this need not be the case.
+
+
+**EXAMPLE**
+
+::
+
+    PRINT SYSTEM_VARIABLES
+    

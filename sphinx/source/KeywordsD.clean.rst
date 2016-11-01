@@ -1956,6 +1956,46 @@ keywords which are all part of the same Toolkit.
 
 --------------
 
+
+DEV\_NAME
+=========
+
++----------+-------------------------------------------------------------------+
+| Syntax   | device$ = DEV\_NAME(address)                                      |
++----------+-------------------------------------------------------------------+
+| Location | DJToolkit 1.16                                                    |
++----------+-------------------------------------------------------------------+
+
+This function must be called with a floating point variable name as its parameter.  The first time this function is called, address *must* hold the value zero, on all other calls, simply pass address *unchanged* back.  The purpose of the function is to return a directory device name to the variable device$, an example is worth a thousand explanations.
+
+::
+
+    1000 addr = 0
+    1010 REPeat loop
+    1020   PRINT "<" & DEV_NAME(addr) & ">"
+    1030   IF addr = 0 THEN EXIT loop: END IF
+    1040 END REPeat loop
+
+This small example will scan the entire directory device driver list and return one entry from it each time as well as updating the value in 'addr'. The value in addr is the start of the next device driver linkage block and *must not be changed* except by the function `DEV\_NAME <KeywordsD.clean.html#dev-name>`__. If you change addr and then call `DEV\_NAME <KeywordsD.clean.html#dev-name>`__ again, the results will be very unpredictable.
+
+The check for addr being zero is done as this is the value returned when the final device name has been extracted, in this case the function returns an empty string for the device.  If the test was made before the call to `DEV\_NAME <KeywordsD.clean.html#dev-name>`__, nothing would be printed as addr is zero on entry to the loop.
+
+Please note, every QL has at least one device in the list, the 'MDV' device and some also have a device with no name as you will see if you run the above example (not the last one as it is always an empty string when addr becomes zero).
+
+The above example will only show directory  devices, those that can have DIR used on them, or `FORMAT <KeywordsF.clean.html#format>`__ etc, such as WIN, RAM, FLP, FDK etc, however, it cannot show the  non-directory  devices such as SER, PAR (or NUL if you have Lightning), as these are in another list held in the QL.
+
+**Note**
+
+From version 1.14 of DJToolkit onwards, there is a function that counts the number of directory devices present in the QL. See `MAX\_DEVS <KeywordsM.clean.html#max-devs>`__ for details.
+
+
+**CROSS-REFERENCE**
+
+`MAX\_DEVS <KeywordsM.clean.html#max-devs>`__.
+
+
+-------
+
 DEVICE\_SPACE
 =============
 
@@ -3768,6 +3808,26 @@ SCR\_PRIORITY is similar under Amiga QDOS.
 
 --------------
 
+DISPLAY\_WIDTH
+==============
+
++----------+-------------------------------------------------------------------+
+| Syntax   | bytes_in_a_line = DISPLAY\_WIDTH                                  |
++----------+-------------------------------------------------------------------+
+| Location | DJToolkit 1.16                                                    |
++----------+-------------------------------------------------------------------+
+
+This function can be used to determine how many bytes of the QL's memory are used to hold the data in one line of pixels on the screen. Note that the value returned has nothing to do with any *window* width, it always refers to the total *screen* display width.
+
+Why include this function I hear you think? If you run an ordinary QL, then the result will probably always be 128 as this is how many bytes are used to hold a line of pixels, however, many people use Atari ST/QLs, QXL etc and these have a number of other screen modes for which 128 bytes is not enough. 
+
+This function will return the exact number of bytes required to step from one line of pixels to the next. Never assume that QDOS programs will only ever be run on a QL. What will happen when new Graphics hardware or emulators arrive? This function will still work, assuming that the unit uses standard QDOS channel definition blocks etc.
+
+For the technically minded, the word at offset $64 in the SCR\_ or CON\_ channel's definition block is returned. This is called SD\_LINEL in 'Tebby Speak' and is mentioned in Jochen Merz's *QDOS Reference Manual* and the *QL Technical Manual* by Tony Tebby et al. Andrew Pennel's book, the *QDOS Companion* gets it wrong on page 61, guess which one I used first!
+
+
+-------
+
 DIV
 ===
 
@@ -3887,6 +3947,172 @@ remainder of a division. Compare the other version of
 `DIV <KeywordsD.clean.html#div>`__.
 
 --------------
+
+
+DJ\_OPEN
+========
+
++----------+-------------------------------------------------------------------+
+| Syntax   | channel = DJ\_OPEN('filename')                                    |
++----------+-------------------------------------------------------------------+
+| Location | DJToolkit 1.16                                                    |
++----------+-------------------------------------------------------------------+
+
+Open an existing file for exclusive use. See `DJ\_OPEN\_DIR <KeywordsD.clean.html#dj-open-dir>`__ below for details and examples.
+
+**CROSS-REFERENCE**
+
+`DJ\_OPEN\_IN <KeywordsD.clean.html#dj-open-in>`__, `DJ\_OPEN\_NEW <KeywordsD.clean.html#dj-open-new>`__, `DJ\_OPEN\_OVER <KeywordsD.clean.html#dj-open-over>`__, and `DJ\_OPEN\_DIR <KeywordsD.clean.html#dj-open-dir>`__.
+
+
+-------
+
+
+DJ\_OPEN\_IN
+============
+
++----------+-------------------------------------------------------------------+
+| Syntax   | channel = DJ\_OPEN\_IN('filename')                                |
++----------+-------------------------------------------------------------------+
+| Location | DJToolkit 1.16                                                    |
++----------+-------------------------------------------------------------------+
+
+Open an existing file for shared use. The same file can be opened by other applications running at the same time. Provided they have a compatible non-exclusive OPEN mode. See `DJ_OPEN_DIR <KeywordsD.clean.html#dj-open-dir>`__ below for details and examples.
+
+**CROSS-REFERENCE**
+
+`DJ_OPEN <KeywordsD.clean.html#dj-open>`__, `DJ\_OPEN\_NEW <KeywordsD.clean.html#dj-open-new>`__, `DJ\_OPEN\_OVER <KeywordsD.clean.html#dj-open-over>`__, and `DJ\_OPEN\_DIR <KeywordsD.clean.html#dj-open-dir>`__.
+
+
+-------
+
+
+DJ\_OPEN\_NEW
+=============
+
++----------+-------------------------------------------------------------------+
+| Syntax   | channel = DJ\_OPEN\_NEW('filename')                               |
++----------+-------------------------------------------------------------------+
+| Location | DJToolkit 1.16                                                    |
++----------+-------------------------------------------------------------------+
+
+Create a new file for exclusive use. See `DJ\_OPEN\_DIR <KeywordsD.clean.html#dj-open-dir>`__ below for details and examples.
+
+**CROSS-REFERENCE**
+
+`DJ_OPEN <KeywordsD.clean.html#dj-open>`__, `DJ\_OPEN\_IN <KeywordsD.clean.html#dj-open-in>`__, `DJ\_OPEN\_OVER <KeywordsD.clean.html#dj-open-over>`__, and `DJ\_OPEN\_DIR <KeywordsD.clean.html#dj-open-dir>`__.
+
+
+-------
+
+
+DJ\_OPEN\_OVER
+==============
+
++----------+-------------------------------------------------------------------+
+| Syntax   | channel = DJ\_OPEN\_OVER('filename')                              |
++----------+-------------------------------------------------------------------+
+| Location | DJToolkit 1.16                                                    |
++----------+-------------------------------------------------------------------+
+
+Open existing file but overwrite all the contents. See `DJ\_OPEN\_DIR <KeywordsD.clean.html#dj-open-dir>`__ below for details and examples.
+
+**CROSS-REFERENCE**
+
+`DJ_OPEN <KeywordsD.clean.html#dj-open>`__, `DJ\_OPEN\_IN <KeywordsD.clean.html#dj-open-in>`__, `DJ\_OPEN\_NEW <KeywordsD.clean.html#dj-open-new>`__, and `DJ\_OPEN\_DIR <KeywordsD.clean.html#dj-open-dir>`__.
+
+
+-------
+
+
+DJ\_OPEN\_DIR
+=============
+
++----------+-------------------------------------------------------------------+
+| Syntax   | channel = DJ\_OPEN\_DIR('filename')                               |
++----------+-------------------------------------------------------------------+
+| Location | DJToolkit 1.16                                                    |
++----------+-------------------------------------------------------------------+
+
+All of these DJ\_OPEN functions return the SuperBasic channel number if the channel was opened without any problems, or, a negative error code otherwise. You can use this to check whether the open was successful or not. 
+
+The filename must be supplied as a variable name, file$ for example, or in quotes, 'flp1_fred_dat'.
+
+They all work in a similar manner to the normmal SuperBasic OPEN procedures, but, DJ\_OPEN\_DIR offers a new function not normally found on a standard QL.
+
+**DJToolkit Author's Note**
+
+I am grateful to Simon N. Goodwin for his timely article in *QL WORLD volume 2, issue 8* (marked Vol 2, issue 7!!!). I had been toying with these routines for a while and was aware of the undocumented QDOS routines to extend the SuperBasic channel table. I was, however, not able to get my routines to work properly. Simon's article was a great help and these functions are based on that article. Thanks Simon.
+
+**EXAMPLE**
+
+The OPEN routines work as follows::
+
+    1000 REMark open our file for input
+    1010 :
+    1020 chan = DJ_OPEN_IN('filename')
+    1030 IF chan < 0
+    1040    PRINT 'OOPS, failed to open "filename", error ' & chan
+    1050    STOP
+    1060 END IF
+    1070 :
+    1080 REM process data in file here ....
+
+DJ\_OPEN\_DIR is a new function to those in the normal QL range, and it works as follows::
+
+    1000 REMark read a directory
+    1010 :
+    1020 INPUT 'Which device ';dev$
+    1030 chan = DJ_OPEN_DIR(dev$)
+    1040 IF chan < 0
+    1050    PRINT 'Cannot open ' & dev$ & ', error ' & chan
+    1060    STOP
+    1070 END IF
+    1080 :
+    1090 CLS
+    1100 REPeat dir_loop
+    1110   IF EOF(#chan) THEN EXIT dir_loop
+    1120   a$ = FETCH_BYTES(#chan, 64)
+    1130   size = CODE(a$(16)):       REMark Size of file name
+    1140   PRINT a$(17 TO 16 + size): REMark file name
+    1150 END REPeat dir_loop
+    1160 :
+    1170 CLOSE #chan
+    1180 STOP
+
+In this example, no checks are done to ensure that the device actually exists, etc. You could use `DEV\_NAME <KeywordsD.clean.html#dev-name>`__ to check if it is a legal device. The data being read from a device directory file must always be read in 64 byte chunks as per this example.
+
+Each chunk is a single directory entry which holds a copy of the file header for the appropriate file. Note, that the first 4 bytes of a file header hold the actual length of the file but when read from the directory as above, the value if 64 bytes too high as it includes the length of the file header as part of the length of a file.
+
+The above routine will also print blank lines if a file has been deleted from the directory at some point. Deleted files have a name length of zero.
+
+Note that if you type in a filename instead of a device name, the function will cope. For example, you type in 'flp1\_fred' instead of 'flp1\_'. You will get a list of the files on 'flp1\_' if 'fred' is a file, or even, if 'fred' is not on 'flp1\_'. If, however, you have the LEVEL 2 drivers (see `LEVEL2 <KeywordsL.clean.html#level2>`__ below), and 'fred' is a sub-directory then you will get a listing of the sub-directory as requested.
+    
+**CROSS-REFERENCE**
+
+`DJ_OPEN <KeywordsD.clean.html#dj-open>`__, `DJ\_OPEN\_IN <KeywordsD.clean.html#dj-open-in>`__, `DJ\_OPEN\_NEW <KeywordsD.clean.html#dj-open-new>`__, and `DJ\_OPEN\_OVER <KeywordsD.clean.html#dj-open-over>`__.
+
+
+-------
+
+DJTK\_VER$
+==========
+
++----------+-------------------------------------------------------------------+
+| Syntax   | v$ = DJTK\_VER$                                                   |
++----------+-------------------------------------------------------------------+
+| Location | DJToolkit 1.16                                                    |
++----------+-------------------------------------------------------------------+
+
+This simply sets v$ to be the 4 character string  'n.nn'  where this gives the version number of the current toolkit. If you have problems, always quote this number when requesting help.
+
+**EXAMPLE**
+
+::
+
+    PRINT DJTK_VER$
+
+-------
 
 DLINE
 =====

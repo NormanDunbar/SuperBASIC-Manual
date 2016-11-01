@@ -5,6 +5,7 @@ Keywords C
 TODO
 ====
 
+- CHECK and CHECK% have the same URL.
 - CHR$ has URL #id1. Fix links properly for this one.
 - Fix broken links. Some don't get "clean" added for some reason. FixLinks has been run.
 
@@ -1719,6 +1720,30 @@ example is more or less just an example of the syntax of CHBASE...
 See also `CHAN\_B% <KeywordsC.clean.html#chan_b>`__ and related functions.
 
 --------------
+
+
+CHECK
+=====
+
++----------+-------------------------------------------------------------------+
+| Syntax   | oops = CHECK('name')                                              |
++----------+-------------------------------------------------------------------+
+| Location | DJToolkit 1.16                                                    |
++----------+-------------------------------------------------------------------+
+
+If name is a currently loaded  machine code procedure or function, then the variable oops will be set to 1 otherwise it will be set to 0.  This is a handy way to check that an extension command has been loaded before calling it.  In a Turbo'd or Supercharged program, the `EXEC <KeywordsE.clean.html#exec>`__ will fail and a list of  missing extensions will be displayed, a QLiberated program will only fail if the extension is actually called.
+
+**EXAMPLE**
+
+::
+
+    1000 DEFine FuNction CheckTK2
+    1010   REMark Is TK2 present?
+    1020   RETurn CHECK('WTV')
+    2030 END DEFine
+
+
+-------
 
 CHECK%
 ======

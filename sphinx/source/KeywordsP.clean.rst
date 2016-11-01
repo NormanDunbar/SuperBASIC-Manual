@@ -1096,6 +1096,91 @@ See `PEEK\_L <KeywordsP.clean.html#peek-l>`__ below.
 
 --------------
 
+PEEK\_FLOAT
+===========
+
++----------+-------------------------------------------------------------------+
+| Syntax   | value = PEEK\_FLOAT(address)                                      |
++----------+-------------------------------------------------------------------+
+| Location | DJToolkit 1.16                                                    |
++----------+-------------------------------------------------------------------+
+
+This function returns the floating point value represented by the 6 bytes stored at the given address. BEWARE, although this function cannot detect any errors, if the 6 bytes stored at 'address' are not a proper floating point value, the QL can crash. The crash is caused by QDOS and not by PEEK\_FLOAT. This function should be used to retrieve values put there by `POKE\_FLOAT <KeywordsP.clean.html#poke-float>`__ mentioned above.
+
+**EXAMPLE**
+
+::
+
+    1000 addr = RESERVE_HEAP(6)
+    1010 IF addr < 0 THEN
+    1020    PRINT "OUT OF MEMORY"
+    1030    STOP
+    1040 END IF
+    1050 POKE_FLOAT addr, PI
+    1060 myPI = PEEK_FLOAT(addr)
+    1070 IF myPI <> PI THEN
+    1080    PRINT "Something went horribly wrong!"
+    1090    PRINT "PI = " & PI & ", myPI = " & myPI
+    1100 END IF
+
+
+**CROSS-REFERENCE**
+
+`POKE\_STRING <KeywordsP.clean.html#poke-string>`__, `PEEK\_STRING <KeywordsP.clean.html#peek-string>`__, `POKE\_FLOAT <KeywordsP.clean.html#poke-float>`__.
+
+
+-------
+
+
+PEEK\_STRING
+============
+
++----------+-------------------------------------------------------------------+
+| Syntax   | a$ = PEEK\_STRING(address, length)                                |
++----------+-------------------------------------------------------------------+
+| Location | DJToolkit 1.16                                                    |
++----------+-------------------------------------------------------------------+
+
+The characters in memory at the given address are returned to a$.  The address may be odd or even as no word for the length is used, the length of the returned string is given by the length parameter.
+
+**EXAMPLE**
+The following set of functions return the Toolkit 2 default devices::
+
+    1000 DEFine FuNction TK2_DATA$
+    1010   RETurn TK2_DEFAULT$(176)
+    1020 END DEFine TK2_DATA$
+    1030 :
+    1040 DEFine FuNction TK2_PROG$
+    1050   RETurn TK2_DEFAULT$(172)
+    1060 END DEFine TK2_PROG$
+    1070 :
+    1080 DEFine FuNction TK2_DEST$
+    1090   RETurn TK2_DEFAULT$(180)
+    1100 END DEFine TK2_DEST$
+    1110 :
+    1120 :
+    1200 DEFine FuNction TK2_DEFAULT$(offset)
+    1210   LOCal address
+    1220   IF offset <> 172 AND offset <> 176 AND offset <> 180 THEN
+    1230      PRINT "TK2_DEAFULT$: Invalid Offset: " & offset
+    1240      RETurn ''
+    1250   END IF
+    1260   address = PEEK_L (SYSTEM_VARIABLES + offset)
+    1270   IF address = 0 THEN 
+    1280     RETurn ''
+    1290   ELSE 
+    1300     REMark this is a pointer to the appropriate TK2 default
+    1310     RETurn PEEK_STRING(address+2, PEEK_W(address))
+    1320   END IF 
+    1330 END DEFine TK2_DEFAULT$
+
+
+**CROSS-REFERENCE**
+
+`POKE\_STRING <KeywordsP.clean.html#poke-string>`__, `PEEK\_FLOAT <KeywordsP.clean.html#peek-float>`__, `POKE\_FLOAT <KeywordsP.clean.html#poke-float>`__.
+
+-------
+
 PEEK\_W
 =======
 
@@ -2278,6 +2363,69 @@ POKE
 ====
 
 See `POKE\_L <KeywordsP.clean.html#poke-l>`__ below.
+
+--------------
+
+POKE\_FLOAT
+===========
+
++----------+-------------------------------------------------------------------+
+| Syntax   | POKE\_FLOAT address, value                                        |
++----------+-------------------------------------------------------------------+
+| Location | DJToolkit 1.16                                                    |
++----------+-------------------------------------------------------------------+
+
+This procedure will poke the 6 bytes that the QL uses to represent a floating point variable into memory at the given address. The address can be odd or even as the procedure can cope either way.
+
+
+**EXAMPLE**
+
+::
+
+    1000 Address = RESERVE_HEAP(6)
+    1010 IF Address < 0 THEN
+    1020    PRINT "ERROR " & Address & " Allocating heap space."
+    1030    STOP
+    1040 END IF
+    1050 POKE_FLOAT Address, 666.616
+    
+**CROSS-REFERENCE**
+
+`POKE\_STRING <KeywordsP.clean.html#poke-string>`__, `PEEK\_STRING <KeywordsP.clean.html#peek-string>`__, `PEEK\_FLOAT <KeywordsP.clean.html#peek-float>`__.
+
+
+-------
+
+
+POKE\_STRING
+============
+
++----------+-------------------------------------------------------------------+
+| Syntax   | POKE\_STRING address, string                                      |
++----------+-------------------------------------------------------------------+
+| Location | DJToolkit 1.16                                                    |
++----------+-------------------------------------------------------------------+
+
+This procedure simply stores the strings contents at the given address. Only the contents of the string are stored, the 2 bytes defining the length are not stored. The address may be odd or even.
+
+If the second parameter given is a numeric one or simply a number, beware, QDOS will convert it to the format that would be seen if the number was `PRINT <KeywordsP.clean.html#print>`__\ ed before storing it at the address.  For example, 1 million would be '1E6' which is arithmetically the same, but characterwise, very different.
+
+
+**EXAMPLE**
+
+::
+
+    1000 Address = RESERVE_HEAP(60)
+    1010 IF Address < 0 THEN
+    1020    PRINT "ERROR " & Address & " Allocating heap space."
+    1030    STOP
+    1040 END IF
+    1050 POKE_STRING Address, "DJToolkit " & DJTK_VERS$
+
+
+**CROSS-REFERENCE**
+
+`PEEK\_STRING <KeywordsP.clean.html#peek-string>`__, `PEEK\_FLOAT <KeywordsP.clean.html#peek-float>`__, `POKE\_FLOAT <KeywordsP.clean.html#poke-float>`__.
 
 --------------
 
@@ -4385,6 +4533,135 @@ See `PUT <KeywordsP.clean.html#put>`__, `BPUT <KeywordsB.clean.html#bput>`__,
 `UPUT <KeywordsU.clean.html#uput>`__ and `GET <KeywordsG.clean.html#get>`__.
 
 --------------
+
+PUT\_BYTE
+=========
+
++----------+-------------------------------------------------------------------+
+| Syntax   | PUT\_BYTE #channel, byte                                          |
++----------+-------------------------------------------------------------------+
+| Location | DJToolkit 1.16                                                    |
++----------+-------------------------------------------------------------------+
+
+The given byte is sent to the  channel. If a byte value larger than 255 is given, only the lowest 8 bits of the value are sent. The byte value written to the channel will always be between 0 and 255 even if a negative value is supplied. `GET\_BYTE <KeywordsG.clean.html#get-byte>`__ returns all values as positive.
+
+**EXAMPLE**
+
+::
+
+    PUT_BYTE #3, 10
+
+
+**CROSS-REFERENCE**
+
+`PUT\_FLOAT <KeywordsP.clean.html#put-float>`__, `PUT\_LONG <KeywordsP.clean.html#put-long>`__, `PUT\_STRING <KeywordsP.clean.html#put-string>`__, `PUT\_WORD <KeywordsP.clean.html#put-word>`__.
+
+
+-------
+
+
+PUT\_FLOAT
+==========
+
++----------+-------------------------------------------------------------------+
+| Syntax   | PUT\_FLOAT #channel, byte                                         |
++----------+-------------------------------------------------------------------+
+| Location | DJToolkit 1.16                                                    |
++----------+-------------------------------------------------------------------+
+
+The given float value is converted to the internal  QDOS format for floating point  numbers and those 6 bytes are sent to the given channel  number.  The full range of QL numbers can be sent including all the negative values. `GET\_FLOAT <KeywordsG.clean.html#get-float>`__ will return negative values correctly (unless an error occurs).
+
+
+**EXAMPLE**
+
+::
+
+    PUT_FLOAT #3, PI
+
+
+**CROSS-REFERENCE**
+
+`PUT\_BYTE <KeywordsP.clean.html#put-byte>`__, `PUT\_LONG <KeywordsP.clean.html#put-long>`__, `PUT\_STRING <KeywordsP.clean.html#put-string>`__, `PUT\_WORD <KeywordsP.clean.html#put-word>`__.
+
+
+-------
+
+
+PUT\_LONG
+=========
+
++----------+-------------------------------------------------------------------+
+| Syntax   | PUT\_LONG #channel, byte                                          |
++----------+-------------------------------------------------------------------+
+| Location | DJToolkit 1.16                                                    |
++----------+-------------------------------------------------------------------+
+
+The long value given is sent as a sequence of four bytes to the channel. Negative values can be put and these will be returned correctly by `GET\_LONG <KeywordsG.clean.html#get-long>`__ unless any errors occur.
+
+**EXAMPLE**
+
+::
+
+    PUT_LONG #3, 1234567890
+
+**CROSS-REFERENCE**
+
+`PUT\_BYTE <KeywordsP.clean.html#put-byte>`__, `PUT\_FLOAT <KeywordsP.clean.html#put-float>`__, `PUT\_STRING <KeywordsP.clean.html#put-string>`__, `PUT\_WORD <KeywordsP.clean.html#put-word>`__.
+
+
+-------
+
+
+PUT\_STRING
+===========
+
++----------+-------------------------------------------------------------------+
+| Syntax   | PUT\_STRING #channel, string                                      |
++----------+-------------------------------------------------------------------+
+| Location | DJToolkit 1.16                                                    |
++----------+-------------------------------------------------------------------+
+
+The string  parameter is sent to the appropriate channel as a two byte word giving the length of the data then the characters of the data. If you send a string of zero length, LET A$ = "" for example, then only two bytes will be written to the file.  See `POKE\_STRING <KeywordsP.clean.html#poke-string>`__ for a description of what will happen if you supply a number or a numeric variable as the second parameter. As with all QL strings, the maximum length of a string is 32kbytes.
+
+**EXAMPLE**
+
+::
+
+    PUT_STRING #3, "This is a string of data"
+
+
+**CROSS-REFERENCE**
+
+`PUT\_BYTE <KeywordsP.clean.html#put-byte>`__, `PUT\_FLOAT <KeywordsP.clean.html#put-float>`__, `PUT\_LONG <KeywordsP.clean.html#put-long>`__, `PUT\_WORD <KeywordsP.clean.html#put-word>`__.
+
+
+-------
+
+
+PUT\_WORD
+=========
+
++----------+-------------------------------------------------------------------+
+| Syntax   | PUT\_WORD #channel, word                                          |
++----------+-------------------------------------------------------------------+
+| Location | DJToolkit 1.16                                                    |
++----------+-------------------------------------------------------------------+
+
+The supplied word is written to the appropriate channel as a sequence of two bytes. If the word value supplied is bigger than 65,535 then only the lower 16 bits of the value will be used. Negative values will be returned by `GET\_WORD <KeywordsG.clean.html#get-word>`__ as positive.
+
+**EXAMPLE**
+
+::
+
+    PUT_WORD #3, 65535
+
+
+**CROSS-REFERENCE**
+
+`PUT\_BYTE <KeywordsP.clean.html#put-byte>`__, `PUT\_FLOAT <KeywordsP.clean.html#put-float>`__, `PUT\_LONG <KeywordsP.clean.html#put-long>`__, `PUT\_STRING <KeywordsP.clean.html#put-string>`__.
+
+
+-------
 
 PXOFF
 =====

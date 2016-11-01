@@ -6,6 +6,7 @@ TODO
 ====
 
 - There doesn't appear to be an entry for GE$ in this file. But it is referenced as a link in GT$.
+- GET_BYTE% and GET_BYTE have the same URL.
 
 GCD
 ===
@@ -253,6 +254,124 @@ can be used for movement.
 
 --------------
 
+GET\_BYTE
+=========
+
++----------+-------------------------------------------------------------------+
+| Syntax   | byte = GET\_BYTE(#channel)                                        |
++----------+-------------------------------------------------------------------+
+| Location | DJToolkit 1.16                                                    |
++----------+-------------------------------------------------------------------+
+
+Reads one character  from the file attached to the channel  number given and returns it as a value between 0 and 255.  This is equivalent to CODE(INKEY$(#channel)). 
+
+BEWARE, `PUT\_BYTE <KeywordsP.clean.html#put-byte>`__ can put negative values to file, for example -1 is put as 255, GET\_BYTE will return 255 instead of -1. Any negative numbers returned are always error codes.
+
+
+**EXAMPLE**
+
+::
+
+    c = GET_BYTE(#3)
+
+
+**CROSS-REFERENCE**
+
+`GET\_FLOAT <KeywordsG.clean.html#get-float>`__, `GET\_LONG <KeywordsG.clean.html#get-long>`__, `GET\_STRING <KeywordsG.clean.html#get-string>`__, `GET\_WORD <KeywordsG.clean.html#get-word>`__.
+
+
+-------
+
+GET\_FLOAT
+==========
+
++----------+-------------------------------------------------------------------+
+| Syntax   | float = GET\_FLOAT(#channel)                                      |
++----------+-------------------------------------------------------------------+
+| Location | DJToolkit 1.16                                                    |
++----------+-------------------------------------------------------------------+
+
+Reads 6 bytes from the file and returns them as a floating point value. 
+
+BEWARE, if any errors occur, the value returned will be a negative QDOS error code. As GET\_FLOAT does return negative values, it is difficult to determine whether that returned value is an error code or not. If the returned value is -10, for example, it could actually mean End Of File, this is about the only error code that can be (relatively) safely tested for.
+
+
+**EXAMPLE**
+
+::
+
+    fp = GET_FLOAT(#3)
+
+
+**CROSS-REFERENCE**
+
+`GET\_BYTE <KeywordsG.clean.html#get-byte>`__, `GET\_LONG <KeywordsG.clean.html#get-long>`__, `GET\_STRING <KeywordsG.clean.html#get-string>`__, `GET\_WORD <KeywordsG.clean.html#get-word>`__.
+
+
+-------
+
+
+GET\_LONG
+=========
+
++----------+-------------------------------------------------------------------+
+| Syntax   | long = GET\_LONG(#channel)                                        |
++----------+-------------------------------------------------------------------+
+| Location | DJToolkit 1.16                                                    |
++----------+-------------------------------------------------------------------+
+
+Read the next 4 bytes  from the file and return  them as a number  between 0 and 2^32 -1 (4,294,967,295 or HEX FFFFFFFF unsigned).
+
+BEWARE, the same problem with negatives & error codes applies here as well as `GET\_FLOAT <KeywordsG.clean.html#get-float>`__.
+
+**EXAMPLE**
+
+::
+
+    lv = GET_LONG(#3)
+
+
+**CROSS-REFERENCE**
+
+`GET\_BYTE <KeywordsG.clean.html#get-byte>`__, `GET\_FLOAT <KeywordsG.clean.html#get-float>`__, `GET\_STRING <KeywordsG.clean.html#get-string>`__, `GET\_WORD <KeywordsG.clean.html#get-word>`__.
+
+
+-------
+
+
+GET\_STRING
+===========
+
++----------+-------------------------------------------------------------------+
+| Syntax   | a$ = GET\_STRING(#channel)                                        |
++----------+-------------------------------------------------------------------+
+| Location | DJToolkit 1.16                                                    |
++----------+-------------------------------------------------------------------+
+
+Read the next 2 bytes from the file and assuming them to be a QDOS string's length, read that many characters into a$.  The two bytes holding the string's length are NOT returned in a$, only the data bytes.  
+
+The subtle difference between this function and `FETCH\_BYTES <KeywordsF.clean.html#fetch-bytes>`__ is that this one finds out how many bytes to return from the channel given, `FETCH\_BYTES <KeywordsF.clean.html#fetch-bytes>`__ needs to be told how many to return by the  user. GET\_STRING is the same as::
+
+    FETCH_BYTES(#channel, GET_WORD(#channel))
+
+WARNING - JM and AH ROMS will give a 'Buffer overflow' error if the length of the returned string is more than 128 bytes. This is a fault in QDOS, not DJToolkit. The demos file, supplied with DJToolkit, has a 'fix' for this problem.
+
+
+**EXAMPLE**
+
+::
+
+    b$ = GET_STRING(#3)
+
+
+**CROSS-REFERENCE**
+
+`GET\_BYTE <KeywordsG.clean.html#get-byte>`__, `GET\_FLOAT <KeywordsG.clean.html#get-float>`__, `GET\_LONG <KeywordsG.clean.html#get-long>`__, `GET\_WORD <KeywordsG.clean.html#get-word>`__, `FETCH\_BYTES <KeywordsF.clean.html#fetch-bytes>`__.
+
+
+-------
+
+
 GET\_STUFF$
 ===========
 
@@ -333,6 +452,32 @@ header. `HEADR <KeywordsH.clean.html#headr>`__ is very similar to
 `HGET <KeywordsH.clean.html#hget>`__ and `HPUT <KeywordsH.clean.html#hput>`__.
 
 --------------
+
+GET\_WORD
+=========
+
++----------+-------------------------------------------------------------------+
+| Syntax   | word = GET\_WORD(#channel)                                        |
++----------+-------------------------------------------------------------------+
+| Location | DJToolkit 1.16                                                    |
++----------+-------------------------------------------------------------------+
+
+The next two bytes are read from the appropriate file and returned as an integer value.  This is equivalent to CODE(INKEY$(#channel)) \* 256 + CODE(INKEY$(#channel)). See the caution above for `GET\_BYTE <KeywordsG.clean.html#get-byte>`__ as it applies here as well. Any negative numbers returned will always be an error code.
+
+**EXAMPLE**
+
+::
+
+    w = GET_WORD(#3)
+    
+
+**CROSS-REFERENCE**
+
+`GET\_BYTE <KeywordsG.clean.html#get-byte>`__, `GET\_FLOAT <KeywordsG.clean.html#get-float>`__, `GET\_LONG <KeywordsG.clean.html#get-long>`__, `GET\_STRING <KeywordsG.clean.html#get-string>`__.
+
+
+-------
+
 
 GETXY
 =====
