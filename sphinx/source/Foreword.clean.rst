@@ -84,7 +84,7 @@ Manual has been enhanced through 4 different update releases, and proved
 a best seller despite the 2 large A4 volumes with over 1000 pages of
 information on the QL and its SuperBASIC.
 
-Since then, the Manual was re-relased in PDF format and has now, in
+Since then, the Manual was re-released in PDF format and has now, in
 recognition of the 30th Anniversary of the launch of the Sinclair QL,
 been converted to HTML and put onto the internet to be updated as a QL
 Community Project.
