@@ -964,6 +964,71 @@ results in a bad parameter error.
 
 --------------
 
+PAR\_DEFAULTPRINTER$
+====================
+
++----------+-------------------------------------------------------------------+
+| Syntax   | name$ = PAR\_DEFAULTPRINTER$                                      |
++----------+-------------------------------------------------------------------+
+| Location | SMSQ/E for QPC                                                    |
++----------+-------------------------------------------------------------------+
+
+This returns the name of Windows' default printer. The name can later be used with `PAR\_SETPRINTER <KeywordsP.clean.html#par-setprinter>`__ for example.
+
+--------------
+
+PAR\_GETFILTER
+==============
+
++----------+-------------------------------------------------------------------+
+| Syntax   | state% = PAR\_GETFILTER(port%)                                    |
++----------+-------------------------------------------------------------------+
+| Location | SMSQ/E for QPC                                                    |
++----------+-------------------------------------------------------------------+
+
+This returns whether the printer filter is enabled for the specified port.
+
+--------------
+
+PAR\_GETPRINTER$
+================
+
++----------+-------------------------------------------------------------------+
+| Syntax   | name$ = PAR\_GETPRINTER$(port%)                                   |
++----------+-------------------------------------------------------------------+
+| Location | SMSQ/E for QPC                                                    |
++----------+-------------------------------------------------------------------+
+
+This returns the PAR port setting: "LPT1", "LPT2" or "LPT3" if it isn't linked to a printer but directly to a printer port or the name of the printer otherwise. An empty string designates the default printer.
+
+--------------
+
+PAR\_PRINTERCOUNT
+=================
+
++----------+-------------------------------------------------------------------+
+| Syntax   | n% = PAR\_PRINTERCOUNT                                            |
++----------+-------------------------------------------------------------------+
+| Location | SMSQ/E for QPC                                                    |
++----------+-------------------------------------------------------------------+
+
+This returns the number of printers available on this system.
+
+--------------
+
+PAR\_PRINTERNAME$
+=================
+
++----------+-------------------------------------------------------------------+
+| Syntax   | name$ = PAR\_PRINTERNAME$(n)                                      |
++----------+-------------------------------------------------------------------+
+| Location | SMSQ/E for QPC                                                    |
++----------+-------------------------------------------------------------------+
+
+This returns the name of printer number n (counted from 1 to `PAR\_PRINTERCOUNT <KeywordsP.clean.html#par-printercount>`__\ ).
+
+--------------
+
 PAR\_PULSE
 ==========
 
@@ -989,6 +1054,32 @@ cable.
 **NOTE**
 
 On SMSQ/E running on non-Atari's, this command has no effect.
+
+--------------
+
+PAR\_SETFILTER
+==============
+
++----------+-------------------------------------------------------------------+
+| Syntax   | PAR\_SETFILTER port%, state%                                      |
++----------+-------------------------------------------------------------------+
+| Location | SMSQ/E for QPC                                                    |
++----------+-------------------------------------------------------------------+
+
+Enables (state% = 1) or disables (state% = 0) the printer filter for the specified port. If the printer should be enabled although none is available a "not found" error is returned.
+
+--------------
+
+PAR\_SETPRINTER
+===============
+
++----------+-------------------------------------------------------------------+
+| Syntax   | PAR\_SETPRINTER port%, name$                                      |
++----------+-------------------------------------------------------------------+
+| Location | SMSQ/E for QPC                                                    |
++----------+-------------------------------------------------------------------+
+
+Connects the PAR port either to a hardware port (**Example** name$ is "LPT1") or to the printer spooler (name$ is one of the names returned by `PAR\_PRINTERNAME$ <KeywordsP.clean.html#par-printername>`__\ ).
 
 --------------
 
@@ -3286,9 +3377,9 @@ Motorola 680xx family). The values returned are:
 +===========+============================================+
 | 0x        | 68000 or 68008                             |
 +-----------+--------------------------------------------+
-| 1x        | 68010 or an INTEL chip (if QPC is running) |
+| 1x        | 68010 or an INTEL chip (QPC < 3.33)        |
 +-----------+--------------------------------------------+
-| 2x        | 68020                                      |
+| 2x        | 68020 (and QPC >= 3.33)                    |
 +-----------+--------------------------------------------+
 | 3x        | 68030                                      |
 +-----------+--------------------------------------------+
@@ -3324,6 +3415,10 @@ The following values may be returned:
 
 The processor type was not stored before Level E-20 of the ST/QL
 Drivers.
+
+**QPC Note**
+
+QPC versions prior to 3.33 will return a value of 10 for the PROCESSORE function while those from 3.33 onwards will return 20.
 
 **CROSS-REFERENCE**
 

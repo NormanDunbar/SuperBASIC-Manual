@@ -400,6 +400,247 @@ See `QMERGE <KeywordsQ.clean.html#qmerge>`__ and
 
 --------------
 
+QPC\_CMDLINE$
+=============
+
++----------+-------------------------------------------------------------------+
+| Syntax   | cmd$ = QPC\_CMDLINE$                                              |
++----------+-------------------------------------------------------------------+
+| Location | SMSQ/E for QPC                                                    |
++----------+-------------------------------------------------------------------+
+
+This returns the argument that was supplied to QPC after the "-cmdline" command line argument. This can be used to do different actions depending on the way QPC was started.
+
+--------------
+
+QPC\_EXEC
+=========
+
++----------+-------------------------------------------------------------------+
+| Syntax   | QPC\_EXEC command$[, parameter$]                                  |
++----------+-------------------------------------------------------------------+
+| Location | SMSQ/E for QPC                                                    |
++----------+-------------------------------------------------------------------+
+
+This command can be used to call an external DOS or Windows program. The name of the executable file is given in the first parameter. Optionally, you can also supply a second parameter, which is then passed to the executed program as its command line arguments.
+
+Furthermore, you can supply a data file as the first parameter. In this case, the associated application for this file type is executed.
+
+**Example** 
+
+::
+
+    QPC_EXEC 'notepad','c:\text.txt' 
+    
+Starts notepad and loads the c:\\text file.
+
+::
+
+    QPC_EXEC 'c:\text.txt' 
+    
+Starts the default viewer for .txt files.
+
+--------------
+
+QPC\_EXIT
+=========
+
++----------+-------------------------------------------------------------------+
+| Syntax   | QPC\_EXIT                                                         |
++----------+-------------------------------------------------------------------+
+| Location | SMSQ/E for QPC                                                    |
++----------+-------------------------------------------------------------------+
+
+This simply quits QPC.
+
+--------------
+
+QPC\_HOSTOS
+===========
+
++----------+-------------------------------------------------------------------+
+| Syntax   | os% = QPC\_HOSTOS                                                 |
++----------+-------------------------------------------------------------------+
+| Location | SMSQ/E for QPC                                                    |
++----------+-------------------------------------------------------------------+
+
+This function returns the host operating system under which QPC was started. 
+
+Possible return codes are:
+
+- 0 = DOS (QPC1) 
+- 1 = Win9x/ME (QPC2) 
+- 2 = WinNT/2000/XP (QPC2)
+
+--------------
+
+QPC\_MAXIMIZE
+=============
+
++----------+-------------------------------------------------------------------+
+| Syntax   | QPC\_MAXIMIZE                                                     |
++----------+-------------------------------------------------------------------+
+| Location | SMSQ/E for QPC                                                    |
++----------+-------------------------------------------------------------------+
+
+Maximises the QPC window. (Yes, the spelling of the command name is American!)
+
+--------------
+
+QPC\_MINIMIZE
+=============
+
++----------+-------------------------------------------------------------------+
+| Syntax   | QPC\_MINIMIZE                                                     |
++----------+-------------------------------------------------------------------+
+| Location | SMSQ/E for QPC                                                    |
++----------+-------------------------------------------------------------------+
+
+Minimizes the QPC window. (Yes, the spelling of the command name is American!)
+
+--------------
+
+QPC\_MSPEED
+===========
+
++----------+-------------------------------------------------------------------+
+| Syntax   | QPC\_MSPEED x\_accel, y\_accel                                    |
++----------+-------------------------------------------------------------------+
+| Location | SMSQ/E for QPC                                                    |
++----------+-------------------------------------------------------------------+
+
+This command has no effect on QPC2.
+
+--------------
+
+QPC\_NETNAME$
+=============
+
++----------+-------------------------------------------------------------------+
+| Syntax   | name$ = QPC\_NETNAME$                                             |
++----------+-------------------------------------------------------------------+
+| Location | SMSQ/E for QPC                                                    |
++----------+-------------------------------------------------------------------+
+
+This function returns the current network name of your PC (the one you supplied upon installation of Windows). The result can be used to distinguish between different PCs (**Example** in a BOOT program).
+
+--------------
+
+QPC\_QLSCREMU
+=============
+
++----------+-------------------------------------------------------------------+
+| Syntax   | QPC\_QLSCREMU value                                               |
++----------+-------------------------------------------------------------------+
+| Location | SMSQ/E for QPC                                                    |
++----------+-------------------------------------------------------------------+
+
+Enables or disables the original QL screen emulation. When emulating the original screen, all memory write accesses to the area $20000-$207FFF are intercepted and translated into writes to the first 512x256 pixels of the big screen area. If the screen is in high colour mode, additional colour conversion is done.
+
+Possible values are:
+
+- -1: automatic mode 
+- 0: disabled (default) 
+- 4: force to 4-colour mode 
+- 8: force to 8-colour mode
+
+When in QL colour mode, the emulation just transfers the written bytes to the larger screen memory, i.e. when the big mode is in 4-colour mode, the original screen area is also treated as 4-colour mode. In high colour mode however, the colour conversion can do both modes. In this case, you can pre-select the emulated mode (parameter = 4 or 8) or let the last issued `MODE <KeywordsM.clean.html#mode>`__ call decide (automatic mode). Please note that that automatic mode does not work on a per-job basis, so any job that issues a `MODE <KeywordsM.clean.html#mode>`__ command changes the behaviour globally.
+
+Please also note that this transition is one-way only, i.e. bytes written legally to the first 512x256 pixels are not transferred back to the original QL screen (in the case of a high colour screens this would hardly be possible anyway). Unfortunately, this also means that not all old programs will run perfectly with this type of emulation. If you experience problems, start the misbehaving application in 512x256 mode.
+
+--------------
+
+QPC\_RESTORE
+============
+
++----------+-------------------------------------------------------------------+
+| Syntax   | QPC\_RESTORE                                                      |
++----------+-------------------------------------------------------------------+
+| Location | SMSQ/E for QPC                                                    |
++----------+-------------------------------------------------------------------+
+
+Restores the QPC window. This will return the window size from minimised or maximised to what it was before.
+
+--------------
+
+QPC\_SYNCSCRAP
+==============
+
++----------+-------------------------------------------------------------------+
+| Syntax   | QPC\_SYNCSCRAP                                                    |
++----------+-------------------------------------------------------------------+
+| Location | SMSQ/E for QPC                                                    |
++----------+-------------------------------------------------------------------+
+
+In order to rapidly exchange text passages between Windows and SMSQ/E the Syncscrap functionality has been introduced. The equivalent of the Windows clipboard is the scrap extension of the menu extensions.
+
+After loading the menu extensions you can call this command, which creates a job that periodically checks for changes in either the scrap or the Windows clipboard, and synchronizes their contents if necessary. Please note that only text data is supported. The character conversion between the QL character set and the Windows ANSI set is done automatically. The line terminators (LF or LF+CR) are converted too.
+
+--------------
+
+QPC\_VER$
+=========
+
++----------+-------------------------------------------------------------------+
+| Syntax   | v$ = QPC\_VER$                                                    |
++----------+-------------------------------------------------------------------+
+| Location | SMSQ/E for QPC                                                    |
++----------+-------------------------------------------------------------------+
+
+This returns the current QPC version.
+
+**Example** 
+
+::
+
+    PRINT QPC_VER$ 
+    
+Will print 4.00 or higher.
+
+--------------
+
+QPC\_WINDOWSIZE
+===============
+
++----------+-------------------------------------------------------------------+
+| Syntax   | QPC\_WINDOWSIZE x, y                                              |
++----------+-------------------------------------------------------------------+
+| Location | SMSQ/E for QPC                                                    |
++----------+-------------------------------------------------------------------+
+
+This sets the size of the client area (the part that displays SMSQ/E) of the QPC window. It does NOT alter the resolution SMSQ/E runs with, so the pixels are effectively zoomed. It is equivalent to the "window size" option in the main configuration window. If QPC is currently in full screen mode it will switch to windowed mode. Window size cannot be set smaller than the SMSQ/E resolution or bigger than the desktop resolution.
+
+**Example** 
+
+::
+
+    DISP_SIZE 512,256
+    QPC_WINDOWSIZE 1024,512
+    
+Does a 200% zoom of the QPC window.
+
+--------------
+
+QPC\_WINDOWTITLE
+================
+
++----------+-------------------------------------------------------------------+
+| Syntax   | QPC\_WINDOWTITLE title$                                           |
++----------+-------------------------------------------------------------------+
+| Location | SMSQ/E for QPC                                                    |
++----------+-------------------------------------------------------------------+
+
+Sets the string that can be seen when QPC runs in windowed mode. This can be used to easily distin-guish between several QPC instances.
+
+**Example** 
+
+::
+
+    QPC_WINDOWTITLE "Accounting" 
+
+Sets the title to "Accounting", without the quotes though!
+
+--------------
 
 QPTR
 ====

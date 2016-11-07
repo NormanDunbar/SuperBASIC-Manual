@@ -2867,6 +2867,23 @@ Please refer to the Appendix on device drivers for more information.
 
 --------------
 
+SER\_GETPORT$
+=============
+
++----------+-------------------------------------------------------------------+
+| Syntax   | com$ = SER\_GETPORT$(port%)                                       |
++----------+-------------------------------------------------------------------+
+| Location | SMSQ/E for QPC                                                    |
++----------+-------------------------------------------------------------------+
+
+Returns the device the SER port is connected to, for example "COM1".
+
+**CROSS-REFERENCE**
+
+See `SER\_SETPORT <KeywordsS.clean.html#ser-setport>`__.
+
+--------------
+
 SER\_PAUSE
 ==========
 
@@ -2937,6 +2954,31 @@ The default room is 32 bytes.
 `SER\_BUFF <KeywordsS.clean.html#ser-buff>`__ allows you to alter the size of
 the input buffer and affects the value set by this command. You should
 also look at `SER\_PAUSE <KeywordsS.clean.html#ser-pause>`__.
+
+--------------
+
+SER\_SETPORT
+============
+
++----------+-------------------------------------------------------------------+
+| Syntax   | SER\_SETPORT port%, com$                                          |
++----------+-------------------------------------------------------------------+
+| Location | SMSQ/E for QPC                                                    |
++----------+-------------------------------------------------------------------+
+
+Sets the COM port a SER port should be connected with. The change will take effect on the next open of the specified serial port.
+
+**Example**
+
+::
+
+    SER_SETPORT 4,"COM32" 
+    
+Will associate SER4 with COM32.
+
+**CROSS-REFERENCE**
+
+See `SER\_GETPORT$ <KeywordsS.clean.html#ser-getport>`__.
 
 --------------
 

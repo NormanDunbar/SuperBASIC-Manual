@@ -11,6 +11,7 @@ TODO
 - There are two DIVs in this section. Both will have the same section URL. Fix.
 - There are two DRAWs in this section. Both will have the same section URL. Fix.
 - DISP_COLOUR is referenced from KeywordsI (Ink) but is not in this file.
+- DOS_DRIVE and DOS_DRIVE$ have the same URL.
 
 
 DATA
@@ -4709,6 +4710,90 @@ in the background and perform functions on supplied data using pipes or
 channels (see `EX <KeywordsE.clean.html#ex>`__).
 
 --------------
+
+DOS\_USE
+========
+
++----------+-------------------------------------------------------------------+
+| Syntax   | DOS\_USE device$                                                  |
++----------+-------------------------------------------------------------------+
+| Location | SMSQ/E for QPC                                                    |
++----------+-------------------------------------------------------------------+
+
+DOS\_USE may be used to set the name of the DOS device. The name should be three characters long, in upper or lower case.
+
+**Example**
+
+::
+
+    DOS_USE mdv 
+    
+The DOS device is renamed MDV.
+    
+::
+    
+    DOS_USE DOS 
+    
+The DOS device is restored to DOS.
+    
+::
+    
+    DOS_USE 
+    
+The DOS device is restored to DOS.
+
+
+--------------
+
+
+DOS\_DRIVE
+==========
+
++----------+-------------------------------------------------------------------+
+| Syntax   | DOS\_DRIVE drive%, directory$                                     |
++----------+-------------------------------------------------------------------+
+| Location | SMSQ/E for QPC                                                    |
++----------+-------------------------------------------------------------------+
+
+This changes the directory the DOS device is connected to.
+
+By default, DOS1\_ corresponds to C:\\, DOS2\_ to D:\\ and so on, but the base can be freely chosen in the configuration dialog or even at runtime::
+
+    DOS_DRIVE 2, "C:\WINDOWS" 
+    
+will assign DOS2\_ to the windows directory on the host's C:\\ drive.
+
+::
+
+    PRINT DOS_DRIVE$(2) 
+    
+would now return "C:\\WINDOWS".
+
+--------------
+
+
+DOS\_DRIVE$
+===========
+
++----------+-------------------------------------------------------------------+
+| Syntax   | directory$ = DOS\_DRIVE$(drive%)                                  |
++----------+-------------------------------------------------------------------+
+| Location | SMSQ/E for QPC                                                    |
++----------+-------------------------------------------------------------------+
+
+This reads back the currently connected directory of the DOS device.
+
+**Example** 
+
+If we continue from the example above for `DOS\_DRIVE <KeywordsD.clean.html#dos-drive>`__\ , then::
+
+    PRINT DOS_DRIVE$(2)
+    
+Will print "C:\\WINDOWS".
+
+
+--------------
+
 
 DOTLIN
 ======

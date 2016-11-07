@@ -10,6 +10,7 @@ TODO
 - FGET% and FGET$ have the same URL. Fix.
 - FPUT% and FPUT$ have the same URL. Fix.
 - FILL and FILL$ have the same URL. Fix.
+- FLP_DRIVE and FLP_DRIVE$ have the same URL. Fix.
 - FREAD and FREAD$ have the same URL. Fix.
 - FWRITE and FWRITE$ have the same URL. Fix.
 
@@ -1561,7 +1562,9 @@ FLP\_DENSITY
 +----------+-------------------------------------------------------------------+
 | Syntax   |  FLP\_DENSITY density  (density = S, D, H or E)                   |
 +----------+-------------------------------------------------------------------+
-| Location |  Gold Cards, SMS                                                  |
+| Syntax   |  FLP\_DENSITY (SMSQ/E for QPC only)                               |
++----------+-------------------------------------------------------------------+
+| Location |  Gold Cards, SMS, SMSQ/E for QPC                                  |
 +----------+-------------------------------------------------------------------+
 
 There are four types of floppy disk drives which can be connected to
@@ -1573,11 +1576,11 @@ emulator). The command FLP\_DENSITY sets the type for use with FORMAT:
 +========+=========+========+==========+==============+
 | Single | Double  | SSDD   |  360 Kb  | S            |
 +--------+---------+--------+----------+--------------+
-| Double | Double  | DSDD   |  720 Kb  | D            |
+| Double | Double  | DSDD   |  720 Kb  | D (Not QPC)  |
 +--------+---------+--------+----------+--------------+
 | Double | High    | DSHD   | 1440 Kb  | H            |
 +--------+---------+--------+----------+--------------+
-| Double | Extra   | DSED   | 3240 Kb  | E            |
+| Double | Extra   | DSED   | 3240 Kb  | E (Not QPC)  |
 +--------+---------+--------+----------+--------------+
 
 Parameters other than the four letters S, D, H and E, (including
@@ -1654,6 +1657,18 @@ FLP\_DENSITY overrides the in-built trial-and-error density detection
 which is slow for HD drives and even slower with ED drives. This can
 however cause problems when FORMATting DSDD disks - see FORMAT!
 
+**NOTE 7**
+
+On SQMS/E for QPC, the same code letters may be added (after a \*) to the end of the medium name to force a particular density format. (For compatibility with older drivers, if the code letter is omitted after the \*, single sided format is assumed).
+
+- FORMAT 'FLP1\_Disk23' Format at highest density or as specified by `FLP\_DENSITY <KeywordsF.clean.html#flp-density>`__\ .
+
+- FORMAT 'FLP1\_Disk24\*' Format single sided
+- FORMAT 'FLP1\_Disk25\*S' Format single sided
+- FORMAT 'FLP1\_Disk25\*D' Format double sided, double density
+
+Also, FLP\_DENSITY on it's own resets automatic density selection.
+
 **CROSS-REFERENCE**
 
 The same effect as `FLP\_DENSITY <KeywordsF.clean.html#flp-density>`__ can be
@@ -1663,6 +1678,54 @@ number of tracks to be formatted onto a disk.
 `STAT <KeywordsS.clean.html#stat>`__ prints the name, good and free sectors of
 a medium. See also the `DMEDIUM\_ <KeywordsD.clean.html#dmedium-density>`__...
 functions.
+
+--------------
+
+FLP\_DRIVE
+==========
+
++----------+-------------------------------------------------------------------+
+| Syntax   | FLP\_DRIVE drive%, drive$                                         |
++----------+-------------------------------------------------------------------+
+| Location | SMSQ/E for QPC                                                    |
++----------+-------------------------------------------------------------------+
+
+This changes the drive/image the floppy device is connected to.
+
+**Example**
+
+::
+
+    FLP_DRIVE 2,"C:\FLOPPY.IMG" 
+    
+Now FLP2\_ is assigned to the floppy image FLOPPY.IMG on the host computer's C:\\ drive.
+    
+::
+
+    FLP_DRIVE 2,"B:\"
+
+FLP2\_ is assigned to the physical B:\\ floppy drive of the host computer.
+
+--------------
+
+FLP\_DRIVE$
+===========
+
++----------+-------------------------------------------------------------------+
+| Syntax   | drive$ = FLP\_DRIVE$(drive%)                                      |
++----------+-------------------------------------------------------------------+
+| Location | SMSQ/E for QPC                                                    |
++----------+-------------------------------------------------------------------+
+
+This reads back the current connection of the floppy device.
+
+**Example**
+
+::
+
+    PRINT FLP_DRIVE$(2) 
+    
+will tell you the current setting for flp2\_.
 
 --------------
 
@@ -1741,7 +1804,7 @@ FLP\_SEC
 +----------+-------------------------------------------------------------------+
 | Syntax   |  FLP\_SEC level                                                   |
 +----------+-------------------------------------------------------------------+
-| Location |  Gold Cards, Trump Card, SMS, THORs                               |
+| Location |  Gold Cards, Trump Card, SMS, THORs, SMSQ/E for QPC               |
 +----------+-------------------------------------------------------------------+
 
 The Gold Card, Trump Card and Thor range of computers, together with
@@ -1788,15 +1851,21 @@ Security Level 2
 FLP\_SEC has no effect - the security level is fixed at 2, the most
 secure.
 
+**SMSQ/E for QPC NOTE**
+
+FLP\_SEC has no effect - the security level is fixed at 2, the most
+secure.
+
 --------------
 
 FLP\_START
 ==========
 
 +----------+-------------------------------------------------------------------+
-| Syntax   |  FLP\_START time                                                  |
+| Syntax   | FLP\_START time                                                   |
 +----------+-------------------------------------------------------------------+
-| Location |  Gold Cards, Trump Card, THORs, ST/QL (level D.02+ drivers), SMS  |
+| Location | Gold Cards, Trump Card, THORs, ST/QL (level D.02+ drivers), SMS,  |
+|          | SMSQ/E for QPC                                                    |
 +----------+-------------------------------------------------------------------+
 
 The disk system always tries to read data from a disk as soon as it
@@ -1835,7 +1904,7 @@ FLP\_STEP
 +----------+-------------------------------------------------------------------+
 | Syntax   |  FLP\_STEP [drive,] rate                                          |
 +----------+-------------------------------------------------------------------+
-| Location |  Disk Interfaces, Gold Cards, SMS                                 |
+| Location |  Disk Interfaces, Gold Cards, SMS, SMSQ/E for QPC                 |
 +----------+-------------------------------------------------------------------+
 
 The step rate enables the computer to known how quickly to step
@@ -1929,7 +1998,7 @@ FLP\_USE
 +----------+-------------------------------------------------------------------+
 | Syntax   |  FLP\_USE [device]                                                |
 +----------+-------------------------------------------------------------------+
-| Location |  Gold Cards, Trump Card, THORs, ST/QL, SMS                        |
+| Location |  Gold Cards, Trump Card, THORs, ST/QL, SMS, SMSQ/E for QPC        |
 +----------+-------------------------------------------------------------------+
 
 Software which was written in the early days of the QL tended to

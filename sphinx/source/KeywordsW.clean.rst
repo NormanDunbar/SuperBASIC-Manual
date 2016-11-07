@@ -2,6 +2,12 @@
 Keywords W
 ==========
 
+TODO
+====
+
+- WIN_DRIVE and WIN_DRIVE$ have the same URL.
+
+
 WAIT\_EVENT
 ===========
 
@@ -60,12 +66,13 @@ See `WIN\_BASE <KeywordsW.clean.html#win-base>`__.
 WCOPY
 =====
 
-+----------+-------------------------------------------------------------------+
-| Syntax   || WCOPY [#ch,] [wild1] [TO wild2](Toolkit II)  or                  |
-|          || WCOPY [#ch,] wild1 TO wild2(THOR)                                |
-+----------+-------------------------------------------------------------------+
-| Location || Toolkit II, THORs                                                |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------+
+| Syntax   | WCOPY [#ch,] [wild1] [TO wild2](Toolkit II)  or                  |
++----------+------------------------------------------------------------------+
+| Syntax   | WCOPY [#ch,] wild1 TO wild2(THOR)                                |
++----------+------------------------------------------------------------------+
+| Location | Toolkit II, THORs                                                |
++----------+------------------------------------------------------------------+
 
 The command WCOPY is intended to allow you to copy several files with a
 common root from one device to another, quickly and easily. 
@@ -419,12 +426,13 @@ See `WDEL <KeywordsW.clean.html#wdel>`__.
 WDIR
 ====
 
-+----------+-------------------------------------------------------------------+
-| Syntax   || WDIR [#ch,] [wild] or                                            |
-|          || WDIR \\file [,wild] (Toolkit II only)                            |
-+----------+-------------------------------------------------------------------+
-| Location || Toolkit II, THORs                                                |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------+
+| Syntax   | WDIR [#ch,] [wild] or                                            |
++----------+------------------------------------------------------------------+
+| Syntax   | WDIR \\file [,wild] (Toolkit II only)                            |
++----------+------------------------------------------------------------------+
+| Location | Toolkit II, THORs                                                |
++----------+------------------------------------------------------------------+
 
 WDIR allows you to produce a list of all of the filenames on a given
 medium which match with the specified wildcard. If wild
@@ -472,12 +480,13 @@ wildcards operate.
 WGET
 ====
 
-+----------+-----------------------------------------------------------------------------+
-| Syntax   || WGET [#ch\\position,] [item :sup:`\*`\ [,item\ :sup:`i`]\ :sup:`\*` ..] or |
-|          || WGET [#ch,] [item :sup:`\*`\ [,item\ :sup:`i`]\ :sup:`\*` ..]              |
-+----------+-----------------------------------------------------------------------------+
-| Location || SMSQ/E                                                                     |
-+----------+-----------------------------------------------------------------------------+
++----------+----------------------------------------------------------------------------+
+| Syntax   | WGET [#ch\\position,] [item :sup:`\*`\ [,item\ :sup:`i`]\ :sup:`\*` ..] or |
++----------+----------------------------------------------------------------------------+
+| Syntax   | WGET [#ch,] [item :sup:`\*`\ [,item\ :sup:`i`]\ :sup:`\*` ..]              |
++----------+----------------------------------------------------------------------------+
+| Location | SMSQ/E                                                                     |
++----------+----------------------------------------------------------------------------+
 
 This command is very similar to BGET, except that this fetches a word
 (in the range 0..65535) from the given channel (default #3).
@@ -851,12 +860,13 @@ See `OPEN <KeywordsO.clean.html#open>`__ and `PRINT <KeywordsP.clean.html#print>
 WINDOW
 ======
 
-+----------+-----------------------------------------------------------------------+
-| Syntax   || WINDOW [#ch,] x, y, posx, posy  or                                   |
-|          || WINDOW [#ch,] x, y, posx, posy [\\border] (Minerva v1.79+, THOR XVI) |
-+----------+-----------------------------------------------------------------------+
-| Location || QL ROM, Minerva, THOR XVI                                            |
-+----------+-----------------------------------------------------------------------+
++----------+----------------------------------------------------------------------+
+| Syntax   | WINDOW [#ch,] x, y, posx, posy  or                                   |
++----------+----------------------------------------------------------------------+
+| Syntax   | WINDOW [#ch,] x, y, posx, posy [\\border] (Minerva v1.79+, THOR XVI) |
++----------+----------------------------------------------------------------------+
+| Location | QL ROM, Minerva, THOR XVI                                            |
++----------+----------------------------------------------------------------------+
 
 This command redefines the given screen window (default #1) by
 specifying the new size and position of the window. The values must all
@@ -1006,13 +1016,15 @@ The Window Manager changes the structure of window definition blocks.
 WIN\_DRIVE
 ==========
 
-+----------+-------------------------------------------------------------------+
-| Syntax   || WIN\_DRIVE driveno [, unit, disk] or                             |
-|          || WIN\_DRIVE driveno, unit [,disk] [,partition ](SMSQ/E only)  or  |
-|          || WIN\_DRIVE driveno, path$(QPC & QXL SMSQ/E only)                 |
-+----------+-------------------------------------------------------------------+
-| Location || ST/QL, SMSQ/E for Atari and QXL / QPC                            |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------+
+| Syntax   | WIN\_DRIVE driveno [, unit, disk] or                             |
++----------+------------------------------------------------------------------+
+| Syntax   | WIN\_DRIVE driveno, unit [,disk] [,partition ](SMSQ/E only)  or  |
++----------+------------------------------------------------------------------+
+| Syntax   | WIN\_DRIVE driveno, path$(QPC & QXL SMSQ/E only)                 |
++----------+------------------------------------------------------------------+
+| Location | ST/QL, SMSQ/E for Atari and QXL / QPC                            |
++----------+------------------------------------------------------------------+
 
 It is possible not only to have several hard disk units attached to the
 Atari ST, but each hard disk unit can also have more than one drive in
@@ -1208,12 +1220,13 @@ See `FORMAT <KeywordsF.clean.html#format>`__ and
 WIN\_REMV
 =========
 
-+----------+-------------------------------------------------------------------+
-| Syntax   || WIN\_REMV driveno, flag (SMSQ/E & ST/QL Level C-24+)  or         |
-|          || WIN\_REMV driveno                                                |
-+----------+-------------------------------------------------------------------+
-| Location || ST/QL (Level C-20+), SMSQ/E for Atari, QXL / QPC                 |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------+
+| Syntax   | WIN\_REMV driveno, flag (SMSQ/E & ST/QL Level C-24+)  or         |
++----------+------------------------------------------------------------------+
+| Syntax   | WIN\_REMV driveno                                                |
++----------+------------------------------------------------------------------+
+| Location | ST/QL (Level C-20+), SMSQ/E for Atari, QXL / QPC                 |
++----------+------------------------------------------------------------------+
 
 The advent of changeable hard disk drives caused a lot of problems,
 since it is just about feasible that you might try to remove the hard
@@ -1507,12 +1520,13 @@ given colour. `CLS\_A <KeywordsC.clean.html#cls-a>`__ is a global
 WLD
 ===
 
-+----------+-------------------------------------------------------------------+
-| Syntax   || WLD (word1$, word2$ [,dummy] )  or                               |
-|          || WLD (word1$, word2$, w1, w2, w3 [,dummy] )                       |
-+----------+-------------------------------------------------------------------+
-| Location || Ähnlichkeiten                                                    |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------+
+| Syntax   | WLD (word1$, word2$ [,dummy] )  or                               |
++----------+------------------------------------------------------------------+
+| Syntax   | WLD (word1$, word2$, w1, w2, w3 [,dummy] )                       |
++----------+------------------------------------------------------------------+
+| Location | Ähnlichkeiten                                                    |
++----------+------------------------------------------------------------------+
 
 This function calculates the weighted levenstein phonetic distance
 between two strings: the smaller the result, the more that the two
@@ -1638,12 +1652,13 @@ Pointer Interface.
 WMON
 ====
 
-+----------+-------------------------------------------------------------------+
-| Syntax   || WMON [mode] or                                                   |
-|          || WMON [mode] [, xoff] [, yoff](SMS Only)                          |
-+----------+-------------------------------------------------------------------+
-| Location || THOR 8, THOR XVI, Toolkit II                                     |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------+
+| Syntax   | WMON [mode] or                                                   |
++----------+------------------------------------------------------------------+
+| Syntax   | WMON [mode] [, xoff] [, yoff](SMS Only)                          |
++----------+------------------------------------------------------------------+
+| Location | THOR 8, THOR XVI, Toolkit II                                     |
++----------+------------------------------------------------------------------+
 
 When the QL is first started up in Monitor mode, the windows #0, #1 and
 #2 are opened in the following sizes and positions, with the following
@@ -1773,12 +1788,13 @@ Also see `WTV <KeywordsW.clean.html#wtv>`__, `WMON <KeywordsW.clean.html#wmon>`_
 WPUT
 ====
 
-+----------+-----------------------------------------------------------------------------+
-| Syntax   || WPUT [#ch\\position,] [item :sup:`\*`\ [,item\ :sup:`i`]\ :sup:`\*` ..] or |
-|          || WPUT [#ch,] [item :sup:`\*`\ [,item\ :sup:`i`]\ :sup:`\*` ..]              |
-+----------+-----------------------------------------------------------------------------+
-| Location || SMSQ/E                                                                     |
-+----------+-----------------------------------------------------------------------------+
++----------+----------------------------------------------------------------------------+
+| Syntax   | WPUT [#ch\\position,] [item :sup:`\*`\ [,item\ :sup:`i`]\ :sup:`\*` ..] or |
++----------+----------------------------------------------------------------------------+
+| Syntax   | WPUT [#ch,] [item :sup:`\*`\ [,item\ :sup:`i`]\ :sup:`\*` ..]              |
++----------+----------------------------------------------------------------------------+
+| Location | SMSQ/E                                                                     |
++----------+----------------------------------------------------------------------------+
 
 This command is very similar to BPUT, except that this sends a word (in
 the range 0..65535) to the given channel (default #3).
@@ -1907,12 +1923,13 @@ See `WSET <KeywordsW.clean.html#wset>`__.
 WSTAT
 =====
 
-+----------+-------------------------------------------------------------------+
-| Syntax   || WSTAT [#ch,] [wild] or                                           |
-|          || WSTAT \\file [,wild] (Toolkit II only)                           |
-+----------+-------------------------------------------------------------------+
-| Location || Toolkit II, THORs                                                |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------+
+| Syntax   | WSTAT [#ch,] [wild] or                                           |
++----------+------------------------------------------------------------------+
+| Syntax   | WSTAT \\file [,wild] (Toolkit II only)                           |
++----------+------------------------------------------------------------------+
+| Location | Toolkit II, THORs                                                |
++----------+------------------------------------------------------------------+
 
 The command WSTAT works in a very similar way to WDIR except that
 alongside the filenames, it lists the length of each file and the update
@@ -1943,12 +1960,13 @@ wildcards operate.
 WTV
 ===
 
-+----------+-------------------------------------------------------------------+
-| Syntax   || WTV [mode] or                                                    |
-|          || WTV [mode] [, xoff] [, yoff](SMS Only)                           |
-+----------+-------------------------------------------------------------------+
-| Location || THOR 8 (v4.20+), THOR XVI, Toolkit II                            |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------+
+| Syntax   | WTV [mode] or                                                    |
++----------+------------------------------------------------------------------+
+| Syntax   | WTV [mode] [, xoff] [, yoff](SMS Only)                           |
++----------+------------------------------------------------------------------+
+| Location | THOR 8 (v4.20+), THOR XVI, Toolkit II                            |
++----------+------------------------------------------------------------------+
 
 When the QL is first started up in TV mode, the windows #0, #1 and #2
 are opened in the following sizes and positions, without any borders:-

@@ -89,6 +89,7 @@ We have covered the commands contained in the following sources:
 -  AtariDOS and ATARI\_REXT |copyright| Jochen Merz Software
 -  Turbo Toolkit (freeware) |copyright| The Turbo Team, David Gilham & Mark Knight
 -  DJToolkit 1.16 (freeware) |copyright| Norman Dunbar & Dilwyn Jones
+-  QPC version 4.04 specific commands |copyright| Marcel Kilgus.
 -  As many Public Domain Toolkits as we can find and understand.
 
 We have covered the Toolkit II and Hotkey System II because it is a
@@ -118,6 +119,7 @@ Contributing Authors
 - Peter Jager 
 - Rich Mellor
 - Norman Dunbar - DJToolkit 1.16 additions.
+- Norman Dunbar - QPC 4.04 additions.
 - (Norman Dunbar - HTML conversion, tidyup etc.)
 
 Installing Toolkits
