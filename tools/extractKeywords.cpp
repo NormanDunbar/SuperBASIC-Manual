@@ -91,7 +91,7 @@ void doFile(const char *fname)
 
 void doKeywords()
 {
-    // Print contents of lookForThese list.
+    // Ignore contents of lookForThese list.
     for (list<string>::iterator thisOne = lookForThese.begin(); thisOne != lookForThese.end(); thisOne++)
     {
         string temp = *thisOne;
