@@ -826,7 +826,7 @@ implemented in the file SAILA\_CODE.
 See also `REPLACE <KeywordsR.clean.html#replace>`__ and
 `NEW\_NAME <KeywordsN.clean.html#new-name>`__.
 
-`\_NAME$ <Keywords_.clean.html#-name$>`__ allows you to look at the name
+`\_NAME$ <Keywords_.clean.html#-name>`__ allows you to look at the name
 table.
 
 --------------

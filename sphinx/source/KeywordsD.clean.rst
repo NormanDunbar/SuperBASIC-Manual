@@ -830,7 +830,7 @@ compiled programs.
 **CROSS-REFERENCE**
 
 See `DEBUG <KeywordsD.clean.html#debug>`__ and
-`TURBO\_xx <KeywordsT.clean.html#turbo-xx>`__.
+`TURBO\_xx <KeywordsT.clean.html#turbo-diags>`__.
 
 --------------
 
@@ -1803,7 +1803,8 @@ always ends with an underscore.
 
 `DEST\_USE <KeywordsD.clean.html#dest-use>`__ and
 `SPL\_USE <KeywordsS.clean.html#spl-use>`__ both define the default
-destination device\ `. <Keywords..clean.html#.>`__
+destination device\ .
+
 `DUP <KeywordsD.clean.html#dup>`__, `DDOWN <KeywordsD.clean.html#ddown>`__ and
 `DNEXT <KeywordsD.clean.html#dnext>`__ allow you to move around the
 sub-directory tree. `PROGD$ <KeywordsP.clean.html#progd>`__ returns the

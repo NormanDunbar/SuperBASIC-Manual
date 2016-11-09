@@ -1406,13 +1406,7 @@ BINOM (n,k) = BINOM (n,n-k) which saves half of the loops:
 
 **CROSS-REFERENCE**
 
-`FACT <KeywordsF.clean.html#fact>`__
-
-` <KeywordsF.clean.html#fact>`__
-
-` <KeywordsF.clean.html#fact>`__
-
-` <KeywordsF.clean.html#fact>`__
+`FACT <KeywordsF.clean.html#fact>`__\ .
 
 --------------
 

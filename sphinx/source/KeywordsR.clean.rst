@@ -1925,7 +1925,7 @@ shows dlroW olleH
 **CROSS-REFERENCE**
 
 `LEN <KeywordsL.clean.html#len>`__ finds the length of a
-string\ `. <Keywords..clean.html#.>`__ `TRIM$ <KeywordsT.clean.html#trim>`__ cuts
+string. `TRIM$ <KeywordsT.clean.html#trim>`__ cuts
 off excess spaces from a string.
 
 --------------

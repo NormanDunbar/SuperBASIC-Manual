@@ -154,8 +154,8 @@ ON can also be used with the SELect ON structure - please refer to
 
 **CROSS-REFERENCE**
 
-These two commands can generally be replaced either by a calculated `GO
-SUB <KeywordsG.clean.html#go-sub>`__ or `GO TO <KeywordsG.clean.html#go-to>`__
+These two commands can generally be replaced either by a calculated 
+`GO SUB <KeywordsG.clean.html#go-sub>`__ or `GO TO <KeywordsG.clean.html#go-to>`__
 statement, or the `SELect ON <KeywordsS.clean.html#select-on>`__ structure.
 
 --------------

@@ -928,9 +928,9 @@ statement appears without a corresponding IF command, the error
 **CROSS-REFERENCE**
 
 Please see `IF <KeywordsI.clean.html#if>`__. Other SuperBASIC structures are:
-`DEFine PROCedure <KeywordsD.clean.html#define-procedure>`__, `DEFine
-FuNction <KeywordsD.clean.html#define-function>`__, `SELect
-ON <KeywordsS.clean.html#select-on>`__, `REPeat <KeywordsR.clean.html#repeat>`__,
+`DEFine PROCedure <KeywordsD.clean.html#define-procedure>`__, 
+`DEFine FuNction <KeywordsD.clean.html#define-function>`__, 
+`SELect ON <KeywordsS.clean.html#select-on>`__, `REPeat <KeywordsR.clean.html#repeat>`__,
 `FOR <KeywordsF.clean.html#for>`__, and `WHEN <KeywordsW.clean.html#when>`__.
 
 --------------
@@ -983,12 +983,13 @@ REPeat loop the error 'undefined loop control variable' is reported.
 
 **CROSS-REFERENCE**
 
-Please see `REPeat <KeywordsR.clean.html#repeat>`__. `NEXT
-identifier <KeywordsN.clean.html#next-identifier>`__ is practially the same
+Please see `REPeat <KeywordsR.clean.html#repeat>`__. 
+
+`NEXT identifier <KeywordsN.clean.html#next-identifier>`__ is practially the same
 although see `EXIT <KeywordsE.clean.html#exit>`__. Other SuperBASIC structures
-are: `DEFine PROCedure <KeywordsD.clean.html#define-procedure>`__, `DEFine
-FuNction <KeywordsD.clean.html#define-function>`__, `SELect
-ON <KeywordsS.clean.html#select-on>`__,\ `IF <KeywordsI.clean.html#if>`__,
+are: `DEFine PROCedure <KeywordsD.clean.html#define-procedure>`__, 
+`DEFine FuNction <KeywordsD.clean.html#define-function>`__, 
+`SELect ON <KeywordsS.clean.html#select-on>`__,\ `IF <KeywordsI.clean.html#if>`__,
 `FOR <KeywordsF.clean.html#for>`__, and `WHEN <KeywordsW.clean.html#when>`__.
 
 --------------

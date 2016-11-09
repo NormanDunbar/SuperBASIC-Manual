@@ -366,8 +366,9 @@ inside an IF...END IF construct.
 
 `SELect ON <KeywordsS.clean.html#select-on>`__ provides a much quicker
 (although less flexible) means of testing a variable. Other SuperBASIC
-structures are `WHEN var <KeywordsW.clean.html#when-var>`__, `WHEN
-ERRor <KeywordsW.clean.html#when-error>`__, `DEFine PROCedure <KeywordsD.clean.html#define-procedure>`__,
+structures are `WHEN var <KeywordsW.clean.html#when-var>`__, 
+`WHEN ERRor <KeywordsW.clean.html#when-error>`__, 
+`DEFine PROCedure <KeywordsD.clean.html#define-procedure>`__,
 `DEFine FuNction <KeywordsD.clean.html#define-function>`__,
 `REPeat <KeywordsR.clean.html#repeat>`__ and `FOR <KeywordsF.clean.html#for>`__.
 

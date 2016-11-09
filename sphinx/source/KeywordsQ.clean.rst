@@ -137,7 +137,7 @@ version currently loaded.
 **CROSS-REFERENCE**
 
 `VER$ <KeywordsV.clean.html#ver>`__ contains another code identifying the
-operating system. `VER$(1) <KeywordsV.clean.html#ver(1)>`__ is identical to
+operating system. `VER$ <KeywordsV.clean.html#ver>`__\ (1) is identical to
 `QDOS$ <KeywordsQ.clean.html#qdos>`__ for Minerva ROMs and SMS. You should
 also look at `MACHINE <KeywordsM.clean.html#machine>`__ and
 `PROCESSOR <KeywordsP.clean.html#processor>`__.

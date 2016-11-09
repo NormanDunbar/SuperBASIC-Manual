@@ -327,8 +327,8 @@ from the left, Column 2 512 pixels from the left and so on....
 See `MB <KeywordsM.clean.html#mb>`__ and `EW <KeywordsE.clean.html#ew>`__ for other
 ways of starting up additional interpreters. In addition SMS users can
 use `EXEP <KeywordsE.clean.html#exep>`__ SBASIC or even use the Exec
-button from QPAC II and Minerva users can use `EX
-<KeywordsE.clean.html#ex>`__ PIPEP. `WMON <KeywordsW.clean.html#wmon>`__ and
+button from QPAC II and Minerva users can use 
+`EX <KeywordsE.clean.html#ex>`__ PIPEP. `WMON <KeywordsW.clean.html#wmon>`__ and
 `WTV <KeywordsW.clean.html#wtv>`__ can be used to reposition the SBASIC
 windows. Also see the appendix on Multiple BASICs.
 `JOB\_NAME <KeywordsJ.clean.html#job-name>`__ can be used to alter the name of
@@ -3625,7 +3625,7 @@ and 0 if the number is zero. Any number is allowed as a parameter.
 --------------
 
 SGN%
-===
+====
 
 See `SGN <KeywordsS.clean.html#sgn>`__ above.
 
@@ -5247,7 +5247,7 @@ after this command.
 
 **CROSS-REFERENCE**
 
-`VER$(-2) <KeywordsV.clean.html#ver(-2)>`__ on Minerva ROMs and on SMS
+`VER$ <KeywordsV.clean.html#ver>`__\ (-2) on Minerva ROMs and on SMS
 returns the base address of the system variables, as do
 `SYS\_BASE <KeywordsS.clean.html#sys-base>`__ and
 `SYSBASE <KeywordsS.clean.html#sysbase>`__.

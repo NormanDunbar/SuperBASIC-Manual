@@ -165,7 +165,7 @@ The wrong value was returned for the Mega ST prior to v1.33 of E-Init.
 See `PROCESSOR <KeywordsP.clean.html#processor>`__,
 `DISP\_TYPE <KeywordsD.clean.html#disp-type>`__,
 `VER$ <KeywordsV.clean.html#ver>`__ and `QDOS$ <KeywordsQ.clean.html#qdos>`__.
-`VER$(1) <KeywordsV.clean.html#ver(1)>`__ and
+`VER$ <KeywordsV.clean.html#ver>`__\ (1) and
 `SYS\_BASE <KeywordsS.clean.html#sys-base>`__ replace
 `SYS\_VARS <KeywordsS.clean.html#sys-vars>`__. See also
 `A\_MACHINE <KeywordsA.clean.html#a-machine>`__.
@@ -2190,8 +2190,7 @@ you will need to use::
 **CROSS-REFERENCE**
 
 `DIV <KeywordsD.clean.html#div>`__ returns the integer part of
-`x <Keywordsx.clean.html#x>`__ divided by `y <Keywordsy.clean.html#y>`__. Also
-please see the alternative version of `MOD <KeywordsM.clean.html#mod>`__.
+x divided by y. Also, please see the alternative version of `MOD <KeywordsM.clean.html#mod>`__.
 
 --------------
 
@@ -2593,7 +2592,7 @@ Speedscreen, the Pointer Environment and Lightning all fix this.
 `RMODE <KeywordsR.clean.html#rmode>`__ can be used to read the current screen
 mode (and even whether the second screen is available) and
 `DEFAULT\_SCR <KeywordsD.clean.html#default-scr>`__ will tell you which is the
-current default screen. `SCREEN(#3) <KeywordsS.clean.html#screen(#3)>`__ will
+current default screen. `SCREEN <KeywordsS.clean.html#screen>`__\ (#3) will
 tell you the address of the start of the screen on which window #3 is
 situated. `DISP\_SIZE <KeywordsD.clean.html#disp-size>`__ can be used to set
 the size of the displayed screen on extended resolutions.
