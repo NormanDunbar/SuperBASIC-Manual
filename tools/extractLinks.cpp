@@ -14,6 +14,13 @@
 //
 //      `Link Text <URL>`__
 //
+// Some links need fixing. These are where a command ends with a '%' or '$'
+// and these characters are not permitted in a link's URL, altough they are fine
+// in the link text. These links are flagged up.
+//
+// And some have underscores in the link text anchor. These should be hyphens. These
+// are also falgged up.
+//
 
 using std::string;
 using std::getline;
@@ -66,8 +73,24 @@ void doFile(const char *fname)
             size_t posEndLink = this_line.find("`_", posLink + 1, 2);
 
             // Write out the link details.
-            linkText = this_line.substr(posLink, posEndLink - posLink + 3);
+            linkText = this_line.substr(posLink, posEndLink - posLink + 1);
             cout << linkText << " in: " << fname << " at line: " << lineNumber << endl;
+            
+            // Is this a bad link?
+            // If the output is sorted, then these will all appear together. Handy!
+            if ((linkText.find("%>", 0, 2) != string::npos) || (linkText.find("$>", 0, 2) != string::npos)) {
+                cout << "__FIXME: " << linkText << " in: " << fname << " at line: " << lineNumber << endl;
+            }
+            
+            // Do we have underscores after the '#'?
+            // Only internal links will always have a '#'. Externals might not.
+            size_t hashPos = linkText.find("#", 0, 1);
+            if (hashPos != string::npos) {
+                if (linkText.find("_", hashPos, 1) != string::npos) {
+                    // We have underscores not hyphens.
+                    cout << "__FIXME2: " << linkText << " in: " << fname << " at line: " << lineNumber << endl;
+                }
+            }
             
             // Adjust the line.
             this_line = this_line.substr(posEndLink+3, string::npos);
