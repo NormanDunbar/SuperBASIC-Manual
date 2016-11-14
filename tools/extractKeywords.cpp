@@ -31,7 +31,7 @@ using std::ifstream;
 
 
 // Things I need to ignore if found as headings.
-string lookFor[] = {"TODO", 
+string lookFor[] = {"TODO", "\r\n", "\n\r" , "\r", "\n",
                     "Keywords A", "Keywords B", "Keywords C", "Keywords D", 
                     "Keywords E", "Keywords F", "Keywords G", "Keywords H", 
                     "Keywords I", "Keywords J", "Keywords J", "Keywords L", 
@@ -94,6 +94,10 @@ void doKeywords()
     // Ignore contents of lookForThese list.
     for (list<string>::iterator thisOne = lookForThese.begin(); thisOne != lookForThese.end(); thisOne++)
     {
+        // Blank line?
+        if (last_line.empty())
+            return;
+        
         string temp = *thisOne;
         if (temp == last_line) {
             // Ignore, it's in our exceptions table.

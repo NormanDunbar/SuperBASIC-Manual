@@ -625,15 +625,20 @@ DAY$
 
 DAY$ holds the current day as a three character string: 
 
-===  =========
-Sun  Sunday
-Mon  Monday
-Tue  Tuesday
-Wed  Wednesday
-Thu  Thursday
-Fri  Friday
-Sat  Saturday
-===  =========
++-----+------------+
+| Sun | Sunday     |
++-----+------------+
+| Mon | Monday     |
++-----+------------+
+| Tue | Tuesday    |
++-----+------------+
+| Wed | Wednesday  |
++-----+------------+
+| Thu | Thursday   |
++-----+------------+
+| Fri | Friday     |
+| Sat | Saturday   |
++-----+------------+
 
 If you provide a parameter, DAY$ will return the day of the given date
 (which is stated in seconds after 1/1/1961). DAY$(DATE) = DAY$.

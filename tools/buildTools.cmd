@@ -23,7 +23,7 @@ REM  This assumes that the filename appears, in full, before the first dot.
 REM ----------------------------------------------------------------------------
 for /f "tokens=1 delims=." %%f in ('dir /b *.cpp') do (
     echo Compiling %%f.cpp to %%f.exe ...
-    %compiler% -o %%f.exe %%f.cpp
+    %compiler% -o %%f.exe %%f.cpp wildargs.obj
     
     if not %errorlevel%==0 (
         echo Compiler exited with errorlevel %ERRORLEVEL%.
