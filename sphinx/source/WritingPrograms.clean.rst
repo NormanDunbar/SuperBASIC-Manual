@@ -18,7 +18,7 @@ Compiling SuperBASIC Programs
 -----------------------------
 
 Digital Precision's Supercharge and Turbo compilers are not able to
-compile some keywords (eg. those which allow arrays as parameters) while
+compile some keywords` (eg. those which allow arrays as parameters) while
 Liberation Software's QLiberator can compile every additional keyword
 which makes sense in a compiled program. Although programs compiled with
 Qliberator will be slower than those compiled with Turbo, the fact that
@@ -27,6 +27,22 @@ certain bugs) means that Qliberator may be a better option. This is a
 matter of fact which we consider worth mentioning for the benefit of
 Supercharge and Turbo users, it is not intended as a hidden
 advertisement for QLiberator.
+
+.. note::
+
+    While the above was certainly true when the first paper version of this 
+    manual was printed, progress has been made, as the following correction 
+    from George Gwilt explains:
+    
+    For versions of TURBO earlier than 4.21 machine procedures or functions
+    that modify their parameter values, process arrays (other than single
+    strings), manipulate the stored program text, or rely on other
+    interpreter data structures (such as the name table and name list) will
+    not work when compiled. The majority of add-on commands do not do this,
+    and consequently work perfectly.
+
+    For TURBO v4.21 and later none of these restrictions apply except for
+    the reliance on the name list.
 
 On the other hand, if you are a Minerva freak, use the Pointer
 Environment in your programs or want to ensure that your programs will
