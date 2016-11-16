@@ -31,7 +31,7 @@ using std::ifstream;
 
 
 // Things I need to ignore if found as headings.
-string lookFor[] = {"TODO", "\r\n", "\n\r" , "\r", "\n",
+string lookFor[] = {"TODO",
                     "Keywords A", "Keywords B", "Keywords C", "Keywords D", 
                     "Keywords E", "Keywords F", "Keywords G", "Keywords H", 
                     "Keywords I", "Keywords J", "Keywords J", "Keywords L", 
