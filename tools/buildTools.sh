@@ -10,7 +10,7 @@
 for CPP in `ls *.cpp`
 do
     EXE=${CPP%%.cpp}
-    g++ -o ${EXE} ${CPP}
+    g++ -std=gnu++11 -o ${EXE} ${CPP}
     echo ${CPP} has been compiled to ${EXE}
 done
 
