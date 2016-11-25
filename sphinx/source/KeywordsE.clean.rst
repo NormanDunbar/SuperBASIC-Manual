@@ -110,8 +110,8 @@ the current cursor position.
 In Overwrite Mode, any characters typed will activate the current line and 
 replace the characters under the cursor. 
 
-A line can be deleted either by using <CTRL><ALT><> (except on SMS where you 
-must use <CTRL><>) or by deleting all of the visible characters in a line. If 
+A line can be deleted either by using <CTRL><ALT><←> (except on SMS where you 
+must use <CTRL><←>) or by deleting all of the visible characters in a line. If 
 you delete everything but the line number, then the line pointed to by that 
 line number will be deleted. 
 
@@ -190,13 +190,13 @@ The keys available in ED are:
 +----------------+--------------------------------------------------------------------------------+
 | →              | Move right one character.                                                      |
 +----------------+--------------------------------------------------------------------------------+
-| <CTRL> →       | Delete character under cursor (line becomes active.                            |
+| <CTRL> →       | Delete character under cursor (line becomes active).                           |
 +----------------+--------------------------------------------------------------------------------+
 | ←              | Move left one character.                                                       |
 +----------------+--------------------------------------------------------------------------------+
 | <CTRL> ←       | Delete character to left of cursor (line becomes active).                      |
 +----------------+--------------------------------------------------------------------------------+
-| <CTRL><ALT> ←  | Delete line under cursor (not under SMS.                                       |
+| <CTRL><ALT> ←  | Delete line under cursor (not under SMS).                                      |
 +----------------+--------------------------------------------------------------------------------+
 | <SHIFT><F4>    | Switch between overwrite and insert mode.                                      |
 +----------------+--------------------------------------------------------------------------------+
