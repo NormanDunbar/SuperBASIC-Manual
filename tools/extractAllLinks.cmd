@@ -6,5 +6,5 @@ REM Writes a sorted list to ..\sphinx\source\AllLinks.txt
 REM
 set OLD_PWD=%CD%
 cd ..\sphinx\source
-extractKeywords *.rst | sort > allLinks.txt
+extractLinks *.rst | sort > allLinks.txt
 cd %OLD_PWD%
