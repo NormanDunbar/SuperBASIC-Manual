@@ -1,0 +1,14 @@
+
+The following are duplicated keywords
+
+DIV
+DRAW
+MOD
+PLOT
+PRT_USE
+RELEASE
+SEARCH
+SET
+
+Finished.
+
