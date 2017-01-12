@@ -36,7 +36,7 @@ using std::ifstream;
 string lookFor[] = {"TODO",
                     "Keywords A", "Keywords B", "Keywords C", "Keywords D", 
                     "Keywords E", "Keywords F", "Keywords G", "Keywords H", 
-                    "Keywords I", "Keywords J", "Keywords J", "Keywords L", 
+                    "Keywords I", "Keywords J", "Keywords K", "Keywords L", 
                     "Keywords M", "Keywords N", "Keywords O", "Keywords P", 
                     "Keywords Q", "Keywords R", "Keywords S", "Keywords T", 
                     "Keywords U", "Keywords V", "Keywords W", "Keywords X", 
@@ -110,23 +110,43 @@ void doKeywords()
         }
     }
     
-    // Some keywords begin with an underscore, this might cause trouble!
-    // We shall see.
+    // Some keywords begin with an underscore. Leading underscores cause 
+    // errors in the link generation. They can be replaced with hyphens 
+    // though - that works.
+    //
     // In the meantime, output the following:
-    
+    //
     // A blank line.
-    // A reference link destination (.. _name) without escaped characters.
+    // A reference link destination (.. _name:) without escaped characters.
     // Also, any '$' will be replaced with 'dlr' and any '%' will get 'pct'.
     // Another blank line.
     // On return, last_line will be output too.
+    //
+    // No-one said it would be easy. Sigh.
+    //
+    // END WHEN and END_WHEN create exactly the same link, bugger!
+    // I now need to differentiate between spaces and underscores in a keyword.
     
     cout << endl;    
     cout << "..  _";
     
     // Avoid outputting escape character (\).
+    // Replace underscores with hyphens.
     for (int x=0; x < last_line.size(); x++) {
         char c = tolower(last_line[x]);
         if (c != '\\') {
+            // Get rid of underscores and spaces.
+            // '_' becomes '-'
+            // ' ' becomes '--'.
+            if (c == '_')
+                c = '-';
+            else
+                if (c == ' ') {
+                    c = '-';
+                    cout << c; // And again below.
+                }
+            
+            // Check for dollar and percent.
             if (c == '$')
                 cout << "-dlr";
             else
@@ -136,7 +156,7 @@ void doKeywords()
                     cout << c;
         }
     }
-    cout << endl;
+    cout << ':' << endl;
     
     cout << endl;
 }

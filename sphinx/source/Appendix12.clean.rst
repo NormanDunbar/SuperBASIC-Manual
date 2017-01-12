@@ -1,3 +1,5 @@
+..  _a12-device--drivers:
+
 A12 Device Drivers
 ==================
 

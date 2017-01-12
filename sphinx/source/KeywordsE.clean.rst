@@ -1,3 +1,4 @@
+
 ==========
 Keywords E
 ==========
@@ -5,10 +6,16 @@ Keywords E
 TODO
 ====
 
-- EDIT, EDIT% and EDIT$ have the same URL. Fix. Fix links too.
-- ERLIN and ERLIN% ditto.
-- ERNUM and ERNUM% ditto.
+- There is a reference to the ESC command, probably in Beuletools, but it's not in the file.
+- :ref:`eq-dlr` references NE$ but that's not found.
+- :ref:`eprom-load` links to ROM\_TEST, but this is not found.
+- :ref:`enl` and :ref:`el` link to ESC, which is not found.
+- SET\_ENV is references from here, but is not known.
 
+
+
+
+..  _easter:
 
 EASTER
 ======
@@ -48,9 +55,12 @@ EASTER does not return the correct value on SMSQ/E for some reason.
 
 **CROSS-REFERENCE**
 
-`GREGOR <KeywordsG.clean.html#gregor>`__
+:ref:`gregor`
 
 --------------
+
+
+..  _ed:
 
 ED
 ==
@@ -268,10 +278,13 @@ be useful when testing a section of the program.
 
 **CROSS-REFERENCE**
 
-Please also refer to `AUTO <KeywordsA.clean.html#auto>`__ and
-`EDIT <KeywordsE.clean.html#edit>`__ which are replaced by this command.
+Please also refer to :ref:`auto` and
+:ref:`edit` which are replaced by this command.
 
 --------------
+
+
+..  _edit:
 
 EDIT
 ====
@@ -378,11 +391,11 @@ On SMS the EDIT command is exactly the same as ED.
 
 **CROSS-REFERENCE**
 
-`AUTO <KeywordsA.clean.html#auto>`__ is very similar, especially where
-`step <Keywordss.clean.html#step>`__ is specified.
-`DLINE <KeywordsD.clean.html#dline>`__ deletes program lines.
-`INPUT <KeywordsI.clean.html#input>`__ contains details of the available
-keypresses for cursor navigation. `ED <KeywordsE.clean.html#ed>`__ provides a
+:ref:`auto` is very similar, especially where
+:ref:`step` is specified.
+:ref:`dline` deletes program lines.
+:ref:`input` contains details of the available
+keypresses for cursor navigation. :ref:`ed` provides a
 different means of editing a SuperBASIC program. 
 
 ::
@@ -390,16 +403,19 @@ different means of editing a SuperBASIC program.
     PRINT PEEK_W(\\HEX('9C')) 
 
 returns the line number of the invisible top line which was
-last `EDIT <KeywordsE.clean.html#edit>`__\ ed (except on SMS). 
+last :ref:`edit`\ ed (except on SMS). 
 
 ::
 
     PRINT PEEK_W(\\HEX('9E')) 
 
 returns the line number of the bottom line in #2
-which was last `EDIT <KeywordsE.clean.html#edit>`__\ ed (except on SMS).
+which was last :ref:`edit`\ ed (except on SMS).
 
 --------------
+
+
+..  _editf:
 
 EDITF
 =====
@@ -428,11 +444,14 @@ whichever is longer.
 
 **CROSS-REFERENCE**
 
-See `EDLINE$ <KeywordsE.clean.html#edline>`__.
-`EDIT% <KeywordsE.clean.html#edit>`__ and `EDIT$ <KeywordsE.clean.html#edit>`__
+See :ref:`edline-dlr`.
+:ref:`edit-pct` and :ref:`edit-dlr`
 are also useful.
 
 --------------
+
+
+..  _edit-pct:
 
 EDIT%
 =====
@@ -447,9 +466,12 @@ This function is the same as EDITF, except that only integer values are acceptab
 
 **CROSS-REFERENCE**
 
-See `EDITF <KeywordsE.clean.html#editf>`__.
+See :ref:`editf`.
 
 --------------
+
+
+..  _edit-dlr:
 
 EDIT$
 =====
@@ -466,9 +488,12 @@ restricted to a number.
 
 **CROSS-REFERENCE**
 
-See `EDITF <KeywordsE.clean.html#editf>`__.
+See :ref:`editf`.
 
 --------------
+
+
+..  _edline-dlr:
 
 EDLINE$
 =======
@@ -511,16 +536,19 @@ SMS. This version is included with the DIY Toolkit package.
 
 **CROSS-REFERENCE**
 
-`EDLINE$ <KeywordsE.clean.html#edline>`__ can be used to input numbers but
+:ref:`edline-dlr` can be used to input numbers but
 you have to ensure that the entered text can be successfully coerced to
-a number, see `CHECK% <KeywordsC.clean.html#check>`__ and
-`CHECKF <KeywordsC.clean.html#checkf>`__ for that.
-`EDIT$ <KeywordsE.clean.html#edit>`__ is similar. Other routines for human
-input are for example: `INPUT <KeywordsI.clean.html#input>`__,
-`INKEY$ <KeywordsI.clean.html#inkey>`__, `ASK <KeywordsA.clean.html#ask>`__ and
-`REPLY <KeywordsR.clean.html#reply>`__.
+a number, see :ref:`check-pct` and
+:ref:`checkf` for that.
+:ref:`edit-dlr` is similar. Other routines for human
+input are for example: :ref:`input`,
+:ref:`inkey-dlr`, :ref:`ask` and
+:ref:`reply`.
 
 --------------
+
+
+..  _el:
 
 EL
 ==
@@ -542,16 +570,19 @@ is the same as::
 
 **CROSS-REFERENCE**
 
-`NORM <KeywordsN.clean.html#norm>`__, `BLD <KeywordsB.clean.html#bld>`__,
-`DBL <KeywordsD.clean.html#dbl>`__, `ENL <KeywordsE.clean.html#enl>`__,
-`PRO <KeywordsP.clean.html#pro>`__, `SI <KeywordsS.clean.html#si>`__,
-`NRM <KeywordsN.clean.html#nrm>`__, `UNL <KeywordsU.clean.html#unl>`__,
-`ALT <KeywordsA.clean.html#alt>`__, `ESC <KeywordsE.clean.html#esc>`__,
-`FF <KeywordsF.clean.html#ff>`__, `LMAR <KeywordsL.clean.html#lmar>`__,
-`RMAR <KeywordsR.clean.html#rmar>`__, `PAGDIS <KeywordsP.clean.html#pagdis>`__,
-`PAGLEN <KeywordsP.clean.html#paglen>`__.
+:ref:`norm`, :ref:`bld`,
+:ref:`dbl`, :ref:`enl`,
+:ref:`pro`, :ref:`si`,
+:ref:`nrm`, :ref:`unl`,
+:ref:`alt`, :ref:`esc`,
+:ref:`ff`, :ref:`lmar`,
+:ref:`rmar`, :ref:`pagdis`,
+:ref:`paglen`.
 
 --------------
+
+
+..  _elis:
 
 ELIS
 ====
@@ -568,12 +599,15 @@ function will generate a Not Found error.
 
 **CROSS-REFERENCE**
 
-See `KEY\_ADD <KeywordsK.clean.html#key-add>`__,
-`FLIS <KeywordsF.clean.html#flis>`__ and `CODEVEC <KeywordsC.clean.html#codevec>`__.
-Compare `FIND <KeywordsF.clean.html#find>`__ and
-`LOOKUP% <KeywordsL.clean.html#lookup>`__.
+See :ref:`key-add`,
+:ref:`flis` and :ref:`codevec`.
+Compare :ref:`find` and
+:ref:`lookup-pct`.
 
 --------------
+
+
+..  _ellipse:
 
 ELLIPSE
 =======
@@ -669,11 +703,14 @@ this bug and will bring it back!
 
 **CROSS-REFERENCE**
 
-Please refer to `CIRCLE <KeywordsC.clean.html#circle>`__,
-`ELLIPSE\_R <KeywordsE.clean.html#ellipse-r>`__, `ARC <KeywordsA.clean.html#arc>`__,
-`LINE <KeywordsL.clean.html#line>`__ and `POINT <KeywordsP.clean.html#point>`__.
+Please refer to :ref:`circle`,
+:ref:`ellipse-r`, :ref:`arc`,
+:ref:`line` and :ref:`point`.
 
 --------------
+
+
+..  _ellipse-r:
 
 ELLIPSE\_R
 ==========
@@ -689,10 +726,13 @@ See ELLIPSE above!
 
 **CROSS-REFERENCE**
 
-Please refer to `ARC\_R <KeywordsA.clean.html#arc-r>`__ and
-`CIRCLE\_R <KeywordsC.clean.html#circle-r>`__.
+Please refer to :ref:`arc-r` and
+:ref:`circle-r`.
 
 --------------
+
+
+..  _else:
 
 ELSE
 ====
@@ -708,9 +748,12 @@ action if the condition contained in the IF statement proves to be false.
 
 **CROSS-REFERENCE**
 
-See `IF <KeywordsI.clean.html#if>`__ for more details.
+See :ref:`if` for more details.
 
 --------------
+
+
+..  _end:
 
 END
 ===
@@ -731,6 +774,9 @@ Please refer to the individual structure descriptions below for more
 details.
 
 --------------
+
+
+..  _end--define:
 
 END DEFine
 ==========
@@ -813,13 +859,16 @@ PROCedure or DEFine FuNction block.
 
 **CROSS-REFERENCE**
 
-Please see `DEFine PROCedure <KeywordsD.clean.html#define-procedure>`__ and
-`DEFine FuNction <KeywordsD.clean.html#define-function>`__. Other SuperBASIC
-structures are `SELect ON <KeywordsS.clean.html#select-on>`__,
-`IF <KeywordsI.clean.html#if>`__, `REPeat <KeywordsR.clean.html#repeat>`__,
-`WHEN <KeywordsW.clean.html#when>`__ and `FOR <KeywordsF.clean.html#for>`__.
+Please see :ref:`define--procedure` and
+:ref:`define--function`. Other SuperBASIC
+structures are :ref:`select--on`,
+:ref:`if`, :ref:`repeat`,
+WHEN XXX and :ref:`for`.
 
 --------------
+
+
+..  _end--for:
 
 END FOR
 =======
@@ -876,15 +925,15 @@ loop the error 'undefined loop control variable' is reported.
 
 **CROSS-REFERENCE**
 
-Please see `FOR <KeywordsF.clean.html#for>`__. Compare
-`NEXT <KeywordsN.clean.html#next>`__ and `EXIT <KeywordsE.clean.html#exit>`__. Other
-SuperBASIC structures are: `DEFine
-PROCedure <KeywordsD.clean.html#define-procedure>`__, `DEFine
-FuNction <KeywordsD.clean.html#define-function>`__, `SELect
-ON <KeywordsS.clean.html#select-on>`__, IF,
-`REPeat <KeywordsR.clean.html#repeat>`__, and `WHEN <KeywordsW.clean.html#when>`__.
+Please see :ref:`for`. Compare
+:ref:`next` and :ref:`exit`. Other
+SuperBASIC structures are: :ref:`define--procedure`, :ref:`define--function`,
+:ref:`select--on`, :ref:`if`, :ref:`repeat`, and WHEN XXX.
 
 --------------
+
+
+..  _end--if:
 
 END IF
 ======
@@ -927,13 +976,16 @@ statement appears without a corresponding IF command, the error
 
 **CROSS-REFERENCE**
 
-Please see `IF <KeywordsI.clean.html#if>`__. Other SuperBASIC structures are:
-`DEFine PROCedure <KeywordsD.clean.html#define-procedure>`__, 
-`DEFine FuNction <KeywordsD.clean.html#define-function>`__, 
-`SELect ON <KeywordsS.clean.html#select-on>`__, `REPeat <KeywordsR.clean.html#repeat>`__,
-`FOR <KeywordsF.clean.html#for>`__, and `WHEN <KeywordsW.clean.html#when>`__.
+Please see :ref:`if`. Other SuperBASIC structures are:
+:ref:`define--procedure`, 
+:ref:`define--function`, 
+:ref:`select--on`, :ref:`repeat`,
+:ref:`for`, and WHEN XXX.
 
 --------------
+
+
+..  _end--repeat:
 
 END REPeat
 ==========
@@ -983,16 +1035,19 @@ REPeat loop the error 'undefined loop control variable' is reported.
 
 **CROSS-REFERENCE**
 
-Please see `REPeat <KeywordsR.clean.html#repeat>`__. 
+Please see :ref:`repeat`. 
 
-`NEXT identifier <KeywordsN.clean.html#next-identifier>`__ is practially the same
-although see `EXIT <KeywordsE.clean.html#exit>`__. Other SuperBASIC structures
-are: `DEFine PROCedure <KeywordsD.clean.html#define-procedure>`__, 
-`DEFine FuNction <KeywordsD.clean.html#define-function>`__, 
-`SELect ON <KeywordsS.clean.html#select-on>`__,\ `IF <KeywordsI.clean.html#if>`__,
-`FOR <KeywordsF.clean.html#for>`__, and `WHEN <KeywordsW.clean.html#when>`__.
+:ref:`next` loop\_variable is practically the same
+although see :ref:`exit`. Other SuperBASIC structures
+are: :ref:`define--procedure`, 
+:ref:`define--function`, 
+:ref:`select--on`,\ :ref:`if`,
+:ref:`for`, and WHEN XXX.
 
 --------------
+
+
+..  _end--select:
 
 END SELect
 ==========
@@ -1033,13 +1088,16 @@ ON definition block.
 
 **CROSS-REFERENCE**
 
-Please see `SELect ON <KeywordsS.clean.html#select-on>`__. Other SuperBASIC
-structures are `DEFine PROCedure <KeywordsD.clean.html#define-procedure>`__,
-`DEFine FuNction <KeywordsD.clean.html#define-function>`__,
-`IF <KeywordsI.clean.html#if>`__, `REPeat <KeywordsR.clean.html#repeat>`__,
-`WHEN <KeywordsW.clean.html#when>`__ and `FOR <KeywordsF.clean.html#for>`__.
+Please see :ref:`select--on`. Other SuperBASIC
+structures are :ref:`define--procedure`,
+:ref:`define--function`,
+:ref:`if`, :ref:`repeat`,
+WHEN XXX and :ref:`for`.
 
 --------------
+
+
+..  _end--when:
 
 END WHEN
 ========
@@ -1076,14 +1134,16 @@ does not mark the end of a WHEN ERROR definition block.
 
 **CROSS-REFERENCE**
 
-Please see `WHEN ERRor <KeywordsW.clean.html#when-error>`__ and `WHEN
-condition <KeywordsW.clean.html#when-condition>`__. Other SuperBASIC
-structures are `DEFine PROCedure <KeywordsD.clean.html#define-procedure>`__,
-`DEFine FuNction <KeywordsD.clean.html#define-function>`__,
-`IF <KeywordsI.clean.html#if>`__, `REPeat <KeywordsR.clean.html#repeat>`__,
-`SELect <KeywordsS.clean.html#select>`__ and `FOR <KeywordsF.clean.html#for>`__.
+Please see :ref:`when--error` and :ref:`when--condition`. Other SuperBASIC
+structures are :ref:`define--procedure`,
+:ref:`define--function`,
+:ref:`if`, :ref:`repeat`,
+:ref:`select` and :ref:`for`.
 
 --------------
+
+
+..  _end-cmd:
 
 END\_CMD
 ========
@@ -1100,10 +1160,13 @@ file. It overcomes the problem explained in NOTE 1 of MERGE.
 
 **CROSS-REFERENCE**
 
-Please see `MERGE <KeywordsM.clean.html#merge>`__. `DO <KeywordsD.clean.html#do>`__
+Please see :ref:`merge`. :ref:`do`
 is also useful for executing such files.
 
 --------------
+
+
+..  _end-when:
 
 END\_WHEN
 =========
@@ -1120,9 +1183,12 @@ Turbo compiled programs.
 
 **CROSS-REFERENCE**
 
-Please see `WHEN\_ERROR <KeywordsW.clean.html#when-error>`__
+Please see :ref:`when--error`
 
 --------------
+
+
+..  _env-del:
 
 ENV\_DEL
 ========
@@ -1152,9 +1218,12 @@ program has finished, the environment variable may be deleted.
 
 **CROSS-REFERENCE**
 
-Please see `SETENV <KeywordsS.clean.html#setenv>`__
+Please see :ref:`setenv`
 
 --------------
+
+
+..  _env-list:
 
 ENV\_LIST
 =========
@@ -1170,9 +1239,12 @@ channel (default #1).
 
 **CROSS-REFERENCE**
 
-Please see `SETENV <KeywordsS.clean.html#setenv>`__
+Please see :ref:`setenv`
 
 --------------
+
+
+..  _enl:
 
 ENL
 ===
@@ -1194,16 +1266,19 @@ is the same as::
 
 **CROSS-REFERENCE**
 
-`NORM <KeywordsN.clean.html#norm>`__, `BLD <KeywordsB.clean.html#bld>`__,
-`EL <KeywordsE.clean.html#el>`__, `DBL <KeywordsD.clean.html#dbl>`__,
-`PRO <KeywordsP.clean.html#pro>`__, `SI <KeywordsS.clean.html#si>`__,
-`NRM <KeywordsN.clean.html#nrm>`__, `UNL <KeywordsU.clean.html#unl>`__,
-`ALT <KeywordsA.clean.html#alt>`__, `ESC <KeywordsE.clean.html#esc>`__,
-`FF <KeywordsF.clean.html#ff>`__, `LMAR <KeywordsL.clean.html#lmar>`__,
-`RMAR <KeywordsR.clean.html#rmar>`__, `PAGDIS <KeywordsP.clean.html#pagdis>`__,
-`PAGLEN <KeywordsP.clean.html#paglen>`__.
+:ref:`norm`, :ref:`bld`,
+:ref:`el`, :ref:`dbl`,
+:ref:`pro`, :ref:`si`,
+:ref:`nrm`, :ref:`unl`,
+:ref:`alt`, :ref:`esc`,
+:ref:`ff`, :ref:`lmar`,
+:ref:`rmar`, :ref:`pagdis`,
+:ref:`paglen`.
 
 --------------
+
+
+..  _eof:
 
 EOF
 ===
@@ -1264,15 +1339,18 @@ compatability.
 
 **CROSS-REFERENCE**
 
-`DATA <KeywordsD.clean.html#data>`__ specifies a line of data statements.
-`RESTORE <KeywordsR.clean.html#restore>`__ resets the data pointer and
-`READ <KeywordsR.clean.html#read>`__ will actually fetch the data.
-`CLOSE <KeywordsC.clean.html#close>`__ closes a given channel after it has
-been used. `PEND <KeywordsP.clean.html#pend>`__ or
-`IO\_PEND% <KeywordsI.clean.html#io-pend>`__ are much better for use on
-pipes. See also `EOFW <KeywordsE.clean.html#eofw>`__.
+:ref:`data` specifies a line of data statements.
+:ref:`restore` resets the data pointer and
+:ref:`read` will actually fetch the data.
+:ref:`close` closes a given channel after it has
+been used. :ref:`pend` or
+:ref:`io-pend-pct` are much better for use on
+pipes. See also :ref:`eofw`.
 
 --------------
+
+
+..  _eofw:
 
 EOFW
 ====
@@ -1292,10 +1370,13 @@ any data to be read.
 
 **CROSS-REFERENCE**
 
-See `EOF <KeywordsE.clean.html#eof>`__. `PEND <KeywordsP.clean.html#pend>`__ and
-`IO\_PEND% <KeywordsI.clean.html#io-pend>`__ are very similar.
+See :ref:`eof`. :ref:`pend` and
+:ref:`io-pend-pct` are very similar.
 
 --------------
+
+
+..  _eprom-load:
 
 EPROM\_LOAD
 ===========
@@ -1345,10 +1426,13 @@ or Super Gold Card without the specified file being present.
 
 **CROSS-REFERENCE**
 
-See also `ROM <KeywordsR.clean.html#rom>`__, `ROMs <KeywordsR.clean.html#roms>`__
-and `ROM\_TEST <KeywordsR.clean.html#rom-test>`__.
+See also :ref:`rom`, :ref:`roms`
+and :ref:`rom-test`.
 
 --------------
+
+
+..  _eps:
 
 EPS
 ===
@@ -1401,6 +1485,9 @@ calculations.
 
 --------------
 
+
+..  _eq-dlr:
+
 EQ$
 ===
 
@@ -1415,11 +1502,16 @@ the two strings are equal to each other using the same test as GT$.
 
 **CROSS-REFERENCE**
 
-See `GT$ <KeywordsG.clean.html#gt>`__ for more details.
-`NE$ <KeywordsN.clean.html#ne>`__ is the same as `NOT EQ$ (type, string1$,
-string2$) <KeywordsN.clean.html#not-eq>`__.
+See :ref:`gt-dlr` for more details.
+:ref:`ne-dlr` is the same as::
+
+    NOT EQ$ (type, string1$,string2$)
+    
 
 --------------
+
+
+..  _erlin:
 
 ERLIN
 =====
@@ -1449,12 +1541,14 @@ or::
 
 **CROSS-REFERENCE**
 
-`ERNUM <KeywordsE.clean.html#ernum>`__ returns the error number,
-`REPORT <KeywordsR.clean.html#report>`__ invokes an error message and `WHEN
-ERRor <KeywordsW.clean.html#when-error>`__ allows error trapping.
-`ERLIN% <KeywordsE.clean.html#erlin>`__ is exactly the same.
+:ref:`ernum` returns the error number,
+:ref:`report` invokes an error message and :ref:`when--error`
+allows error trapping. :ref:`erlin-pct` is exactly the same.
 
 --------------
+
+
+..  _erlin-pct:
 
 ERLIN%
 ======
@@ -1470,10 +1564,13 @@ of the QL ROM.
 
 **CROSS-REFERENCE**
 
-See `ERLIN <KeywordsE.clean.html#erlin>`__ and
-`ERNUM% <KeywordsE.clean.html#ernum>`__.
+See :ref:`erlin` and
+:ref:`ernum-pct`.
 
 --------------
+
+
+..  _ernum:
 
 ERNUM
 =====
@@ -1603,14 +1700,17 @@ interpreter, but these are not covered by ERNUM.
 
 **CROSS-REFERENCE**
 
-`ERLIN <KeywordsE.clean.html#erlin>`__ returns the line number where the error
-occurred. `ERNUM% <KeywordsE.clean.html#ernum>`__ is the same as this
-function. `REPORT <KeywordsR.clean.html#report>`__ invokes an error message
-and `WHEN ERRor <KeywordsW.clean.html#when-error>`__ can be used to trap
-errors. The `ERR\_ <KeywordsE.clean.html#err->`__... functions are
-alternatives to `ERNUM <KeywordsE.clean.html#ernum>`__.
+:ref:`erlin` returns the line number where the error
+occurred. :ref:`ernum-pct` is the same as this
+function. :ref:`report` invokes an error message
+and :ref:`when--error` can be used to trap
+errors. The :ref:`err-...` functions are
+alternatives to :ref:`ernum`.
 
 --------------
+
+
+..  _ernum-pct:
 
 ERNUM%
 ======
@@ -1626,10 +1726,13 @@ of the QL ROM.
 
 **CROSS-REFERENCE**
 
-See `ERNUM <KeywordsE.clean.html#ernum>`__ and
-`ERLIN% <KeywordsE.clean.html#erlin>`__.
+See :ref:`ernum` and
+:ref:`erlin-pct`.
 
 --------------
+
+
+..  _err-...:
 
 ERR\_...
 ========
@@ -1714,6 +1817,9 @@ See Appendix for other languages.
 
 --------------
 
+
+..  _error:
+
 ERRor
 =====
 
@@ -1729,10 +1835,13 @@ As such, this keyword cannot be used in a program on its own - this will report
 
 **CROSS-REFERENCE**
 
-`WHEN ERRor <KeywordsW.clean.html#when-error>`__ contains a detailed
+:ref:`when--error` contains a detailed
 description of this structure.
 
 --------------
+
+
+..  _ert:
 
 ERT
 ===
@@ -1833,10 +1942,13 @@ inside the function.
 
 **CROSS-REFERENCE**
 
-`REPort <KeywordsR.clean.html#report>`__ will report an error without stopping
+:ref:`report` will report an error without stopping
 the program.
 
 --------------
+
+
+..  _et:
 
 ET
 ==
@@ -1859,9 +1971,12 @@ SuperBASIC to allow you to use a monitor program.
 
 **CROSS-REFERENCE**
 
-`EX <KeywordsE.clean.html#ex>`__
+:ref:`ex`
 
 --------------
+
+
+..  _etab-dlr:
 
 ETAB$
 =====
@@ -1907,12 +2022,15 @@ not produce a sensible output. It may even possibly crash the system.
 
 **CROSS-REFERENCE**
 
-`CTAB$ <KeywordsC.clean.html#ctab>`__ is the complimentary function to
-`ETAB$ <KeywordsE.clean.html#etab>`__. `INSTR <KeywordsI.clean.html#instr>`__ finds
-the position of a string in another string. `LEN <KeywordsL.clean.html#len>`__
+:ref:`ctab-dlr` is the complimentary function to
+:ref:`etab-dlr`. :ref:`instr` finds
+the position of a string in another string. :ref:`len`
 returns the length of a string.
 
 --------------
+
+
+..  _etat:
 
 ETAT
 ====
@@ -1948,20 +2066,22 @@ This program copies text files to window #1::
 
 **CROSS-REFERENCE**
 
-`FTEST <KeywordsF.clean.html#ftest>`__ works like
-`ETAT <KeywordsE.clean.html#etat>`__ but recognises the default device and
-directory. `FILE\_OPEN <KeywordsF.clean.html#file-open>`__,
-`FOPEN <KeywordsF.clean.html#fopen>`__, `FOP\_IN <KeywordsF.clean.html#fop-in>`__,
-`FOP\_OVER <KeywordsF.clean.html#fop-over>`__ and
-`FOP\_NEW <KeywordsF.clean.html#fop-new>`__ are all functions to open files
-without the need for error trapping. `OPEN <KeywordsO.clean.html#open>`__,
-`OPEN\_IN <KeywordsO.clean.html#open-in>`__ and
-`OPEN\_NEW <KeywordsO.clean.html#open-new>`__ stop with error messages if an
+:ref:`ftest` works like
+:ref:`etat` but recognises the default device and
+directory. :ref:`file-open`,
+:ref:`fopen`, :ref:`fop-in`,
+:ref:`fop-over` and
+:ref:`fop-new` are all functions to open files
+without the need for error trapping. :ref:`open`,
+:ref:`open-in` and
+:ref:`open-new` stop with error messages if an
 error occurs. To avoid this, error trapping facilities, such as
-`WHEN <KeywordsW.clean.html#when>`__ `ERRor <KeywordsE.clean.html#error>`__ have to
-be used.
+:ref:`when--error` have to be used.
 
 --------------
+
+
+..  _ew:
 
 EW
 ==
@@ -2159,13 +2279,16 @@ will look for the following files:
 
 **CROSS-REFERENCE**
 
-For further information see `EX <KeywordsE.clean.html#ex>`__.
-`SBASIC <KeywordsS.clean.html#sbasic>`__ allows you to set up several SBASIC
-jobs under SMS. `MB <KeywordsM.clean.html#mb>`__ allowed you to start up a
+For further information see :ref:`ex`.
+:ref:`sbasic` allows you to set up several SBASIC
+jobs under SMS. :ref:`mb` allowed you to start up a
 MultiBASIC on early versions of Minerva. Please also see the appendix on
 Multiple BASICs.
 
 --------------
+
+
+..  _ex:
 
 EX
 ==
@@ -2316,14 +2439,17 @@ SBASICs.
 
 **CROSS-REFERENCE**
 
-Use `FTYP <KeywordsF.clean.html#ftyp>`__ or
-`FILE\_TYP <KeywordsF.clean.html#file-typ>`__ to check if a file is
-executable. `FDAT <KeywordsF.clean.html#fdat>`__ returns the dataspace of an
-executable file, `FXTRA <KeywordsF.clean.html#fxtra>`__ provides other
-information. `ET <KeywordsE.clean.html#et>`__ is very similar to
-`EX <KeywordsE.clean.html#ex>`__.
+Use :ref:`ftyp` or
+:ref:`file-type` to check if a file is
+executable. :ref:`fdat` returns the dataspace of an
+executable file, :ref:`fxtra` provides other
+information. :ref:`et` is very similar to
+:ref:`ex`.
 
 --------------
+
+
+..  _exchg:
 
 EXCHG
 =====
@@ -2353,9 +2479,12 @@ CHR$(0) cannot be replaced!
 
 **CROSS-REFERENCE**
 
-See also `CONVERT <KeywordsC.clean.html#convert>`__.
+See also :ref:`convert`.
 
 --------------
+
+
+..  _exec:
 
 EXEC
 ====
@@ -2378,14 +2507,17 @@ in that you can pass details of existing channels to a job as well as a command 
 **CROSS-REFERENCE**
 
 With Toolkit II installed or on a THOR XVI,
-`EXEC <KeywordsE.clean.html#exec>`__ is the same as
-`EX <KeywordsE.clean.html#ex>`__. See also
-`EXEC\_W <KeywordsE.clean.html#exec-w>`__, `EW <KeywordsE.clean.html#ew>`__,
-`TTEX <KeywordsT.clean.html#ttex>`__ and `ET <KeywordsE.clean.html#et>`__. If you
+:ref:`exec` is the same as
+:ref:`ex`. See also
+:ref:`exec-w`, :ref:`ew`,
+:ref:`ttex` and :ref:`et`. If you
 are using the Hotkey System or SMS then
-see `EXEP <KeywordsE.clean.html#exep>`__ in this manual.
+see :ref:`exep` in this manual.
 
 --------------
+
+
+..  _exec-w:
 
 EXEC\_W
 =======
@@ -2403,12 +2535,15 @@ suspended until the program has finished.
 
 **CROSS-REFERENCE**
 
-Toolkit II and a THOR XVI make `EXEC\_W <KeywordsE.clean.html#exec-w>`__ the
-same as `EW <KeywordsE.clean.html#ew>`__. See also
-`EXEC <KeywordsE.clean.html#exec>`__, `EX <KeywordsE.clean.html#ex>`__,
-`TTEW <KeywordsT.clean.html#ttew>`__ and `ET <KeywordsE.clean.html#et>`__.
+Toolkit II and a THOR XVI make :ref:`exec-w` the
+same as :ref:`ew`. See also
+:ref:`exec`, :ref:`ex`,
+:ref:`ttex`, :ref:`ttex-w` and :ref:`et`.
 
 --------------
+
+
+..  _exep:
 
 EXEP
 ====
@@ -2592,17 +2727,20 @@ which will otherwise be the name given the program when it was created.
 
 **CROSS-REFERENCE**
 
-`THING <KeywordsT.clean.html#thing>`__ allows you to test whether or not a
-given Thing is present. `EX <KeywordsE.clean.html#ex>`__,
-`EXEC <KeywordsE.clean.html#exec>`__, `EW <KeywordsE.clean.html#ew>`__ and
-`EXEC\_W <KeywordsE.clean.html#exec-w>`__ are all similar to the first variant
-of `EXEP <KeywordsE.clean.html#exep>`__.
-`GET\_STUFF$ <KeywordsG.clean.html#get-stuff>`__ will call up the QPAC2 files
+:ref:`thing` allows you to test whether or not a
+given Thing is present. :ref:`ex`,
+:ref:`exec`, :ref:`ew` and
+:ref:`exec-w` are all similar to the first variant
+of :ref:`exep`.
+:ref:`get-stuff-dlr` will call up the QPAC2 files
 sub-menu and allow you to read the chosen filename.
-`HOT\_THING <KeywordsH.clean.html#hot-thing>`__ allows you to set up a hotkey
+:ref:`hot-thing` allows you to set up a hotkey
 to call an Executable Thing.
 
 --------------
+
+
+..  _exit:
 
 EXIT
 ====
@@ -2678,10 +2816,13 @@ up the loop variables)!!
 
 **CROSS-REFERENCE**
 
-Please see `FOR <KeywordsF.clean.html#for>`__ and
-`REPeat <KeywordsR.clean.html#repeat>`__ for more details.
+Please see :ref:`for` and
+:ref:`repeat` for more details.
 
 --------------
+
+
+..  _exp:
 
 EXP
 ===
@@ -2711,10 +2852,13 @@ of 0 returns the value 1.
 
 **CROSS-REFERENCE**
 
-`LN <KeywordsL.clean.html#ln>`__ returns the natural logarithm of the given
+:ref:`ln` returns the natural logarithm of the given
 value.
 
 --------------
+
+
+..  _expand:
 
 EXPAND
 ======
@@ -2749,10 +2893,13 @@ will crash. This is certain if the file is longer than 32K.
 
 **CROSS-REFERENCE**
 
-`COMPRESS <KeywordsC.clean.html#compress>`__,
-`FASTEXPAND <KeywordsF.clean.html#fastexpand>`__.
+:ref:`compress`,
+:ref:`fastexpand`.
 
 --------------
+
+
+..  _explode:
 
 EXPLODE
 =======
@@ -2767,10 +2914,13 @@ This command produces the sound of an explosion, very nice.
 
 **CROSS-REFERENCE**
 
-`SND\_EXT <KeywordsS.clean.html#snd-ext>`__, `BELL <KeywordsB.clean.html#bell>`__,
-`SHOOT <KeywordsS.clean.html#shoot>`__.
+:ref:`snd-ext`, :ref:`bell`,
+:ref:`shoot`.
 
 --------------
+
+
+..  _extras:
 
 EXTRAS
 ======
@@ -2826,12 +2976,15 @@ for different things.
 
 **CROSS-REFERENCE**
 
-Use `SXTRAS <KeywordsS.clean.html#sxtras>`__ if you have a lot of extensions
+Use :ref:`sxtras` if you have a lot of extensions
 in memory and you are looking for a specific one. See also
-`TXTRAS <KeywordsT.clean.html#txtras>`__, `VOCAB <KeywordsV.clean.html#vocab>`__ and
-`NEW\_NAME <KeywordsN.clean.html#new-name>`__.
+:ref:`txtras`, :ref:`vocab` and
+:ref:`new-name`.
 
 --------------
+
+
+..  _extras-w:
 
 EXTRAS\_W
 =========
@@ -2848,4 +3001,5 @@ the given window is full.
 
 **CROSS-REFERENCE**
 
-`EXTRAS <KeywordsE.clean.html#extras>`__ is very similar.
+:ref:`extras` is very similar.
+

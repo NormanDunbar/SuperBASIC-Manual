@@ -1,6 +1,10 @@
+
 ==========
 Keywords O
 ==========
+
+
+..  _odd:
 
 ODD
 ===
@@ -23,6 +27,9 @@ function::
 
 --------------
 
+
+..  _off:
+
 OFF
 ===
 
@@ -43,10 +50,13 @@ listings more readable.
 
 **CROSS-REFERENCE**
 
-`ON <KeywordsO.clean.html#on>`__, `FALSE% <KeywordsF.clean.html#false>`__,
-`TRUE% <KeywordsT.clean.html#true>`__, `SET <KeywordsS.clean.html#set>`__
+:ref:`on`, :ref:`false-pct`,
+:ref:`true-pct`, :ref:`set`
 
 --------------
+
+
+..  _ojob:
 
 OJOB
 ====
@@ -68,11 +78,14 @@ negative job\_ID points to the job which calls OJOB.
 
 **CROSS-REFERENCE**
 
-`JOB$ <KeywordsJ.clean.html#job>`__, `NXJOB <KeywordsN.clean.html#nxjob>`__ and
-`PJOB <KeywordsP.clean.html#pjob>`__ return other information about a job.
-`JOBS <KeywordsJ.clean.html#jobs>`__ lists all jobs.
+:ref:`job-dlr`, :ref:`nxjob` and
+:ref:`pjob` return other information about a job.
+:ref:`jobs` lists all jobs.
 
 --------------
+
+
+..  _on:
 
 ON
 ==
@@ -93,17 +106,23 @@ This is a constant which returns 1.
 
 **CROSS-REFERENCE**
 
-`OFF <KeywordsO.clean.html#off>`__, `FALSE% <KeywordsF.clean.html#false>`__,
-`TRUE% <KeywordsT.clean.html#true>`__, `SET <KeywordsS.clean.html#set>`__
+:ref:`off`, :ref:`false-pct`,
+:ref:`true-pct`, :ref:`set`
 
 --------------
+
+
+..  _on...go--to:
 
 ON...GO TO
 ==========
 
-See `ON...GO SUB <KeywordsO.clean.html#on-go-sub>`__.
+See :ref:`on...go--sub`.
 
 --------------
+
+
+..  _on...go--sub:
 
 ON...GO SUB
 ===========
@@ -150,15 +169,18 @@ to the example given for SELect ON.
 **NOTE**
 
 ON can also be used with the SELect ON structure - please refer to
-`SELect ON <KeywordsS.clean.html#select-on>`__ for further details.
+:ref:`select--on` for further details.
 
 **CROSS-REFERENCE**
 
 These two commands can generally be replaced either by a calculated 
-`GO SUB <KeywordsG.clean.html#go-sub>`__ or `GO TO <KeywordsG.clean.html#go-to>`__
-statement, or the `SELect ON <KeywordsS.clean.html#select-on>`__ structure.
+:ref:`go--sub` or :ref:`go--to`
+statement, or the :ref:`select--on` structure.
 
 --------------
+
+
+..  _open:
 
 OPEN
 ====
@@ -399,23 +421,26 @@ MultiBasic in certain instances - see MultiBasic appendix.
 
 **CROSS-REFERENCE**
 
-Opened channels are closed with `CLOSE <KeywordsC.clean.html#close>`__ and can
-be listed with `CHANNELS <KeywordsC.clean.html#channels>`__.
-`FOPEN <KeywordsF.clean.html#fopen>`__ is the same as
-`OPEN <KeywordsO.clean.html#open>`__ except it works as a function and
-`OPEN\_IN <KeywordsO.clean.html#open-in>`__ /
-`FOP\_IN <KeywordsF.clean.html#fop-in>`__ open a device for input only.
-`OPEN\_DIR <KeywordsO.clean.html#open-dir>`__
-(`FOP\_DIR <KeywordsF.clean.html#fop-dir>`__) opens a directory (or a
+Opened channels are closed with :ref:`close` and can
+be listed with :ref:`channels`.
+:ref:`fopen` is the same as
+:ref:`open` except it works as a function and
+:ref:`open-in` /
+:ref:`fop-in` open a device for input only.
+:ref:`open-dir`
+(:ref:`fop-dir`) opens a directory (or a
 sub-directory on level-2 drivers). Also see
-`OPEN\_NEW <KeywordsO.clean.html#open-new>`__,
-`FOP\_OVER <KeywordsF.clean.html#fop-over>`__,
-`TTEOPEN <KeywordsT.clean.html#tteopen>`__ and
-`FILE\_OPEN <KeywordsF.clean.html#file-open>`__.
-`NEWCHAN% <KeywordsN.clean.html#newchan>`__ can be quite useful when
-`OPEN <KeywordsO.clean.html#open>`__\ ing channels.
+:ref:`open-new`,
+:ref:`fop-over`,
+:ref:`tteopen` and
+:ref:`file-open`.
+:ref:`newchan-pct` can be quite useful when
+:ref:`open`\ ing channels.
 
 --------------
+
+
+..  _open-dir:
 
 OPEN\_DIR
 =========
@@ -623,17 +648,20 @@ thereby avoiding these problems.
 
 **CROSS-REFERENCE**
 
-Please see `OPEN <KeywordsO.clean.html#open>`__. Commands such as
-`FLEN <KeywordsF.clean.html#flen>`__, `FGETH$ <KeywordsF.clean.html#fgeth>`__ and
-`HEADR <KeywordsH.clean.html#headr>`__ allow you to examine parts of each
-files header - see `FGETH$ <KeywordsF.clean.html#fgeth>`__ for details of the
-file header. `FOP\_DIR <KeywordsF.clean.html#fop-dir>`__ is an error trapped
-version of `OPEN\_DIR <KeywordsO.clean.html#open-dir>`__. The Minerva variant
-of `OPEN <KeywordsO.clean.html#open>`__, `OPEN\_IN <KeywordsO.clean.html#open-in>`__
-and `OPEN\_NEW <KeywordsO.clean.html#open-new>`__ can all be made to work in a
-similar way to `OPEN\_DIR <KeywordsO.clean.html#open-dir>`__.
+Please see :ref:`open`. Commands such as
+:ref:`flen`, :ref:`fgeth-dlr` and
+:ref:`headr` allow you to examine parts of each
+files header - see :ref:`fgeth-dlr` for details of the
+file header. :ref:`fop-dir` is an error trapped
+version of :ref:`open-dir`. The Minerva variant
+of :ref:`open`, :ref:`open-in`
+and :ref:`open-new` can all be made to work in a
+similar way to :ref:`open-dir`.
 
 --------------
+
+
+..  _open-in:
 
 OPEN\_IN
 ========
@@ -689,14 +717,17 @@ used) has exactly the same effect as OPEN.
 
 **CROSS-REFERENCE**
 
-`FOP\_IN <KeywordsF.clean.html#fop-in>`__ is an error trapped equivalent to
-this command. `OPEN\_DIR <KeywordsO.clean.html#open-dir>`__ allows you to
-access directories on drives. `OPEN <KeywordsO.clean.html#open>`__ contains a
+:ref:`fop-in` is an error trapped equivalent to
+this command. :ref:`open-dir` allows you to
+access directories on drives. :ref:`open` contains a
 general description of all the open types.
-`OPEN\_NEW <KeywordsO.clean.html#open-new>`__ and
-`OPEN\_OVER <KeywordsO.clean.html#open-over>`__ are also linked with this.
+:ref:`open-new` and
+:ref:`open-over` are also linked with this.
 
 --------------
+
+
+..  _open-new:
 
 OPEN\_NEW
 =========
@@ -772,14 +803,17 @@ CLOSEd).
 
 **CROSS-REFERENCE**
 
-`FOP\_NEW <KeywordsF.clean.html#fop-new>`__ is an error trapped function which
-is equivalent to this command. `OPEN\_DIR <KeywordsO.clean.html#open-dir>`__
+:ref:`fop-new` is an error trapped function which
+is equivalent to this command. :ref:`open-dir`
 allows you to access directories on drives.
-`OPEN <KeywordsO.clean.html#open>`__ contains a general description of all the
-open types. `OPEN\_IN <KeywordsO.clean.html#open-in>`__ and
-`OPEN\_OVER <KeywordsO.clean.html#open-over>`__ are also linked with this.
+:ref:`open` contains a general description of all the
+open types. :ref:`open-in` and
+:ref:`open-over` are also linked with this.
 
 --------------
+
+
+..  _open-over:
 
 OPEN\_OVER
 ==========
@@ -798,15 +832,18 @@ does not support the default data device.
 
 **CROSS-REFERENCE**
 
-See `OPEN\_NEW <KeywordsO.clean.html#open-new>`__! The Minerva variant of
-`OPEN <KeywordsO.clean.html#open>`__, `OPEN\_IN <KeywordsO.clean.html#open-in>`__
-and `OPEN\_NEW <KeywordsO.clean.html#open-new>`__ can all be made to work in
-the same way as `OPEN\_OVER <KeywordsO.clean.html#open-over>`__.
-`FOP\_OVER <KeywordsF.clean.html#fop-over>`__ is a function which operates
-like `OPEN\_OVER <KeywordsO.clean.html#open-over>`__ except that it allows any
+See :ref:`open-new`! The Minerva variant of
+:ref:`open`, :ref:`open-in`
+and :ref:`open-new` can all be made to work in
+the same way as :ref:`open-over`.
+:ref:`fop-over` is a function which operates
+like :ref:`open-over` except that it allows any
 errors to be trapped.
 
 --------------
+
+
+..  _or:
 
 OR
 ==
@@ -855,10 +892,13 @@ produces the following output::
 
 **CROSS-REFERENCE**
 
-`AND <KeywordsA.clean.html#and>`__, `NOT <KeywordsN.clean.html#not>`__ and
-`XOR <KeywordsX.clean.html#xor>`__ are the other combination operators.
+:ref:`and`, :ref:`not` and
+:ref:`xor` are the other combination operators.
 
 --------------
+
+
+..  _outl:
 
 OUTL
 ====
@@ -878,11 +918,14 @@ This command is similar to OUTLN except for a few variations:
 
 **CROSS-REFERENCE**
 
-See `OUTLN <KeywordsO.clean.html#outln>`__.
-`CHANNELS <KeywordsC.clean.html#channels>`__ allows you to find out about QDOS
+See :ref:`outln`.
+:ref:`channels` allows you to find out about QDOS
 channel numbers.
 
 --------------
+
+
+..  _outln:
 
 OUTLN
 =====
@@ -1090,11 +1133,14 @@ OUTLN was already set.
 
 **CROSS-REFERENCE**
 
-See `QFLIM <KeywordsQ.clean.html#qflim>`__. `OUTL <KeywordsO.clean.html#outl>`__ is
-similar. `WMON <KeywordsW.clean.html#wmon>`__ and `WTV <KeywordsW.clean.html#wtv>`__
+See :ref:`qflim`. :ref:`outl` is
+similar. :ref:`wmon` and :ref:`wtv`
 also add an outline to a program.
 
 --------------
+
+
+..  _over:
 
 OVER
 ====
@@ -1186,5 +1232,6 @@ OVER -1 causes various problems with the FILL command - see FILL.
 
 **CROSS-REFERENCE**
 
-Please look at `INK <KeywordsI.clean.html#ink>`__ and
-`PRINT <KeywordsP.clean.html#print>`__.
+Please look at :ref:`ink` and
+:ref:`print`.
+

@@ -6,19 +6,19 @@
 #include <cctype>
 
 //
-// addReferenceLinks <list_of_files>
+// addReferenceLinks filename > outputFileName
 //
 // This program will read the list of files and for each one found, 
 // will extract all the existing "wrong format" links as follows:
 // 
-//      `Link Text <URL>`__
+//      `Link_Text <URL>`__
 //
 // These links need fixing as the current style only works in HTML
 // generated output. PDF, for example, reports the links as broken.
 //
 // The fix is simple (!) - replace the above style links with:
 //
-//      :ref:`Link Text`
+//      :ref:`Link_Text`
 //
 // Where a link is to a keywork that ends with a '%' or '$', then
 // these characters are not permitted, so we change them to 
@@ -104,24 +104,33 @@ void doFile(const char *fname)
             // Job done, do any remaining URLs.        
             cout << match.prefix() << ":ref:`";
             
-            // Extract the keyword from after the '#'.
+            // Extract the keyword from before the ' <' (space chevron).
             string url = match[0];
-            size_t hashPos = url.find("#");
-            if (hashPos == string::npos) {
+            size_t spacePos = url.find(" <");
+            if (spacePos == string::npos) {
                 cerr << "BROKEN URL at line " << lineNumber << ":" <<  match[0] << endl;
                 continue;
             }
             
-            // Extract the lower cases keyword.
-            size_t chevronPos = url.find(">");
-            if (hashPos == string::npos) {
-                cerr << "BROKEN URL at line " << lineNumber << ":" << match[0] << endl;
-                continue;
-            }
+            // Extract the lower cased keyword. Scan the url for escape characters
+            // and don't copy those over. Just the "normal" stuff is required.
+            // Underscores get converted to hyphens, spaces to double hyphens.
+            string keyWord;
+            keyWord.reserve(spacePos);  // A bit longer than necessary.
 
-            string keyWord = url.substr(hashPos + 1, chevronPos - hashPos - 1);
+            for (size_t pos = 1; pos < spacePos; pos++) {
+                char c = url.at(pos);
+                if (c != '\\') {
+                    if (c == '_' || c == ' ') {
+                        keyWord.push_back('-');
+                        if (c == ' ')
+                            keyWord.push_back('-');
+                    } else
+                        keyWord.push_back(tolower(c));
+                }
+            }
             
-            // Percent or Dollar?
+            // Percent or Dollar in the last character?
             size_t len = keyWord.length() -1;
             if (keyWord.at(len) == '%') {
                 keyWord = keyWord.substr(0, len) + "-pct";

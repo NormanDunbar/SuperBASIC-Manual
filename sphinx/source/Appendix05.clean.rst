@@ -1,3 +1,5 @@
+..  _a5-expansion--boards:
+
 A5 Expansion Boards
 ===================
 

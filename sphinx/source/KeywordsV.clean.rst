@@ -1,7 +1,11 @@
+
 ==========
 Keywords V
 ==========
 
+
+
+..  _va:
 
 VA
 ==
@@ -25,14 +29,17 @@ bad), then you need to invest 80000 \* VA(1/10, 2) = 66115.7
 
 **CROSS-REFERENCE**
 
-You can check the result of the above example with: 66115.7 \* `MT <KeywordsM.clean.html#mt>`__\ (1/10,2) = 80000.
+You can check the result of the above example with: 66115.7 \* :ref:`mt`\ (1/10,2) = 80000.
  
-See also `VFR <KeywordsV.clean.html#vfr>`__, `VAR <KeywordsV.clean.html#var>`__,
-`TCA <KeywordsT.clean.html#tca>`__, `TNC <KeywordsT.clean.html#tnc>`__,
-`TEE <KeywordsT.clean.html#tee>`__, `RAE <KeywordsR.clean.html#rae>`__,
-`RAFE <KeywordsR.clean.html#rafe>`__.
+See also :ref:`vfr`, :ref:`var`,
+:ref:`tca`, :ref:`tnc`,
+:ref:`tee`, :ref:`rae`,
+:ref:`rafe`.
 
 --------------
+
+
+..  _var:
 
 VAR
 ===
@@ -49,12 +56,15 @@ handling).
 
 **CROSS-REFERENCE**
 
-`MT <KeywordsM.clean.html#mt>`__, `VA <KeywordsV.clean.html#va>`__,
-`VFR <KeywordsV.clean.html#vfr>`__, `TCA <KeywordsT.clean.html#tca>`__,
-`TNC <KeywordsT.clean.html#tnc>`__, `TEE <KeywordsT.clean.html#tee>`__,
-`RAE <KeywordsR.clean.html#rae>`__, `RAFE <KeywordsR.clean.html#rafe>`__
+:ref:`mt`, :ref:`va`,
+:ref:`vfr`, :ref:`tca`,
+:ref:`tnc`, :ref:`tee`,
+:ref:`rae`, :ref:`rafe`
 
 --------------
+
+
+..  _ver-dlr:
 
 VER$
 ====
@@ -207,12 +217,15 @@ you can crash a JS (or JSU) ROM. This will also happen on Minerva ROMs
 
 **CROSS-REFERENCE**
 
-`QDOS$ <KeywordsQ.clean.html#qdos>`__ returns the version number of QDOS in
-the same way as `VER$ <KeywordsV.clean.html#ver>`__\ (1). See also
-`MACHINE <KeywordsM.clean.html#machine>`__ and
-`PROCESSOR <KeywordsP.clean.html#processor>`__.
+:ref:`qdos-dlr` returns the version number of QDOS in
+the same way as :ref:`ver-dlr`\ (1). See also
+:ref:`machine` and
+:ref:`processor`.
 
 --------------
+
+
+..  _vfr:
 
 VFR
 ===
@@ -229,12 +242,15 @@ handling).
 
 **CROSS-REFERENCE**
 
-`MT <KeywordsM.clean.html#mt>`__, `VA <KeywordsV.clean.html#va>`__,
-`VAR <KeywordsV.clean.html#var>`__, `TCA <KeywordsT.clean.html#tca>`__,
-`TNC <KeywordsT.clean.html#tnc>`__, `TEE <KeywordsT.clean.html#tee>`__,
-`RAE <KeywordsR.clean.html#rae>`__, `RAFE <KeywordsR.clean.html#rafe>`__
+:ref:`mt`, :ref:`va`,
+:ref:`var`, :ref:`tca`,
+:ref:`tnc`, :ref:`tee`,
+:ref:`rae`, :ref:`rafe`
 
 --------------
+
+
+..  _vg-hoch:
 
 VG\_HOCH
 ========
@@ -251,10 +267,13 @@ VG\_PARA.
 
 **CROSS-REFERENCE**
 
-`VG\_PARA <KeywordsV.clean.html#vg-para>`__ and
-`VG\_LOAD <KeywordsV.clean.html#vg-load>`__.
+:ref:`vg-para` and
+:ref:`vg-load`.
 
 --------------
+
+
+..  _vg-load:
 
 VG\_LOAD
 ========
@@ -300,10 +319,13 @@ machine will almost surely crash.
 
 **CROSS-REFERENCE**
 
-See `VG\_PRINT <KeywordsV.clean.html#vg-print>`__ about displaying text using
-a vector font and the other `VG\_ <KeywordsV.clean.html#vg-hoch>`__... commands.
+See :ref:`vg-print` about displaying text using
+a vector font and the other VG_XXX commands.
 
 --------------
+
+
+..  _vg-para:
 
 VG\_PARA
 ========
@@ -386,10 +408,13 @@ font.
 
 **CROSS-REFERENCE**
 
-`VG\_HOCH <KeywordsV.clean.html#vg-hoch>`__ is a function which returns the
+:ref:`vg-hoch` is a function which returns the
 text sizes.
 
 --------------
+
+
+..  _vg-print:
 
 VG\_PRINT
 =========
@@ -433,17 +458,20 @@ The following program lists the complete character set of a BGI font::
 
 **CROSS-REFERENCE**
 
-`VG\_PARA <KeywordsV.clean.html#vg-para>`__ offers a switch to approximate an
+:ref:`vg-para` offers a switch to approximate an
 identity between text$ and display as far as possible. Modify line 130 in the 
 above listing so that it looks like this now::
 
     130 VG_PARA 7,5,5,0,1,0,0 
  
-Running the program again shows you `VG\_PRINT <KeywordsV.clean.html#vg-print>`__'s
+Running the program again shows you :ref:`vg-print`'s
 attempts to correct the problem. See also the other
-`VG\_ <KeywordsV.clean.html#vg-hoch>`__... keywords!
+VG_XXX keywords!
 
 --------------
+
+
+..  _vg-reso:
 
 VG\_RESO
 ========
@@ -465,12 +493,15 @@ to write to the second screen on a dual screen system.
 
 **CROSS-REFERENCE**
 
-The settings of `VG\_WIND <KeywordsV.clean.html#vg-wind>`__ are dependent on
-`VG\_RESO <KeywordsV.clean.html#vg-reso>`__'s. See
-`SCRBASE <KeywordsS.clean.html#scrbase>`__, `PEEK <KeywordsP.clean.html#peek>`__ and
-`MODE <KeywordsM.clean.html#mode>`__.
+The settings of :ref:`vg-wind` are dependent on
+:ref:`vg-reso`'s. See
+:ref:`scrbase`, :ref:`peek` and
+:ref:`mode`.
 
 --------------
+
+
+..  _vg-wind:
 
 VG\_WIND
 ========
@@ -515,11 +546,14 @@ restores these defaults.
 
 **CROSS-REFERENCE**
 
-`VG\_ <KeywordsV.clean.html#vg-hoch>`__..., `QFLIM <KeywordsQ.clean.html#qflim>`__ can
+See also the other VG_XXX keywords. :ref:`qflim` can
 be used to find out about about the size of the screen if the Window
 Manager is loaded.
 
 --------------
+
+
+..  _view:
 
 VIEW
 ====
@@ -567,13 +601,16 @@ and does not include a newline character, the system may crash!
 
 **CROSS-REFERENCE**
 
-`SPL <KeywordsS.clean.html#spl>`__ file TO #1 copies all
+:ref:`spl` file TO #1 copies all
 kinds of files to a window, for example without truncating lines.
 
-Compare `COPY <KeywordsC.clean.html#copy>`__ and
-`MORE <KeywordsM.clean.html#more>`__.
+Compare :ref:`copy` and
+:ref:`more`.
 
 --------------
+
+
+..  _vocab:
 
 VOCAB
 =====
@@ -632,9 +669,10 @@ actually been used in the program when it has been RUN.
 
 **CROSS-REFERENCE**
 
-Use `SXTRAS <KeywordsS.clean.html#sxtras>`__ if you have a lot of extensions
+Use :ref:`sxtras` if you have a lot of extensions
 in memory and you are looking for a specific one. 
 
 See also
-`TXTRAS <KeywordsT.clean.html#txtras>`__, `EXTRAS <KeywordsE.clean.html#extras>`__
-and `TYPE <KeywordsT.clean.html#type>`__.
+:ref:`txtras`, :ref:`extras`
+and :ref:`type`.
+

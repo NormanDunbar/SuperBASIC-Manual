@@ -1,3 +1,4 @@
+
 ==========
 Keywords L
 ==========
@@ -6,7 +7,12 @@ TODO
 ====
 
 - LANGUAGE and LANGUAGE$ have the same URL.
+- LLIST, LPRINT and LPRINT$ are referenced, but are not in this file.
+- :ref:`lmar` references ESC whihc is not found anywhere.
 
+
+
+..  _lang-use:
 
 LANG\_USE
 =========
@@ -21,7 +27,7 @@ LANG\_USE
 This command sets the language to be used by SMS for its message tables
 (this includes interpreter messages and error messages). The value of
 num and kcode can be the same as for the SMS implementation of
-`KBD\_TABLE <KeywordsK.clean.html#kbd-table>`__\ . A description of the message tables and how to link in new
+:ref:`kbd-table`\ . A description of the message tables and how to link in new
 message modules is contained in IQLR Volume 5 Issue 1 and Issue 5.
 
 **NOTE**
@@ -32,14 +38,17 @@ function in Archive and Abacus fails.
 
 **CROSS-REFERENCE**
 
-`LANGUAGE <KeywordsL.clean.html#language>`__
-and `LANUGUAGE$ <KeywordsL.clean.html#lanuguage>`__ allow you to find out
-about the current language. `TRA <KeywordsT.clean.html#tra>`__ allows you to
+:ref:`language`
+and :ref:`language-dlr` allow you to find out
+about the current language. :ref:`tra` allows you to
 set the various message tables also. See
-`KBD\_TABLE <KeywordsK.clean.html#kbd-table>`__ and
-`SET\_LANGUAGE <KeywordsS.clean.html#set-language>`__.
+:ref:`kbd-table` and
+:ref:`set-language`.
 
 --------------
+
+
+..  _language:
 
 LANGUAGE
 ========
@@ -59,11 +68,14 @@ code or the car registration code).
 
 **CROSS-REFERENCE**
 
-`LANGUAGE$ <KeywordsL.clean.html#language>`__ returns the car registration
-code. `LANG\_USE <KeywordsL.clean.html#lang-use>`__ allows you to set the
+:ref:`language-dlr` returns the car registration
+code. :ref:`lang-use` allows you to set the
 language for the messages.
 
 --------------
+
+
+..  _language-dlr:
 
 LANGUAGE$
 =========
@@ -78,7 +90,7 @@ LANGUAGE$
 This function returns a string representing the current language layout
 of the keyboard which is linked into the QL. Unfortunately, the string
 returned is different on THORs and SMS's. For a list of the strings
-returned on THOR computers, see `SET\_LANGUAGE$ <KeywordsS.clean.html#set-language>`__. Under SMS the string
+returned on THOR computers, see :ref:`set-language`. Under SMS the string
 returned is the international car registration code for the language
 currently loaded (if code is not specified). The second variant returns
 the car registration code of the language which would be used if the
@@ -88,11 +100,14 @@ international dialling code or the car registration code).
 
 **CROSS-REFERENCE**
 
-`SET\_LANGUAGE$ <KeywordsS.clean.html#set-language>`__ allows you to alter
-the current keyboard. See also `LANGUAGE <KeywordsL.clean.html#language>`__
-and `LANG\_USE <KeywordsL.clean.html#lang-use>`__.
+:ref:`set-language` allows you to alter
+the current keyboard. See also :ref:`language`
+and :ref:`lang-use`.
 
 --------------
+
+
+..  _lar:
 
 LAR
 ===
@@ -111,11 +126,14 @@ supported.
 
 **CROSS-REFERENCE**
 
-See `DATAD$ <KeywordsD.clean.html#datad>`__ about the default data device.
-`SAR <KeywordsS.clean.html#sar>`__ and `SARO <KeywordsS.clean.html#saro>`__ are
+See :ref:`datad-dlr` about the default data device.
+:ref:`sar` and :ref:`saro` are
 complementary commands.
 
 --------------
+
+
+..  _lbytes:
 
 LBYTES
 ======
@@ -178,13 +196,16 @@ RAM allocated.
 
 **CROSS-REFERENCE**
 
-Normally code loaded with `LBYTES <KeywordsL.clean.html#lbytes>`__ has been
-saved using `SEXEC <KeywordsS.clean.html#sexec>`__ or
-`SBYTES <KeywordsS.clean.html#sbytes>`__. `FLEN <KeywordsF.clean.html#flen>`__
+Normally code loaded with :ref:`lbytes` has been
+saved using :ref:`sexec` or
+:ref:`sbytes`. :ref:`flen`
 allows you to find out the length of a file,
-`FTYP <KeywordsF.clean.html#ftyp>`__ its file type.
+:ref:`ftyp` its file type.
 
 --------------
+
+
+..  _lcm:
 
 LCM
 ===
@@ -215,9 +236,12 @@ multiple then simply multiply all the numbers, eg. 2\*3\*4=24.
 
 **CROSS-REFERENCE**
 
-`GCD <KeywordsG.clean.html#gcd>`__
+:ref:`gcd`
 
 --------------
+
+
+..  _ldraw:
 
 LDRAW
 =====
@@ -329,17 +353,20 @@ See SET.
 
 **CROSS-REFERENCE**
 
-`DRAW <KeywordsD.clean.html#draw>`__. Please use
-`LDRAW <KeywordsL.clean.html#ldraw>`__ only if you know what you are doing, do
+:ref:`draw`. Please use
+:ref:`ldraw` only if you know what you are doing, do
 not intend to write user-friendly programs, and especially if you do not
 intend to show your program listing to someone else! You can always use
-`LINE <KeywordsL.clean.html#line>`__ and `LINE\_R <KeywordsL.clean.html#line-r>`__,
-commands, `DOTLIN <KeywordsD.clean.html#dotlin>`__ and
-`XDRAW <KeywordsX.clean.html#xdraw>`__, which can draw dotted lines
-(`DOTLIN <KeywordsD.clean.html#dotlin>`__) or work in
-`XOR <KeywordsX.clean.html#xor>`__ mode (`XDRAW <KeywordsX.clean.html#xdraw>`__).
+:ref:`line` and :ref:`line-r`,
+commands, :ref:`dotlin` and
+:ref:`xdraw`, which can draw dotted lines
+(:ref:`dotlin`) or work in
+:ref:`xor` mode (:ref:`xdraw`).
 
 --------------
+
+
+..  _left:
 
 LEFT
 ====
@@ -366,12 +393,15 @@ column zero.
 
 **CROSS-REFERENCE**
 
-`AT <KeywordsA.clean.html#at>`__ allows you to position the text cursor.
-`PRINT <KeywordsP.clean.html#print>`__, `TO <KeywordsT.clean.html#to>`__,
-`INPUT <KeywordsI.clean.html#input>`__ and `CURSOR <KeywordsC.clean.html#cursor>`__
+:ref:`at` allows you to position the text cursor.
+:ref:`print`, :ref:`to`,
+:ref:`input` and :ref:`cursor`
 also affect the text cursor.
 
 --------------
+
+
+..  _len:
 
 LEN
 ===
@@ -407,12 +437,15 @@ longer than 32766 characters, for example with::
 
 **CROSS-REFERENCE**
 
-`FILL$ <KeywordsF.clean.html#fill>`__ returns a string of a specified length.
-`DIMN <KeywordsD.clean.html#dimn>`__ returns important information about
+:ref:`fill-dlr` returns a string of a specified length.
+:ref:`dimn` returns important information about
 arrays. See also the Compatability Appendix for some important
 information concerning string lengths.
 
 --------------
+
+
+..  _let:
 
 LET
 ===
@@ -526,10 +559,13 @@ On Minerva (and possibly other ROM versions) both of these merely report
 
 **CROSS-REFERENCE**
 
-`READ <KeywordsR.clean.html#read>`__ and `INPUT <KeywordsI.clean.html#input>`__ also
+:ref:`read` and :ref:`input` also
 allow you to assign a value to a variable.
 
 --------------
+
+
+..  _level2:
 
 LEVEL2
 ======
@@ -540,7 +576,7 @@ LEVEL2
 | Location | DJToolkit 1.16                                                    |
 +----------+-------------------------------------------------------------------+
 
-If the device that has the given channel opened to it has the level 2 drivers, then present will be set to 1, otherwise it will be set to 0.  The level 2 drivers allow such things as sub_directories to be used, when a `DIR <KeywordsD.clean.html#dir>`__ is done on one of these devices, sub-directories show up as a filename with '->' at the end of the name. Gold Cards and later models of Trump cards have level 2 drivers. Microdrives don't.
+If the device that has the given channel opened to it has the level 2 drivers, then present will be set to 1, otherwise it will be set to 0.  The level 2 drivers allow such things as sub_directories to be used, when a :ref:`dir` is done on one of these devices, sub-directories show up as a filename with '->' at the end of the name. Gold Cards and later models of Trump cards have level 2 drivers. Microdrives don't.
 
 **EXAMPLE**
 
@@ -568,6 +604,9 @@ If the device that has the given channel opened to it has the level 2 drivers, t
 -------
 
 
+
+..  _lget:
+
 LGET
 ====
 
@@ -588,11 +627,14 @@ LGET is affected by TRA.
 
 **CROSS-REFERENCE**
 
-See `BGET <KeywordsB.clean.html#bget>`__. `LPUT <KeywordsL.clean.html#lput>`__ is
-complementary function. `WGET <KeywordsW.clean.html#wget>`__ allows you to
+See :ref:`bget`. :ref:`lput` is
+complementary function. :ref:`wget` allows you to
 fetch word values.
 
 --------------
+
+
+..  _line:
 
 LINE
 ====
@@ -656,12 +698,15 @@ On a MG ROM, you may find that the last point is not always plotted.
 
 **CROSS-REFERENCE**
 
-`LINE\_R <KeywordsL.clean.html#line-r>`__ is very similar. See also
-`ELLIPSE <KeywordsE.clean.html#ellipse>`__,
-`CIRCLE <KeywordsC.clean.html#circle>`__, `ARC <KeywordsA.clean.html#arc>`__,
-`POINT <KeywordsP.clean.html#point>`__ and `SCALE <KeywordsS.clean.html#scale>`__.
+:ref:`line-r` is very similar. See also
+:ref:`ellipse`,
+:ref:`circle`, :ref:`arc`,
+:ref:`point` and :ref:`scale`.
 
 --------------
+
+
+..  _line-r:
 
 LINE\_R
 =======
@@ -677,13 +722,16 @@ taken to be relative to the current graphics cursor.
 
 **CROSS-REFERENCE**
 
-Please see `LINE <KeywordsL.clean.html#line>`__,
-`CIRCLE\_R <KeywordsC.clean.html#circle-r>`__,
-`ARC\_R <KeywordsA.clean.html#arc-r>`__,
-`ELLIPSE\_R <KeywordsE.clean.html#ellipse-r>`__ and
-`POINT\_R <KeywordsP.clean.html#point-r>`__.
+Please see :ref:`line`,
+:ref:`circle-r`,
+:ref:`arc-r`,
+:ref:`ellipse-r` and
+:ref:`point-r`.
 
 --------------
+
+
+..  _linkup:
 
 LINKUP
 ======
@@ -705,11 +753,14 @@ as a string.
 
 **CROSS-REFERENCE**
 
-See `RESERVE <KeywordsR.clean.html#reserve>`__ and
-`DISCARD <KeywordsD.clean.html#discard>`__. Also see
-`LRESPR <KeywordsL.clean.html#lrespr>`__ and `ALCHP <KeywordsA.clean.html#alchp>`__.
+See :ref:`reserve` and
+:ref:`discard`. Also see
+:ref:`lrespr` and :ref:`alchp`.
 
 --------------
+
+
+..  _lint2:
 
 LINT2
 =====
@@ -727,12 +778,15 @@ list, you will need to refer to documentation on the operating system
 
 **CROSS-REFERENCE**
 
-`LSCHD <KeywordsL.clean.html#lschd>`__ and `LPOLL <KeywordsL.clean.html#lpoll>`__
+:ref:`lschd` and :ref:`lpoll`
 list other information about the current system interrupts. Details of
 the external interrupt service list is contained in the QDOS/SMS
 Reference Manual Section 6.
 
 --------------
+
+
+..  _list:
 
 LIST
 ====
@@ -811,13 +865,16 @@ SAVE the file.
 
 **CROSS-REFERENCE**
 
-When `LIST <KeywordsL.clean.html#list>`__\ ing to a file, this command is the
-same as `SAVE <KeywordsS.clean.html#save>`__.
-`DLINE <KeywordsD.clean.html#dline>`__, `ED <KeywordsE.clean.html#ed>`__,
-`EDIT <KeywordsE.clean.html#edit>`__, and `RENUM <KeywordsR.clean.html#renum>`__ are
+When :ref:`list`\ ing to a file, this command is the
+same as :ref:`save`.
+:ref:`dline`, :ref:`ed`,
+:ref:`edit`, and :ref:`renum` are
 other commands for dealing with a SuperBASIC program in memory.
 
 --------------
+
+
+..  _list-tasks:
 
 LIST\_TASKS
 ===========
@@ -835,9 +892,12 @@ appended to the priority indicates that the job is currently suspended.
 
 **CROSS-REFERENCE**
 
-`JOBS <KeywordsJ.clean.html#jobs>`__ is similar.
+:ref:`jobs` is similar.
 
 --------------
+
+
+..  _lmar:
 
 LMAR
 ====
@@ -854,16 +914,19 @@ is the same as PRINT CHR$(27)&'l'&CHR$(10)
 
 **CROSS-REFERENCE**
 
-`NORM <KeywordsN.clean.html#norm>`__, `BLD <KeywordsB.clean.html#bld>`__,
-`EL <KeywordsE.clean.html#el>`__, `DBL <KeywordsD.clean.html#dbl>`__,
-`ENL <KeywordsE.clean.html#enl>`__, `PRO <KeywordsP.clean.html#pro>`__,
-`SI <KeywordsS.clean.html#si>`__, `NRM <KeywordsN.clean.html#nrm>`__,
-`UNL <KeywordsU.clean.html#unl>`__, `ALT <KeywordsA.clean.html#alt>`__,
-`ESC <KeywordsE.clean.html#esc>`__, `FF <KeywordsF.clean.html#ff>`__,
-`RMAR <KeywordsR.clean.html#rmar>`__, `PAGDIS <KeywordsP.clean.html#pagdis>`__,
-`PAGLEN <KeywordsP.clean.html#paglen>`__.
+:ref:`norm`, :ref:`bld`,
+:ref:`el`, :ref:`dbl`,
+:ref:`enl`, :ref:`pro`,
+:ref:`si`, :ref:`nrm`,
+:ref:`unl`, :ref:`alt`,
+:ref:`esc`, :ref:`ff`,
+:ref:`rmar`, :ref:`pagdis`,
+:ref:`paglen`.
 
 --------------
+
+
+..  _ln:
 
 LN
 ==
@@ -903,12 +966,15 @@ for negative values and zero values separately.
 
 **CROSS-REFERENCE**
 
-`EXP <KeywordsE.clean.html#exp>`__ converts natural logarithms to their true
-numbers in base 10, `LOG10 <KeywordsL.clean.html#log10>`__ provides logarithms
-in base 10 (common logarithms), and `LOG2 <KeywordsL.clean.html#log2>`__
+:ref:`exp` converts natural logarithms to their true
+numbers in base 10, :ref:`log10` provides logarithms
+in base 10 (common logarithms), and :ref:`log2`
 provides base 2 logarithms.
 
 --------------
+
+
+..  _load:
 
 LOAD
 ====
@@ -1086,17 +1152,20 @@ error.
 
 **CROSS-REFERENCE**
 
-`SAVE <KeywordsS.clean.html#save>`__ saves the current SuperBASIC program in
-memory. `LRUN <KeywordsL.clean.html#lrun>`__ automatically runs the program
-after loading. `MERGE <KeywordsM.clean.html#merge>`__ and
-`MRUN <KeywordsM.clean.html#mrun>`__ are similar commands. Also see
-`QLOAD <KeywordsQ.clean.html#qload>`__ and `RELOAD <KeywordsR.clean.html#reload>`__.
-`EXEC <KeywordsE.clean.html#exec>`__ allows you to load a multitasking program
+:ref:`save` saves the current SuperBASIC program in
+memory. :ref:`lrun` automatically runs the program
+after loading. :ref:`merge` and
+:ref:`mrun` are similar commands. Also see
+:ref:`qload` and :ref:`reload`.
+:ref:`exec` allows you to load a multitasking program
 (normally a machine code program or a compiled program).
-`LBYTES <KeywordsL.clean.html#lbytes>`__ allows you to load a section of
+:ref:`lbytes` allows you to load a section of
 memory.
 
 --------------
+
+
+..  _loadpic:
 
 LOADPIC
 =======
@@ -1128,12 +1197,15 @@ screen to be 512x256 pixels.
 
 **CROSS-REFERENCE**
 
-`SAVEPIC <KeywordsS.clean.html#savepic>`__,
-`SBYTES <KeywordsS.clean.html#sbytes>`__, `LBYTES <KeywordsL.clean.html#lbytes>`__,
-`SCREEN <KeywordsS.clean.html#screen>`__, `EXPAND <KeywordsE.clean.html#expand>`__,
-`COMPRESS <KeywordsC.clean.html#compress>`__.
+:ref:`savepic`,
+:ref:`sbytes`, :ref:`lbytes`,
+:ref:`screen`, :ref:`expand`,
+:ref:`compress`.
 
 --------------
+
+
+..  _local:
 
 LOCal
 =====
@@ -1241,13 +1313,14 @@ ROMs (ie. a is unset by the LOCal command).
 
 **CROSS-REFERENCE**
 
-`DIM <KeywordsD.clean.html#dim>`__ sets up arrays normally. `DEFine
-PROCedure <KeywordsD.clean.html#define-procedure>`__, `DEFine
-FuNction <KeywordsD.clean.html#define-function>`__ and `END
-DEFine <KeywordsE.clean.html#end-define>`__ are used to identify definition
+:ref:`dim` sets up arrays normally. :ref:`define--procedure`, 
+:ref:`define--function` and :ref:`end--define` are used to identify definition
 blocks.
 
 --------------
+
+
+..  _lock:
 
 LOCK
 ====
@@ -1270,11 +1343,14 @@ LOCK ram1\_secret\_txt,"Phew",7241
 
 **CROSS-REFERENCE**
 
-`UNLOCK <KeywordsU.clean.html#unlock>`__ has the same syntax as
-`LOCK <KeywordsL.clean.html#lock>`__ but deciphers
-`LOCK <KeywordsL.clean.html#lock>`__\ ed files.
+:ref:`unlock` has the same syntax as
+:ref:`lock` but deciphers
+:ref:`lock`\ ed files.
 
 --------------
+
+
+..  _log2:
 
 LOG2
 ====
@@ -1296,10 +1372,13 @@ LOG2(INF)=2047 (ie. x=2\ :sup:`LOG2(x)`).
 
 **CROSS-REFERENCE**
 
-`LOG10 <KeywordsL.clean.html#log10>`__, `LN <KeywordsL.clean.html#ln>`__,
-`INF <KeywordsI.clean.html#inf>`__.
+:ref:`log10`, :ref:`ln`,
+:ref:`inf`.
 
 --------------
+
+
+..  _log10:
 
 LOG10
 =====
@@ -1329,9 +1408,12 @@ makes sense::
 
 **CROSS-REFERENCE**
 
-`LN <KeywordsL.clean.html#ln>`__, `LOG2 <KeywordsL.clean.html#log2>`__.
+:ref:`ln`, :ref:`log2`.
 
 --------------
+
+
+..  _lookup-pct:
 
 LOOKUP%
 =======
@@ -1377,12 +1459,15 @@ Functions on SMS.
 
 **CROSS-REFERENCE**
 
-See\ `ELIS <KeywordsE.clean.html#elis>`__, `KEY\_ADD <KeywordsE.clean.html#key-add>`__.
-`\_NAME$ <Keywords_.clean.html#-name>`__ allows you to look at the name list.
-See also `FLIS <KeywordsF.clean.html#flis>`__ and
-`FIND <KeywordsF.clean.html#find>`__.
+See\ :ref:`elis`, :ref:`key-add`.
+:ref:`-name-dlr` allows you to look at the name list.
+See also :ref:`flis` and
+:ref:`find`.
 
 --------------
+
+
+..  _lower-dlr:
 
 LOWER$
 ======
@@ -1401,10 +1486,12 @@ sets.
 
 **CROSS-REFERENCE**
 
-Compare `UPPER$ <KeywordsU.clean.html#upper>`__. See also
-`CONVCASE <KeywordsC.clean.html#convcase>`__.
+Compare :ref:`upper-dlr`. See also :ref:`convcase-dlr`.
 
 --------------
+
+
+..  _lpoll:
 
 LPOLL
 =====
@@ -1433,11 +1520,14 @@ list. For further information, refer to system documentation.
 
 **CROSS-REFERENCE**
 
-`LSCHD <KeywordsL.clean.html#lschd>`__ and `LINT2 <KeywordsL.clean.html#lint2>`__
+:ref:`lschd` and :ref:`lint2`
 list other internal routines which are running in the interrupts.
-`JOBS <KeywordsJ.clean.html#jobs>`__ lists all jobs.
+:ref:`jobs` lists all jobs.
 
 --------------
+
+
+..  _lpr-use:
 
 LPR\_USE
 ========
@@ -1473,10 +1563,13 @@ will set LPRINT$ to "2", LPRINT$ and LLIST will report the error.
 
 **CROSS-REFERENCE**
 
-`LLIST <KeywordsL.clean.html#llist>`__, `LPRINT$ <KeywordsL.clean.html#lprint>`__,
-`LPRINT$ <KeywordsL.clean.html#lprint>`__.
+:ref:`llist`, :ref:`lprint-dlr`,
+:ref:`lprint-dlr`.
 
 --------------
+
+
+..  _lput:
 
 LPUT
 ====
@@ -1499,11 +1592,14 @@ LPUT is affected by TRA.
 
 **CROSS-REFERENCE**
 
-See `BPUT <KeywordsB.clean.html#bput>`__ and `LGET <KeywordsL.clean.html#lget>`__.
-`WPUT <KeywordsW.clean.html#wput>`__ and `PUT <KeywordsP.clean.html#put>`__ are also
+See :ref:`bput` and :ref:`lget`.
+:ref:`wput` and :ref:`put` are also
 similar.
 
 --------------
+
+
+..  _lresfast:
 
 LRESFAST
 ========
@@ -1519,14 +1615,18 @@ file in RAM disk and loads that file into FastRAM on the Atari TT.
 
 **CROSS-REFERENCE**
 
-See `LRESPR <KeywordsL.clean.html#lrespr>`__ and
-also\ `RESFAST <KeywordsR.clean.html#resfast>`__,
-`FREE\_FAST. <KeywordsF.clean.html#free-fast.>`__
-Compare\ `RESPR <KeywordsR.clean.html#respr>`__,
-`ALCHP <KeywordsA.clean.html#alchp>`__ and
-`FREE\_MEM <KeywordsF.clean.html#free-mem>`__.
+See :ref:`lrespr` and
+also\ :ref:`resfast`,
+:ref:`free-fast`.
+
+Compare\ :ref:`respr`,
+:ref:`alchp` and
+:ref:`free-mem`.
 
 --------------
+
+
+..  _lrespr:
 
 LRESPR
 ======
@@ -1587,11 +1687,14 @@ also disappear.
 
 **CROSS-REFERENCE**
 
-See the second example for `ALCHP <KeywordsA.clean.html#alchp>`__. See also
-`LINKUP <KeywordsL.clean.html#linkup>`__ and
-`LRESFAST <KeywordsL.clean.html#lresfast>`__.
+See the second example for :ref:`alchp`. See also
+:ref:`linkup` and
+:ref:`lresfast`.
 
 --------------
+
+
+..  _lrun:
 
 LRUN
 ====
@@ -1608,9 +1711,12 @@ program is automatically RUN as soon as loading is complete.
 
 **CROSS-REFERENCE**
 
-See `LOAD <KeywordsL.clean.html#load>`__!
+See :ref:`load`!
 
 --------------
+
+
+..  _lschd:
 
 LSCHD
 =====
@@ -1643,9 +1749,12 @@ operating system documentation.
 
 **CROSS-REFERENCE**
 
-`LPOLL <KeywordsL.clean.html#lpoll>`__, `LINT2 <KeywordsL.clean.html#lint2>`__.
+:ref:`lpoll`, :ref:`lint2`.
 
 --------------
+
+
+..  _lwc-dlr:
 
 LWC$
 ====
@@ -1662,5 +1771,6 @@ is recognised - umlauts etc. are ignored.
 
 **CROSS-REFERENCE**
 
-`UPC$ <KeywordsU.clean.html#upc>`__ and `UPPER$ <KeywordsU.clean.html#upper>`__
+:ref:`upc-dlr` and :ref:`upper-dlr`
 return the string in upper case characters.
+

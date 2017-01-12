@@ -1,3 +1,5 @@
+..  _a4-thor--computers:
+
 A4 Thor Computers
 =================
 

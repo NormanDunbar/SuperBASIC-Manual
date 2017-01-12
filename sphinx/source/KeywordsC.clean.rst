@@ -1,3 +1,4 @@
+
 ==========
 Keywords C
 ==========
@@ -5,10 +6,10 @@ Keywords C
 TODO
 ====
 
-- CHECK and CHECK% have the same URL.
-- CHR$ has URL #id1. Fix links properly for this one.
-- Fix broken links. Some don't get "clean" added for some reason. FixLinks has been run.
+- This file references SNOOZE, GLOBAL, EXTERNAL, LINK_LOAD_A, WINCTRL, SET_CHANNEL, DISP_COLOUR. They don't exist.
 
+
+..  _cache-on:
 
 CACHE\_ON
 =========
@@ -47,10 +48,13 @@ a chunk of instructions is self-defeating.
 
 **CROSS-REFERENCE**
 
-`CACHE\_OFF <KeywordsC.clean.html#cache_off>`__ allows you to disable the
+:ref:`cache-off` allows you to disable the
 caches.
 
 --------------
+
+
+..  _cache-off:
 
 CACHE\_OFF
 ==========
@@ -70,9 +74,12 @@ NETSEND).
 
 **CROSS-REFERENCE**
 
-See `CACHE\_ON <KeywordsC.clean.html#cache_on>`__.
+See :ref:`cache-on`.
 
 --------------
+
+
+..  _call:
 
 CALL
 ====
@@ -199,17 +206,20 @@ Please note that address may be odd.
 
 **CROSS-REFERENCE**
 
-`LBYTES <KeywordsL.clean.html#lbytes>`__, `SBYTES <KeywordsS.clean.html#sbytes>`__
+:ref:`lbytes`, :ref:`sbytes`
 can be used to load and save areas of memory (and machine code
 routines).
 
-`ALCHP <KeywordsA.clean.html#alchp>`__ and `RESPR <KeywordsR.clean.html#respr>`__
+:ref:`alchp` and :ref:`respr`
 can be used to set aside areas of memory for user routines.
 
-`BMOVE <KeywordsB.clean.html#bmove>`__ and similar commands allow you to move
+:ref:`bmove` and similar commands allow you to move
 areas of memory on other ROM implementations.
 
 --------------
+
+
+..  _caps:
 
 CAPS
 ====
@@ -246,9 +256,12 @@ CAPS...
 
 **CROSS-REFERENCE**
 
-`NOCAPS <KeywordsN.clean.html#nocaps>`__ is self-explanatory.
+:ref:`nocaps` is self-explanatory.
 
 --------------
+
+
+..  _catnap:
 
 CATNAP
 ======
@@ -277,12 +290,15 @@ simply suspended until the Break key is pressed.
 
 **CROSS-REFERENCE**
 
-`SNOOZE <KeywordsS.clean.html#snooze>`__ is similar. See also
-`GLOBAL <KeywordsG.clean.html#global>`__,
-`EXTERNAL <KeywordsE.clean.html#external>`__ and
-`LINK\_LOAD\_A <KeywordsL.clean.html#link_load_a>`__.
+:ref:`snooze` is similar. See also
+:ref:`global`,
+:ref:`external` and
+:ref:`link-load-a`.
 
 --------------
+
+
+..  _cbase:
 
 CBASE
 =====
@@ -307,14 +323,17 @@ The Pointer Interface modifies the structure of channel definition
 blocks for windows.
 
 If you want to access these, preferably use
-`WinCTRL <KeywordsW.clean.html#winctrl>`__ instead of
-`CBASE <KeywordsC.clean.html#cbase>`__. See also
-`CHBASE <KeywordsC.clean.html#chbase>`__.
+:ref:`winctrl` instead of
+:ref:`cbase`. See also
+:ref:`chbase`.
 
 You can also use the `CHAN\_ <KeywordsC.clean.html#chan_>`\ xx functions to
 look at the channel definition block.
 
 --------------
+
+
+..  _cchr-dlr:
 
 CCHR$
 =====
@@ -335,9 +354,12 @@ PRINT CHR$(X DIV 256);CHR$(X MOD 256)
 **CROSS-REFERENCE**
 
 
-`CHR$ <KeywordsC.clean.html#chr>`_ can be used to print each character separately.
+:ref:@\chr-dlr` can be used to print each character separately.
 
 --------------
+
+
+..  _cdec-dlr:
 
 CDEC$
 =====
@@ -382,13 +404,16 @@ will print '12,345.67'
 
 **CROSS-REFERENCE**
 
-`PRINT\_USING <KeywordsP.clean.html#print_using>`__ is a general means of
+:ref:`print-using` is a general means of
 formatting output.
 
-`IDEC$ <KeywordsI.clean.html#idec>`__ and `FDEC$ <KeywordsF.clean.html#fdec>`__
+:ref:`idec-dlr` and :ref:`fdec-dlr`
 are complementary functions.
 
 --------------
+
+
+..  _cd-alltime:
 
 CD\_ALLTIME
 ===========
@@ -416,23 +441,26 @@ A procedure to give the currently elapsed time:
 
 **CROSS-REFERENCE**
 
-`CD\_PLAY <KeywordsC.clean.html#cd_play>`__ plays specified tracks.
+:ref:`cd-play` plays specified tracks.
 
-`CD\_TRACK <KeywordsC.clean.html#cd_track>`__ allows you to find out which
+:ref:`cd-track` allows you to find out which
 track is being played.
 
-`CD\_TRACKTIME <KeywordsC.clean.html#cd_tracktime>`__ allows you to find out
+:ref:`cd-tracktime` allows you to find out
 the total elapsed time on the current track.
 
-`CD\_RED2HSG <KeywordsC.clean.html#cd_red2hsg>`__ allows you to convert
+:ref:`cd-red2hsg` allows you to convert
 REDBOOK format to HSG Format.
 
-`CD\_HOUR <KeywordsC.clean.html#cd_hour>`__,
-`CD\_MINUTE <KeywordsC.clean.html#cd_minute>`__,
-`CD\_SECOND <KeywordsC.clean.html#cd_second>`__ allow you to convert REDBOOK
+:ref:`cd-hour`,
+:ref:`cd-minute`,
+:ref:`cd-second` allow you to convert REDBOOK
 format into a more understandable form.
 
 --------------
+
+
+..  _cd-close:
 
 CD\_CLOSE
 =========
@@ -448,13 +476,16 @@ one in the drawer.
 
 **CROSS-REFERENCE**
 
-`CD\_EJECT <KeywordsC.clean.html#cd_eject>`__ opens the drawer.
+:ref:`cd-eject` opens the drawer.
 
-`CD\_PLAY <KeywordsC.clean.html#cd_play>`__ allows you to play a CD.
+:ref:`cd-play` allows you to play a CD.
 
-See `CD\_INIT <KeywordsC.clean.html#cd_init>`__.
+See :ref:`cd-init`.
 
 --------------
+
+
+..  _cd-eject:
 
 CD\_EJECT
 =========
@@ -472,11 +503,14 @@ You need to close the drawer before attempting to play the CD!
 
 **CROSS-REFERENCE**
 
-`CD\_CLOSE <KeywordsC.clean.html#cd_close>`__ closes the CD drive drawer.
+:ref:`cd-close` closes the CD drive drawer.
 
-`CD\_PLAY <KeywordsC.clean.html#cd_play>`__ allows you to play an Audio CD.
+:ref:`cd-play` allows you to play an Audio CD.
 
 --------------
+
+
+..  _cd-firsttrack:
 
 CD\_FIRSTTRACK
 ==============
@@ -492,10 +526,13 @@ currently in the player (this should always be 1).
 
 **CROSS-REFERENCE**
 
-`CD\_LASTTRACK <KeywordsC.clean.html#cd_lasttrack>`__ allows you to find out
+:ref:`cd-lasttrack` allows you to find out
 the last track number.
 
 --------------
+
+
+..  _cd-hour:
 
 CD\_HOUR
 ========
@@ -511,11 +548,14 @@ number of hours (0..23) contained in that address.
 
 **CROSS-REFERENCE**
 
-`CD\_MINUTE <KeywordsC.clean.html#cd_minute>`__ and
-`CD\_SECOND <KeywordsC.clean.html#cd_second>`__ allow you to find the number
+:ref:`cd-minute` and
+:ref:`cd-second` allow you to find the number
 of minutes and seconds in a REDBOOK address respectively.
 
 --------------
+
+
+..  _cd-hsg2red:
 
 CD\_HSG2RED
 ===========
@@ -545,15 +585,18 @@ REDBOOK format.
 
 **CROSS-REFERENCE**
 
-`CD\_RED2HSG <KeywordsC.clean.html#cd_red2hsg>`__ allows you to convert
+:ref:`cd-red2hsg` allows you to convert
 REDBOOK format addresses to HSG format.
 
-`CD\_HOUR <KeywordsC.clean.html#cd_hour>`__,
-`CD\_MINUTE <KeywordsC.clean.html#cd_minute>`__ and
-`CD\_SECOND <KeywordsC.clean.html#cd_second>`__ allow you to find out the
+:ref:`cd-hour`,
+:ref:`cd-minute` and
+:ref:`cd-second` allow you to find out the
 hours, minutes and seconds referred to by a REDBOOK address.
 
 --------------
+
+
+..  _cd-init:
 
 CD\_INIT
 ========
@@ -594,13 +637,16 @@ DEVICE=C:\\CD\\CDROMDRV.SYS /D:MSCD001
 
 **CROSS-REFERENCE**
 
-`CD\_PLAY <KeywordsC.clean.html#cd_play>`__ allows you to play CD Audio
+:ref:`cd-play` allows you to play CD Audio
 tracks.
 
-`CD\_EJECT <KeywordsC.clean.html#cd_eject>`__ ejects a disk from the drive, or
+:ref:`cd-eject` ejects a disk from the drive, or
 allows you to insert a new disk.
 
 --------------
+
+
+..  _cd-isclosed:
 
 CD\_ISCLOSED
 ============
@@ -625,9 +671,12 @@ it will return 0.
 
 **CROSS-REFERENCE**
 
-`CD\_CLOSE <KeywordsC.clean.html#cd_close>`__ closes the CD drawer.
+:ref:`cd-close` closes the CD drawer.
 
 --------------
+
+
+..  _cd-isinserted:
 
 CD\_ISINSERTED
 ==============
@@ -643,9 +692,12 @@ and the drawer is closed, otherwise it will return 0.
 
 **CROSS-REFERENCE**
 
-See `CD\_ISCLOSED <KeywordsC.clean.html#cd_isclosed>`__.
+See :ref:`cd-isclosed`.
 
 --------------
+
+
+..  _cd-ispaused:
 
 CD\_ISPAUSED
 ============
@@ -661,11 +713,14 @@ stopped), otherwise it will return 0.
 
 **CROSS-REFERENCE**
 
-`CD\_STOP <KeywordsC.clean.html#cd_stop>`__ can be used to pause the CD.
+:ref:`cd-stop` can be used to pause the CD.
 
-`CD\_RESUME <KeywordsC.clean.html#cd_resume>`__ resumes playing a CD.
+:ref:`cd-resume` resumes playing a CD.
 
 --------------
+
+
+..  _cd-isplaying:
 
 CD\_ISPLAYING
 =============
@@ -681,9 +736,12 @@ otherwise it will return 0.
 
 **CROSS-REFERENCE**
 
-`CD\_PLAY <KeywordsC.clean.html#cd_play>`__ allows you to play an Audio CD.
+:ref:`cd-play` allows you to play an Audio CD.
 
 --------------
+
+
+..  _cd-lasttrack:
 
 CD\_LASTTRACK
 =============
@@ -699,13 +757,16 @@ currently in the player.
 
 **CROSS-REFERENCE**
 
-`CD\_FIRSTRACK <KeywordsC.clean.html#cd_firstrack>`__ allows you to find out
+:ref:`cd-firsttrack` allows you to find out
 the first track number.
 
-`CD\_TRACK <KeywordsC.clean.html#cd_track>`__ tells you the track number
+:ref:`cd-track` tells you the track number
 currently playing.
 
 --------------
+
+
+..  _cd-length:
 
 CD\_LENGTH
 ==========
@@ -721,15 +782,18 @@ player in REDBOOK format.
 
 **CROSS-REFERENCE**
 
-`CD\_LASTTRACK <KeywordsC.clean.html#cd_lasttrack>`__ allows you to find out
+:ref:`cd-lasttrack` allows you to find out
 the last track number.
 
-`CD\_HOUR <KeywordsC.clean.html#cd_hour>`__,
-`CD\_MINUTE <KeywordsC.clean.html#cd_minute>`__,
-`CD\_SECOND <KeywordsC.clean.html#cd_second>`__ convert REDBOOK format into a
+:ref:`cd-hour`,
+:ref:`cd-minute`,
+:ref:`cd-second` convert REDBOOK format into a
 time.
 
 --------------
+
+
+..  _cd-minute:
 
 CD\_MINUTE
 ==========
@@ -745,11 +809,14 @@ number of minutes (0..59) contained in that address.
 
 **CROSS-REFERENCE**
 
-`CD\_HOUR <KeywordsC.clean.html#cd_hour>`__ and
-`CD\_SECOND <KeywordsC.clean.html#cd_second>`__ allow you to find the number
+:ref:`cd-hour` and
+:ref:`cd-second` allow you to find the number
 of hours and seconds in a REDBOOK address respectively.
 
 --------------
+
+
+..  _cd-play:
 
 CD\_PLAY
 ========
@@ -816,20 +883,23 @@ order:
 
 **CROSS-REFERENCE**
 
-`CD\_INIT <KeywordsC.clean.html#cd_init>`__ allows SMSQ/E to recognise a CD
+:ref:`cd-init` allows SMSQ/E to recognise a CD
 drive.
 
-`CD\_STOP <KeywordsC.clean.html#cd_stop>`__ pauses playing
+:ref:`cd-stop` pauses playing
 
-`CD\_EJECT <KeywordsC.clean.html#cd_eject>`__ opens the disk drawer to allow
+:ref:`cd-eject` opens the disk drawer to allow
 you to insert a new CD.
 
-`CD\_CLOSE <KeywordsC.clean.html#cd_close>`__ closes the disk drawer.
+:ref:`cd-close` closes the disk drawer.
 
-`CD\_ISINSERTED <KeywordsC.clean.html#cd_isinserted>`__ allows you to check if
+:ref:`cd-isinserted` allows you to check if
 a CD is in the drive.
 
 --------------
+
+
+..  _cd-red2hsg:
 
 CD\_RED2HSG
 ===========
@@ -845,9 +915,12 @@ format.
 
 **CROSS-REFERENCE**
 
-See `CD\_HSG2RED <KeywordsC.clean.html#cd_hsg2red>`__ !
+See :ref:`cd-hsg2red` !
 
 --------------
+
+
+..  _cd-resume:
 
 CD\_RESUME
 ==========
@@ -867,13 +940,16 @@ If you had not previously paused the CD, then an error is reported.
 
 **CROSS-REFERENCE**
 
-`CD\_STOP <KeywordsC.clean.html#cd_stop>`__ allows you to pause a CD which is
+:ref:`cd-stop` allows you to pause a CD which is
 currently playing.
 
-`CD\_ISPAUSED <KeywordsC.clean.html#cd_ispaused>`__ allows you to check if the
+:ref:`cd-ispaused` allows you to check if the
 CD has been paused.
 
 --------------
+
+
+..  _cd-second:
 
 CD\_SECOND
 ==========
@@ -889,11 +965,14 @@ number of seconds (0..59) contained in that address.
 
 **CROSS-REFERENCE**
 
-`CD\_HOUR <KeywordsC.clean.html#cd_hour>`__ and
-`CD\_MINUTE <KeywordsC.clean.html#cd_minute>`__ allow you to find the number
+:ref:`cd-hour` and
+:ref:`cd-minute` allow you to find the number
 of hours and minutes in a REDBOOK address respectively.
 
 --------------
+
+
+..  _cd-stop:
 
 CD\_STOP
 ========
@@ -932,17 +1011,20 @@ case QPC will have crashed.
 
 **CROSS-REFERENCE**
 
-`CD\_RESUME <KeywordsC.clean.html#cd_resume>`__ allows you to resume playing
+:ref:`cd-resume` allows you to resume playing
 an Audio CD that has been paused.
 
-`CD\_PLAY <KeywordsC.clean.html#cd_play>`__ allows you to play an Audio CD
+:ref:`cd-play` allows you to play an Audio CD
 that is at a complete stop.
 
-`CD\_EJECT <KeywordsC.clean.html#cd_eject>`__ opens the drive drawer.
+:ref:`cd-eject` opens the drive drawer.
 
-`CD\_CLOSE <KeywordsC.clean.html#cd_close>`__ closes the drive drawer.
+:ref:`cd-close` closes the drive drawer.
 
 --------------
+
+
+..  _cd-track:
 
 CD\_TRACK
 =========
@@ -958,9 +1040,12 @@ actually being played at present.
 
 **CROSS-REFERENCE**
 
-`CD\_PLAY <KeywordsC.clean.html#cd_play>`__ plays specified tracks.
+:ref:`cd-play` plays specified tracks.
 
 --------------
+
+
+..  _cd-tracklength:
 
 CD\_TRACKLENGTH
 ===============
@@ -975,13 +1060,16 @@ This function returns the length of a specified track in HSG format.
 
 **CROSS-REFERENCE**
 
-`CD\_TRACKTIME <KeywordsC.clean.html#cd_tracktime>`__ allows you to find out
+:ref:`cd-tracktime` allows you to find out
 the elapsed time on a track being played.
 
-`CD\_HSG2RED <KeywordsC.clean.html#cd_hsg2red>`__ converts the HSG format to
+:ref:`cd-hsg2red` converts the HSG format to
 REDBOOK format.
 
 --------------
+
+
+..  _cd-trackstart:
 
 CD\_TRACKSTART
 ==============
@@ -997,16 +1085,19 @@ format.
 
 **CROSS-REFERENCE**
 
-`CD\_TRACKLENGTH <KeywordsC.clean.html#cd_tracklength>`__ allows you to find
+:ref:`cd-tracklength` allows you to find
 out the length of a track.
 
-`CD\_PLAY <KeywordsC.clean.html#cd_play>`__ allows you to play specified
+:ref:`cd-play` allows you to play specified
 tracks
 
-`CD\_RED2HSG <KeywordsC.clean.html#cd_red2hsg>`__ converts the REDBOOK format
+:ref:`cd-red2hsg` converts the REDBOOK format
 to HSG format.
 
 --------------
+
+
+..  _cd-tracktime:
 
 CD\_TRACKTIME
 =============
@@ -1022,15 +1113,18 @@ the current CD track that is being played at present.
 
 **CROSS-REFERENCE**
 
-`CD\_PLAY <KeywordsC.clean.html#cd_play>`__ plays specified tracks.
+:ref:`cd-play` plays specified tracks.
 
-`CD\_TRACK <KeywordsC.clean.html#cd_track>`__ allows you to find out which
+:ref:`cd-track` allows you to find out which
 track is being played.
 
-`CD\_ALLTIME <KeywordsC.clean.html#cd_alltime>`__ allows you to find out the
+:ref:`cd-alltime` allows you to find out the
 total elapsed time on the CD disk as a whole.
 
 --------------
+
+
+..  _ceil:
 
 CEIL
 ====
@@ -1063,9 +1157,12 @@ INT(12.75)=13 and INT(-2.3)=-2.
 
 **CROSS-REFERENCE**
 
-`INT <KeywordsI.clean.html#int>`__
+:ref:`int`
 
 --------------
+
+
+..  _change:
 
 CHANGE
 ======
@@ -1116,10 +1213,13 @@ drives), the error -20 (read only) will be reported.
 
 **CROSS-REFERENCE**
 
-`FLP\_USE <KeywordsF.clean.html#flp_use>`__ and
-`RAM\_USE <KeywordsR.clean.html#ram_use>`__ work similarly.
+:ref:`flp-use` and
+:ref:`ram-use` work similarly.
 
 --------------
+
+
+..  _chanid:
 
 CHANID
 ======
@@ -1152,15 +1252,18 @@ channel ID.
 
 **CROSS-REFERENCE**
 
-`CHANID <KeywordsC.clean.html#chanid>`__ is intended for use with
-`FILE\_OPEN <KeywordsF.clean.html#file_open>`__.
+:ref:`chanid` is intended for use with
+:ref:`file-open`.
 
-`CHANNEL\_ID <KeywordsC.clean.html#channel_id>`__ is the same as the Btool
+:ref:`channel-id` is the same as the Btool
 variant.
 
-See `SET\_CHANNEL <KeywordsS.clean.html#set_channel>`__ also.
+See :ref:`set-channel` also.
 
 --------------
+
+
+..  _channels:
 
 CHANNELS
 ========
@@ -1187,10 +1290,13 @@ extent.
 
 **CROSS-REFERENCE**
 
-`CLOSE% <KeywordsC.clean.html#close>`__, `JOBS <KeywordsJ.clean.html#jobs>`__ and
-`CHANID <KeywordsC.clean.html#chanid>`__
+:ref:`close-pct`, :ref:`jobs` and
+:ref:`chanid`
 
 --------------
+
+
+..  _channel-id:
 
 CHANNEL\_ID
 ===========
@@ -1205,16 +1311,25 @@ This function is exactly the same as CHANID.
 
 **CROSS-REFERENCE**
 
-See\ `CHANID <KeywordsC.clean.html#chanid>`__ and
-`SET\_CHANNEL <KeywordsS.clean.html#set_channel>`__.
+See\ :ref:`chanid` and
+:ref:`set-channel`.
 
 --------------
+
+
+..  _chan-b-pct:
 
 CHAN\_B%
 ========
 
+
+..  _chan-w-pct:
+
 CHAN\_W%
 ========
+
+
+..  _chan-l-pct:
 
 CHAN\_L%
 ========
@@ -1254,10 +1369,13 @@ to find the base address of the screen.
 
 **CROSS-REFERENCE**
 
-`CHBASE <KeywordsC.clean.html#chbase>`__ can be used to find out similar
+:ref:`chbase` can be used to find out similar
 information.
 
 --------------
+
+
+..  _charge:
 
 CHARGE
 ======
@@ -1320,14 +1438,17 @@ them whilst the compiled program is being run.
 
 **CROSS-REFERENCE**
 
-`DATA\_AREA <KeywordsD.clean.html#data_area>`__ and
-`TURBO\_xx <KeywordsT.clean.html#turbo_diags>`__ directives exist to allow you to
+:ref:`data-area` and various TURBO_xxx
+directives exist, starting with :ref:`turbo-diags` to allow you to
 specify various compilation options from within your program's source
 code.
 
-Please also refer to `COMPILED <KeywordsC.clean.html#compiled>`__.
+Please also refer to :ref:`compiled`.
 
 --------------
+
+
+..  _char-def:
 
 CHAR\_DEF
 =========
@@ -1371,12 +1492,15 @@ window appears), before the window was OPENed over the Network.
 
 **CROSS-REFERENCE**
 
-`CHAR\_USE <KeywordsC.clean.html#char_use>`__,
-`CHAR\_INC <KeywordsC.clean.html#char_inc>`__.
+:ref:`char-use`,
+:ref:`char-inc`.
 
 Please also refer to the Fonts Appendix.
 
 --------------
+
+
+..  _char-inc:
 
 CHAR\_INC
 =========
@@ -1430,11 +1554,14 @@ bottom of the screen).
 
 **CROSS-REFERENCE**
 
-`CSIZE <KeywordsC.clean.html#csize>`__, `OVER <KeywordsO.clean.html#over>`__.
+:ref:`csize`, :ref:`over`.
 
-See also `TTINC <KeywordsT.clean.html#ttinc>`__.
+See also :ref:`ttinc`.
 
 --------------
+
+
+..  _char-use:
 
 CHAR\_USE
 =========
@@ -1475,16 +1602,19 @@ This command will have no effect on a window OPENed over the Network.
 
 Please refer to the Fonts Appendix concerning QL fonts.
 
-`CHAR\_INC <KeywordsC.clean.html#char_inc>`__ allows you to alter the spacing
+:ref:`char-inc` allows you to alter the spacing
 between characters.
 
-`CHAR\_DEF <KeywordsC.clean.html#char_def>`__ allows you to alter the default
+:ref:`char-def` allows you to alter the default
 system fonts.
 
-`S\_FONT <KeywordsS.clean.html#s_font>`__ performs the same function as
-`CHAR\_USE <KeywordsC.clean.html#char_use>`__.
+:ref:`s-font` performs the same function as
+:ref:`char-use`.
 
 --------------
+
+
+..  _chbase:
 
 CHBASE
 ======
@@ -1545,12 +1675,15 @@ example is more or less just an example of the syntax of CHBASE...
 
 **CROSS-REFERENCE**
 
-`CBASE <KeywordsC.clean.html#cbase>`__.
+:ref:`cbase`.
 
-See also `CHAN\_B% <KeywordsC.clean.html#chan_b>`__ and related functions.
+See also :ref:`chan-b-pct` and related functions.
 
 --------------
 
+
+
+..  _check:
 
 CHECK
 =====
@@ -1561,7 +1694,7 @@ CHECK
 | Location | DJToolkit 1.16                                                    |
 +----------+-------------------------------------------------------------------+
 
-If name is a currently loaded  machine code procedure or function, then the variable oops will be set to 1 otherwise it will be set to 0.  This is a handy way to check that an extension command has been loaded before calling it.  In a Turbo'd or Supercharged program, the `EXEC <KeywordsE.clean.html#exec>`__ will fail and a list of  missing extensions will be displayed, a QLiberated program will only fail if the extension is actually called.
+If name is a currently loaded  machine code procedure or function, then the variable oops will be set to 1 otherwise it will be set to 0.  This is a handy way to check that an extension command has been loaded before calling it.  In a Turbo'd or Supercharged program, the :ref:`exec` will fail and a list of  missing extensions will be displayed, a QLiberated program will only fail if the extension is actually called.
 
 **EXAMPLE**
 
@@ -1574,6 +1707,9 @@ If name is a currently loaded  machine code procedure or function, then the vari
 
 
 -------
+
+
+..  _check-pct:
 
 CHECK%
 ======
@@ -1638,16 +1774,19 @@ INPUT into a loop:
 
 **CROSS-REFERENCE**
 
-`CHECKF <KeywordsC.clean.html#checkf>`__ does the same as
-`CHECK% <KeywordsC.clean.html#check>`__ but converts strings containing
+:ref:`checkf` does the same as
+:ref:`check-pct` but converts strings containing
 floating point numbers.
 
-`WHEN ERRor <KeywordsW.clean.html#when-error>`__ can trap the coercion
+:ref:`when--error` can trap the coercion
 failure.
 
 See the Coercion Appendix also.
 
 --------------
+
+
+..  _checkf:
 
 CHECKF
 ======
@@ -1667,10 +1806,13 @@ signifies unacceptable strings.
 
 **CROSS-REFERENCE**
 
-`CHECK% <KeywordsC.clean.html#check>`__ and `TTEFP <KeywordsT.clean.html#ttefp>`__
+:ref:`check-pct` and :ref:`ttefp`
 are worth a look.
 
 --------------
+
+
+..  _chk-heap:
 
 CHK\_HEAP
 =========
@@ -1685,6 +1827,9 @@ This command is used to check whether the heap has become corrupted - we
 have no real details over its working as it is undocumented.
 
 --------------
+
+
+..  _chr-dlr:
 
 CHR$
 ====
@@ -1728,10 +1873,13 @@ The THOR XVI limits code to the range 0...255.
 
 **CROSS-REFERENCE**
 
-See `CODE <KeywordsC.clean.html#code>`__ and also please refer to the
+See :ref:`code` and also please refer to the
 Characters section of the Appendix.
 
 --------------
+
+
+..  _circle:
 
 CIRCLE
 ======
@@ -1794,11 +1942,13 @@ Try the following for an interesting effect:
 
 **CROSS-REFERENCE**
 
-Please refer to `ELLIPSE <KeywordsE.clean.html#ellipse>`__ for further
-information on the `ratio <Keywordsr.clean.html#ratio>`__\ and
-`ecc <Keywordse.clean.html#ecc>`__.
+Please refer to :ref:`ellipse` for further
+information on the ratio and ecc details.
 
 --------------
+
+
+..  _circle-r:
 
 CIRCLE\_R
 =========
@@ -1814,11 +1964,14 @@ CIRCLE.
 
 **CROSS-REFERENCE**
 
-Please refer to `ARC\_R <KeywordsA.clean.html#arc_r>`__.
-`ELLIPSE\_R <KeywordsE.clean.html#ellipse_r>`__ is exactly the same as this
+Please refer to :ref:`arc-r`.
+:ref:`ellipse-r` is exactly the same as this
 command.
 
 --------------
+
+
+..  _ckeyoff:
 
 CKEYOFF
 =======
@@ -1842,10 +1995,13 @@ There were problems with this command prior to v1.56.
 
 **CROSS-REFERENCE**
 
-`CKEYON <KeywordsC.clean.html#ckeyon>`__ tells the Pointer Interface to
+:ref:`ckeyon` tells the Pointer Interface to
 recognise the cursorkeys again.
 
 --------------
+
+
+..  _ckeyon:
 
 CKEYON
 ======
@@ -1856,13 +2012,16 @@ CKEYON
 | Location |  Pointer Interface (v1.23 or later)                               |
 +----------+-------------------------------------------------------------------+
 
-See `CKEYOFF <KeywordsC.clean.html#ckeyoff>`__.
+See :ref:`ckeyoff`.
 
 **NOTE**
 
 There were problems with this command prior to v1.56.
 
 --------------
+
+
+..  _clchp:
 
 CLCHP
 =====
@@ -1879,17 +2038,20 @@ returns it to the common heap so that it can be used for other purposes.
 
 **CROSS-REFERENCE**
 
-`ALCHP <KeywordsA.clean.html#alchp>`__ reserves areas of the common heap, and
-`RECHP <KeywordsR.clean.html#rechp>`__ releases a specified part of the common
+:ref:`alchp` reserves areas of the common heap, and
+:ref:`rechp` releases a specified part of the common
 heap.
 
-Compare `RESERVE <KeywordsR.clean.html#reserve>`__ and the Btool variant of
-`ALCHP <KeywordsA.clean.html#alchp>`__.
+Compare :ref:`reserve` and the Btool variant of
+:ref:`alchp`.
 
-`NEW <KeywordsN.clean.html#new>`__ and `LOAD <KeywordsL.clean.html#load>`__ also
+:ref:`new` and :ref:`load` also
 release areas of the common heap.
 
 --------------
+
+
+..  _clear:
 
 CLEAR
 =====
@@ -1953,12 +2115,15 @@ On a machine fitted with SMS the example would therefore have printed 0
 
 **CROSS-REFERENCE**
 
-`CLOSE <KeywordsC.clean.html#close>`__,
-`CLEAR\_HOT <KeywordsC.clean.html#clear_hot>`__,
-`CLCHP <KeywordsC.clean.html#clchp>`__, `CLRMDV <KeywordsC.clean.html#clrmdv>`__,
-`RUN <KeywordsR.clean.html#run>`__.
+:ref:`close`,
+:ref:`clear-hot`,
+:ref:`clchp`, :ref:`clrmdv`,
+:ref:`run`.
 
 --------------
+
+
+..  _clear-hot:
 
 CLEAR\_HOT
 ==========
@@ -1980,14 +2145,15 @@ therefore cannot be re-used without resetting the system.
 
 **CROSS-REFERENCE**
 
-See `HOT <KeywordsH.clean.html#hot>`__ on how to define a hotkey.
+See :ref:`hot` on how to define a hotkey.
 
-Use `FREE <KeywordsF.clean.html#free>`__,
-`FREE\_MEM <KeywordsF.clean.html#free_mem>`__ or
-`MT\_FREE <KeywordsM.clean.html#mt_free>`__ to check the actual available
-memory.
+Use :ref:`free`,
+:ref:`free-mem` to check the actual available memory.
 
 --------------
+
+
+..  _clip-pct:
 
 CLIP%
 =====
@@ -2064,13 +2230,16 @@ may help in this respect.
 
 See the Fonts Appendix about changing QL fonts.
 
-`CHAR\_USE <KeywordsC.clean.html#char_use>`__ and
-`S\_FONT <KeywordsS.clean.html#s_font>`__ allows you to set the font used by a
+:ref:`char-use` and
+:ref:`s-font` allows you to set the font used by a
 window.
 
-See also `CLIP$ <KeywordsC.clean.html#clip>`__.
+See also :ref:`clip-dlr`.
 
 --------------
+
+
+..  _clip-dlr:
 
 CLIP$
 =====
@@ -2090,9 +2259,12 @@ The same notes apply to this function as to CLIP%.
 
 **CROSS-REFERENCE**
 
-See `CLIP% <KeywordsC.clean.html#clip>`__.
+See :ref:`clip-pct`.
 
 --------------
+
+
+..  _clock:
 
 CLOCK
 =====
@@ -2169,16 +2341,19 @@ RJOB) the channel can be left open.
 
 **CROSS-REFERENCE**
 
-Use `SDATE <KeywordsS.clean.html#sdate>`__ or `ADATE <KeywordsA.clean.html#adate>`__
+Use :ref:`sdate` or :ref:`adate`
 to set the system date and time.
 
-`DATE$ <KeywordsD.clean.html#date$>`__ and `DATE <KeywordsD.clean.html#date>`__
+:ref:`date-dlr` and :ref:`date`
 return the current time.
 
-`NO\_CLOCK <KeywordsN.clean.html#no_clock>`__ removes the
-`CLOCK <KeywordsC.clean.html#clock>`__ on the THOR.
+:ref:`no-clock` removes the
+:ref:`clock` on the THOR.
 
 --------------
+
+
+..  _close:
 
 CLOSE
 =====
@@ -2278,14 +2453,17 @@ the MultiBASIC (or SBASIC) Job.
 
 **CROSS-REFERENCE**
 
-`OPEN <KeywordsO.clean.html#open>`__, `CHANNELS <KeywordsC.clean.html#channels>`__,
-`CLOSE% <KeywordsC.clean.html#close>`__
-`SCR\_STORE <KeywordsS.clean.html#scr_store>`__ and related commands can be
+:ref:`open`, :ref:`channels`,
+:ref:`close-pct`
+:ref:`scr-store` and related commands can be
 used to provide the QL with a windowing environment whereby the contents
 of the screen are restored when a window is
-`CLOSE <KeywordsC.clean.html#close>`__\ d.
+:ref:`close`\ d.
 
 --------------
+
+
+..  _close-pct:
 
 CLOSE%
 ======
@@ -2307,9 +2485,12 @@ that you know the consequences of your actions!
 
 **CROSS-REFERENCE**
 
-`CHANNELS <KeywordsC.clean.html#channels>`__, `CLOSE <KeywordsC.clean.html#close>`__
+:ref:`channels`, :ref:`close`
 
 --------------
+
+
+..  _clrmdv:
 
 CLRMDV
 ======
@@ -2332,13 +2513,16 @@ CLRMDV 2
 
 **CROSS-REFERENCE**
 
-For `RAND <KeywordsR.clean.html#rand>`__, `CLRMDV <KeywordsC.clean.html#clrmdv>`__
+For :ref:`rand`, :ref:`clrmdv`
 is very useful.
 
-See also `DEL\_DEFB <KeywordsD.clean.html#del_defb>`__ which performs a
+See also :ref:`del-defb` which performs a
 similar task.
 
 --------------
+
+
+..  _cls:
 
 CLS
 ===
@@ -2403,22 +2587,25 @@ computer to crash, whilst others will merely report an error.
 
 **CROSS-REFERENCE**
 
-`AT <KeywordsA.clean.html#at>`__ and `PRINT <KeywordsP.clean.html#print>`__ position
+:ref:`at` and :ref:`print` position
 the text cursor.
 
-`PAPER <KeywordsP.clean.html#paper>`__ alters the current paper colour.
+:ref:`paper` alters the current paper colour.
 
-`SCROLL <KeywordsS.clean.html#scroll>`__ and `PAN <KeywordsP.clean.html#pan>`__ also
+:ref:`scroll` and :ref:`pan` also
 allow you to access various system utilities.
 
 A much safer way to access system utilities is to use
-`IO\_TRAP <KeywordsI.clean.html#io_trap>`__, `MTRAP <KeywordsM.clean.html#mtrap>`__,
-`QTRAP <KeywordsQ.clean.html#qtrap>`__ and `BTRAP <KeywordsB.clean.html#btrap>`__.
+:ref:`io-trap`, :ref:`mtrap`,
+:ref:`qtrap` and :ref:`btrap`.
 
 For details of the various TRAP #3 system utilities refer to the
 QDOS/SMS Reference Manual (Section 15) or similar.
 
 --------------
+
+
+..  _cls-a:
 
 CLS\_A
 ======
@@ -2435,10 +2622,13 @@ colour 255). This works on channels opened on Minerva's dual screens.
 
 **CROSS-REFERENCE**
 
-`CLS <KeywordsC.clean.html#cls>`__ clears a single window without changing
+:ref:`cls` clears a single window without changing
 window attributes, the border in this case.
 
 --------------
+
+
+..  _cmd-dlr:
 
 CMD$
 ====
@@ -2509,10 +2699,13 @@ instead.
 
 **CROSS-REFERENCE**
 
-See `EXEC <KeywordsE.clean.html#exec>`__ and
-`EXEC\_W <KeywordsE.clean.html#exec_w>`__.
+See :ref:`exec` and
+:ref:`exec-w`.
 
 --------------
+
+
+..  _code:
 
 CODE
 ====
@@ -2563,6 +2756,9 @@ of the characters and their internal codes.
 
 --------------
 
+
+..  _codevec:
+
 CODEVEC
 =======
 
@@ -2582,10 +2778,13 @@ exist, then a 'Not Found' error is reported.
 
 **CROSS-REFERENCE**
 
-See `KEY\_ADD <KeywordsK.clean.html#key_add>`__ and
-`ELIS <KeywordsE.clean.html#elis>`__.
+See :ref:`key-add` and
+:ref:`elis`.
 
 --------------
+
+
+..  _col:
 
 COL
 ===
@@ -2625,9 +2824,12 @@ COL will return meaningless data unless the screen is located at address
 
 **CROSS-REFERENCE**
 
-`SET <KeywordsS.clean.html#set>`__ draws a screen pixel.
+:ref:`set` draws a screen pixel.
 
 --------------
+
+
+..  _colour-native:
 
 COLOUR\_NATIVE
 ==============
@@ -2661,9 +2863,12 @@ MODE commands have no effect under the Extended Colour Drivers.
 
 **CROSS-REFERENCE**
 
-Refer to `COLOUR\_PAL <KeywordsC.clean.html#colour_pal>`__ for more details.
+Refer to :ref:`colour-pal` for more details.
 
 --------------
+
+
+..  _colour-pal:
 
 COLOUR\_PAL
 ===========
@@ -2730,23 +2935,26 @@ the Extended Colour Drivers are in use.
 
 **CROSS-REFERENCE**
 
-Refer to Appendix 16 and `INK <KeywordsI.clean.html#ink>`__ for more details.
+Refer to Appendix 16 and :ref:`ink` for more details.
 
-`COLOUR\_QL <KeywordsC.clean.html#colour_ql>`__,
-`COLOUR\_NATIVE <KeywordsC.clean.html#colour_native>`__ and
-`COLOUR\_24 <KeywordsC.clean.html#colour_24>`__ are all similar.
+:ref:`colour-ql`,
+:ref:`colour-native` and
+:ref:`colour-24` are all similar.
 
-`PALETTE\_QL <KeywordsP.clean.html#palette_ql>`__ and
-`PALETTE\_8 <KeywordsP.clean.html#palette_8>`__ affect colour palettes.
+:ref:`palette-ql` and
+:ref:`palette-8` affect colour palettes.
 
-`BGCOLOUR\_QL <KeywordsB.clean.html#bgcolour_ql>`__ and
-`BGCOLOUR\_24 <KeywordsB.clean.html#bgcolour_24>`__ can be used to alter the
+:ref:`bgcolour-ql` and
+:ref:`bgcolour-24` can be used to alter the
 desktop colour of the main screen.
 
-`DISP\_COLOUR <KeywordsD.clean.html#disp_colour>`__ can be used to switch
+:ref:`disp-colour` can be used to switch
 between Extended Colour Drivers and the Standard Colour Drivers.
 
 --------------
+
+
+..  _colour-ql:
 
 COLOUR\_QL
 ==========
@@ -2783,12 +2991,15 @@ MODE commands have no effect under the Extended Colour Drivers.
 
 **CROSS-REFERENCE**
 
-Refer to `COLOUR\_PAL <KeywordsC.clean.html#colour_pal>`__ for more details.
+Refer to :ref:`colour-pal` for more details.
 
-`PALETTE\_QL <KeywordsP.clean.html#palette_ql>`__ includes a way of overcoming
-the incompatability problems with old `MODE <KeywordsM.html#mode>`__\ .. 4  programs.
+:ref:`palette-ql` includes a way of overcoming
+the incompatability problems with old :ref:`mode`\ .. 4  programs.
 
 --------------
+
+
+..  _colour-24:
 
 COLOUR\_24
 ==========
@@ -2818,15 +3029,18 @@ such circumstances.
 
 **CROSS-REFERENCE**
 
-Refer to `COLOUR\_PAL <KeywordsC.clean.html#colour_pal>`__ and
-`COLOUR\_NATIVE <KeywordsC.clean.html#colour_native>`__ for more details.
+Refer to :ref:`colour-pal` and
+:ref:`colour-native` for more details.
 
-`PALETTE\_QL <KeywordsP.clean.html#palette_ql>`__,
-`PALETTE\_8 <KeywordsP.clean.html#palette_8>`__ and
-`BGCOLOUR\_24 <KeywordsB.clean.html#bgcolour_24>`__ all use the 24 bit table
+:ref:`palette-ql`,
+:ref:`palette-8` and
+:ref:`bgcolour-24` all use the 24 bit table
 to describe colours.
 
 --------------
+
+
+..  _command-line:
 
 COMMAND\_LINE
 =============
@@ -2865,9 +3079,12 @@ this file is used instead.
 
 **CROSS-REFERENCE**
 
-See `TYPE\_IN <KeywordsT.clean.html#type_in>`__ for an example.
+See :ref:`type-in` for an example.
 
 --------------
+
+
+..  _compiled:
 
 COMPILED
 ========
@@ -2895,9 +3112,12 @@ daughter job).
 
 **CROSS-REFERENCE**
 
-See `JOB\_NAME <KeywordsJ.clean.html#job_name>`__ for an example.
+See :ref:`job-name` for an example.
 
 --------------
+
+
+..  _compress:
 
 COMPRESS
 ========
@@ -2951,13 +3171,16 @@ higher resolution screens.
 **CROSS-REFERENCE**
 
 Screens which have been saved with
-`COMPRESS <KeywordsC.clean.html#compress>`__ can be loaded with
-`EXPAND <KeywordsE.clean.html#expand>`__ or re-loaded from memory with
-`FASTEXPAND <KeywordsF.clean.html#fastexpand>`__.
+:ref:`compress` can be loaded with
+:ref:`expand` or re-loaded from memory with
+:ref:`fastexpand`.
 
-See also `SCR\_STORE <KeywordsS.clean.html#scr_store>`__.
+See also :ref:`scr-store`.
 
 --------------
+
+
+..  _concat:
 
 CONCAT
 ======
@@ -2990,13 +3213,16 @@ Each filename must include the device.
 
 **CROSS-REFERENCE**
 
-`COPY <KeywordsC.clean.html#copy>`__, `RENAME <KeywordsR.clean.html#rename>`__,
-`DELETE <KeywordsD.clean.html#delete>`__.
+:ref:`copy`, :ref:`rename`,
+:ref:`delete`.
 
-See `FWRITE <KeywordsF.clean.html#fwrite>`__ for the more flexible APPEND
+See :ref:`fwrite` for the more flexible APPEND
 procedure.
 
 --------------
+
+
+..  _connect:
 
 CONNECT
 =======
@@ -3012,10 +3238,13 @@ channels do not have to have a hash sign in front of them.
 
 **CROSS-REFERENCE**
 
-`TCONNECT <KeywordsT.clean.html#tconnect>`__
-and\ `QLINK <KeywordsQ.clean.html#qlink>`__
+:ref:`tconnect`
+and\ :ref:`qlink`
 
 --------------
+
+
+..  _continue:
 
 CONTINUE
 ========
@@ -3061,10 +3290,13 @@ altered; and the PROC/FN Cleared message has not appeared.
 
 **CROSS-REFERENCE**
 
-See `RETRY <KeywordsR.clean.html#retry>`__ and also
-`WHEN%20ERRor <KeywordsW.clean.html#when-error>`__.
+See :ref:`retry` and also
+:ref:`when--error`.
 
 --------------
+
+
+..  _convcase-dlr:
 
 ConvCASE$
 =========
@@ -3086,11 +3318,14 @@ letters, namely umlauts and accents.
 
 **CROSS-REFERENCE**
 
-`UPPER$ <KeywordsU.clean.html#upper>`__, `LOWER$ <KeywordsL.clean.html#lower>`__,
-`BIT% <KeywordsB.clean.html#bit>`__, `CHR$ <KeywordsC.clean.html#chr>`__,
-`UPC$ <KeywordsU.clean.html#upc>`__, `LWC$ <KeywordsL.clean.html#lwc>`__
+:ref:`upper-dlr`, :ref:`lower-dlr`,
+:ref:`bit-pct`, :ref:`chr-dlr`,
+:ref:`upc-dlr`, :ref:`lwc-dlr`
 
 --------------
+
+
+..  _convert:
 
 CONVERT
 =======
@@ -3142,10 +3377,13 @@ The character CHR$(0) cannot be replaced.
 
 **CROSS-REFERENCE**
 
-`EXCHG <KeywordsE.clean.html#exchg>`__ is similar to
-`CONVERT <KeywordsC.clean.html#convert>`__.
+:ref:`exchg` is similar to
+:ref:`convert`.
 
 --------------
+
+
+..  _copy:
 
 COPY
 ====
@@ -3282,20 +3520,23 @@ are all appended to it.
 
 **CROSS-REFERENCE**
 
-`SPL\_USE <KeywordsS.clean.html#spl_use>`__ and
-`DEST\_USE <KeywordsD.clean.html#dest_use>`__ set the destination device.
+:ref:`spl-use` and
+:ref:`dest-use` set the destination device.
 
-See `COPY\_N <KeywordsC.clean.html#copy_n>`__ and
-`COPY\_H <KeywordsC.clean.html#copy_h>`__ for copying file headers and
-`COPY\_O <KeywordsC.clean.html#copy_o>`__ on how to force overwriting.
+See :ref:`copy-n` and
+:ref:`copy-h` for copying file headers and
+:ref:`copy-o` on how to force overwriting.
 
-`SPL <KeywordsS.clean.html#spl>`__ performs a background copy (ie. it
+:ref:`spl` performs a background copy (ie. it
 multitasks).
 
-See `APPEND <KeywordsA.clean.html#append>`__ which is similar to the THOR
+See :ref:`append` which is similar to the THOR
 variant.
 
 --------------
+
+
+..  _copy-b:
 
 COPY\_B
 =======
@@ -3325,12 +3566,15 @@ be free useable memory).
 
 **CROSS-REFERENCE**
 
-`COPY\_W <KeywordsC.clean.html#copy_w>`__,
-`COPY\_L <KeywordsC.clean.html#copy_l>`__,
-`TTPOKEM <KeywordsT.clean.html#ttpokem>`__ and
-`XCHANGE <KeywordsX.clean.html#xchange>`__
+:ref:`copy-w`,
+:ref:`copy-l`,
+:ref:`ttpokem` and
+:ref:`xchange`
 
 --------------
+
+
+..  _copy-h:
 
 COPY\_H
 =======
@@ -3341,13 +3585,16 @@ COPY\_H
 | Location |  Toolkit II                                                       |
 +----------+-------------------------------------------------------------------+
 
-See `COPY\_N <KeywordsC.clean.html#copy_n>`__.
+See :ref:`copy-n`.
 
 **CROSS-REFERENCE**
 
-`FGETH$ <KeywordsF.clean.html#fgeth>`__
+:ref:`fgeth-dlr`
 
 --------------
+
+
+..  _copy-l:
 
 COPY\_L
 =======
@@ -3379,10 +3626,13 @@ Both adr1 and adr2 must be even addresses.
 
 **CROSS-REFERENCE**
 
-`COPY\_W <KeywordsC.clean.html#copy_w>`__,
-`COPY\_B <KeywordsC.clean.html#copy_b>`__, `ODD <KeywordsO.clean.html#odd>`__.
+:ref:`copy-w`,
+:ref:`copy-b`, :ref:`odd`.
 
 --------------
+
+
+..  _copy-n:
 
 COPY\_N
 =======
@@ -3413,13 +3663,16 @@ instead if the file header is not to be copied.
 
 **CROSS-REFERENCE**
 
-`COPY\_H <KeywordsC.clean.html#copy_h>`__ forces the file header to be copied
+:ref:`copy-h` forces the file header to be copied
 to the given destination (whether it is a serial port, a parallel port
-or not), and the syntax is identical to `COPY <KeywordsC.clean.html#copy>`__,
-`COPY\_N <KeywordsC.clean.html#copy_n>`__ and
-`COPY\_O <KeywordsC.clean.html#copy_o>`__.
+or not), and the syntax is identical to :ref:`copy`,
+:ref:`copy-n` and
+:ref:`copy-o`.
 
 --------------
+
+
+..  _copy-o:
 
 COPY\_O
 =======
@@ -3440,11 +3693,14 @@ and destination channels must be specified in full.
 
 **CROSS-REFERENCE**
 
-`FTEST <KeywordsF.clean.html#ftest>`__ and `ETAT <KeywordsE.clean.html#etat>`__
+:ref:`ftest` and :ref:`etat`
 check the status of a file, thus enabling you to check if a file already
 exists.
 
 --------------
+
+
+..  _copy-w:
 
 COPY\_W
 =======
@@ -3465,17 +3721,20 @@ Both addresses must be even.
 
 **CROSS-REFERENCE**
 
-`COPY\_W <KeywordsC.clean.html#copy_w>`__ is always faster than
-`COPY\_B <KeywordsC.clean.html#copy_b>`__, but
-`COPY\_L <KeywordsC.clean.html#copy_l>`__ is even faster than
-`COPY\_W <KeywordsC.clean.html#copy_w>`__.
+:ref:`copy-w` is always faster than
+:ref:`copy-b`, but
+:ref:`copy-l` is even faster than
+:ref:`copy-w`.
 
-See also `XCHANGE <KeywordsX.clean.html#xchange>`__.
+See also :ref:`xchange`.
 
 Minerva has its own fast copy routines (see
-`CALL <KeywordsC.clean.html#call>`__).
+:ref:`call`).
 
 --------------
+
+
+..  _cos:
 
 COS
 ===
@@ -3542,13 +3801,16 @@ The Lightning package and SMS also fix this bug.
 
 **CROSS-REFERENCE**
 
-See `SIN <KeywordsS.clean.html#sin>`__, `ACOS <KeywordsA.clean.html#acos>`__.
+See :ref:`sin`, :ref:`acos`.
 
-Compare `COSH <KeywordsC.clean.html#cosh>`__.
+Compare :ref:`cosh`.
 
 Please also see the Mathematics section of the Appendix.
 
 --------------
+
+
+..  _cosh:
 
 COSH
 ====
@@ -3585,12 +3847,15 @@ instance). Line 110 draws the ceiling, lines 120 to 160 the chain.
 
 **CROSS-REFERENCE**
 
-See `SINH <KeywordsS.clean.html#sinh>`__ for an example.
+See :ref:`sinh` for an example.
 
-`ARCOSH <KeywordsA.clean.html#arcosh>`__ is the inverse function of
-`COSH <KeywordsC.clean.html#cosh>`__.
+:ref:`arcosh` is the inverse function of
+:ref:`cosh`.
 
 --------------
+
+
+..  _cot:
 
 COT
 ===
@@ -3659,14 +3924,17 @@ this returns a number near to zero (except under SMS).
 
 **CROSS-REFERENCE**
 
-Please refer to\ `ACOT <KeywordsA.clean.html#acot>`__,
-`ATAN <KeywordsA.clean.html#atan>`__, `TAN <KeywordsT.clean.html#tan>`__.
+Please refer to\ :ref:`acot`,
+:ref:`atan`, :ref:`tan`.
 
-Compare `COTH <KeywordsC.clean.html#coth>`__.
+Compare :ref:`coth`.
 
 Also refer to the Mathematics section of the Appendix.
 
 --------------
+
+
+..  _coth:
 
 COTH
 ====
@@ -3684,10 +3952,13 @@ This is defined as one divided by the hyperbolic tangent, so COTH(x) =
 
 **CROSS-REFERENCE**
 
-`ARCOTH <KeywordsA.clean.html#arcoth>`__ is the inverse function of
-`COTH <KeywordsC.clean.html#coth>`__.
+:ref:`arcoth` is the inverse function of
+:ref:`coth`.
 
 --------------
+
+
+..  _csize:
 
 CSIZE
 =====
@@ -3733,17 +4004,20 @@ values give double height characters and even values give normal height.
 
 **CROSS-REFERENCE**
 
-`CHAR\_INC <KeywordsC.clean.html#char_inc>`__ allows you to change spacing
+:ref:`char-inc` allows you to change spacing
 independently of character size.
 
-`MODE <KeywordsM.clean.html#mode>`__ will reset the character size to the
-default (ie. 2,0 in `MODE <KeywordsM.clean.html#mode>`__ 8 and 0,0 in
-`MODE <KeywordsM.clean.html#mode>`__ 4).
+:ref:`mode` will reset the character size to the
+default (ie. 2,0 in :ref:`mode` 8 and 0,0 in
+:ref:`mode` 4).
 
-The command `AT <KeywordsA.clean.html#at>`__ is also affected by the current
+The command :ref:`at` is also affected by the current
 character spacing.
 
 --------------
+
+
+..  _ctab-dlr:
 
 CTAB$
 =====
@@ -3773,9 +4047,12 @@ not harm the system.
 
 **CROSS-REFERENCE**
 
-`ETAB$ <KeywordsE.clean.html#etab>`__ expands the TAB marks.
+:ref:`etab-dlr` expands the TAB marks.
 
 --------------
+
+
+..  _cur:
 
 CUR
 ===
@@ -3829,17 +4106,20 @@ INPUT will activate and de-activate the cursor itself.
 
 **CROSS-REFERENCE**
 
-See `FORCE\_TYPE <KeywordsF.clean.html#force_type>`__ concerning current input
-queue activation, `INKEY$ <KeywordsI.clean.html#inkey>`__,
-`INPUT <KeywordsI.clean.html#input>`__ and `KEYROW <KeywordsK.clean.html#keyrow>`__
+See :ref:`force-type` concerning current input
+queue activation, :ref:`inkey-dlr`,
+:ref:`input` and :ref:`keyrow`
 for general information.
 
-`CURSEN <KeywordsC.clean.html#cursen>`__ and
-`CURDIS <KeywordsC.clean.html#curdis>`__ are both combined by the
-`CUR <KeywordsC.clean.html#cur>`__ command.
-`CURSOR% <KeywordsC.clean.html#cursor>`__.
+:ref:`cursen` and
+:ref:`curdis` are both combined by the
+:ref:`cur` command.
+:ref:`cursor-pct`.
 
 --------------
+
+
+..  _curdis:
 
 CURDIS
 ======
@@ -3864,11 +4144,14 @@ Do not use CURDIS #0 as this may prevent further input.
 
 **CROSS-REFERENCE**
 
-See `CURSEN <KeywordsC.clean.html#cursen>`__ for more details.
+See :ref:`cursen` for more details.
 
-`CURSOR\_OFF <KeywordsC.clean.html#cursor_off>`__ is similar.
+:ref:`cursor-off` is similar.
 
 --------------
+
+
+..  _cursen:
 
 CURSEN
 ======
@@ -3910,10 +4193,13 @@ cursors which are enabled, rather than just for the current Job.
 
 **CROSS-REFERENCE**
 
-`KEYROW <KeywordsK.clean.html#keyrow>`__ reads keys without an active cursor.
-See `CURDIS <KeywordsC.clean.html#curdis>`__ also.
+:ref:`keyrow` reads keys without an active cursor.
+See :ref:`curdis` also.
 
 --------------
+
+
+..  _cursor:
 
 CURSOR
 ======
@@ -3999,13 +4285,16 @@ compatible with MODE 8 and MODE 4 automatically.
 
 **CROSS-REFERENCE**
 
-Please refer to `PRINT <KeywordsP.clean.html#print>`__,
-`LEFT <KeywordsL.clean.html#left>`__ and `AT <KeywordsA.clean.html#at>`__.
+Please refer to :ref:`print`,
+:ref:`left` and :ref:`at`.
 
-`CURSEN <KeywordsC.clean.html#cursen>`__ is a more compatible means of
+:ref:`cursen` is a more compatible means of
 enabling a cursor.
 
 --------------
+
+
+..  _cursor-pct:
 
 CURSOR%
 =======
@@ -4032,14 +4321,17 @@ On Minerva it is possible to alter the shape and colour of the cursor.
 
 **CROSS-REFERENCE**
 
-`CURSEN <KeywordsC.clean.html#cursen>`__, `CURDIS <KeywordsC.clean.html#curdis>`__,
-`CURSOR <KeywordsC.clean.html#cursor>`__ and `CUR <KeywordsC.clean.html#cur>`__
+:ref:`cursen`, :ref:`curdis`,
+:ref:`cursor` and :ref:`cur`
 enable or disable the cursor.
 
-Also refer to `CURSOR\_OFF <KeywordsC.clean.html#cursor_off>`__ and
-`CURSOR\_ON <KeywordsC.clean.html#cursor_on>`__.
+Also refer to :ref:`cursor-off` and
+:ref:`cursor-on`.
 
 --------------
+
+
+..  _cursor-off:
 
 CURSOR\_OFF
 ===========
@@ -4053,6 +4345,9 @@ CURSOR\_OFF
 This command is exactly the same as CURDIS.
 
 --------------
+
+
+..  _cursor-on:
 
 CURSOR\_ON
 ==========
@@ -4073,11 +4368,14 @@ directed). Add the exclamation mark to prevent this.
 
 **CROSS-REFERENCE**
 
-See `CURSOR\_OFF <KeywordsC.clean.html#cursor_off>`__,
-`CURSEN <KeywordsC.clean.html#cursen>`__ and
-`CURSOR% <KeywordsC.clean.html#cursor>`__ for more details.
+See :ref:`cursor-off`,
+:ref:`cursen` and
+:ref:`cursor-pct` for more details.
 
 --------------
+
+
+..  _cvf:
 
 CVF
 ===
@@ -4101,15 +4399,18 @@ MKF$ always returns a valid parameter for CVF which will not crash it.
 
 **CROSS-REFERENCE**
 
-`PEEK\_F <KeywordsP.clean.html#peek_f>`__, `MKF$ <KeywordsM.clean.html#mkf>`__,
-`CVI$ <KeywordsC.clean.html#cvi>`__, `CVL <KeywordsC.clean.html#cvl>`__,
-`CVS$ <KeywordsC.clean.html#cvs>`__.
+:ref:`peek-f`, :ref:`mkf-dlr`,
+:ref:`cvi-pct`, :ref:`cvl`,
+:ref:`cvs-dlr`.
 
-`FPUTF <KeywordsF.clean.html#fputf>`__ and `FGETF <KeywordsF.clean.html#fgetf>`__
+:ref:`fputf` and :ref:`fgetf`
 enable you to read and write floating point numbers in internal format
 to or from files.
 
 --------------
+
+
+..  _cvi-pct:
 
 CVI%
 ====
@@ -4132,14 +4433,17 @@ CVI%("QL")=20812
 
 **CROSS-REFERENCE**
 
-`MKI$ <KeywordsM.clean.html#mki>`__, `CVL <KeywordsC.clean.html#cvl>`__,
-`CVF <KeywordsC.clean.html#cvf>`__, `CVS$ <KeywordsC.clean.html#cvs>`__.
+:ref:`mki-dlr`, :ref:`cvl`,
+:ref:`cvf`, :ref:`cvs-dlr`.
 
-`FGET% <KeywordsF.clean.html#fget>`__ and `FPUT% <KeywordsF.clean.html#fput>`__
+:ref:`fget-pct` and :ref:`fput-pct`
 provide similar facilities for writing and reading integers in their
 internal format from files.
 
 --------------
+
+
+..  _cvs-dlr:
 
 CVS$
 ====
@@ -4162,13 +4466,16 @@ CVS$( CHR$(0) & CHR$(2) & "Test" ) = "Test"(1 TO 2) = "Te"
 
 **CROSS-REFERENCE**
 
-`MKS$ <KeywordsM.clean.html#mks>`__, `CVI% <KeywordsC.clean.html#cvi>`__,
-`CVL <KeywordsC.clean.html#cvl>`__, `CVF <KeywordsC.clean.html#cvf>`__.
-`FPUT$ <KeywordsF.clean.html#fput>`__ and `FGET$ <KeywordsF.clean.html#fget>`__
+:ref:`mks-dlr`, :ref:`cvi-pct`,
+:ref:`cvl`, :ref:`cvf`.
+:ref:`fput-dlr` and :ref:`fget-dlr`
 enable you to write strings to and read strings from files in their
 internal formats.
 
 --------------
+
+
+..  _cvl:
 
 CVL
 ===
@@ -4189,9 +4496,10 @@ CVL( MKL$( 10010 ) = "10010"
 
 **CROSS-REFERENCE**
 
-`MKL$ <KeywordsM.clean.html#mkl>`__, `CVI% <KeywordsC.clean.html#cvi>`__,
-`CVF <KeywordsC.clean.html#cvf>`__, `CVS$ <KeywordsC.clean.html#cvs>`__.
+:ref:`mkl-dlr`, :ref:`cvi-pct`,
+:ref:`cvf`, :ref:`cvs-dlr`.
 
-`FPUTL <KeywordsF.clean.html#fputl>`__ and `FGETL <KeywordsF.clean.html#fgetl>`__
+:ref:`fputl` and :ref:`fgetl`
 provide similar facilities to enable you to write and read long integers
 from files in their internal format.
+

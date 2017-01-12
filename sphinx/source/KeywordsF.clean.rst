@@ -1,3 +1,4 @@
+
 ==========
 Keywords F
 ==========
@@ -6,16 +7,10 @@ Keywords F
 TODO
 ====
 
-- FILE\_TYP is missing!
-- FGET% and FGET$ have the same URL. Fix.
-- FPUT% and FPUT$ have the same URL. Fix.
-- FILL and FILL$ have the same URL. Fix.
-- FLP_DRIVE and FLP_DRIVE$ have the same URL. Fix.
-- FREAD and FREAD$ have the same URL. Fix.
-- FWRITE and FWRITE$ have the same URL. Fix.
+- :ref:`ff` references ESC which is not in any source file.
 
 
-
+..  _fact:
 
 FACT
 ====
@@ -44,9 +39,12 @@ first letters, the FACT(3)=6 permutations of A, B and C are:
 
 **CROSS-REFERENCE**
 
-`BINOM <KeywordsB.clean.html#binom>`__
+:ref:`binom`
 
 --------------
+
+
+..  _false-pct:
 
 FALSE%
 ======
@@ -63,10 +61,12 @@ language.
 
 **CROSS-REFERENCE**
 
-`TRUE%=1 <KeywordsT.clean.html#true=1>`__. See `SET <KeywordsS.clean.html#set>`__
-concerning user definable resident constants.
+:ref:`true`. See also :ref:`set` concerning user definable resident constants.
 
 --------------
+
+
+..  _fastexpand:
 
 FASTEXPAND
 ==========
@@ -104,10 +104,13 @@ pixels.
 
 **CROSS-REFERENCE**
 
-`COMPRESS <KeywordsC.clean.html#compress>`__,
-`EXPAND <KeywordsE.clean.html#expand>`__.
+:ref:`compress`,
+:ref:`expand`.
 
 --------------
+
+
+..  _fbkdt:
 
 FBKDT
 =====
@@ -233,16 +236,19 @@ re-write to be in a form which could be safely compiled.
 
 **CROSS-REFERENCE**
 
-`FUPDT <KeywordsF.clean.html#fupdt>`__, `FLEN <KeywordsF.clean.html#flen>`__,
-`FTYP <KeywordsF.clean.html#ftyp>`__, `FDAT <KeywordsF.clean.html#fdat>`__,
-`FXTRA <KeywordsF.clean.html#fxtra>`__,
-`FILE\_LEN <KeywordsF.clean.html#file-len>`__,
-`FILE\_LEN <KeywordsF.clean.html#file-len>`__,
-`FILE\_TYP <KeywordsF.clean.html#file-typ>`__,
-`FVERS <KeywordsF.clean.html#fvers>`__ and `FNAME$ <KeywordsF.clean.html#fname>`__
+:ref:`fupdt`, :ref:`flen`,
+:ref:`ftyp`, :ref:`fdat`,
+:ref:`fxtra`,
+:ref:`file-len`,
+:ref:`file-len`,
+:ref:`file-type`,
+:ref:`fvers` and :ref:`fname-dlr`
 return other information about a file.
 
 --------------
+
+
+..  _fdat:
 
 FDAT
 ====
@@ -262,12 +268,15 @@ channel is #3.
 
 **CROSS-REFERENCE**
 
-`FXTRA <KeywordsF.clean.html#fxtra>`__ returns the other four bytes of the
+:ref:`fxtra` returns the other four bytes of the
 type dependent information contained in the file header.
-`FILE\_DAT <KeywordsF.clean.html#file-dat>`__ is very similar to
-`FDAT <KeywordsF.clean.html#fdat>`__. See also `FTYP <KeywordsF.clean.html#ftyp>`__.
+:ref:`file-dat` is very similar to
+:ref:`fdat`. See also :ref:`ftyp`.
 
 --------------
+
+
+..  _fdec-dlr:
 
 FDEC$
 =====
@@ -303,9 +312,12 @@ will print '100.00'
 
 **CROSS-REFERENCE**
 
-Please see `CDEC$ <KeywordsC.clean.html#cdec>`__.
+Please see :ref:`cdec-dlr`.
 
 --------------
+
+
+..  _fetch-bytes:
 
 FETCH\_BYTES
 ============
@@ -328,6 +340,9 @@ WARNING - JM and AH ROMS will cause a 'Buffer overflow' error if more than 128 b
 
 
 -------
+
+
+..  _fexp-dlr:
 
 FEXP$
 =====
@@ -367,12 +382,15 @@ will print 1.0024E+02
 
 **CROSS-REFERENCE**
 
-`CDEC$ <KeywordsC.clean.html#cdec>`__, `IDEC$ <KeywordsI.clean.html#idec>`__,
-`FDEC$ <KeywordsF.clean.html#fdec>`__ and
-`PRINT\_USING <KeywordsP.clean.html#print-using>`__ all provide means of
+:ref:`cdec-dlr`, :ref:`idec-dlr`,
+:ref:`fdec-dlr` and
+:ref:`print-using` all provide means of
 formatting number output.
 
 --------------
+
+
+..  _ff:
 
 FF
 ==
@@ -388,16 +406,19 @@ to an EPSON compatible printer.
 
 **CROSS-REFERENCE**
 
-`NORM <KeywordsN.clean.html#norm>`__, `BLD <KeywordsB.clean.html#bld>`__,
-`EL <KeywordsE.clean.html#el>`__, `DBL <KeywordsD.clean.html#dbl>`__,
-`ENL <KeywordsE.clean.html#enl>`__, `PRO <KeywordsP.clean.html#pro>`__,
-`SI <KeywordsS.clean.html#si>`__, `NRM <KeywordsN.clean.html#nrm>`__,
-`UNL <KeywordsU.clean.html#unl>`__, `ALT <KeywordsA.clean.html#alt>`__,
-`ESC <KeywordsE.clean.html#esc>`__, `LMAR <KeywordsL.clean.html#lmar>`__,
-`RMAR <KeywordsR.clean.html#rmar>`__, `PAGDIS <KeywordsP.clean.html#pagdis>`__,
-`PAGLEN <KeywordsP.clean.html#paglen>`__.
+:ref:`norm`, :ref:`bld`,
+:ref:`el`, :ref:`dbl`,
+:ref:`enl`, :ref:`pro`,
+:ref:`si`, :ref:`nrm`,
+:ref:`unl`, :ref:`alt`,
+:ref:`esc`, :ref:`lmar`,
+:ref:`rmar`, :ref:`pagdis`,
+:ref:`paglen`.
 
 --------------
+
+
+..  _fget-pct:
 
 FGET%
 =====
@@ -416,12 +437,15 @@ An integer is stored in two bytes as Integer = Byte1\*256+ byte2
 
 **CROSS-REFERENCE**
 
-See `GET <KeywordsG.clean.html#get>`__ and `MKI$ <KeywordsM.clean.html#mki>`__.
-`CVI% <KeywordsC.clean.html#cvi>`__ converts a string containing the internal
+See :ref:`get` and :ref:`mki-dlr`.
+:ref:`cvi-pct` converts a string containing the internal
 format of an integer to an integer number. See also
-`FPUT% <KeywordsF.clean.html#fput>`__
+:ref:`fput-pct`
 
 --------------
+
+
+..  _fget-dlr:
 
 FGET$
 =====
@@ -452,13 +476,16 @@ the string followed by the characters of the string itself.
 
 **CROSS-REFERENCE**
 
-`GET <KeywordsG.clean.html#get>`__, `FGETB <KeywordsF.clean.html#fgetb>`__,
-`FGET% <KeywordsF.clean.html#fget>`__, `FGETL <KeywordsF.clean.html#fgetl>`__,
-`MKS$ <KeywordsM.clean.html#mks>`__. `FPUT$ <KeywordsF.clean.html#fput>`__ writes
-a string in internal format. `CVS$ <KeywordsC.clean.html#cvs>`__ converts a
+:ref:`get`, :ref:`fgetb`,
+:ref:`fget-pct`, :ref:`fgetl`,
+:ref:`mks-dlr`. :ref:`fput-dlr` writes
+a string in internal format. :ref:`cvs-dlr` converts a
 string into its internal format.
 
 --------------
+
+
+..  _fgetb:
 
 FGETB
 =====
@@ -483,10 +510,13 @@ channel (default #1) and returns its numeric value.
 
 **CROSS-REFERENCE**
 
-The Toolkit II equivalent is `BGET <KeywordsB.clean.html#bget>`__. See also
-`FPUTB <KeywordsF.clean.html#fputb>`__!
+The Toolkit II equivalent is :ref:`bget`. See also
+:ref:`fputb`!
 
 --------------
+
+
+..  _fgetl:
 
 FGETL
 =====
@@ -521,12 +551,15 @@ the number could be stored in internal float format::
 
 **CROSS-REFERENCE**
 
-`LGET <KeywordsL.clean.html#lget>`__, `MKL$ <KeywordsM.clean.html#mkl>`__.
-`FPUTL <KeywordsF.clean.html#fputl>`__ allows you to write numbers in internal
-format to channels. `CVL <KeywordsC.clean.html#cvl>`__ converts strings
+:ref:`lget`, :ref:`mkl-dlr`.
+:ref:`fputl` allows you to write numbers in internal
+format to channels. :ref:`cvl` converts strings
 containing the internal format to long integers.
 
 --------------
+
+
+..  _fgetf:
 
 FGETF
 =====
@@ -547,12 +580,15 @@ floating point, so be careful.
 
 **CROSS-REFERENCE**
 
-`GET <KeywordsG.clean.html#get>`__, `MKF$ <KeywordsM.clean.html#mkf>`__,
-`PEEK\_F <KeywordsP.clean.html#peek-f>`__, `FPUTF <KeywordsF.clean.html#fputf>`__.
-`CVF <KeywordsC.clean.html#cvf>`__ converts a string containing the internal
+:ref:`get`, :ref:`mkf-dlr`,
+:ref:`peek-f`, :ref:`fputf`.
+:ref:`cvf` converts a string containing the internal
 format into a floating point number.
 
 --------------
+
+
+..  _fgeth-dlr:
 
 FGETH$
 ======
@@ -645,20 +681,23 @@ functions to read the rest::
 
 **CROSS-REFERENCE**
 
-`FSETH$ <KeywordsF.clean.html#fseth>`__ is the counterpart of
-`FGETH$ <KeywordsF.clean.html#fgeth>`__. `HEADR <KeywordsH.clean.html#headr>`__ and
-`GetHEAD <KeywordsG.clean.html#gethead>`__ read file headers to given memory
-positions, `FSETH$ <KeywordsF.clean.html#fseth>`__,
-`HEADS <KeywordsH.clean.html#heads>`__ and
-`SetHEAD <KeywordsS.clean.html#sethead>`__ set them. Functions like
-`FLEN <KeywordsF.clean.html#flen>`__, `FTYP <KeywordsF.clean.html#ftyp>`__,
-`FXTRA <KeywordsF.clean.html#fxtra>`__ etc. read the file header implicitly
+:ref:`fseth-dlr` is the counterpart of
+:ref:`fgeth-dlr`. :ref:`headr` and
+:ref:`gethead` read file headers to given memory
+positions, :ref:`fseth-dlr`,
+:ref:`heads` and
+:ref:`sethead` set them. Functions like
+:ref:`flen`, :ref:`ftyp`,
+:ref:`fxtra` etc. read the file header implicitly
 and return a certain piece of information from it. Use the
-`CVI% <KeywordsC.clean.html#cvi>`__, `CVL <KeywordsC.clean.html#cvl>`__ and
-`CVS$ <KeywordsC.clean.html#cvs>`__ functions to convert the internal
+:ref:`cvi-pct`, :ref:`cvl` and
+:ref:`cvs-dlr` functions to convert the internal
 representations to actual values.
 
 --------------
+
+
+..  _file-backup:
 
 FILE\_BACKUP
 ============
@@ -686,10 +725,13 @@ This function reads the backup date from the file header and returns it into the
 
 **CROSS-REFERENCE**
 
-`FILE\_DATASPACE <KeywordsF.clean.html#file-dataspace>`__, `FILE\_LENGTH <KeywordsF.clean.html#file-length>`__, `FILE\_TYPE <KeywordsF.clean.html#file-type>`__, `FILE\_UPDATE <KeywordsF.clean.html#file-update>`__.
+:ref:`file-dataspace`, :ref:`file-length`, :ref:`file-type`, :ref:`file-update`.
 
 
 -------
+
+
+..  _file-dat:
 
 FILE\_DAT
 =========
@@ -706,6 +748,9 @@ directories are not supported.
 
 --------------
 
+
+..  _file-dataspace:
+
 FILE\_DATASPACE
 ===============
 
@@ -717,7 +762,7 @@ FILE\_DATASPACE
 | Location | DJToolkit 1.16                                                   |
 +----------+------------------------------------------------------------------+
 
-This function returns the current dataspace requirements for the file opened as #channel or for the file which has the name given, in quotes, as filename.  If the file is an EXEC'able file (See `FILE\_TYPE <KeywordsF.clean.html#file-type>`__) then the value returned will be the amount of dataspace that that program requires to run, if the file is not an EXEC'able file, the result is undefined, meaningless and probably zero.  If the result is negative, there has been an error and the QDOS error code has been returned.
+This function returns the current dataspace requirements for the file opened as #channel or for the file which has the name given, in quotes, as filename.  If the file is an EXEC'able file (See :ref:`file-type`) then the value returned will be the amount of dataspace that that program requires to run, if the file is not an EXEC'able file, the result is undefined, meaningless and probably zero.  If the result is negative, there has been an error and the QDOS error code has been returned.
 
 **EXAMPLE**
 
@@ -733,10 +778,13 @@ This function returns the current dataspace requirements for the file opened as 
 
 **CROSS-REFERENCE**
 
-`FILE\_BACKUP <KeywordsF.clean.html#file-backup>`__, `FILE\_LENGTH <KeywordsF.clean.html#file-length>`__, `FILE\_TYPE <KeywordsF.clean.html#file-type>`__, `FILE\_UPDATE <KeywordsF.clean.html#file-update>`__.
+:ref:`file-backup`, :ref:`file-length`, :ref:`file-type`, :ref:`file-update`.
 
 
 -------
+
+
+..  _file-len:
 
 FILE\_LEN
 =========
@@ -787,15 +835,18 @@ to OPEN\_DIR and FOP\_DIR for a cleaner method.
 
 **CROSS-REFERENCE**
 
-`FLEN <KeywordsF.clean.html#flen>`__ has a more flexible syntax.
-`FILE\_TYP <KeywordsF.clean.html#file-typ>`__,
-`FILE\_DAT <KeywordsF.clean.html#file-dat>`__,
-`FILE\_POS <KeywordsF.clean.html#file-pos>`__,
-`FNAME$ <KeywordsF.clean.html#fname>`__, `FPOS <KeywordsF.clean.html#fpos>`__,
-`FTYP <KeywordsF.clean.html#ftyp>`__, `FUPDT <KeywordsF.clean.html#fupdt>`__ and
-`FXTRA <KeywordsF.clean.html#fxtra>`__ hold other information on a file.
+:ref:`flen` has a more flexible syntax.
+:ref:`file-type`,
+:ref:`file-dat`,
+:ref:`file-pos`,
+:ref:`fname-dlr`, :ref:`fpos`,
+:ref:`ftyp`, :ref:`fupdt` and
+:ref:`fxtra` hold other information on a file.
 
 --------------
+
+
+..  _file-length:
 
 FILE\_LENGTH
 ============
@@ -823,11 +874,14 @@ The file length is returned. The file may be open, in which case simply supply t
     
 **CROSS-REFERENCE**
 
-`FILE\_BACKUP <KeywordsF.clean.html#file-backup>`__, `FILE\_DATASPACE <KeywordsF.clean.html#file-dataspace>`__, `FILE\_TYPE <KeywordsF.clean.html#file-type>`__, `FILE\_UPDATE <KeywordsF.clean.html#file-update>`__.
+:ref:`file-backup`, :ref:`file-dataspace`, :ref:`file-type`, :ref:`file-update`.
 
 
 -------
 
+
+
+..  _file-open:
 
 FILE\_OPEN
 ==========
@@ -879,20 +933,23 @@ Count additional keywords::
 
 **CROSS-REFERENCE**
 
-`FILE\_OPEN <KeywordsF.clean.html#file-open>`__ combines
-`OPEN <KeywordsO.clean.html#open>`__, `OPEN\_IN <KeywordsO.clean.html#open-in>`__,
-`OPEN\_NEW <KeywordsO.clean.html#open-new>`__,
-`OPEN\_OVER <KeywordsO.clean.html#open-over>`__,
-`OPEN\_DIR <KeywordsO.clean.html#open-dir>`__,
-`FOPEN <KeywordsF.clean.html#fopen>`__, `FOP\_IN <KeywordsF.clean.html#fop-in>`__,
-`FOP\_OVER <KeywordsF.clean.html#fop-over>`__,
-`FOP\_NEW <KeywordsF.clean.html#fop-new>`__,
-`FOP\_DIR <KeywordsF.clean.html#fop-dir>`__,
-`TTEOPEN <KeywordsT.clean.html#tteopen>`__ and
-`TCONNECT <KeywordsT.clean.html#tconnect>`__. See also
-`CHANID <KeywordsC.clean.html#chanid>`__ and `ERNUM <KeywordsE.clean.html#ernum>`__.
+:ref:`file-open` combines
+:ref:`open`, :ref:`open-in`,
+:ref:`open-new`,
+:ref:`open-over`,
+:ref:`open-dir`,
+:ref:`fopen`, :ref:`fop-in`,
+:ref:`fop-over`,
+:ref:`fop-new`,
+:ref:`fop-dir`,
+:ref:`tteopen` and
+:ref:`tconnect`. See also
+:ref:`chanid` and :ref:`ernum`.
 
 --------------
+
+
+..  _file-pos:
 
 FILE\_POS
 =========
@@ -907,6 +964,9 @@ This performs the same function as FPOS, although with slightly less
 flexible parameters.
 
 --------------
+
+
+..  _file-position:
 
 FILE\_POSITION
 ==============
@@ -950,10 +1010,13 @@ This function will tell you exactly where you are in the file that has been open
 
 **CROSS-REFERENCE**
 
-`ABS\_POSITION <KeywordsA.clean.html#abs-position>`__, `MOVE\_POSITION <KeywordsM.clean.html#move-position>`__.
+:ref:`abs-position`, :ref:`move-position`.
 
 
 -------
+
+
+..  _file-ptra:
 
 FILE\_PTRA
 ==========
@@ -970,12 +1033,15 @@ set the pointer to the end or start of the file respectively.
 
 **CROSS-REFERENCE**
 
-`FILE\_PTRR <KeywordsF.clean.html#file-ptrr>`__,
-`FILE\_POS <KeywordsF.clean.html#file-pos>`__, `FPOS <KeywordsF.clean.html#fpos>`__,
-`FLEN <KeywordsF.clean.html#flen>`__, `FILE\_LEN <KeywordsF.clean.html#file-len>`__,
-`GET <KeywordsG.clean.html#get>`__.
+:ref:`file-ptrr`,
+:ref:`file-pos`, :ref:`fpos`,
+:ref:`flen`, :ref:`file-len`,
+:ref:`get`.
 
 --------------
+
+
+..  _file-ptrr:
 
 FILE\_PTRR
 ==========
@@ -1030,12 +1096,15 @@ Note that on Minerva, Integer Tokenisation will need to be disabled.
 
 **CROSS-REFERENCE**
 
-`FILE\_PTRA <KeywordsF.clean.html#file-ptra>`__,
-`FILE\_POS <KeywordsF.clean.html#file-pos>`__, `FPOS <KeywordsF.clean.html#fpos>`__,
-`FLEN <KeywordsF.clean.html#flen>`__, `FILE\_LEN <KeywordsF.clean.html#file-len>`__,
-`GET <KeywordsG.clean.html#get>`__.
+:ref:`file-ptra`,
+:ref:`file-pos`, :ref:`fpos`,
+:ref:`flen`, :ref:`file-len`,
+:ref:`get`.
 
 --------------
+
+
+..  _file-type:
 
 FILE\_TYPE
 ==========
@@ -1075,11 +1144,14 @@ There *may* be others.
 
 **CROSS-REFERENCE**
 
-`FILE\_BACKUP <KeywordsF.clean.html#file-backup>`__, `FILE\_DATASPACE <KeywordsF.clean.html#file-dataspace>`__, `FILE\_LENGTH <KeywordsF.clean.html#file-length>`__, `FILE\_UPDATE <KeywordsF.clean.html#file-update>`__.
+:ref:`file-backup`, :ref:`file-dataspace`, :ref:`file-length`, :ref:`file-update`.
 
 
 -------
 
+
+
+..  _file-update:
 
 FILE\_UPDATE
 ============
@@ -1107,11 +1179,14 @@ This function  returns the date that the appropriate  file was last updated, eit
 
 **CROSS-REFERENCE**
 
-`FILE\_DATASPACE <KeywordsF.clean.html#file-dataspace>`__, `FILE\_LENGTH <KeywordsF.clean.html#file-length>`__, `FILE\_TYPE <KeywordsF.clean.html#file-type>`__, `FILE\_TYPE <KeywordsF.clean.html#file-type>`__.
+:ref:`file-dataspace`, :ref:`file-length`, :ref:`file-type`, :ref:`file-type`.
 
 
 -------
 
+
+
+..  _fill:
 
 FILL
 ====
@@ -1238,10 +1313,13 @@ stop SuperBASIC!!
 
 **CROSS-REFERENCE**
 
-The paint colour of `FILL <KeywordsF.clean.html#fill>`__ is specified by
-`INK <KeywordsI.clean.html#ink>`__.
+The paint colour of :ref:`fill` is specified by
+:ref:`ink`.
 
 --------------
+
+
+..  _fill-dlr:
 
 FILL$
 =====
@@ -1300,9 +1378,12 @@ depends on the ROM version - see the Compatability Appendix.
 
 **CROSS-REFERENCE**
 
-Refer to `DIM <KeywordsD.clean.html#dim>`__ about strings in general.
+Refer to :ref:`dim` about strings in general.
 
 --------------
+
+
+..  _fillmem-b:
 
 FILLMEM\_B
 ==========
@@ -1313,15 +1394,18 @@ FILLMEM\_B
 | Location | DJToolkit 1.16                                                    |
 +----------+-------------------------------------------------------------------+
 
-Fill memory with a byte value. See `FILLMEM\_L <KeywordsF.clean.html#fillmem-l>`__ below.
+Fill memory with a byte value. See :ref:`fillmem-l` below.
 
 **CROSS-REFERENCE**
 
-`FILLMEM\_L <KeywordsF.clean.html#fillmem-l>`__, `FILLMEM\_W <KeywordsF.clean.html#fillmem-w>`__.
+:ref:`fillmem-l`, :ref:`fillmem-w`.
 
 
 -------
 
+
+
+..  _fillmem-w:
 
 FILLMEM\_W
 ==========
@@ -1332,15 +1416,18 @@ FILLMEM\_W
 | Location | DJToolkit 1.16                                                    |
 +----------+-------------------------------------------------------------------+
 
-Fill memory with a 16 bit word value . See `FILLMEM\_L <KeywordsF.clean.html#fillmem-l>`__ below.
+Fill memory with a 16 bit word value . See :ref:`fillmem-l` below.
 
 **CROSS-REFERENCE**
 
-`FILLMEM\_L <KeywordsF.clean.html#fillmem-l>`__, `FILLMEM\_B <KeywordsF.clean.html#fillmem-b>`__.
+:ref:`fillmem-l`, :ref:`fillmem-b`.
 
 
 -------
 
+
+
+..  _fillmem-l:
 
 FILLMEM\_L
 ==========
@@ -1370,17 +1457,20 @@ or this::
 
 and the screen will change to all black. Note how the second parameter is halved each time? This is because there are half as many words as bytes and half as many longs as words.
 
-The fastest is FILLMEM\_L and the slowest is `FILLMEM\_B <KeywordsF.clean.html#fillmem-b>`__. When you use `FILLMEM\_W <KeywordsF.clean.html#fillmem-w>`__ or FILLMEM\_L you must make sure that the start\_address is even or you will get a bad parameter error. `FILLMEM\_B <KeywordsF.clean.html#fillmem-b>`__ does not care about its start_address being even or not.
+The fastest is FILLMEM\_L and the slowest is :ref:`fillmem-b`. When you use :ref:`fillmem-w` or FILLMEM\_L you must make sure that the start\_address is even or you will get a bad parameter error. :ref:`fillmem-b` does not care about its start_address being even or not.
 
-`FILLMEM\_B <KeywordsF.clean.html#fillmem-b>`__ truncates the value to the lowest 8 bits, `FILLMEM\_W <KeywordsF.clean.html#fillmem-w>`__ to the lowest 16 bits and FILLMEM\_L uses the lowest 32 bits of the value. Note that some values may be treated as negatives when `PEEK <KeywordsP.clean.html#peek>`__\ 'd back from memory. This is due to the QL treating words and long words as signed numbers.
+:ref:`fillmem-b` truncates the value to the lowest 8 bits, :ref:`fillmem-w` to the lowest 16 bits and FILLMEM\_L uses the lowest 32 bits of the value. Note that some values may be treated as negatives when :ref:`peek`\ 'd back from memory. This is due to the QL treating words and long words as signed numbers.
 
 **CROSS-REFERENCE**
 
-`FILLMEM\_B <KeywordsF.clean.html#fillmem-b>`__, `FILLMEM\_W <KeywordsF.clean.html#fillmem-w>`__.
+:ref:`fillmem-b`, :ref:`fillmem-w`.
 
 
 -------
 
+
+
+..  _find:
 
 FIND
 ====
@@ -1410,11 +1500,14 @@ full screen editor accordingly::
 
 **CROSS-REFERENCE**
 
-`KEY\_ADD <KeywordsK.clean.html#key-add>`__, `ELIS <KeywordsE.clean.html#elis>`__,
-`NEW\_NAME <KeywordsN.clean.html#new-name>`__ Also see
-`FLIS <KeywordsF.clean.html#flis>`__.
+:ref:`key-add`, :ref:`elis`,
+:ref:`new-name` Also see
+:ref:`flis`.
 
 --------------
+
+
+..  _flash:
 
 FLASH
 =====
@@ -1473,12 +1566,15 @@ Emulators.
 
 **CROSS-REFERENCE**
 
-Please also refer to `UNDER <KeywordsU.clean.html#under>`__,
-`OVER <KeywordsO.clean.html#over>`__ and `PRINT <KeywordsP.clean.html#print>`__.
-`MODE <KeywordsM.clean.html#mode>`__ resets the
-`FLASH <KeywordsF.clean.html#flash>`__ mode to off.
+Please also refer to :ref:`under`,
+:ref:`over` and :ref:`print`.
+:ref:`mode` resets the
+:ref:`flash` mode to off.
 
 --------------
+
+
+..  _flen:
 
 FLEN
 ====
@@ -1518,17 +1614,20 @@ If the second syntax does not work, update your Toolkit.
 
 **CROSS-REFERENCE**
 
-`FILE\_LEN <KeywordsF.clean.html#file-len>`__ has a slightly different syntax.
-`FILE\_TYP <KeywordsF.clean.html#file-typ>`__,
-`FILE\_DAT <KeywordsF.clean.html#file-dat>`__,
-`FILE\_POS <KeywordsF.clean.html#file-pos>`__,
-`FNAME$ <KeywordsF.clean.html#fname>`__, `FPOS <KeywordsF.clean.html#fpos>`__,
-`FTYP <KeywordsF.clean.html#ftyp>`__, `FUPDT <KeywordsF.clean.html#fupdt>`__ and
-`FXTRA <KeywordsF.clean.html#fxtra>`__ hold other information about a file.
-`HEADR <KeywordsH.clean.html#headr>`__ and `HEADS <KeywordsH.clean.html#heads>`__
+:ref:`file-len` has a slightly different syntax.
+:ref:`file-type`,
+:ref:`file-dat`,
+:ref:`file-pos`,
+:ref:`fname-dlr`, :ref:`fpos`,
+:ref:`ftyp`, :ref:`fupdt` and
+:ref:`fxtra` hold other information about a file.
+:ref:`headr` and :ref:`heads`
 allow you to directly access a file header.
 
 --------------
+
+
+..  _flis:
 
 FLIS
 ====
@@ -1550,11 +1649,14 @@ If the name is not recognised the error 'Not Found' is reported.
 
 **CROSS-REFERENCE**
 
-`KEY\_ADD <KeywordsK.clean.html#key-add>`__, `ELIS <KeywordsE.clean.html#elis>`__,
-`NEW\_NAME <KeywordsN.clean.html#new-name>`__ Also see
-`FIND <KeywordsF.clean.html#find>`__.
+:ref:`key-add`, :ref:`elis`,
+:ref:`new-name` Also see
+:ref:`find`.
 
 --------------
+
+
+..  _flp-density:
 
 FLP\_DENSITY
 ============
@@ -1661,7 +1763,7 @@ however cause problems when FORMATting DSDD disks - see FORMAT!
 
 On SQMS/E for QPC, the same code letters may be added (after a \*) to the end of the medium name to force a particular density format. (For compatibility with older drivers, if the code letter is omitted after the \*, single sided format is assumed).
 
-- FORMAT 'FLP1\_Disk23' Format at highest density or as specified by `FLP\_DENSITY <KeywordsF.clean.html#flp-density>`__\ .
+- FORMAT 'FLP1\_Disk23' Format at highest density or as specified by :ref:`flp-density`\ .
 
 - FORMAT 'FLP1\_Disk24\*' Format single sided
 - FORMAT 'FLP1\_Disk25\*S' Format single sided
@@ -1671,15 +1773,17 @@ Also, FLP\_DENSITY on it's own resets automatic density selection.
 
 **CROSS-REFERENCE**
 
-The same effect as `FLP\_DENSITY <KeywordsF.clean.html#flp-density>`__ can be
-achieved with a special `FORMAT <KeywordsF.clean.html#format>`__ syntax.
-`FLP\_TRACK <KeywordsF.clean.html#flp-track>`__ allows you to specify the
+The same effect as :ref:`flp-density` can be
+achieved with a special :ref:`format` syntax.
+:ref:`flp-track` allows you to specify the
 number of tracks to be formatted onto a disk.
-`STAT <KeywordsS.clean.html#stat>`__ prints the name, good and free sectors of
-a medium. See also the `DMEDIUM\_ <KeywordsD.clean.html#dmedium-density>`__...
-functions.
+:ref:`stat` prints the name, good and free sectors of
+a medium. See also the The DMEDIUM_XXX functions, starting at :ref:`dmedium-density`.
 
 --------------
+
+
+..  _flp-drive:
 
 FLP\_DRIVE
 ==========
@@ -1708,6 +1812,9 @@ FLP2\_ is assigned to the physical B:\\ floppy drive of the host computer.
 
 --------------
 
+
+..  _flp-drive-dlr:
+
 FLP\_DRIVE$
 ===========
 
@@ -1728,6 +1835,9 @@ This reads back the current connection of the floppy device.
 will tell you the current setting for flp2\_.
 
 --------------
+
+
+..  _flp-ext:
 
 FLP\_EXT
 ========
@@ -1751,10 +1861,13 @@ RES\_128, RES\_SIZE, PROT\_DATE
 
 **CROSS-REFERENCE**
 
-See `RES\_128 <KeywordsR.clean.html#res-128>`__ and
-`TK2\_EXT <KeywordsT.clean.html#tk2-ext>`__.
+See :ref:`res-128` and
+:ref:`tk2-ext`.
 
 --------------
+
+
+..  _flp-jiggle:
 
 FLP\_JIGGLE
 ===========
@@ -1792,11 +1905,14 @@ is switched off.
 
 **CROSS-REFERENCE**
 
-See `FLP\_STEP <KeywordsF.clean.html#flp-step>`__ and
-`FLP\_START <KeywordsF.clean.html#flp-start>`__ which overcome various other
+See :ref:`flp-step` and
+:ref:`flp-start` which overcome various other
 problems with some disk drives.
 
 --------------
+
+
+..  _flp-sec:
 
 FLP\_SEC
 ========
@@ -1858,6 +1974,9 @@ secure.
 
 --------------
 
+
+..  _flp-start:
+
 FLP\_START
 ==========
 
@@ -1894,9 +2013,12 @@ SMSQ and SMSQ/E.
 **CROSS-REFERENCE**
 
 You may also need to alter the stepping rate with
-`FLP\_STEP <KeywordsF.clean.html#flp-step>`__.
+:ref:`flp-step`.
 
 --------------
+
+
+..  _flp-step:
 
 FLP\_STEP
 =========
@@ -1949,12 +2071,15 @@ and SMS.
 
 **CROSS-REFERENCE**
 
-`FLP\_SEC <KeywordsF.clean.html#flp-sec>`__ will alter the security setting
+:ref:`flp-sec` will alter the security setting
 for reading and writing to a disk.
-`FLP\_START <KeywordsF.clean.html#flp-start>`__ may also be needed on older
+:ref:`flp-start` may also be needed on older
 drives.
 
 --------------
+
+
+..  _flp-track:
 
 FLP\_TRACK
 ==========
@@ -1987,10 +2112,13 @@ readable on a 40 track drive.
 
 **CROSS-REFERENCE**
 
-`FLP\_DENSITY <KeywordsF.clean.html#flp-density>`__ also affects how a disk is
-`FORMAT <KeywordsF.clean.html#format>`__\ ted.
+:ref:`flp-density` also affects how a disk is
+:ref:`format`\ ted.
 
 --------------
+
+
+..  _flp-use:
 
 FLP\_USE
 ========
@@ -2027,15 +2155,18 @@ will allow you to use software which would normally run from microdrive (unless 
 
 **CROSS-REFERENCE**
 
-`RAM\_USE <KeywordsR.clean.html#ram-use>`__,
-`DEV\_USE <KeywordsD.clean.html#dev-use>`__ and
-`WIN\_USE <KeywordsW.clean.html#win-use>`__ are very similar.
-`DMEDIUM\_TYPE <KeywordsD.clean.html#dmedium-type>`__ can be used to find out
+:ref:`ram-use`,
+:ref:`dev-use` and
+:ref:`win-use` are very similar.
+:ref:`dmedium-type` can be used to find out
 the type of device which a name actually refers to.
-`DMEDIUM\_NAME <KeywordsD.clean.html#dmedium-name>`__ will return the default
+:ref:`dmedium-name-dlr` will return the default
 name of a device.
 
 --------------
+
+
+..  _flush:
 
 FLUSH
 =====
@@ -2069,9 +2200,12 @@ used to flush the Networks.
 
 **CROSS-REFERENCE**
 
-See `OPEN <KeywordsO.clean.html#open>`__ and `CLOSE <KeywordsC.clean.html#close>`__.
+See :ref:`open` and :ref:`close`.
 
 --------------
+
+
+..  _flush-channel:
 
 FLUSH\_CHANNEL
 ==============
@@ -2099,6 +2233,9 @@ This procedure  makes sure that all data written to the given channel number has
 
 
 -------
+
+
+..  _fmake-dir:
 
 FMAKE\_DIR
 ==========
@@ -2137,9 +2274,12 @@ Remember to remove this.
 
 **CROSS-REFERENCE**
 
-See `MAKE\_DIR <KeywordsM.clean.html#make-dir>`__.
+See :ref:`make-dir`.
 
 --------------
+
+
+..  _fname-dlr:
 
 FNAME$
 ======
@@ -2170,14 +2310,17 @@ elegant because they skip the need to access the file header.
 
 **CROSS-REFERENCE**
 
-`FLEN <KeywordsF.clean.html#flen>`__, `FTYP <KeywordsF.clean.html#ftyp>`__,
-`FDAT <KeywordsF.clean.html#fdat>`__, `FXTRA <KeywordsF.clean.html#fxtra>`__,
-`FUPDT <KeywordsF.clean.html#fupdt>`__,
-`FILE\_LEN <KeywordsF.clean.html#file-len>`__ and
-`FILE\_TYP <KeywordsF.clean.html#file-typ>`__ return other information about a
+:ref:`flen`, :ref:`ftyp`,
+:ref:`fdat`, :ref:`fxtra`,
+:ref:`fupdt`,
+:ref:`file-len` and
+:ref:`file-type` return other information about a
 file.
 
 --------------
+
+
+..  _fopen:
 
 FOPEN
 =====
@@ -2233,17 +2376,20 @@ will only be reported if you try to write to the file!!
 
 **CROSS-REFERENCE**
 
-`ERNUM <KeywordsE.clean.html#ernum>`__ contains details of the various error
-messages. `WHEN ERRor <KeywordsW.clean.html#when-error>`__ allows you to
+:ref:`ernum` contains details of the various error
+messages. :ref:`when--error` allows you to
 error trap a complete program. Also see
-`FOP\_DIR <KeywordsF.clean.html#fop-dir>`__,
-`FOP\_IN <KeywordsF.clean.html#fop-in>`__,
-`FOP\_OVER <KeywordsF.clean.html#fop-over>`__ and
-`FOP\_NEW <KeywordsF.clean.html#fop-new>`__. Also see
-`OPEN <KeywordsO.clean.html#open>`__. `FTEST <KeywordsF.clean.html#ftest>`__ allows
+:ref:`fop-dir`,
+:ref:`fop-in`,
+:ref:`fop-over` and
+:ref:`fop-new`. Also see
+:ref:`open`. :ref:`ftest` allows
 you to test the status of a file without (explicitly) opening a channel.
 
 --------------
+
+
+..  _fop-dir:
 
 FOP\_DIR
 ========
@@ -2261,11 +2407,14 @@ values and suffers from the same problem as FOPEN.
 
 **CROSS-REFERENCE**
 
-See `FOPEN <KeywordsF.clean.html#fopen>`__,
-`TTEOPEN <KeywordsT.clean.html#tteopen>`__ and
-`OPEN\_DIR <KeywordsO.clean.html#open-dir>`__.
+See :ref:`fopen`,
+:ref:`tteopen` and
+:ref:`open-dir`.
 
 --------------
+
+
+..  _fop-in:
 
 FOP\_IN
 =======
@@ -2285,10 +2434,13 @@ problem as FOPEN.
 
 **CROSS-REFERENCE**
 
-See `FOPEN <KeywordsF.clean.html#fopen>`__ and
-`OPEN\_IN <KeywordsO.clean.html#open-in>`__.
+See :ref:`fopen` and
+:ref:`open-in`.
 
 --------------
+
+
+..  _fop-new:
 
 FOP\_NEW
 ========
@@ -2311,10 +2463,13 @@ only.
 
 **CROSS-REFERENCE**
 
-See `FOPEN <KeywordsF.clean.html#fopen>`__ and
-`OPEN\_NEW <KeywordsO.clean.html#open-new>`__.
+See :ref:`fopen` and
+:ref:`open-new`.
 
 --------------
+
+
+..  _fop-over:
 
 FOP\_OVER
 =========
@@ -2333,10 +2488,13 @@ name.
 
 **CROSS-REFERENCE**
 
-See `FOPEN <KeywordsF.clean.html#fopen>`__ and
-`OPEN\_OVER <KeywordsO.clean.html#open-over>`__.
+See :ref:`fopen` and
+:ref:`open-over`.
 
 --------------
+
+
+..  _for:
 
 FOR
 ===
@@ -2609,11 +2767,12 @@ a program, they refer to the loop currently being executed.
 
 **CROSS-REFERENCE**
 
-`REPeat <KeywordsR.clean.html#repeat>`__...\ `END
-REPeat <KeywordsE.clean.html#end-repeat>`__ is the other loop type. See `END
-FOR <KeywordsE.clean.html#end-for>`__.
+:ref:`repeat` ... :ref:`end--repeat` is the other loop type. See also :ref:`end--for`.
 
 --------------
+
+
+..  _force-type:
 
 FORCE\_TYPE
 ===========
@@ -2665,10 +2824,13 @@ TYPE\_IN, which could cause problems with Turbo compiled programs.
 
 **CROSS-REFERENCE**
 
-`STAMP <KeywordsS.clean.html#stamp>`__ does exactly the same as
-`FORCE\_TYPE <KeywordsF.clean.html#force-type>`__.
+:ref:`stamp` does exactly the same as
+:ref:`force-type`.
 
 --------------
+
+
+..  _format:
 
 FORMAT
 ======
@@ -2722,7 +2884,7 @@ the disk accordingly: S, D, H and E are allowed, eg::
 
 	FORMAT "flp1_TEST*h"
 
-See `FLP\_DENSITY <KeywordsF.clean.html#flp-density>`__. 
+See :ref:`flp-density`. 
 
 **RAM** This depends very much on the ramdisk drivers:
 
@@ -3073,15 +3235,18 @@ WIN1\_.
 **CROSS-REFERENCE**
 
 Before formatting, the number of tracks on a disk can be specified with
-`FLP\_TRACK <KeywordsF.clean.html#flp-track>`__. HD and ED disks can be
+:ref:`flp-track`. HD and ED disks can be
 formatted to different densities if
-`FLP\_DENSITY <KeywordsF.clean.html#flp-density>`__ was used to override
+:ref:`flp-density` was used to override
 automatic detection of the density. See
-`WIN\_FORMAT <KeywordsW.clean.html#win-format>`__ for hard disk protection.
-`DMEDIUM\_ <KeywordsD.clean.html#dmedium->`__\ xxx functions return details
+:ref:`win-format` for hard disk protection.
+The DMEDIUM_XXX functions, starting at :ref:`dmedium-density` return various details
 about how a medium has been formatted.
 
 --------------
+
+
+..  _fpos:
 
 FPOS
 ====
@@ -3103,15 +3268,18 @@ input from, or write to.
 
 **CROSS-REFERENCE**
 
-`FILE\_POS <KeywordsF.clean.html#file-pos>`__ works exactly as
-`FPOS <KeywordsF.clean.html#fpos>`__ but does not use a default channel.
-`FILE\_PTRA <KeywordsF.clean.html#file-ptra>`__ and
-`FILE\_PTRR <KeywordsF.clean.html#file-ptrr>`__ move the file pointer, which
-may also be set with `GET <KeywordsG.clean.html#get>`__,
-`PUT <KeywordsP.clean.html#put>`__, `BGET <KeywordsB.clean.html#bget>`__ and
-`BPUT <KeywordsB.clean.html#bput>`__.
+:ref:`file-pos` works exactly as
+:ref:`fpos` but does not use a default channel.
+:ref:`file-ptra` and
+:ref:`file-ptrr` move the file pointer, which
+may also be set with :ref:`get`,
+:ref:`put`, :ref:`bget` and
+:ref:`bput`.
 
 --------------
+
+
+..  _fpos-a:
 
 FPOS\_A
 =======
@@ -3122,9 +3290,12 @@ FPOS\_A
 | Location |  BTool                                                            |
 +----------+-------------------------------------------------------------------+
 
-This is the same as `FILE\_PTRA <KeywordsF.clean.html#file-ptra>`__.
+This is the same as :ref:`file-ptra`.
 
 --------------
+
+
+..  _fpos-r:
 
 FPOS\_R
 =======
@@ -3135,9 +3306,12 @@ FPOS\_R
 | Location |  BTool                                                            |
 +----------+-------------------------------------------------------------------+
 
-This is the same as `FILE\_PTRR <KeywordsF.clean.html#file-ptrr>`__.
+This is the same as :ref:`file-ptrr`.
 
 --------------
+
+
+..  _fput-dlr:
 
 FPUT$
 =====
@@ -3163,9 +3337,12 @@ will produce the equivalent of PRINT CHR$(0)&CHR$(5)&'Hello'.
 
 **CROSS-REFERENCE**
 
-`FGET$ <KeywordsF.clean.html#fget>`__, `PUT <KeywordsP.clean.html#put>`__.
+:ref:`fget-dlr`, :ref:`put`.
 
 --------------
+
+
+..  _fput-pct:
 
 FPUT%
 =====
@@ -3182,9 +3359,12 @@ as two bytes (one word).
 
 **CROSS-REFERENCE**
 
-`FGET% <KeywordsF.clean.html#fget>`__, `PUT <KeywordsP.clean.html#put>`__
+:ref:`fget-pct`, :ref:`put`
 
 --------------
+
+
+..  _fputb:
 
 FPUTB
 =====
@@ -3222,11 +3402,14 @@ will enable near letter quality (NLQ) on an EPSON compatible printer.
 
 **CROSS-REFERENCE**
 
-`BPUT <KeywordsB.clean.html#bput>`__, `CHR$ <KeywordsC.clean.html#chr>`__,
-`CODE <KeywordsC.clean.html#code>`__. `FGETB <KeywordsF.clean.html#fgetb>`__ is a
+:ref:`bput`, :ref:`chr-dlr`,
+:ref:`code`. :ref:`fgetb` is a
 complementary function.
 
 --------------
+
+
+..  _fputf:
 
 FPUTF
 =====
@@ -3242,9 +3425,12 @@ internal format (six bytes) to #ch, default is #1.
 
 **CROSS-REFERENCE**
 
-`FGETF <KeywordsF.clean.html#fgetf>`__, `PUT <KeywordsP.clean.html#put>`__
+:ref:`fgetf`, :ref:`put`
 
 --------------
+
+
+..  _fputl:
 
 FPUTL
 =====
@@ -3260,9 +3446,12 @@ This command writes the specified long integer(s) longint
 
 **CROSS-REFERENCE**
 
-`FGETL <KeywordsF.clean.html#fgetl>`__, `PUT <KeywordsP.clean.html#put>`__
+:ref:`fgetl`, :ref:`put`
 
 --------------
+
+
+..  _fract:
 
 FRACT
 =====
@@ -3283,10 +3472,13 @@ following::
 
 **CROSS-REFERENCE**
 
-`TRINT <KeywordsT.clean.html#trint>`__ is complementary to
-`FRACT <KeywordsF.clean.html#fract>`__.
+:ref:`trint` is complementary to
+:ref:`fract`.
 
 --------------
+
+
+..  _fread:
 
 FREAD
 =====
@@ -3339,11 +3531,14 @@ work. This behaviour is pretty strange.
 
 **CROSS-REFERENCE**
 
-`FREAD$ <KeywordsF.clean.html#fread>`__, `FWRITE <KeywordsF.clean.html#fwrite>`__,
-`LBYTES <KeywordsL.clean.html#lbytes>`__, `SBYTES <KeywordsS.clean.html#sbytes>`__,
-`GET <KeywordsG.clean.html#get>`__, `PUT <KeywordsP.clean.html#put>`__.
+:ref:`fread-dlr`, :ref:`fwrite`,
+:ref:`lbytes`, :ref:`sbytes`,
+:ref:`get`, :ref:`put`.
 
 --------------
+
+
+..  _fread-dlr:
 
 FREAD$
 ======
@@ -3384,11 +3579,14 @@ the listing::
 
 **CROSS-REFERENCE**
 
-`INPUT$ <KeywordsI.clean.html#input>`__,
-`FWRITE$ <KeywordsF.clean.html#fwrite>`__, `COPY <KeywordsC.clean.html#copy>`__,
-`GET\_BYTE$ <KeywordsG.clean.html#get-byte>`__
+:ref:`input-dlr`,
+:ref:`fwrite-dlr`, :ref:`copy`,
+:ref:`get-byte-dlr`
 
 --------------
+
+
+..  _free:
 
 FREE
 ====
@@ -3405,9 +3603,7 @@ fragmented (see DEL\_DEFB).
 
 **CROSS-REFERENCE**
 
-See also `FREE\_MEM <KeywordsF.clean.html#free-mem>`__,
-`TPFree <KeywordsT.clean.html#tpfree>`__ and
-`MT\_FREE <KeywordsM.clean.html#mt-free>`__.
+See also :ref:`free-mem` and :ref:`tpfree`.
 
 ::
 
@@ -3416,6 +3612,8 @@ See also `FREE\_MEM <KeywordsF.clean.html#free-mem>`__,
 reserves the largest piece of memory available.
 
 --------------
+ 
+..  _free-fast:
 
 FREE\_FAST
 ==========
@@ -3444,13 +3642,17 @@ of available FastRAM.
 **CROSS-REFERENCE**
 
 The other commands to access FastRAM are
-`RESFAST <KeywordsR.clean.html#resfast>`__, and
-`LRESFAST. <KeywordsL.clean.html#lresfast.>`__
-Compare `RESPR <KeywordsR.clean.html#respr>`__,
-`ALCHP <KeywordsA.clean.html#alchp>`__ and
-`FREE\_MEM <KeywordsF.clean.html#free-mem>`__.
+:ref:`resfast`, and
+:ref:`lresfast`.
+
+Compare :ref:`respr`,
+:ref:`alchp` and
+:ref:`free-mem`.
 
 --------------
+
+
+..  _free-mem:
 
 FREE\_MEM
 =========
@@ -3461,9 +3663,12 @@ FREE\_MEM
 | Location |  Toolkit II, THOR XVI                                             |
 +----------+-------------------------------------------------------------------+
 
-Exactly the same as `FREE <KeywordsF.clean.html#free>`__.
+Exactly the same as :ref:`free`.
 
 --------------
+
+
+..  _freeze:
 
 FREEZE
 ======
@@ -3494,6 +3699,9 @@ FREEZE OFF disables <CTRL><F5>, FREEZE ON reactivates it.
 
 --------------
 
+
+..  _freeze-pct:
+
 FREEZE%
 =======
 
@@ -3515,13 +3723,16 @@ respectively) if <CTRL><F5> has been disabled by FREEZE or not.
    
 **CROSS-REFERENCE**
 
-`ON <KeywordsO.clean.html#on>`__ and `OFF <KeywordsO.clean.html#off>`__ are constant
-expressions for 1 and 0. `FREEZE% <KeywordsF.clean.html#freeze>`__ returns
-the current state. Compare `FREEZE <KeywordsF.clean.html#freeze>`__ and
-`FREEZE% <KeywordsF.clean.html#freeze>`__ to `BREAK <KeywordsB.clean.html#break>`__
-and `BREAK% <KeywordsB.clean.html#break>`__.
+:ref:`on` and :ref:`off` are constant
+expressions for 1 and 0. :ref:`freeze-pct` returns
+the current state. Compare :ref:`freeze` and
+:ref:`freeze-pct` to :ref:`break`
+and :ref:`break-pct`.
 
 --------------
+
+
+..  _fserve:
 
 FSERVE
 ======
@@ -3660,19 +3871,22 @@ network programs or to analyse network traffic.
 
 **CROSS-REFERENCE**
 
-The fileserver job can be removed with `RJOB <KeywordsR.clean.html#rjob>`__,
-`KJOB <KeywordsK.clean.html#kjob>`__, `KILL <KeywordsK.clean.html#kill>`__ etc. or
+The fileserver job can be removed with :ref:`rjob`,
+:ref:`kjob`, :ref:`kill` etc. or
 by using a desktop application (such as QPAC2). See
-`NET <KeywordsN.clean.html#net>`__ and `NFS\_USE <KeywordsN.clean.html#nfs-use>`__
+:ref:`net` and :ref:`nfs-use`
 for further information on networking. 
 
 Refer to the original
 documentation of Toolkit II and the Device Drivers Appendix for
-technical details. `SERNET <KeywordsS.clean.html#sernet>`__ and
-`MIDINET <KeywordsM.clean.html#midinet>`__ create fileservers for other
+technical details. :ref:`sernet` and
+:ref:`midinet` create fileservers for other
 Networks supported by SMSQ/E and the Atari ST Emulators.
 
 --------------
+
+
+..  _fseth-dlr:
 
 FSETH$
 ======
@@ -3690,10 +3904,13 @@ specified channel (default #3).
 
 **CROSS-REFERENCE**
 
-See `HEADS <KeywordsH.clean.html#heads>`__ and
-`SetHEAD <KeywordsS.clean.html#sethead>`__!
+See :ref:`heads` and
+:ref:`sethead`!
 
 --------------
+
+
+..  _ftest:
 
 FTEST
 =====
@@ -3747,12 +3964,15 @@ problems.
 
 **CROSS-REFERENCE**
 
-`FOPEN <KeywordsF.clean.html#fopen>`__ and `FOP\_IN <KeywordsF.clean.html#fop-in>`__
+:ref:`fopen` and :ref:`fop-in`
 allow you to open files safely.
-`DMEDIUM\_RDONLY <KeywordsD.clean.html#dmedium-rdonly>`__ can be used to find
+:ref:`dmedium-rdonly` can be used to find
 out if a disk is write protected.
 
 --------------
+
+
+..  _ftyp:
 
 FTYP
 ====
@@ -3799,12 +4019,15 @@ job from memory when called.
 
 **CROSS-REFERENCE**
 
-See `HEADR <KeywordsH.clean.html#headr>`__ for reading the whole file header
-and `EX <KeywordsE.clean.html#ex>`__ for executing jobs.
-`FILE\_TYP <KeywordsF.clean.html#file-typ>`__ does the same as
-`FTYP <KeywordsF.clean.html#ftyp>`__ but has a slightly different syntax.
+See :ref:`headr` for reading the whole file header
+and :ref:`ex` for executing jobs.
+:ref:`file-type` does the same as
+:ref:`ftyp` but has a slightly different syntax.
 
 --------------
+
+
+..  _function:
 
 FuNction
 ========
@@ -3824,6 +4047,9 @@ line' error.
 Please refer to the individual structure descriptions for more details.
 
 --------------
+
+
+..  _fupdt:
 
 FUPDT
 =====
@@ -3930,19 +4156,22 @@ Other ROM versions will not do so without Toolkit II.
 
 **CROSS-REFERENCE**
 
-`FBKDT <KeywordsF.clean.html#fbkdt>`__, `FLEN <KeywordsF.clean.html#flen>`__,
-`FTYP <KeywordsF.clean.html#ftyp>`__, `FDAT <KeywordsF.clean.html#fdat>`__,
-`FXTRA <KeywordsF.clean.html#fxtra>`__,
-`FILE\_LEN <KeywordsF.clean.html#file-len>`__,
-`FILE\_TYP <KeywordsF.clean.html#file-typ>`__,
-`FVERS <KeywordsF.clean.html#fvers>`__ and `FNAME$ <KeywordsF.clean.html#fname>`__
+:ref:`fbkdt`, :ref:`flen`,
+:ref:`ftyp`, :ref:`fdat`,
+:ref:`fxtra`,
+:ref:`file-len`,
+:ref:`file-type`,
+:ref:`fvers` and :ref:`fname-dlr`
 return other information about a file. See
-`DATE <KeywordsD.clean.html#date>`__ and `ADATE <KeywordsA.clean.html#adate>`__
+:ref:`date` and :ref:`adate`
 about handling the system clock and
-`SET\_FUPDT <KeywordsS.clean.html#set-fupdt>`__ on setting the time stamp of a
+:ref:`set-fupdt` on setting the time stamp of a
 file.
 
 --------------
+
+
+..  _fvers:
 
 FVERS
 =====
@@ -4014,10 +4243,13 @@ one.
 
 **CROSS-REFERENCE**
 
-`SET\_FVERS <KeywordsS.clean.html#set-fvers>`__ allows you to set the version
+:ref:`set-fvers` allows you to set the version
 number.
 
 --------------
+
+
+..  _fwrite:
 
 FWRITE
 ======
@@ -4042,7 +4274,7 @@ because the memory management of the routine is simple (but fast) and as
 FILE\_LEN does not support default devices and sub-directories, full
 filenames have to be passed. 
 
-See `FREAD <KeywordsF.clean.html#fread>`__ for an enhanced version! 
+See :ref:`fread` for an enhanced version! 
 
 ::
 
@@ -4070,13 +4302,16 @@ after it has completed its work. This behaviour is pretty strange.
 
 **CROSS-REFERENCE**
 
-`FREAD <KeywordsF.clean.html#fread>`__, `LBYTES <KeywordsL.clean.html#lbytes>`__,
-`SBYTES <KeywordsS.clean.html#sbytes>`__, `GET <KeywordsG.clean.html#get>`__,
-`PUT <KeywordsP.clean.html#put>`__. If you intend to use
-`APPEND <KeywordsA.clean.html#append>`__, please see
-`FREAD <KeywordsF.clean.html#fread>`__ for a better version.
+:ref:`fread`, :ref:`lbytes`,
+:ref:`sbytes`, :ref:`get`,
+:ref:`put`. If you intend to use
+:ref:`append`, please see
+:ref:`fread` for a better version.
 
 --------------
+
+
+..  _fwrite-dlr:
 
 FWRITE$
 =======
@@ -4103,6 +4338,9 @@ text.
 
 --------------
 
+
+..  _fxtra:
+
 FXTRA
 =====
 
@@ -4122,6 +4360,7 @@ channel is #3.
 
 **CROSS-REFERENCE**
 
-See `FDAT <KeywordsF.clean.html#fdat>`__, `FBKDT <KeywordsF.clean.html#fbkdt>`__,
-`FUPDT <KeywordsF.clean.html#fupdt>`__ and `FTYP <KeywordsF.clean.html#ftyp>`__
+See :ref:`fdat`, :ref:`fbkdt`,
+:ref:`fupdt` and :ref:`ftyp`
 which return similar information.
+

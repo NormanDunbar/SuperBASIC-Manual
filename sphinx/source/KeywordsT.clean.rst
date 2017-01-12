@@ -1,6 +1,15 @@
+
 ==========
 Keywords T
 ==========
+
+TODO
+====
+
+- This file references EXTERNAL, QCONNECT. They doesn't exist.
+
+
+..  _tan:
 
 TAN
 ===
@@ -47,15 +56,18 @@ produces an overflow error.
 
 **CROSS-REFERENCE**
 
-`SIN <KeywordsS.clean.html#sin>`__, `COS <KeywordsC.clean.html#cos>`__,
-`COT <KeywordsC.clean.html#cot>`__, `ASIN <KeywordsA.clean.html#asin>`__,
-`ACOS <KeywordsA.clean.html#acos>`__, `ATAN <KeywordsA.clean.html#atan>`__ and
-`ACOT <KeywordsA.clean.html#acot>`__ are other common trigonometrical
-functions. `RAD <KeywordsR.clean.html#rad>`__ converts degrees into radians,
-`DEG <KeywordsD.clean.html#deg>`__ vice-versa. Please also refer to the
+:ref:`sin`, :ref:`cos`,
+:ref:`cot`, :ref:`asin`,
+:ref:`acos`, :ref:`atan` and
+:ref:`acot` are other common trigonometrical
+functions. :ref:`rad` converts degrees into radians,
+:ref:`deg` vice-versa. Please also refer to the
 Mathematics section of the Appendix.
 
 --------------
+
+
+..  _tanh:
 
 TANH
 ====
@@ -78,11 +90,14 @@ their definitions)::
 
 **CROSS-REFERENCE**
 
-`ARTANH <KeywordsA.clean.html#artanh>`__ is the inverse function of
-`TANH <KeywordsT.clean.html#tanh>`__, `COTH <KeywordsC.clean.html#coth>`__ a
-complementary function to `TANH <KeywordsT.clean.html#tanh>`__.
+:ref:`artanh` is the inverse function of
+:ref:`tanh`, :ref:`coth` a
+complementary function to :ref:`tanh`.
 
 --------------
+
+
+..  _tca:
 
 TCA
 ===
@@ -99,12 +114,15 @@ handling).
 
 **CROSS-REFERENCE**
 
-`MT <KeywordsM.clean.html#mt>`__, `VA <KeywordsV.clean.html#va>`__,
-`VFR <KeywordsV.clean.html#vfr>`__, `VAR <KeywordsV.clean.html#var>`__,
-`TNC <KeywordsT.clean.html#tnc>`__, `TEE <KeywordsT.clean.html#tee>`__,
-`RAE <KeywordsR.clean.html#rae>`__, `RAFE <KeywordsR.clean.html#rafe>`__
+:ref:`mt`, :ref:`va`,
+:ref:`vfr`, :ref:`var`,
+:ref:`tnc`, :ref:`tee`,
+:ref:`rae`, :ref:`rafe`
 
 --------------
+
+
+..  _tconnect:
 
 TCONNECT
 ========
@@ -173,7 +191,7 @@ it is a legal device::
     240 END DEFine DEVLIST$
 
 A legal drive device consists of three letters (the device name), a
-drive number (1..8) and an underscore: 
+drive number (1..8) and an underscore:: 
 
     250 :
     260 DEFine FuNction ISDEVICE(dev$) 
@@ -186,15 +204,18 @@ drive number (1..8) and an underscore:
 
 **CROSS-REFERENCE**
 
-See `FILE\_OPEN <KeywordsF.clean.html#file-open>`__,
-`CHANID <KeywordsC.clean.html#chanid>`__, `PIPES <KeywordsP.clean.html#pipes>`__ and
-especially `PEND <KeywordsP.clean.html#pend>`__. Some more examples appear at
-`FILE\_LEN <KeywordsF.clean.html#file-len>`__ and
-`FUPDT <KeywordsF.clean.html#fupdt>`__. `QLINK <KeywordsQ.clean.html#qlink>`__ is
-the same. Qliberator gives the `QCONNECT <KeywordsQ.clean.html#qconnect>`__
+See :ref:`file-open`,
+:ref:`chanid`, pipes and
+especially :ref:`pend`. Some more examples appear at
+:ref:`file-len` and
+:ref:`fupdt`. :ref:`qlink` is
+the same. Qliberator gives the :ref:`qconnect`
 command which is the same.
 
 --------------
+
+
+..  _tee:
 
 TEE
 ===
@@ -211,12 +232,15 @@ handling).
 
 **CROSS-REFERENCE**
 
-`MT <KeywordsM.clean.html#mt>`__, `VA <KeywordsV.clean.html#va>`__,
-`VFR <KeywordsV.clean.html#vfr>`__, `VAR <KeywordsV.clean.html#var>`__,
-`TCA <KeywordsT.clean.html#tca>`__, `TNC <KeywordsT.clean.html#tnc>`__,
-`RAE <KeywordsR.clean.html#rae>`__, `RAFE <KeywordsR.clean.html#rafe>`__
+:ref:`mt`, :ref:`va`,
+:ref:`vfr`, :ref:`var`,
+:ref:`tca`, :ref:`tnc`,
+:ref:`rae`, :ref:`rafe`
 
 --------------
+
+
+..  _then:
 
 THEN
 ====
@@ -232,9 +256,12 @@ structure. It has no use on its own.
 
 **CROSS-REFERENCE**
 
-See `IF <KeywordsI.clean.html#if>`__.
+See :ref:`if`.
 
 --------------
+
+
+..  _thing:
 
 THING
 =====
@@ -264,9 +291,12 @@ value greater than zero if the Thing exists.
 
 **CROSS-REFERENCE**
 
-`TH\_VER$ <KeywordsT.clean.html#th-ver>`__ explains what Things are.
+:ref:`th-ver-dlr` explains what Things are.
 
 --------------
+
+
+..  _th-fix:
 
 TH\_FIX
 =======
@@ -283,6 +313,9 @@ Emulator) and allows them to work under current versions by adopting the
 old style Thing List. You should really update the problem program.
 
 --------------
+
+
+..  _th-ver-dlr:
 
 TH\_VER$
 ========
@@ -341,9 +374,12 @@ computer.
 
 **CROSS-REFERENCE**
 
-`THING <KeywordsT.clean.html#thing>`__, `TH\_FIX <KeywordsT.clean.html#th-fix>`__.
+:ref:`thing`, :ref:`th-fix`.
 
 --------------
+
+
+..  _tiny-ext:
 
 TINY\_EXT
 =========
@@ -374,12 +410,15 @@ with TINY\_RMV.
 
 **CROSS-REFERENCE**
 
-`TK2\_EXT <KeywordsT.clean.html#tk2-ext>`__ updates Toolkit II,
-`Beule\_EXT <KeywordsB.clean.html#beule-ext>`__ the Beule Toolkit.
-`TINY\_RMV <KeywordsT.clean.html#tiny-rmv>`__ removes most extensions of
+:ref:`tk2-ext` updates Toolkit II,
+:ref:`beule-ext` the Beule Toolkit.
+:ref:`tiny-rmv` removes most extensions of
 TinyToolkit from the name list.
 
 --------------
+
+
+..  _tiny-rmv:
 
 TINY\_RMV
 =========
@@ -402,9 +441,12 @@ possible.
 
 **CROSS-REFERENCE**
 
-Re-activate the Toolkit with `TINY\_EXT <KeywordsT.clean.html#tiny-ext>`__.
+Re-activate the Toolkit with :ref:`tiny-ext`.
 
 --------------
+
+
+..  _tk2-ext:
 
 TK2\_EXT
 ========
@@ -428,9 +470,12 @@ on JM (and earlier) ROMs in the same program as the TK2\_EXT command.
 
 **CROSS-REFERENCE**
 
-See `TINY\_EXT <KeywordsT.clean.html#tiny-ext>`__.
+See :ref:`tiny-ext`.
 
 --------------
+
+
+..  _tk-ver-dlr:
 
 TK\_VER$
 ========
@@ -450,6 +495,9 @@ and SMS.
 
 --------------
 
+
+..  _tnc:
+
 TNC
 ===
 
@@ -465,12 +513,15 @@ handling).
 
 **CROSS-REFERENCE**
 
-`MT <KeywordsM.clean.html#mt>`__, `VA <KeywordsV.clean.html#va>`__,
-`VFR <KeywordsV.clean.html#vfr>`__, `VAR <KeywordsV.clean.html#var>`__,
-`TCA <KeywordsT.clean.html#tca>`__, `TEE <KeywordsT.clean.html#tee>`__,
-`RAE <KeywordsR.clean.html#rae>`__, `RAFE <KeywordsR.clean.html#rafe>`__
+:ref:`mt`, :ref:`va`,
+:ref:`vfr`, :ref:`var`,
+:ref:`tca`, :ref:`tee`,
+:ref:`rae`, :ref:`rafe`
 
 --------------
+
+
+..  _to:
 
 TO
 ==
@@ -517,12 +568,15 @@ standard QL implementation.
 
 **CROSS-REFERENCE**
 
-See `GO TO <KeywordsG.clean.html#go-to>`__ and
-`PRINT <KeywordsP.clean.html#print>`__, `INPUT <KeywordsI.clean.html#input>`__.
-`AT <KeywordsA.clean.html#at>`__ and `CURSOR <KeywordsC.clean.html#cursor>`__ allow
+See :ref:`go--to` and
+:ref:`print`, :ref:`input`.
+:ref:`at` and :ref:`cursor` allow
 you to position the text cursor more precisely.
 
 --------------
+
+
+..  _top-window:
 
 TOP\_WINDOW
 ===========
@@ -545,14 +599,16 @@ as if the Job has been 'picked' using the keys CTRL C.
 
 **CROSS-REFERENCE**
 
-`WINDOW <KeywordsW.clean.html#window>`__ allows you to re-position a window.
-`PIE\_ON <KeywordsP.clean.html#pie-on>`__ allows programs to continue even
+:ref:`window` allows you to re-position a window.
+:ref:`pie-on` allows programs to continue even
 though their windows are buried under the Pointer Interface.
-`PICK% <KeywordsP.clean.html#pick>`__ is similar. `POKE
-<KeywordsP.clean.html#poke>`__ SYS\_VARS+133 allows you to
+:ref:`pick-pct` is similar. :ref:`poke` SYS\_VARS+133 allows you to
 enable / disable the THOR's windowing system.
 
 --------------
+
+
+..  _tpfree:
 
 TPFree
 ======
@@ -567,6 +623,9 @@ The function TPFree returns a slightly larger or equal value than FREE
 and FREE\_MEM. The reported free memory is available for new jobs.
 
 --------------
+
+
+..  _tra:
 
 TRA
 ===
@@ -1006,6 +1065,9 @@ drivers.
 
 --------------
 
+
+..  _trim-dlr:
+
 TRIM$
 =====
 
@@ -1030,9 +1092,12 @@ and returns the result of this. Any string can be used as a parameter.
 
 **CROSS-REFERENCE**
 
-`LEN <KeywordsL.clean.html#len>`__ returns the length of a string.
+:ref:`len` returns the length of a string.
 
 --------------
+
+
+..  _trint:
 
 TRINT
 =====
@@ -1071,10 +1136,13 @@ example::
     120 END DEFine MYTRINT
 
 If you want to round numbers, refer to
-`DROUND <KeywordsD.clean.html#dround>`__ and
-`PROUND <KeywordsP.clean.html#pround>`__.
+:ref:`dround` and
+:ref:`pround`.
 
 --------------
+
+
+..  _troff:
 
 TROFF
 =====
@@ -1090,10 +1158,13 @@ associated with the trace output.
 
 **CROSS-REFERENCE**
 
-`TRON <KeywordsT.clean.html#tron>`__ and `SSTEP <KeywordsS.clean.html#sstep>`__ turn
+:ref:`tron` and :ref:`sstep` turn
 the trace function on.
 
 --------------
+
+
+..  _tron:
 
 TRON
 ====
@@ -1115,10 +1186,13 @@ SuperBASIC code.
 
 **CROSS-REFERENCE**
 
-See `TROFF <KeywordsT.clean.html#troff>`__ and
-`SSTEP <KeywordsS.clean.html#sstep>`__.
+See :ref:`troff` and
+:ref:`sstep`.
 
 --------------
+
+
+..  _true-pct:
 
 TRUE%
 =====
@@ -1144,10 +1218,13 @@ is the same as::
 
 **CROSS-REFERENCE**
 
-`FALSE% <KeywordsF.clean.html#false>`__ is 0. `SET <KeywordsS.clean.html#set>`__
+:ref:`false-pct` is 0. :ref:`set`
 can be used to create constants as resident keywords.
 
 --------------
+
+
+..  _truncate:
 
 TRUNCATE
 ========
@@ -1186,16 +1263,19 @@ you intend to set the file pointer before truncating the file.
 
 **CROSS-REFERENCE**
 
-`FLEN <KeywordsF.clean.html#flen>`__ and
-`FILE\_LEN <KeywordsF.clean.html#file-len>`__ return the length of a file,
-`FPOS <KeywordsF.clean.html#fpos>`__ and
-`FILE\_POS <KeywordsF.clean.html#file-pos>`__ the current file pointer
-position, `FILE\_PTRA <KeywordsF.clean.html#file-ptra>`__ and
-`FILE\_PTRR <KeywordsF.clean.html#file-ptrr>`__ move the file pointer as do
-`GET <KeywordsG.clean.html#get>`__, `PUT <KeywordsP.clean.html#put>`__,
-`BGET <KeywordsB.clean.html#bget>`__ and `BPUT <KeywordsB.clean.html#bput>`__.
+:ref:`flen` and
+:ref:`file-len` return the length of a file,
+:ref:`fpos` and
+:ref:`file-pos` the current file pointer
+position, :ref:`file-ptra` and
+:ref:`file-ptrr` move the file pointer as do
+:ref:`get`, :ref:`put`,
+:ref:`bget` and :ref:`bput`.
 
 --------------
+
+
+..  _ttall:
 
 TTALL
 =====
@@ -1212,10 +1292,13 @@ value of TTALL; see TTFINDM for an example.
 
 **CROSS-REFERENCE**
 
-`TTREL <KeywordsT.clean.html#ttrel>`__ See also
-`RESERVE <KeywordsR.clean.html#reserve>`__.
+:ref:`ttrel` See also
+:ref:`reserve`.
 
 --------------
+
+
+..  _ttedelete:
 
 TTEDELETE
 =========
@@ -1237,9 +1320,12 @@ did not exist.
 
 **CROSS-REFERENCE**
 
-`DELETE <KeywordsD.clean.html#delete>`__ of course.
+:ref:`delete` of course.
 
 --------------
+
+
+..  _ttefp:
 
 TTEFP
 =====
@@ -1285,9 +1371,12 @@ this::
 
 **CROSS-REFERENCE**
 
-`CHECK% <KeywordsC.clean.html#check>`__, `CHECKF <KeywordsC.clean.html#checkf>`__.
+:ref:`check-pct`, :ref:`checkf`.
 
 --------------
+
+
+..  _tteopen:
 
 TTEOPEN
 =======
@@ -1309,11 +1398,12 @@ if that is not the case.
 
 **CROSS-REFERENCE**
 
-`OPEN <KeywordsO.clean.html#open>`__,
-`FILE\_OPEN <KeywordsF.clean.html#file-open>`__,
-`FOP\_ <KeywordsF.clean.html#fop->`__...
+:ref:`open`, :ref:`file-open` and the various FOP_XXX keywords.
 
 --------------
+
+
+..  _ttet3:
 
 TTET3
 =====
@@ -1413,10 +1503,13 @@ in a Toolkit.
 **CROSS-REFERENCE**
 
 Please refer to system documentation for details on each trap! See also
-`IO\_TRAP <KeywordsI.clean.html#io-trap>`__, `QTRAP <KeywordsQ.clean.html#qtrap>`__
-and `MTRAP <KeywordsM.clean.html#mtrap>`__.
+:ref:`io-trap`, :ref:`qtrap`
+and :ref:`mtrap`.
 
 --------------
+
+
+..  _ttex:
 
 TTEX
 ====
@@ -1433,9 +1526,12 @@ channel passing are not supported.
 
 **CROSS-REFERENCE**
 
-See `TTEX\_W <KeywordsT.clean.html#ttex-w>`__ and `EX <KeywordsE.clean.html#ex>`__.
+See :ref:`ttex-w` and :ref:`ex`.
 
 --------------
+
+
+..  _ttex-w:
 
 TTEX\_W
 =======
@@ -1451,9 +1547,12 @@ EX.
 
 **CROSS-REFERENCE**
 
-See `TTEX <KeywordsT.clean.html#ttex>`__ and `EW <KeywordsE.clean.html#ew>`__.
+See :ref:`ttex` and :ref:`ew`.
 
 --------------
+
+
+..  _ttfindm:
 
 TTFINDM
 =======
@@ -1522,10 +1621,13 @@ and ::
 
 **CROSS-REFERENCE**
 
-`SEARCH <KeywordsS.clean.html#search>`__, `BLOOK <KeywordsB.clean.html#blook>`__,
-`MSEARCH <KeywordsM.clean.html#msearch>`__ are all similar.
+:ref:`search`, :ref:`blook`,
+:ref:`msearch` are all similar.
 
 --------------
+
+
+..  _ttinc:
 
 TTINC
 =====
@@ -1540,6 +1642,9 @@ This command is identical to CHAR\_INC.
 
 --------------
 
+
+..  _ttme-pct:
+
 TTME%
 =====
 
@@ -1553,10 +1658,13 @@ This function gives the job number of the current job.
 
 **CROSS-REFERENCE**
 
-See `JOBS <KeywordsJ.clean.html#jobs>`__ for information about
-`TTME% <KeywordsT.clean.html#ttme>`__'s return.
+See :ref:`jobs` for information about
+:ref:`ttme-pct`'s return.
 
 --------------
+
+
+..  _ttmode-pct:
 
 TTMODE%
 =======
@@ -1570,6 +1678,9 @@ TTMODE%
 This is the same as RMODE.
 
 --------------
+
+
+..  _ttpeek-dlr:
 
 TTPEEK$
 =======
@@ -1592,6 +1703,9 @@ always shows the letters QV.
 
 --------------
 
+
+..  _ttpokem:
+
 TTPOKEM
 =======
 
@@ -1611,10 +1725,13 @@ following effects:
 
 **CROSS-REFERENCE**
 
-`BMOVE <KeywordsB.clean.html#bmove>`__, `COPY\_B <KeywordsC.clean.html#copy-b>`__,
-`COPY\_L <KeywordsC.clean.html#copy-l>`__, `COPY\_W <KeywordsC.clean.html#copy-w>`__
+:ref:`bmove`, :ref:`copy-b`,
+:ref:`copy-l`, :ref:`copy-w`
 
 --------------
+
+
+..  _ttpoke-dlr:
 
 TTPOKE$
 =======
@@ -1628,6 +1745,9 @@ TTPOKE$
 This is the same as POKE$.
 
 --------------
+
+
+..  _ttrel:
 
 TTREL
 =====
@@ -1643,10 +1763,13 @@ areas set aside with TTALL.
 
 **CROSS-REFERENCE**
 
-`TTALL <KeywordsT.clean.html#ttall>`__. See also
-`DISCARD <KeywordsD.clean.html#discard>`__.
+:ref:`ttall`. See also
+:ref:`discard`.
 
 --------------
+
+
+..  _ttrename:
 
 TTRENAME
 ========
@@ -1663,6 +1786,9 @@ RENAME adds an operating system extension to rename files) is not
 required.
 
 --------------
+
+
+..  _ttsus:
 
 TTSUS
 =====
@@ -1683,10 +1809,13 @@ key will not break the pause generated by TTSUS.
 
 **CROSS-REFERENCE**
 
-`SJOB <KeywordsS.clean.html#sjob>`__, `PRIO <KeywordsP.clean.html#prio>`__,
-`PAUSE <KeywordsP.clean.html#pause>`__
+:ref:`sjob`, :ref:`prio`,
+:ref:`pause`
 
 --------------
+
+
+..  _ttv:
 
 TTV
 ===
@@ -1755,11 +1884,14 @@ the UK using TV's) will need to amend line 320 to read::
 
 **CROSS-REFERENCE**
 
-See `T\_ON <KeywordsT.clean.html#t-on>`__, `T\_OFF <KeywordsT.clean.html#t-off>`__,
-`T\_START <KeywordsT.clean.html#t-start>`__ and
-`T\_STOP <KeywordsT.clean.html#t-stop>`__
+See :ref:`t-on`, :ref:`t-off`,
+:ref:`t-start` and
+:ref:`t-stop`
 
 --------------
+
+
+..  _tt-dlr:
 
 TT$
 ===
@@ -1774,6 +1906,9 @@ This function returns the version ID of the QView Tiny Toolkit, eg.
 QVTK1.3
 
 --------------
+
+
+..  _turbo-diags:
 
 TURBO\_diags
 ============
@@ -1810,16 +1945,19 @@ program or by entering a different value on the Parser's front panel.
 **CROSS-REFERENCE**
 
 See
-`TURBO\_F <KeywordsT.clean.html#turbo-f>`__,\ `TURBO\_locstr <KeywordsT.clean.html#turbo-locstr>`__,
-`TURBO\_model <KeywordsT.clean.html#turbo-model>`__,
-`TURBO\_objdat <KeywordsT.clean.html#turbo-objdat>`__,
-`TURBO\_objdat <KeywordsT.clean.html#turbo-objdat>`__,\ `TURBO\_objfil <KeywordsT.clean.html#turbo-objfil>`__,
-`TURBO\_optim <KeywordsT.clean.html#turbo-optim>`__,\ `TURBO\_repfil <KeywordsT.clean.html#turbo-repfil>`__,
-`TURBO\_struct <KeywordsT.clean.html#turbo-struct>`__,
-`TURBO\_taskn <KeywordsT.clean.html#turbo-taskn>`__ and
-`TURBO\_window <KeywordsT.clean.html#turbo-window>`__ for other directives
+:ref:`turbo-f`,\ :ref:`turbo-locstr`,
+:ref:`turbo-model`,
+:ref:`turbo-objdat`,
+:ref:`turbo-objdat`,\ :ref:`turbo-objfil`,
+:ref:`turbo-optim`,\ :ref:`turbo-repfil`,
+:ref:`turbo-struct`,
+:ref:`turbo-taskn` and
+:ref:`turbo-window` for other directives
 
 --------------
+
+
+..  _turbo-f:
 
 TURBO\_F
 ========
@@ -1842,13 +1980,16 @@ with installing Turbo Toolkit under Minerva and SMS.
 
 **CROSS-REFERENCE**
 
-See `TURBO\_locstr <KeywordsT.clean.html#turbo-locstr>`__ and
-`TURBO\_P <KeywordsT.clean.html#turbo-p>`__ for other directives Refer to
-`EXTERNAL <KeywordsE.clean.html#external>`__ for more information. Use
-`TK\_VER$ <KeywordsT.clean.html#tk-ver>`__ to check on the version of TURBO
+See :ref:`turbo-locstr` and
+:ref:`turbo-p` for other directives Refer to
+:ref:`external` for more information. Use
+:ref:`tk-ver-dlr` to check on the version of TURBO
 toolkit.
 
 --------------
+
+
+..  _turbo-locstr:
 
 TURBO\_locstr
 =============
@@ -1890,16 +2031,19 @@ front panel.
 
 **CROSS-REFERENCE**
 
-See `TURBO\_diags <KeywordsT.clean.html#turbo-diags>`__,
-`TURBO\_model <KeywordsT.clean.html#turbo-model>`__,
-`TURBO\_objdat <KeywordsT.clean.html#turbo-objdat>`__,\ `TURBO\_objfil <KeywordsT.clean.html#turbo-objfil>`__,
-`TURBO\_optim <KeywordsT.clean.html#turbo-optim>`__,
-`TURBO\_repfil <KeywordsT.clean.html#turbo-repfil>`__,
-`TURBO\_struct <KeywordsT.clean.html#turbo-struct>`__,
-`TURBO\_taskn <KeywordsT.clean.html#turbo-taskn>`__ and
-`TURBO\_window <KeywordsT.clean.html#turbo-window>`__ for other directives
+See :ref:`turbo-diags`,
+:ref:`turbo-model`,
+:ref:`turbo-objdat`,\ :ref:`turbo-objfil`,
+:ref:`turbo-optim`,
+:ref:`turbo-repfil`,
+:ref:`turbo-struct`,
+:ref:`turbo-taskn` and
+:ref:`turbo-window` for other directives
 
 --------------
+
+
+..  _turbo-model:
 
 TURBO\_model
 ============
@@ -1944,17 +2088,20 @@ front panel.
 
 **CROSS-REFERENCE**
 
-See `TURBO\_diags <KeywordsT.clean.html#turbo-diags>`__,
-`TURBO\_locstr <KeywordsT.clean.html#turbo-locstr>`__,
-`TURBO\_objdat <KeywordsT.clean.html#turbo-objdat>`__,
-`TURBO\_objfil <KeywordsT.clean.html#turbo-objfil>`__,
-`TURBO\_optim <KeywordsT.clean.html#turbo-optim>`__,
-`TURBO\_repfil <KeywordsT.clean.html#turbo-repfil>`__,
-`TURBO\_struct <KeywordsT.clean.html#turbo-struct>`__,
-`TURBO\_taskn <KeywordsT.clean.html#turbo-taskn>`__ and
-`TURBO\_window <KeywordsT.clean.html#turbo-window>`__ for other directives
+See :ref:`turbo-diags`,
+:ref:`turbo-locstr`,
+:ref:`turbo-objdat`,
+:ref:`turbo-objfil`,
+:ref:`turbo-optim`,
+:ref:`turbo-repfil`,
+:ref:`turbo-struct`,
+:ref:`turbo-taskn` and
+:ref:`turbo-window` for other directives
 
 --------------
+
+
+..  _turbo-objdat:
 
 TURBO\_objdat
 =============
@@ -1975,17 +2122,20 @@ the same program.
 
 **CROSS-REFERENCE**
 
-See `TURBO\_diags <KeywordsT.clean.html#turbo-diags>`__,
-`TURBO\_locstr <KeywordsT.clean.html#turbo-locstr>`__,
-`TURBO\_model <KeywordsT.clean.html#turbo-model>`__,
-`TURBO\_objfil <KeywordsT.clean.html#turbo-objfil>`__,
-`TURBO\_optim <KeywordsT.clean.html#turbo-optim>`__,
-`TURBO\_repfil <KeywordsT.clean.html#turbo-repfil>`__,
-`TURBO\_struct <KeywordsT.clean.html#turbo-struct>`__,
-`TURBO\_taskn <KeywordsT.clean.html#turbo-taskn>`__ and
-`TURBO\_window <KeywordsT.clean.html#turbo-window>`__ for other directives
+See :ref:`turbo-diags`,
+:ref:`turbo-locstr`,
+:ref:`turbo-model`,
+:ref:`turbo-objfil`,
+:ref:`turbo-optim`,
+:ref:`turbo-repfil`,
+:ref:`turbo-struct`,
+:ref:`turbo-taskn` and
+:ref:`turbo-window` for other directives
 
 --------------
+
+
+..  _turbo-objfil:
 
 TURBO\_objfil
 =============
@@ -2012,17 +2162,20 @@ entering a different value on the Parser's front panel.
 
 **CROSS-REFERENCE**
 
-See `TURBO\_diags <KeywordsT.clean.html#turbo-diags>`__,
-`TURBO\_locstr <KeywordsT.clean.html#turbo-locstr>`__,
-`TURBO\_model <KeywordsT.clean.html#turbo-model>`__,
-`TURBO\_objdat <KeywordsT.clean.html#turbo-objdat>`__,
-`TURBO\_optim <KeywordsT.clean.html#turbo-optim>`__,
-`TURBO\_repfil <KeywordsT.clean.html#turbo-repfil>`__,
-`TURBO\_struct <KeywordsT.clean.html#turbo-struct>`__,
-`TURBO\_taskn <KeywordsT.clean.html#turbo-taskn>`__ and
-`TURBO\_window <KeywordsT.clean.html#turbo-window>`__ for other directives
+See :ref:`turbo-diags`,
+:ref:`turbo-locstr`,
+:ref:`turbo-model`,
+:ref:`turbo-objdat`,
+:ref:`turbo-optim`,
+:ref:`turbo-repfil`,
+:ref:`turbo-struct`,
+:ref:`turbo-taskn` and
+:ref:`turbo-window` for other directives
 
 --------------
+
+
+..  _turbo-optim:
 
 TURBO\_optim
 ============
@@ -2054,17 +2207,20 @@ character string which should be one of the following values:
 
 **CROSS-REFERENCE**
 
-See `TURBO\_diags <KeywordsT.clean.html#turbo-diags>`__,
-`TURBO\_locstr <KeywordsT.clean.html#turbo-locstr>`__,
-`TURBO\_model <KeywordsT.clean.html#turbo-model>`__,
-`TURBO\_objdat <KeywordsT.clean.html#turbo-objdat>`__,
-`TURBO\_objfil <KeywordsT.clean.html#turbo-objfil>`__,
-`TURBO\_repfil <KeywordsT.clean.html#turbo-repfil>`__,
-`TURBO\_struct <KeywordsT.clean.html#turbo-struct>`__,
-`TURBO\_taskn <KeywordsT.clean.html#turbo-taskn>`__ and
-`TURBO\_window <KeywordsT.clean.html#turbo-window>`__ for other directives
+See :ref:`turbo-diags`,
+:ref:`turbo-locstr`,
+:ref:`turbo-model`,
+:ref:`turbo-objdat`,
+:ref:`turbo-objfil`,
+:ref:`turbo-repfil`,
+:ref:`turbo-struct`,
+:ref:`turbo-taskn` and
+:ref:`turbo-window` for other directives
 
 --------------
+
+
+..  _turbo-p:
 
 TURBO\_P
 ========
@@ -2088,13 +2244,16 @@ under Minerva and SMS.
 
 **CROSS-REFERENCE**
 
-See `TURBO\_locstr <KeywordsT.clean.html#turbo-locstr>`__ and
-`TURBO\_F <KeywordsT.clean.html#turbo-f>`__ for other directives Refer to
-`EXTERNAL <KeywordsE.clean.html#external>`__ for more information. Use
-`TK\_VER$ <KeywordsT.clean.html#tk-ver>`__ to check on the version of TURBO
+See :ref:`turbo-locstr` and
+:ref:`turbo-f` for other directives Refer to
+:ref:`external` for more information. Use
+:ref:`tk-ver-dlr` to check on the version of TURBO
 toolkit.
 
 --------------
+
+
+..  _turbo-repfil:
 
 TURBO\_repfil
 =============
@@ -2124,17 +2283,20 @@ front panel.
 
 **CROSS-REFERENCE**
 
-See `TURBO\_diags <KeywordsT.clean.html#turbo-diags>`__,
-`TURBO\_locstr <KeywordsT.clean.html#turbo-locstr>`__,
-`TURBO\_model <KeywordsT.clean.html#turbo-model>`__,
-`TURBO\_objdat <KeywordsT.clean.html#turbo-objdat>`__,
-`TURBO\_objfil <KeywordsT.clean.html#turbo-objfil>`__,
-`TURBO\_optim <KeywordsT.clean.html#turbo-optim>`__,
-`TURBO\_struct <KeywordsT.clean.html#turbo-struct>`__,
-`TURBO\_taskn <KeywordsT.clean.html#turbo-taskn>`__ and
-`TURBO\_window <KeywordsT.clean.html#turbo-window>`__ for other directives
+See :ref:`turbo-diags`,
+:ref:`turbo-locstr`,
+:ref:`turbo-model`,
+:ref:`turbo-objdat`,
+:ref:`turbo-objfil`,
+:ref:`turbo-optim`,
+:ref:`turbo-struct`,
+:ref:`turbo-taskn` and
+:ref:`turbo-window` for other directives
 
 --------------
+
+
+..  _turbo-struct:
 
 TURBO\_struct
 =============
@@ -2181,17 +2343,20 @@ the Parser's front panel.
 
 **CROSS-REFERENCE**
 
-See `TURBO\_diags <KeywordsT.clean.html#turbo-diags>`__,
-`TURBO\_locstr <KeywordsT.clean.html#turbo-locstr>`__,
-`TURBO\_model <KeywordsT.clean.html#turbo-model>`__,
-`TURBO\_objdat <KeywordsT.clean.html#turbo-objdat>`__,
-`TURBO\_objfil <KeywordsT.clean.html#turbo-objfil>`__,
-`TURBO\_optim <KeywordsT.clean.html#turbo-optim>`__,
-`TURBO\_repfil <KeywordsT.clean.html#turbo-repfil>`__,
-`TURBO\_taskn <KeywordsT.clean.html#turbo-taskn>`__ and
-`TURBO\_window <KeywordsT.clean.html#turbo-window>`__ for other directives
+See :ref:`turbo-diags`,
+:ref:`turbo-locstr`,
+:ref:`turbo-model`,
+:ref:`turbo-objdat`,
+:ref:`turbo-objfil`,
+:ref:`turbo-optim`,
+:ref:`turbo-repfil`,
+:ref:`turbo-taskn` and
+:ref:`turbo-window` for other directives
 
 --------------
+
+
+..  _turbo-taskn:
 
 TURBO\_taskn
 ============
@@ -2220,17 +2385,20 @@ program or by entering a different value on the Parser's front panel.
 
 **CROSS-REFERENCE**
 
-See `TURBO\_diags <KeywordsT.clean.html#turbo-diags>`__,
-`TURBO\_locstr <KeywordsT.clean.html#turbo-locstr>`__,
-`TURBO\_model <KeywordsT.clean.html#turbo-model>`__,
-`TURBO\_objdat <KeywordsT.clean.html#turbo-objdat>`__,
-`TURBO\_objfil <KeywordsT.clean.html#turbo-objfil>`__,
-`TURBO\_optim <KeywordsT.clean.html#turbo-optim>`__,
-`TURBO\_repfil <KeywordsT.clean.html#turbo-repfil>`__,
-`TURBO\_struct <KeywordsT.clean.html#turbo-struct>`__ and
-`TURBO\_window <KeywordsT.clean.html#turbo-window>`__ for other directives
+See :ref:`turbo-diags`,
+:ref:`turbo-locstr`,
+:ref:`turbo-model`,
+:ref:`turbo-objdat`,
+:ref:`turbo-objfil`,
+:ref:`turbo-optim`,
+:ref:`turbo-repfil`,
+:ref:`turbo-struct` and
+:ref:`turbo-window` for other directives
 
 --------------
+
+
+..  _turbo-window:
 
 TURBO\_window
 =============
@@ -2274,16 +2442,19 @@ window, the size of the window will be further reduced.
 **CROSS-REFERENCE**
 
 See
-`TURBO\_diags <KeywordsT.clean.html#turbo-diags>`__,\ `TURBO\_locstr <KeywordsT.clean.html#turbo-locstr>`__,
-`TURBO\_model <KeywordsT.clean.html#turbo-model>`__,
-`TURBO\_objdat <KeywordsT.clean.html#turbo-objdat>`__,
-`TURBO\_objdat <KeywordsT.clean.html#turbo-objdat>`__,
-`TURBO\_objfil <KeywordsT.clean.html#turbo-objfil>`__,
-`TURBO\_optim <KeywordsT.clean.html#turbo-optim>`__,\ `TURBO\_repfil <KeywordsT.clean.html#turbo-repfil>`__,
-`TURBO\_struct <KeywordsT.clean.html#turbo-struct>`__, and
-`TURBO\_taskn <KeywordsT.clean.html#turbo-taskn>`__ for other directives
+:ref:`turbo-diags`,\ :ref:`turbo-locstr`,
+:ref:`turbo-model`,
+:ref:`turbo-objdat`,
+:ref:`turbo-objdat`,
+:ref:`turbo-objfil`,
+:ref:`turbo-optim`,\ :ref:`turbo-repfil`,
+:ref:`turbo-struct`, and
+:ref:`turbo-taskn` for other directives
 
 --------------
+
+
+..  _turn:
 
 TURN
 ====
@@ -2306,10 +2477,13 @@ direction.
 
 **CROSS-REFERENCE**
 
-`TURNTO <KeywordsT.clean.html#turnto>`__ forces the turtle to face in an
-absolute direction. Please also see `MOVE <KeywordsM.clean.html#move>`__.
+:ref:`turnto` forces the turtle to face in an
+absolute direction. Please also see :ref:`move`.
 
 --------------
+
+
+..  _turnto:
 
 TURNTO
 ======
@@ -2329,10 +2503,13 @@ clockwise, so that angle=-90 is the same as angle=270.
 
 **CROSS-REFERENCE**
 
-Please refer to `MOVE <KeywordsM.clean.html#move>`__ and
-`TURN <KeywordsT.clean.html#turn>`__.
+Please refer to :ref:`move` and
+:ref:`turn`.
 
 --------------
+
+
+..  _txtras:
 
 TXTRAS
 ======
@@ -2362,10 +2539,13 @@ On pre 1.10 versions of TinyToolkit, TXTRAS was named EXTRAS.
 
 **CROSS-REFERENCE**
 
-`EXTRAS <KeywordsE.clean.html#extras>`__, `SXTRAS <KeywordsS.clean.html#sxtras>`__
-and `VOCAB <KeywordsV.clean.html#vocab>`__ are all similar.
+:ref:`extras`, :ref:`sxtras`
+and :ref:`vocab` are all similar.
 
 --------------
+
+
+..  _type:
 
 TYPE
 ====
@@ -2440,11 +2620,14 @@ valid.
 
 **CROSS-REFERENCE**
 
-`KEY\_ADD <KeywordsK.clean.html#key-add>`__ and `ELIS <KeywordsE.clean.html#elis>`__
+:ref:`key-add` and :ref:`elis`
 return the address where a machine code keyword is stored.
-`DEFINED <KeywordsD.clean.html#defined>`__ checks if a variable is set.
+:ref:`defined` checks if a variable is set.
 
 --------------
+
+
+..  _type-in:
 
 TYPE\_IN
 ========
@@ -2458,6 +2641,9 @@ TYPE\_IN
 Same as FORCE\_TYPE.
 
 --------------
+
+
+..  _t-count:
 
 T\_COUNT
 ========
@@ -2474,11 +2660,14 @@ is returned by this function.
 
 **CROSS-REFERENCE**
 
-See `T\_START <KeywordsT.clean.html#t-start>`__ and
-`T\_STOP <KeywordsT.clean.html#t-stop>`__. `T\_ON <KeywordsT.clean.html#t-on>`__
+See :ref:`t-start` and
+:ref:`t-stop`. :ref:`t-on`
 contains a general description of the stop-watches.
 
 --------------
+
+
+..  _t-off:
 
 T\_OFF
 ======
@@ -2499,9 +2688,12 @@ continued once T\_ON has been used.
 
 **CROSS-REFERENCE**
 
-See `T\_ON <KeywordsT.clean.html#t-on>`__.
+See :ref:`t-on`.
 
 --------------
+
+
+..  _t-on:
 
 T\_ON
 =====
@@ -2532,11 +2724,14 @@ before T\_START can be used.
 
 **CROSS-REFERENCE**
 
-See `TTV <KeywordsT.clean.html#ttv>`__, `T\_START <KeywordsT.clean.html#t-start>`__,
-`T\_STOP <KeywordsT.clean.html#t-stop>`__,
-`T\_RESTART <KeywordsT.clean.html#t-restart>`__
+See :ref:`ttv`, :ref:`t-start`,
+:ref:`t-stop`,
+:ref:`t-restart`
 
 --------------
+
+
+..  _t-restart:
 
 T\_RESTART
 ==========
@@ -2554,10 +2749,13 @@ used.
 
 **CROSS-REFERENCE**
 
-`T\_STOP <KeywordsT.clean.html#t-stop>`__ stops a stop watch. See
-`T\_START <KeywordsT.clean.html#t-start>`__ also.
+:ref:`t-stop` stops a stop watch. See
+:ref:`t-start` also.
 
 --------------
+
+
+..  _t-start:
 
 T\_START
 ========
@@ -2573,12 +2771,15 @@ initial time to zero.
 
 **CROSS-REFERENCE**
 
-You need to have used `T\_ON <KeywordsT.clean.html#t-on>`__ before
-`T\_START <KeywordsT.clean.html#t-start>`__ can be used. See also
-`T\_STOP <KeywordsT.clean.html#t-stop>`__ and
-`T\_RESTART <KeywordsT.clean.html#t-restart>`__.
+You need to have used :ref:`t-on` before
+:ref:`t-start` can be used. See also
+:ref:`t-stop` and
+:ref:`t-restart`.
 
 --------------
+
+
+..  _t-stop:
 
 T\_STOP
 =======
@@ -2593,5 +2794,6 @@ This command stops the specified stop-watch (default 1) from running.
 
 **CROSS-REFERENCE**
 
-`T\_RESTART <KeywordsT.clean.html#t-restart>`__ restarts a stop-watch.
-`T\_START <KeywordsT.clean.html#t-start>`__ starts a stop-watch from afresh.
+:ref:`t-restart` restarts a stop-watch.
+:ref:`t-start` starts a stop-watch from afresh.
+

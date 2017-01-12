@@ -2,6 +2,13 @@
 Keywords U
 ==========
 
+TODO
+====
+
+- There is a reference to ESC in this file, it doesn't exist.
+
+
+..  _uint:
 
 UINT
 ====
@@ -22,9 +29,12 @@ or::
 
 **CROSS-REFERENCE**
 
-`SINT <KeywordsS.clean.html#sint>`__
+:ref:`sint`
 
 --------------
+
+
+..  _under:
 
 UNDER
 =====
@@ -82,11 +92,14 @@ MODE will reset the current underline mode in all windows.
 
 **CROSS-REFERENCE**
 
-`INK <KeywordsI.clean.html#ink>`__ sets the current ink colour for the
-specified channel, `PRINT <KeywordsP.clean.html#print>`__ prints out
+:ref:`ink` sets the current ink colour for the
+specified channel, :ref:`print` prints out
 characters.
 
 --------------
+
+
+..  _unjob:
 
 UNJOB
 =====
@@ -113,14 +126,17 @@ parameter error.
 **CROSS-REFERENCE**
 
 Each file has a file type which can be found with the
-`FTYP <KeywordsF.clean.html#ftyp>`__ and
-`FILE\_TYP <KeywordsF.clean.html#file-typ>`__ functions or directly by looking
-at the file header (`HEADR <KeywordsH.clean.html#headr>`__). It is also
+:ref:`ftyp` and
+:ref:`file-type` functions or directly by looking
+at the file header (:ref:`headr`). It is also
 possible to set the file type by rewriting the whole file header with
-`HEADS <KeywordsH.clean.html#heads>`__; alternatively,
-`UNJOB <KeywordsU.clean.html#unjob>`__ does the same.
+:ref:`heads`; alternatively,
+:ref:`unjob` does the same.
 
 --------------
+
+
+..  _unl:
 
 UNL
 ===
@@ -138,16 +154,19 @@ printing on an EPSON compatible printer, PRINT UNL is the same as::
 
 **CROSS-REFERENCE**
 
-`NORM <KeywordsN.clean.html#norm>`__, `BLD <KeywordsB.clean.html#bld>`__,
-`EL <KeywordsE.clean.html#el>`__, `DBL <KeywordsD.clean.html#dbl>`__,
-`ENL <KeywordsE.clean.html#enl>`__, `PRO <KeywordsP.clean.html#pro>`__,
-`SI <KeywordsS.clean.html#si>`__, `NRM <KeywordsN.clean.html#nrm>`__,
-`ALT <KeywordsA.clean.html#alt>`__, `ESC <KeywordsE.clean.html#esc>`__,
-`FF <KeywordsF.clean.html#ff>`__, `LMAR <KeywordsL.clean.html#lmar>`__,
-`RMAR <KeywordsR.clean.html#rmar>`__, `PAGDIS <KeywordsP.clean.html#pagdis>`__,
-`PAGLEN <KeywordsP.clean.html#paglen>`__.
+:ref:`norm`, :ref:`bld`,
+:ref:`el`, :ref:`dbl`,
+:ref:`enl`, :ref:`pro`,
+:ref:`si`, :ref:`nrm`,
+:ref:`alt`, :ref:`esc`,
+:ref:`ff`, :ref:`lmar`,
+:ref:`rmar`, :ref:`pagdis`,
+:ref:`paglen`.
 
 --------------
+
+
+..  _unload:
 
 UNLOAD
 ======
@@ -249,14 +268,17 @@ crash that Multiple BASIC (or have other various undesirable effects).
 
 **CROSS-REFERENCE**
 
-`SCR\_SAVE <KeywordsS.clean.html#scr-save>`__ allows you to dictate whether
+:ref:`scr-save` allows you to dictate whether
 the screen display and mode should be stored together with the program.
-`RESAVE <KeywordsR.clean.html#resave>`__ is similar.
-`REMOVE <KeywordsR.clean.html#remove>`__ allows you to remove a program stored
-in memory with this command. See also `RELOAD <KeywordsR.clean.html#reload>`__
-and `QSAVE <KeywordsQ.clean.html#qsave>`__.
+:ref:`resave` is similar.
+:ref:`remove` allows you to remove a program stored
+in memory with this command. See also :ref:`reload`
+and :ref:`qsave`.
 
 --------------
+
+
+..  _unlock:
 
 UNLOCK
 ======
@@ -267,7 +289,7 @@ UNLOCK
 | Location |  CRYPTAGE                                                         |
 +----------+-------------------------------------------------------------------+
 
-See `LOCK <KeywordsL.clean.html#lock>`__.
+See :ref:`lock`.
 
 **Example**
 
@@ -276,6 +298,9 @@ See `LOCK <KeywordsL.clean.html#lock>`__.
     UNLOCK ram1_secret_txt,"Phew",7241
 
 --------------
+
+
+..  _unset:
 
 UNSET
 =====
@@ -286,9 +311,12 @@ UNSET
 | Location |  PARAMS (DIY Toolkit - Vol P)                                     |
 +----------+-------------------------------------------------------------------+
 
-This is the same as `DEFINED <KeywordsD.clean.html#defined>`__ and suffers from the same problem!
+This is the same as :ref:`defined` and suffers from the same problem!
 
 --------------
+
+
+..  _upc-dlr:
 
 UPC$
 ====
@@ -299,9 +327,12 @@ UPC$
 | Location |  LWCUPC                                                           |
 +----------+-------------------------------------------------------------------+
 
-This is the same as `UPPER$ <KeywordsU.clean.html#upper>`__.
+This is the same as :ref:`upper-dlr`.
 
 --------------
+
+
+..  _upper-dlr:
 
 UPPER$
 ======
@@ -340,12 +371,15 @@ all characters where an upper character is available::
 
 **CROSS-REFERENCE**
 
-`UPC$ <KeywordsU.clean.html#upc>`__ returns the same as
-`UPPER$ <KeywordsU.clean.html#upper>`__. See also
-`CONVCASE <KeywordsC.clean.html#convcase>`__ and
-`LOWER$ <KeywordsL.clean.html#lower>`__.
+:ref:`upc-dlr` returns the same as
+:ref:`upper-dlr`. See also
+:ref:`convcase-dlr` and
+:ref:`lower-dlr`.
 
 --------------
+
+
+..  _uput:
 
 UPUT
 ====
@@ -363,10 +397,13 @@ This command is therefore useful for sending printer control codes.
 
 **CROSS-REFERENCE**
 
-See `BPUT <KeywordsB.clean.html#bput>`__, `WPUT <KeywordsW.clean.html#wput>`__ and
-`LPUT <KeywordsL.clean.html#lput>`__.
+See :ref:`bput`, :ref:`wput` and
+:ref:`lput`.
 
 --------------
+
+
+..  _use:
 
 USE
 ===
@@ -423,12 +460,15 @@ USE#1. The problem only occurs when you try to send output to #1.
 
 **CROSS-REFERENCE**
 
-`PRINT <KeywordsP.clean.html#print>`__,\ `CSIZE <KeywordsC.clean.html#csize>`__,\ `INK <KeywordsI.clean.html#ink>`__,\ `PAPER <KeywordsP.clean.html#paper>`__
-and\ `STRIP <KeywordsS.clean.html#strip>`__ are just a few of the commands
+:ref:`print`,\ :ref:`csize`,\ :ref:`ink`,\ :ref:`paper`
+and\ :ref:`strip` are just a few of the commands
 which default to #1 and are therefore affected by this command.
 
 --------------
 
+
+
+..  _use-font:
 
 USE\_FONT
 =========
@@ -474,5 +514,6 @@ This is a procedure that will allow your programs to use a character set that is
     9020 :
     9030 REMark Release the storage space
     9040 RELEASE_HEAP font_address
+
 
 

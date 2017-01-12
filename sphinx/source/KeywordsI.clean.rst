@@ -1,3 +1,4 @@
+
 ==========
 Keywords I
 ==========
@@ -5,9 +6,12 @@ Keywords I
 TODO
 ====
 
-- Fix that table in I2C\IO - it's far too wide!
-- INPUT and INPUT$ have the same URL.
-- DISP_COLOUR is linked from INK in this file, but DISP_COLOUR is not in KeywordsD.
+- Fix that table in I2C\_IO - it's far too wide!
+- DISP_COLOUR is linked from :ref:`ink` in this file, but DISP_COLOUR is not in KeywordsD.
+- :ref:`is-basic` references JOB_NAME$ for Minerva but it's not listed in any source file.
+
+
+..  _i2c-io:
 
 I2C\_IO
 =======
@@ -135,14 +139,17 @@ specified program::
 
 Some expansion boards have their own in-built battery backed clock,
 which may need to be protected from programs which re-set the system
-clock for their own purposes using `SDATE <KeywordsS.clean.html#sdate>`__. 
+clock for their own purposes using :ref:`sdate`. 
 
-See `PROT\_DATE <KeywordsP.clean.html#prot-date>`__. 
+See :ref:`prot-date`. 
 
 Because Minerva MKII's battery backed clock is read through the I\ :sup:`2`\ C bus, it cannot
-be affected by programs, unless you abuse the `IC2\_IO <KeywordsI.clean.html#ic2-io>`__ function!!
+be affected by programs, unless you abuse the :ref:`i2c-io` function!!
 
 --------------
+
+
+..  _idec-dlr:
 
 IDEC$
 =====
@@ -158,9 +165,12 @@ place commas between the characters to the left of the decimal point.
 
 **CROSS-REFERENCE**
 
-See `CDEC$ <KeywordsC.clean.html#cdec>`__.
+See :ref:`cdec-dlr`.
 
 --------------
+
+
+..  _if:
 
 IF
 ==
@@ -364,15 +374,18 @@ inside an IF...END IF construct.
 
 **CROSS-REFERENCE**
 
-`SELect ON <KeywordsS.clean.html#select-on>`__ provides a much quicker
+:ref:`select--on` provides a much quicker
 (although less flexible) means of testing a variable. Other SuperBASIC
-structures are `WHEN var <KeywordsW.clean.html#when-var>`__, 
-`WHEN ERRor <KeywordsW.clean.html#when-error>`__, 
-`DEFine PROCedure <KeywordsD.clean.html#define-procedure>`__,
-`DEFine FuNction <KeywordsD.clean.html#define-function>`__,
-`REPeat <KeywordsR.clean.html#repeat>`__ and `FOR <KeywordsF.clean.html#for>`__.
+structures are :ref:`when--condition`, 
+:ref:`when--error`, 
+:ref:`define--procedure`,
+:ref:`define--function`,
+:ref:`repeat` and :ref:`for`.
 
 --------------
+
+
+..  _iformat:
 
 IFORMAT
 =======
@@ -397,13 +410,16 @@ Unfortunately, you cannot format 360K or 1.2M disks with this command.
 
 **CROSS-REFERENCE**
 
-See `FORMAT <KeywordsF.clean.html#format>`__ and
-`AFORMAT <KeywordsA.clean.html#aformat>`__. Other commands added are
-`IQCONVERT <KeywordsI.clean.html#iqconvert>`__,
-`ADELETE <KeywordsA.clean.html#adelete>`__ and
-`QCOPY <KeywordsQ.clean.html#qcopy>`__.
+See :ref:`format` and
+:ref:`aformat`. Other commands added are
+:ref:`iqconvert`,
+:ref:`adelete` and
+:ref:`qcopy`.
 
 --------------
+
+
+..  _inarray-pct:
 
 INARRAY%
 ========
@@ -491,10 +507,13 @@ SuperCharge.
 
 **CROSS-REFERENCE**
 
-Use `INSTR <KeywordsI.clean.html#instr>`__ to locate a sub-string in a string.
-See `SEARCH <KeywordsS.clean.html#search>`__ which is similar.
+Use :ref:`instr` to locate a sub-string in a string.
+See :ref:`search` which is similar.
 
 --------------
+
+
+..  _inf:
 
 INF
 ===
@@ -512,11 +531,14 @@ occur. The smallest possible value is -INF.
 
 **CROSS-REFERENCE**
 
-`MAXIMUM <KeywordsM.clean.html#maximum>`__ and
-`MINIMUM <KeywordsM.clean.html#minimum>`__ can also be used to return this
+:ref:`maximum` and
+:ref:`minimum` can also be used to return this
 value.
 
 --------------
+
+
+..  _ink:
 
 INK
 ===
@@ -741,22 +763,25 @@ unknown at present).
 
 **CROSS-REFERENCE**
 
-`PAPER <KeywordsP.clean.html#paper>`__ and `STRIP <KeywordsS.clean.html#strip>`__
-also set colours within windows. `RMODE <KeywordsR.clean.html#rmode>`__ can be
+:ref:`paper` and :ref:`strip`
+also set colours within windows. :ref:`rmode` can be
 used to read the current colour mode.
-`COLOUR\_QL <KeywordsC.clean.html#colour-ql>`__,
-`COLOUR\_PAL <KeywordsC.clean.html#colour-pal>`__,
-`COLOUR\_NATIVE <KeywordsC.clean.html#colour-native>`__ and
-`COLOUR\_24 <KeywordsC.clean.html#colour-24>`__ will also affect the colours
-produced. `PALETTE\_QL <KeywordsP.clean.html#palette-ql>`__ and
-`PALETTE\_8 <KeywordsP.clean.html#palette-8>`__ can be used to change the
+:ref:`colour-ql`,
+:ref:`colour-pal`,
+:ref:`colour-native` and
+:ref:`colour-24` will also affect the colours
+produced. :ref:`palette-ql` and
+:ref:`palette-8` can be used to change the
 palette of colours available.
-`DISP\_COLOUR <KeywordsD.clean.html#disp-colour>`__ can be used to switch from
+:ref:`disp-colour` can be used to switch from
 Extended Colour Drivers to Standard Colour Drivers. Also refer to
-`INVERSE <KeywordsI.clean.html#inverse>`__. Please also look at the QL Display
+:ref:`inverse`. Please also look at the QL Display
 appendix (Appendix 16).
 
 --------------
+
+
+..  _inkey-dlr:
 
 INKEY$
 ======
@@ -796,17 +821,20 @@ this by using something along the lines of::
 
 **CROSS-REFERENCE**
 
-`INKEY$ <KeywordsI.clean.html#inkey>`__ is channel based, which means that it
+:ref:`inkey-dlr` is channel based, which means that it
 can be used safely in multi-tasking programs.
-`KEYROW <KeywordsK.clean.html#keyrow>`__ will read the keyboard even though
+:ref:`keyrow` will read the keyboard even though
 the current Job is not the one executing the
-`KEYROW <KeywordsK.clean.html#keyrow>`__ command (although see the options
-available with `EXEP <KeywordsE.clean.html#exep>`__).
-`INPUT <KeywordsI.clean.html#input>`__ allows you to read a string of
-characters in one go. `PAUSE <KeywordsP.clean.html#pause>`__ halts program
+:ref:`keyrow` command (although see the options
+available with :ref:`exep`).
+:ref:`input` allows you to read a string of
+characters in one go. :ref:`pause` halts program
 execution temporarily.
 
 --------------
+
+
+..  _input:
 
 INPUT
 =====
@@ -1190,15 +1218,18 @@ same way as Minerva. The original QL ROMs get this one correct.
 **CROSS-REFERENCE**
 
 The text cursor is positioned using commands such as
-`AT <KeywordsA.clean.html#at>`__ and `CURSOR <KeywordsC.clean.html#cursor>`__. You
-may prefer to use `EDLINE$ <KeywordsE.clean.html#edline>`__ which allows you
+:ref:`at` and :ref:`cursor`. You
+may prefer to use :ref:`edline-dlr` which allows you
 to provide a default string for alteration, as well as specifying the
 maximum number of characters that can be typed in.
-`PRINT <KeywordsP.clean.html#print>`__ has some similar characteristics.
-`HIS\_SET <KeywordsH.clean.html#his-set>`__ allows you to set a history for a
+:ref:`print` has some similar characteristics.
+:ref:`his-set` allows you to set a history for a
 console channel.
 
 --------------
+
+
+..  _input-dlr:
 
 INPUT$
 ======
@@ -1214,6 +1245,9 @@ function also stops reading if a line feed character CHR$(10)
 has been found. So, INPUT$ is dedicated to read line based text.
 
 --------------
+
+
+..  _instr:
 
 INSTR
 =====
@@ -1254,12 +1288,15 @@ You can specify a case sensitive search using INSTR\_CASE.
 
 **CROSS-REFERENCE**
 
-See `INSTR\_CASE <KeywordsI.clean.html#instr-case>`__.
-`INARRAY% <KeywordsI.clean.html#inarray>`__ and
-`SEARCH <KeywordsS.clean.html#search>`__ can be used to compare entries within
+See :ref:`instr-case`.
+:ref:`inarray-pct` and
+:ref:`search` can be used to compare entries within
 arrays.
 
 --------------
+
+
+..  _instr-case:
 
 INSTR\_CASE
 ===========
@@ -1302,9 +1339,12 @@ NEW, LOAD, MERGE, LRUN, RUN, MRUN.
 
 **CROSS-REFERENCE**
 
-See `INSTR <KeywordsI.clean.html#instr>`__.
+See :ref:`instr`.
 
 --------------
+
+
+..  _int:
 
 INT
 ===
@@ -1351,10 +1391,13 @@ gives an overflow error.
 
 **CROSS-REFERENCE**
 
-`CEIL <KeywordsC.clean.html#ceil>`__ is complementary to
-`INT <KeywordsI.clean.html#int>`__.
+:ref:`ceil` is complementary to
+:ref:`int`.
 
 --------------
+
+
+..  _intmax:
 
 INTMAX
 ======
@@ -1380,9 +1423,12 @@ later versions of the package.
 
 **CROSS-REFERENCE**
 
-`EPS <KeywordsE.clean.html#eps>`__\ (x) = 1  if and only if `ABS <KeywordsA.clean.html#abs>`__\ (x) = 2 \* INTMAX.
+:ref:`eps`\ (x) = 1  if and only if :ref:`abs`\ (x) = 2 \* INTMAX.
 
 --------------
+
+
+..  _inverse:
 
 INVERSE
 =======
@@ -1411,10 +1457,13 @@ printed in red INK on a white STRIP.
 
 **CROSS-REFERENCE**
 
-See also `INK <KeywordsI.clean.html#ink>`__ and
-`STRIP <KeywordsS.clean.html#strip>`__.
+See also :ref:`ink` and
+:ref:`strip`.
 
 --------------
+
+
+..  _invxy:
 
 INVXY
 =====
@@ -1434,6 +1483,9 @@ Do not use this!
 
 --------------
 
+
+..  _io-pend-pct:
+
 IO\_PEND%
 =========
 
@@ -1446,6 +1498,9 @@ IO\_PEND%
 This function is the same as NOT PEND.
 
 --------------
+
+
+..  _io-priority:
 
 IO\_PRIORITY
 ============
@@ -1470,6 +1525,9 @@ this and less time to running another job. IO\_PRIORITY 1is equivalent
 to the way in which the scheduler worked on the original QL ROM.
 
 --------------
+
+
+..  _io-trap:
 
 IO\_TRAP
 ========
@@ -1518,16 +1576,19 @@ Set cursor to column x in #3 (call IOW.SCOL)::
 
 **CROSS-REFERENCE**
 
-`CLS <KeywordsC.clean.html#cls>`__, `SCROLL <KeywordsS.clean.html#scroll>`__ and
-`PAN <KeywordsP.clean.html#pan>`__ all allow you to access machine code trap
-calls on different ROMs. `INK <KeywordsI.clean.html#ink>`__ contains a good
-example of how to use `IO\_TRAP <KeywordsI.clean.html#io-trap>`__.
-`TTET3 <KeywordsT.clean.html#ttet3>`__,\ `MTRAP <KeywordsM.clean.html#mtrap>`__,
-`QTRAP <KeywordsQ.clean.html#qtrap>`__ and `BTRAP <KeywordsB.clean.html#btrap>`__
+:ref:`cls`, :ref:`scroll` and
+:ref:`pan` all allow you to access machine code trap
+calls on different ROMs. :ref:`ink` contains a good
+example of how to use :ref:`io-trap`.
+:ref:`ttet3`,\ :ref:`mtrap`,
+:ref:`qtrap` and :ref:`btrap`
 are much better as they can be used on all ROM versions. The QDOS/SMS
 Reference Manual (Section 15) contains details of the I/O Access Traps.
 
 --------------
+
+
+..  _iqconvert:
 
 IQCONVERT
 =========
@@ -1546,12 +1607,15 @@ a Line Feed character (LF) to a single Line Feed character LF.
 
 **CROSS-REFERENCE**
 
-Compare `AQCONVERT <KeywordsA.clean.html#aqconvert>`__ and
-`QICONVERT <KeywordsQ.clean.html#qiconvert>`__. See also
-`IFORMAT <KeywordsI.clean.html#iformat>`__ and
-`QCOPY <KeywordsQ.clean.html#qcopy>`__.
+Compare :ref:`aqconvert` and
+:ref:`qiconvert`. See also
+:ref:`iformat` and
+:ref:`qcopy`.
 
 --------------
+
+
+..  _is-basic:
 
 IS\_BASIC
 =========
@@ -1592,15 +1656,18 @@ IS\_BASIC will fail to spot a MultiBASIC or SBASIC interpreter.
 
 **CROSS-REFERENCE**
 
-`PRIO <KeywordsP.clean.html#prio>`__ sets the priority of the current job.
+:ref:`prio` sets the priority of the current job.
 Under SMS or Minerva, you can use
-`JOB\_NAME$ <KeywordsJ.clean.html#job-name>`__ to look at the name of the
+:ref:`job-name-dlr` to look at the name of the
 task which would normally be SBASIC or have its first two letters as MB
 respectively for a Multiple SBASIC or MultiBASIC interpreter, unless the
 name of the Interpreter has been altered. Refer
-to\ `JOB\_NAME <KeywordsJ.clean.html#job-name>`__.
+to\ :ref:`job-name`.
 
 --------------
+
+
+..  _is-peon:
 
 IS\_PEON
 ========
@@ -1619,10 +1686,13 @@ installed, then this function will return the value -19.
 
 **CROSS-REFERENCE**
 
-See `PEON <KeywordsP.clean.html#peon>`__ and
-`IS\_PTRAP <KeywordsI.clean.html#is-ptrap>`__ for more details.
+See :ref:`peon` and
+:ref:`is-ptrap` for more details.
 
 --------------
+
+
+..  _is-ptrap:
 
 IS\_PTRAP
 =========
@@ -1694,6 +1764,7 @@ feature.
 
 **CROSS-REFERENCE**
 
-See `PEON <KeywordsP.clean.html#peon>`__ for more details. The QDOS/SMS
+See :ref:`peon` for more details. The QDOS/SMS
 Reference Manual Section 15 contains details of the various TRAP #3
 calls.
+

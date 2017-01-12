@@ -1,3 +1,4 @@
+
 ==============
 Keywords Other
 ==============
@@ -7,6 +8,9 @@ TODO
 
 - _DEF% and _DEF$ have the same URL. Needs to be fixed.
 - URLs generated replace '_' with '-', but, in the index they have no leading '-'. So cross references don't actually work in this file.
+
+
+..  _-def-pct:
 
 \_DEF%
 ======
@@ -35,12 +39,15 @@ error is reported.
 
 **CROSS-REFERENCE**
 
-`\_DEF$ <Keywords_.clean.html#-def>`__ and
-`\_NAME$ <Keywords_.clean.html#-name>`__ are similar.
-`CODEVEC <KeywordsC.clean.html#codevec>`__ returns the machine code base
+:ref:`-def-dlr` and
+:ref:`-name-dlr` are similar.
+:ref:`codevec` returns the machine code base
 address of a Machine Code Procedure or Funtion.
 
 --------------
+
+
+..  _-def-dlr:
 
 \_DEF$
 ======
@@ -63,9 +70,12 @@ reported.
 
 **CROSS-REFERENCE**
 
-See `\_DEF% <Keywords_.clean.html#-def>`__
+See :ref:`-def-pct`
 
 --------------
+
+
+..  _-name-dlr:
 
 \_NAME$
 =======
@@ -100,6 +110,7 @@ and SMSQ/E)::
 
 **CROSS-REFERENCE**
 
-The name list can be tidied up with `CLEAR <KeywordsC.clean.html#clear>`__.
-`EXTRAS <KeywordsE.clean.html#extras>`__ will list all the machine code
-Procedures and Functions. See also `LOOKUP% <KeywordsL.clean.html#lookup>`__.
+The name list can be tidied up with :ref:`clear`.
+:ref:`extras` will list all the machine code
+Procedures and Functions. See also :ref:`lookup-pct`.
+

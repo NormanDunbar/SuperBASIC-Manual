@@ -1,3 +1,5 @@
+..  _a7-multiple--basics:
+
 A7 Multiple Basics
 ==================
 

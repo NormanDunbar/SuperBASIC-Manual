@@ -1,3 +1,4 @@
+
 ==========
 Keywords W
 ==========
@@ -7,6 +8,9 @@ TODO
 
 - WIN_DRIVE and WIN_DRIVE$ have the same URL.
 
+
+
+..  _wait-event:
 
 WAIT\_EVENT
 ===========
@@ -41,10 +45,13 @@ as having occured, then the value 8 would be shown on screen.
 
 **CROSS-REFERENCE**
 
-`SEND\_EVENT <KeywordsS.clean.html#send-event>`__ notifies a Job's Event
+:ref:`send-event` notifies a Job's Event
 Accumulator that one or more events have occured.
 
 --------------
+
+
+..  _wbase:
 
 WBASE
 =====
@@ -59,9 +66,12 @@ This function is exactly the same as WIN\_BASE.
 
 **CROSS-REFERENCE**
 
-See `WIN\_BASE <KeywordsW.clean.html#win-base>`__.
+See :ref:`win-base`.
 
 --------------
+
+
+..  _wcopy:
 
 WCOPY
 =====
@@ -298,16 +308,19 @@ WCOPY will however work if the DEV device is pointing at a root directory, eg::
 
 **CROSS-REFERENCE**
 
-`SPL\_USE <KeywordsS.clean.html#spl-use>`__ and
-`DEST\_USE <KeywordsD.clean.html#dest-use>`__ set the destination device. See
-`COPY <KeywordsC.clean.html#copy>`__, `WCOPY\_F <KeywordsW.clean.html#wcopy-f>`__
-and `WCOPY\_O <KeywordsW.clean.html#wcopy-o>`__ which are all similar.
-`WREN <KeywordsW.clean.html#wren>`__, `WDIR <KeywordsW.clean.html#wdir>`__,
-`WSTAT <KeywordsW.clean.html#wstat>`__ and `WDEL <KeywordsW.clean.html#wdel>`__ all
-use wildcards. `COPY <KeywordsC.clean.html#copy>`__ and
-`SPL <KeywordsS.clean.html#spl>`__ allow you to copy specific files.
+:ref:`spl-use` and
+:ref:`dest-use` set the destination device. See
+:ref:`copy`, :ref:`wcopy-f`
+and :ref:`wcopy-o` which are all similar.
+:ref:`wren`, :ref:`wdir`,
+:ref:`wstat` and :ref:`wdel` all
+use wildcards. :ref:`copy` and
+:ref:`spl` allow you to copy specific files.
 
 --------------
+
+
+..  _wcopy-f:
 
 WCOPY\_F
 ========
@@ -326,9 +339,12 @@ exist.
 
 **CROSS-REFERENCE**
 
-See `WCOPY <KeywordsW.clean.html#wcopy>`__.
+See :ref:`wcopy`.
 
 --------------
+
+
+..  _wcopy-o:
 
 WCOPY\_O
 ========
@@ -344,9 +360,12 @@ automatically overwritten without any prompting.
 
 **CROSS-REFERENCE**
 
-See `WCOPY\_F <KeywordsW.clean.html#wcopy-f>`__.
+See :ref:`wcopy-f`.
 
 --------------
+
+
+..  _wdel:
 
 WDEL
 ====
@@ -400,10 +419,13 @@ that the disk is write-protected, rather than stopping altogether.
 
 **CROSS-REFERENCE**
 
-`WCOPY <KeywordsW.clean.html#wcopy>`__ provides details about wildcards.
-`DELETE <KeywordsD.clean.html#delete>`__ allows you to delete single files.
+:ref:`wcopy` provides details about wildcards.
+:ref:`delete` allows you to delete single files.
 
 --------------
+
+
+..  _wdel-f:
 
 WDEL\_F
 =======
@@ -419,9 +441,12 @@ about the files being deleted is shown on screen.
 
 **CROSS-REFERENCE**
 
-See `WDEL <KeywordsW.clean.html#wdel>`__.
+See :ref:`wdel`.
 
 --------------
+
+
+..  _wdir:
 
 WDIR
 ====
@@ -471,11 +496,14 @@ lists files which start with my or contain \_my somewhere.
 
 **CROSS-REFERENCE**
 
-`DIR <KeywordsD.clean.html#dir>`__ will produce a list of all of the files on
-a given medium. `WCOPY <KeywordsW.clean.html#wcopy>`__ contains details of how
+:ref:`dir` will produce a list of all of the files on
+a given medium. :ref:`wcopy` contains details of how
 wildcards operate.
 
 --------------
+
+
+..  _wget:
 
 WGET
 ====
@@ -493,9 +521,12 @@ This command is very similar to BGET, except that this fetches a word
 
 **CROSS-REFERENCE**
 
-See `WPUT <KeywordsW.clean.html#wput>`__ and `BGET <KeywordsB.clean.html#bget>`__.
+See :ref:`wput` and :ref:`bget`.
 
 --------------
+
+
+..  _when--condition:
 
 WHEN condition
 ==============
@@ -627,14 +658,16 @@ at any time.
 
 **CROSS-REFERENCE**
 
-Other SuperBASIC structures are `WHEN
-ERRor <KeywordsW.clean.html#when-error>`__, `SELect
-ON <KeywordsS.clean.html#select-on>`__ and
-`IF <KeywordsI.clean.html#if>`__..\ `END <KeywordsE.clean.html#end>`__
-`IF <KeywordsI.clean.html#if>`__. `END WHEN <KeywordsE.clean.html#end-when>`__
-defines the end of a `WHEN <KeywordsW.clean.html#when>`__ structure.
+Other SuperBASIC structures are :ref:`when--error`, 
+:ref:`select--on` and
+:ref:`if`..\ :ref:`end--if`. 
+
+:ref:`end--when` defines the end of a WHEN XXX structure.
 
 --------------
+
+
+..  _when--error:
 
 WHEN ERRor
 ==========
@@ -751,15 +784,18 @@ reported.
 
 **CROSS-REFERENCE**
 
-`ERLIN <KeywordsE.clean.html#erlin>`__ returns the line number on which the
-error occurred. `ERNUM <KeywordsE.clean.html#ernum>`__ returns the error
+:ref:`erlin` returns the line number on which the
+error occurred. :ref:`ernum` returns the error
 number itself. There are several functions in the form
-`ERR\_xx <KeywordsE.clean.html#err-xx>`__ which return 1 if the given error
-has occurred. `BREAK\_OFF <KeywordsB.clean.html#break-off>`__ allows you to
-turn the Break key off. `END WHEN <KeywordsE.clean.html#end-when>`__ defines
+:ref:`err-...` which return 1 if the given error
+has occurred. :ref:`break-off` allows you to
+turn the Break key off. :ref:`end--when` defines
 the end of the error handling block.
 
 --------------
+
+
+..  _where-fonts:
 
 WHERE\_FONTS
 ============
@@ -795,6 +831,9 @@ The following example will report on the two fonts used in any given channel, an
     4560 END DEFine REPORT_ON_FONTS
 
 --------------
+
+
+..  _width:
 
 WIDTH
 =====
@@ -853,9 +892,12 @@ without chopping off any words at the end of each line::
 
 **CROSS-REFERENCE**
 
-See `OPEN <KeywordsO.clean.html#open>`__ and `PRINT <KeywordsP.clean.html#print>`__.
+See :ref:`open` and :ref:`print`.
 
 --------------
+
+
+..  _window:
 
 WINDOW
 ======
@@ -924,11 +966,14 @@ further details.
 
 **CROSS-REFERENCE**
 
-`OPEN <KeywordsO.clean.html#open>`__ allows you to open a window ready for
-use. `BORDER <KeywordsB.clean.html#border>`__ allows you to set an implicit
+:ref:`open` allows you to open a window ready for
+use. :ref:`border` allows you to set an implicit
 border.
 
 --------------
+
+
+..  _winf-dlr:
 
 WINF$
 =====
@@ -939,9 +984,12 @@ WINF$
 | Location |  Fn                                                               |
 +----------+-------------------------------------------------------------------+
 
-This is the same as `WMAN$ <KeywordsW.clean.html#wman>`__.
+This is the same as :ref:`wman-dlr`.
 
 --------------
+
+
+..  _win2:
 
 WIN2
 ====
@@ -971,9 +1019,12 @@ Do not specify the device as part of directory.
 
 **CROSS-REFERENCE**
 
-`DEV\_USE <KeywordsD.clean.html#dev-use>`__ is much more flexible.
+:ref:`dev-use` is much more flexible.
 
 --------------
+
+
+..  _win-base:
 
 WIN\_BASE
 =========
@@ -1009,9 +1060,12 @@ The Window Manager changes the structure of window definition blocks.
 
 **CROSS-REFERENCE**
 
-`SYS\_BASE <KeywordsS.clean.html#sys-base>`__, `SET <KeywordsS.clean.html#set>`__
+:ref:`sys-base`, :ref:`set`
 
 --------------
+
+
+..  _win-drive:
 
 WIN\_DRIVE
 ==========
@@ -1127,12 +1181,15 @@ Do not attempt to make two WIN drives point to the same physical drive!
 
 **CROSS-REFERENCE**
 
-`WIN\_DRIVE$ <KeywordsW.clean.html#win-drive>`__ returns the parameters
+:ref:`win-drive-dlr` returns the parameters
 already associated with a WIN drive.
-`WIN\_FORMAT <KeywordsW.clean.html#win-format>`__ allows you to format a hard
+:ref:`win-format` allows you to format a hard
 disk.
 
 --------------
+
+
+..  _win-drive-dlr:
 
 WIN\_DRIVE$
 ===========
@@ -1168,9 +1225,12 @@ partition, an empty string is returned.
 
 **CROSS-REFERENCE**
 
-See `WIN\_DRIVE <KeywordsW.clean.html#win-drive>`__.
+See :ref:`win-drive`.
 
 --------------
+
+
+..  _win-format:
 
 WIN\_FORMAT
 ===========
@@ -1212,10 +1272,13 @@ name.
 
 **CROSS-REFERENCE**
 
-See `FORMAT <KeywordsF.clean.html#format>`__ and
-`WIN\_DRIVE <KeywordsW.clean.html#win-drive>`__.
+See :ref:`format` and
+:ref:`win-drive`.
 
 --------------
+
+
+..  _win-remv:
 
 WIN\_REMV
 =========
@@ -1281,11 +1344,14 @@ running.
 
 **CROSS-REFERENCE**
 
-`WIN\_STOP <KeywordsW.clean.html#win-stop>`__ will park the head on the drive
-prior to removal. `DMEDIUM\_REMOVE <KeywordsD.clean.html#dmedium-remove>`__
+:ref:`win-stop` will park the head on the drive
+prior to removal. :ref:`dmedium-remove`
 can tell you if the given device is a removeable hard disk.
 
 --------------
+
+
+..  _win-slug:
 
 WIN\_SLUG
 =========
@@ -1309,6 +1375,9 @@ controllers work with the default setting of 30 (which equates to a time
 of 2.5ms). Refer to the disk documentation for further details.
 
 --------------
+
+
+..  _win-start:
 
 WIN\_START
 ==========
@@ -1340,10 +1409,13 @@ unless the power to the drive is switched off and back on.
 
 **CROSS-REFERENCE**
 
-See also `WIN\_DRIVE <KeywordsW.clean.html#win-drive>`__ and
-`WIN\_STOP <KeywordsW.clean.html#win-stop>`__.
+See also :ref:`win-drive` and
+:ref:`win-stop`.
 
 --------------
+
+
+..  _win-stop:
 
 WIN\_STOP
 =========
@@ -1394,10 +1466,13 @@ system (switching the power back and back on).
 
 **CROSS-REFERENCE**
 
-`WIN\_START <KeywordsW.clean.html#win-start>`__ releases the head so that the
+:ref:`win-start` releases the head so that the
 drive can be used again.
 
 --------------
+
+
+..  _win-use:
 
 WIN\_USE
 ========
@@ -1450,15 +1525,18 @@ floppy disk driver::
 
 **CROSS-REFERENCE**
 
-`FLP\_USE <KeywordsF.clean.html#flp-use>`__,
-`RAM\_USE <KeywordsR.clean.html#ram-use>`__,
-`DEV\_USE <KeywordsD.clean.html#dev-use>`__ are similar.
-`DMEDIUM\_TYPE <KeywordsD.clean.html#dmedium-type>`__ can be used to find out
+:ref:`flp-use`,
+:ref:`ram-use`,
+:ref:`dev-use` are similar.
+:ref:`dmedium-type` can be used to find out
 the type of device which a name actually refers to.
-`DMEDIUM\_NAME <KeywordsD.clean.html#dmedium-name>`__ will return the default
+:ref:`dmedium-name-dlr` will return the default
 name of a device.
 
 --------------
+
+
+..  _win-wp:
 
 WIN\_WP
 =======
@@ -1475,12 +1553,15 @@ remove the write protection.
 
 **CROSS-REFERENCE**
 
-`DMEDIUM\_RDONLY <KeywordsD.clean.html#dmedium-rdonly>`__ will tell you if a
-device is read only. See also `WIN\_REMV <KeywordsW.clean.html#win-remv>`__
-and `WIN\_FORMAT <KeywordsW.clean.html#win-format>`__ for other types of
+:ref:`dmedium-rdonly` will tell you if a
+device is read only. See also :ref:`win-remv`
+and :ref:`win-format` for other types of
 protection.
 
 --------------
+
+
+..  _wipe:
 
 WIPE
 ====
@@ -1510,12 +1591,15 @@ This command presumes that the screen starts at 131072 and measures
 
 **CROSS-REFERENCE**
 
-`CLS <KeywordsC.clean.html#cls>`__ clears a window in its current paper
-colour, `SCLR <KeywordsS.clean.html#sclr>`__ the (background) screen in a
-given colour. `CLS\_A <KeywordsC.clean.html#cls-a>`__ is a global
-`CLS <KeywordsC.clean.html#cls>`__.
+:ref:`cls` clears a window in its current paper
+colour, :ref:`sclr` the (background) screen in a
+given colour. :ref:`cls-a` is a global
+:ref:`cls`.
 
 --------------
+
+
+..  _wld:
 
 WLD
 ===
@@ -1561,10 +1645,13 @@ have a positive value:
 
 **CROSS-REFERENCE**
 
-`SOUNDEX <KeywordsS.clean.html#soundex>`__,
-`PHONEM <KeywordsP.clean.html#phonem>`__.
+:ref:`soundex`,
+:ref:`phonem`.
 
 --------------
+
+
+..  _wm:
 
 WM
 ==
@@ -1588,13 +1675,16 @@ QPAC2 and the Pointer Environment are not necessary to use WM.
 
 **CROSS-REFERENCE**
 
-`WMON <KeywordsW.clean.html#wmon>`__ restores the original monitor windows and
-`WTV <KeywordsW.clean.html#wtv>`__ the TV mode. Use
-`INK <KeywordsI.clean.html#ink>`__, `PAPER <KeywordsP.clean.html#paper>`__,
-`BORDER <KeywordsB.clean.html#border>`__ and `STRIP <KeywordsS.clean.html#strip>`__
+:ref:`wmon` restores the original monitor windows and
+:ref:`wtv` the TV mode. Use
+:ref:`ink`, :ref:`paper`,
+:ref:`border` and :ref:`strip`
 to change window attributes.
 
 --------------
+
+
+..  _wman-dlr:
 
 WMAN$
 =====
@@ -1644,10 +1734,13 @@ Window Manager present to take over that work.
 
 **CROSS-REFERENCE**
 
-`QRAM$ <KeywordsQ.clean.html#qram>`__ returns the version number of the
+:ref:`qram-dlr` returns the version number of the
 Pointer Interface.
 
 --------------
+
+
+..  _wmon:
 
 WMON
 ====
@@ -1737,11 +1830,14 @@ command.
 
 **CROSS-REFERENCE**
 
-Also see `WTV <KeywordsW.clean.html#wtv>`__, `WM <KeywordsW.clean.html#wm>`__,
-`WSET <KeywordsW.clean.html#wset>`__, `WMOV <KeywordsW.clean.html#wmov>`__ and
-`MODE <KeywordsM.clean.html#mode>`__.
+Also see :ref:`wtv`, :ref:`wm`,
+:ref:`wset`, :ref:`wmov` and
+:ref:`mode`.
 
 --------------
+
+
+..  _wmov:
 
 WMOV
 ====
@@ -1780,10 +1876,13 @@ crash the system!!
 
 **CROSS-REFERENCE**
 
-Also see `WTV <KeywordsW.clean.html#wtv>`__, `WMON <KeywordsW.clean.html#wmon>`__,
-`PICK% <KeywordsP.clean.html#pick>`__, and `OUTL <KeywordsO.clean.html#outl>`__.
+Also see :ref:`wtv`, :ref:`wmon`,
+:ref:`pick-pct`, and :ref:`outl`.
 
 --------------
+
+
+..  _wput:
 
 WPUT
 ====
@@ -1801,9 +1900,12 @@ the range 0..65535) to the given channel (default #3).
 
 **CROSS-REFERENCE**
 
-See `WGET <KeywordsW.clean.html#wget>`__ and `BPUT <KeywordsB.clean.html#bput>`__.
+See :ref:`wget` and :ref:`bput`.
 
 --------------
+
+
+..  _wren:
 
 WREN
 ====
@@ -1854,10 +1956,13 @@ the error 'Bad Name'.
 
 **CROSS-REFERENCE**
 
-`RENAME <KeywordsR.clean.html#rename>`__ renames one file at a time.
-`WCOPY <KeywordsW.clean.html#wcopy>`__ contains details of wildcards.
+:ref:`rename` renames one file at a time.
+:ref:`wcopy` contains details of wildcards.
 
 --------------
+
+
+..  _wset:
 
 WSET
 ====
@@ -1884,12 +1989,15 @@ the screen mode remains unchanged.
 
 **CROSS-REFERENCE**
 
-`WMON <KeywordsW.clean.html#wmon>`__ and `WTV <KeywordsW.clean.html#wtv>`__ are
+:ref:`wmon` and :ref:`wtv` are
 similar commands under Toolkit II. Normally, you would use
-`MODE <KeywordsM.clean.html#mode>`__ to alter the screen mode only. See also
-`WSET\_DEF <KeywordsW.clean.html#wset-def>`__.
+:ref:`mode` to alter the screen mode only. See also
+:ref:`wset-def`.
 
 --------------
+
+
+..  _wset-def:
 
 WSET\_DEF
 =========
@@ -1916,9 +2024,12 @@ is the same as WTV 8
 
 **CROSS-REFERENCE**
 
-See `WSET <KeywordsW.clean.html#wset>`__.
+See :ref:`wset`.
 
 --------------
+
+
+..  _wstat:
 
 WSTAT
 =====
@@ -1951,11 +2062,14 @@ cope with the DEV device where this is pointing to a sub-directory.
 
 **CROSS-REFERENCE**
 
-`DIR <KeywordsD.clean.html#dir>`__ will produce a list of all of the files on
-a given medium. `WCOPY <KeywordsW.clean.html#wcopy>`__ contains details of how
+:ref:`dir` will produce a list of all of the files on
+a given medium. :ref:`wcopy` contains details of how
 wildcards operate.
 
 --------------
+
+
+..  _wtv:
 
 WTV
 ===
@@ -2011,9 +2125,12 @@ v2.67+ also fixed several problems with this command.
 
 **CROSS-REFERENCE**
 
-Also see `WMON <KeywordsW.clean.html#wmon>`__.
+Also see :ref:`wmon`.
 
 --------------
+
+
+..  _w-crunch:
 
 W\_CRUNCH
 =========
@@ -2113,15 +2230,18 @@ requirement for RECHP).
 
 **CROSS-REFERENCE**
 
-See `SCR\_REFRESH <KeywordsS.clean.html#scr-refresh>`__ and
-`SCR\_STORE <KeywordsS.clean.html#scr-store>`__. See also
-`W\_STORE <KeywordsW.clean.html#w-store>`__,
-`W\_SHOW <KeywordsW.clean.html#w-show>`__.
-`W\_SWAP <KeywordsW.clean.html#w-swap>`__,
-`SET\_RED <KeywordsS.clean.html#set-red>`__ and
-`SET\_GREEN <KeywordsS.clean.html#set-green>`__ allow you to recolour windows.
+See :ref:`scr-refresh` and
+:ref:`scr-store`. See also
+:ref:`w-store`,
+:ref:`w-show`.
+:ref:`w-swap`,
+:ref:`set-red` and
+:ref:`set-green` allow you to recolour windows.
 
 --------------
+
+
+..  _w-show:
 
 W\_SHOW
 =======
@@ -2152,15 +2272,18 @@ within the specified window.
 
 **CROSS-REFERENCE**
 
-See `SCR\_REFRESH <KeywordsS.clean.html#scr-refresh>`__ and
-`SCR\_STORE <KeywordsS.clean.html#scr-store>`__. See also
-`W\_STORE <KeywordsW.clean.html#w-store>`__,
-`W\_CRUNCH <KeywordsW.clean.html#w-crunch>`__.
-`W\_SWOP <KeywordsW.clean.html#w-swop>`__,
-`SET\_RED <KeywordsS.clean.html#set-red>`__ and
-`SET\_GREEN <KeywordsS.clean.html#set-green>`__ allow you to recolour windows.
+See :ref:`scr-refresh` and
+:ref:`scr-store`. See also
+:ref:`w-store`,
+:ref:`w-crunch`.
+:ref:`w-swop`,
+:ref:`set-red` and
+:ref:`set-green` allow you to recolour windows.
 
 --------------
+
+
+..  _w-store:
 
 W\_STORE
 ========
@@ -2181,9 +2304,12 @@ Refer to the notes for W\_CRUNCH.
 
 **CROSS-REFERENCE**
 
-See `W\_CRUNCH <KeywordsW.clean.html#w-crunch>`__!
+See :ref:`w-crunch`!
 
 --------------
+
+
+..  _w-swap:
 
 W\_SWAP
 =======
@@ -2208,12 +2334,15 @@ This command should not really be used in MODE 8.
 
 **CROSS-REFERENCE**
 
-`W\_SWOP <KeywordsW.clean.html#w-swop>`__ is exactly the same.
-`RECOL <KeywordsR.clean.html#recol>`__, `SET\_RED <KeywordsS.clean.html#set-red>`__
-and `SET\_GREEN <KeywordsS.clean.html#set-green>`__ also allow you to recolour
+:ref:`w-swop` is exactly the same.
+:ref:`recol`, :ref:`set-red`
+and :ref:`set-green` also allow you to recolour
 a window. Refer to the QL display Appendix.
 
 --------------
+
+
+..  _w-swop:
 
 W\_SWOP
 =======
@@ -2224,4 +2353,5 @@ W\_SWOP
 | Location |  Windows (DIY Toolkit - Vol W)                                    |
 +----------+-------------------------------------------------------------------+
 
-This command is exactly the same as `W\_SWAP <KeywordsW.clean.html#w-swap>`__.
+This command is exactly the same as :ref:`w-swap`.
+

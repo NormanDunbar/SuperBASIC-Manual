@@ -1,3 +1,5 @@
+..  _a11-mathematics:
+
 A11 Mathematics
 ===============
 

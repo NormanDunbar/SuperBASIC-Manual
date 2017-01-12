@@ -1,3 +1,4 @@
+
 ==========
 Keywords G
 ==========
@@ -6,7 +7,14 @@ TODO
 ====
 
 - There doesn't appear to be an entry for GE$ in this file. But it is referenced as a link in GT$.
-- GET_BYTE% and GET_BYTE have the same URL.
+- Other links to non existing functions are LT$, LE$ and NE$.
+
+
+
+
+
+
+..  _gcd:
 
 GCD
 ===
@@ -27,9 +35,12 @@ denominator.
 
 **CROSS-REFERENCE**
 
-`LCM <KeywordsL.clean.html#lcm>`__
+:ref:`lcm`
 
 --------------
+
+
+..  _ger-msg:
 
 GER\_MSG
 ========
@@ -48,11 +59,14 @@ can use: TRA GER\_TRA,GER\_MSG to set up the printer and message translation tab
 
 **CROSS-REFERENCE**
 
-See `NOR\_MSG <KeywordsN.clean.html#nor-msg>`__ and
-`GER\_TRA <KeywordsG.clean.html#ger-tra>`__. Also see
-`TRA <KeywordsT.clean.html#tra>`__.
+See :ref:`nor-msg` and
+:ref:`ger-tra`. Also see
+:ref:`tra`.
 
 --------------
+
+
+..  _ger-tra:
 
 GER\_TRA
 ========
@@ -69,9 +83,12 @@ GER\_TRA\_rext.
 
 **CROSS-REFERENCE**
 
-See `GER\_MSG <KeywordsG.clean.html#ger-msg>`__.
+See :ref:`ger-msg`.
 
 --------------
+
+
+..  _get:
 
 GET
 ===
@@ -173,11 +190,14 @@ press the Break key to escape.
 
 **CROSS-REFERENCE**
 
-See `PUT <KeywordsP.clean.html#put>`__, `BPUT <KeywordsB.clean.html#bput>`__,
-`BGET <KeywordsB.clean.html#bget>`__, `LGET <KeywordsL.clean.html#lget>`__,
-`WGET <KeywordsW.clean.html#wget>`__.
+See :ref:`put`, :ref:`bput`,
+:ref:`bget`, :ref:`lget`,
+:ref:`wget`.
 
 --------------
+
+
+..  _get-byte-dlr:
 
 GET\_BYTE$
 ==========
@@ -232,27 +252,30 @@ Toolkit and EASYPTR.
 
 **CROSS-REFERENCE**
 
-`INKEY$ <KeywordsI.clean.html#inkey>`__ reads just one byte from the given
+:ref:`inkey-dlr` reads just one byte from the given
 channel, which is therefore much slower than
-`GET\_BYTE$ <KeywordsG.clean.html#get-byte>`__ if blocks of bytes are to be
-read. On the other hand, `INKEY$ <KeywordsI.clean.html#inkey>`__ allows you
+:ref:`get-byte-dlr` if blocks of bytes are to be
+read. On the other hand, :ref:`inkey-dlr` allows you
 to specify a timeout. 
 
-The `INPUT <KeywordsI.clean.html#input>`__ command
+The :ref:`input` command
 combines input/output and reads blocks, but a block must end with <LF>.
 
 The usage of the different keywords depends mainly on the structure of
 the incoming data. User input and lines in an ASCII file normally
 terminate with Enter <LF>, while internal data such as disk directory
 entries are stored as blocks with a fixed length (see
-`FOP\_DIR <KeywordsF.clean.html#fop-dir>`__). Have a look at
-`GET <KeywordsG.clean.html#get>`__, `PUT <KeywordsP.clean.html#put>`__,
-`BGET <KeywordsB.clean.html#bget>`__ and `BPUT <KeywordsB.clean.html#bput>`__, too.
-`FILE\_PTRR <KeywordsF.clean.html#file-ptrr>`__,
-`FILE\_POS <KeywordsF.clean.html#file-pos>`__, `FPOS <KeywordsF.clean.html#fpos>`__
+:ref:`fop-dir`). Have a look at
+:ref:`get`, :ref:`put`,
+:ref:`bget` and :ref:`bput`, too.
+:ref:`file-ptrr`,
+:ref:`file-pos`, :ref:`fpos`
 can be used for movement.
 
 --------------
+
+
+..  _get-byte:
 
 GET\_BYTE
 =========
@@ -265,7 +288,7 @@ GET\_BYTE
 
 Reads one character  from the file attached to the channel  number given and returns it as a value between 0 and 255.  This is equivalent to CODE(INKEY$(#channel)). 
 
-BEWARE, `PUT\_BYTE <KeywordsP.clean.html#put-byte>`__ can put negative values to file, for example -1 is put as 255, GET\_BYTE will return 255 instead of -1. Any negative numbers returned are always error codes.
+BEWARE, :ref:`put-byte` can put negative values to file, for example -1 is put as 255, GET\_BYTE will return 255 instead of -1. Any negative numbers returned are always error codes.
 
 
 **EXAMPLE**
@@ -277,10 +300,13 @@ BEWARE, `PUT\_BYTE <KeywordsP.clean.html#put-byte>`__ can put negative values to
 
 **CROSS-REFERENCE**
 
-`GET\_FLOAT <KeywordsG.clean.html#get-float>`__, `GET\_LONG <KeywordsG.clean.html#get-long>`__, `GET\_STRING <KeywordsG.clean.html#get-string>`__, `GET\_WORD <KeywordsG.clean.html#get-word>`__.
+:ref:`get-float`, :ref:`get-long`, :ref:`get-string`, :ref:`get-word`.
 
 
 -------
+
+
+..  _get-float:
 
 GET\_FLOAT
 ==========
@@ -305,11 +331,14 @@ BEWARE, if any errors occur, the value returned will be a negative QDOS error co
 
 **CROSS-REFERENCE**
 
-`GET\_BYTE <KeywordsG.clean.html#get-byte>`__, `GET\_LONG <KeywordsG.clean.html#get-long>`__, `GET\_STRING <KeywordsG.clean.html#get-string>`__, `GET\_WORD <KeywordsG.clean.html#get-word>`__.
+:ref:`get-byte`, :ref:`get-long`, :ref:`get-string`, :ref:`get-word`.
 
 
 -------
 
+
+
+..  _get-long:
 
 GET\_LONG
 =========
@@ -322,7 +351,7 @@ GET\_LONG
 
 Read the next 4 bytes  from the file and return  them as a number  between 0 and 2^32 -1 (4,294,967,295 or HEX FFFFFFFF unsigned).
 
-BEWARE, the same problem with negatives & error codes applies here as well as `GET\_FLOAT <KeywordsG.clean.html#get-float>`__.
+BEWARE, the same problem with negatives & error codes applies here as well as :ref:`get-float`.
 
 **EXAMPLE**
 
@@ -333,11 +362,14 @@ BEWARE, the same problem with negatives & error codes applies here as well as `G
 
 **CROSS-REFERENCE**
 
-`GET\_BYTE <KeywordsG.clean.html#get-byte>`__, `GET\_FLOAT <KeywordsG.clean.html#get-float>`__, `GET\_STRING <KeywordsG.clean.html#get-string>`__, `GET\_WORD <KeywordsG.clean.html#get-word>`__.
+:ref:`get-byte`, :ref:`get-float`, :ref:`get-string`, :ref:`get-word`.
 
 
 -------
 
+
+
+..  _get-string:
 
 GET\_STRING
 ===========
@@ -350,7 +382,7 @@ GET\_STRING
 
 Read the next 2 bytes from the file and assuming them to be a QDOS string's length, read that many characters into a$.  The two bytes holding the string's length are NOT returned in a$, only the data bytes.  
 
-The subtle difference between this function and `FETCH\_BYTES <KeywordsF.clean.html#fetch-bytes>`__ is that this one finds out how many bytes to return from the channel given, `FETCH\_BYTES <KeywordsF.clean.html#fetch-bytes>`__ needs to be told how many to return by the  user. GET\_STRING is the same as::
+The subtle difference between this function and :ref:`fetch-bytes` is that this one finds out how many bytes to return from the channel given, :ref:`fetch-bytes` needs to be told how many to return by the  user. GET\_STRING is the same as::
 
     FETCH_BYTES(#channel, GET_WORD(#channel))
 
@@ -366,11 +398,14 @@ WARNING - JM and AH ROMS will give a 'Buffer overflow' error if the length of th
 
 **CROSS-REFERENCE**
 
-`GET\_BYTE <KeywordsG.clean.html#get-byte>`__, `GET\_FLOAT <KeywordsG.clean.html#get-float>`__, `GET\_LONG <KeywordsG.clean.html#get-long>`__, `GET\_WORD <KeywordsG.clean.html#get-word>`__, `FETCH\_BYTES <KeywordsF.clean.html#fetch-bytes>`__.
+:ref:`get-byte`, :ref:`get-float`, :ref:`get-long`, :ref:`get-word`, :ref:`fetch-bytes`.
 
 
 -------
 
+
+
+..  _get-stuff-dlr:
 
 GET\_STUFF$
 ===========
@@ -407,9 +442,12 @@ QPAC 2.
 
 **CROSS-REFERENCE**
 
-See `HOT\_STUFF <KeywordsH.clean.html#hot-stuff>`__.
+See :ref:`hot-stuff`.
 
 --------------
+
+
+..  _gethead:
 
 GetHEAD
 =======
@@ -445,13 +483,16 @@ demonstrating GetHEAD and SetHEAD::
 
 **CROSS-REFERENCE**
 
-`SetHEAD <KeywordsS.clean.html#sethead>`__ saves a file header. See
-`FGETH$ <KeywordsF.clean.html#fgeth>`__ for information about the file
-header. `HEADR <KeywordsH.clean.html#headr>`__ is very similar to
-`GetHEAD <KeywordsG.clean.html#gethead>`__. See also
-`HGET <KeywordsH.clean.html#hget>`__ and `HPUT <KeywordsH.clean.html#hput>`__.
+:ref:`sethead` saves a file header. See
+:ref:`fgeth-dlr` for information about the file
+header. :ref:`headr` is very similar to
+:ref:`gethead`. See also
+:ref:`hget` and :ref:`hput`.
 
 --------------
+
+
+..  _get-word:
 
 GET\_WORD
 =========
@@ -462,7 +503,7 @@ GET\_WORD
 | Location | DJToolkit 1.16                                                    |
 +----------+-------------------------------------------------------------------+
 
-The next two bytes are read from the appropriate file and returned as an integer value.  This is equivalent to CODE(INKEY$(#channel)) \* 256 + CODE(INKEY$(#channel)). See the caution above for `GET\_BYTE <KeywordsG.clean.html#get-byte>`__ as it applies here as well. Any negative numbers returned will always be an error code.
+The next two bytes are read from the appropriate file and returned as an integer value.  This is equivalent to CODE(INKEY$(#channel)) \* 256 + CODE(INKEY$(#channel)). See the caution above for :ref:`get-byte` as it applies here as well. Any negative numbers returned will always be an error code.
 
 **EXAMPLE**
 
@@ -473,11 +514,14 @@ The next two bytes are read from the appropriate file and returned as an integer
 
 **CROSS-REFERENCE**
 
-`GET\_BYTE <KeywordsG.clean.html#get-byte>`__, `GET\_FLOAT <KeywordsG.clean.html#get-float>`__, `GET\_LONG <KeywordsG.clean.html#get-long>`__, `GET\_STRING <KeywordsG.clean.html#get-string>`__.
+:ref:`get-byte`, :ref:`get-float`, :ref:`get-long`, :ref:`get-string`.
 
 
 -------
 
+
+
+..  _getxy:
 
 GETXY
 =====
@@ -508,13 +552,16 @@ Turbo and Supercharge compilers cannot compile this command.
 
 **WARNINGS**
 
-See `SET <KeywordsS.clean.html#set>`__\ .
+See :ref:`set`\ .
 
 **CROSS-REFERENCE**
 
-`INVXY <KeywordsI.clean.html#invxy>`__
+:ref:`invxy`
 
 --------------
+
+
+..  _go--sub:
 
 GO SUB
 ======
@@ -603,11 +650,13 @@ Avoid using GO SUB in an in-line FOR loop - see Note 2 of FOR.
 **CROSS-REFERENCE**
 
 Try to use SuperBASIC's more powerful
-`REPeat <KeywordsR.clean.html#repeat>`__, `FOR <KeywordsF.clean.html#for>`__,
-`DEFine PROCedure <KeywordsD.clean.html#define-procedure>`__ and `DEFine
-FuNction <KeywordsD.clean.html#define-function>`__ structures instead!
+:ref:`repeat`, :ref:`for`,
+:ref:`define--procedure` and :ref:`define--function` structures instead!
 
 --------------
+
+
+..  _go--to:
 
 GO TO
 =====
@@ -645,10 +694,13 @@ An extremely simple password check::
 
 **CROSS-REFERENCE**
 
-Please read `GO SUB <KeywordsG.clean.html#go-sub>`__ before you dare to try
-`GO TO <KeywordsG.clean.html#go-to>`__!
+Please read :ref:`go--sub` before you dare to try
+:ref:`go--to`!
 
 --------------
+
+
+..  _gpoint:
 
 GPOINT
 ======
@@ -662,6 +714,9 @@ GPOINT
 This command is the same as POINT but fixes the bug in MGx ROMs.
 
 --------------
+
+
+..  _grab:
 
 GRAB
 ====
@@ -678,22 +733,23 @@ allocated area.
 
 **CROSS-REFERENCE**
 
-With `GRAB <KeywordsG.clean.html#grab>`__ (unlike
-`ALCHP <KeywordsA.clean.html#alchp>`__), reserved memory can only be given
+With :ref:`grab` (unlike
+:ref:`alchp`), reserved memory can only be given
 back to QDOS for other purposes with
-`RELEASE <KeywordsR.clean.html#release>`__. It is necessary to know the start
-address returned by `GRAB <KeywordsG.clean.html#grab>`__ to do this, so a
-formula like `SCRBASE <KeywordsS.clean.html#scrbase>`__ GRAB(32768) wastes 32k of RAM
-if `SCRBASE <KeywordsS.clean.html#scrbase>`__ is used again. Although
-`GRAB <KeywordsG.clean.html#grab>`__ is comparable to
-`RESPR <KeywordsR.clean.html#respr>`__ in this respect, it will work with jobs
-in memory just like `ALCHP <KeywordsA.clean.html#alchp>`__. See also
-`RESERVE <KeywordsR.clean.html#reserve>`__. The amount of available memory can
-be found by using `FREE <KeywordsF.clean.html#free>`__,
-`FREE\_MEM <KeywordsF.clean.html#free-mem>`__ or
-`MT\_FREE <KeywordsM.clean.html#mt-free>`__.
+:ref:`release`. It is necessary to know the start
+address returned by :ref:`grab` to do this, so a
+formula like :ref:`scrbase` GRAB(32768) wastes 32k of RAM
+if :ref:`scrbase` is used again. Although
+:ref:`grab` is comparable to
+:ref:`respr` in this respect, it will work with jobs
+in memory just like :ref:`alchp`. See also
+:ref:`reserve`. The amount of available memory can
+be found by using :ref:`free` or :ref:`free-mem`.
 
 --------------
+
+
+..  _gregor:
 
 GREGOR
 ======
@@ -770,9 +826,12 @@ it will not work correctly on Minerva, SMSQ/E and possibly other ROMs.
 
 **CROSS-REFERENCE**
 
-`EASTER <KeywordsE.clean.html#easter>`__, `DAY$ <KeywordsD.clean.html#day>`__
+:ref:`easter`, :ref:`day-dlr`
 
 --------------
+
+
+..  _gt-dlr:
 
 GT$
 ===
@@ -815,7 +874,8 @@ The characters are compared by using the following order::
 
 **CROSS-REFERENCE**
 
-See `INSTR <KeywordsI.clean.html#instr>`__. `GE$ <KeywordsG.clean.html#ge>`__,
-`LT$ <KeywordsL.clean.html#lt>`__, `LE$ <KeywordsL.clean.html#le>`__,
-`EQ$ <KeywordsE.clean.html#eq>`__ and `NE$ <KeywordsN.clean.html#ne>`__ are all
+See :ref:`instr`. :ref:`ge-dlr`,
+:ref:`lt-dlr`, :ref:`le-dlr`,
+:ref:`eq-dlr` and :ref:`ne-dlr` are all
 similar facilities.
+

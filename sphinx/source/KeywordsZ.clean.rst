@@ -1,6 +1,10 @@
+
 ==========
 Keywords Z
 ==========
+
+
+..  _zap:
 
 ZAP
 ===
@@ -38,7 +42,8 @@ can multitask.
 
 **CROSS-REFERENCE**
 
-Keywords can be renamed with `NEW\_NAME <KeywordsN.clean.html#new-name>`__.
-`KEY\_RMV <KeywordsK.clean.html#key-rmv>`__ works in the same way as
-`ZAP <KeywordsZ.clean.html#zap>`__. See also
-`TINY\_RMV <KeywordsT.clean.html#tiny-rmv>`__.
+Keywords can be renamed with :ref:`new-name`.
+:ref:`key-rmv` works in the same way as
+:ref:`zap`. See also
+:ref:`tiny-rmv`.
+

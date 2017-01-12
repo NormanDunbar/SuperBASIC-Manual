@@ -1,3 +1,4 @@
+
 ==========
 Keywords Q
 ==========
@@ -6,6 +7,9 @@ TODO
 ====
 
 
+
+
+..  _qaconvert:
 
 QACONVERT
 =========
@@ -24,11 +28,14 @@ character CHR$(13) followed by a Line Feed character CHR$(10).
 
 **CROSS-REFERENCE**
 
-Compare `AQCONVERT <KeywordsA.clean.html#aqconvert>`__ and
-`QICONVERT <KeywordsQ.clean.html#qiconvert>`__. See also
-`ACOPY <KeywordsA.clean.html#acopy>`__ and `QCOPY <KeywordsQ.clean.html#qcopy>`__.
+Compare :ref:`aqconvert` and
+:ref:`qiconvert`. See also
+:ref:`acopy` and :ref:`qcopy`.
 
 --------------
+
+
+..  _qcopy:
 
 QCOPY
 =====
@@ -51,12 +58,15 @@ three letter extension preceded by a dot eg::
 
 **CROSS-REFERENCE**
 
-`ACOPY <KeywordsA.clean.html#acopy>`__ copies a file from a QL disk to an
+:ref:`acopy` copies a file from a QL disk to an
 Atari disk. Level-3 device drivers allow you to read and write to Atari
-and IBM format disks anyway. See `AFORMAT <KeywordsA.clean.html#aformat>`__ and
-`AQCONVERT <KeywordsA.clean.html#aqconvert>`__.
+and IBM format disks anyway. See :ref:`aformat` and
+:ref:`aqconvert`.
 
 --------------
+
+
+..  _qcount-pct:
 
 QCOUNT%
 =======
@@ -88,11 +98,14 @@ this can be read by an INPUT command.
 
 **CROSS-REFERENCE**
 
-Refer to `QLINK <KeywordsQ.clean.html#qlink>`__ and also the Device Drivers
-Appendix. See also `QSIZE% <KeywordsQ.clean.html#qsize>`__ and
-`QSPACE% <KeywordsQ.clean.html#qspace>`__.
+Refer to :ref:`qlink` and also the Device Drivers
+Appendix. See also :ref:`qsize-pct` and
+:ref:`qspace-pct`.
 
 --------------
+
+
+..  _qdos-dlr:
 
 QDOS$
 =====
@@ -136,15 +149,18 @@ version currently loaded.
 
 **CROSS-REFERENCE**
 
-`VER$ <KeywordsV.clean.html#ver>`__ contains another code identifying the
-operating system. `VER$ <KeywordsV.clean.html#ver>`__\ (1) is identical to
-`QDOS$ <KeywordsQ.clean.html#qdos>`__ for Minerva ROMs and SMS. You should
-also look at `MACHINE <KeywordsM.clean.html#machine>`__ and
-`PROCESSOR <KeywordsP.clean.html#processor>`__.
-`LANG\_USE <KeywordsL.clean.html#lang-use>`__ allows you to change the
+:ref:`ver-dlr` contains another code identifying the
+operating system. :ref:`ver-dlr`\ (1) is identical to
+:ref:`qdos-dlr` for Minerva ROMs and SMS. You should
+also look at :ref:`machine` and
+:ref:`processor`.
+:ref:`lang-use` allows you to change the
 operating system language.
 
 --------------
+
+
+..  _qflim:
 
 QFLIM
 =====
@@ -231,15 +247,18 @@ Interface is not present.
 
 **CROSS-REFERENCE**
 
-`WMAN$ <KeywordsW.clean.html#wman>`__, `WINF$ <KeywordsW.clean.html#winf>`__ allow
+:ref:`wman-dlr`, :ref:`winf-dlr` allow
 you to find out various information about the Pointer Environment.
-`XLIM <KeywordsX.clean.html#xlim>`__, `SCR\_XLIM <KeywordsS.clean.html#scr-xlim>`__,
-`YLIM <KeywordsY.clean.html#ylim>`__ and
-`SCR\_YLIM <KeywordsS.clean.html#scr-ylim>`__ are similar to
-`QFLIM <KeywordsQ.clean.html#qflim>`__. See also
-`OUTLN <KeywordsO.clean.html#outln>`__.
+:ref:`xlim`, :ref:`scr-xlim`,
+:ref:`ylim` and
+:ref:`scr-ylim` are similar to
+:ref:`qflim`. See also
+:ref:`outln`.
 
 --------------
+
+
+..  _qiconvert:
 
 QICONVERT
 =========
@@ -258,12 +277,15 @@ character CHR$(13) followed by a Line Feed character CHR$(10).
 
 **CROSS-REFERENCE**
 
-Compare `IQCONVERT <KeywordsI.clean.html#iqconvert>`__ and
-`AQCONVERT <KeywordsA.clean.html#aqconvert>`__. See also
-`ACOPY <KeywordsA.clean.html#acopy>`__ and `QCOPY <KeywordsQ.clean.html#qcopy>`__.
-See `IFORMAT <KeywordsI.clean.html#iformat>`__.
+Compare :ref:`iqconvert` and
+:ref:`aqconvert`. See also
+:ref:`acopy` and :ref:`qcopy`.
+See :ref:`iformat`.
 
 --------------
+
+
+..  _qlink:
 
 QLINK
 =====
@@ -279,11 +301,14 @@ This command is the same as TCONNECT.
 **CROSS-REFERENCE**
 
 The following functions are also useful when accessing pipes:
-`EOFW <KeywordsE.clean.html#eofw>`__, `PEND <KeywordsP.clean.html#pend>`__,
-`QSIZE% <KeywordsQ.clean.html#qsize>`__, `QCOUNT% <KeywordsQ.clean.html#qcount>`__
-and `QSPACE% <KeywordsQ.clean.html#qspace>`__.
+:ref:`eofw`, :ref:`pend`,
+:ref:`qsize-pct`, :ref:`qcount-pct`
+and :ref:`qspace-pct`.
 
 --------------
+
+
+..  _qload:
 
 QLOAD
 =====
@@ -313,12 +338,15 @@ Any commands which appear after a QLOAD command will be ignored.
 
 **CROSS-REFERENCE**
 
-Also see `LOAD <KeywordsL.clean.html#load>`__,
-`QLRUN <KeywordsQ.clean.html#qlrun>`__, `QMERGE <KeywordsQ.clean.html#qmerge>`__ and
-`QSAVE <KeywordsQ.clean.html#qsave>`__ Compare
-`UNLOAD <KeywordsU.clean.html#unload>`__.
+Also see :ref:`load`,
+:ref:`qlrun`, :ref:`qmerge` and
+:ref:`qsave` Compare
+:ref:`unload`.
 
 --------------
+
+
+..  _qlrun:
 
 QLRUN
 =====
@@ -334,10 +362,13 @@ automatically RUN as soon as it has been loaded into memory.
 
 **CROSS-REFERENCE**
 
-See `QLOAD <KeywordsQ.clean.html#qload>`__ and
-`QMRUN <KeywordsQ.clean.html#qmrun>`__.
+See :ref:`qload` and
+:ref:`qmrun`.
 
 --------------
+
+
+..  _ql-pex:
 
 QL\_PEX
 =======
@@ -354,9 +385,12 @@ Qliberator's $$asmb directorive.
 
 **CROSS-REFERENCE**
 
-See `PEX\_SAVE <KeywordsP.clean.html#pex-save>`__\ .
+See :ref:`pex-save`\ .
 
 --------------
+
+
+..  _qmerge:
 
 QMERGE
 ======
@@ -371,11 +405,14 @@ This command bears the same relationship to MERGE as QLOAD does to LOAD.
 
 **CROSS-REFERENCE**
 
-Refer to `QLOAD <KeywordsQ.clean.html#qload>`__ and
-`MERGE <KeywordsM.clean.html#merge>`__. See also
-`QMRUN <KeywordsQ.clean.html#qmrun>`__
+Refer to :ref:`qload` and
+:ref:`merge`. See also
+:ref:`qmrun`
 
 --------------
+
+
+..  _qmrun:
 
 QMRUN
 =====
@@ -395,10 +432,13 @@ program itself, the program continues from the statement following QMRUN
 
 **CROSS-REFERENCE**
 
-See `QMERGE <KeywordsQ.clean.html#qmerge>`__ and
-`MRUN <KeywordsM.clean.html#mrun>`__.
+See :ref:`qmerge` and
+:ref:`mrun`.
 
 --------------
+
+
+..  _qpc-cmdline-dlr:
 
 QPC\_CMDLINE$
 =============
@@ -412,6 +452,9 @@ QPC\_CMDLINE$
 This returns the argument that was supplied to QPC after the "-cmdline" command line argument. This can be used to do different actions depending on the way QPC was started.
 
 --------------
+
+
+..  _qpc-exec:
 
 QPC\_EXEC
 =========
@@ -442,6 +485,9 @@ Starts the default viewer for .txt files.
 
 --------------
 
+
+..  _qpc-exit:
+
 QPC\_EXIT
 =========
 
@@ -454,6 +500,9 @@ QPC\_EXIT
 This simply quits QPC.
 
 --------------
+
+
+..  _qpc-hostos:
 
 QPC\_HOSTOS
 ===========
@@ -474,6 +523,9 @@ Possible return codes are:
 
 --------------
 
+
+..  _qpc-maximize:
+
 QPC\_MAXIMIZE
 =============
 
@@ -486,6 +538,9 @@ QPC\_MAXIMIZE
 Maximises the QPC window. (Yes, the spelling of the command name is American!)
 
 --------------
+
+
+..  _qpc-minimize:
 
 QPC\_MINIMIZE
 =============
@@ -500,6 +555,9 @@ Minimizes the QPC window. (Yes, the spelling of the command name is American!)
 
 --------------
 
+
+..  _qpc-mspeed:
+
 QPC\_MSPEED
 ===========
 
@@ -513,6 +571,9 @@ This command has no effect on QPC2.
 
 --------------
 
+
+..  _qpc-netname-dlr:
+
 QPC\_NETNAME$
 =============
 
@@ -525,6 +586,9 @@ QPC\_NETNAME$
 This function returns the current network name of your PC (the one you supplied upon installation of Windows). The result can be used to distinguish between different PCs (**Example** in a BOOT program).
 
 --------------
+
+
+..  _qpc-qlscremu:
 
 QPC\_QLSCREMU
 =============
@@ -544,11 +608,14 @@ Possible values are:
 - 4: force to 4-colour mode 
 - 8: force to 8-colour mode
 
-When in QL colour mode, the emulation just transfers the written bytes to the larger screen memory, i.e. when the big mode is in 4-colour mode, the original screen area is also treated as 4-colour mode. In high colour mode however, the colour conversion can do both modes. In this case, you can pre-select the emulated mode (parameter = 4 or 8) or let the last issued `MODE <KeywordsM.clean.html#mode>`__ call decide (automatic mode). Please note that that automatic mode does not work on a per-job basis, so any job that issues a `MODE <KeywordsM.clean.html#mode>`__ command changes the behaviour globally.
+When in QL colour mode, the emulation just transfers the written bytes to the larger screen memory, i.e. when the big mode is in 4-colour mode, the original screen area is also treated as 4-colour mode. In high colour mode however, the colour conversion can do both modes. In this case, you can pre-select the emulated mode (parameter = 4 or 8) or let the last issued :ref:`mode` call decide (automatic mode). Please note that that automatic mode does not work on a per-job basis, so any job that issues a :ref:`mode` command changes the behaviour globally.
 
 Please also note that this transition is one-way only, i.e. bytes written legally to the first 512x256 pixels are not transferred back to the original QL screen (in the case of a high colour screens this would hardly be possible anyway). Unfortunately, this also means that not all old programs will run perfectly with this type of emulation. If you experience problems, start the misbehaving application in 512x256 mode.
 
 --------------
+
+
+..  _qpc-restore:
 
 QPC\_RESTORE
 ============
@@ -562,6 +629,9 @@ QPC\_RESTORE
 Restores the QPC window. This will return the window size from minimised or maximised to what it was before.
 
 --------------
+
+
+..  _qpc-syncscrap:
 
 QPC\_SYNCSCRAP
 ==============
@@ -577,6 +647,9 @@ In order to rapidly exchange text passages between Windows and SMSQ/E the Syncsc
 After loading the menu extensions you can call this command, which creates a job that periodically checks for changes in either the scrap or the Windows clipboard, and synchronizes their contents if necessary. Please note that only text data is supported. The character conversion between the QL character set and the Windows ANSI set is done automatically. The line terminators (LF or LF+CR) are converted too.
 
 --------------
+
+
+..  _qpc-ver-dlr:
 
 QPC\_VER$
 =========
@@ -598,6 +671,9 @@ This returns the current QPC version.
 Will print 4.00 or higher.
 
 --------------
+
+
+..  _qpc-windowsize:
 
 QPC\_WINDOWSIZE
 ===============
@@ -621,6 +697,9 @@ Does a 200% zoom of the QPC window.
 
 --------------
 
+
+..  _qpc-windowtitle:
+
 QPC\_WINDOWTITLE
 ================
 
@@ -641,6 +720,9 @@ Sets the string that can be seen when QPC runs in windowed mode. This can be use
 Sets the title to "Accounting", without the quotes though!
 
 --------------
+
+
+..  _qptr:
 
 QPTR
 ====
@@ -665,6 +747,9 @@ will print 1 of the PE is loaded or zero otherwise.
 
 -------
 
+
+..  _qram-dlr:
+
 QRAM$
 =====
 
@@ -679,12 +764,15 @@ Pointer Environment, or an empty string if this is not present.
 
 **CROSS-REFERENCE**
 
-`PINF$ <KeywordsP.clean.html#pinf>`__ is exactly the same as
-`QRAM$ <KeywordsQ.clean.html#qram>`__. `WMAN$ <KeywordsW.clean.html#wman>`__ and
-`WINF$ <KeywordsW.clean.html#winf>`__ contain the version number of the
+:ref:`pinf-dlr` is exactly the same as
+:ref:`qram-dlr`. :ref:`wman-dlr` and
+:ref:`winf-dlr` contain the version number of the
 Window Manager.
 
 --------------
+
+
+..  _qsave:
 
 QSAVE
 =====
@@ -750,13 +838,16 @@ QSAVE without a filename suffers the same problems as SAVE.
 
 **CROSS-REFERENCE**
 
-See `SAVE <KeywordsS.clean.html#save>`__, `QLRUN <KeywordsQ.clean.html#qlrun>`__ and
-`QMERGE <KeywordsQ.clean.html#qmerge>`__. `DATAD$ <KeywordsD.clean.html#datad>`__
+See :ref:`save`, :ref:`qlrun` and
+:ref:`qmerge`. :ref:`datad-dlr`
 allows you to read the current default data device. See also
-`QSAVE\_O <KeywordsQ.clean.html#qsave-o>`__. `FVERS <KeywordsF.clean.html#fvers>`__
+:ref:`qsave-o`. :ref:`fvers`
 allows you to read the current version number of a file.
 
 --------------
+
+
+..  _qsave-o:
 
 QSAVE\_O
 ========
@@ -778,9 +869,12 @@ see QSAVE.
 
 **CROSS-REFERENCE**
 
-See `QSAVE <KeywordsQ.clean.html#qsave>`__.
+See :ref:`qsave`.
 
 --------------
+
+
+..  _qsize-pct:
 
 QSIZE%
 ======
@@ -834,11 +928,14 @@ cause a problem.
 
 **CROSS-REFERENCE**
 
-Refer to `QLINK <KeywordsQ.clean.html#qlink>`__ and also the Device Drivers
-Appendix. See also `QCOUNT% <KeywordsQ.clean.html#qcount>`__ and
-`QSPACE% <KeywordsQ.clean.html#qspace>`__.
+Refer to :ref:`qlink` and also the Device Drivers
+Appendix. See also :ref:`qcount-pct` and
+:ref:`qspace-pct`.
 
 --------------
+
+
+..  _qspace-pct:
 
 QSPACE%
 =======
@@ -862,10 +959,13 @@ is therefore the same as::
 
 **CROSS-REFERENCE**
 
-Refer to `QCOUNT% <KeywordsQ.clean.html#qcount>`__ and
-`QSIZE% <KeywordsQ.clean.html#qsize>`__.
+Refer to :ref:`qcount-pct` and
+:ref:`qsize-pct`.
 
 --------------
+
+
+..  _qtrap:
 
 QTRAP
 =====
@@ -904,16 +1004,19 @@ know what you are doing!
 
 **CROSS-REFERENCE**
 
-See `IO\_TRAP <KeywordsI.clean.html#io-trap>`__,
-`TTET3 <KeywordsT.clean.html#ttet3>`__, `MTRAP <KeywordsM.clean.html#mtrap>`__ and
-`BTRAP <KeywordsB.clean.html#btrap>`__. Any return parameters can be read with
-`DATAREG <KeywordsD.clean.html#datareg>`__ and
-`ADDREG <KeywordsA.clean.html#addreg>`__. `CLS <KeywordsC.clean.html#cls>`__,
-`PAN <KeywordsP.clean.html#pan>`__ and `SCROLL <KeywordsS.clean.html#scroll>`__ can
+See :ref:`io-trap`,
+:ref:`ttet3`, :ref:`mtrap` and
+:ref:`btrap`. Any return parameters can be read with
+:ref:`datareg` and
+:ref:`addreg`. :ref:`cls`,
+:ref:`pan` and :ref:`scroll` can
 also be used to call TRAP #3. Refer to the QDOS/SMS Reference Manual
 (Section 15) for details of the various system TRAP #3 calls.
 
 --------------
+
+
+..  _quatari:
 
 QuATARI
 =======
@@ -936,13 +1039,16 @@ This function does not always work!
 
 **CROSS-REFERENCE**
 
-Also see `QDOS$ <KeywordsQ.clean.html#qdos>`__,
-`ATARI <KeywordsA.clean.html#atari>`__, `VER$ <KeywordsV.clean.html#ver>`__,
-`QRAM$ <KeywordsQ.clean.html#qram>`__, `WMAN$ <KeywordsW.clean.html#wman>`__,
-`P\_ENV <KeywordsP.clean.html#p-env>`__. `MACHINE <KeywordsM.clean.html#machine>`__
+Also see :ref:`qdos-dlr`,
+:ref:`atari`, :ref:`ver-dlr`,
+:ref:`qram-dlr`, :ref:`wman-dlr`,
+:ref:`p-env`. :ref:`machine`
 is much more reliable.
 
 --------------
+
+
+..  _queue-pct:
 
 QUEUE%
 ======
@@ -965,6 +1071,9 @@ many characters QUEUE% failed to send.
 
 --------------
 
+
+..  _quit:
+
 QUIT
 ====
 
@@ -984,6 +1093,7 @@ If this command is used from SuperBASIC Job 0, it will return an
 
 **CROSS-REFERENCE**
 
-See `MB <KeywordsM.clean.html#mb>`__ and `SBASIC <KeywordsS.clean.html#sbasic>`__.
-`CLOSE <KeywordsC.clean.html#close>`__ #0 has the same effect from within
+See :ref:`mb` and :ref:`sbasic`.
+:ref:`close` #0 has the same effect from within
 a Multiple SBASIC or MultiBASIC Interpreter
+

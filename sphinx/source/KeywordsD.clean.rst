@@ -6,13 +6,13 @@ TODO
 ====
 
 - Can we do something about the SYNTAX table cell contents? We should have it split onto new lines for each "or".
-- DATE$ has the same URL as DATE.
-- DEFAULT%, DEFAULT$ have the same URL as DEFAULT.
-- There are two DIVs in this section. Both will have the same section URL. Fix.
-- There are two DRAWs in this section. Both will have the same section URL. Fix.
+- :ref:`devtype` references something called QRD to rename a device. It is not found.
+- :ref:`dbl` references ESC whihc is not found.
 - DISP_COLOUR is referenced from KeywordsI (Ink) but is not in this file.
-- DOS_DRIVE and DOS_DRIVE$ have the same URL.
 
+
+
+..  _data:
 
 DATA
 ====
@@ -103,14 +103,17 @@ PROCedure or DEFine FuNction struture.
 
 **CROSS-REFERENCE**
 
-`RESTORE <KeywordsR.clean.html#restore>`__ allows you to set the current
-`DATA <KeywordsD.clean.html#data>`__ pointer. `READ <KeywordsR.clean.html#read>`__
-will assign the value at the current `DATA <KeywordsD.clean.html#data>`__
-pointer to the given variable. `EOF <KeywordsE.clean.html#eof>`__ will return
-the value one if there are no more `DATA <KeywordsD.clean.html#data>`__
+:ref:`restore` allows you to set the current
+:ref:`data` pointer. :ref:`read`
+will assign the value at the current :ref:`data`
+pointer to the given variable. :ref:`eof` will return
+the value one if there are no more :ref:`data`
 statements in the current program.
 
 --------------
+
+
+..  _datad-dlr:
 
 DATAD$
 ======
@@ -173,14 +176,17 @@ require substantial amendment to make it search sub-directories also.
 
 **CROSS-REFERENCE**
 
-`DATA\_USE <KeywordsD.clean.html#data-use>`__ defines the default device;
-`DUP <KeywordsD.clean.html#dup>`__, `DDOWN <KeywordsD.clean.html#ddown>`__ and
-`DNEXT <KeywordsD.clean.html#dnext>`__ allow you to move around the
-sub-directory tree. `PROGD$ <KeywordsP.clean.html#progd>`__ returns the
-default program device. `DLIST <KeywordsD.clean.html#dlist>`__ prints all
+:ref:`data-use` defines the default device;
+:ref:`dup`, :ref:`ddown` and
+:ref:`dnext` allow you to move around the
+sub-directory tree. :ref:`progd-dlr` returns the
+default program device. :ref:`dlist` prints all
 default devices.
 
 --------------
+
+
+..  _datareg:
 
 DATAREG
 =======
@@ -204,13 +210,16 @@ Number will let you read the value of the relevant data register D0, D1, D2 or D
 
 **CROSS-REFERENCE**
 
-`ADDREG <KeywordsA.clean.html#addreg>`__ allows you to read machine code
+:ref:`addreg` allows you to read machine code
 address registers - see this for an example of
-`DATREG <KeywordsD.clean.html#datreg>`__. See
-`MTRAP <KeywordsM.clean.html#mtrap>`__, `QTRAP <KeywordsQ.clean.html#qtrap>`__ and
-`BTRAP <KeywordsB.clean.html#btrap>`__.
+:ref:`datareg`. See
+:ref:`mtrap`, :ref:`qtrap` and
+:ref:`btrap`.
 
 --------------
+
+
+..  _dataspace:
 
 DATASPACE
 =========
@@ -244,11 +253,14 @@ The following error values may also be returned by the function:
 
 **CROSS-REFERENCE**
 
-`DATA\_AREA <KeywordsD.clean.html#data-area>`__ allows you to set the
+:ref:`data-area` allows you to set the
 dataspace for a compiled program. See also
-`FDAT <KeywordsF.clean.html#fdat>`__.
+:ref:`fdat`.
 
 --------------
+
+
+..  _data-area:
 
 DATA\_AREA
 ==========
@@ -286,14 +298,17 @@ directive in the same program.
 
 **CROSS-REFERENCE**
 
-`DATASPACE <KeywordsD.clean.html#dataspace>`__ allows you to find out how much
+:ref:`dataspace` allows you to find out how much
 dataspace has been set aside for a program. See
-`COMPILED <KeywordsC.clean.html#compiled>`__ and
-`TURBO\_objfil <KeywordsT.clean.html#turbo-objfil>`__ for other compiler
-directives. `TURBO\_objdat <KeywordsT.clean.html#turbo-objdat>`__ is exactly
+:ref:`compiled` and
+:ref:`turbo-objfil` for other compiler
+directives. :ref:`turbo-objdat` is exactly
 the same.
 
 --------------
+
+
+..  _data-use:
 
 DATA\_USE
 =========
@@ -396,18 +411,21 @@ error 'Bad Parameter' (error -15).
 
 **CROSS-REFERENCE**
 
-`DATAD$ <KeywordsD.clean.html#datad>`__ contains the default data device,
-`DLIST <KeywordsD.clean.html#dlist>`__ lists all default devices.
-`DDOWN <KeywordsD.clean.html#ddown>`__, `DUP <KeywordsD.clean.html#dup>`__ and
-`DNEXT <KeywordsD.clean.html#dnext>`__ allow you to skip from sub-directory to
+:ref:`datad-dlr` contains the default data device,
+:ref:`dlist` lists all default devices.
+:ref:`ddown`, :ref:`dup` and
+:ref:`dnext` allow you to skip from sub-directory to
 sub-directory, climb up the tree and much more.
-`PROG\_USE <KeywordsP.clean.html#prog-use>`__ changes the default program
-device, and `SPL\_USE <KeywordsS.clean.html#spl-use>`__
-/`DEST\_USE <KeywordsD.clean.html#dest-use>`__ the default destination device.
-See also `DEV\_USE <KeywordsD.clean.html#dev-use>`__ and
-`PTH\_ADD <KeywordsP.clean.html#pth-add>`__ for path search.
+:ref:`prog-use` changes the default program
+device, and :ref:`spl-use`
+/:ref:`dest-use` the default destination device.
+See also :ref:`dev-use` and
+:ref:`pth-add` for path search.
 
 --------------
+
+
+..  _date:
 
 DATE
 ====
@@ -468,14 +486,17 @@ default to zero if omitted.
 
 **CROSS-REFERENCE**
 
-`SDATE <KeywordsS.clean.html#sdate>`__ will alter the QL clock.
-`DAY$ <KeywordsD.clean.html#day>`__ returns the day on the given date,
-`DATE$ <KeywordsD.clean.html#date>`__ will return the current date.
-`T\_ON <KeywordsT.clean.html#t-on>`__ and
-`T\_START <KeywordsT.clean.html#t-start>`__ can be used for accurate
+:ref:`sdate` will alter the QL clock.
+:ref:`day-dlr` returns the day on the given date,
+:ref:`date-dlr` will return the current date.
+:ref:`t-on` and
+:ref:`t-start` can be used for accurate
 stop-watches for timing programs.
 
 --------------
+
+
+..  _date-dlr:
 
 DATE$
 =====
@@ -605,13 +626,16 @@ supply five or six parameters to DATE$ in common with DATE and SDATE.
 
 **CROSS-REFERENCE**
 
-Use `SDATE <KeywordsS.clean.html#sdate>`__ and
-`ADATE <KeywordsA.clean.html#adate>`__ to set and alter the system time and
-date. `DATE <KeywordsD.clean.html#date>`__ holds the current date as a
-floating point number, `DAY$ <KeywordsD.clean.html#day>`__ holds the weekday
+Use :ref:`sdate` and
+:ref:`adate` to set and alter the system time and
+date. :ref:`date` holds the current date as a
+floating point number, :ref:`day-dlr` holds the weekday
 as a short string.
 
 --------------
+
+
+..  _day-dlr:
 
 DAY$
 ====
@@ -658,14 +682,17 @@ parameters as with SDATE and DATE. You can also slice DAY$ (like on Minerva) - s
 
 **CROSS-REFERENCE**
 
-`TRA <KeywordsT.clean.html#tra>`__ and
-`SET\_LANGUAGE <KeywordsS.clean.html#set-language>`__ allow you to re-define
+:ref:`tra` and
+:ref:`set-language` allow you to re-define
 the abbreviations used for the different days.
-`DATE <KeywordsD.clean.html#date>`__ holds the current system date (in seconds
+:ref:`date` holds the current system date (in seconds
 after 1/1/1961) as a floating point number,
-`DATE$ <KeywordsD.clean.html#date>`__ as a string.
+:ref:`date-dlr` as a string.
 
 --------------
+
+
+..  _dbl:
 
 DBL
 ===
@@ -681,16 +708,19 @@ This function returns the control codes needed to switch on emphasised mode on a
 
 **CROSS-REFERENCE**
 
-`NORM <KeywordsN.clean.html#norm>`__, `BLD <KeywordsB.clean.html#bld>`__,
-`EL <KeywordsE.clean.html#el>`__, `ENL <KeywordsE.clean.html#enl>`__,
-`PRO <KeywordsP.clean.html#pro>`__, `SI <KeywordsS.clean.html#si>`__,
-`NRM <KeywordsN.clean.html#nrm>`__, `UNL <KeywordsU.clean.html#unl>`__,
-`ALT <KeywordsA.clean.html#alt>`__, `ESC <KeywordsE.clean.html#esc>`__,
-`FF <KeywordsF.clean.html#ff>`__, `LMAR <KeywordsL.clean.html#lmar>`__,
-`RMAR <KeywordsR.clean.html#rmar>`__, `PAGDIS <KeywordsP.clean.html#pagdis>`__,
-`PAGLEN <KeywordsP.clean.html#paglen>`__.
+:ref:`norm`, :ref:`bld`,
+:ref:`el`, :ref:`enl`,
+:ref:`pro`, :ref:`si`,
+:ref:`nrm`, :ref:`unl`,
+:ref:`alt`, :ref:`esc`,
+:ref:`ff`, :ref:`lmar`,
+:ref:`rmar`, :ref:`pagdis`,
+:ref:`paglen`.
 
 --------------
+
+
+..  _ddown:
 
 DDOWN
 =====
@@ -760,13 +790,16 @@ error 'Bad Parameter' (error -15).
 
 **CROSS-REFERENCE**
 
-`DUP <KeywordsD.clean.html#dup>`__ moves up the tree,
-`DNEXT <KeywordsD.clean.html#dnext>`__ skips from branch to branch.
-`DATAD$ <KeywordsD.clean.html#datad>`__ and `DLIST <KeywordsD.clean.html#dlist>`__
+:ref:`dup` moves up the tree,
+:ref:`dnext` skips from branch to branch.
+:ref:`datad-dlr` and :ref:`dlist`
 can be used to find out about the current sub-directory and default
 devices respectively.
 
 --------------
+
+
+..  _deallocate:
 
 DEALLOCATE
 ==========
@@ -792,10 +825,13 @@ been set aside with ALLOCATION.
 
 **CROSS-REFERENCE**
 
-See `ALLOCATION <KeywordsA.clean.html#allocation>`__ and
-`RECHP <KeywordsR.clean.html#rechp>`__.
+See :ref:`allocation` and
+:ref:`rechp`.
 
 --------------
+
+
+..  _debug:
 
 DEBUG
 =====
@@ -815,9 +851,12 @@ do not support this.
 
 **CROSS-REFERENCE**
 
-See `DEBUG\_LEVEL <KeywordsD.clean.html#debug-level>`__.
+See :ref:`debug-level`.
 
 --------------
+
+
+..  _debug-level:
 
 DEBUG\_LEVEL
 ============
@@ -834,10 +873,12 @@ compiled programs.
 
 **CROSS-REFERENCE**
 
-See `DEBUG <KeywordsD.clean.html#debug>`__ and
-`TURBO\_xx <KeywordsT.clean.html#turbo-diags>`__.
+See :ref:`debug` and the various TURBO_XXX commands starting with :ref:`turbo-diags`.
 
 --------------
+
+
+..  _default:
 
 DEFAULT
 =======
@@ -866,11 +907,14 @@ a valid number for any reason then #1 is used::
 
 **CROSS-REFERECE**
 
-`TYPE <KeywordsT.clean.html#type>`__. `DEFAULT$ <KeywordsD.clean.html#default>`__
-and `DEFAULT% <KeywordsD.clean.html#default>`__ work exactly like
-`DEFAULT <KeywordsD.clean.html#default>`__ for string and integer expressions.
+:ref:`type`. :ref:`default-dlr`
+and :ref:`default-pct` work exactly like
+:ref:`default` for string and integer expressions.
 
 --------------
+
+
+..  _default-pct:
 
 DEFAULT%
 ========
@@ -881,9 +925,12 @@ DEFAULT%
 | Location |  BTool                                                            |
 +----------+-------------------------------------------------------------------+
 
- See `DEFAULT <KeywordsD.clean.html#default>`__ !
+ See :ref:`default` !
 
 --------------
+
+
+..  _default-dlr:
 
 DEFAULT$
 ========
@@ -894,9 +941,12 @@ DEFAULT$
 | Location |  BTool                                                            |
 +----------+-------------------------------------------------------------------+
 
- See `DEFAULT <KeywordsD.clean.html#default>`__ !
+ See :ref:`default` !
 
 --------------
+
+
+..  _default-device:
 
 DEFAULT\_DEVICE
 ===============
@@ -951,9 +1001,12 @@ example::
 
 **CROSS-REFERENCE**
 
-`PROG\_USE <KeywordsP.clean.html#prog-use>`__.
+:ref:`prog-use`.
 
 --------------
+
+
+..  _default-scr:
 
 DEFAULT\_SCR
 ============
@@ -998,11 +1051,14 @@ only alter the MODE of the screen in which the program is running)::
 
 **CROSS-REFERENCE**
 
-`MODE <KeywordsM.clean.html#mode>`__ alters the mode of the current screen and
+:ref:`mode` alters the mode of the current screen and
 job and can be used to alter the current default screen,
-`RMODE <KeywordsR.clean.html#rmode>`__ returns the mode of the given screen.
+:ref:`rmode` returns the mode of the given screen.
 
 --------------
+
+
+..  _define--xxx:
 
 DEFine xxx
 ==========
@@ -1029,6 +1085,9 @@ causes an error 'Incorrect Procedure or Function Definition'.
 Please refer to the individual structure descriptions for more details.
 
 --------------
+
+
+..  _define--function:
 
 DEFine FuNction
 ===============
@@ -1356,17 +1415,20 @@ fixes this problem, allowing both.
 
 **CROSS-REFERENCE**
 
-`END DEFine <KeywordsE.clean.html#end-define>`__ tells the interpreter where
+:ref:`end--define` tells the interpreter where
 the end of the definition block can be found.
-`RETurn <KeywordsR.clean.html#return>`__ allows you to return the result of
-the Function. `DEFine PROCedure <KeywordsD.clean.html#define-procedure>`__
-is very similar. `LOCal <KeywordsL.clean.html#local>`__ allows you to assign
+:ref:`return` allows you to return the result of
+the Function. :ref:`define--procedure`
+is very similar. :ref:`local` allows you to assign
 temporary variables with the same name as variables used outside the
-definition block. `PARUSE <KeywordsP.clean.html#paruse>`__ and
-`PARTYP <KeywordsP.clean.html#partyp>`__ allow you to examine the type of the
+definition block. :ref:`paruse` and
+:ref:`partyp` allow you to examine the type of the
 parameters which are passed to the definition block.
 
 --------------
+
+
+..  _define--procedure:
 
 DEFine PROCedure
 ================
@@ -1525,12 +1587,15 @@ versions prior to v2.90 as with DEFine FuNction for in-line code.
 
 **CROSS-REFERENCE**
 
-Please see `DEFine FuNction <KeywordsD.clean.html#define-function>`__! Also
-see `END DEFine <KeywordsE.clean.html#end-define>`__. Look at the example
-for `SWAP <KeywordsS.clean.html#swap>`__ which provides a more practical use
-of recursive `PROCedure <KeywordsP.clean.html#procedure>`__\ s.
+Please see :ref:`define--function`! Also
+see :ref:`end--define`. Look at the example
+for :ref:`swap` which provides a more practical use
+of recursive :ref:`procedure`\ s.
 
 --------------
+
+
+..  _defined:
 
 DEFINED
 =======
@@ -1564,12 +1629,15 @@ This function does not work on SMS
 
 **CROSS-REFERENCE**
 
-`CLEAR <KeywordsC.clean.html#clear>`__ makes all variables undefined.
-`PRINT <KeywordsP.clean.html#print>`__ writes asterisks if unset variables are
-required to be printed. `TYPE <KeywordsT.clean.html#type>`__ returns 1, 2 or 3
-for undefined variables. See also `UNSET <KeywordsU.clean.html#unset>`__.
+:ref:`clear` makes all variables undefined.
+:ref:`print` writes asterisks if unset variables are
+required to be printed. :ref:`type` returns 1, 2 or 3
+for undefined variables. See also :ref:`unset`.
 
 --------------
+
+
+..  _deg:
 
 DEG
 ===
@@ -1589,10 +1657,13 @@ range 0...360.
 
 **CROSS-REFERENCE**
 
-See `RAD <KeywordsR.clean.html#rad>`__ and the Mathematics section of the
+See :ref:`rad` and the Mathematics section of the
 Appendix.
 
 --------------
+
+
+..  _delete:
 
 DELETE
 ======
@@ -1640,11 +1711,14 @@ parameter) is reported.
 
 **CROSS-REFERENCE**
 
-`WDEL <KeywordsW.clean.html#wdel>`__ deletes several files interactively.
-`WDEL\_F <KeywordsW.clean.html#wdel-f>`__, `WDIR <KeywordsW.clean.html#wdir>`__ and
-`TTEDELETE <KeywordsT.clean.html#ttedelete>`__ are also worth a look.
+:ref:`wdel` deletes several files interactively.
+:ref:`wdel-f`, :ref:`wdir` and
+:ref:`ttedelete` are also worth a look.
 
 --------------
+
+
+..  _del-defb:
 
 DEL\_DEFB
 =========
@@ -1738,14 +1812,17 @@ Do not use DEL\_DEFB if any channels are open to a file.
 
 **CROSS-REFERENCE**
 
-`RECHP <KeywordsR.clean.html#rechp>`__, `CLCHP <KeywordsC.clean.html#clchp>`__,
-`RELEASE <KeywordsR.clean.html#release>`__,
-`FREE\_MEM <KeywordsF.clean.html#free-mem>`__, `FREE <KeywordsF.clean.html#free>`__.
+:ref:`rechp`, :ref:`clchp`,
+:ref:`release`,
+:ref:`free-mem`, :ref:`free`.
 Dynamic RAM disks use effectively all of the free memory.
-`FORMAT <KeywordsF.clean.html#format>`__ lists other ways of causing heap
+:ref:`format` lists other ways of causing heap
 fragmentation.
 
 --------------
+
+
+..  _despr:
 
 DESPR
 =====
@@ -1769,12 +1846,15 @@ some versions of the QL. This function should not be used!!
 
 **CROSS-REFERENCE**
 
-Use `RESPR <KeywordsR.clean.html#respr>`__ to allocate resident procedure
+Use :ref:`respr` to allocate resident procedure
 memory, and do not try to release it at a later stage. Use
-`ALCHP <KeywordsA.clean.html#alchp>`__ and `RECHP <KeywordsR.clean.html#rechp>`__ to
+:ref:`alchp` and :ref:`rechp` to
 allocate areas of memory which may be later released.
 
 --------------
+
+
+..  _destd-dlr:
 
 DESTD$
 ======
@@ -1806,18 +1886,21 @@ always ends with an underscore.
 
 **CROSS-REFERENCE**
 
-`DEST\_USE <KeywordsD.clean.html#dest-use>`__ and
-`SPL\_USE <KeywordsS.clean.html#spl-use>`__ both define the default
+:ref:`dest-use` and
+:ref:`spl-use` both define the default
 destination device\ .
 
-`DUP <KeywordsD.clean.html#dup>`__, `DDOWN <KeywordsD.clean.html#ddown>`__ and
-`DNEXT <KeywordsD.clean.html#dnext>`__ allow you to move around the
-sub-directory tree. `PROGD$ <KeywordsP.clean.html#progd>`__ returns the
-default program device, `DATAD$ <KeywordsD.clean.html#datad>`__ returns the
-default data device. `DLIST <KeywordsD.clean.html#dlist>`__ prints all default
+:ref:`dup`, :ref:`ddown` and
+:ref:`dnext` allow you to move around the
+sub-directory tree. :ref:`progd-dlr` returns the
+default program device, :ref:`datad-dlr` returns the
+default data device. :ref:`dlist` prints all default
 devices.
 
 --------------
+
+
+..  _dest-use:
 
 DEST\_USE
 =========
@@ -1855,10 +1938,13 @@ error 'Bad Parameter' (error -15).
 
 **CROSS-REFERENCE**
 
-Please see `DESTD$ <KeywordsD.clean.html#destd>`__ and
-`SPL\_USE <KeywordsS.clean.html#spl-use>`__.
+Please see :ref:`destd-dlr` and
+:ref:`spl-use`.
 
 --------------
+
+
+..  _demo:
 
 DEMO
 ====
@@ -1877,10 +1963,13 @@ finishes.
 
 **CROSS-REFERENCE**
 
-The function `ODD <KeywordsO.clean.html#odd>`__ checks if a number is odd or
+The function :ref:`odd` checks if a number is odd or
 even.
 
 --------------
+
+
+..  _det:
 
 DET
 ===
@@ -1952,17 +2041,20 @@ In practice, a Newton iteration algorithm (or better) would be used.
 
 **CROSS-REFERENCE**
 
-`MATINV <KeywordsM.clean.html#matinv>`__ co-operates closely with
-`DET <KeywordsD.clean.html#det>`__, so that for each of them a matrix
+:ref:`matinv` co-operates closely with
+:ref:`det`, so that for each of them a matrix
 parameter can be omitted if the other function has been called before;
-`MATINV <KeywordsM.clean.html#matinv>`__ calls `DET <KeywordsD.clean.html#det>`__
+:ref:`matinv` calls :ref:`det`
 internally. In the example, we used the
-`MATRND <KeywordsM.clean.html#matrnd>`__, `MATIDN <KeywordsM.clean.html#matidn>`__,
-`SGN <KeywordsS.clean.html#sgn>`__ and `MATSUB <KeywordsM.clean.html#matsub>`__
+:ref:`matrnd`, :ref:`matidn`,
+:ref:`sgn` and :ref:`matsub`
 keywords which are all part of the same Toolkit.
 
 --------------
 
+
+
+..  _dev-name:
 
 DEV\_NAME
 =========
@@ -1983,25 +2075,28 @@ This function must be called with a floating point variable name as its paramete
     1030   IF addr = 0 THEN EXIT loop: END IF
     1040 END REPeat loop
 
-This small example will scan the entire directory device driver list and return one entry from it each time as well as updating the value in 'addr'. The value in addr is the start of the next device driver linkage block and *must not be changed* except by the function `DEV\_NAME <KeywordsD.clean.html#dev-name>`__. If you change addr and then call `DEV\_NAME <KeywordsD.clean.html#dev-name>`__ again, the results will be very unpredictable.
+This small example will scan the entire directory device driver list and return one entry from it each time as well as updating the value in 'addr'. The value in addr is the start of the next device driver linkage block and *must not be changed* except by the function :ref:`dev-name`. If you change addr and then call :ref:`dev-name` again, the results will be very unpredictable.
 
-The check for addr being zero is done as this is the value returned when the final device name has been extracted, in this case the function returns an empty string for the device.  If the test was made before the call to `DEV\_NAME <KeywordsD.clean.html#dev-name>`__, nothing would be printed as addr is zero on entry to the loop.
+The check for addr being zero is done as this is the value returned when the final device name has been extracted, in this case the function returns an empty string for the device.  If the test was made before the call to :ref:`dev-name`, nothing would be printed as addr is zero on entry to the loop.
 
 Please note, every QL has at least one device in the list, the 'MDV' device and some also have a device with no name as you will see if you run the above example (not the last one as it is always an empty string when addr becomes zero).
 
-The above example will only show directory  devices, those that can have DIR used on them, or `FORMAT <KeywordsF.clean.html#format>`__ etc, such as WIN, RAM, FLP, FDK etc, however, it cannot show the  non-directory  devices such as SER, PAR (or NUL if you have Lightning), as these are in another list held in the QL.
+The above example will only show directory  devices, those that can have DIR used on them, or :ref:`format` etc, such as WIN, RAM, FLP, FDK etc, however, it cannot show the  non-directory  devices such as SER, PAR (or NUL if you have Lightning), as these are in another list held in the QL.
 
 **Note**
 
-From version 1.14 of DJToolkit onwards, there is a function that counts the number of directory devices present in the QL. See `MAX\_DEVS <KeywordsM.clean.html#max-devs>`__ for details.
+From version 1.14 of DJToolkit onwards, there is a function that counts the number of directory devices present in the QL. See :ref:`max-devs` for details.
 
 
 **CROSS-REFERENCE**
 
-`MAX\_DEVS <KeywordsM.clean.html#max-devs>`__.
+:ref:`max-devs`.
 
 
 -------
+
+
+..  _device-space:
 
 DEVICE\_SPACE
 =============
@@ -2069,12 +2164,15 @@ sectors.
 
 **CROSS-REFERENCE**
 
-See `FOPEN <KeywordsF.clean.html#fopen>`__ and
-`DEVICE\_STATUS <KeywordsD.clean.html#device-status>`__ for more details on
-accessing directory devices. `DEVTYPE <KeywordsD.clean.html#devtype>`__
+See :ref:`fopen` and
+:ref:`device-status` for more details on
+accessing directory devices. :ref:`devtype`
 finds out what type of device a channel is looking at.
 
 --------------
+
+
+..  _device-status:
 
 DEVICE\_STATUS
 ==============
@@ -2141,9 +2239,12 @@ medium error code (-16).
 
 **CROSS-REFERENCE**
 
-See `DEVICE\_SPACE <KeywordsD.clean.html#device-space>`__ for an example.
+See :ref:`device-space` for an example.
 
 --------------
+
+
+..  _devlist:
 
 DEVLIST
 =======
@@ -2168,14 +2269,17 @@ ramdisks ("RAM").
 
 **CROSS-REFERENCE**
 
-Directory devices may be renamed with `CHANGE <KeywordsC.clean.html#change>`__
+Directory devices may be renamed with :ref:`change`
 (this will have a corresponding effect on
-`DEVLIST <KeywordsD.clean.html#devlist>`__), whilst any device can be renamed
-using `QRD <KeywordsQ.clean.html#qrd>`__ (this will have no effect on
-`DEVLIST <KeywordsD.clean.html#devlist>`__). Compare
-`DLIST <KeywordsD.clean.html#dlist>`__.
+:ref:`devlist`), whilst any device can be renamed
+using :ref:`qrd` (this will have no effect on
+:ref:`devlist`). Compare
+:ref:`dlist`.
 
 --------------
+
+
+..  _devtype:
 
 DEVTYPE
 =======
@@ -2212,11 +2316,14 @@ end of the file.
 
 **CROSS-REFERENCE**
 
-`OPEN <KeywordsO.clean.html#open>`__, `OPEN\_IN <KeywordsO.clean.html#open-in>`__,
-`OPEN\_NEW <KeywordsO.clean.html#open-new>`__ and
-`OPEN\_OVER <KeywordsO.clean.html#open-over>`__ allow you to open channels.
+:ref:`open`, :ref:`open-in`,
+:ref:`open-new` and
+:ref:`open-over` allow you to open channels.
 
 --------------
+
+
+..  _dev-list:
 
 DEV\_LIST
 =========
@@ -2245,13 +2352,16 @@ DEV\_LIST for example 4a of DEV\_USE prints::
 
 **CROSS-REFERENCE**
 
-`DEV\_USE <KeywordsD.clean.html#dev-use>`__,
-`DEV\_USE$ <KeywordsD.clean.html#dev-use>`__,
-`DEV\_NEXT <KeywordsD.clean.html#dev-next>`__ Compare
-`DEVLIST <KeywordsD.clean.html#devlist>`__ and
-`DLIST <KeywordsD.clean.html#dlist>`__.
+:ref:`dev-use`,
+:ref:`dev-use-dlr`,
+:ref:`dev-next` Compare
+:ref:`devlist` and
+:ref:`dlist`.
 
 --------------
+
+
+..  _dev-next:
 
 DEV\_NEXT
 =========
@@ -2288,11 +2398,14 @@ device works.
 
 **CROSS-REFERENCE**
 
-`DEV\_USE$ <KeywordsD.clean.html#dev-use>`__,
-`DEV\_LIST <KeywordsD.clean.html#dev-list>`__,
-`DEV\_USE <KeywordsD.clean.html#dev-use>`__
+:ref:`dev-use-dlr`,
+:ref:`dev-list`,
+:ref:`dev-use`
 
 --------------
+
+
+..  _dev-use:
 
 DEV\_USE
 ========
@@ -2512,16 +2625,19 @@ DEV\_USE 1,FLP1\_TEST\_ WSTAT DEV1\_
 
 **CROSS-REFERENCE**
 
-`DATA\_USE <KeywordsD.clean.html#data-use>`__,
-`PROG\_USE <KeywordsP.clean.html#prog-use>`__,\ `DEV\_USE$ <KeywordsD.clean.html#dev-use>`__,
-`DEV\_NEXT <KeywordsD.clean.html#dev-next>`__.
-`DEV\_USEN <KeywordsD.clean.html#dev-usen>`__ is the same as the third syntax
-on SMSQ/E. `DEV\_LIST <KeywordsD.clean.html#dev-list>`__ lists all DEV
-definitions. `MAKE\_DIR <KeywordsM.clean.html#make-dir>`__ and the
-`DMEDIUM\_ <KeywordsD.clean.html#dmedium->`__\ xxx functions are also
+:ref:`data-use`,
+:ref:`prog-use`,\ :ref:`dev-use-dlr`,
+:ref:`dev-next`.
+:ref:`dev-usen` is the same as the third syntax
+on SMSQ/E. :ref:`dev-list` lists all DEV
+definitions. :ref:`make-dir` and the
+DMEDIUM_XXX commands, starting with :ref:`dmedium-density` are also
 interesting.
 
 --------------
+
+
+..  _dev-usen:
 
 DEV\_USEN
 =========
@@ -2552,11 +2668,14 @@ with::
 
 **CROSS-REFERENCE**
 
-`DEV\_USE <KeywordsD.clean.html#dev-use>`__ allows you to do the same thing.
-`FLP\_USE <KeywordsF.clean.html#flp-use>`__ allows you to alter the three
+:ref:`dev-use` allows you to do the same thing.
+:ref:`flp-use` allows you to alter the three
 letter description for floppy disks.
 
 --------------
+
+
+..  _dev-use-dlr:
 
 DEV\_USE$
 =========
@@ -2590,10 +2709,13 @@ A listing of all DEV definitions::
 
 **CROSS-REFERENCE**
 
-`DEV\_NEXT <KeywordsD.clean.html#dev-next>`__,
-`DEV\_LIST <KeywordsD.clean.html#dev-list>`__,\ `DEV\_USE <KeywordsD.clean.html#dev-use>`__.
+:ref:`dev-next`,
+:ref:`dev-list`,\ :ref:`dev-use`.
 
 --------------
+
+
+..  _dim:
 
 DIM
 ===
@@ -3205,12 +3327,15 @@ messages which can be generated.
 
 **CROSS-REFERENCE**
 
-`DIMN <KeywordsD.clean.html#dimn>`__ allows you to find out the maximum sizes
+:ref:`dimn` allows you to find out the maximum sizes
 of an array. Please see the Appendix on Compatability concerning String
-Lengths. `LEN <KeywordsL.clean.html#len>`__ allows you to find the length of a
+Lengths. :ref:`len` allows you to find the length of a
 string.
 
 --------------
+
+
+..  _dimn:
 
 DIMN
 ====
@@ -3301,10 +3426,13 @@ Will cause an 'Out of Range' error.
 
 **CROSS-REFERENCE**
 
-`LEN <KeywordsL.clean.html#len>`__ will return the actual length of characters
-held within a string. `DIM <KeywordsD.clean.html#dim>`__ initialises an array.
+:ref:`len` will return the actual length of characters
+held within a string. :ref:`dim` initialises an array.
 
 --------------
+
+
+..  _dir:
 
 DIR
 ===
@@ -3491,11 +3619,14 @@ disk which has not had other files deleted from it already.
 
 **CROSS-REFERENCE**
 
-`DATA\_USE <KeywordsD.clean.html#data-use>`__ sets the current data default
-directory, `MAKE\_DIR <KeywordsM.clean.html#make-dir>`__ creates
-sub-directories, `WDIR <KeywordsW.clean.html#wdir>`__ allows wildcard names.
+:ref:`data-use` sets the current data default
+directory, :ref:`make-dir` creates
+sub-directories, :ref:`wdir` allows wildcard names.
 
 --------------
+
+
+..  _discard:
 
 DISCARD
 =======
@@ -3514,12 +3645,15 @@ set aside with RESERVE the error 'not found' is returned.
 
 **CROSS-REFERENCE**
 
-See `RESERVE <KeywordsR.clean.html#reserve>`__ and
-`LINKUP <KeywordsL.clean.html#linkup>`__. Also see
-`CLCHP <KeywordsC.clean.html#clchp>`__, `RECHP <KeywordsR.clean.html#rechp>`__ and
-`DESPR <KeywordsD.clean.html#despr>`__.
+See :ref:`reserve` and
+:ref:`linkup`. Also see
+:ref:`clchp`, :ref:`rechp` and
+:ref:`despr`.
 
 --------------
+
+
+..  _disp-blank:
 
 DISP\_BLANK
 ===========
@@ -3573,9 +3707,9 @@ override any setting of the line scan rate with DISP\_RATE.
 
 **CROSS-REFERENCE**
 
-`DISP\_SIZE <KeywordsD.clean.html#disp-size>`__ allows you to pass these
+:ref:`disp-size` allows you to pass these
 parameters at the same time as amending the size of the displayed QL
-screen. `DISP\_RATE <KeywordsD.clean.html#disp-rate>`__ sets the frame and
+screen. :ref:`disp-rate` sets the frame and
 line scan rates for the display - if this command is used to adjust the
 line scan rate, this will alter the totoal number of lines. 
 
@@ -3584,6 +3718,9 @@ and QVME include programs to allow you to try out the various settings
 for the various DISP\_... commands.
 
 --------------
+
+
+..  _disp-inverse:
 
 DISP\_INVERSE
 =============
@@ -3614,12 +3751,15 @@ This command is not available on SMS2.
 
 **CROSS-REFERENCE**
 
-`DISP\_TYPE <KeywordsD.clean.html#disp-type>`__ allows you to find out if the
+:ref:`disp-type` allows you to find out if the
 monochrome display driver is running.
-`INVERSE <KeywordsI.clean.html#inverse>`__ allows you to print in inverse
+:ref:`inverse` allows you to print in inverse
 colours.
 
 --------------
+
+
+..  _disp-rate:
 
 DISP\_RATE
 ==========
@@ -3671,9 +3811,9 @@ following routine::
 
 **CROSS-REFERENCE**
 
-`DISP\_SIZE <KeywordsD.clean.html#disp-size>`__ allows you to pass these
+:ref:`disp-size` allows you to pass these
 parameters at the same time as amending the size of the displayed QL
-screen. `DISP\_BLANK <KeywordsD.clean.html#disp-blank>`__ sets the number of
+screen. :ref:`disp-blank` sets the number of
 horizontal and vertical blank pixels on the edge of the display. 
 
 Both
@@ -3681,6 +3821,9 @@ SMSQ/E and QVME include programs to allow you to try out the various
 settings for the DISP\_... commands.
 
 --------------
+
+
+..  _disp-size:
 
 DISP\_SIZE
 ==========
@@ -3757,10 +3900,13 @@ windows, or the SuperBASIC cursor!!
 
 All of these parameters can be configured in SMSQ/E so that they are
 available immediately on start-up. See
-`DISP\_RATE <KeywordsD.clean.html#disp-rate>`__ and
-`DISP\_BLANK <KeywordsD.clean.html#disp-blank>`__.
+:ref:`disp-rate` and
+:ref:`disp-blank`.
 
 --------------
+
+
+..  _disp-type:
 
 DISP\_TYPE
 ==========
@@ -3784,12 +3930,15 @@ display driver which is currently being used. The values returned are:
 
 **CROSS-REFERENCE**
 
-See `DISP\_INVERSE <KeywordsD.clean.html#disp-inverse>`__.
-`MACHINE <KeywordsM.clean.html#machine>`__ and
-`PROCESSOR <KeywordsP.clean.html#processor>`__ allow you to find out more
+See :ref:`disp-inverse`.
+:ref:`machine` and
+:ref:`processor` allow you to find out more
 about the hardware which a program is being run on.
 
 --------------
+
+
+..  _disp-update:
 
 DISP\_UPDATE
 ============
@@ -3815,6 +3964,9 @@ SCR\_PRIORITY is similar under Amiga QDOS.
 
 --------------
 
+
+..  _display-width:
+
 DISPLAY\_WIDTH
 ==============
 
@@ -3834,6 +3986,9 @@ For the technically minded, the word at offset $64 in the SCR\_ or CON\_ channel
 
 
 -------
+
+
+..  _div:
 
 DIV
 ===
@@ -3899,10 +4054,11 @@ numbers!!
 
 **CROSS-REFERENCE**
 
-`MOD <KeywordsM.clean.html#mod>`__ returns the modulus of x divided by y. Also
-please see the alternative version of `DIV <KeywordsD.clean.html#div>`__.
+:ref:`mod` returns the modulus of x divided by y. Also
+please see the alternative version of :ref:`div`.
 
 --------------
+
 
 DIV
 ===
@@ -3949,12 +4105,15 @@ refuse to work!
 
 **CROSS-REFERENCE**
 
-`MOD <KeywordsM.clean.html#mod>`__ (as an operator or a function) returns the
+:ref:`mod` (as an operator or a function) returns the
 remainder of a division. Compare the other version of
-`DIV <KeywordsD.clean.html#div>`__.
+:ref:`div`.
 
 --------------
 
+
+
+..  _dj-open:
 
 DJ\_OPEN
 ========
@@ -3965,15 +4124,18 @@ DJ\_OPEN
 | Location | DJToolkit 1.16                                                    |
 +----------+-------------------------------------------------------------------+
 
-Open an existing file for exclusive use. See `DJ\_OPEN\_DIR <KeywordsD.clean.html#dj-open-dir>`__ below for details and examples.
+Open an existing file for exclusive use. See :ref:`dj-open-dir` below for details and examples.
 
 **CROSS-REFERENCE**
 
-`DJ\_OPEN\_IN <KeywordsD.clean.html#dj-open-in>`__, `DJ\_OPEN\_NEW <KeywordsD.clean.html#dj-open-new>`__, `DJ\_OPEN\_OVER <KeywordsD.clean.html#dj-open-over>`__, and `DJ\_OPEN\_DIR <KeywordsD.clean.html#dj-open-dir>`__.
+:ref:`dj-open-in`, :ref:`dj-open-new`, :ref:`dj-open-over`, and :ref:`dj-open-dir`.
 
 
 -------
 
+
+
+..  _dj-open-in:
 
 DJ\_OPEN\_IN
 ============
@@ -3984,15 +4146,18 @@ DJ\_OPEN\_IN
 | Location | DJToolkit 1.16                                                    |
 +----------+-------------------------------------------------------------------+
 
-Open an existing file for shared use. The same file can be opened by other applications running at the same time. Provided they have a compatible non-exclusive OPEN mode. See `DJ_OPEN_DIR <KeywordsD.clean.html#dj-open-dir>`__ below for details and examples.
+Open an existing file for shared use. The same file can be opened by other applications running at the same time. Provided they have a compatible non-exclusive OPEN mode. See :ref:`dj-open-dir` below for details and examples.
 
 **CROSS-REFERENCE**
 
-`DJ_OPEN <KeywordsD.clean.html#dj-open>`__, `DJ\_OPEN\_NEW <KeywordsD.clean.html#dj-open-new>`__, `DJ\_OPEN\_OVER <KeywordsD.clean.html#dj-open-over>`__, and `DJ\_OPEN\_DIR <KeywordsD.clean.html#dj-open-dir>`__.
+:ref:`dj-open`, :ref:`dj-open-new`, :ref:`dj-open-over`, and :ref:`dj-open-dir`.
 
 
 -------
 
+
+
+..  _dj-open-new:
 
 DJ\_OPEN\_NEW
 =============
@@ -4003,15 +4168,18 @@ DJ\_OPEN\_NEW
 | Location | DJToolkit 1.16                                                    |
 +----------+-------------------------------------------------------------------+
 
-Create a new file for exclusive use. See `DJ\_OPEN\_DIR <KeywordsD.clean.html#dj-open-dir>`__ below for details and examples.
+Create a new file for exclusive use. See :ref:`dj-open-dir` below for details and examples.
 
 **CROSS-REFERENCE**
 
-`DJ_OPEN <KeywordsD.clean.html#dj-open>`__, `DJ\_OPEN\_IN <KeywordsD.clean.html#dj-open-in>`__, `DJ\_OPEN\_OVER <KeywordsD.clean.html#dj-open-over>`__, and `DJ\_OPEN\_DIR <KeywordsD.clean.html#dj-open-dir>`__.
+:ref:`dj-open`, :ref:`dj-open-in`, :ref:`dj-open-over`, and :ref:`dj-open-dir`.
 
 
 -------
 
+
+
+..  _dj-open-over:
 
 DJ\_OPEN\_OVER
 ==============
@@ -4022,15 +4190,18 @@ DJ\_OPEN\_OVER
 | Location | DJToolkit 1.16                                                    |
 +----------+-------------------------------------------------------------------+
 
-Open existing file but overwrite all the contents. See `DJ\_OPEN\_DIR <KeywordsD.clean.html#dj-open-dir>`__ below for details and examples.
+Open existing file but overwrite all the contents. See :ref:`dj-open-dir` below for details and examples.
 
 **CROSS-REFERENCE**
 
-`DJ_OPEN <KeywordsD.clean.html#dj-open>`__, `DJ\_OPEN\_IN <KeywordsD.clean.html#dj-open-in>`__, `DJ\_OPEN\_NEW <KeywordsD.clean.html#dj-open-new>`__, and `DJ\_OPEN\_DIR <KeywordsD.clean.html#dj-open-dir>`__.
+:ref:`dj-open`, :ref:`dj-open-in`, :ref:`dj-open-new`, and :ref:`dj-open-dir`.
 
 
 -------
 
+
+
+..  _dj-open-dir:
 
 DJ\_OPEN\_DIR
 =============
@@ -4087,20 +4258,23 @@ DJ\_OPEN\_DIR is a new function to those in the normal QL range, and it works as
     1170 CLOSE #chan
     1180 STOP
 
-In this example, no checks are done to ensure that the device actually exists, etc. You could use `DEV\_NAME <KeywordsD.clean.html#dev-name>`__ to check if it is a legal device. The data being read from a device directory file must always be read in 64 byte chunks as per this example.
+In this example, no checks are done to ensure that the device actually exists, etc. You could use :ref:`dev-name` to check if it is a legal device. The data being read from a device directory file must always be read in 64 byte chunks as per this example.
 
 Each chunk is a single directory entry which holds a copy of the file header for the appropriate file. Note, that the first 4 bytes of a file header hold the actual length of the file but when read from the directory as above, the value if 64 bytes too high as it includes the length of the file header as part of the length of a file.
 
 The above routine will also print blank lines if a file has been deleted from the directory at some point. Deleted files have a name length of zero.
 
-Note that if you type in a filename instead of a device name, the function will cope. For example, you type in 'flp1\_fred' instead of 'flp1\_'. You will get a list of the files on 'flp1\_' if 'fred' is a file, or even, if 'fred' is not on 'flp1\_'. If, however, you have the LEVEL 2 drivers (see `LEVEL2 <KeywordsL.clean.html#level2>`__ below), and 'fred' is a sub-directory then you will get a listing of the sub-directory as requested.
+Note that if you type in a filename instead of a device name, the function will cope. For example, you type in 'flp1\_fred' instead of 'flp1\_'. You will get a list of the files on 'flp1\_' if 'fred' is a file, or even, if 'fred' is not on 'flp1\_'. If, however, you have the LEVEL 2 drivers (see :ref:`level2` below), and 'fred' is a sub-directory then you will get a listing of the sub-directory as requested.
     
 **CROSS-REFERENCE**
 
-`DJ_OPEN <KeywordsD.clean.html#dj-open>`__, `DJ\_OPEN\_IN <KeywordsD.clean.html#dj-open-in>`__, `DJ\_OPEN\_NEW <KeywordsD.clean.html#dj-open-new>`__, and `DJ\_OPEN\_OVER <KeywordsD.clean.html#dj-open-over>`__.
+:ref:`dj-open`, :ref:`dj-open-in`, :ref:`dj-open-new`, and :ref:`dj-open-over`.
 
 
 -------
+
+
+..  _djtk-ver-dlr:
 
 DJTK\_VER$
 ==========
@@ -4120,6 +4294,9 @@ This simply sets v$ to be the 4 character string  'n.nn'  where this gives the v
     PRINT DJTK_VER$
 
 -------
+
+
+..  _dline:
 
 DLINE
 =====
@@ -4157,11 +4334,14 @@ On Minerva pre v1.98, DLINE to the last line could crash the QL!
 
 **CROSS-REFERENCE**
 
-`EDIT <KeywordsE.clean.html#edit>`__ and `AUTO <KeywordsA.clean.html#auto>`__ allow
-you to enter lines. `LIST <KeywordsL.clean.html#list>`__ allows you to view
+:ref:`edit` and :ref:`auto` allow
+you to enter lines. :ref:`list` allows you to view
 program lines.
 
 --------------
+
+
+..  _dlist:
 
 DLIST
 =====
@@ -4200,18 +4380,21 @@ PROGD$ and DESTD$ functions.
 
 **CROSS-REFERENCE**
 
-`DATAD$ <KeywordsD.clean.html#datad>`__
-(`DATA\_USE <KeywordsD.clean.html#data-use>`__),
-`PROGD$ <KeywordsP.clean.html#progd>`__
-(`PROG\_USE <KeywordsP.clean.html#prog-use>`__),
-`DESTD$ <KeywordsD.clean.html#destd>`__
-(`SPL\_USE <KeywordsS.clean.html#spl-use>`__ or
-`DEST\_USE <KeywordsD.clean.html#dest-use>`__),
-`DDOWN <KeywordsD.clean.html#ddown>`__, `DUP <KeywordsD.clean.html#dup>`__ Compare
-`DEVLIST <KeywordsD.clean.html#devlist>`__ and
-`DEV\_LIST <KeywordsD.clean.html#dev-list>`__.
+:ref:`datad-dlr`
+(:ref:`data-use`),
+:ref:`progd-dlr`
+(:ref:`prog-use`),
+:ref:`destd-dlr`
+(:ref:`spl-use` or
+:ref:`dest-use`),
+:ref:`ddown`, :ref:`dup` Compare
+:ref:`devlist` and
+:ref:`dev-list`.
 
 --------------
+
+
+..  _dmedium-density:
 
 DMEDIUM\_DENSITY
 ================
@@ -4247,12 +4430,15 @@ The value returned is:
 
 **CROSS-REFERENCE**
 
-`DMEDIUM\_NAME$ <KeywordsD.clean.html#dmedium-name>`__ gives the name of the
+:ref:`dmedium-name-dlr` gives the name of the
 disk attached to the specified channel.
-`DMEDIUM\_RDONLY <KeywordsD.clean.html#dmedium-rdonly>`__ and
-`DMEDIUM\_FORMAT <KeywordsD.clean.html#dmedium-format>`__ are also useful.
+:ref:`dmedium-rdonly` and
+:ref:`dmedium-format` are also useful.
 
 --------------
+
+
+..  _dmedium-drive-dlr:
 
 DMEDIUM\_DRIVE$
 ===============
@@ -4305,10 +4491,13 @@ Compare::
 
 **CROSS-REFERENCE**
 
-`DMEDIUM\_NAME$ <KeywordsD.clean.html#dmedium-name>`__ allows you to find out
+:ref:`dmedium-name-dlr` allows you to find out
 the name of the disk in the specified drive.
 
 --------------
+
+
+..  _dmedium-format:
 
 DMEDIUM\_FORMAT
 ===============
@@ -4340,15 +4529,18 @@ where it always returns 255.
 
 **CROSS-REFERENCE**
 
-`DIR <KeywordsD.clean.html#dir>`__ will provide this imformation also on
+:ref:`dir` will provide this imformation also on
 Level-3 device drivers.
-`DMEDIUM\_DENSITY <KeywordsD.clean.html#dmedium-density>`__ allows you to
+:ref:`dmedium-density` allows you to
 check the medium's density. There is currently no way to format a disk
 in a format other than QDOS or SMSQ/E without the ATARI\_rext commands
 which were available with the ST/QL emulators from Jochen Merz, or
 without specialist software (some of which is public domain).
 
 --------------
+
+
+..  _dmedium-free:
 
 DMEDIUM\_FREE
 =============
@@ -4368,12 +4560,15 @@ channel #3 (or #1 if #3 is not open).
 
 **CROSS-REFERENCE**
 
-`DMEDIUM\_TOTAL <KeywordsD.clean.html#dmedium-total>`__ allows you to find
+:ref:`dmedium-total` allows you to find
 out the total number of sectors available on the related medium.
-`DIR <KeywordsD.clean.html#dir>`__ can also be used to obtain this
+:ref:`dir` can also be used to obtain this
 information.
 
 --------------
+
+
+..  _dmedium-name-dlr:
 
 DMEDIUM\_NAME$
 ==============
@@ -4440,10 +4635,13 @@ or::
 
 **CROSS-REFERENCE**
 
-The name of a medium is set with `FORMAT <KeywordsF.clean.html#format>`__. You
-can read it with `DIR <KeywordsD.clean.html#dir>`__ also.
+The name of a medium is set with :ref:`format`. You
+can read it with :ref:`dir` also.
 
 --------------
+
+
+..  _dmedium-rdonly:
 
 DMEDIUM\_RDONLY
 ===============
@@ -4471,9 +4669,12 @@ where it always returns 1.
 
 **CROSS-REFERENCE**
 
-See `DMEDIUM\_NAME$ <KeywordsD.clean.html#dmedium-name>`__ for an example.
+See :ref:`dmedium-name-dlr` for an example.
 
 --------------
+
+
+..  _dmedium-remove:
 
 DMEDIUM\_REMOVE
 ===============
@@ -4500,13 +4701,16 @@ where it always returns 1.
 
 **CROSS-REFERENCE**
 
-`DMEDIUM\_RDONLY <KeywordsD.clean.html#dmedium-rdonly>`__ allows you to check
+:ref:`dmedium-rdonly` allows you to check
 if a disk is write- protected. There do not appear to be any ways in
 which you can check if any channels are currently open to the medium
 (ie. whether it is safe to remove the disk), except for listing all
-currently open channels, see `CHANNELS <KeywordsC.clean.html#channels>`__.
+currently open channels, see :ref:`channels`.
 
 --------------
+
+
+..  _dmedium-total:
 
 DMEDIUM\_TOTAL
 ==============
@@ -4526,13 +4730,16 @@ channel #3 (or #1 if #3 is not open).
 
 **CROSS-REFERENCE**
 
-`DMEDIUM\_FREE <KeywordsD.clean.html#dmedium-free>`__ allows you to find out
+:ref:`dmedium-free` allows you to find out
 the number of sectors which currently do not contain any data on the
-related medium. `DIR <KeywordsD.clean.html#dir>`__ can also be used to obtain
-this information. `FORMAT <KeywordsF.clean.html#format>`__ releases all
+related medium. :ref:`dir` can also be used to obtain
+this information. :ref:`format` releases all
 sectors on a disk, marking any which may be corrupt as unavailable.
 
 --------------
+
+
+..  _dmedium-type:
 
 DMEDIUM\_TYPE
 =============
@@ -4565,9 +4772,12 @@ where it always returns 255.
 
 **CROSS-REFERENCE**
 
-See `DMEDIUM\_NAME$ <KeywordsD.clean.html#dmedium-name>`__ for an example.
+See :ref:`dmedium-name-dlr` for an example.
 
 --------------
+
+
+..  _dnext:
 
 DNEXT
 =====
@@ -4639,13 +4849,16 @@ error 'Bad Parameter' (error -15).
 
 **CROSS-REFERENCE**
 
-`DUP <KeywordsD.clean.html#dup>`__ moves up the tree,
-`DDOWN <KeywordsD.clean.html#ddown>`__ moves down the tree.
-`DATAD$ <KeywordsD.clean.html#datad>`__ and `DLIST <KeywordsD.clean.html#dlist>`__
+:ref:`dup` moves up the tree,
+:ref:`ddown` moves down the tree.
+:ref:`datad-dlr` and :ref:`dlist`
 can be used to find out about the current sub-directory and default
 devices respectively.
 
 --------------
+
+
+..  _do:
 
 DO
 ==
@@ -4710,12 +4923,15 @@ fixed under SMS.
 
 **CROSS-REFERENCE**
 
-Please refer to `MERGE <KeywordsM.clean.html#merge>`__. SMS allows you to
-`EXEC <KeywordsE.clean.html#exec>`__\ ute a SuperBASIC program, letting it run
+Please refer to :ref:`merge`. SMS allows you to
+:ref:`exec`\ ute a SuperBASIC program, letting it run
 in the background and perform functions on supplied data using pipes or
-channels (see `EX <KeywordsE.clean.html#ex>`__).
+channels (see :ref:`ex`).
 
 --------------
+
+
+..  _dos-use:
 
 DOS\_USE
 ========
@@ -4752,6 +4968,9 @@ The DOS device is restored to DOS.
 --------------
 
 
+
+..  _dos-drive:
+
 DOS\_DRIVE
 ==========
 
@@ -4778,6 +4997,9 @@ would now return "C:\\WINDOWS".
 --------------
 
 
+
+..  _dos-drive-dlr:
+
 DOS\_DRIVE$
 ===========
 
@@ -4791,7 +5013,7 @@ This reads back the currently connected directory of the DOS device.
 
 **Example** 
 
-If we continue from the example above for `DOS\_DRIVE <KeywordsD.clean.html#dos-drive>`__\ , then::
+If we continue from the example above for :ref:`dos-drive`\ , then::
 
     PRINT DOS_DRIVE$(2)
     
@@ -4800,6 +5022,9 @@ Will print "C:\\WINDOWS".
 
 --------------
 
+
+
+..  _dotlin:
 
 DOTLIN
 ======
@@ -4848,6 +5073,9 @@ DOTLIN with the periods 3, 5 and 10::
 All the warnings relevant to SET apply.
 
 --------------
+
+
+..  _draw:
 
 DRAW
 ====
@@ -4920,14 +5148,15 @@ SCREEN(#3) (assuming that #3 is open on the second screen).
 
 **CROSS-REFERENCE**
 
-`PLOT <KeywordsP.clean.html#plot>`__ plots a pixel,
-`SCLR <KeywordsS.clean.html#sclr>`__ clears the screen and
-`REFRESH <KeywordsR.clean.html#refresh>`__ makes the screen pointed to by
-`SCRBASE <KeywordsS.clean.html#scrbase>`__ visible. See also
-`DOTLIN <KeywordsD.clean.html#dotlin>`__ and the other variant of
-`DRAW <KeywordsD.clean.html#draw>`__.
+:ref:`plot` plots a pixel,
+:ref:`sclr` clears the screen and
+:ref:`refresh` makes the screen pointed to by
+:ref:`scrbase` visible. See also
+:ref:`dotlin` and the other variant of
+:ref:`draw`.
 
 --------------
+
 
 DRAW
 ====
@@ -4963,11 +5192,14 @@ work on higher resolutions.
 
 **CROSS-REFERENCE**
 
-See the other variant of\ `DRAW <KeywordsD.clean.html#draw>`__. See also
-`PLOT <KeywordsP.clean.html#plot>`__. `LINE <KeywordsL.clean.html#line>`__ is much
+See the other variant of\ :ref:`draw`. See also
+:ref:`plot`. :ref:`line` is much
 more flexible.
 
 --------------
+
+
+..  _dround:
 
 DROUND
 ======
@@ -4994,9 +5226,12 @@ DROUND rounds the last digit up or down depending on the next digit
 
 **CROSS-REFERENCE**
 
-`PROUND <KeywordsP.clean.html#pround>`__ rounds to a given precision.
+:ref:`pround` rounds to a given precision.
 
 --------------
+
+
+..  _dup:
 
 DUP
 ===
@@ -5043,8 +5278,9 @@ to be used. In the above example, this is the named root, win1\_.
 
 **CROSS-REFERENCE**
 
-`DATA\_USE <KeywordsD.clean.html#data-use>`__ allows you to set the absolute
-directory root, `DDOWN <KeywordsD.clean.html#ddown>`__ goes down the tree, and
-`DNEXT <KeywordsD.clean.html#dnext>`__ skips from branch to branch.
-`DATAD$ <KeywordsD.clean.html#datad>`__ returns the current default data
+:ref:`data-use` allows you to set the absolute
+directory root, :ref:`ddown` goes down the tree, and
+:ref:`dnext` skips from branch to branch.
+:ref:`datad-dlr` returns the current default data
 device ie. the device name plus the current sub-directory.
+

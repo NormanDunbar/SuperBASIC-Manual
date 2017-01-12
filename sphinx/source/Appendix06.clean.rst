@@ -1,3 +1,5 @@
+..  _a6-compatability:
+
 A6 Compatibility
 ================
 

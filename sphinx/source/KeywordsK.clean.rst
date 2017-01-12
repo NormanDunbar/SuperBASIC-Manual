@@ -2,6 +2,9 @@
 Keywords K
 ==========
 
+
+..  _kbd-reset:
+
 KBD\_RESET
 ==========
 
@@ -18,6 +21,9 @@ buttons no longer work. This command re-initialises the keyboard driver
 so that the mouse buttons will work again!
 
 --------------
+
+
+..  _kbd-table:
 
 KBD\_TABLE
 ==========
@@ -71,14 +77,17 @@ German 2 French 3 Norwegian 5 Danish 6 Spanish
 
 **CROSS-REFERENCE**
 
-`SET\_LANGUAGE$ <KeywordsS.clean.html#set-language>`__ is similar for the
-THOR XVI. `LANUGUAGE <KeywordsL.clean.html#lanuguage>`__ and
-`LANGUAGE$ <KeywordsL.clean.html#language>`__ allow you to enquire about a
-language. `LANG\_USE <KeywordsL.clean.html#lang-use>`__ allows you to change
-the language used by the system. `TRA <KeywordsT.clean.html#tra>`__ allows you
+:ref:`set-language` is similar for the
+THOR XVI. :ref:`language` and
+:ref:`language-dlr` allow you to enquire about a
+language. :ref:`lang-use` allows you to change
+the language used by the system. :ref:`tra` allows you
 to change the output to a printer.
 
 --------------
+
+
+..  _kbd-use:
 
 KBD\_USE
 ========
@@ -102,6 +111,9 @@ does not actually create a job.
 
 --------------
 
+
+..  _kbytes-free:
+
 KBYTES\_FREE
 ============
 
@@ -111,7 +123,7 @@ KBYTES\_FREE
 | Location | DJToolkit 1.16                                                    |
 +----------+-------------------------------------------------------------------+
 
-The amount of memory considered by QDOS to be free is returned rounded down to the nearest kilo byte.  See also `BYTES\_FREE <KeywordsB.clean.html#bytes-free>`__ if you need the answer in bytes.  The value in KBYTES\_FREE may not be equal to `BYTES\_FREE <KeywordsB.clean.html#bytes-free>`__\ /1024 as the value returned by KBYTES\_FREE has been rounded down.
+The amount of memory considered by QDOS to be free is returned rounded down to the nearest kilo byte.  See also :ref:`bytes-free` if you need the answer in bytes.  The value in KBYTES\_FREE may not be equal to :ref:`bytes-free`\ /1024 as the value returned by KBYTES\_FREE has been rounded down.
 
 
 **EXAMPLE**
@@ -123,11 +135,14 @@ The amount of memory considered by QDOS to be free is returned rounded down to t
 
 **CROSS-REFERENCE**
 
-`BYTES\_FREE <KeywordsB.clean.html#bytes-free>`__.
+:ref:`bytes-free`.
 
 
 -------
 
+
+
+..  _key:
 
 KEY
 ===
@@ -270,12 +285,15 @@ this Interpreter will never disappear.
 
 **CROSS-REFERENCE**
 
-`NOKEY <KeywordsN.clean.html#nokey>`__ under KEYMAN is equivalent to
-`KEY <KeywordsK.clean.html#key>`__ without parameters. See
-`ALTKEY <KeywordsA.clean.html#altkey>`__ for a concept similar to this one
+:ref:`nokey` under KEYMAN is equivalent to
+:ref:`key` without parameters. See
+:ref:`altkey` for a concept similar to this one
 here.
 
 --------------
+
+
+..  _keyrow:
 
 KEYROW
 ======
@@ -321,7 +339,7 @@ For British QLs, the format of the matrix is::
 | Value |128 | 64 | 32 | 16 | 8 | 4 | 2 | 1 |
 +-------+----+----+----+----+---+---+---+---+
 
-Please see the `Characters Appendix <Appendix09.clean.html>`__\ ! 
+Please see the :ref:`a9-character--sets`\ . 
 
 The table reflects the physical keyboard layout and so may be different 
 on other languages. 
@@ -484,18 +502,21 @@ The keys on the numeric keypad have been redefined as follows:
 
 **CROSS-REFERENCE**
 
-`INKEY$ <KeywordsI.clean.html#inkey>`__ and `INPUT <KeywordsI.clean.html#input>`__
+:ref:`inkey-dlr` and :ref:`input`
 allow user input from the keyboard whilst retaining compatibility across
 the various QDOS implementations. These commands are also job specific,
 and hence much better for use in multitasking programs. Some of the
-`HOT\_ <KeywordsH.clean.html#hot->`__... commands and
-`EXEP <KeywordsE.clean.html#exep>`__ allow you to pass a U option to the
+HOT_XXX commands and
+:ref:`exep` allow you to pass a U option to the
 program to force the computer to freeze all other programs whilst this
 one is running - this can be used to ensure that a program which uses
-`KEYROW <KeywordsK.clean.html#keyrow>`__ does not carry on reading the
+:ref:`keyrow` does not carry on reading the
 keyboard whilst you are using another program.
 
 --------------
+
+
+..  _keyw:
 
 KEYW
 ====
@@ -533,11 +554,14 @@ SBASIC interpreter.
 
 **CROSS-REFERENCE**
 
-`ELIS <KeywordsE.clean.html#elis>`__, `DEFINED <KeywordsD.clean.html#defined>`__ and
-`KEY\_ADD <KeywordsK.clean.html#key-add>`__ are similar. Compare
-`LOOKUP% <KeywordsL.clean.html#lookup>`__.
+:ref:`elis`, :ref:`defined` and
+:ref:`key-add` are similar. Compare
+:ref:`lookup-pct`.
 
 --------------
+
+
+..  _key-add:
 
 KEY\_ADD
 ========
@@ -620,14 +644,17 @@ decimal number, taking whatever action is necessary.
 
 **CROSS-REFERENCE**
 
-`ELIS <KeywordsE.clean.html#elis>`__ differs from
-`KEY\_ADD <KeywordsK.clean.html#key-add>`__ in that it returns zero if the
+:ref:`elis` differs from
+:ref:`key-add` in that it returns zero if the
 keyword is not found, rather than an error message. See also
-`KEYW <KeywordsK.clean.html#keyw>`__ and `LOOKUP% <KeywordsL.clean.html#lookup>`__.
-`FIND <KeywordsF.clean.html#find>`__ and `FLIS <KeywordsF.clean.html#flis>`__ are
+:ref:`keyw` and :ref:`lookup-pct`.
+:ref:`find` and :ref:`flis` are
 also useful.
 
 --------------
+
+
+..  _key-rmv:
 
 KEY\_RMV
 ========
@@ -641,6 +668,9 @@ KEY\_RMV
 This is the same as ZAP !
 
 --------------
+
+
+..  _kill:
 
 KILL
 ====
@@ -668,11 +698,14 @@ Be sure that no important data gets lost!
 
 **CROSS-REFERENCE**
 
-`RJOB <KeywordsR.clean.html#rjob>`__ removes single jobs,
-`KJOBS <KeywordsK.clean.html#kjobs>`__ works in the same way as
-`KILL <KeywordsK.clean.html#kill>`__.
+:ref:`rjob` removes single jobs,
+:ref:`kjobs` works in the same way as
+:ref:`kill`.
 
 --------------
+
+
+..  _killn:
 
 KILLN
 =====
@@ -694,11 +727,14 @@ Again, be careful!
 
 **CROSS-REFERENCE**
 
-`KILL <KeywordsK.clean.html#kill>`__ removes all jobs as does
-`KJOBS <KeywordsK.clean.html#kjobs>`__. `KILL\_A <KeywordsK.clean.html#kill-a>`__
+:ref:`kill` removes all jobs as does
+:ref:`kjobs`. :ref:`kill-a`
 removes all jobs and clears the whole system for SuperBASIC.
 
 --------------
+
+
+..  _kill-a:
 
 KILL\_A
 =======
@@ -722,12 +758,15 @@ it is more like a safe emergency break.
 
 **CROSS-REFERENCE**
 
-`KILL <KeywordsK.clean.html#kill>`__, `KILLN <KeywordsK.clean.html#killn>`__,
-`KJOBS <KeywordsK.clean.html#kjobs>`__,
-`DEL\_DEFB <KeywordsD.clean.html#del-defb>`__,
-`CLCHP <KeywordsC.clean.html#clchp>`__.
+:ref:`kill`, :ref:`killn`,
+:ref:`kjobs`,
+:ref:`del-defb`,
+:ref:`clchp`.
 
 --------------
+
+
+..  _kjob:
 
 KJOB
 ====
@@ -765,15 +804,18 @@ you use a variable to pass the jobnr (see JBASE).
 
 **CROSS-REFERENCE**
 
-`RJOB <KeywordsR.clean.html#rjob>`__ has a slightly different syntax.
-`KILL <KeywordsK.clean.html#kill>`__ and `KJOBS <KeywordsK.clean.html#kjobs>`__
-remove all jobs. `SPJOB <KeywordsS.clean.html#spjob>`__,
-`SJOB <KeywordsS.clean.html#sjob>`__, `REL\_JOB <KeywordsR.clean.html#rel-job>`__,
-`AJOB <KeywordsA.clean.html#ajob>`__ are other commands which handle jobs. The
-function `JOB$ <KeywordsJ.clean.html#job>`__ will return the name of the
+:ref:`rjob` has a slightly different syntax.
+:ref:`kill` and :ref:`kjobs`
+remove all jobs. :ref:`spjob`,
+:ref:`sjob`, :ref:`rel-job`,
+:ref:`ajob` are other commands which handle jobs. The
+function :ref:`job-dlr` will return the name of the
 given job.
 
 --------------
+
+
+..  _kjobs:
 
 KJOBS
 =====
@@ -785,5 +827,6 @@ KJOBS
 +----------+-------------------------------------------------------------------+
 
 This is the same as KILL
+
 
 

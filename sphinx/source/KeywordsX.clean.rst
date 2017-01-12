@@ -1,3 +1,4 @@
+
 ==========
 Keywords X
 ==========
@@ -7,6 +8,9 @@ TODO
 
 - Check this line `30     IF x=3 XOR y >1 AND y<3:PRINT x;'=>';y,` in the example for XOR. I'm not convinced it's a valid syntax! Maybe in C, but in SUPERBasic? 
 
+
+
+..  _xchange:
 
 XCHANGE
 =======
@@ -42,10 +46,13 @@ ram1\_test\_txt as quickly as possible::
 
 **CROSS-REFERENCE**
 
-`SEARCH <KeywordsS.clean.html#search>`__, `COPY\_B <KeywordsC.clean.html#copy-b>`__,
-`COPY\_W <KeywordsC.clean.html#copy-w>`__, `COPY\_L <KeywordsC.clean.html#copy-l>`__
+:ref:`search`, :ref:`copy-b`,
+:ref:`copy-w`, :ref:`copy-l`
 
 --------------
+
+
+..  _xdraw:
 
 XDRAW
 =====
@@ -78,10 +85,13 @@ it again without changing the background.
 
 **CROSS-REFERENCE**
 
-`LDRAW <KeywordsL.clean.html#ldraw>`__, `LINE <KeywordsL.clean.html#line>`__ with
-`OVER <KeywordsO.clean.html#over>`__.
+:ref:`ldraw`, :ref:`line` with
+:ref:`over`.
 
 --------------
+
+
+..  _xlim:
 
 XLIM
 ====
@@ -114,13 +124,16 @@ The Pointer Interface must be present in order for XLIM to work.
 
 **CROSS-REFERENCE**
 
-`YLIM <KeywordsY.clean.html#ylim>`__ returns the maximum screen height.
-`QFLIM <KeywordsQ.clean.html#qflim>`__ and
-`SCR\_XLIM <KeywordsS.clean.html#scr-xlim>`__ are very similar. Use
-`QRAM$ <KeywordsQ.clean.html#qram>`__ or `WMAN$ <KeywordsW.clean.html#wman>`__ to
+:ref:`ylim` returns the maximum screen height.
+:ref:`qflim` and
+:ref:`scr-xlim` are very similar. Use
+:ref:`qram-dlr` or :ref:`wman-dlr` to
 see if the Pointer Environment is available.
 
 --------------
+
+
+..  _xor:
 
 XOR
 ===
@@ -168,10 +181,13 @@ produces the following output::
 
 **CROSS-REFERENCE**
 
-`AND <KeywordsA.clean.html#and>`__, `OR <KeywordsO.clean.html#or>`__ and
-`NOT <KeywordsN.clean.html#not>`__ are the other combination operators.
+:ref:`and`, :ref:`or` and
+:ref:`not` are the other combination operators.
 
 --------------
+
+
+..  _x-ptr-pct:
 
 X\_PTR%
 =======
@@ -189,6 +205,7 @@ screen.
 
 **CROSS-REFERENCE**
 
-See `PTR\_LIMITS <KeywordsP.clean.html#ptr-limits>`__ and
-`PTR\_ON <KeywordsP.clean.html#ptr-on>`__. `Y\_PTR% <KeywordsY.clean.html#y-ptr>`__
+See :ref:`ptr-limits` and
+:ref:`ptr-on`. :ref:`y-ptr-pct`
 reads the y co-ordinate.
+

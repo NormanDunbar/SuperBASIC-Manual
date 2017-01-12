@@ -1,3 +1,5 @@
+..  _a1-minerva:
+
 A1. Minerva
 ===========
 

@@ -1,12 +1,10 @@
+
 ==========
 Keywords H
 ==========
 
-TODO
-====
 
-- HEX and HEX$ have the same URL.
-- HIS_USE and HIS_USE$ have the same URL.
+..  _headr:
 
 HEADR
 =====
@@ -23,10 +21,13 @@ full filename.
 
 **CROSS-REFERENCE**
 
-See `GetHEAD <KeywordsG.clean.html#gethead>`__ (and
-`FGETH$ <KeywordsF.clean.html#fgeth>`__)!
+See :ref:`gethead` (and
+:ref:`fgeth-dlr`)!
 
 --------------
+
+
+..  _heads:
 
 HEADS
 =====
@@ -42,11 +43,14 @@ stored at adr.
 
 **CROSS-REFERENCE**
 
-See `HEADR <KeywordsH.clean.html#headr>`__ and
-`SetHEAD <KeywordsS.clean.html#sethead>`__ (and
-`FGETH$ <KeywordsF.clean.html#fgeth>`__)!
+See :ref:`headr` and
+:ref:`sethead` (and
+:ref:`fgeth-dlr`)!
 
 --------------
+
+
+..  _hex:
 
 HEX
 ===
@@ -86,9 +90,9 @@ will print the value 16.
 
 **CROSS-REFERENCE**
 
-`HEX$ <KeywordsH.clean.html#hex>`__ works the other way around, converting
+:ref:`hex-dlr` works the other way around, converting
 decimal numbers into their hexadecimal equivalent. See
-`BIN <KeywordsB.clean.html#bin>`__ and `BIN$ <KeywordsB.clean.html#bin>`__ for the
+:ref:`bin` and :ref:`bin-dlr` for the
 binary versions. SMS users can achieve the same thing by using, for
 example::
 
@@ -99,6 +103,9 @@ instead of::
     PRINT HEX ('1AB').
 
 --------------
+
+
+..  _hex-dlr:
 
 HEX$
 ====
@@ -155,10 +162,13 @@ except on v6.41 of the THOR XVI.
 
 **CROSS-REFERENCE**
 
-See `HEX <KeywordsH.clean.html#hex>`__ and `BIN <KeywordsB.clean.html#bin>`__,
-`BIN$ <KeywordsB.clean.html#bin>`__.
+See :ref:`hex` and :ref:`bin`,
+:ref:`bin-dlr`.
 
 --------------
+
+
+..  _hget:
 
 HGET
 ====
@@ -191,12 +201,15 @@ due to the fact that it alters its own parameters.
 
 **CROSS-REFERENCE**
 
-`HPUT <KeywordsH.clean.html#hput>`__ saves the file header information. See
-`FGETH$ <KeywordsF.clean.html#fgeth>`__ for information about the file
-header. See also `HEADR <KeywordsH.clean.html#headr>`__ and
-`GetHEAD <KeywordsG.clean.html#gethead>`__.
+:ref:`hput` saves the file header information. See
+:ref:`fgeth-dlr` for information about the file
+header. See also :ref:`headr` and
+:ref:`gethead`.
 
 --------------
+
+
+..  _his-set:
 
 HIS\_SET
 ========
@@ -278,10 +291,13 @@ SMS.
 **CROSS-REFERENCE**
 
 A history is automatically removed when a channel is closed but removal
-can also be forced with `HIS\_UNSET <KeywordsH.clean.html#his-unset>`__. The
+can also be forced with :ref:`his-unset`. The
 QDOS/SMS Reference Manual contains full details of IO.EDLIN
 
 --------------
+
+
+..  _his-size:
 
 HIS\_SIZE
 =========
@@ -314,9 +330,12 @@ kilobytes chunks, so there is a small danger of heap fragmentation.
 
 **CROSS-REFERENCE**
 
-See `HIS\_SET <KeywordsH.clean.html#his-set>`__.
+See :ref:`his-set`.
 
 --------------
+
+
+..  _his-unset:
 
 HIS\_UNSET
 ==========
@@ -339,10 +358,13 @@ channels where a history exists, otherwise an error will be reported.
 
 **CROSS-REFERENCE**
 
-`HIS\_USE <KeywordsH.clean.html#his-use>`__,
-`HIS\_SIZE <KeywordsH.clean.html#his-size>`__
+:ref:`his-use`,
+:ref:`his-size`
 
 --------------
+
+
+..  _his-use:
 
 HIS\_USE
 ========
@@ -372,10 +394,13 @@ cannot rename SMSQ/E's version.
 
 **CROSS-REFERENCE**
 
-See `HIS\_USE$ <KeywordsH.clean.html#his-use>`__ and
-`HIS\_SET <KeywordsH.clean.html#his-set>`__.
+See :ref:`his-use-dlr` and
+:ref:`his-set`.
 
 --------------
+
+
+..  _his-use-dlr:
 
 HIS\_USE$
 =========
@@ -390,9 +415,12 @@ This function returns the three letter device name which has been set with HIS\_
 
 **CROSS-REFERENCE**
 
-See `HIS\_USE <KeywordsH.clean.html#his-use>`__.
+See :ref:`his-use`.
 
 --------------
+
+
+..  _hot:
 
 HOT
 ===
@@ -438,11 +466,13 @@ SuperBASIC.
 
 **CROSS-REFERENCE**
 
-`CLEAR\_HOT <KeywordsC.clean.html#clear-hot>`__ clears a hotkey defined with
-`HOT <KeywordsH.clean.html#hot>`__ and (hopefully!) returns the occupied
+:ref:`clear-hot` clears a hotkey defined with
+:ref:`hot` and (hopefully!) returns the occupied
 memory to QDOS. Use the Hotkey System if you have this available!!
 
 --------------
+
+..  _hot-chp:
 
 HOT\_CHP
 ========
@@ -524,14 +554,17 @@ problems.
 **CROSS-REFERENCE**
 
 If you do not intend to remove the program in the future, use
-`HOT\_RES <KeywordsH.clean.html#hot-res>`__ or
-`HOT\_RES1 <KeywordsH.clean.html#hot-res1>`__ as these will ensure that the
-program starts up more quickly. `HOT\_CHP1 <KeywordsH.clean.html#hot-chp1>`__,
-`HOT\_LOAD <KeywordsH.clean.html#hot-load>`__,
-`HOT\_LOAD1 <KeywordsH.clean.html#hot-load1>`__ are similar. The hotkey will
+:ref:`hot-res` or
+:ref:`hot-res1` as these will ensure that the
+program starts up more quickly. :ref:`hot-chp1`,
+:ref:`hot-load`,
+:ref:`hot-load1` are similar. The hotkey will
 not be available until you enable the Hotkey System with HOT\_GO.
 
 --------------
+
+
+..  _hot-chp1:
 
 HOT\_CHP1
 =========
@@ -586,14 +619,17 @@ command string.
 
 **CROSS-REFERENCE**
 
-See `HOT\_CHP <KeywordsH.clean.html#hot-chp>`__.
-`HOT\_PICK <KeywordsH.clean.html#hot-pick>`__ allows you to set up hotkeys to
-PICK a program, and `HOT\_WAKE <KeywordsH.clean.html#hot-wake>`__ allows you
+See :ref:`hot-chp`.
+:ref:`hot-pick` allows you to set up hotkeys to
+PICK a program, and :ref:`hot-wake` allows you
 to set up hotkeys to WAKE a program.
-`HOT\_THING <KeywordsH.clean.html#hot-thing>`__ allows you to call an
+:ref:`hot-thing` allows you to call an
 Executable Thing.
 
 --------------
+
+
+..  _hot-cmd:
 
 HOT\_CMD
 ========
@@ -627,12 +663,15 @@ used to set up the hotkey, error -9 (in use) will be reported.
 
 **CROSS-REFERENCE**
 
-See `HOT\_KEY <KeywordsH.clean.html#hot-key>`__.
-`HOT\_GO <KeywordsH.clean.html#hot-go>`__ is required in order to make hotkey
-definitions operational. `FORCE\_TYPE <KeywordsF.clean.html#force-type>`__ is
+See :ref:`hot-key`.
+:ref:`hot-go` is required in order to make hotkey
+definitions operational. :ref:`force-type` is
 very similar.
 
 --------------
+
+
+..  _hot-do:
 
 HOT\_DO
 =======
@@ -668,10 +707,13 @@ The following would all have the same effect:
 
 **CROSS-REFERENCE**
 
-See the other `HOT <KeywordsH.clean.html#hot-chp>`__... commands about setting
+See the other :ref:`hot`... commands about setting
 up hotkeys.
 
 --------------
+
+
+..  _hot-go:
 
 HOT\_GO
 =======
@@ -712,10 +754,13 @@ once again.
 
 **CROSS-REFERENCE**
 
-`RESPR <KeywordsR.clean.html#respr>`__ allocates areas of the resident
+:ref:`respr` allocates areas of the resident
 procedure memory.
 
 --------------
+
+
+..  _hot-key:
 
 HOT\_KEY
 ========
@@ -751,10 +796,13 @@ reported.
 **CROSS-REFERENCE**
 
 As with other Hotkey System II definitions, you will need to use
-`HOT\_GO <KeywordsH.clean.html#hot-go>`__ before you can access this hotkey.
-See `ALTKEY <KeywordsA.clean.html#altkey>`__ for more information.
+:ref:`hot-go` before you can access this hotkey.
+See :ref:`altkey` for more information.
 
 --------------
+
+
+..  _hot-list:
 
 HOT\_LIST
 =========
@@ -778,11 +826,14 @@ key will be pre-fixed with 's'.
 
 **CROSS-REFERENCE**
 
-`HOT\_NAME$ <KeywordsH.clean.html#hot-name>`__ returns the description or
-name for the hotkey. `HOT\_TYPE <KeywordsH.clean.html#hot-type>`__ returns the
+:ref:`hot-name-dlr` returns the description or
+name for the hotkey. :ref:`hot-type` returns the
 type of hotkey operation.
 
 --------------
+
+
+..  _hot-load:
 
 HOT\_LOAD
 =========
@@ -822,10 +873,13 @@ either remove the Hotkey Job or crash the computer.
 
 **CROSS-REFERENCE**
 
-See `HOT\_LOAD1 <KeywordsH.clean.html#hot-load1>`__ and
-`HOT\_CHP <KeywordsH.clean.html#hot-chp>`__.
+See :ref:`hot-load1` and
+:ref:`hot-chp`.
 
 --------------
+
+
+..  _hot-load1:
 
 HOT\_LOAD1
 ==========
@@ -847,9 +901,12 @@ command string.
 
 **CROSS-REFERENCE**
 
-See `HOT\_LOAD <KeywordsH.clean.html#hot-load>`__.
+See :ref:`hot-load`.
 
 --------------
+
+
+..  _hot-name-dlr:
 
 HOT\_NAME$
 ==========
@@ -877,11 +934,14 @@ will show the following: Qram Yours Sincerely
 
 **CROSS-REFERENCE**
 
-`HOT\_LIST <KeywordsH.clean.html#hot-list>`__ will list details about all
-currently defined hotkeys, `HOT\_TYPE <KeywordsH.clean.html#hot-type>`__
+:ref:`hot-list` will list details about all
+currently defined hotkeys, :ref:`hot-type`
 allows you to verify the type of hotkey defined.
 
 --------------
+
+
+..  _hot-off:
 
 HOT\_OFF
 ========
@@ -927,11 +987,14 @@ will turn it back on.
 
 **CROSS-REFERENCE**
 
-`HOT\_SET <KeywordsH.clean.html#hot-set>`__ will turn the hotkey back on
-again. `HOT\_REMV <KeywordsH.clean.html#hot-remv>`__ will remove the hotkey
+:ref:`hot-set` will turn the hotkey back on
+again. :ref:`hot-remv` will remove the hotkey
 definition for good.
 
 --------------
+
+
+..  _hot-pick:
 
 HOT\_PICK
 =========
@@ -967,13 +1030,16 @@ HOT\_PICK up to v1.22 gave problems on the ST Emulators.
 
 **CROSS-REFERENCE**
 
-`EXEP <KeywordsE.clean.html#exep>`__, `HOT\_LOAD <KeywordsH.clean.html#hot-load>`__,
-`HOT\_CHP <KeywordsH.clean.html#hot-chp>`__ and
-`HOT\_RES <KeywordsH.clean.html#hot-res>`__ all allow you to alter the Job
+:ref:`exep`, :ref:`hot-load`,
+:ref:`hot-chp` and
+:ref:`hot-res` all allow you to alter the Job
 Name of a program as it is loaded. Compare
-`HOT\_WAKE <KeywordsH.clean.html#hot-wake>`__.
+:ref:`hot-wake`.
 
 --------------
+
+
+..  _hot-remv:
 
 HOT\_REMV
 =========
@@ -999,9 +1065,12 @@ removed.
 
 **CROSS-REFERENCE**
 
-See `HOT\_OFF <KeywordsH.clean.html#hot-off>`__ for further details.
+See :ref:`hot-off` for further details.
 
 --------------
+
+
+..  _hot-res:
 
 HOT\_RES
 ========
@@ -1019,9 +1088,12 @@ is already being executed), this function will access the common heap.
 
 **CROSS-REFERENCE**
 
-`HOT\_CHP <KeywordsH.clean.html#hot-chp>`__.
+:ref:`hot-chp`.
 
 --------------
+
+
+..  _hot-res1:
 
 HOT\_RES1
 =========
@@ -1039,10 +1111,13 @@ reason, the common heap will be used.
 
 **CROSS-REFERENCE**
 
-See `HOT\_RES <KeywordsH.clean.html#hot-res>`__ and
-`HOT\_CHP1 <KeywordsH.clean.html#hot-chp1>`__.
+See :ref:`hot-res` and
+:ref:`hot-chp1`.
 
 --------------
+
+
+..  _hot-set:
 
 HOT\_SET
 ========
@@ -1075,10 +1150,13 @@ value -7 will be returned.
 
 **CROSS-REFERENCE**
 
-See `HOT\_OFF <KeywordsH.clean.html#hot-off>`__ and
-`HOT\_KEY <KeywordsH.clean.html#hot-key>`__.
+See :ref:`hot-off` and
+:ref:`hot-key`.
 
 --------------
+
+
+..  _hot-stop:
 
 HOT\_STOP
 =========
@@ -1089,9 +1167,12 @@ HOT\_STOP
 | Location |  HOTKEY II                                                        |
 +----------+-------------------------------------------------------------------+
 
-See `HOT\_GO <KeywordsH.clean.html#hot-go>`__\ !
+See :ref:`hot-go`\ !
 
 --------------
+
+
+..  _hot-stuff:
 
 HOT\_STUFF
 ==========
@@ -1159,13 +1240,16 @@ It could even crash compiled programs!!
 
 **CROSS-REFERENCE**
 
-`GET\_STUFF$ <KeywordsG.clean.html#get-stuff>`__ allows a program to read the
-contents of the Stuffer Buffer. `HOT\_LIST <KeywordsH.clean.html#hot-list>`__
+:ref:`get-stuff-dlr` allows a program to read the
+contents of the Stuffer Buffer. :ref:`hot-list`
 will allow you to see the contents of the Stuffer Buffer.
-`HOT\_GO <KeywordsH.clean.html#hot-go>`__ is required before <ALT><SPACE> or
+:ref:`hot-go` is required before <ALT><SPACE> or
 <ALT><SHIFT> <SPACE> will work!
 
 --------------
+
+
+..  _hot-thing:
 
 HOT\_THING
 ==========
@@ -1214,12 +1298,15 @@ command string. You also need v2.24+ to pass a job name.
 
 **CROSS-REFERENCE**
 
-`HOT\_CHP <KeywordsH.clean.html#hot-chp>`__ and
-`HOT\_RES <KeywordsH.clean.html#hot-res>`__ turn a file into an Executable
-Thing. `THING <KeywordsT.clean.html#thing>`__ allows you to test if a Thing is
+:ref:`hot-chp` and
+:ref:`hot-res` turn a file into an Executable
+Thing. :ref:`thing` allows you to test if a Thing is
 present.
 
 --------------
+
+
+..  _hot-thing1:
 
 HOT\_THING1
 ===========
@@ -1235,9 +1322,12 @@ This command is exactly the same as HOT\_WAKE.
 
 **CROSS-REFERENCE**
 
-See `HOT\_WAKE <KeywordsH.clean.html#hot-wake>`__\ .
+See :ref:`hot-wake`\ .
 
 --------------
+
+
+..  _hot-type:
 
 HOT\_TYPE
 =========
@@ -1265,10 +1355,13 @@ the specified keypress. The values returned by HOT\_TYPE are as follows:
 
 **CROSS-REFERENCE**
 
-`HOT\_NAME$ <KeywordsH.clean.html#hot-name>`__ returns the name of the Thing
+:ref:`hot-name-dlr` returns the name of the Thing
 or the string being accessed.
 
 --------------
+
+
+..  _hot-wake:
 
 HOT\_WAKE
 =========
@@ -1333,10 +1426,13 @@ command string. You also need v2.24+ to pass a job name.
 
 **CROSS-REFERENCE**
 
-`HOT\_PICK <KeywordsH.clean.html#hot-pick>`__ allows you to define a hotkey to
+:ref:`hot-pick` allows you to define a hotkey to
 PICK an existing Job.
 
 --------------
+
+
+..  _hput:
 
 HPUT
 ====
@@ -1361,7 +1457,8 @@ due to the fact that it alters its own parameters.
 
 **CROSS-REFERENCE**
 
-`HGET <KeywordsH.clean.html#hget>`__ reads the file header information. See
-`FGETH$ <KeywordsF.clean.html#fgeth>`__ for information about the file
-header. See also `HEADS <KeywordsH.clean.html#heads>`__ and
-`SetHEAD <KeywordsS.clean.html#sethead>`__.
+:ref:`hget` reads the file header information. See
+:ref:`fgeth-dlr` for information about the file
+header. See also :ref:`heads` and
+:ref:`sethead`.
+

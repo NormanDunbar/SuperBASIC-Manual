@@ -1,3 +1,5 @@
+..  _a9-character--sets:
+
 A9 Character Set, Keyboard
 ==========================
 

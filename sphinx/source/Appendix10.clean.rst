@@ -1,3 +1,5 @@
+..  _a10-character--sets:
+
 A10 Designing New Character Sets (Fonts)
 ========================================
 

@@ -1,3 +1,4 @@
+
 ==========
 Keywords P
 ==========
@@ -5,10 +6,10 @@ Keywords P
 TODO
 ====
 
-- PICK$ and PICK% have the same URL.
-- There are multiple PLOT commands. They have the same URL.
-- POKE and POKE$ have the same URL.
-- PTH_USE and PTH_USE$ have the same URL.
+- :ref:`pro` references ESC. ESC doesn't exist.
+- :ref:`pex-save` references IS-PX1ST - which is not present anywhere.
+
+..  _pagdis:
 
 PAGDIS
 ======
@@ -38,10 +39,13 @@ To set the header to three lines::
 
 **CROSS-REFERENCE**
 
-`PAGLIN <KeywordsP.clean.html#paglin>`__, `PAGLEN <KeywordsP.clean.html#paglen>`__,
-`LMAR <KeywordsL.clean.html#lmar>`__, `RMAR <KeywordsR.clean.html#rmar>`__.
+:ref:`paglin`, :ref:`paglen`,
+:ref:`lmar`, :ref:`rmar`.
 
 --------------
+
+
+..  _paglen:
 
 PAGLEN
 ======
@@ -60,10 +64,13 @@ normally 12". The function is equivalent to::
 
 **CROSS-REFERENCE**
 
-`PAGDIS <KeywordsP.clean.html#pagdis>`__, `PAGLIN <KeywordsP.clean.html#paglin>`__,
-`LMAR <KeywordsL.clean.html#lmar>`__, `RMAR <KeywordsR.clean.html#rmar>`__.
+:ref:`pagdis`, :ref:`paglin`,
+:ref:`lmar`, :ref:`rmar`.
 
 --------------
+
+
+..  _paglin:
 
 PAGLIN
 ======
@@ -88,10 +95,13 @@ is the same as::
 
 **CROSS-REFERENCE**
 
-`PAGDIS <KeywordsP.clean.html#pagdis>`__, `PAGLEN <KeywordsP.clean.html#paglen>`__,
-`LMAR <KeywordsL.clean.html#lmar>`__, `RMAR <KeywordsR.clean.html#rmar>`__.
+:ref:`pagdis`, :ref:`paglen`,
+:ref:`lmar`, :ref:`rmar`.
 
 --------------
+
+
+..  _paint:
 
 PAINT
 =====
@@ -145,10 +155,13 @@ protection is to use a BORDER, as in the example.
 
 **CROSS-REFERENCE**
 
-`FILL <KeywordsF.clean.html#fill>`__, `SET <KeywordsS.clean.html#set>`__,
-`LDRAW <KeywordsL.clean.html#ldraw>`__
+:ref:`fill`, :ref:`set`,
+:ref:`ldraw`
 
 --------------
+
+
+..  _palette-ql:
 
 PALETTE\_QL
 ===========
@@ -209,11 +222,14 @@ will be slightly different on QPC, Q40 and Aurora.
 
 **CROSS-REFERENCE**
 
-`COLOUR\_QL <KeywordsC.clean.html#colour-ql>`__, `INK <KeywordsI.clean.html#ink>`__,
-`PALETTE\_8 <KeywordsP.clean.html#palette-8>`__ Also refer to Appendix 16
+:ref:`colour-ql`, :ref:`ink`,
+:ref:`palette-8` Also refer to Appendix 16
 which lists the first 256 24 Bit Colours.
 
 --------------
+
+
+..  _palette-8:
 
 PALETTE\_8
 ==========
@@ -270,10 +286,13 @@ will be slightly different on QPC and Q40.
 
 **CROSS-REFERENCE**
 
-See `PALETTE\_QL <KeywordsP.clean.html#palette-ql>`__ and
-`COLOUR\_PAL <KeywordsC.clean.html#colour-pal>`__ for more details.
+See :ref:`palette-ql` and
+:ref:`colour-pal` for more details.
 
 --------------
+
+
+..  _pan:
 
 PAN
 ===
@@ -364,16 +383,19 @@ only had small effects.
 
 **CROSS-REFERENCE**
 
-Also please see `SCROLL <KeywordsS.clean.html#scroll>`__ and
-`PAPER <KeywordsP.clean.html#paper>`__. THORs allow you to use
-`IO\_TRAP <KeywordsI.clean.html#io-trap>`__ to access additional system calls.
+Also please see :ref:`scroll` and
+:ref:`paper`. THORs allow you to use
+:ref:`io-trap` to access additional system calls.
 Most system calls can be accessed using Toolkit II in any event.
-Otherwise, see `BTRAP <KeywordsB.clean.html#btrap>`__,
-`QTRAP <KeywordsQ.clean.html#qtrap>`__, `TTET3 <KeywordsT.clean.html#ttet3>`__ and
-`MTRAP <KeywordsM.clean.html#mtrap>`__. The QDOS/SMS Reference Manual Section
+Otherwise, see :ref:`btrap`,
+:ref:`qtrap`, :ref:`ttet3` and
+:ref:`mtrap`. The QDOS/SMS Reference Manual Section
 15 contains full details of the TRAP #3 calls.
 
 --------------
+
+
+..  _paper:
 
 PAPER
 =====
@@ -408,12 +430,15 @@ PAPER also resets the STRIP to the specified colour.
 
 **CROSS-REFERENCE**
 
-`INK <KeywordsI.clean.html#ink>`__ sets the foreground colour and
-`STRIP <KeywordsS.clean.html#strip>`__ the background for characters only.
-`CLS <KeywordsC.clean.html#cls>`__ clears a window in the current paper
-colour. See `INK <KeywordsI.clean.html#ink>`__ concerning colour in general.
+:ref:`ink` sets the foreground colour and
+:ref:`strip` the background for characters only.
+:ref:`cls` clears a window in the current paper
+colour. See :ref:`ink` concerning colour in general.
 
 --------------
+
+
+..  _parhash:
 
 PARHASH
 =======
@@ -487,11 +512,14 @@ TURBO and SuperCHARGE cannot compile programs which use PARHASH.
 
 **CROSS-REFERENCE**
 
-`PARTYP <KeywordsP.clean.html#partyp>`__\ E, `UNSET <KeywordsU.clean.html#unset>`__
-and `PARNAME$ <KeywordsP.clean.html#parname>`__ are also added by this
+:ref:`partyp`\ E, :ref:`unset`
+and :ref:`parname-dlr` are also added by this
 toolkit.
 
 --------------
+
+
+..  _parnam-dlr:
 
 PARNAM$
 =======
@@ -536,14 +564,15 @@ TURBO and SuperCHARGE cannot compile programs which use PARNAM$.
 
 **CROSS-REFERENCE**
 
-`PARTYP <KeywordsP.clean.html#partyp>`__, `PARUSE <KeywordsP.clean.html#paruse>`__
-and `PARSTR$ <KeywordsP.clean.html#parstr>`__ allow you to find out other
-information about parameters. See also `DEFine
-FuNction <KeywordsD.clean.html#define-function>`__ and `DEFine
-PROCedure <KeywordsD.clean.html#define-procedure>`__.
-`PARNAME$ <KeywordsP.clean.html#parname>`__ is exactly the same.
+:ref:`partyp`, :ref:`paruse`
+and :ref:`parstr-dlr` allow you to find out other
+information about parameters. See also :ref:`define--function` and :ref:`define--procedure`\ .
+:ref:`parname-dlr` is exactly the same.
 
 --------------
+
+
+..  _parname-dlr:
 
 PARNAME$
 ========
@@ -558,11 +587,14 @@ This is exactly the same as PARNAM$.
 
 **CROSS-REFERENCE**
 
-`PARTYP <KeywordsP.clean.html#partyp>`__\ E,
-`PARHASH <KeywordsP.clean.html#parhash>`__ and
-`PARSEPA <KeywordsP.clean.html#parsepa>`__ are also added by this toolkit.
+:ref:`partyp`\ E,
+:ref:`parhash` and
+:ref:`parsepa` are also added by this toolkit.
 
 --------------
+
+
+..  _parsepa:
 
 PARSEPA
 =======
@@ -599,10 +631,13 @@ This function suffers from the same problems as PARHASH.
 
 **CROSS-REFERENCE**
 
-See\ `PARHASH <KeywordsP.clean.html#parhash>`__ in particular - this contains
+See\ :ref:`parhash` in particular - this contains
 an example which uses this function.
 
 --------------
+
+
+..  _parstr-dlr:
 
 PARSTR$
 =======
@@ -678,11 +713,14 @@ TURBO and SuperCHARGE cannot compile programs which use PARSTR$.
 
 **CROSS-REFERENCE**
 
-Please also see `PARNAM$ <KeywordsP.clean.html#parnam>`__.
-`FBKDT <KeywordsF.clean.html#fbkdt>`__ also contains a useful example of
-`PARSTR$ <KeywordsP.clean.html#parstr>`__.
+Please also see :ref:`parnam-dlr`.
+:ref:`fbkdt` also contains a useful example of
+:ref:`parstr-dlr`.
 
 --------------
+
+
+..  _partyp:
 
 PARTYP
 ======
@@ -783,16 +821,19 @@ TURBO and SuperCHARGE cannot compile programs which use PARUSE.
 
 **CROSS-REFERENCE**
 
-`PARTYP <KeywordsP.clean.html#partyp>`__ should be used alongside
-`PARUSE <KeywordsP.clean.html#paruse>`__ to find out whether a parameter was
+:ref:`partyp` should be used alongside
+:ref:`paruse` to find out whether a parameter was
 passed as a variable (ie. by reference) or as a value.
-`PARTYPE <KeywordsP.clean.html#partype>`__ is the same.
-`PARNAM$ <KeywordsP.clean.html#parnam>`__,
-`PARHASH <KeywordsP.clean.html#parhash>`__,
-`PARSEPA <KeywordsP.clean.html#parsepa>`__ and
-`PARSTR$ <KeywordsP.clean.html#parstr>`__ form companions to these commands.
+:ref:`partype` is the same.
+:ref:`parnam-dlr`,
+:ref:`parhash`,
+:ref:`parsepa` and
+:ref:`parstr-dlr` form companions to these commands.
 
 --------------
+
+
+..  _partype:
 
 PARTYPE
 =======
@@ -808,11 +849,14 @@ problems.
 
 **CROSS-REFERENCE**
 
-`PARHASH <KeywordsP.clean.html#parhash>`__, `UNSET <KeywordsU.clean.html#unset>`__
-and `PARNAME$ <KeywordsP.clean.html#parname>`__ are also added by this
+:ref:`parhash`, :ref:`unset`
+and :ref:`parname-dlr` are also added by this
 toolkit.
 
 --------------
+
+
+..  _paruse:
 
 PARUSE
 ======
@@ -856,9 +900,12 @@ TURBO and SuperCHARGE cannot compile programs which use PARUSE.
 
 **CROSS-REFERENCE**
 
-Please see `PARTYP <KeywordsP.clean.html#partyp>`__.
+Please see :ref:`partyp`.
 
 --------------
+
+
+..  _par-abort:
 
 PAR\_ABORT
 ==========
@@ -884,13 +931,16 @@ results in a bad parameter error.
 
 **CROSS-REFERENCE**
 
-`SER\_ABORT <KeywordsS.clean.html#ser-abort>`__ and
-`PRT\_ABORT <KeywordsP.clean.html#prt-abort>`__ are very similar.
-`PAR\_CLEAR <KeywordsP.clean.html#par-clear>`__ clears out the buffers but
-does not tell anyone. `PRT\_ABT <KeywordsP.clean.html#prt-abt>`__ is similar
+:ref:`ser-abort` and
+:ref:`prt-abort` are very similar.
+:ref:`par-clear` clears out the buffers but
+does not tell anyone. :ref:`prt-abt` is similar
 on the Trump Card and Gold Cards.
 
 --------------
+
+
+..  _par-buff:
 
 PAR\_BUFF
 =========
@@ -931,10 +981,13 @@ results in a bad parameter error.
 
 **CROSS-REFERENCE**
 
-`PRT\_USE <KeywordsP.clean.html#prt-use>`__ sets up a dynamic printer buffer
+:ref:`prt-use` sets up a dynamic printer buffer
 except under SMSQ/E.
 
 --------------
+
+
+..  _par-clear:
 
 PAR\_CLEAR
 ==========
@@ -959,10 +1012,13 @@ results in a bad parameter error.
 
 **CROSS-REFERENCE**
 
-`SER\_CLEAR <KeywordsS.clean.html#ser-clear>`__ and
-`PRT\_CLEAR <KeywordsP.clean.html#prt-clear>`__ are similar.
+:ref:`ser-clear` and
+:ref:`prt-clear` are similar.
 
 --------------
+
+
+..  _par-defaultprinter-dlr:
 
 PAR\_DEFAULTPRINTER$
 ====================
@@ -973,9 +1029,12 @@ PAR\_DEFAULTPRINTER$
 | Location | SMSQ/E for QPC                                                    |
 +----------+-------------------------------------------------------------------+
 
-This returns the name of Windows' default printer. The name can later be used with `PAR\_SETPRINTER <KeywordsP.clean.html#par-setprinter>`__ for example.
+This returns the name of Windows' default printer. The name can later be used with :ref:`par-setprinter` for example.
 
 --------------
+
+
+..  _par-getfilter:
 
 PAR\_GETFILTER
 ==============
@@ -990,6 +1049,9 @@ This returns whether the printer filter is enabled for the specified port.
 
 --------------
 
+
+..  _par-getprinter-dlr:
+
 PAR\_GETPRINTER$
 ================
 
@@ -1002,6 +1064,9 @@ PAR\_GETPRINTER$
 This returns the PAR port setting: "LPT1", "LPT2" or "LPT3" if it isn't linked to a printer but directly to a printer port or the name of the printer otherwise. An empty string designates the default printer.
 
 --------------
+
+
+..  _par-printercount:
 
 PAR\_PRINTERCOUNT
 =================
@@ -1016,6 +1081,9 @@ This returns the number of printers available on this system.
 
 --------------
 
+
+..  _par-printername-dlr:
+
 PAR\_PRINTERNAME$
 =================
 
@@ -1025,9 +1093,12 @@ PAR\_PRINTERNAME$
 | Location | SMSQ/E for QPC                                                    |
 +----------+-------------------------------------------------------------------+
 
-This returns the name of printer number n (counted from 1 to `PAR\_PRINTERCOUNT <KeywordsP.clean.html#par-printercount>`__\ ).
+This returns the name of printer number n (counted from 1 to :ref:`par-printercount`\ ).
 
 --------------
+
+
+..  _par-pulse:
 
 PAR\_PULSE
 ==========
@@ -1057,6 +1128,9 @@ On SMSQ/E running on non-Atari's, this command has no effect.
 
 --------------
 
+
+..  _par-setfilter:
+
 PAR\_SETFILTER
 ==============
 
@@ -1070,6 +1144,9 @@ Enables (state% = 1) or disables (state% = 0) the printer filter for the specifi
 
 --------------
 
+
+..  _par-setprinter:
+
 PAR\_SETPRINTER
 ===============
 
@@ -1079,9 +1156,12 @@ PAR\_SETPRINTER
 | Location | SMSQ/E for QPC                                                    |
 +----------+-------------------------------------------------------------------+
 
-Connects the PAR port either to a hardware port (**Example** name$ is "LPT1") or to the printer spooler (name$ is one of the names returned by `PAR\_PRINTERNAME$ <KeywordsP.clean.html#par-printername>`__\ ).
+Connects the PAR port either to a hardware port (**Example** name$ is "LPT1") or to the printer spooler (name$ is one of the names returned by :ref:`par-printername-dlr`\ ).
 
 --------------
+
+
+..  _par-use:
 
 PAR\_USE
 ========
@@ -1109,13 +1189,16 @@ printer port.
 
 **CROSS-REFERENCE**
 
-`RAM\_USE <KeywordsR.clean.html#ram-use>`__,
-`FLP\_USE <KeywordsF.clean.html#flp-use>`__,
-`WIN\_USE <KeywordsW.clean.html#win-use>`__,
-`SER\_USE <KeywordsS.clean.html#ser-use>`__ and
-`PRT\_USE <KeywordsP.clean.html#prt-use>`__ are all very similar.
+:ref:`ram-use`,
+:ref:`flp-use`,
+:ref:`win-use`,
+:ref:`ser-use` and
+:ref:`prt-use` are all very similar.
 
 --------------
+
+
+..  _pause:
 
 PAUSE
 =====
@@ -1175,17 +1258,23 @@ E-Init).
 
 **CROSS-REFERENCE**
 
-`INKEY$ <KeywordsI.clean.html#inkey>`__ allows you to read the key which has
+:ref:`inkey-dlr` allows you to read the key which has
 been pressed, as well as halting program execution.
 
 --------------
 
+
+..  _peek:
+
 PEEK
 ====
 
-See `PEEK\_L <KeywordsP.clean.html#peek-l>`__ below.
+See :ref:`peek-l` below.
 
 --------------
+
+
+..  _peek-float:
 
 PEEK\_FLOAT
 ===========
@@ -1196,7 +1285,7 @@ PEEK\_FLOAT
 | Location | DJToolkit 1.16                                                    |
 +----------+-------------------------------------------------------------------+
 
-This function returns the floating point value represented by the 6 bytes stored at the given address. BEWARE, although this function cannot detect any errors, if the 6 bytes stored at 'address' are not a proper floating point value, the QL can crash. The crash is caused by QDOS and not by PEEK\_FLOAT. This function should be used to retrieve values put there by `POKE\_FLOAT <KeywordsP.clean.html#poke-float>`__ mentioned above.
+This function returns the floating point value represented by the 6 bytes stored at the given address. BEWARE, although this function cannot detect any errors, if the 6 bytes stored at 'address' are not a proper floating point value, the QL can crash. The crash is caused by QDOS and not by PEEK\_FLOAT. This function should be used to retrieve values put there by :ref:`poke-float` mentioned above.
 
 **EXAMPLE**
 
@@ -1217,11 +1306,14 @@ This function returns the floating point value represented by the 6 bytes stored
 
 **CROSS-REFERENCE**
 
-`POKE\_STRING <KeywordsP.clean.html#poke-string>`__, `PEEK\_STRING <KeywordsP.clean.html#peek-string>`__, `POKE\_FLOAT <KeywordsP.clean.html#poke-float>`__.
+:ref:`poke-string`, :ref:`peek-string`, :ref:`poke-float`.
 
 
 -------
 
+
+
+..  _peek-string:
 
 PEEK\_STRING
 ============
@@ -1268,16 +1360,22 @@ The following set of functions return the Toolkit 2 default devices::
 
 **CROSS-REFERENCE**
 
-`POKE\_STRING <KeywordsP.clean.html#poke-string>`__, `PEEK\_FLOAT <KeywordsP.clean.html#peek-float>`__, `POKE\_FLOAT <KeywordsP.clean.html#poke-float>`__.
+:ref:`poke-string`, :ref:`peek-float`, :ref:`poke-float`.
 
 -------
+
+
+..  _peek-w:
 
 PEEK\_W
 =======
 
-See `PEEK\_L <KeywordsP.clean.html#peek-l>`__ below.
+See :ref:`peek-l` below.
 
 --------------
+
+
+..  _peek-l:
 
 PEEK\_L
 =======
@@ -1362,29 +1460,38 @@ Minerva.
 
 **CROSS-REFERENCE**
 
-Please see in particular `POKE <KeywordsP.clean.html#poke>`__,
-`POKE\_W <KeywordsP.clean.html#poke-w>`__, and
-`POKE\_L <KeywordsP.clean.html#poke-l>`__. `PEEK$ <KeywordsP.clean.html#peek>`__
+Please see in particular :ref:`poke`,
+:ref:`poke-w`, and
+:ref:`poke-l`. :ref:`peek-dlr`
 reads a string stored in memory and contains some examples of the new
 variants introduced on Minerva and SMS.
-`PEEK\_F <KeywordsP.clean.html#peek-f>`__ and `PEEKS <KeywordsP.clean.html#peeks>`__
+:ref:`peek-f` and :ref:`peeks`
 are also worth a look.
 
 --------------
 
+
+..  _peeks:
+
 PEEKS
 =====
 
-See `PEEKS\_L <KeywordsP.clean.html#peeks-l>`__ below.
+See :ref:`peeks-l` below.
 
 --------------
+
+
+..  _peeks-w:
 
 PEEKS\_W
 ========
 
-See `PEEKS\_L <KeywordsP.clean.html#peeks-l>`__ below.
+See :ref:`peeks-l` below.
 
 --------------
+
+
+..  _peeks-l:
 
 PEEKS\_L
 ========
@@ -1405,11 +1512,14 @@ implementations they are the same as PEEK, PEEK\_W and PEEK\_L.
 
 **CROSS-REFERENCE**
 
-See `PEEK <KeywordsP.clean.html#peek>`__. `POKES <KeywordsP.clean.html#pokes>`__ is
-the complementary command. See `PROT\_MEM <KeywordsP.clean.html#prot-mem>`__
+See :ref:`peek`. :ref:`pokes` is
+the complementary command. See :ref:`prot-mem`
 also.
 
 --------------
+
+
+..  _peek-dlr:
 
 PEEK$
 =====
@@ -1469,14 +1579,17 @@ such as a$=PEEK$(0,40000) may lead to unpredictable effects. Be careful!
 
 **CROSS-REFERENCE**
 
-`POKE$ <KeywordsP.clean.html#poke>`__ is the complementary procedure to
-`PEEK$ <KeywordsP.clean.html#peek>`__. `PEEK <KeywordsP.clean.html#peek>`__,
-`PEEK\_W <KeywordsP.clean.html#peek-w>`__ and
-`PEEK\_L <KeywordsP.clean.html#peek-l>`__ read single bytes, words and long
-words from memory. `TTPEEK$ <KeywordsT.clean.html#ttpeek>`__ is the same as
+:ref:`poke-dlr` is the complementary procedure to
+:ref:`peek-dlr`. :ref:`peek`,
+:ref:`peek-w` and
+:ref:`peek-l` read single bytes, words and long
+words from memory. :ref:`ttpeek-dlr` is the same as
 this function.
 
 --------------
+
+
+..  _peek-f:
 
 PEEK\_F
 =======
@@ -1498,10 +1611,13 @@ represent a valid floating point, compare this with CVF.
 
 **CROSS-REFERENCE**
 
-`POKE\_F <KeywordsP.clean.html#poke-f>`__, `CVF <KeywordsC.clean.html#cvf>`__,
-`MKF$ <KeywordsM.clean.html#mkf>`__ See also `PEEK$ <KeywordsP.clean.html#peek>`__
+:ref:`poke-f`, :ref:`cvf`,
+:ref:`mkf-dlr` See also :ref:`peek-dlr`
 
 --------------
+
+
+..  _pend:
 
 PEND
 ====
@@ -1607,13 +1723,16 @@ closed.
 
 **CROSS-REFERENCE**
 
-See `TCONNECT <KeywordsT.clean.html#tconnect>`__ and
-`FILE\_OPEN <KeywordsF.clean.html#file-open>`__ about connecting two unnamed
-pipes. `EOF <KeywordsE.clean.html#eof>`__ checks if a file is at its end.
-`IO\_PEND% <KeywordsI.clean.html#io-pend>`__ and NOT `EOFW <KeywordsN.clean.html#eofw>`__ are identical to
-`PEND <KeywordsP.clean.html#pend>`__.
+See :ref:`tconnect` and
+:ref:`file-open` about connecting two unnamed
+pipes. :ref:`eof` checks if a file is at its end.
+:ref:`io-pend-pct` and NOT :ref:`eofw` are identical to
+:ref:`pend`.
 
 --------------
+
+
+..  _pendown:
 
 PENDOWN
 =======
@@ -1630,10 +1749,13 @@ places the pen to the down position in the specified window (default
 
 **CROSS-REFERENCE**
 
-`PENUP <KeywordsP.clean.html#penup>`__ has the opposite effect to this
-command. Also see `MOVE <KeywordsM.clean.html#move>`__.
+:ref:`penup` has the opposite effect to this
+command. Also see :ref:`move`.
 
 --------------
+
+
+..  _penup:
 
 PENUP
 =====
@@ -1649,10 +1771,13 @@ specified window (default #1), thus preventing any further drawing.
 
 **CROSS-REFERENCE**
 
-See `PENDOWN <KeywordsP.clean.html#pendown>`__ and
-`MOVE <KeywordsM.clean.html#move>`__ for more details.
+See :ref:`pendown` and
+:ref:`move` for more details.
 
 --------------
+
+
+..  _peoff:
 
 PEOFF
 =====
@@ -1675,9 +1800,12 @@ PEX should not be used with PIE.
 
 **CROSS-REFERENCE**
 
-Refer to `PEON <KeywordsP.clean.html#peon>`__.
+Refer to :ref:`peon`.
 
 --------------
+
+
+..  _peon:
 
 PEON
 ====
@@ -1734,13 +1862,16 @@ programs refuse to work.
 
 **CROSS-REFERENCE**
 
-See `PEOFF <KeywordsP.clean.html#peoff>`__, `PIE\_ON <KeywordsP.clean.html#pie-on>`__,
-`PXON <KeywordsP.clean.html#pxon>`__, `PEX\_INI <KeywordsP.clean.html#pex-ini>`__
-and `IS\_PEON <KeywordsI.clean.html#is-peon>`__ for more
-details. `IS\_PTRAP <KeywordsI.clean.html#is-ptrap>`__ allows you to enable
+See :ref:`peoff`, :ref:`pie-on`,
+:ref:`pxon`, :ref:`pex-ini`
+and :ref:`is-peon` for more
+details. :ref:`is-ptrap` allows you to enable
 PEX for specific machine code routines.
 
 --------------
+
+
+..  _pex-dlr:
 
 PEX$
 ====
@@ -1756,11 +1887,14 @@ the PEX file.
 
 **CROSS-REFERENCE**
 
-`PEX\_SAVE <KeywordsP.clean.html#pex-save>`__ alters the sub-version number.
-See also `QL\_PEX <KeywordsQ.clean.html#ql-pex>`__ and
-`PIF$ <KeywordsP.clean.html#pif>`__.
+:ref:`pex-save` alters the sub-version number.
+See also :ref:`ql-pex` and
+:ref:`pif-dlr`.
 
 --------------
+
+
+..  _pex-ini:
 
 PEX\_INI
 ========
@@ -1783,11 +1917,14 @@ programs refuse to work.
 
 **CROSS-REFERENCE**
 
-See `PEON <KeywordsP.clean.html#peon>`__ for more general details. You should
-also see `PEX\_XTD <KeywordsP.clean.html#pex-xtd>`__ and
-`PX1ST <KeywordsP.clean.html#px1st>`__.
+See :ref:`peon` for more general details. You should
+also see :ref:`pex-xtd` and
+:ref:`px1st`.
 
 --------------
+
+
+..  _pex-save:
 
 PEX\_SAVE
 =========
@@ -1818,13 +1955,16 @@ An underscore must appear at the end of directory$.
 
 **CROSS-REFERENCE**
 
-See `PEON <KeywordsP.clean.html#peon>`__ for more general details. The
+See :ref:`peon` for more general details. The
 settings which are saved are set with the command
-`IS\_PTRAP <KeywordsI.clean.html#is-ptrap>`__ and
-`IS\_PX1ST <KeywordsI.clean.html#is-px1st>`__. `PEX$ <KeywordsP.clean.html#pex>`__
+:ref:`is-ptrap` and
+:ref:`is-px1st`. :ref:`pex-dlr`
 returns the sub-version number.
 
 --------------
+
+
+..  _pex-xtd:
 
 PEX\_XTD
 ========
@@ -1840,11 +1980,14 @@ help overcome the problem of other toolkits re-defining PEX keywords.
 
 **CROSS-REFERENCE**
 
-See `PEON <KeywordsP.clean.html#peon>`__ for more general details. You should
-also see `PEX\_INI <KeywordsP.clean.html#pex-ini>`__ and
-`PX1ST <KeywordsP.clean.html#px1st>`__.
+See :ref:`peon` for more general details. You should
+also see :ref:`pex-ini` and
+:ref:`px1st`.
 
 --------------
+
+
+..  _phonem:
 
 PHONEM
 ======
@@ -1886,9 +2029,12 @@ which will work properly.
 
 **CROSS-REFERENCE**
 
-`SOUNDEX <KeywordsS.clean.html#soundex>`__, `WLD <KeywordsW.clean.html#wld>`__.
+:ref:`soundex`, :ref:`wld`.
 
 --------------
+
+
+..  _pi:
 
 PI
 ==
@@ -1912,13 +2058,16 @@ error of 10^(-29). You can test the precision of PI with such a program::
 
 **CROSS-REFERENCE**
 
-The trigonometrical functions (`SIN <KeywordsS.clean.html#sin>`__,
-`TAN <KeywordsT.clean.html#tan>`__, `ACOS <KeywordsA.clean.html#acos>`__ etc) expect
-parameters in radians, so `PI <KeywordsP.clean.html#pi>`__ must be used in
+The trigonometrical functions (:ref:`sin`,
+:ref:`tan`, :ref:`acos` etc) expect
+parameters in radians, so :ref:`pi` must be used in
 most cases. Another fundamental mathematical constant, e, can be
-obtained with `EXP(1) <KeywordsE.clean.html#exp(1)>`__.
+obtained with :ref:`exp`\ (1).
 
 --------------
+
+
+..  _pick-dlr:
 
 PICK$
 =====
@@ -1985,12 +2134,15 @@ becomes::
 **CROSS-REFERENCE**
 
 Note that conditions have a numeric value, see
-`IF <KeywordsI.clean.html#if>`__, `AND <KeywordsA.clean.html#and>`__ and
-`OR <KeywordsO.clean.html#or>`__ for details. `SELect ON <KeywordsS.clean.html#select-on>`__\ .. END
+:ref:`if`, :ref:`and` and
+:ref:`or` for details. :ref:`select--on`\ .. END
 SELect <KeywordsS.clean.html#-end-select>`__ is a less
-restrictive alternative to `PICK$ <KeywordsP.clean.html#pick>`__.
+restrictive alternative to :ref:`pick-dlr`.
 
 --------------
+
+
+..  _pick-pct:
 
 PICK%
 =====
@@ -2036,11 +2188,14 @@ successful. Otherwise errors are returned as follows:
 
 **CROSS-REFERENCE**
 
-`OJOB <KeywordsO.clean.html#ojob>`__ and `NXJOB <KeywordsN.clean.html#nxjob>`__
+:ref:`ojob` and :ref:`nxjob`
 allow you to find out details about a specified Job.
-`PEON <KeywordsP.clean.html#peon>`__ allows background screen access.
+:ref:`peon` allows background screen access.
 
 --------------
+
+
+..  _pie-ex-off:
 
 PIE\_EX\_OFF
 ============
@@ -2076,11 +2231,14 @@ which attempts to use SD.EXTOP.
 
 **CROSS-REFERENCE**
 
-See `PIE\_ON <KeywordsP.clean.html#pie-on>`__ and
-`PIE\_EX\_ON <KeywordsP.clean.html#pie-ex-on>`__. See also
-`PXOFF <KeywordsP.clean.html#pxoff>`__ which is similar.
+See :ref:`pie-on` and
+:ref:`pie-ex-on`. See also
+:ref:`pxoff` which is similar.
 
 --------------
+
+
+..  _pie-ex-on:
 
 PIE\_EX\_ON
 ===========
@@ -2096,9 +2254,12 @@ affected by the normal PIE\_ON and PIE\_OFF commands.
 
 **CROSS-REFERENCE**
 
-See `PIE\_ON <KeywordsP.clean.html#pie-on>`__.
+See :ref:`pie-on`.
 
 --------------
+
+
+..  _pie-off:
 
 PIE\_OFF
 ========
@@ -2112,6 +2273,9 @@ PIE\_OFF
 See PIE\_ON below.
 
 --------------
+
+
+..  _pie-on:
 
 PIE\_ON
 =======
@@ -2149,13 +2313,16 @@ problems, you can switch PIE on and off whenever you like.
 
 **CROSS-REFERENCE**
 
-`PIE\_EX\_ON <KeywordsP.clean.html#pie-ex-on>`__ and
-`PIE\_EX\_OFF <KeywordsP.clean.html#pie-ex-off>`__. See also
-`PEON <KeywordsP.clean.html#peon>`__ and `PXON <KeywordsP.clean.html#pxon>`__ which
-greatly enhance these facilities. `PEND <KeywordsP.clean.html#pend>`__ can be
+:ref:`pie-ex-on` and
+:ref:`pie-ex-off`. See also
+:ref:`peon` and :ref:`pxon` which
+greatly enhance these facilities. :ref:`pend` can be
 used to check if a Job can send output to the screen.
 
 --------------
+
+
+..  _pif-dlr:
 
 PIF$
 ====
@@ -2170,6 +2337,9 @@ This is the same as QRAM$!
 
 --------------
 
+
+..  _pinf-dlr:
+
 PINF$
 =====
 
@@ -2182,6 +2352,9 @@ PINF$
 This is the same as QRAM$ and PIF$!
 
 --------------
+
+
+..  _pixel-pct:
 
 PIXEL%
 ======
@@ -2210,12 +2383,15 @@ will not therefore work on higher resolutions.
 
 **CROSS-REFERENCE**
 
-`PLOT <KeywordsP.clean.html#plot>`__ and `DRAW <KeywordsD.clean.html#draw>`__ allow
-you to draw points and lines on the screen. `INK <KeywordsI.clean.html#ink>`__
+:ref:`plot` and :ref:`draw` allow
+you to draw points and lines on the screen. :ref:`ink`
 gives details about the various colour values which may be returned
 (this will be in the range 0...16).
 
 --------------
+
+
+..  _pjob:
 
 PJOB
 ====
@@ -2256,10 +2432,13 @@ for further details.
 
 **CROSS-REFERENCE**
 
-`JOB$ <KeywordsJ.clean.html#job>`__, `OJOB <KeywordsO.clean.html#ojob>`__ and
-`NXJOB <KeywordsN.clean.html#nxjob>`__ return other information about a job.
+:ref:`job-dlr`, :ref:`ojob` and
+:ref:`nxjob` return other information about a job.
 
 --------------
+
+
+..  _play:
 
 PLAY
 ====
@@ -2276,10 +2455,13 @@ available for the limits of nr and the structure of music$.
 
 **CROSS-REFERENCE**
 
-`RELEASE <KeywordsR.clean.html#release>`__ nr plays a sequence.
-`SND\_EXT <KeywordsS.clean.html#snd-ext>`__.
+:ref:`release` nr plays a sequence.
+:ref:`snd-ext`.
 
 --------------
+
+
+..  _plot:
 
 PLOT
 ====
@@ -2329,13 +2511,14 @@ on which channel #3 is located.
 
 **CROSS-REFERENCE**
 
-`DRAW <KeywordsD.clean.html#draw>`__ draws a line,
-`SCLR <KeywordsS.clean.html#sclr>`__ clears the screen, and
-`REFRESH <KeywordsR.clean.html#refresh>`__ makes the screen defined by
-`SCRBASE <KeywordsS.clean.html#scrbase>`__ visible. Compare the other
-implementation of `PLOT <KeywordsP.clean.html#plot>`__.
+:ref:`draw` draws a line,
+:ref:`sclr` clears the screen, and
+:ref:`refresh` makes the screen defined by
+:ref:`scrbase` visible. Compare the other
+implementation of :ref:`plot`.
 
 --------------
+
 
 PLOT
 ====
@@ -2370,11 +2553,14 @@ higher resolutions.
 
 **CROSS-REFERENCE**
 
-See the other variant of `PLOT <KeywordsP.clean.html#plot>`__. See also
-`DRAW <KeywordsD.clean.html#draw>`__. Compare
-`POINT <KeywordsP.clean.html#point>`__.
+See the other variant of :ref:`plot`. See also
+:ref:`draw`. Compare
+:ref:`point`.
 
 --------------
+
+
+..  _point:
 
 POINT
 =====
@@ -2420,15 +2606,18 @@ POINT and GPOINT which is just another name for the same thing.
 **CROSS-REFERENCE**
 
 The relation between the supplied co-ordinates and their position in the
-window is defined with `SCALE <KeywordsS.clean.html#scale>`__. The colour of
-the point(s) is set with `INK <KeywordsI.clean.html#ink>`__. The window can be
-resized with `WINDOW <KeywordsW.clean.html#window>`__.
-`LINE <KeywordsL.clean.html#line>`__ draws a line. The
-`GPOINT <KeywordsG.clean.html#gpoint>`__ command is fully identical to
-`POINT <KeywordsP.clean.html#point>`__ except that it fixes the MGx ROM bug.
-Check the ROM version with `VER$ <KeywordsV.clean.html#ver>`__.
+window is defined with :ref:`scale`. The colour of
+the point(s) is set with :ref:`ink`. The window can be
+resized with :ref:`window`.
+:ref:`line` draws a line. The
+:ref:`gpoint` command is fully identical to
+:ref:`point` except that it fixes the MGx ROM bug.
+Check the ROM version with :ref:`ver-dlr`.
 
 --------------
+
+
+..  _point-r:
 
 POINT\_R
 ========
@@ -2444,18 +2633,24 @@ relative to the current graphics pointer.
 
 **CROSS-REFERENCE**
 
-See `POINT <KeywordsP.clean.html#point>`__! Also see
-`LINE\_R <KeywordsL.clean.html#line-r>`__ and
-`CIRCLE\_R <KeywordsC.clean.html#circle-r>`__.
+See :ref:`point`! Also see
+:ref:`line-r` and
+:ref:`circle-r`.
 
 --------------
+
+
+..  _poke:
 
 POKE
 ====
 
-See `POKE\_L <KeywordsP.clean.html#poke-l>`__ below.
+See :ref:`poke-l` below.
 
 --------------
+
+
+..  _poke-float:
 
 POKE\_FLOAT
 ===========
@@ -2482,11 +2677,14 @@ This procedure will poke the 6 bytes that the QL uses to represent a floating po
     
 **CROSS-REFERENCE**
 
-`POKE\_STRING <KeywordsP.clean.html#poke-string>`__, `PEEK\_STRING <KeywordsP.clean.html#peek-string>`__, `PEEK\_FLOAT <KeywordsP.clean.html#peek-float>`__.
+:ref:`poke-string`, :ref:`peek-string`, :ref:`peek-float`.
 
 
 -------
 
+
+
+..  _poke-string:
 
 POKE\_STRING
 ============
@@ -2499,7 +2697,7 @@ POKE\_STRING
 
 This procedure simply stores the strings contents at the given address. Only the contents of the string are stored, the 2 bytes defining the length are not stored. The address may be odd or even.
 
-If the second parameter given is a numeric one or simply a number, beware, QDOS will convert it to the format that would be seen if the number was `PRINT <KeywordsP.clean.html#print>`__\ ed before storing it at the address.  For example, 1 million would be '1E6' which is arithmetically the same, but characterwise, very different.
+If the second parameter given is a numeric one or simply a number, beware, QDOS will convert it to the format that would be seen if the number was :ref:`print`\ ed before storing it at the address.  For example, 1 million would be '1E6' which is arithmetically the same, but characterwise, very different.
 
 
 **EXAMPLE**
@@ -2516,16 +2714,22 @@ If the second parameter given is a numeric one or simply a number, beware, QDOS 
 
 **CROSS-REFERENCE**
 
-`PEEK\_STRING <KeywordsP.clean.html#peek-string>`__, `PEEK\_FLOAT <KeywordsP.clean.html#peek-float>`__, `POKE\_FLOAT <KeywordsP.clean.html#poke-float>`__.
+:ref:`peek-string`, :ref:`peek-float`, :ref:`poke-float`.
 
 --------------
+
+
+..  _poke-w:
 
 POKE\_W
 =======
 
-See `POKE\_L <KeywordsP.clean.html#poke-l>`__ below.
+See :ref:`poke-l` below.
 
 --------------
+
+
+..  _poke-l:
 
 POKE\_L
 =======
@@ -2836,29 +3040,38 @@ do this which will run on every QDOS compatible computer.
 
 **CROSS-REFERENCE**
 
-`PEEK <KeywordsP.clean.html#peek>`__, `PEEK\_W <KeywordsP.clean.html#peek-w>`__,
-`PEEK\_L <KeywordsP.clean.html#peek-l>`__ and `PEEK$ <KeywordsP.clean.html#peek>`__
-read memory values and `POKE$ <KeywordsP.clean.html#poke>`__ is another
-command to set them. `CHAR\_DEF <KeywordsC.clean.html#char-def>`__ allows you
-to attach a font to all channels `OPEN <KeywordsO.clean.html#open>`__\ ed
-after the command. `POKES <KeywordsP.clean.html#pokes>`__ allows you to
-`POKE <KeywordsP.clean.html#poke>`__ memory in Supervisor mode.
+:ref:`peek`, :ref:`peek-w`,
+:ref:`peek-l` and :ref:`peek-dlr`
+read memory values and :ref:`poke-dlr` is another
+command to set them. :ref:`char-def` allows you
+to attach a font to all channels :ref:`open`\ ed
+after the command. :ref:`pokes` allows you to
+:ref:`poke` memory in Supervisor mode.
 
 --------------
+
+
+..  _pokes:
 
 POKES
 =====
 
-See `POKES\_L <KeywordsP.clean.html#pokes-l>`__ below.
+See :ref:`pokes-l` below.
 
 --------------
+
+
+..  _pokes-w:
 
 POKES\_W
 ========
 
-See `POKES\_L <KeywordsP.clean.html#pokes-l>`__ below.
+See :ref:`pokes-l` below.
 
 --------------
+
+
+..  _pokes-l:
 
 POKES\_L
 ========
@@ -2882,10 +3095,13 @@ and POKE\_L.
 
 **CROSS-REFERENCE**
 
-See `POKE <KeywordsP.clean.html#poke>`__ and `PEEKS <KeywordsP.clean.html#peeks>`__.
-Also see `PROT\_MEM <KeywordsP.clean.html#prot-mem>`__.
+See :ref:`poke` and :ref:`peeks`.
+Also see :ref:`prot-mem`.
 
 --------------
+
+
+..  _poke-dlr:
 
 POKE$
 =====
@@ -2920,12 +3136,15 @@ and SuperBASIC variables directly as with POKE.
 
 **CROSS-REFERENCE**
 
-`PEEK$ <KeywordsP.clean.html#peek>`__ reads strings from memory.
-`MKS$ <KeywordsM.clean.html#mks>`__ returns the internal format of a given
-string. `TTPOKE$ <KeywordsT.clean.html#ttpoke>`__ is the same as this
+:ref:`peek-dlr` reads strings from memory.
+:ref:`mks-dlr` returns the internal format of a given
+string. :ref:`ttpoke-dlr` is the same as this
 command.
 
 --------------
+
+
+..  _poke-f:
 
 POKE\_F
 =======
@@ -2965,17 +3184,20 @@ Fast but 6K buffer required::
 
 **CROSS-REFERENCE**
 
-`POKE <KeywordsP.clean.html#poke>`__, `POKE\_W <KeywordsP.clean.html#poke-w>`__ and
-`POKE\_L <KeywordsP.clean.html#poke-l>`__ store different ranges of integer
-numbers. `MKF$ <KeywordsM.clean.html#mkf>`__ returns the internal
+:ref:`poke`, :ref:`poke-w` and
+:ref:`poke-l` store different ranges of integer
+numbers. :ref:`mkf-dlr` returns the internal
 representation of a floating point number as a string.
-`GET <KeywordsG.clean.html#get>`__ and `PUT <KeywordsP.clean.html#put>`__ write all
+:ref:`get` and :ref:`put` write all
 kinds of data types in their internal format to a channel,
-`FPUTF <KeywordsF.clean.html#fputf>`__ and `FGETF <KeywordsF.clean.html#fgetf>`__
+:ref:`fputf` and :ref:`fgetf`
 are specialised variants for floats only. See also
-`PEEK\_F <KeywordsP.clean.html#peek-f>`__!
+:ref:`peek-f`!
 
 --------------
+
+
+..  _print:
 
 PRINT
 =====
@@ -3083,16 +3305,19 @@ instead of::
 
 **CROSS-REFERENCE**
 
-See also `INPUT <KeywordsI.clean.html#input>`__ which contains a description
+See also :ref:`input` which contains a description
 of the different types of separators. Please also see
-`WIDTH <KeywordsW.clean.html#width>`__. `TO <KeywordsT.clean.html#to>`__ has other
-meanings - see `TO <KeywordsT.clean.html#to>`__.
-`VG\_PRINT <KeywordsV.clean.html#vg-print>`__ allows you to print using
-scaleable fonts on screen. `CHAR\_USE <KeywordsC.clean.html#char-use>`__ and
-`CHAR\_DEF <KeywordsC.clean.html#char-def>`__ allow you to alter the fonts
+:ref:`width`. :ref:`to` has other
+meanings - see :ref:`to`.
+:ref:`vg-print` allows you to print using
+scaleable fonts on screen. :ref:`char-use` and
+:ref:`char-def` allow you to alter the fonts
 used for printing characters on screen.
 
 --------------
+
+
+..  _print-using:
 
 PRINT\_USING
 ============
@@ -3254,10 +3479,13 @@ the field.
 
 **CROSS-REFERENCE**
 
-See also `FDEC$ <KeywordsF.clean.html#fdec>`__,
-`IDEC$ <KeywordsI.clean.html#idec>`__ and `CDEC$ <KeywordsC.clean.html#cdec>`__.
+See also :ref:`fdec-dlr`,
+:ref:`idec-dlr` and :ref:`cdec-dlr`.
 
 --------------
+
+
+..  _prio:
 
 PRIO
 ====
@@ -3287,15 +3515,20 @@ continue).
 
 **CROSS-REFERENCE**
 
-`SPJOB <KeywordsS.clean.html#spjob>`__, `SP\_JOB <KeywordsS.clean.html#sp-job>`__,
-and `PJOB <KeywordsP.clean.html#pjob>`__ also deal with job priorities. `SPJOB
-<KeywordsS.clean.html#spjob>`__ -1,
-`priority <Keywordsp.clean.html#priority>`__ is exactly the same as `PRIO
-<KeywordsP.clean.html#prio>`__ priority, or
-`PRIORITISE <KeywordsP.clean.html#prioritise>`__
-`priority <Keywordsp.clean.html#priority>`__.
+:ref:`spjob`, :ref:`sp-job`,
+and :ref:`pjob` also deal with job priorities. 
+
+::
+
+    SPJOB -1
+
+is exactly the same as PRIO, priority, or
+:ref:`prioritise`.
 
 --------------
+
+
+..  _prioritise:
 
 PRIORITISE
 ==========
@@ -3320,13 +3553,16 @@ gives the current job the maximum amount of processor time available when multit
 
 **CROSS-REFERENCE**
 
-A one parameter variant of `PRIORITISE <KeywordsP.clean.html#prioritise>`__ is
-`PRIO <KeywordsP.clean.html#prio>`__. Refer to
-`SPJOB <KeywordsS.clean.html#spjob>`__ and connected keywords for more
-information on jobs and priorities. `JOBS <KeywordsJ.clean.html#jobs>`__ will
+A one parameter variant of :ref:`prioritise` is
+:ref:`prio`. Refer to
+:ref:`spjob` and connected keywords for more
+information on jobs and priorities. :ref:`jobs` will
 give details of job numbers and job tags.
 
 --------------
+
+
+..  _pro:
 
 PRO
 ===
@@ -3348,16 +3584,19 @@ is the same as::
     
 **CROSS-REFERENCE**
 
-`NORM <KeywordsN.clean.html#norm>`__, `BLD <KeywordsB.clean.html#bld>`__,
-`EL <KeywordsE.clean.html#el>`__, `DBL <KeywordsD.clean.html#dbl>`__,
-`ENL <KeywordsE.clean.html#enl>`__, `SI <KeywordsS.clean.html#si>`__,
-`NRM <KeywordsN.clean.html#nrm>`__, `UNL <KeywordsU.clean.html#unl>`__,
-`ALT <KeywordsA.clean.html#alt>`__, `ESC <KeywordsE.clean.html#esc>`__,
-`FF <KeywordsF.clean.html#ff>`__, `LMAR <KeywordsL.clean.html#lmar>`__,
-`RMAR <KeywordsR.clean.html#rmar>`__, `PAGDIS <KeywordsP.clean.html#pagdis>`__,
-`PAGLEN <KeywordsP.clean.html#paglen>`__.
+:ref:`norm`, :ref:`bld`,
+:ref:`el`, :ref:`dbl`,
+:ref:`enl`, :ref:`si`,
+:ref:`nrm`, :ref:`unl`,
+:ref:`alt`, :ref:`esc`,
+:ref:`ff`, :ref:`lmar`,
+:ref:`rmar`, :ref:`pagdis`,
+:ref:`paglen`.
 
 --------------
+
+
+..  _processor:
 
 PROCESSOR
 =========
@@ -3422,10 +3661,13 @@ QPC versions prior to 3.33 will return a value of 10 for the PROCESSORE function
 
 **CROSS-REFERENCE**
 
-See `MACHINE <KeywordsM.clean.html#machine>`__,
-`QDOS$ <KeywordsQ.clean.html#qdos>`__ and `VER$ <KeywordsV.clean.html#ver>`__
+See :ref:`machine`,
+:ref:`qdos-dlr` and :ref:`ver-dlr`
 
 --------------
+
+
+..  _procedure:
 
 PROCedure
 =========
@@ -3446,6 +3688,9 @@ Please refer to the individual structure descriptions for more details.
 
 --------------
 
+
+..  _progd-dlr:
+
 PROGD$
 ======
 
@@ -3460,10 +3705,13 @@ see below.
 
 **CROSS-REFERENCE**
 
-`PROG\_USE <KeywordsP.clean.html#prog-use>`__,
-`DLIST <KeywordsD.clean.html#dlist>`__, `DATAD$ <KeywordsD.clean.html#datad>`__.
+:ref:`prog-use`,
+:ref:`dlist`, :ref:`datad-dlr`.
 
 --------------
+
+
+..  _prog-use:
 
 PROG\_USE
 =========
@@ -3493,10 +3741,13 @@ error 'Bad Parameter' (error -15).
 
 **CROSS-REFERENCE**
 
-`PROGD$ <KeywordsP.clean.html#progd>`__ returns the program device setting.
-See `DATA\_USE <KeywordsD.clean.html#data-use>`__ for more information.
+:ref:`progd-dlr` returns the program device setting.
+See :ref:`data-use` for more information.
 
 --------------
+
+
+..  _prot-date:
 
 PROT\_DATE
 ==========
@@ -3571,12 +3822,15 @@ in your boot program.
 
 **CROSS-REFERENCE**
 
-`SDATE <KeywordsS.clean.html#sdate>`__ and `ADATE <KeywordsA.clean.html#adate>`__
-alter the QL's internal clock.\ `DATE$ <KeywordsD.clean.html#date>`__ and
-`DAY$ <KeywordsD.clean.html#day>`__ can be used to read the time on the QL's
+:ref:`sdate` and :ref:`adate`
+alter the QL's internal clock.\ :ref:`date-dlr` and
+:ref:`day-dlr` can be used to read the time on the QL's
 internal clock.
 
 --------------
+
+
+..  _prot-mem:
 
 PROT\_MEM
 =========
@@ -3631,12 +3885,15 @@ Emulators (non-Atari based), Gold and Super Gold Cards.
 
 **CROSS-REFERENCE**
 
-See `POKES <KeywordsP.clean.html#pokes>`__ and
-`PEEKS <KeywordsP.clean.html#peeks>`__.
-`PROT\_DATE <KeywordsP.clean.html#prot-date>`__ protects a battery backed
+See :ref:`pokes` and
+:ref:`peeks`.
+:ref:`prot-date` protects a battery backed
 clock.
 
 --------------
+
+
+..  _pround:
 
 PROUND
 ======
@@ -3662,9 +3919,12 @@ Print ten random number with three digits after the decimal point::
 
 **CROSS-REFERENCE**
 
-`DROUND <KeywordsD.clean.html#dround>`__\ .
+:ref:`dround`\ .
 
 --------------
+
+
+..  _prt-abort:
 
 PRT\_ABORT
 ==========
@@ -3680,12 +3940,14 @@ PRT is linked to.
 
 **CROSS-REFERENCE**
 
-See `SER\_ABORT <KeywordsS.clean.html#ser-abort>`__ and
-`PAR\_ABORT <KeywordsP.clean.html#par-abort>`__.
-`PRT\_USE <KeywordsP.clean.html#prt-use>`__ allows you to specify which port
-`PRT <KeywordsP.clean.html#prt>`__ emulates.
+See :ref:`ser-abort` and
+:ref:`par-abort`.
+:ref:`prt-use` allows you to specify which port prt emulates.
 
 --------------
+
+
+..  _prt-abt:
 
 PRT\_ABT
 ========
@@ -3706,13 +3968,16 @@ PRT\_ABT will prevent any further output and clear the contents. The message
 
 **CROSS-REFERENCE**
 
-`PRT\_USE <KeywordsP.clean.html#prt-use>`__ allows you to specify the type of
+:ref:`prt-use` allows you to specify the type of
 output to be buffered. The ST/QL Emulator and SMSQ/E support a similar
-function with `PRT\_ABORT <KeywordsP.clean.html#prt-abort>`__,
-`PAR\_ABORT <KeywordsP.clean.html#par-abort>`__ and
-`SER\_ABORT <KeywordsS.clean.html#ser-abort>`__.
+function with :ref:`prt-abort`,
+:ref:`par-abort` and
+:ref:`ser-abort`.
 
 --------------
+
+
+..  _prt-buff:
 
 PRT\_BUFF
 =========
@@ -3728,9 +3993,12 @@ output on whichever port is attached to the PRT device.
 
 **CROSS-REFERENCE**
 
-See `PAR\_BUFF <KeywordsP.clean.html#par-buff>`__.
+See :ref:`par-buff`.
 
 --------------
+
+
+..  _prt-clear:
 
 PRT\_CLEAR
 ==========
@@ -3746,10 +4014,13 @@ further output, in the same way as PAR\_CLEAR.
 
 **CROSS-REFERENCE**
 
-`PAR\_CLEAR <KeywordsP.clean.html#par-clear>`__ and
-`SER\_CLEAR <KeywordsS.clean.html#ser-clear>`__ are similar.
+:ref:`par-clear` and
+:ref:`ser-clear` are similar.
 
 --------------
+
+
+..  _prt-use:
 
 PRT\_USE
 ========
@@ -3791,14 +4062,15 @@ being printed at the end of the file.
 
 **CROSS-REFERENCE**
 
-`RAM\_USE <KeywordsR.clean.html#ram-use>`__,
-`FLP\_USE <KeywordsF.clean.html#flp-use>`__,
-`WIN\_USE <KeywordsW.clean.html#win-use>`__,
-`SER\_USE <KeywordsS.clean.html#ser-use>`__ and
-`PAR\_USE <KeywordsP.clean.html#par-use>`__ are all very similar. See the
+:ref:`ram-use`,
+:ref:`flp-use`,
+:ref:`win-use`,
+:ref:`ser-use` and
+:ref:`par-use` are all very similar. See the
 other version of this command.
 
 --------------
+
 
 PRT\_USE
 ========
@@ -3870,10 +4142,13 @@ while the command is being carried out.
 
 **CROSS-REFERENCE**
 
-See also `PRT\_ABT <KeywordsP.clean.html#prt-abt>`__. See the other version of
+See also :ref:`prt-abt`. See the other version of
 this command.
 
 --------------
+
+
+..  _prt-use-dlr:
 
 PRT\_USE$
 =========
@@ -3899,9 +4174,12 @@ will return 'ser1etf'.
 
 **CROSS-REFERENCE**
 
-See `PRT\_USE <KeywordsP.clean.html#prt-use>`__.
+See :ref:`prt-use`.
 
 --------------
+
+..  _pth-...:
+..  _pth-add:
 
 PTH\_ADD
 ========
@@ -4029,20 +4307,22 @@ lead to a loss of data if you are not aware of the strange phenomenon.
 
 **CROSS-REFERENCE**
 
-The path device is very similar to the `DEV <KeywordsD.clean.html#dev>`__
-device, please read through `DEV\_USE <KeywordsD.clean.html#dev-use>`__ to
+The path device is very similar to the dev\_
+device, please read through :ref:`dev-use` to
 understand the idea behind both devices. It's pretty useful to set the
-Toolkit II `DATAD$ <KeywordsD.clean.html#datad>`__ and
-`PROGD$ <KeywordsP.clean.html#progd>`__ to pth1\_::
+Toolkit II :ref:`datad-dlr` and
+:ref:`progd-dlr` to pth1\_::
 
     DATA_USE pth1_ 
     PROG\_USE pth1_ 
 
 Do this preferably in your
-BOOT program. - Look at the other `PTH\_ <KeywordsP.clean.html#pth-add>`__..
-style keywords!
+BOOT program. - Look at the other :ref:`pth-...` keywords!
 
 --------------
+
+
+..  _pth-list:
 
 PTH\_LIST
 =========
@@ -4065,10 +4345,13 @@ the PTH device.
 
 **CROSS-REFERENCE**
 
-`PTH$ <KeywordsP.clean.html#pth>`__ is an alternative way to get the path
+:ref:`pth-dlr` is an alternative way to get the path
 list.
 
 --------------
+
+
+..  _pth-rmv:
 
 PTH\_RMV
 ========
@@ -4117,9 +4400,12 @@ procedure PTH\_CLEAR::
 
 **CROSS-REFERENCE**
 
-The other `PTH\_ <KeywordsP.clean.html#pth->`__... keywords
+The other :ref:`pth-...` keywords
 
 --------------
+
+
+..  _pth-use:
 
 PTH\_USE
 ========
@@ -4149,9 +4435,12 @@ program.
 
 **CROSS-REFERENCE**
 
-`PTH\_USE$ <KeywordsP.clean.html#pth-use>`__ returns the current setting.
+:ref:`pth-use-dlr` returns the current setting.
 
 --------------
+
+
+..  _pth-use-dlr:
 
 PTH\_USE$
 =========
@@ -4172,6 +4461,9 @@ used for the path device.
     PRINT PTH_USE$
 
 --------------
+
+
+..  _pth-dlr:
 
 PTH$
 ====
@@ -4215,10 +4507,13 @@ The function PTH\_ENTRIES% returns the number of directories in the path list.
 
 **CROSS-REFERENCE**
 
-`PTH\_ADD <KeywordsP.clean.html#pth-add>`__,
-`PTH\_LIST <KeywordsP.clean.html#pth-list>`__
+:ref:`pth-add`,
+:ref:`pth-list`
 
 --------------
+
+
+..  _ptr-fn-pct:
 
 PTR\_FN%
 ========
@@ -4282,6 +4577,9 @@ For more details, refer to the individual commands/ functions.
 
 --------------
 
+
+..  _ptr-inc:
+
 PTR\_INC
 ========
 
@@ -4304,10 +4602,13 @@ about the table.
 
 **CROSS-REFERENCE**
 
-See `PTR\_KEY <KeywordsP.clean.html#ptr-key>`__ and also compare
-`SERMSPEED <KeywordsS.clean.html#sermspeed>`__.
+See :ref:`ptr-key` and also compare
+:ref:`sermspeed`.
 
 --------------
+
+
+..  _ptr-key:
 
 PTR\_KEY
 ========
@@ -4346,11 +4647,14 @@ on the opposite edge (a wrapping effect). edge=0 disables this.
 
 **CROSS-REFERENCE**
 
-See `PTR\_INC <KeywordsP.clean.html#ptr-inc>`__ also. Also see
-`PTR\_ON <KeywordsP.clean.html#ptr-on>`__ and
-`SERMPTR <KeywordsS.clean.html#sermptr>`__
+See :ref:`ptr-inc` also. Also see
+:ref:`ptr-on` and
+:ref:`sermptr`
 
 --------------
+
+
+..  _ptr-limits:
 
 PTR\_LIMITS
 ===========
@@ -4388,11 +4692,14 @@ pointer will appear at the other extreme limit.
 
 **CROSS-REFERENCE**
 
-`PTR\_POS <KeywordsP.clean.html#ptr-pos>`__ can be used to dictate where the
+:ref:`ptr-pos` can be used to dictate where the
 mouse pointer should appear on screen. This command only calls
-`PTR\_MAX <KeywordsP.clean.html#ptr-max>`__ on the DIY implementation.
+:ref:`ptr-max` on the DIY implementation.
 
 --------------
+
+
+..  _ptr-max:
 
 PTR\_MAX
 ========
@@ -4407,9 +4714,12 @@ This command is the same as: PTR\_LIMITS 0,0,maxx,maxy
 
 **CROSS-REFERENCE**
 
-See `PTR\_LIMITS <KeywordsP.clean.html#ptr-limits>`__!
+See :ref:`ptr-limits`!
 
 --------------
+
+
+..  _ptr-off:
 
 PTR\_OFF
 ========
@@ -4425,9 +4735,12 @@ used by it for temporary shortage. PTR\_ON switches the driver back on.
 
 **CROSS-REFERENCE**
 
-This is similar to `SERMOFF <KeywordsS.clean.html#sermoff>`__.
+This is similar to :ref:`sermoff`.
 
 --------------
+
+
+..  _ptr-on:
 
 PTR\_ON
 =======
@@ -4447,15 +4760,18 @@ pointer is positioned in the top left corner of the screen (position
 **CROSS-REFERENCE**
 
 You can re-position the mouse with
-`PTR\_POS <KeywordsP.clean.html#ptr-pos>`__. See
-`SERMON <KeywordsS.clean.html#sermon>`__ and
-`PTR\_OFF <KeywordsP.clean.html#ptr-off>`__.
-`PTR\_INC <KeywordsP.clean.html#ptr-inc>`__,
-`PTR\_KEY <KeywordsP.clean.html#ptr-key>`__ and
-`PTR\_MAX <KeywordsP.clean.html#ptr-max>`__ are also needed to set various
+:ref:`ptr-pos`. See
+:ref:`sermon` and
+:ref:`ptr-off`.
+:ref:`ptr-inc`,
+:ref:`ptr-key` and
+:ref:`ptr-max` are also needed to set various
 parameters on start-up.
 
 --------------
+
+
+..  _ptr-pos:
 
 PTR\_POS
 ========
@@ -4476,13 +4792,16 @@ defined with the PTR\_LIMITS command.
 
 **CROSS-REFERENCE**
 
-See `PTR\_LIMITS <KeywordsP.clean.html#ptr-limits>`__ and
-`PTR\_ON <KeywordsP.clean.html#ptr-on>`__. The pointer position can be read
-with `X\_PTR% <KeywordsX.clean.html#x-ptr>`__,
-`Y\_PTR% <KeywordsY.clean.html#y-ptr>`__ and
-`PTR\_FN%. <KeywordsP.clean.html#ptr-fn.>`__
+See :ref:`ptr-limits` and
+:ref:`ptr-on`. The pointer position can be read
+with :ref:`x-ptr-pct`,
+:ref:`y-ptr-pct` and
+:ref:`ptr-fn-pct`.
 
 --------------
+
+..  _ptr-...:
+..  _ptr-x:
 
 PTR\_X
 ======
@@ -4514,10 +4833,13 @@ again. Confused?
 **CROSS-REFERENCE**
 
 The other rectangular co-ordinate is found with
-`PTR\_Y <KeywordsP.clean.html#ptr-y>`__ below. Also see
-`RTP\_R <KeywordsR.clean.html#rtp-r>`__ and `RTP\_T <KeywordsR.clean.html#rtp-t>`__
+:ref:`ptr-y` below. Also see
+:ref:`rtp-r` and :ref:`rtp-t`
 
 --------------
+
+
+..  _ptr-y:
 
 PTR\_Y
 ======
@@ -4533,6 +4855,9 @@ part is returned.
 
 --------------
 
+
+..  _purge:
+
 PURGE
 =====
 
@@ -4545,6 +4870,9 @@ PURGE
 The command PURGE has the same (fatal) effect as KILL or KJOBS.
 
 --------------
+
+
+..  _put:
 
 PUT
 ===
@@ -4623,11 +4951,14 @@ numbers, the internal format gives the greatest possible accuracy.
 
 **CROSS-REFERENCE**
 
-See `PUT <KeywordsP.clean.html#put>`__, `BPUT <KeywordsB.clean.html#bput>`__,
-`WPUT <KeywordsW.clean.html#wput>`__, `LPUT <KeywordsL.clean.html#lput>`__,
-`UPUT <KeywordsU.clean.html#uput>`__ and `GET <KeywordsG.clean.html#get>`__.
+See :ref:`put`, :ref:`bput`,
+:ref:`wput`, :ref:`lput`,
+:ref:`uput` and :ref:`get`.
 
 --------------
+
+
+..  _put-byte:
 
 PUT\_BYTE
 =========
@@ -4638,7 +4969,7 @@ PUT\_BYTE
 | Location | DJToolkit 1.16                                                    |
 +----------+-------------------------------------------------------------------+
 
-The given byte is sent to the  channel. If a byte value larger than 255 is given, only the lowest 8 bits of the value are sent. The byte value written to the channel will always be between 0 and 255 even if a negative value is supplied. `GET\_BYTE <KeywordsG.clean.html#get-byte>`__ returns all values as positive.
+The given byte is sent to the  channel. If a byte value larger than 255 is given, only the lowest 8 bits of the value are sent. The byte value written to the channel will always be between 0 and 255 even if a negative value is supplied. :ref:`get-byte` returns all values as positive.
 
 **EXAMPLE**
 
@@ -4649,11 +4980,14 @@ The given byte is sent to the  channel. If a byte value larger than 255 is given
 
 **CROSS-REFERENCE**
 
-`PUT\_FLOAT <KeywordsP.clean.html#put-float>`__, `PUT\_LONG <KeywordsP.clean.html#put-long>`__, `PUT\_STRING <KeywordsP.clean.html#put-string>`__, `PUT\_WORD <KeywordsP.clean.html#put-word>`__.
+:ref:`put-float`, :ref:`put-long`, :ref:`put-string`, :ref:`put-word`.
 
 
 -------
 
+
+
+..  _put-float:
 
 PUT\_FLOAT
 ==========
@@ -4664,7 +4998,7 @@ PUT\_FLOAT
 | Location | DJToolkit 1.16                                                    |
 +----------+-------------------------------------------------------------------+
 
-The given float value is converted to the internal  QDOS format for floating point  numbers and those 6 bytes are sent to the given channel  number.  The full range of QL numbers can be sent including all the negative values. `GET\_FLOAT <KeywordsG.clean.html#get-float>`__ will return negative values correctly (unless an error occurs).
+The given float value is converted to the internal  QDOS format for floating point  numbers and those 6 bytes are sent to the given channel  number.  The full range of QL numbers can be sent including all the negative values. :ref:`get-float` will return negative values correctly (unless an error occurs).
 
 
 **EXAMPLE**
@@ -4676,11 +5010,14 @@ The given float value is converted to the internal  QDOS format for floating poi
 
 **CROSS-REFERENCE**
 
-`PUT\_BYTE <KeywordsP.clean.html#put-byte>`__, `PUT\_LONG <KeywordsP.clean.html#put-long>`__, `PUT\_STRING <KeywordsP.clean.html#put-string>`__, `PUT\_WORD <KeywordsP.clean.html#put-word>`__.
+:ref:`put-byte`, :ref:`put-long`, :ref:`put-string`, :ref:`put-word`.
 
 
 -------
 
+
+
+..  _put-long:
 
 PUT\_LONG
 =========
@@ -4691,7 +5028,7 @@ PUT\_LONG
 | Location | DJToolkit 1.16                                                    |
 +----------+-------------------------------------------------------------------+
 
-The long value given is sent as a sequence of four bytes to the channel. Negative values can be put and these will be returned correctly by `GET\_LONG <KeywordsG.clean.html#get-long>`__ unless any errors occur.
+The long value given is sent as a sequence of four bytes to the channel. Negative values can be put and these will be returned correctly by :ref:`get-long` unless any errors occur.
 
 **EXAMPLE**
 
@@ -4701,11 +5038,14 @@ The long value given is sent as a sequence of four bytes to the channel. Negativ
 
 **CROSS-REFERENCE**
 
-`PUT\_BYTE <KeywordsP.clean.html#put-byte>`__, `PUT\_FLOAT <KeywordsP.clean.html#put-float>`__, `PUT\_STRING <KeywordsP.clean.html#put-string>`__, `PUT\_WORD <KeywordsP.clean.html#put-word>`__.
+:ref:`put-byte`, :ref:`put-float`, :ref:`put-string`, :ref:`put-word`.
 
 
 -------
 
+
+
+..  _put-string:
 
 PUT\_STRING
 ===========
@@ -4716,7 +5056,7 @@ PUT\_STRING
 | Location | DJToolkit 1.16                                                    |
 +----------+-------------------------------------------------------------------+
 
-The string  parameter is sent to the appropriate channel as a two byte word giving the length of the data then the characters of the data. If you send a string of zero length, LET A$ = "" for example, then only two bytes will be written to the file.  See `POKE\_STRING <KeywordsP.clean.html#poke-string>`__ for a description of what will happen if you supply a number or a numeric variable as the second parameter. As with all QL strings, the maximum length of a string is 32kbytes.
+The string  parameter is sent to the appropriate channel as a two byte word giving the length of the data then the characters of the data. If you send a string of zero length, LET A$ = "" for example, then only two bytes will be written to the file.  See :ref:`poke-string` for a description of what will happen if you supply a number or a numeric variable as the second parameter. As with all QL strings, the maximum length of a string is 32kbytes.
 
 **EXAMPLE**
 
@@ -4727,11 +5067,14 @@ The string  parameter is sent to the appropriate channel as a two byte word givi
 
 **CROSS-REFERENCE**
 
-`PUT\_BYTE <KeywordsP.clean.html#put-byte>`__, `PUT\_FLOAT <KeywordsP.clean.html#put-float>`__, `PUT\_LONG <KeywordsP.clean.html#put-long>`__, `PUT\_WORD <KeywordsP.clean.html#put-word>`__.
+:ref:`put-byte`, :ref:`put-float`, :ref:`put-long`, :ref:`put-word`.
 
 
 -------
 
+
+
+..  _put-word:
 
 PUT\_WORD
 =========
@@ -4742,7 +5085,7 @@ PUT\_WORD
 | Location | DJToolkit 1.16                                                    |
 +----------+-------------------------------------------------------------------+
 
-The supplied word is written to the appropriate channel as a sequence of two bytes. If the word value supplied is bigger than 65,535 then only the lower 16 bits of the value will be used. Negative values will be returned by `GET\_WORD <KeywordsG.clean.html#get-word>`__ as positive.
+The supplied word is written to the appropriate channel as a sequence of two bytes. If the word value supplied is bigger than 65,535 then only the lower 16 bits of the value will be used. Negative values will be returned by :ref:`get-word` as positive.
 
 **EXAMPLE**
 
@@ -4753,10 +5096,13 @@ The supplied word is written to the appropriate channel as a sequence of two byt
 
 **CROSS-REFERENCE**
 
-`PUT\_BYTE <KeywordsP.clean.html#put-byte>`__, `PUT\_FLOAT <KeywordsP.clean.html#put-float>`__, `PUT\_LONG <KeywordsP.clean.html#put-long>`__, `PUT\_STRING <KeywordsP.clean.html#put-string>`__.
+:ref:`put-byte`, :ref:`put-float`, :ref:`put-long`, :ref:`put-string`.
 
 
 -------
+
+
+..  _pxoff:
 
 PXOFF
 =====
@@ -4773,9 +5119,12 @@ trapped by the Pointer Environment.
 
 **CROSS-REFERENCE**
 
-See `PXON <KeywordsP.clean.html#pxon>`__ and\ `PEON <KeywordsP.clean.html#peon>`__.
+See :ref:`pxon` and\ :ref:`peon`.
 
 --------------
+
+
+..  _pxon:
 
 PXON
 ====
@@ -4792,10 +5141,13 @@ work in the background.
 
 **CROSS-REFERENCE**
 
-See `PXOFF <KeywordsP.clean.html#pxoff>`__
-and\ `PEON <KeywordsP.clean.html#peon>`__.
+See :ref:`pxoff`
+and\ :ref:`peon`.
 
 --------------
+
+
+..  _px1st:
 
 PX1ST
 =====
@@ -4827,11 +5179,14 @@ operations will be ignored.
 
 **CROSS-REFERENCE**
 
-See `PEON <KeywordsP.clean.html#peon>`__ and in particular, refer to
-`IS\_PTRAP <KeywordsI.clean.html#is-ptrap>`__ for more details. See also
-`IS\_PEON <KeywordsI.clean.html#is-peon>`__.
+See :ref:`peon` and in particular, refer to
+:ref:`is-ptrap` for more details. See also
+:ref:`is-peon`.
 
 --------------
+
+
+..  _p-env:
 
 P\_ENV
 ======
@@ -4864,7 +5219,8 @@ see if it is present. This short program does so::
 
 **CROSS-REFERENCE**
 
-`WMAN$ <KeywordsW.clean.html#wman>`__ finds the version of the Window Manager
-and `QRAM$ <KeywordsQ.clean.html#qram>`__ the version of the Pointer
+:ref:`wman-dlr` finds the version of the Window Manager
+and :ref:`qram-dlr` the version of the Pointer
 Interface. These functions can also be used to detect the presence of
 the Pointer Environment (=Window Manager & Pointer Interface).
+

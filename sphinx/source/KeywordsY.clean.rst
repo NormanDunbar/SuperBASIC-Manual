@@ -1,7 +1,11 @@
+
 ==========
 Keywords Y
 ==========
 
+
+
+..  _ylim:
 
 YLIM
 ====
@@ -22,9 +26,12 @@ The Pointer Interface must be present for this function to work.
 
 **CROSS-REFERENCE**
 
-See `XLIM <KeywordsX.clean.html#xlim>`__ for details.
+See :ref:`xlim` for details.
 
 --------------
+
+
+..  _y-ptr-pct:
 
 Y\_PTR%
 =======
@@ -42,6 +49,7 @@ screen.
 
 **CROSS-REFERENCE**
 
-See `PTR\_POS <KeywordsP.clean.html#ptr-pos>`__ and
-`PTR\_MAX <KeywordsP.clean.html#ptr-max>`__.
-`X\_PTR% <KeywordsX.clean.html#x-ptr>`__ reads the x co-ordinate.
+See :ref:`ptr-pos` and
+:ref:`ptr-max`.
+:ref:`x-ptr-pct` reads the x co-ordinate.
+

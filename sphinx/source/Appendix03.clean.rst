@@ -1,3 +1,5 @@
+..  _a3-emulators:
+
 A3 Emulators
 ============
 

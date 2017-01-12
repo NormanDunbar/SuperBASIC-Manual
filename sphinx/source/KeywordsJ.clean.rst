@@ -2,6 +2,9 @@
 Keywords J
 ==========
 
+
+..  _jbase:
+
 JBASE
 =====
 
@@ -120,13 +123,16 @@ this converts the variable into an expression.
 
 **CROSS-REFERENCE**
 
-`JOBS <KeywordsJ.clean.html#jobs>`__, `SJOB <KeywordsS.clean.html#sjob>`__,
-`AJOB <KeywordsA.clean.html#ajob>`__, `NXJOB <KeywordsN.clean.html#nxjob>`__. See
-`JobCBS <KeywordsJ.clean.html#jobcbs>`__ which corrects all of the problems
-associated with `JBASE <KeywordsJ.clean.html#jbase>`__. Details of Job Headers
+:ref:`jobs`, :ref:`sjob`,
+:ref:`ajob`, :ref:`nxjob`. See
+:ref:`jobcbs` which corrects all of the problems
+associated with :ref:`jbase`. Details of Job Headers
 can be found in the QDOS/SMS Reference Manual Section 18 p8.
 
 --------------
+
+
+..  _jobcbs:
 
 JobCBS
 ======
@@ -142,6 +148,9 @@ notes above do not exist with JobCBS. Alas, it will not accept a jobnr
 of -1 in current versions.
 
 --------------
+
+
+..  _jobs:
 
 JOBS
 ====
@@ -189,17 +198,20 @@ command do not display negative priorities.
 
 **CROSS-REFERENCE**
 
-Commands like `RJOB <KeywordsR.clean.html#rjob>`__,
-`SPJOB <KeywordsS.clean.html#spjob>`__, `REL\_JOB <KeywordsR.clean.html#rel-job>`__,
-`JOB\_NAME <KeywordsJ.clean.html#job-name>`__
-and `SJOB <KeywordsS.clean.html#sjob>`__ change job settings;
-`JOB$ <KeywordsJ.clean.html#job>`__, `OJOB <KeywordsO.clean.html#ojob>`__,
-`NXJOB <KeywordsN.clean.html#nxjob>`__, `PJOB <KeywordsP.clean.html#pjob>`__ return
-the same information as appears on the `JOBS <KeywordsJ.clean.html#jobs>`__
-list for single jobs. `LIST\_TASKS <KeywordsL.clean.html#list-tasks>`__ is
+Commands like :ref:`rjob`,
+:ref:`spjob`, :ref:`rel-job`,
+:ref:`job-name`
+and :ref:`sjob` change job settings;
+:ref:`job-dlr`, :ref:`ojob`,
+:ref:`nxjob`, :ref:`pjob` return
+the same information as appears on the :ref:`jobs`
+list for single jobs. :ref:`list-tasks` is
 similar.
 
 --------------
+
+
+..  _job-dlr:
 
 JOB$
 ====
@@ -220,13 +232,16 @@ the calling job.
 
 **CROSS-REFERENCE**
 
-See `OJOB <KeywordsO.clean.html#ojob>`__, `PJOB <KeywordsP.clean.html#pjob>`__,
-`JOB\_NAME <KeywordsJ.clean.html#job-name>`__ and
-`NXJOB <KeywordsN.clean.html#nxjob>`__ for more information on current jobs.
+See :ref:`ojob`, :ref:`pjob`,
+:ref:`job-name` and
+:ref:`nxjob` for more information on current jobs.
 Compilers normally include their own commands to set the correct job
 name.
 
 --------------
+
+
+..  _job-name:
 
 JOB\_NAME
 =========
@@ -316,10 +331,11 @@ command or not (if not, then the CMD$ will need to be entered).
 
 **CROSS-REFERENCE**
 
-See `SBASIC <KeywordsS.clean.html#sbasic>`__ and `MB <KeywordsM.clean.html#mb>`__,
+See :ref:`sbasic` and :ref:`mb`,
 about the multiple interpreters provided by Minerva and SMS.
-`JOBS <KeywordsJ.clean.html#jobs>`__ and `NXJOB <KeywordsN.clean.html#nxjob>`__
+:ref:`jobs` and :ref:`nxjob`
 contain more information on current jobs. Compilers normally include
 their own methods of setting the correct job name. You may want to use
-`DEVTYPE <KeywordsD.clean.html#devtype>`__ to test if a channel is open if a
+:ref:`devtype` to test if a channel is open if a
 program is to run correctly under both Job 0 and a multiple SBASIC.
+

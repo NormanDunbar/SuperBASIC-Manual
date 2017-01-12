@@ -1,3 +1,4 @@
+
 ==========
 Keywords N
 ==========
@@ -5,7 +6,11 @@ Keywords N
 TODO
 ====
 
-- NDIM and NDIM% have the same URL.
+- Various references to ESC and QRD are broken, as these keywords do not exist.
+
+
+
+..  _ndim:
 
 NDIM
 ====
@@ -19,6 +24,9 @@ NDIM
 Identical to NDIM%.
 
 --------------
+
+
+..  _ndim-pct:
 
 NDIM%
 =====
@@ -57,13 +65,16 @@ characters long::
 
 **CROSS-REFERENCE**
 
-`DIMN <KeywordsD.clean.html#dimn>`__ finds the defined size of each dimension
-and can be used to replace `NDIM% <KeywordsN.clean.html#ndim>`__.
-`DIM <KeywordsD.clean.html#dim>`__ declares an array.
-`NDIM <KeywordsN.clean.html#ndim>`__ is exactly the same as
-`NDIM% <KeywordsN.clean.html#ndim>`__.
+:ref:`dimn` finds the defined size of each dimension
+and can be used to replace :ref:`ndim-pct`.
+:ref:`dim` declares an array.
+:ref:`ndim` is exactly the same as
+:ref:`ndim-pct`.
 
 --------------
+
+
+..  _net:
 
 NET
 ===
@@ -99,9 +110,12 @@ Auroras allow more to be linked together.
 **CROSS-REFERENCE**
 
 Please see the Appendix concerning Networks. See also
-`SNET <KeywordsS.clean.html#snet>`__ and `MNET <KeywordsM.clean.html#mnet>`__.
+:ref:`snet` and :ref:`mnet`.
 
 --------------
+
+
+..  _netbeep:
 
 NETBEEP
 =======
@@ -142,14 +156,17 @@ experimentation may be required.
 **CROSS-REFERENCE**
 
 Refer to the Appendix on Networks to find out more about Flexynet. See
-`NETPOLL <KeywordsN.clean.html#netpoll>`__ which allows you to read signals
-sent through the network ports. `NETRATE <KeywordsN.clean.html#netrate>`__
+:ref:`netpoll` which allows you to read signals
+sent through the network ports. :ref:`netrate`
 allows you to alter the speed of the Flexynet and
-`NETREAD <KeywordsN.clean.html#netread>`__ /
-`NETSEND <KeywordsN.clean.html#netsend>`__ can be used to read and send
+:ref:`netread` /
+:ref:`netsend` can be used to read and send
 multiple bytes.
 
 --------------
+
+
+..  _netpoll:
 
 NETPOLL
 =======
@@ -191,14 +208,17 @@ an even number of pulses will always be read.
 
 **CROSS-REFERENCE**
 
-The amount of time that `NETPOLL <KeywordsN.clean.html#netpoll>`__ will wait
-for a pulse is affected by `NETRATE <KeywordsN.clean.html#netrate>`__\ 0,0,x. See
-`NETBEEP <KeywordsN.clean.html#netbeep>`__ which sends signal tones along the
+The amount of time that :ref:`netpoll` will wait
+for a pulse is affected by :ref:`netrate`\ 0,0,x. See
+:ref:`netbeep` which sends signal tones along the
 network ports. Also see
-`NETRATE <KeywordsN.clean.html#netrate>`__,\ `NETREAD <KeywordsN.clean.html#netread>`__
-and\ `NETSEND. <KeywordsN.clean.html#netsend.>`__
+:ref:`netrate`,\ :ref:`netread`
+and\ :ref:`netsend`.
 
 --------------
+
+
+..  _netrate:
 
 NETRATE
 =======
@@ -307,11 +327,14 @@ properly.
 **CROSS-REFERENCE**
 
 Refer to the Networks Appendix for further details. See
-`NETVAR% <KeywordsN.clean.html#netvar>`__ which allows you to read the
-various speed settings. Also see `NETREAD <KeywordsN.clean.html#netread>`__
-and `NETSEND <KeywordsN.clean.html#netsend>`__
+:ref:`netvar-pct` which allows you to read the
+various speed settings. Also see :ref:`netread`
+and :ref:`netsend`
 
 --------------
+
+
+..  _netread:
 
 NETREAD
 =======
@@ -342,11 +365,14 @@ to catch the data sent by the transmitting machine.
 
 **CROSS-REFERENCE**
 
-See `NETRATE <KeywordsN.clean.html#netrate>`__ which allows you to set the
+See :ref:`netrate` which allows you to set the
 speed of the receiving machine to match the speed of the sending
-machine. Also see `NETSEND <KeywordsN.clean.html#netsend>`__.
+machine. Also see :ref:`netsend`.
 
 --------------
+
+
+..  _netsend:
 
 NETSEND
 =======
@@ -367,11 +393,14 @@ Please refer to the notes given for NETREAD.
 
 **CROSS-REFERENCE**
 
-See `NETRATE <KeywordsN.clean.html#netrate>`__ which allows you to set the
+See :ref:`netrate` which allows you to set the
 speed of the transmitting machine to match the speed of the receiving
-machine. Also see `NETREAD <KeywordsN.clean.html#netread>`__.
+machine. Also see :ref:`netread`.
 
 --------------
+
+
+..  _netvar-pct:
 
 NETVAR%
 =======
@@ -397,9 +426,12 @@ The possible values of parameter are:
 
 **CROSS-REFERENCE**
 
-See `NETRATE <KeywordsN.clean.html#netrate>`__.
+See :ref:`netrate`.
 
 --------------
+
+
+..  _net-id:
 
 NET\_ID
 =======
@@ -423,10 +455,13 @@ or::
 
 **CROSS-REFERENCE**
 
-See `NET <KeywordsN.clean.html#net>`__ which sets the station number. Also see
-`MNET% <KeywordsM.clean.html#mnet>`__ and `SNET% <KeywordsS.clean.html#snet>`__
+See :ref:`net` which sets the station number. Also see
+:ref:`mnet-pct` and :ref:`snet-pct`
 
 --------------
+
+
+..  _new:
 
 NEW
 ===
@@ -456,13 +491,16 @@ All data stored in variables is lost.
 
 **CROSS-REFERENCE**
 
-`CLEAR <KeywordsC.clean.html#clear>`__, `KILL\_A <KeywordsK.clean.html#kill-a>`__.
-Inside compiled programs, `NEW <KeywordsN.clean.html#new>`__ and
-`STOP <KeywordsS.clean.html#stop>`__ are effectively the same.
-`RESET <KeywordsR.clean.html#reset>`__ clears the whole system by restarting
+:ref:`clear`, :ref:`kill-a`.
+Inside compiled programs, :ref:`new` and
+:ref:`stop` are effectively the same.
+:ref:`reset` clears the whole system by restarting
 it.
 
 --------------
+
+
+..  _newchan-pct:
 
 NEWCHAN%
 ========
@@ -496,11 +534,14 @@ will always return 3, as the only channels OPEN will be #0, #1 and #2.
 
 **CROSS-REFERENCE**
 
-`OPEN <KeywordsO.clean.html#open>`__ allows you to open a channel.
-`FOPEN <KeywordsF.clean.html#fopen>`__ and similar functions will
+:ref:`open` allows you to open a channel.
+:ref:`fopen` and similar functions will
 automatically open the next available channel number.
 
 --------------
+
+
+..  _new-name:
 
 NEW\_NAME
 =========
@@ -564,11 +605,14 @@ advanced implementations of SuperBASIC.
 
 **CROSS-REFERENCE**
 
-`ZAP <KeywordsZ.clean.html#zap>`__ and `KEY\_RMV <KeywordsK.clean.html#key-rmv>`__
-remove a resident keyword. See `REPLACE <KeywordsR.clean.html#replace>`__ and
-`ALIAS <KeywordsA.clean.html#alias>`__ as well.
+:ref:`zap` and :ref:`key-rmv`
+remove a resident keyword. See :ref:`replace` and
+:ref:`alias` as well.
 
 --------------
+
+
+..  _next:
 
 NEXT
 ====
@@ -603,12 +647,15 @@ control variable' will be reported.
 
 **CROSS-REFERENCE**
 
-You must study `FOR <KeywordsF.clean.html#for>`__ or
-`REPeat <KeywordsR.clean.html#repeat>`__ before using
-`NEXT <KeywordsN.clean.html#next>`__. `EXIT <KeywordsE.clean.html#exit>`__ leaves a
+You must study :ref:`for` or
+:ref:`repeat` before using
+:ref:`next`. :ref:`exit` leaves a
 loop.
 
 --------------
+
+
+..  _nfs-use:
 
 NFS\_USE
 ========
@@ -631,7 +678,7 @@ by prefixing the device name by: n<netnr>\_, eg::
 
 will show the directory of flp1\_ on station number 2. 
 
-`NET <KeywordsN.clean.html#net>`__ sets this
+:ref:`net` sets this
 station number. 
 
 Two problems do however arise from using this technique:
@@ -688,20 +735,20 @@ trying to read from it (or vice versa). If this occurs, then an error -9
 
 **CROSS-REFERENCE**
 
-`QRD <KeywordsQ.clean.html#qrd>`__ renames any local device. See also
-`FLP\_USE <KeywordsF.clean.html#flp-use>`__,
-`RAM\_USE <KeywordsR.clean.html#ram-use>`__ and
-`DEV\_USE <KeywordsD.clean.html#dev-use>`__.
-`MIDINET <KeywordsM.clean.html#midinet>`__ and
-`SERNET <KeywordsS.clean.html#sernet>`__ set up similar fileservers to
-`FSERVE <KeywordsF.clean.html#fserve>`__ -
-`NFS\_USE <KeywordsN.clean.html#nfs-use>`__ can be used with these fileservers
-also, provided that you use `SNET\_USE
-<KeywordsS.clean.html#snet-use>`__\ n or `MNET\_USE
-<KeywordsM.clean.html#mnet-use>`__\ n to ensure that they are identified by
-the letter n.
+:ref:`qrd` renames any local device. See also
+:ref:`flp-use`,
+:ref:`ram-use` and
+:ref:`dev-use`.
+:ref:`midinet` and
+:ref:`sernet` set up similar fileservers to
+:ref:`fserve` -
+:ref:`nfs-use` can be used with these fileservers
+also, provided that you use :ref:`snet-use` n or :ref:`mnet-use` n to ensure that they are identified by the letter n.
 
 --------------
+
+
+..  _nix:
 
 NIX
 ===
@@ -725,6 +772,9 @@ off.
 
 --------------
 
+
+..  _no-clock:
+
 NO\_CLOCK
 =========
 
@@ -740,10 +790,13 @@ can avoid some problems (see the note on CLOCK).
 
 **CROSS-REFERENCE**
 
-`CLOCK <KeywordsC.clean.html#clock>`__ starts up the clock job on the THOR's
+:ref:`clock` starts up the clock job on the THOR's
 screen.
 
 --------------
+
+
+..  _nocaps:
 
 NOCAPS
 ======
@@ -758,9 +811,12 @@ If capslock was on, this command forces it to be switched off.
 
 **CROSS-REFERENCE**
 
-See `CAPS <KeywordsC.clean.html#caps>`__ for an example.
+See :ref:`caps` for an example.
 
 --------------
+
+
+..  _nokey:
 
 NOKEY
 =====
@@ -777,9 +833,12 @@ so this is partially equivalent to NOKEY.
 
 **CROSS-REFERENCE**
 
-See `KEY <KeywordsK.clean.html#key>`__ for details.
+See :ref:`key` for details.
 
 --------------
+
+
+..  _norm:
 
 NORM
 ====
@@ -807,15 +866,18 @@ is the same as::
 
 **CROSS-REFERENCE**
 
-`BLD <KeywordsB.clean.html#bld>`__, `EL <KeywordsE.clean.html#el>`__,
-`DBL <KeywordsD.clean.html#dbl>`__, `ENL <KeywordsE.clean.html#enl>`__,
-`PRO <KeywordsP.clean.html#pro>`__, `SI <KeywordsS.clean.html#si>`__,
-`NRM <KeywordsN.clean.html#nrm>`__, `UNL <KeywordsU.clean.html#unl>`__,
-`ALT <KeywordsA.clean.html#alt>`__,\ `ESC <KeywordsE.clean.html#esc>`__,\ `FF <KeywordsF.clean.html#ff>`__,\ `LMAR <KeywordsL.clean.html#lmar>`__,
-`RMAR <KeywordsR.clean.html#rmar>`__,\ `PAGDIS <KeywordsP.clean.html#pagdis>`__,
-`PAGLEN <KeywordsP.clean.html#paglen>`__.
+:ref:`bld`, :ref:`el`,
+:ref:`dbl`, :ref:`enl`,
+:ref:`pro`, :ref:`si`,
+:ref:`nrm`, :ref:`unl`,
+:ref:`alt`,\ :ref:`esc`,\ :ref:`ff`,\ :ref:`lmar`,
+:ref:`rmar`,\ :ref:`pagdis`,
+:ref:`paglen`.
 
 --------------
+
+
+..  _nor-msg:
 
 NOR\_MSG
 ========
@@ -835,11 +897,14 @@ to set up the printer and message translation tables for Norway.
 
 **CROSS-REFERENCE**
 
-See `GER\_MSG <KeywordsG.clean.html#ger-msg>`__ and
-`NOR\_TRA <KeywordsN.clean.html#nor-tra>`__. Also see
-`TRA <KeywordsT.clean.html#tra>`__.
+See :ref:`ger-msg` and
+:ref:`nor-tra`. Also see
+:ref:`tra`.
 
 --------------
+
+
+..  _nor-tra:
 
 NOR\_TRA
 ========
@@ -856,9 +921,12 @@ NOR\_TRA\_rext.
 
 **CROSS-REFERENCE**
 
-See `NOR\_MSG <KeywordsN.clean.html#nor-msg>`__.
+See :ref:`nor-msg`.
 
 --------------
+
+
+..  _not:
 
 NOT
 ===
@@ -966,10 +1034,13 @@ is invariably quicker than the use of an IF statement::
 **CROSS-REFERENCE**
 
 Comparisons between any two values (or even two variables) is regarded
-as a numeric expression by SuperBASIC. `IF <KeywordsI.clean.html#if>`__
+as a numeric expression by SuperBASIC. :ref:`if`
 handles actual numeric values.
 
 --------------
+
+
+..  _nrm:
 
 NRM
 ===
@@ -991,12 +1062,15 @@ is the same as::
 
 **CROSS-REFERENCE**
 
-`NORM <KeywordsN.clean.html#norm>`__, `BLD <KeywordsB.clean.html#bld>`__,
-`EL <KeywordsE.clean.html#el>`__,\ `DBL <KeywordsD.clean.html#dbl>`__,\ `ENL <KeywordsE.clean.html#enl>`__,\ `PRO <KeywordsP.clean.html#pro>`__,\ `SI <KeywordsS.clean.html#si>`__,\ `UNL <KeywordsU.clean.html#unl>`__,\ `ALT <KeywordsA.clean.html#alt>`__,\ `ESC <KeywordsE.clean.html#esc>`__,\ `FF <KeywordsF.clean.html#ff>`__,\ `LMAR <KeywordsL.clean.html#lmar>`__,\ `RMAR <KeywordsR.clean.html#rmar>`__,\ `PAGDIS <KeywordsP.clean.html#pagdis>`__,
-`PAGLEN <KeywordsP.clean.html#paglen>`__. `UPUT <KeywordsU.clean.html#uput>`__
+:ref:`norm`, :ref:`bld`,
+:ref:`el`,\ :ref:`dbl`,\ :ref:`enl`,\ :ref:`pro`,\ :ref:`si`,\ :ref:`unl`,\ :ref:`alt`,\ :ref:`esc`,\ :ref:`ff`,\ :ref:`lmar`,\ :ref:`rmar`,\ :ref:`pagdis`,
+:ref:`paglen`. :ref:`uput`
 allows you to send untranslated bytes to the printer.
 
 --------------
+
+
+..  _nxjob:
 
 NXJOB
 =====
@@ -1091,8 +1165,9 @@ slightly differently::
 
 **CROSS-REFERENCE**
 
-`PJOB <KeywordsP.clean.html#pjob>`__, `JOB$ <KeywordsJ.clean.html#job>`__, and
-`OJOB <KeywordsO.clean.html#ojob>`__ also deal with the job tree. For jobs in
-general, see `JOBS <KeywordsJ.clean.html#jobs>`__,
-`RJOB <KeywordsR.clean.html#rjob>`__, `SPJOB <KeywordsS.clean.html#spjob>`__,
-`SJOB <KeywordsS.clean.html#sjob>`__, `AJOB <KeywordsA.clean.html#ajob>`__.
+:ref:`pjob`, :ref:`job-dlr`, and
+:ref:`ojob` also deal with the job tree. For jobs in
+general, see :ref:`jobs`,
+:ref:`rjob`, :ref:`spjob`,
+:ref:`sjob`, :ref:`ajob`.
+

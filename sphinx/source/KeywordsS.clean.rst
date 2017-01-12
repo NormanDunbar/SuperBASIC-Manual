@@ -5,8 +5,10 @@ Keywords S
 TODO
 ====
 
-- There are multiple SET commands all with the same URL.
-- There are multiple SGN[%] commands all with the same URL.
+- :ref:`si` references ESC. ESC is not found.
+
+
+..  _sar:
 
 SAR
 ===
@@ -51,12 +53,15 @@ produced with SARRAY.
 
 **CROSS-REFERENCE**
 
-`SARO <KeywordsS.clean.html#saro>`__ and `LAR <KeywordsL.clean.html#lar>`__.
-`DIM <KeywordsD.clean.html#dim>`__ sets-up an array while
-`DIMN <KeywordsD.clean.html#dimn>`__ and `NDIM <KeywordsN.clean.html#ndim>`__ read
+:ref:`saro` and :ref:`lar`.
+:ref:`dim` sets-up an array while
+:ref:`dimn` and :ref:`ndim` read
 the dimensions.
 
 --------------
+
+
+..  _saro:
 
 SARO
 ====
@@ -71,6 +76,9 @@ SARO is almost the same as SAR except that it overwrites an existing
 file without reporting an error.
 
 --------------
+
+
+..  _sauto:
 
 SAUTO
 =====
@@ -105,10 +113,13 @@ See SSAVE.
 
 **CROSS-REFERENCE**
 
-`SCRON <KeywordsS.clean.html#scron>`__, `SCROFF <KeywordsS.clean.html#scroff>`__,
-`MODE <KeywordsM.clean.html#mode>`__
+:ref:`scron`, :ref:`scrof`,
+:ref:`mode`
 
 --------------
+
+
+..  _save:
 
 SAVE
 ====
@@ -192,12 +203,15 @@ overwrite the file!!
 
 **CROSS-REFERENCE**
 
-`LOAD <KeywordsL.clean.html#load>`__ loads a saved file from the given device
-into memory. `SAVE\_O <KeywordsS.clean.html#save-o>`__ is another variant of
-this command. See also `QSAVE <KeywordsQ.clean.html#qsave>`__ for a different
-means of `SAVE <KeywordsS.clean.html#save>`__\ ing a SuperBASIC program.
+:ref:`load` loads a saved file from the given device
+into memory. :ref:`save-o` is another variant of
+this command. See also :ref:`qsave` for a different
+means of :ref:`save`\ ing a SuperBASIC program.
 
 --------------
+
+
+..  _save-o:
 
 SAVE\_O
 =======
@@ -220,9 +234,12 @@ problem as SAVE.
 
 **CROSS-REFERENCE**
 
-See `SAVE <KeywordsS.clean.html#save>`__!
+See :ref:`save`!
 
 --------------
+
+
+..  _savepic:
 
 SAVEPIC
 =======
@@ -250,9 +267,12 @@ compatibility problems as LOADPIC.
 
 **CROSS-REFERENCE**
 
-`LOADPIC <KeywordsL.clean.html#loadpic>`__ displays the saved screen file.
+:ref:`loadpic` displays the saved screen file.
 
 --------------
+
+
+..  _sb-thing:
 
 SB\_THING
 =========
@@ -275,11 +295,14 @@ for example with LRESPR flp1\_HOT\_REXT.
 
 **CROSS-REFERENCE**
 
-Please refer to `EW <KeywordsE.clean.html#ew>`__ and
-`SBASIC <KeywordsS.clean.html#sbasic>`__. Also see the Appendix on Mutliple
+Please refer to :ref:`ew` and
+:ref:`sbasic`. Also see the Appendix on Mutliple
 BASICs.
 
 --------------
+
+
+..  _sbasic:
 
 SBASIC
 ======
@@ -324,17 +347,20 @@ from the left, Column 2 512 pixels from the left and so on....
 
 **CROSS-REFERENCE**
 
-See `MB <KeywordsM.clean.html#mb>`__ and `EW <KeywordsE.clean.html#ew>`__ for other
+See :ref:`mb` and :ref:`ew` for other
 ways of starting up additional interpreters. In addition SMS users can
-use `EXEP <KeywordsE.clean.html#exep>`__ SBASIC or even use the Exec
+use :ref:`exep` SBASIC or even use the Exec
 button from QPAC II and Minerva users can use 
-`EX <KeywordsE.clean.html#ex>`__ PIPEP. `WMON <KeywordsW.clean.html#wmon>`__ and
-`WTV <KeywordsW.clean.html#wtv>`__ can be used to reposition the SBASIC
+:ref:`ex` PIPEP. :ref:`wmon` and
+:ref:`wtv` can be used to reposition the SBASIC
 windows. Also see the appendix on Multiple BASICs.
-`JOB\_NAME <KeywordsJ.clean.html#job-name>`__ can be used to alter the name of
+:ref:`job-name` can be used to alter the name of
 a SBASIC Job.
 
 --------------
+
+
+..  _sbytes:
 
 SBYTES
 ======
@@ -474,14 +500,17 @@ saving routine::
 
 **CROSS-REFERENCE**
 
-`SBYTES\_O <KeywordsS.clean.html#sbytes-o>`__ and
-`SEXEC <KeywordsS.clean.html#sexec>`__ are very similar.
-`DATA\_USE <KeywordsD.clean.html#data-use>`__ allows you to alter the current
-default data device. `LBYTES <KeywordsL.clean.html#lbytes>`__ allows you to
+:ref:`sbytes-o` and
+:ref:`sexec` are very similar.
+:ref:`data-use` allows you to alter the current
+default data device. :ref:`lbytes` allows you to
 load in a block of code which has been saved with
-`SBYTES <KeywordsS.clean.html#sbytes>`__ or `SEXEC <KeywordsS.clean.html#sexec>`__.
+:ref:`sbytes` or :ref:`sexec`.
 
 --------------
+
+
+..  _sbytes-o:
 
 SBYTES\_O
 =========
@@ -503,9 +532,12 @@ The Toolkit II version of the command supports the default data device.
 
 **CROSS-REFERENCE**
 
-See `SBYTES <KeywordsS.clean.html#sbytes>`__.
+See :ref:`sbytes`.
 
 --------------
+
+
+..  _scale:
 
 SCALE
 =====
@@ -667,11 +699,14 @@ altered the orientation of the display to the following diagram::
 
 **CROSS-REFERENCE**
 
-`CIRCLE <KeywordsC.clean.html#circle>`__, `ARC <KeywordsA.clean.html#arc>`__,
-`LINE <KeywordsL.clean.html#line>`__ and `POINT <KeywordsP.clean.html#point>`__ all
-rely on the current `SCALE <KeywordsS.clean.html#scale>`__.
+:ref:`circle`, :ref:`arc`,
+:ref:`line` and :ref:`point` all
+rely on the current :ref:`scale`.
 
 --------------
+
+
+..  _sclr:
 
 SCLR
 ====
@@ -708,12 +743,15 @@ Never use SCLR without a parameter! The system will crash!
 
 **CROSS-REFERENCE**
 
-`PLOT <KeywordsP.clean.html#plot>`__, `DRAW <KeywordsD.clean.html#draw>`__,
-`REFRESH <KeywordsR.clean.html#refresh>`__ and
-`SCRBASE <KeywordsS.clean.html#scrbase>`__ are the other commands connected
+:ref:`plot`, :ref:`draw`,
+:ref:`refresh` and
+:ref:`scrbase` are the other commands connected
 with this one.
 
 --------------
+
+
+..  _scrbase:
 
 SCRBASE
 =======
@@ -792,14 +830,17 @@ The second program appears on the next page.
 
 **CROSS-REFERENCE**
 
-See `SCLR <KeywordsS.clean.html#sclr>`__, `PLOT <KeywordsP.clean.html#plot>`__,
-`DRAW <KeywordsD.clean.html#draw>`__ and `REFRESH <KeywordsR.clean.html#refresh>`__
-for fast background drawing. `SCR\_STORE <KeywordsS.clean.html#scr-store>`__
-and `SCR\_REFRESH <KeywordsS.clean.html#scr-refresh>`__ are ideal to create
+See :ref:`sclr`, :ref:`plot`,
+:ref:`draw` and :ref:`refresh`
+for fast background drawing. :ref:`scr-store`
+and :ref:`scr-refresh` are ideal to create
 and display animated displays. Compare
-`SCR\_BASE <KeywordsS.clean.html#scr-base>`__!
+:ref:`scr-base`!
 
 --------------
+
+
+..  _screen:
 
 SCREEN
 ======
@@ -829,10 +870,13 @@ that is where #3 is located.
 
 **CROSS-REFERENCE**
 
-See `SCR\_BASE <KeywordsS.clean.html#scr-base>`__.
+See :ref:`scr-base`.
 
 --------------
 
+
+
+..  _screen-base:
 
 SCREEN\_BASE
 ============
@@ -847,7 +891,7 @@ This function is handy for Minerva  users, who have 2 screens to play with. The 
 
 If the returned address is negative, consider it to be a QDOS error code. (-6 means channel not open & -15 means not a SCR\_ or CON\_ channel.)
 
-SCREEN\_BASE  allows you to write  programs  that need not make guesses about the whereabouts of the screen memory, or assume that if `VER$ <KeywordsV.clean.html#ver>`__ gives a certain result, that a Minerva ROM is being used, this may not always be the case. Regardless of the ROM in use, this function will always return the screen address for the given channel.
+SCREEN\_BASE  allows you to write  programs  that need not make guesses about the whereabouts of the screen memory, or assume that if :ref:`ver-dlr` gives a certain result, that a Minerva ROM is being used, this may not always be the case. Regardless of the ROM in use, this function will always return the screen address for the given channel.
 
 **EXAMPLE**
 
@@ -859,6 +903,9 @@ SCREEN\_BASE  allows you to write  programs  that need not make guesses about th
 -------
 
 
+
+..  _screen-mode:
+
 SCREEN\_MODE
 ============
 
@@ -868,7 +915,7 @@ SCREEN\_MODE
 | Location | DJToolkit 1.16                                                    |
 +----------+-------------------------------------------------------------------+
 
-This function can help in your programs where you need to be in a specific mode.  If you call this function you can find out if a mode change needs to be made or not.  As the `MODE <KeywordsM.clean.html#mode>`__ call changes the mode for every program running in the QL, use this function before setting the appropriate mode. 
+This function can help in your programs where you need to be in a specific mode.  If you call this function you can find out if a mode change needs to be made or not.  As the :ref:`mode` call changes the mode for every program running in the QL, use this function before setting the appropriate mode. 
 
 The value returned can be 4 or 8 for normal QLs, 2 for Atari ST/QL Extended mode 4 or any other value deemed appropriate by the hardware being used. Never assume that your programs will only be run on a QL!
 
@@ -885,11 +932,14 @@ The value returned can be 4 or 8 for normal QLs, 2 for Atari ST/QL Extended mode
 
 **CROSS-REFERENCE**
 
-`MODE <KeywordsM.clean.html#mode>`__.
+:ref:`mode`.
 
 
 -------
 
+
+
+..  _scrinc:
 
 SCRINC
 ======
@@ -919,10 +969,13 @@ See the second listing at the second example for SCRBASE.
 
 **CROSS-REFERENCE**
 
-`SCREEN <KeywordsS.clean.html#screen>`__ returns the start address of the
-screen. See also `SCR\_LLEN <KeywordsS.clean.html#scr-llen>`__
+:ref:`screen` returns the start address of the
+screen. See also :ref:`scr-llen`
 
 --------------
+
+
+..  _scroll:
 
 SCROLL
 ======
@@ -1017,14 +1070,17 @@ Toolkit keywords, including MTRAP and QTRAP.
 
 **CROSS-REFERENCE**
 
-`PAN <KeywordsP.clean.html#pan>`__ allows you to move the contents of a window
-sideways. `WINDOW <KeywordsW.clean.html#window>`__ allows you to specify the
+:ref:`pan` allows you to move the contents of a window
+sideways. :ref:`window` allows you to specify the
 area of the screen which a window covers.
-`IO\_TRAP <KeywordsI.clean.html#io-trap>`__ allows you to access machine code
-routines directly. See also `QTRAP <KeywordsQ.clean.html#qtrap>`__,
-`BTRAP <KeywordsB.clean.html#btrap>`__ and `MTRAP <KeywordsM.clean.html#mtrap>`__.
+:ref:`io-trap` allows you to access machine code
+routines directly. See also :ref:`qtrap`,
+:ref:`btrap` and :ref:`mtrap`.
 
 --------------
+
+
+..  _scrof:
 
 SCROF
 =====
@@ -1052,9 +1108,12 @@ See SSAVE.
 
 **CROSS-REFERENCE**
 
-`SCRON <KeywordsS.clean.html#scron>`__ switches the screen to visible.
+:ref:`scron` switches the screen to visible.
 
 --------------
+
+
+..  _scron:
 
 SCRON
 =====
@@ -1080,9 +1139,12 @@ See SSAVE.
 
 **CROSS-REFERENCE**
 
-`SCROF <KeywordsS.clean.html#scrof>`__.
+:ref:`scrof`.
 
 --------------
+
+
+..  _scr2dis:
 
 SCR2DIS
 =======
@@ -1120,9 +1182,12 @@ screen disabled.
 
 **CROSS-REFERENCE**
 
-`SCR2EN <KeywordsS.clean.html#scr2en>`__ re-enables the second screen again.
+:ref:`scr2en` re-enables the second screen again.
 
 --------------
+
+
+..  _scr2en:
 
 SCR2EN
 ======
@@ -1146,9 +1211,12 @@ various machine code techniques.
 
 **CROSS-REFERENCE**
 
-See `SCR2DIS <KeywordsS.clean.html#scr2dis>`__ for more information.
+See :ref:`scr2dis` for more information.
 
 --------------
+
+
+..  _scr-base:
 
 SCR\_BASE
 =========
@@ -1176,16 +1244,18 @@ is already on screen.
 
 **CROSS-REFERENCE**
 
-`SCREEN <KeywordsS.clean.html#screen>`__ is similar. See also
-`SCR\_XLIM <KeywordsS.clean.html#scr-xlim>`__,
-`SCR\_YLIM <KeywordsS.clean.html#scr-ylim>`__ and
-`SCR\_LLEN <KeywordsS.clean.html#scr-llen>`__.
-`A\_OLDSCR <KeywordsA.clean.html#a-oldscr>`__ can help some older software to
-work. You can also use `PRINT
-<KeywordsP.clean.html#print>`__ CHAN\_L(#1,50) instead of
-`SCR\_BASE <KeywordsS.clean.html#scr-base>`__.
+:ref:`screen` is similar. See also
+:ref:`scr-xlim`,
+:ref:`scr-ylim` and
+:ref:`scr-llen`.
+:ref:`a-oldscr` can help some older software to
+work. You can also use :ref:`print` :ref:`chan-l`\ (#1,50) instead of
+:ref:`scr-base`.
 
 --------------
+
+
+..  _scr-llen:
 
 SCR\_LLEN
 =========
@@ -1215,14 +1285,16 @@ line is the number of pixels DIV 4 - always use this function instead.
 
 **CROSS-REFERENCE**
 
-`SCRINC <KeywordsS.clean.html#scrinc>`__ is similar. See also
-`SCR\_XLIM <KeywordsS.clean.html#scr-xlim>`__,
-`SCR\_YLIM <KeywordsS.clean.html#scr-ylim>`__ and
-`SCR\_BASE <KeywordsS.clean.html#scr-base>`__. On QL ROMs after JM, you can
-also use `PRINT
-<KeywordsP.clean.html#print>`__ CHAN\_B%(#1,104) .
+:ref:`scrinc` is similar. See also
+:ref:`scr-xlim`,
+:ref:`scr-ylim` and
+:ref:`scr-base`. On QL ROMs after JM, you can
+also use :ref:`print` :ref:`chan-b-pct`\ (#1,104).
 
 --------------
+
+
+..  _scr-refresh:
 
 SCR\_REFRESH
 ============
@@ -1246,11 +1318,14 @@ toolkit at present.
 
 **CROSS-REFERENCE**
 
-`SCR\_STORE <KeywordsS.clean.html#scr-store>`__ stores a window or rectangle
-taken from the display. See also `W\_SHOW <KeywordsW.clean.html#w-show>`__ and
-`REFRESH <KeywordsR.clean.html#refresh>`__.
+:ref:`scr-store` stores a window or rectangle
+taken from the display. See also :ref:`w-show` and
+:ref:`refresh`.
 
 --------------
+
+
+..  _scr-save:
 
 SCR\_SAVE
 =========
@@ -1276,10 +1351,13 @@ the screen base to be at 131072.
 
 **CROSS-REFERENCE**
 
-`UNLOAD <KeywordsU.clean.html#unload>`__ contains more details about this
+:ref:`unload` contains more details about this
 toolkit.
 
 --------------
+
+
+..  _scr-size:
 
 SCR\_SIZE
 =========
@@ -1308,12 +1386,15 @@ yourself: size=8+width\_x\*width\_y/4
 
 **CROSS-REFERENCE**
 
-`SCR\_STORE <KeywordsS.clean.html#scr-store>`__ stores a part of the screen in
-RAM and `SCR\_REFRESH <KeywordsS.clean.html#scr-refresh>`__ copies it back.
-See also `WMAN$ <KeywordsW.clean.html#wman>`__.
-`CHAN\_W% <KeywordsC.clean.html#chan-w>`__ is much more flexible.
+:ref:`scr-store` stores a part of the screen in
+RAM and :ref:`scr-refresh` copies it back.
+See also :ref:`wman-dlr`.
+:ref:`chan-w-pct` is much more flexible.
 
 --------------
+
+
+..  _scr-store:
 
 SCR\_STORE
 ==========
@@ -1372,15 +1453,18 @@ create the pictures... Enjoy it.
 
 **CROSS-REFERENCE**
 
-See `SCR\_REFRESH <KeywordsS.clean.html#scr-refresh>`__ and
-`SCR\_SIZE <KeywordsS.clean.html#scr-size>`__. See also
-`W\_STORE <KeywordsW.clean.html#w-store>`__ and
-`W\_CRUNCH <KeywordsW.clean.html#w-crunch>`__. Use
-`ALCHP <KeywordsA.clean.html#alchp>`__ to set aside some memory to hold the
-copy of the window. Use `RECHP <KeywordsR.clean.html#rechp>`__ to remove that
+See :ref:`scr-refresh` and
+:ref:`scr-size`. See also
+:ref:`w-store` and
+:ref:`w-crunch`. Use
+:ref:`alchp` to set aside some memory to hold the
+copy of the window. Use :ref:`rechp` to remove that
 memory definition.
 
 --------------
+
+
+..  _scr-xlim:
 
 SCR\_XLIM
 =========
@@ -1403,11 +1487,14 @@ which may destroy what is already on screen.
 
 **CROSS-REFERENCE**
 
-`QFLIM <KeywordsQ.clean.html#qflim>`__ and `XLIM <KeywordsX.clean.html#xlim>`__ are
-similar. See also `DISP\_SIZE <KeywordsD.clean.html#disp-size>`__ and
-`SCR\_YLIM <KeywordsS.clean.html#scr-ylim>`__
+:ref:`qflim` and :ref:`xlim` are
+similar. See also :ref:`disp-size` and
+:ref:`scr-ylim`
 
 --------------
+
+
+..  _scr-ylim:
 
 SCR\_YLIM
 =========
@@ -1430,12 +1517,15 @@ which may destroy what is already on screen.
 
 **CROSS-REFERENCE**
 
-`QFLIM <KeywordsQ.clean.html#qflim>`__ and `YLIM <KeywordsY.clean.html#ylim>`__ are
-similar. See also `SCR\_XLIM <KeywordsS.clean.html#scr-xlim>`__,
-`SCR\_BASE <KeywordsS.clean.html#scr-base>`__ and
-`SCR\_LLEN <KeywordsS.clean.html#scr-llen>`__.
+:ref:`qflim` and :ref:`ylim` are
+similar. See also :ref:`scr-xlim`,
+:ref:`scr-base` and
+:ref:`scr-llen`.
 
 --------------
+
+
+..  _sdate:
 
 SDATE
 =====
@@ -1506,20 +1596,23 @@ v2.73 which fixed this problem on MOST PCs.
 
 **CROSS-REFERENCE**
 
-`PROT\_DATE <KeywordsP.clean.html#prot-date>`__ allows you to prevent
-`SDATE <KeywordsS.clean.html#sdate>`__ from altering a battery backed clock.
-`ADATE <KeywordsA.clean.html#adate>`__ allows you to alter the time by a
-specified number of seconds. `DATE <KeywordsD.clean.html#date>`__ lets you
+:ref:`prot-date` allows you to prevent
+:ref:`sdate` from altering a battery backed clock.
+:ref:`adate` allows you to alter the time by a
+specified number of seconds. :ref:`date` lets you
 read the current date and time as a single figure.
-`DATE$ <KeywordsD.clean.html#date>`__ and `DAY$ <KeywordsD.clean.html#day>`__
+:ref:`date-dlr` and :ref:`day-dlr`
 return various details about the current date and time. These functions
 can also be used to find out details concerning a given date without
-having to use `SDATE <KeywordsS.clean.html#sdate>`__ beforehand to change the
-system date. `A\_SDATE <KeywordsA.clean.html#a-sdate>`__ and
-`SET\_CLOCK <KeywordsS.clean.html#set-clock>`__ alter the battery backed
+having to use :ref:`sdate` beforehand to change the
+system date. :ref:`a-sdate` and
+:ref:`set-clock` alter the battery backed
 clocks on the ST/QL Emulator and THOR respectively.
 
 --------------
+
+
+..  _sdp-dev:
 
 SDP\_DEV
 ========
@@ -1542,10 +1635,13 @@ flp1\_Dump on the machine with NetID=1 in the Network.
 
 **CROSS-REFERENCE**
 
-`SDUMP <KeywordsS.clean.html#sdump>`__ allows you to send output to the
+:ref:`sdump` allows you to send output to the
 specified device from SuperBASIC.
 
 --------------
+
+
+..  _sdp-key:
 
 SDP\_KEY
 ========
@@ -1575,11 +1671,14 @@ will cause the screen to be dumped each time that <ALT><P> is pressed.
 
 **CROSS-REFERENCE**
 
-`SDP\_DEV <KeywordsS.clean.html#sdp-dev>`__ allows you to alter where the
-output is to go. See `SDP\_SET <KeywordsS.clean.html#sdp-set>`__ and
-`SDUMP <KeywordsS.clean.html#sdump>`__.
+:ref:`sdp-dev` allows you to alter where the
+output is to go. See :ref:`sdp-set` and
+:ref:`sdump`.
 
 --------------
+
+
+..  _sdp-set:
 
 SDP\_SET
 ========
@@ -1860,10 +1959,13 @@ the correct number of parameters.
 
 **CROSS-REFERENCE**
 
-`SDUMP <KeywordsS.clean.html#sdump>`__ actually prints the screen using the
+:ref:`sdump` actually prints the screen using the
 chosen format.
 
 --------------
+
+
+..  _sdump:
 
 SDUMP
 =====
@@ -1940,12 +2042,18 @@ automatically overwritten if necessary.
 
 **CROSS-REFERENCE**
 
-`SDP\_SET <KeywordsS.clean.html#sdp-set>`__ allows you to alter the printer
-format. `SDP\_KEY <KeywordsS.clean.html#sdp-key>`__ allows you to set up a
-hotkey to dump the screen. `SDP\_DEV <KeywordsS.clean.html#sdp-dev>`__ allows
+:ref:`sdp-set` allows you to alter the printer
+format. :ref:`sdp-key` allows you to set up a
+hotkey to dump the screen. :ref:`sdp-dev` allows
 you to alter the device where the dump is to be sent.
 
 --------------
+
+.. PROBLEM. When we build the docs, there is a search.rst file generated to
+   cope with the ability to search the HTML. This causes a duplicate label
+   so all links to this keyword, will fail. Hmm, needs thinking about.
+   
+..  _search:
 
 SEARCH
 ======
@@ -1989,13 +2097,14 @@ because tofind$ itself needs to be stored somewhere.
 
 **CROSS-REFERENCE**
 
-`PEEK$ <KeywordsP.clean.html#peek>`__, `DEV\_USE <KeywordsD.clean.html#dev-use>`__.
-See other implementation of `SEARCH <KeywordsS.clean.html#search>`__. See
-`MSEARCH <KeywordsM.clean.html#msearch>`__,
-`SEARCH\_MEM <KeywordsS.clean.html#search-mem>`__ and
-`TTFINDM <KeywordsT.clean.html#ttfindm>`__ also.
+:ref:`peek-dlr`, :ref:`dev-use`.
+See other implementation of :ref:`search`. See
+:ref:`msearch`,
+:ref:`search-mem` and
+:ref:`ttfindm` also.
 
 --------------
+
 
 SEARCH
 ======
@@ -2059,12 +2168,15 @@ found%.
 
 **CROSS-REFERENCE**
 
-Use `INSTR <KeywordsI.clean.html#instr>`__ to locate a sub-string in a string.
-`INARRAY% <KeywordsI.clean.html#inarray>`__ is similar. See the other
-implementation of `SEARCH <KeywordsS.clean.html#search>`__.
+Use :ref:`instr` to locate a sub-string in a string.
+:ref:`inarray-pct` is similar. See the other
+implementation of :ref:`search`.
 
 --------------
 
+
+
+..  _search-c:
 
 SEARCH\_C
 =========
@@ -2075,15 +2187,18 @@ SEARCH\_C
 | Location | DJToolkit 1.16                                                    |
 +----------+-------------------------------------------------------------------+
 
-See `SEARCH\_I <KeywordsS.clean.html#search-i>`__ for details.
+See :ref:`search-i` for details.
 
 **CROSS-REFERENCE**
 
-`SEARCH\_I <KeywordsS.clean.html#search-i>`__.
+:ref:`search-i`.
 
 
 -------
 
+
+
+..  _search-i:
 
 SEARCH\_I
 =========
@@ -2094,7 +2209,7 @@ SEARCH\_I
 | Location | DJToolkit 1.16                                                    |
 +----------+-------------------------------------------------------------------+
 
-This function, and `SEARCH\_C <KeywordsS.clean.html#search-c>`__ above, search through memory looking for the given string. `SEARCH\_C <KeywordsS.clean.html#search-c>`__ searches for an EXACT match whereas SEARCH\_I ignores the difference between lower & UPPER case letters.
+This function, and :ref:`search-c` above, search through memory looking for the given string. :ref:`search-c` searches for an EXACT match whereas SEARCH\_I ignores the difference between lower & UPPER case letters.
 
 If the address  returned is zero, the string was not found,  otherwise it is the address where the first character of what_for$ was found, or negative for any errors that may have occurred.
 
@@ -2133,10 +2248,13 @@ which is part of the copyright notice that comes up when you switch on your QL. 
 
 **CROSS-REFERENCE**
 
-`SEARCH_C <KeywordsS.clean.html#search-c>`__.
+:ref:`search-c`.
 
 
 -------
+
+
+..  _search-mem:
 
 SEARCH\_MEM
 ===========
@@ -2153,11 +2271,14 @@ therefore is even quicker than MSEARCH.
 
 **CROSS-REFERENCE**
 
-See `SEARCH <KeywordsS.clean.html#search>`__ and
-`TTFINDM <KeywordsT.clean.html#ttfindm>`__ also.
-`MSEARCH <KeywordsM.clean.html#msearch>`__ is a variant on this version.
+See :ref:`search` and
+:ref:`ttfindm` also.
+:ref:`msearch` is a variant on this version.
 
 --------------
+
+
+..  _select:
 
 SELect
 ======
@@ -2174,9 +2295,12 @@ the error 'Bad Name' will be generated.
 
 **CROSS-REFERENCE**
 
-Please see `SELect ON <KeywordsS.clean.html#select-on>`__!
+Please see :ref:`select--on`!
 
 --------------
+
+
+..  _select--on:
 
 SELect ON
 =========
@@ -2398,12 +2522,12 @@ reported an error if END SELect did appear!!
 
 **CROSS-REFERENCE**
 
-A slower means of testing for values is the structure `IF <KeywordsI.clean.html#if>`__... END
-IF <KeywordsI.clean.html#end-if>`__. `END
-SELect <KeywordsE.clean.html#end-select>`__ ends a `SELect
-ON <KeywordsS.clean.html#select-on>`__ structure.
+A slower means of testing for values is the structure :ref:`if` ... :ref:`end-if`\ . :ref:`end--select` ends a :ref:`select--on` structure.
 
 --------------
+
+
+..  _send-event:
 
 SEND\_EVENT
 ===========
@@ -2441,9 +2565,12 @@ Notifies the current job's owner that events 2 and 8 have occured.
 **CROSS-REFERENCE**
 
 A job can test to see if an event has occured with
-`WAIT\_EVENT <KeywordsW.clean.html#wait-event>`__.
+:ref:`wait-event`.
 
 --------------
+
+
+..  _sermaws:
 
 SERMAWS
 =======
@@ -2464,13 +2591,16 @@ be set by configuring the SERMouse file.
 
 **CROSS-REFERENCE**
 
-`SERMPTR <KeywordsS.clean.html#sermptr>`__ makes the mouse driver affect the
+:ref:`sermptr` makes the mouse driver affect the
 Pointer only. Qpac 2 allows you to set the same parameters from the
-Sysdef menu. Also refer to\ `SERMSPEED <KeywordsS.clean.html#sermspeed>`__ and
-`SERMON <KeywordsS.clean.html#sermon>`__. See the appendix on Mouse Drivers
+Sysdef menu. Also refer to\ :ref:`sermspeed` and
+:ref:`sermon`. See the appendix on Mouse Drivers
 for more information.
 
 --------------
+
+
+..  _sermcur:
 
 SERMCUR
 =======
@@ -2492,11 +2622,14 @@ automatically called.
 
 **CROSS-REFERENCE**
 
-`SERMPTR <KeywordsS.clean.html#sermptr>`__ switches to Pointer Mode. See also
-`SERMSPEED <KeywordsS.clean.html#sermspeed>`__. You can also switch to cursor
+:ref:`sermptr` switches to Pointer Mode. See also
+:ref:`sermspeed`. You can also switch to cursor
 mode by hitting the left hand mouse button twice in quick succession.
 
 --------------
+
+
+..  _sermoff:
 
 SERMOFF
 =======
@@ -2511,10 +2644,13 @@ This command removes the Serial Mouse Driver.
 
 **CROSS-REFERENCE**
 
-`SERMON <KeywordsS.clean.html#sermon>`__ will reactivate the Driver. Compare
-`SERMWAIT <KeywordsS.clean.html#sermwait>`__
+:ref:`sermon` will reactivate the Driver. Compare
+:ref:`sermwait`
 
 --------------
+
+
+..  _sermon:
 
 SERMON
 ======
@@ -2539,11 +2675,14 @@ following a SERMWAIT command.
 
 **CROSS-REFERENCE**
 
-`SERMOFF <KeywordsS.clean.html#sermoff>`__ and
-`SERMWAIT <KeywordsS.clean.html#sermwait>`__ are complementary functions. See
+:ref:`sermoff` and
+:ref:`sermwait` are complementary functions. See
 the Appendix on Mouse Drivers for further details.
 
 --------------
+
+
+..  _sermptr:
 
 SERMPTR
 =======
@@ -2562,9 +2701,12 @@ SERMON command.
 
 **CROSS-REFERENCE**
 
-See also `SERMCUR <KeywordsS.clean.html#sermcur>`__.
+See also :ref:`sermcur`.
 
 --------------
+
+
+..  _sermreset:
 
 SERMRESET
 =========
@@ -2583,11 +2725,14 @@ you notice the Pointer or Cursor moving on screen uncontrollably.
 **CROSS-REFERENCE**
 
 Other causes of this problem may be the wrong speed settings - see
-`SERMAWS <KeywordsS.clean.html#sermaws>`__,
-`SERMSPEED <KeywordsS.clean.html#sermspeed>`__ and
-`BAUD <KeywordsB.clean.html#baud>`__.
+:ref:`sermaws`,
+:ref:`sermspeed` and
+:ref:`baud`.
 
 --------------
+
+
+..  _sermspeed:
 
 SERMSPEED
 =========
@@ -2630,12 +2775,15 @@ the standard values are both 1.
 
 **CROSS-REFERENCE**
 
-`SERMAWS <KeywordsS.clean.html#sermaws>`__ works in conjunction with this
+:ref:`sermaws` works in conjunction with this
 command. All of these parameters can be configured in the SERMouse file.
-See also `SERMCUR <KeywordsS.clean.html#sermcur>`__ and
-`SERMPTR <KeywordsS.clean.html#sermptr>`__.
+See also :ref:`sermcur` and
+:ref:`sermptr`.
 
 --------------
+
+
+..  _sermwait:
 
 SERMWAIT
 ========
@@ -2652,11 +2800,14 @@ rates and you need to change the baud rate for a Modem or Printer.
 
 **CROSS-REFERENCE**
 
-`SERMON <KeywordsS.clean.html#sermon>`__ re-activates the Driver. Again, the
+:ref:`sermon` re-activates the Driver. Again, the
 Driver can be configured to automatically be suspended when the baudrate
 is altered.
 
 --------------
+
+
+..  _sernet:
 
 SERNET
 ======
@@ -2684,12 +2835,15 @@ MIDINET for details.
 
 **CROSS-REFERENCE**
 
-`SNET <KeywordsS.clean.html#snet>`__ is needed to control the Network. See
-also `FSERVE <KeywordsF.clean.html#fserve>`__ and
-`MIDINET <KeywordsM.clean.html#midinet>`__. See the Appendix on Networks for
+:ref:`snet` is needed to control the Network. See
+also :ref:`fserve` and
+:ref:`midinet`. See the Appendix on Networks for
 further details.
 
 --------------
+
+
+..  _ser-abort:
 
 SER\_ABORT
 ==========
@@ -2708,9 +2862,12 @@ serial port, this allows you to specify the port number to be affected
 
 **CROSS-REFERENCE**
 
-See `PAR\_ABORT <KeywordsP.clean.html#par-abort>`__.
+See :ref:`par-abort`.
 
 --------------
+
+
+..  _ser-buff:
 
 SER\_BUFF
 =========
@@ -2769,10 +2926,13 @@ SER\_ROOM.
 
 **CROSS-REFERENCE**
 
-See `PAR\_BUFF <KeywordsP.clean.html#par-buff>`__! You should also refer to
-`SER\_ROOM <KeywordsS.clean.html#ser-room>`__.
+See :ref:`par-buff`! You should also refer to
+:ref:`ser-room`.
 
 --------------
+
+
+..  _ser-cdeof:
 
 SER\_CDEOF
 ==========
@@ -2811,10 +2971,13 @@ or TT until v2.73+.
 
 **CROSS-REFERENCE**
 
-`EOF <KeywordsE.clean.html#eof>`__ and `EOFW <KeywordsE.clean.html#eofw>`__ allow
+:ref:`eof` and :ref:`eofw` allow
 you to detect an EOF character.
 
 --------------
+
+
+..  _ser-clear:
 
 SER\_CLEAR
 ==========
@@ -2831,9 +2994,12 @@ the number of the serial port to be affected (default SER1).
 
 **CROSS-REFERENCE**
 
-See `PAR\_CLEAR <KeywordsP.clean.html#par-clear>`__!
+See :ref:`par-clear`!
 
 --------------
+
+
+..  _ser-flow:
 
 SER\_FLOW
 =========
@@ -2867,6 +3033,9 @@ Please refer to the Appendix on device drivers for more information.
 
 --------------
 
+
+..  _ser-getport-dlr:
+
 SER\_GETPORT$
 =============
 
@@ -2880,9 +3049,12 @@ Returns the device the SER port is connected to, for example "COM1".
 
 **CROSS-REFERENCE**
 
-See `SER\_SETPORT <KeywordsS.clean.html#ser-setport>`__.
+See :ref:`ser-setport`.
 
 --------------
+
+
+..  _ser-pause:
 
 SER\_PAUSE
 ==========
@@ -2911,11 +3083,14 @@ transfer rate.
 **CROSS-REFERENCE**
 
 If you are using serial ports to receive data, you may need to set
-`SER\_ROOM <KeywordsS.clean.html#ser-room>`__. `BAUD <KeywordsB.clean.html#baud>`__
+:ref:`ser-room`. :ref:`baud`
 also affects the serial transfer rate. Please also refer to the Appendix
 on device drivers for more information.
 
 --------------
+
+
+..  _ser-room:
 
 SER\_ROOM
 =========
@@ -2951,11 +3126,14 @@ The default room is 32 bytes.
 
 **CROSS-REFERENCE**
 
-`SER\_BUFF <KeywordsS.clean.html#ser-buff>`__ allows you to alter the size of
+:ref:`ser-buff` allows you to alter the size of
 the input buffer and affects the value set by this command. You should
-also look at `SER\_PAUSE <KeywordsS.clean.html#ser-pause>`__.
+also look at :ref:`ser-pause`.
 
 --------------
+
+
+..  _ser-setport:
 
 SER\_SETPORT
 ============
@@ -2978,9 +3156,12 @@ Will associate SER4 with COM32.
 
 **CROSS-REFERENCE**
 
-See `SER\_GETPORT$ <KeywordsS.clean.html#ser-getport>`__.
+See :ref:`ser-getport-dlr`.
 
 --------------
+
+
+..  _ser-use:
 
 SER\_USE
 ========
@@ -2997,9 +3178,12 @@ not restricted to SER or PAR.
 
 **CROSS-REFERENCE**
 
-See `PAR\_USE <KeywordsP.clean.html#par-use>`__
+See :ref:`par-use`
 
 --------------
+
+
+..  _set:
 
 SET
 ===
@@ -3034,13 +3218,14 @@ crash if any of the parameters are omitted.
 
 **CROSS-REFERENCE**
 
-`PLOT <KeywordsP.clean.html#plot>`__. We highly recommend that you use the
+:ref:`plot`. We highly recommend that you use the
 QDOS inbuilt window relative graphic routine,
-`POINT <KeywordsP.clean.html#point>`__ in this case.
-`COL <KeywordsC.clean.html#col>`__ finds the colour of a screen pixel. See the
-other implementation of `SET <KeywordsS.clean.html#set>`__ also.
+:ref:`point` in this case.
+:ref:`col` finds the colour of a screen pixel. See the
+other implementation of :ref:`set` also.
 
 --------------
+
 
 SET
 ===
@@ -3110,11 +3295,14 @@ Any attempt to use SET from within a multiple BASIC will have no effect.
 
 **CROSS-REFERENCE**
 
-See `ALTER <KeywordsA.clean.html#alter>`__. `TRUE% <KeywordsT.clean.html#true>`__,
-`FALSE% <KeywordsF.clean.html#false>`__ and `PI <KeywordsP.clean.html#pi>`__ are
+See :ref:`alter`. :ref:`true-pct`,
+:ref:`false-pct` and :ref:`pi` are
 predefined constants.
 
 --------------
+
+
+..  _sethead:
 
 SetHEAD
 =======
@@ -3135,9 +3323,12 @@ FOP\_IN.
 
 **CROSS-REFERENCE**
 
-See `GetHEAD <KeywordsG.clean.html#gethead>`__.
+See :ref:`gethead`.
 
 --------------
+
+
+..  _set-header:
 
 SET\_HEADER
 ===========
@@ -3152,14 +3343,17 @@ This function  returns the error code that occurred when trying to set the heade
 
 **EXAMPLE**
 
-See the example for `READ\_HEADER <KeywordsR.clean.html#read-header>`__.
+See the example for :ref:`read-header`.
 
 **CROSS-REFERENCE**
 
-`READ\_HEADER <KeywordsR.clean.html#read-header>`__.
+:ref:`read-header`.
 
 
 -------
+
+
+..  _set-clock:
 
 SET\_CLOCK
 ==========
@@ -3181,11 +3375,14 @@ SDATE or ADATE.
 
 **CROSS-REFERENCE**
 
-`SDATE <KeywordsS.clean.html#sdate>`__ and `ADATE <KeywordsA.clean.html#adate>`__
-alter the system clock. `A\_SDATE <KeywordsA.clean.html#a-sdate>`__ is similar
+:ref:`sdate` and :ref:`adate`
+alter the system clock. :ref:`a-sdate` is similar
 on the ST/QL Emulator.
 
 --------------
+
+
+..  _set-fbkdt:
 
 SET\_FBKDT
 ==========
@@ -3216,11 +3413,14 @@ directory to the current time and date.
 
 **CROSS-REFERENCE**
 
-`FBKDT <KeywordsF.clean.html#fbkdt>`__. See `FGETH$ <KeywordsF.clean.html#fgeth>`__
+:ref:`fbkdt`. See :ref:`fgeth-dlr`
 for the structure of a file header, especially which byte is modified
 when the backup date is changed.
 
 --------------
+
+
+..  _set-fupdt:
 
 SET\_FUPDT
 ==========
@@ -3250,11 +3450,14 @@ affect the update time.
 
 **CROSS-REFERENCE**
 
-`FUPDT <KeywordsF.clean.html#fupdt>`__. See `FGETH$ <KeywordsF.clean.html#fgeth>`__
+:ref:`fupdt`. See :ref:`fgeth-dlr`
 for the structure of a file header, especially which byte is modified
 when the update time is set.
 
 --------------
+
+
+..  _set-fvers:
 
 SET\_FVERS
 ==========
@@ -3280,13 +3483,16 @@ supports the current default data directory (see DATAD$).
 
 **CROSS-REFERENCE**
 
-`FVERS <KeywordsF.clean.html#fvers>`__. See `FGETH$ <KeywordsF.clean.html#fgeth>`__
+:ref:`fvers`. See :ref:`fgeth-dlr`
 for the structure of a file header, especially which byte is modified
 when the version is changed. The version number may be updated by
-`SAVE <KeywordsS.clean.html#save>`__ and `QSAVE <KeywordsQ.clean.html#qsave>`__ on
+:ref:`save` and :ref:`qsave` on
 SMS.
 
 --------------
+
+
+..  _set-green:
 
 SET\_GREEN
 ==========
@@ -3324,11 +3530,14 @@ This command should not really be used in MODE 8.
 
 **CROSS-REFERENCE**
 
-`SET\_RED <KeywordsS.clean.html#set-red>`__ is similar. See
-`RECOL <KeywordsR.clean.html#recol>`__. `W\_SWAP <KeywordsW.clean.html#w-swap>`__
+:ref:`set-red` is similar. See
+:ref:`recol`. :ref:`w-swap`
 can also be used to recolour a window. Refer to the QL Display Appendix.
 
 --------------
+
+
+..  _set-red:
 
 SET\_RED
 ========
@@ -3356,9 +3565,12 @@ operation:
 
 **CROSS-REFERENCE**
 
-See `SET\_GREEN <KeywordsS.clean.html#set-green>`__ !
+See :ref:`set-green` !
 
 --------------
+
+
+..  _set-language:
 
 SET\_LANGUAGE
 =============
@@ -3436,17 +3648,19 @@ effect as SET\_LANGUAGE "".
 
 **CROSS-REFERENCE**
 
-`LANGUAGE$ <KeywordsL.clean.html#language>`__ returns the name of the current
+:ref:`language-dlr` returns the name of the current
 keyboard layout in use. Before v6.41 of the THOR XVI, the keys
-<ALT><SYSREQ> had the same effect as `SET\_LANGUAGE
-"" <KeywordsS.clean.html#set-language>`__. On v6.41, this keying was altered
+<ALT><SYSREQ> had the same effect as :ref:`set-language`. On v6.41, this keying was altered
 to call a Job called Alt\_SysReq (Case dependent).
-`LANG\_USE <KeywordsL.clean.html#lang-use>`__ allows SMS to use different
+:ref:`lang-use` allows SMS to use different
 languages for messages and errors. See also
-`KBD\_TABLE <KeywordsK.clean.html#kbd-table>`__.
+:ref:`kbd-table`.
 
 --------------
 
+
+
+..  _set-xinc:
 
 SET\_XINC
 =========
@@ -3457,11 +3671,14 @@ SET\_XINC
 | Location | DJToolkit 1.16                                                    |
 +----------+-------------------------------------------------------------------+
 
-See `SET\_YINC <KeywordsS.clean.html#set-yinc>`__\ , below, for details.
+See :ref:`set-yinc`\ , below, for details.
 
 
 -------
 
+
+
+..  _set-yinc:
 
 SET\_YINC
 =========
@@ -3472,9 +3689,9 @@ SET\_YINC
 | Location | DJToolkit 1.16                                                    |
 +----------+-------------------------------------------------------------------+
 
-These two functions change the spacing between characters horozontally, `SET\_XINC <KeywordsS.clean.html#set-xinc>`__, or vertically, SET\_YINC. This allows slightly more information to be displayed on the screen. `SET\_XINC <KeywordsS.clean.html#set-xinc>`__ allows adjacent characters on a line of the screen to be positioned closer or further apart as desired. SET\_YINC varies the spacing between the current line of characters and the next.
+These two functions change the spacing between characters horozontally, :ref:`set-xinc`, or vertically, SET\_YINC. This allows slightly more information to be displayed on the screen. :ref:`set-xinc` allows adjacent characters on a line of the screen to be positioned closer or further apart as desired. SET\_YINC varies the spacing between the current line of characters and the next.
 
-By choosing silly values, you can have a real messy screen, but try experimenting with `OVER <KeywordsO.clean.html#over>`__ as well to see what happens. Use of the `MODE <KeywordsM.clean.html#mode>`__ or `CSIZE <KeywordsC.clean.html#csize>`__ commands in SuperBasic will overwrite your new values.
+By choosing silly values, you can have a real messy screen, but try experimenting with :ref:`over` as well to see what happens. Use of the :ref:`mode` or :ref:`csize` commands in SuperBasic will overwrite your new values.
 
 
 **EXAMPLE**
@@ -3490,11 +3707,14 @@ By choosing silly values, you can have a real messy screen, but try experimentin
 
 **CROSS-REFERENCE**
 
-`SET\_XINC <KeywordsS.clean.html#set-xinc>`__.
+:ref:`set-xinc`.
 
 
 -------
 
+
+
+..  _sexec:
 
 SEXEC
 =====
@@ -3574,11 +3794,14 @@ programs.
 
 **CROSS-REFERENCE**
 
-`SEXEC\_O <KeywordsS.clean.html#sexec-o>`__ is very similar.
-`EXEC <KeywordsE.clean.html#exec>`__ and `EXEC\_W <KeywordsE.clean.html#exec-w>`__
-allow you to load a program saved with `SEXEC <KeywordsS.clean.html#sexec>`__.
+:ref:`sexec-o` is very similar.
+:ref:`exec` and :ref:`exec-w`
+allow you to load a program saved with :ref:`sexec`.
 
 --------------
+
+
+..  _sexec-o:
 
 SEXEC\_O
 ========
@@ -3600,9 +3823,12 @@ The Toolkit II version of SEXEC\_O supports the default data device.
 
 **CROSS-REFERENCE**
 
-See `SEXEC <KeywordsS.clean.html#sexec>`__.
+See :ref:`sexec`.
 
 --------------
+
+
+..  _sgn:
 
 SGN
 ===
@@ -3620,16 +3846,22 @@ and 0 if the number is zero. Any number is allowed as a parameter.
 
 **CROSS-REFERENCE**
 
-`SIGN <KeywordsS.clean.html#sign>`__ is the same.
+:ref:`sign` is the same.
 
 --------------
+
+
+..  _sgn-pct:
 
 SGN%
 ====
 
-See `SGN <KeywordsS.clean.html#sgn>`__ above.
+See :ref:`sgn` above.
 
 --------------
+
+
+..  _shoot:
 
 SHOOT
 =====
@@ -3644,10 +3876,13 @@ This command produces the sound of single gun shot.
 
 **CROSS-REFERENCE**
 
-`SND\_EXT <KeywordsS.clean.html#snd-ext>`__, `BELL <KeywordsB.clean.html#bell>`__,
-`EXPLODE <KeywordsE.clean.html#explode>`__.
+:ref:`snd-ext`, :ref:`bell`,
+:ref:`explode`.
 
 --------------
+
+
+..  _si:
 
 SI
 ==
@@ -3669,16 +3904,19 @@ is the same as::
 
 **CROSS-REFERENCE**
 
-`NORM <KeywordsN.clean.html#norm>`__, `BLD <KeywordsB.clean.html#bld>`__,
-`EL <KeywordsE.clean.html#el>`__, `DBL <KeywordsD.clean.html#dbl>`__,
-`ENL <KeywordsE.clean.html#enl>`__, `PRO <KeywordsP.clean.html#pro>`__,
-`NRM <KeywordsN.clean.html#nrm>`__, `UNL <KeywordsU.clean.html#unl>`__,
-`ALT <KeywordsA.clean.html#alt>`__, `ESC <KeywordsE.clean.html#esc>`__,
-`FF <KeywordsF.clean.html#ff>`__, `LMAR <KeywordsL.clean.html#lmar>`__,
-`RMAR <KeywordsR.clean.html#rmar>`__, `PAGDIS <KeywordsP.clean.html#pagdis>`__,
-`PAGLEN <KeywordsP.clean.html#paglen>`__.
+:ref:`norm`, :ref:`bld`,
+:ref:`el`, :ref:`dbl`,
+:ref:`enl`, :ref:`pro`,
+:ref:`nrm`, :ref:`unl`,
+:ref:`alt`, :ref:`esc`,
+:ref:`ff`, :ref:`lmar`,
+:ref:`rmar`, :ref:`pagdis`,
+:ref:`paglen`.
 
 --------------
+
+
+..  _sign:
 
 SIGN
 ====
@@ -3692,6 +3930,9 @@ SIGN
 See SGN!
 
 --------------
+
+
+..  _sin:
 
 SIN
 ===
@@ -3743,13 +3984,16 @@ check the range of the angle parameter.
 
 **CROSS-REFERENCE**
 
-See `COS <KeywordsC.clean.html#cos>`__, `TAN <KeywordsT.clean.html#tan>`__,
-`RAD <KeywordsR.clean.html#rad>`__, `ASIN <KeywordsA.clean.html#asin>`__,
-`ACOS <KeywordsA.clean.html#acos>`__, `ATAN <KeywordsA.clean.html#atan>`__,
-`DEG <KeywordsD.clean.html#deg>`__. See also `SINH <KeywordsS.clean.html#sinh>`__.
+See :ref:`cos`, :ref:`tan`,
+:ref:`rad`, :ref:`asin`,
+:ref:`acos`, :ref:`atan`,
+:ref:`deg`. See also :ref:`sinh`.
 Please also refer to the Mathematics section of the Appendix.
 
 --------------
+
+
+..  _sinh:
 
 SINH
 ====
@@ -3777,10 +4021,13 @@ Draw a hyperbola and its asymptotes::
 
 **CROSS-REFERENCE**
 
-`COSH <KeywordsC.clean.html#cosh>`__, `TANH <KeywordsT.clean.html#tanh>`__,
-`ARSINH <KeywordsA.clean.html#arsinh>`__
+:ref:`cosh`, :ref:`tanh`,
+:ref:`arsinh`
 
 --------------
+
+
+..  _sint:
 
 SINT
 ====
@@ -3805,9 +4052,12 @@ or::
 
 **CROSS-REFERENCE**
 
-`UINT <KeywordsU.clean.html#uint>`__ converts in the other direction.
+:ref:`uint` converts in the other direction.
 
 --------------
+
+
+..  _size:
 
 SIZE
 ====
@@ -3944,14 +4194,17 @@ future version so that the value returned is 1.
 
 **CROSS-REFERENCE**
 
-`DIMN <KeywordsD.clean.html#dimn>`__ and `NDIM <KeywordsN.clean.html#ndim>`__ return
-other information about an array, eg: `PRINT <KeywordsP.clean.html#print>`__
+:ref:`dimn` and :ref:`ndim` return
+other information about an array, eg: :ref:`print`
 SIZE(a$) \* DIMN(a$,NDIM(a$)) gives the total number of characters which can be stored in a string
-array a$. `LEN <KeywordsL.clean.html#len>`__ returns the length of a string.
-`FREE\_MEM <KeywordsF.clean.html#free-mem>`__ allows you to check how much
+array a$. :ref:`len` returns the length of a string.
+:ref:`free-mem` allows you to check how much
 memory an array uses.
 
 --------------
+
+
+..  _sjob:
 
 SJOB
 ====
@@ -4045,12 +4298,15 @@ as the parameter for the job number.
 
 **CROSS-REFERENCE**
 
-`REL\_JOB <KeywordsR.clean.html#rel-job>`__ releases a suspended job.
-`JOBS <KeywordsJ.clean.html#jobs>`__ lists all current jobs.
-`SUSJOB <KeywordsS.clean.html#susjob>`__ and `TTSUS <KeywordsT.clean.html#ttsus>`__
-are almost the same as `SJOB <KeywordsS.clean.html#sjob>`__.
+:ref:`rel-job` releases a suspended job.
+:ref:`jobs` lists all current jobs.
+:ref:`susjob` and :ref:`ttsus`
+are almost the same as :ref:`sjob`.
 
 --------------
+
+
+..  _sload:
 
 SLOAD
 =====
@@ -4072,9 +4328,12 @@ This has the same problems as SSAVE.
 
 **CROSS-REFERENCE**
 
-`SSHOW <KeywordsS.clean.html#sshow>`__
+:ref:`sshow`
 
 --------------
+
+
+..  _slug:
 
 SLUG
 ====
@@ -4115,11 +4374,14 @@ SLUG.
 
 **CROSS-REFERENCE**
 
-`SCR2DIS <KeywordsS.clean.html#scr2dis>`__ and
-`CACHE\_ON <KeywordsC.clean.html#cache-on>`__ can be used to speed up the
+:ref:`scr2dis` and
+:ref:`cache-on` can be used to speed up the
 computer's speed.
 
 --------------
+
+
+..  _smove:
 
 SMOVE
 =====
@@ -4145,9 +4407,12 @@ See SSAVE.
 
 **CROSS-REFERENCE**
 
-`SSHOW <KeywordsS.clean.html#sshow>`__, `SLOAD <KeywordsS.clean.html#sload>`__
+:ref:`sshow`, :ref:`sload`
 
 --------------
+
+
+..  _snd-ext:
 
 SND\_EXT
 ========
@@ -4180,11 +4445,14 @@ The sound extensions may crash the hardware.
 **CROSS-REFERENCE**
 
 Some of the available extensions for sound are
-`PLAY <KeywordsP.clean.html#play>`__, `RELEASE <KeywordsR.clean.html#release>`__,
-`BELL <KeywordsB.clean.html#bell>`__, `SHOOT <KeywordsS.clean.html#shoot>`__,
-`EXPLODE <KeywordsE.clean.html#explode>`__.
+:ref:`play`, :ref:`release`,
+:ref:`bell`, :ref:`shoot`,
+:ref:`explode`.
 
 --------------
+
+
+..  _snet:
 
 SNET
 ====
@@ -4202,13 +4470,16 @@ number for the SERNET Network (as opposed to the QNet Network).
 
 **CROSS-REFERENCE**
 
-See `SNET% <KeywordsS.clean.html#snet>`__,
-`SNET\_USE <KeywordsS.clean.html#snet-use>`__ and
-`NET <KeywordsN.clean.html#net>`__. Also please see
-`SERNET <KeywordsS.clean.html#sernet>`__, `MIDINET <KeywordsM.clean.html#midinet>`__
-and `FSERVE <KeywordsF.clean.html#fserve>`__.
+See :ref:`snet-pct`,
+:ref:`snet-use` and
+:ref:`net`. Also please see
+:ref:`sernet`, :ref:`midinet`
+and :ref:`fserve`.
 
 --------------
+
+
+..  _snet-pct:
 
 SNET%
 =====
@@ -4223,10 +4494,13 @@ This function returns the current station number of the computer as set with SNE
 
 **CROSS-REFERENCE**
 
-See `SNET <KeywordsS.clean.html#snet>`__. `NET\_ID <KeywordsN.clean.html#net-id>`__
+See :ref:`snet`. :ref:`net-id`
 is similar.
 
 --------------
+
+
+..  _snet-ropen:
 
 SNET\_ROPEN
 ===========
@@ -4242,9 +4516,12 @@ driver in case they have been closed by other programs.
 
 **CROSS-REFERENCE**
 
-See `SERNET <KeywordsS.clean.html#sernet>`__.
+See :ref:`sernet`.
 
 --------------
+
+
+..  _snet-s-pct:
 
 SNET\_S%
 ========
@@ -4263,9 +4540,12 @@ from a Network station which does not exist.
 
 **CROSS-REFERENCE**
 
-See `SNET <KeywordsS.clean.html#snet>`__.
+See :ref:`snet`.
 
 --------------
+
+
+..  _snet-use:
 
 SNET\_USE
 =========
@@ -4303,13 +4583,16 @@ any single letter other than n as representing a Network.
 
 **CROSS-REFERENCE**
 
-See `SNET <KeywordsS.clean.html#snet>`__ and
-`SERNET <KeywordsS.clean.html#sernet>`__. Refer also to
-`SNET\_S% <KeywordsS.clean.html#snet-s>`__.
-`MNET\_USE <KeywordsM.clean.html#mnet-use>`__ is similar. See also
-`NFS\_USE <KeywordsN.clean.html#nfs-use>`__.
+See :ref:`snet` and
+:ref:`sernet`. Refer also to
+:ref:`snet-s-pct`.
+:ref:`mnet-use` is similar. See also
+:ref:`nfs-use`.
 
 --------------
+
+
+..  _sort:
 
 SORT
 ====
@@ -4388,9 +4671,12 @@ slicing (line 310).
 
 **CROSS-REFERENCE**
 
-`SEARCH <KeywordsS.clean.html#search>`__ searches string arrays.
+:ref:`search` searches string arrays.
 
 --------------
+
+
+..  _soundex:
 
 SOUNDEX
 =======
@@ -4421,11 +4707,14 @@ phonetic difference between the parameters.
 
 **CROSS-REFERENCE**
 
-`WLD <KeywordsW.clean.html#wld>`__ calculates such a difference,
-`PHONEM <KeywordsP.clean.html#phonem>`__ is similar to
-`SOUNDEX <KeywordsS.clean.html#soundex>`__.
+:ref:`wld` calculates such a difference,
+:ref:`phonem` is similar to
+:ref:`soundex`.
 
 --------------
+
+
+..  _spjob:
 
 SPJOB
 =====
@@ -4501,16 +4790,19 @@ SuperBASIC to zero, preventing further command entry.
 
 **CROSS-REFERENCE**
 
-`SJOB <KeywordsS.clean.html#sjob>`__ suspends a job,
-`REL\_JOB <KeywordsR.clean.html#rel-job>`__ releases it.
-`RJOB <KeywordsR.clean.html#rjob>`__ and `KJOB <KeywordsK.clean.html#kjob>`__ remove
-a specific job, `KILL <KeywordsK.clean.html#kill>`__ and
-`KJOBS <KeywordsK.clean.html#kjobs>`__ remove all jobs except the main
-SuperBASIC interpreter. See also `SP\_JOB <KeywordsS.clean.html#sp-job>`__,
-`PRIO <KeywordsP.clean.html#prio>`__,
-`PRIORITISE <KeywordsP.clean.html#prioritise>`__.
+:ref:`sjob` suspends a job,
+:ref:`rel-job` releases it.
+:ref:`rjob` and :ref:`kjob` remove
+a specific job, :ref:`kill` and
+:ref:`kjobs` remove all jobs except the main
+SuperBASIC interpreter. See also :ref:`sp-job`,
+:ref:`prio`,
+:ref:`prioritise`.
 
 --------------
+
+
+..  _spl:
 
 SPL
 ===
@@ -4562,12 +4854,15 @@ leave files open.
 
 **CROSS-REFERENCE**
 
-See `COPY\_O <KeywordsC.clean.html#copy-o>`__ and
-`SPLF <KeywordsS.clean.html#splf>`__. `SPL\_USE <KeywordsS.clean.html#spl-use>`__
-and `DEST\_USE <KeywordsD.clean.html#dest-use>`__ allow you to alter the
+See :ref:`copy-o` and
+:ref:`splf`. :ref:`spl-use`
+and :ref:`dest-use` allow you to alter the
 default destination device.
 
 --------------
+
+
+..  _splf:
 
 SPLF
 ====
@@ -4584,9 +4879,12 @@ for use with printers.
 
 **CROSS-REFERENCE**
 
-See `SPL <KeywordsS.clean.html#spl>`__.
+See :ref:`spl`.
 
 --------------
+
+
+..  _spl-use:
 
 SPL\_USE
 ========
@@ -4624,15 +4922,18 @@ DEST\_USE.
 
 **CROSS-REFERENCE**
 
-`DESTD$ <KeywordsD.clean.html#destd>`__ returns the current default
-destination device. Also see `PROG\_USE <KeywordsP.clean.html#prog-use>`__,
-`DLIST <KeywordsD.clean.html#dlist>`__,
-`DATA\_USE <KeywordsD.clean.html#data-use>`__,
-`DEST\_USE <KeywordsD.clean.html#dest-use>`__,
-`DDOWN <KeywordsD.clean.html#ddown>`__, `DUP <KeywordsD.clean.html#dup>`__, and
-`DNEXT <KeywordsD.clean.html#dnext>`__.
+:ref:`destd-dlr` returns the current default
+destination device. Also see :ref:`prog-use`,
+:ref:`dlist`,
+:ref:`data-use`,
+:ref:`dest-use`,
+:ref:`ddown`, :ref:`dup`, and
+:ref:`dnext`.
 
 --------------
+
+
+..  _sp-job:
 
 SP\_JOB
 =======
@@ -4652,12 +4953,14 @@ versions would not allow jobnr to be a variable either.
 
 **CROSS-REFERENCE**
 
-See `SPJOB <KeywordsS.clean.html#spjob>`__. `JBASE <KeywordsJ.clean.html#jbase>`__
-contains details of the different parameters
-`jobname <Keywordsj.clean.html#jobname>`__ and
-`jobnr <Keywordsj.clean.html#jobnr>`__.
+See :ref:`spjob`. 
+
+:ref:`jbase` contains details of the different parameters jobname and jobnr.
 
 --------------
+
+
+..  _sqr:
 
 SQR
 ===
@@ -4671,6 +4974,9 @@ SQR
 See SQRT below!
 
 --------------
+
+
+..  _sqrt:
 
 SQRT
 ====
@@ -4706,10 +5012,13 @@ was returning the negative square root. It now returns the positive square root.
 
 **CROSS-REFERENCE**
 
-`ABS <KeywordsA.clean.html#abs>`__ will return the absolute value of the given
+:ref:`abs` will return the absolute value of the given
 parameter.
 
 --------------
+
+
+..  _ssave:
 
 SSAVE
 =====
@@ -4739,9 +5048,12 @@ you must not use the ECMAN but the ECMANcp version.
 
 **CROSS-REFERENCE**
 
-Saved pictures can be reloaded with `SSHOW <KeywordsS.clean.html#sshow>`__.
+Saved pictures can be reloaded with :ref:`sshow`.
 
 --------------
+
+
+..  _sshow:
 
 SSHOW
 =====
@@ -4763,12 +5075,15 @@ See SSAVE.
 
 **CROSS-REFERENCE**
 
-`SLOAD <KeywordsS.clean.html#sload>`__ displays a saved screen part and frees
-the memory used, `SMOVE <KeywordsS.clean.html#smove>`__ allows you to view
+:ref:`sload` displays a saved screen part and frees
+the memory used, :ref:`smove` allows you to view
 such a saved screen part at a different location or on a different
 screen.
 
 --------------
+
+
+..  _sstat:
 
 SSTAT
 =====
@@ -4797,11 +5112,14 @@ See SSAVE.
 
 **CROSS-REFERENCE**
 
-`DEFAULT\_SCR <KeywordsD.clean.html#default-scr>`__,
-`SCRON <KeywordsS.clean.html#scron>`__, `SCROFF <KeywordsS.clean.html#scroff>`__,
-`MODE <KeywordsM.clean.html#mode>`__
+:ref:`default-scr`,
+:ref:`scron`, :ref:`scrof`,
+:ref:`mode`
 
 --------------
+
+
+..  _sstep:
 
 SSTEP
 =====
@@ -4841,9 +5159,12 @@ This trace toolkit will only work on Minerva.
 
 **CROSS-REFERENCE**
 
-See `TRON <KeywordsT.clean.html#tron>`__ and `TROFF <KeywordsT.clean.html#troff>`__.
+See :ref:`tron` and :ref:`troff`.
 
 --------------
+
+
+..  _stamp:
 
 STAMP
 =====
@@ -4857,6 +5178,9 @@ STAMP
 This command is the same as FORCE\_TYPE !
 
 --------------
+
+
+..  _stat:
 
 STAT
 ====
@@ -4887,15 +5211,18 @@ data device is used.
 
 **CROSS-REFERENCE**
 
-`DLIST <KeywordsD.clean.html#dlist>`__ shows the default devices,
-`DATAD$ <KeywordsD.clean.html#datad>`__ holds the default data device. Change
-default devices with `DATA\_USE <KeywordsD.clean.html#data-use>`__,
-`PROG\_USE <KeywordsP.clean.html#prog-use>`__ and
-`SPL\_USE <KeywordsS.clean.html#spl-use>`__. `DIR <KeywordsD.clean.html#dir>`__ and
-`WSTAT <KeywordsW.clean.html#wstat>`__ provide other information about
+:ref:`dlist` shows the default devices,
+:ref:`datad-dlr` holds the default data device. Change
+default devices with :ref:`data-use`,
+:ref:`prog-use` and
+:ref:`spl-use`. :ref:`dir` and
+:ref:`wstat` provide other information about
 directory devices.
 
 --------------
+
+
+..  _step:
 
 STEP
 ====
@@ -4912,9 +5239,12 @@ error.
 
 **CROSS-REFERENCE**
 
-See `FOR <KeywordsF.clean.html#for>`__!
+See :ref:`for`!
 
 --------------
+
+
+..  _stop:
 
 STOP
 ====
@@ -4952,13 +5282,13 @@ If Toolkit II is installed, STOP clears WHEN ERRor definitions.
 
 **CROSS-REFERENCE**
 
-`RUN <KeywordsR.clean.html#run>`__ starts a program and `GO
-TO <KeywordsG.clean.html#go-to>`__ jumps to a specified line. See
-`CONTINUE <KeywordsC.clean.html#continue>`__,
-`RETRY <KeywordsR.clean.html#retry>`__. Also see
-`QUIT <KeywordsQ.clean.html#quit>`__.
+:ref:`run` starts a program and :ref:`go--to` jumps to a specified line. See
+:ref:`continue`, :ref:`retry`. Also see :ref:`quit`.
 
 --------------
+
+
+..  _strip:
 
 STRIP
 =====
@@ -5013,15 +5343,18 @@ following a PAPER command.
 
 **CROSS-REFERENCE**
 
-`PAPER <KeywordsP.clean.html#paper>`__ also sets the
-`STRIP <KeywordsS.clean.html#strip>`__ colour. Compare
-`IO\_TRAP <KeywordsI.clean.html#io-trap>`__. `CSIZE <KeywordsC.clean.html#csize>`__
-and `CHAR\_INC <KeywordsC.clean.html#char-inc>`__ allow you to alter the
-spacing between characters. `INK <KeywordsI.clean.html#ink>`__ contains
+:ref:`paper` also sets the
+:ref:`strip` colour. Compare
+:ref:`io-trap`. :ref:`csize`
+and :ref:`char-inc` allow you to alter the
+spacing between characters. :ref:`ink` contains
 details of standard and composite colours. See also
-`INVERSE <KeywordsI.clean.html#inverse>`__ which can also prove useful.
+:ref:`inverse` which can also prove useful.
 
 --------------
+
+
+..  _sub:
 
 SUB
 ===
@@ -5038,9 +5371,12 @@ Line' error.
 
 **CROSS-REFERENCE**
 
-See `GO SUB <KeywordsG.clean.html#go-sub>`__!
+See :ref:`go--sub`!
 
 --------------
+
+
+..  _susjob:
 
 SUSJOB
 ======
@@ -5051,9 +5387,12 @@ SUSJOB
 | Location |  BTool                                                            |
 +----------+-------------------------------------------------------------------+
 
-See `SJOB <KeywordsS.clean.html#sjob>`__.
+See :ref:`sjob`.
 
 --------------
+
+
+..  _swap:
 
 SWAP
 ====
@@ -5107,9 +5446,12 @@ flexible stack.
 
 **CROSS-REFERENCE**
 
-`LET <KeywordsL.clean.html#let>`__
+:ref:`let`
 
 --------------
+
+
+..  _sxtras:
 
 SXTRAS
 ======
@@ -5132,11 +5474,14 @@ SXTRAS s
 
 **CROSS-REFERENCE**
 
-`EXTRAS <KeywordsE.clean.html#extras>`__ and
-`TXTRAS <KeywordsT.clean.html#txtras>`__ do not sort the keywords. Also look
-at `VOCAB <KeywordsV.clean.html#vocab>`__.
+:ref:`extras` and
+:ref:`txtras` do not sort the keywords. Also look
+at :ref:`vocab`.
 
 --------------
+
+
+..  _synch-pct:
 
 SYNCH%
 ======
@@ -5159,10 +5504,13 @@ Hermes for your computer.
 
 **CROSS-REFERENCE**
 
-See `PTR\_ON <KeywordsP.clean.html#ptr-on>`__ and
-`PTR\_FN% <KeywordsP.clean.html#ptr-fn>`__.
+See :ref:`ptr-on` and
+:ref:`ptr-fn-pct`.
 
 --------------
+
+
+..  _sysbase:
 
 SYSBASE
 =======
@@ -5178,6 +5526,9 @@ forget: never assume that the System Variables are located at 163840
 ($28000). They can move!!
 
 --------------
+
+
+..  _sys-base:
 
 SYS\_BASE
 =========
@@ -5214,12 +5565,15 @@ addresses in memory as virtually everything can move around.
 
 **CROSS-REFERENCE**
 
-`SYSBASE <KeywordsS.clean.html#sysbase>`__,
-`WIN\_BASE <KeywordsW.clean.html#win-base>`__, `PEEK <KeywordsP.clean.html#peek>`__,
-`POKE <KeywordsP.clean.html#poke>`__, `SCREEN <KeywordsS.clean.html#screen>`__,
-`SYS\_VARS <KeywordsS.clean.html#sys-vars>`__, `VER$ <KeywordsV.clean.html#ver>`__
+:ref:`sysbase`,
+:ref:`win-base`, :ref:`peek`,
+:ref:`poke`, :ref:`screen`,
+:ref:`sys-vars`, :ref:`ver-dlr`
 
 --------------
+
+
+..  _sys-vars:
 
 SYS\_VARS
 =========
@@ -5247,12 +5601,15 @@ after this command.
 
 **CROSS-REFERENCE**
 
-`VER$ <KeywordsV.clean.html#ver>`__\ (-2) on Minerva ROMs and on SMS
+:ref:`ver-dlr`\ (-2) on Minerva ROMs and on SMS
 returns the base address of the system variables, as do
-`SYS\_BASE <KeywordsS.clean.html#sys-base>`__ and
-`SYSBASE <KeywordsS.clean.html#sysbase>`__.
+:ref:`sys-base` and
+:ref:`sysbase`.
 
 --------------
+
+
+..  _s-font:
 
 S\_FONT
 =======
@@ -5267,10 +5624,13 @@ This command is exactly the same as CHAR\_USE.
 
 **CROSS-REFERENCE**
 
-See `CHAR\_USE <KeywordsC.clean.html#char-use>`__ and
-`CHAR\_DEF <KeywordsC.clean.html#char-def>`__. See also the Appendix on Fonts.
+See :ref:`char-use` and
+:ref:`char-def`. See also the Appendix on Fonts.
 
 --------------
+
+
+..  _s-load:
 
 S\_LOAD
 =======
@@ -5304,6 +5664,9 @@ under dual screen mode.
 A wrong address leads to crashes!
 
 --------------
+
+
+..  _s-save:
 
 S\_SAVE
 =======
@@ -5339,15 +5702,18 @@ pixels and cannot work with higher resolutions.
 
 **CROSS-REFERENCE**
 
-`S\_LOAD <KeywordsS.clean.html#s-load>`__ and
-`S\_SHOW <KeywordsS.clean.html#s-show>`__ view the saved screen part. Memory
-taken by `S\_SAVE <KeywordsS.clean.html#s-save>`__ cannot be freed with
-`RECHP <KeywordsR.clean.html#rechp>`__ or `CLCHP <KeywordsC.clean.html#clchp>`__,
-only with `S\_LOAD <KeywordsS.clean.html#s-load>`__. See also
-`SCR\_STORE <KeywordsS.clean.html#scr-store>`__ and
-`SAVEPIC <KeywordsS.clean.html#savepic>`__ for alternatives.
+:ref:`s-load` and
+:ref:`s-show` view the saved screen part. Memory
+taken by :ref:`s-save` cannot be freed with
+:ref:`rechp` or :ref:`clchp`,
+only with :ref:`s-load`. See also
+:ref:`scr-store` and
+:ref:`savepic` for alternatives.
 
 --------------
+
+
+..  _s-show:
 
 S\_SHOW
 =======
@@ -5372,10 +5738,13 @@ A wrong address leads to serious crashes.
 
 **CROSS-REFERENCE**
 
-`S\_SAVE <KeywordsS.clean.html#s-save>`__
+:ref:`s-save`
 
 
 -------
+
+
+..  _system-variables:
 
 SYSTEM\_VARIABLES
 =================
@@ -5395,3 +5764,4 @@ This function returns the current address of the QL's system variables.  For mos
 
     PRINT SYSTEM_VARIABLES
     
+

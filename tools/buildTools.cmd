@@ -32,3 +32,5 @@ for /f "tokens=1 delims=." %%f in ('dir /b *.cpp') do (
     del %%f.tds 2>nul
  
 )
+
+pause

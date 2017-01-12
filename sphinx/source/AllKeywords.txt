@@ -876,7 +876,6 @@ S_SAVE
 S_SHOW
 SAR
 SARO
-Sat  Saturday
 SAUTO
 SAVE
 SAVE_O

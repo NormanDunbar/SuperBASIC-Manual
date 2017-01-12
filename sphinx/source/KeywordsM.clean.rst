@@ -6,6 +6,10 @@ TODO
 ====
 
 - Sort out MIDINET table. It's way too wide.
+- :ref:`matplot` references something called POINT_ABS. I can't find it anywhere.
+
+
+..  _machine:
 
 MACHINE
 =======
@@ -162,15 +166,18 @@ The wrong value was returned for the Mega ST prior to v1.33 of E-Init.
 
 **CROSS-REFERENCE**
 
-See `PROCESSOR <KeywordsP.clean.html#processor>`__,
-`DISP\_TYPE <KeywordsD.clean.html#disp-type>`__,
-`VER$ <KeywordsV.clean.html#ver>`__ and `QDOS$ <KeywordsQ.clean.html#qdos>`__.
-`VER$ <KeywordsV.clean.html#ver>`__\ (1) and
-`SYS\_BASE <KeywordsS.clean.html#sys-base>`__ replace
-`SYS\_VARS <KeywordsS.clean.html#sys-vars>`__. See also
-`A\_MACHINE <KeywordsA.clean.html#a-machine>`__.
+See :ref:`processor`,
+:ref:`disp-type`,
+:ref:`ver-dlr` and :ref:`qdos-dlr`.
+:ref:`ver-dlr`\ (1) and
+:ref:`sys-base` replace
+:ref:`sys-vars`. See also
+:ref:`a-machine`.
 
 --------------
+
+
+..  _make-dir:
 
 MAKE\_DIR
 =========
@@ -327,24 +334,27 @@ and similar commands could create recursive directories until this was fixed in 
 
 **CROSS-REFERENCE**
 
-`FMAKE\_DIR <KeywordsF.clean.html#fmake-dir>`__ is a syntactical variation of
-`MAKE\_DIR <KeywordsM.clean.html#make-dir>`__.
-`OPEN\_DIR <KeywordsO.clean.html#open-dir>`__ and
-`FOP\_DIR <KeywordsF.clean.html#fop-dir>`__ allow you to read directories of
+:ref:`fmake-dir` is a syntactical variation of
+:ref:`make-dir`.
+:ref:`open-dir` and
+:ref:`fop-dir` allow you to read directories of
 disks as well as sub-directories on level-2 drivers. The
-`DUP <KeywordsD.clean.html#dup>`__, `DDOWN <KeywordsD.clean.html#ddown>`__,
-`DNEXT <KeywordsD.clean.html#dnext>`__ and
-`DATA\_USE <KeywordsD.clean.html#data-use>`__ commands are used to move around
-in a sub-directory tree. See `FOP\_DIR <KeywordsF.clean.html#fop-dir>`__ for a
+:ref:`dup`, :ref:`ddown`,
+:ref:`dnext` and
+:ref:`data-use` commands are used to move around
+in a sub-directory tree. See :ref:`fop-dir` for a
 program which lists a sub-directory tree. To enable programs to read
 sub-directories which have not been written for that purpose, the
 DEV\_ device exists (see
-`DEV\_USE <KeywordsD.clean.html#dev-use>`__). The only legal way of
+:ref:`dev-use`). The only legal way of
 identifying a sub-directory is by examining its file type as returned by
-`FTYP <KeywordsF.clean.html#ftyp>`__ or
-`FILE\_TYP <KeywordsF.clean.html#file-typ>`__ for example.
+:ref:`ftyp` or
+:ref:`file-type` for example.
 
 --------------
+
+
+..  _matadd:
 
 MATADD
 ======
@@ -378,12 +388,15 @@ and matrix2.
 **CROSS-REFERENCE**
 
 If you run this short example program (8000 internal loops!), you will
-notice the extraordinary speed of `MATADD <KeywordsM.clean.html#matadd>`__
+notice the extraordinary speed of :ref:`matadd`
 which is representative of the other MAT...
-functions; `MATSUB <KeywordsM.clean.html#matsub>`__ is almost equivalent to
-`MATADD <KeywordsM.clean.html#matadd>`__.
+functions; :ref:`matsub` is almost equivalent to
+:ref:`matadd`.
 
 --------------
+
+
+..  _matcount:
 
 MATCOUNT
 ========
@@ -413,14 +426,17 @@ always print something around 33%::
 
 **CROSS-REFERENCE**
 
-`MATCOUNT <KeywordsM.clean.html#matcount>`__ comparisons are exact in that two
+:ref:`matcount` comparisons are exact in that two
 numbers a and b are only regarded as equal if a=b in SuperBASIC terms.
 The same is true for strings, it means that their comparison is
-case-sensitive. `MATCOUNT1 <KeywordsM.clean.html#matcount1>`__ differs from
-`MATCOUNT <KeywordsM.clean.html#matcount>`__ (see below) only in the fact that
+case-sensitive. :ref:`matcount1` differs from
+:ref:`matcount` (see below) only in the fact that
 comparisons are based on the SuperBASIC operator == instead of =.
 
 --------------
+
+
+..  _matcount1:
 
 MATCOUNT1
 =========
@@ -442,10 +458,13 @@ analogous to the == operator: "QDOS"=="Qdos" is true while "QDOS"="Qdos" is not.
 
 **CROSS-REFERENCE**
 
-`MATCOUNT <KeywordsM.clean.html#matcount>`__,
-`MATEQU <KeywordsM.clean.html#matequ>`__.
+:ref:`matcount`,
+:ref:`matequ`.
 
 --------------
+
+
+..  _matequ:
 
 MATEQU
 ======
@@ -483,9 +502,12 @@ Supercharge and Turbo users... sorry!
 
 **CROSS-REFERENCE**
 
-`MATRND <KeywordsM.clean.html#matrnd>`__, `MATIDN <KeywordsM.clean.html#matidn>`__
+:ref:`matrnd`, :ref:`matidn`
 
 --------------
+
+
+..  _matdev:
 
 MATDEV
 ======
@@ -515,9 +537,12 @@ and the result will be be around 3.2.
 
 **CROSS-REFERENCE**
 
-`MATMEAN <KeywordsM.clean.html#matmean>`__
+:ref:`matmean`
 
 --------------
+
+
+..  _matidn:
 
 MATIDN
 ======
@@ -552,9 +577,12 @@ matrix1 \* matrix = matrix1.
 
 **CROSS-REFERENCE**
 
-`MATMULT <KeywordsM.clean.html#matmult>`__ multiplies matrices.
+:ref:`matmult` multiplies matrices.
 
 --------------
+
+
+..  _matinput:
 
 MATINPUT
 ========
@@ -580,10 +608,13 @@ the '\\' can be omitted.
 
 **CROSS-REFERENCE**
 
-`MATREAD <KeywordsM.clean.html#matread>`__,
-`MATRND <KeywordsM.clean.html#matrnd>`__, `FOR <KeywordsF.clean.html#for>`__
+:ref:`matread`,
+:ref:`matrnd`, :ref:`for`
 
 --------------
+
+
+..  _matinv:
 
 MATINV
 ======
@@ -669,17 +700,20 @@ cannot be stopped with <CTRL><SPACE> whilst number crunching.
 
 **CROSS-REFERENCE**
 
-It is highly recommended to check if `DET <KeywordsD.clean.html#det>`__ is
-very close to zero after `MATINV <KeywordsM.clean.html#matinv>`__ has been
-executed, if this is the case, `MATINV <KeywordsM.clean.html#matinv>`__ may
+It is highly recommended to check if :ref:`det` is
+very close to zero after :ref:`matinv` has been
+executed, if this is the case, :ref:`matinv` may
 have found a result which does not exist::
 
     IF ABS(DET) < 1E-6 THEN PRINT "dubious result" 
 
-This works because `MATINV <KeywordsM.clean.html#matinv>`__ calls `DET <KeywordsD.clean.html#det>`__
+This works because :ref:`matinv` calls :ref:`det`
 internally.
 
 --------------
+
+
+..  _matmax:
 
 MATMAX
 ======
@@ -703,11 +737,14 @@ A string array makes MATMAX hang the system.
 
 **CROSS-REFERENCE**
 
-`MATMIN <KeywordsM.clean.html#matmin>`__ is the complementary function. See
-also `MAXIMUM <KeywordsM.clean.html#maximum>`__ and
-`MAXIMUM% <KeywordsM.clean.html#maximum>`__.
+:ref:`matmin` is the complementary function. See
+also :ref:`maximum` and
+:ref:`maximum-pct`.
 
 --------------
+
+
+..  _matmean:
 
 MATMEAN
 =======
@@ -731,9 +768,12 @@ Avoid string parameters!
 
 **CROSS-REFERENCE**
 
-See `MATSUM <KeywordsM.clean.html#matsum>`__ for an example.
+See :ref:`matsum` for an example.
 
 --------------
+
+
+..  _matmin:
 
 MATMIN
 ======
@@ -757,11 +797,14 @@ A string array makes MATMIN hang the system.
 
 **CROSS-REFERENCE**
 
-`MATMAX <KeywordsM.clean.html#matmax>`__ is the opposite function. Refer also
-to `MINIMUM <KeywordsM.clean.html#minimum>`__ and
-`MINMUM% <KeywordsM.clean.html#minmum>`__ which are even quicker.
+:ref:`matmax` is the opposite function. Refer also
+to :ref:`minimum` and
+:ref:`minimum-pct` which are even quicker.
 
 --------------
+
+
+..  _matmult:
 
 MATMULT
 =======
@@ -888,10 +931,13 @@ and nothing will change.
 
 **CROSS-REFERENCE**
 
-See `MATINV <KeywordsM.clean.html#matinv>`__ for another example of using
-`MATMULT <KeywordsM.clean.html#matmult>`__.
+See :ref:`matinv` for another example of using
+:ref:`matmult`.
 
 --------------
+
+
+..  _matplot:
 
 MATPLOT
 =======
@@ -971,15 +1017,18 @@ cannot be compiled. So it is perhaps best to forget about MATPLOT.
 
 **CROSS-REFERENCE**
 
-`MATPLOT\_R <KeywordsM.clean.html#matplot-r>`__ draws the figure relative to
-the graphic cursor. `POINT <KeywordsP.clean.html#point>`__ draws a single
-point to any screen, `BLOCK <KeywordsB.clean.html#block>`__ can also be used
+:ref:`matplot-r` draws the figure relative to
+the graphic cursor. :ref:`point` draws a single
+point to any screen, :ref:`block` can also be used
 to plot points, especially of variable size.
-`PLOT <KeywordsP.clean.html#plot>`__, `APOINT <KeywordsA.clean.html#apoint>`__ and
-`POINT\_ABS <KeywordsP.clean.html#point-abs>`__ plot points in absolute
+:ref:`plot`, :ref:`apoint` and
+:ref:`point-abs` plot points in absolute
 co-ordinates, directly to screen memory, ignoring windows.
 
 --------------
+
+
+..  _matplot-r:
 
 MATPLOT\_R
 ==========
@@ -995,10 +1044,13 @@ relative to the graphic cursor.
 
 **CROSS-REFERENCE**
 
-`POINT <KeywordsP.clean.html#point>`__ and all other commands related to
+:ref:`point` and all other commands related to
 graphics move the graphic cursor.
 
 --------------
+
+
+..  _matprod:
 
 MATPROD
 =======
@@ -1029,12 +1081,15 @@ MATPROD is not compatible with Turbo and Supercharge.
 
 **CROSS-REFERENCE**
 
-`MATPROD <KeywordsM.clean.html#matprod>`__ is almost identical to
-`MATSUM <KeywordsM.clean.html#matsum>`__ except that it returns the product
+:ref:`matprod` is almost identical to
+:ref:`matsum` except that it returns the product
 rather than the elements' sum; so have a look at
-`MATSUM <KeywordsM.clean.html#matsum>`__ which is also more useful.
+:ref:`matsum` which is also more useful.
 
 --------------
+
+
+..  _matread:
 
 MATREAD
 =======
@@ -1076,9 +1131,12 @@ is identical to MATSEQ a%.
 
 **CROSS-REFERENCE**
 
-`MATINPUT <KeywordsM.clean.html#matinput>`__
+:ref:`matinput`
 
 --------------
+
+
+..  _matrnd:
 
 MATRND
 ======
@@ -1129,10 +1187,13 @@ and can possibly hang the machine.
 
 **CROSS-REFERENCE**
 
-The random values chosen by `MATRND <KeywordsM.clean.html#matrnd>`__ can be
-influenced by `RANDOMISE <KeywordsR.clean.html#randomise>`__.
+The random values chosen by :ref:`matrnd` can be
+influenced by :ref:`randomise`.
 
 --------------
+
+
+..  _matseq:
 
 MATSEQ
 ======
@@ -1153,20 +1214,23 @@ Array can be either a floating point or integer variable. No strings are allowed
 
 **CROSS-REFERENCE**
 
-`MATIDN <KeywordsM.clean.html#matidn>`__ is a useful means of initialising an
-array, `MATEQU <KeywordsM.clean.html#matequ>`__ can be used to set all
+:ref:`matidn` is a useful means of initialising an
+array, :ref:`matequ` can be used to set all
 elements of an array to a certain value. It is worth noting that any
-square matrix created with `MATSEQ <KeywordsM.clean.html#matseq>`__ cannot be
-inverted with `MATINV <KeywordsM.clean.html#matinv>`__ because the determinant
-`DET <KeywordsD.clean.html#det>`__ of that matrix is always zero::
+square matrix created with :ref:`matseq` cannot be
+inverted with :ref:`matinv` because the determinant
+:ref:`det` of that matrix is always zero::
 
     100 n=30: DIM m(n,n), minv(n,n) 
     110 MATSEQ m 
     120 MATINV minv,m 
 
-This always fails at line 120 because `DET <KeywordsD.clean.html#det>`__\ (m) = 0.
+This always fails at line 120 because :ref:`det`\ (m) = 0.
 
 --------------
+
+
+..  _matsub:
 
 MATSUB
 ======
@@ -1192,9 +1256,12 @@ etc. are valid.
 
 **CROSS-REFERENCE**
 
-`MATADD <KeywordsM.clean.html#matadd>`__!
+:ref:`matadd`!
 
 --------------
+
+
+..  _matsum:
 
 MATSUM
 ======
@@ -1260,15 +1327,18 @@ A program using MATSUM cannot be compiled with Turbo or Super-charge.
 
 **CROSS-REFERENCE**
 
-`MATRND <KeywordsM.clean.html#matrnd>`__ initialises an array with random
-values. `MATPROD <KeywordsM.clean.html#matprod>`__ is very similar to
-`MATSUM <KeywordsM.clean.html#matsum>`__ except that it finds the product of
-an array's elements. `MATMEAN <KeywordsM.clean.html#matmean>`__ finds the mean
+:ref:`matrnd` initialises an array with random
+values. :ref:`matprod` is very similar to
+:ref:`matsum` except that it finds the product of
+an array's elements. :ref:`matmean` finds the mean
 value of a matrix's values directly, so line 330 could be replaced with::
 
     330 tmed = MATMEAN(temp%)
 
 --------------
+
+
+..  _mattrn:
 
 MATTRN
 ======
@@ -1312,6 +1382,9 @@ matrices. In all other cases the contents of array1 are not modified.
 
 --------------
 
+
+..  _max:
+
 MAX
 ===
 
@@ -1334,11 +1407,14 @@ will print 5.
 
 **CROSS-REFERENCE**
 
-`MIN <KeywordsM.clean.html#min>`__. See also
-`MAXIMUM <KeywordsM.clean.html#maximum>`__ and
-`MATMAX <KeywordsM.clean.html#matmax>`__.
+:ref:`min`. See also
+:ref:`maximum` and
+:ref:`matmax`.
 
 --------------
+
+
+..  _max-con:
 
 MAX\_CON
 ========
@@ -1349,7 +1425,7 @@ MAX\_CON
 | Location | DJToolkit 1.16                                                    |
 +----------+-------------------------------------------------------------------+
 
-If the given channel is a 'CON\_' channel, this function will return a zero in the variable 'error'. The integer variables, 'x%', 'y%', 'xo%' and 'yo%' will be altered by the function, to return the maximum size that the channel can be `WINDOW <KeywordsW.clean.html#window>`__\ 'd to.
+If the given channel is a 'CON\_' channel, this function will return a zero in the variable 'error'. The integer variables, 'x%', 'y%', 'xo%' and 'yo%' will be altered by the function, to return the maximum size that the channel can be :ref:`window`\ 'd to.
 
 'x%' will be set to the maximum width, 'y%' to the maximum depth, 'xo%' and 'yo%' to the minimum x co-ordinate and y co-ordinate respectively.
 
@@ -1388,6 +1464,9 @@ For the technically minded reader, this function uses the IOP\_FLIM routine in t
 -------
 
 
+
+..  _max-devs:
+
 MAX\_DEVS
 =========
 
@@ -1397,7 +1476,7 @@ MAX\_DEVS
 | Location | DJToolkit 1.16                                                    |
 +----------+-------------------------------------------------------------------+
 
-This function returns the number of installed directory device drivers in your QL. It can be used to `DIM <KeywordsD.clean.html#dim>`__\ ension a string array to hold the device names as follows::
+This function returns the number of installed directory device drivers in your QL. It can be used to :ref:`dim`\ ension a string array to hold the device names as follows::
 
     1000 REMark Count directory devices
     1010 :
@@ -1417,11 +1496,14 @@ This function returns the number of installed directory device drivers in your Q
 
 **CROSS-REFERENCE**
 
-`DEV\_NAME <KeywordsD.clean.html#dev-name>`__.
+:ref:`dev-name`.
 
 
 -------
 
+
+
+..  _maximum:
 
 MAXIMUM
 =======
@@ -1480,12 +1562,15 @@ to pass an array as the parameter.
 
 **CROSS-REFERENCE**
 
-`MATMAX <KeywordsM.clean.html#matmax>`__,
-`MAXIMUM% <KeywordsM.clean.html#maximum>`__ and `MAX <KeywordsM.clean.html#max>`__
-are similar. Refer also to `MINIMUM <KeywordsM.clean.html#minimum>`__ and
-`MINIMUM% <KeywordsM.clean.html#minimum>`__.
+:ref:`matmax`,
+:ref:`maximum-pct` and :ref:`max`
+are similar. Refer also to :ref:`minimum` and
+:ref:`minimum-pct`.
 
 --------------
+
+
+..  _maximum-pct:
 
 MAXIMUM%
 ========
@@ -1533,11 +1618,14 @@ to pass an array as the parameter.
 
 **CROSS-REFERENCE**
 
-`MATMAX <KeywordsM.clean.html#matmax>`__, `MAXIMUM <KeywordsM.clean.html#maximum>`__
-and `MAX <KeywordsM.clean.html#max>`__ are similar. Refer also to
-`MINIMUM% <KeywordsM.clean.html#minimum>`__.
+:ref:`matmax`, :ref:`maximum`
+and :ref:`max` are similar. Refer also to
+:ref:`minimum-pct`.
 
 --------------
+
+
+..  _mb:
 
 MB
 ==
@@ -1563,11 +1651,14 @@ started up using EXEC pipep.
 
 **CROSS-REFERENCE**
 
-See `SBASIC <KeywordsS.clean.html#sbasic>`__ and `EW <KeywordsE.clean.html#ew>`__.
-Also see `QUIT <KeywordsQ.clean.html#quit>`__. Check out the appendix on
+See :ref:`sbasic` and :ref:`ew`.
+Also see :ref:`quit`. Check out the appendix on
 Multiple BASICs.
 
 --------------
+
+
+..  _md:
 
 MD
 ==
@@ -1584,11 +1675,12 @@ command on Level-2 (and higher) floppy/ winchester/ ramdisk drivers.
 **CROSS-REFERENCE**
 
 An alternative would be to rename
-`MAKE\_DIR <KeywordsM.clean.html#make-dir>`__ with: `NEW\_NAME
-"MAKE\_DIR","MD" <KeywordsN.clean.html#new-name>`__ See
-`MAKE\_DIR <KeywordsM.clean.html#make-dir>`__ !
+:ref:`make-dir` with :ref:`new-name`\ . See also :ref:`make-dir`\ .
 
 --------------
+
+
+..  _merge:
 
 MERGE
 =====
@@ -1693,12 +1785,15 @@ command.
 
 **CROSS-REFERENCE**
 
-`MRUN <KeywordsM.clean.html#mrun>`__ is very similar. See
-`LOAD <KeywordsL.clean.html#load>`__ and `SAVE <KeywordsS.clean.html#save>`__.
-`DO <KeywordsD.clean.html#do>`__ is also very similar to
-`MERGE <KeywordsM.clean.html#merge>`__.
+:ref:`mrun` is very similar. See
+:ref:`load` and :ref:`save`.
+:ref:`do` is also very similar to
+:ref:`merge`.
 
 --------------
+
+
+..  _midinet:
 
 MIDINET
 =======
@@ -1740,12 +1835,15 @@ series of characters:
 
 **CROSS-REFERENCE**
 
-`MNET <KeywordsM.clean.html#mnet>`__ is needed to control the Network. See
-also `FSERVE <KeywordsF.clean.html#fserve>`__ and
-`SERNET <KeywordsS.clean.html#sernet>`__. See the Appendix on Networks for
+:ref:`mnet` is needed to control the Network. See
+also :ref:`fserve` and
+:ref:`sernet`. See the Appendix on Networks for
 further details.
 
 --------------
+
+
+..  _min:
 
 MIN
 ===
@@ -1769,11 +1867,14 @@ will then return the lowest value out of the given list of parameters.
 
 **CROSS-REFERENCE**
 
-`MAX <KeywordsM.clean.html#max>`__ is `MIN <KeywordsM.clean.html#min>`__'s
-counterpart. Compare `MINIMUM <KeywordsM.clean.html#minimum>`__ and
-`MATMIN <KeywordsM.clean.html#matmin>`__.
+:ref:`max` is :ref:`min`'s
+counterpart. Compare :ref:`minimum` and
+:ref:`matmin`.
 
 --------------
+
+
+..  _minimum:
 
 MINIMUM
 =======
@@ -1822,12 +1923,15 @@ to pass an array as the parameter.
 
 **CROSS-REFERENCE**
 
-`MATMIN <KeywordsM.clean.html#matmin>`__,
-`MINIMUM% <KeywordsM.clean.html#minimum>`__ and `MIN <KeywordsM.clean.html#min>`__
-are similar. Refer also to `MAXIMUM <KeywordsM.clean.html#maximum>`__ and
-`MAXIMUM% <KeywordsM.clean.html#maximum>`__.
+:ref:`matmin`,
+:ref:`minimum-pct` and :ref:`min`
+are similar. Refer also to :ref:`maximum` and
+:ref:`maximum-pct`.
 
 --------------
+
+
+..  _minimum-pct:
 
 MINIMUM%
 ========
@@ -1854,11 +1958,14 @@ to pass an array as the parameter.
 
 **CROSS-REFERENCE**
 
-`MATMIN <KeywordsM.clean.html#matmin>`__, `MINIMUM <KeywordsM.clean.html#minimum>`__
-and `MIN <KeywordsM.clean.html#min>`__ are similar. Refer also to
-`MAXIMUM% <KeywordsM.clean.html#maximum>`__.
+:ref:`matmin`, :ref:`minimum`
+and :ref:`min` are similar. Refer also to
+:ref:`maximum-pct`.
 
 --------------
+
+
+..  _mistake:
 
 MISTake
 =======
@@ -1895,11 +2002,14 @@ system such as MasterBasic+ (from Ergon Development).
 
 **CROSS-REFERENCE**
 
-Please see `LOAD <KeywordsL.clean.html#load>`__ and
-`MERGE <KeywordsM.clean.html#merge>`__ about loading a SuperBASIC program in
+Please see :ref:`load` and
+:ref:`merge` about loading a SuperBASIC program in
 general.
 
 --------------
+
+
+..  _mkf-dlr:
 
 MKF$
 ====
@@ -1915,11 +2025,14 @@ of a floating point number (which is stored as six bytes).
 
 **CROSS-REFERENCE**
 
-`CVF <KeywordsC.clean.html#cvf>`__, `MKI$ <KeywordsM.clean.html#mki>`__,
-`MKS$ <KeywordsM.clean.html#mks>`__, `MKL$ <KeywordsM.clean.html#mkl>`__,
-`PEEK\_F <KeywordsP.clean.html#peek-f>`__, `POKE\_F <KeywordsP.clean.html#poke-f>`__
+:ref:`cvf`, :ref:`mki-dlr`,
+:ref:`mks-dlr`, :ref:`mkl-dlr`,
+:ref:`peek-f`, :ref:`poke-f`
 
 --------------
+
+
+..  _mki-dlr:
 
 MKI$
 ====
@@ -1947,11 +2060,14 @@ Equals 11111.
 
 **CROSS-REFERENCE**
 
-`CVI% <KeywordsC.clean.html#cvi>`__ is the opposite function.
-`MKF$ <KeywordsM.clean.html#mkf>`__, `MKL$ <KeywordsM.clean.html#mkl>`__,
-`MKS$ <KeywordsM.clean.html#mks>`__
+:ref:`cvi-pct` is the opposite function.
+:ref:`mkf-dlr`, :ref:`mkl-dlr`,
+:ref:`mks-dlr`
 
 --------------
+
+
+..  _mkl-dlr:
 
 MKL$
 ====
@@ -1967,11 +2083,14 @@ integer number (which is stored as four bytes).
 
 **CROSS-REFERENCE**
 
-`CVL <KeywordsC.clean.html#cvl>`__ is the complementary function.
-`MKI$ <KeywordsM.clean.html#mki>`__, `MKF$ <KeywordsM.clean.html#mkf>`__,
-`MKS$ <KeywordsM.clean.html#mks>`__
+:ref:`cvl` is the complementary function.
+:ref:`mki-dlr`, :ref:`mkf-dlr`,
+:ref:`mks-dlr`
 
 --------------
+
+
+..  _mks-dlr:
 
 MKS$
 ====
@@ -1999,10 +2118,13 @@ returns the string CHR$(0)&CHR$(4).
 
 **CROSS-REFERENCE**
 
-`CVS$ <KeywordsC.clean.html#cvs>`__, `MKI$ <KeywordsM.clean.html#mki>`__,
-`MKF$ <KeywordsM.clean.html#mkf>`__, `MKL$ <KeywordsM.clean.html#mkl>`__
+:ref:`cvs-dlr`, :ref:`mki-dlr`,
+:ref:`mkf-dlr`, :ref:`mkl-dlr`
 
 --------------
+
+
+..  _mnet:
 
 MNET
 ====
@@ -2020,13 +2142,16 @@ opposed to QNET).
 
 **CROSS-REFERENCE**
 
-See `MNET% <KeywordsM.clean.html#mnet>`__,
-`MNET\_USE <KeywordsM.clean.html#mnet-use>`__ and
-`NET <KeywordsN.clean.html#net>`__. Also please see
-`MIDINET <KeywordsM.clean.html#midinet>`__, `SERNET <KeywordsS.clean.html#sernet>`__
-and `FSERVE <KeywordsF.clean.html#fserve>`__.
+See :ref:`mnet-pct`,
+:ref:`mnet-use` and
+:ref:`net`. Also please see
+:ref:`midinet`, :ref:`sernet`
+and :ref:`fserve`.
 
 --------------
+
+
+..  _mnet-pct:
 
 MNET%
 =====
@@ -2042,10 +2167,13 @@ with MNET.
 
 **CROSS-REFERENCE**
 
-See `MNET <KeywordsM.clean.html#mnet>`__. `NET\_ID <KeywordsN.clean.html#net-id>`__
+See :ref:`mnet`. :ref:`net-id`
 is similar.
 
 --------------
+
+
+..  _mnet-off:
 
 MNET\_OFF
 =========
@@ -2061,9 +2189,12 @@ use the MIDI ports independently.
 
 **CROSS-REFERENCE**
 
-See `MNET\_ON <KeywordsM.clean.html#mnet-on>`__.
+See :ref:`mnet-on`.
 
 --------------
+
+
+..  _mnet-on:
 
 MNET\_ON
 ========
@@ -2079,10 +2210,13 @@ disabled with MNET\_OFF.
 
 **CROSS-REFERENCE**
 
-See `MNET\_OFF <KeywordsM.clean.html#mnet-off>`__. Also see
-`MIDINET <KeywordsM.clean.html#midinet>`__.
+See :ref:`mnet-off`. Also see
+:ref:`midinet`.
 
 --------------
+
+
+..  _mnet-s-pct:
 
 MNET\_S%
 ========
@@ -2101,9 +2235,12 @@ exist.
 
 **CROSS-REFERENCE**
 
-See `MNET <KeywordsM.clean.html#mnet>`__.
+See :ref:`mnet`.
 
 --------------
+
+
+..  _mnet-use:
 
 MNET\_USE
 =========
@@ -2134,11 +2271,14 @@ MIDINET Network.
 
 **CROSS-REFERENCE**
 
-See `MNET <KeywordsM.clean.html#mnet>`__ and
-`MIDINET <KeywordsM.clean.html#midinet>`__. Refer also
-to\ `MNET\_S%. <KeywordsM.clean.html#mnet-s.>`__
+See :ref:`mnet` and
+:ref:`midinet`. Refer also
+to\ :ref:`mnet-s-pct`.
 
 --------------
+
+
+..  _mod:
 
 MOD
 ===
@@ -2189,10 +2329,11 @@ you will need to use::
 
 **CROSS-REFERENCE**
 
-`DIV <KeywordsD.clean.html#div>`__ returns the integer part of
-x divided by y. Also, please see the alternative version of `MOD <KeywordsM.clean.html#mod>`__.
+:ref:`div` returns the integer part of
+x divided by y. Also, please see the alternative version of :ref:`mod`.
 
 --------------
+
 
 MOD
 ===
@@ -2226,9 +2367,12 @@ refuse to work!
 
 **CROSS-REFERENCE**
 
-`DIV <KeywordsD.clean.html#div>`__ `MOD <KeywordsM.clean.html#mod>`__ (ROM version)
+:ref:`div` :ref:`mod` (ROM version)
 
 --------------
+
+
+..  _mode:
 
 MODE
 ====
@@ -2589,15 +2733,18 @@ Speedscreen, the Pointer Environment and Lightning all fix this.
 
 **CROSS-REFERENCE**
 
-`RMODE <KeywordsR.clean.html#rmode>`__ can be used to read the current screen
+:ref:`rmode` can be used to read the current screen
 mode (and even whether the second screen is available) and
-`DEFAULT\_SCR <KeywordsD.clean.html#default-scr>`__ will tell you which is the
-current default screen. `SCREEN <KeywordsS.clean.html#screen>`__\ (#3) will
+:ref:`default-scr` will tell you which is the
+current default screen. :ref:`screen`\ (#3) will
 tell you the address of the start of the screen on which window #3 is
-situated. `DISP\_SIZE <KeywordsD.clean.html#disp-size>`__ can be used to set
+situated. :ref:`disp-size` can be used to set
 the size of the displayed screen on extended resolutions.
 
 --------------
+
+
+..  _more:
 
 MORE
 ====
@@ -2676,6 +2823,9 @@ and::
 
 --------------
 
+
+..  _mouse-speed:
+
 MOUSE\_SPEED
 ============
 
@@ -2688,6 +2838,9 @@ MOUSE\_SPEED
 This function adjusts the mouse acceleration and wake up factor. The acceleration factor is of no consequence to QPC2. The wakeup values, however, may still be set. They range from 1 to 9, with 1 being the most sensitive.
 
 --------------
+
+
+..  _mouse-stuff:
 
 MOUSE\_STUFF
 ============
@@ -2715,6 +2868,9 @@ Generates a dot if middle mouse button is pressed.
 Generates hotkey <Alt><.> which will activate whatever has been defined on that key combination.
 
 --------------
+
+
+..  _move:
 
 MOVE
 ====
@@ -2770,13 +2926,16 @@ especially if a channel number was specified.
 
 **CROSS-REFERENCE**
 
-`PENDOWN <KeywordsP.clean.html#pendown>`__ forces the pen into the down
-position, leaving a trail on screen. `PENUP <KeywordsP.clean.html#penup>`__
+:ref:`pendown` forces the pen into the down
+position, leaving a trail on screen. :ref:`penup`
 allows the turtle to move without leaving a trail.
-`TURN <KeywordsT.clean.html#turn>`__ and `TURNTO <KeywordsT.clean.html#turnto>`__
+:ref:`turn` and :ref:`turnto`
 allow you to alter the direction of the turtle.
 
 --------------
+
+
+..  _move-mem:
 
 MOVE\_MEM
 =========
@@ -2810,6 +2969,9 @@ The calculations to determine which form of move to be done adds a certain overh
 -------
 
 
+
+..  _move-position:
+
 MOVE\_POSITION
 ==============
 
@@ -2819,7 +2981,7 @@ MOVE\_POSITION
 | Location | DJToolkit 1.16                                                    |
 +----------+-------------------------------------------------------------------+
 
-This is a similar  procedure to `ABS\_POSITION <KeywordsA.clean.html#abs-position>`__, but the file pointer is set to a position relative to the current one.  The direction given can be positive to move forward in the file, or negative to move backwards. The channel must of course be opened to a file on a directory  device.  If the position given would take you back to before the start of the file, the position is left at the start, position 0.  If the move would take you past the end of file, the file is left at end of file.
+This is a similar  procedure to :ref:`abs-position`, but the file pointer is set to a position relative to the current one.  The direction given can be positive to move forward in the file, or negative to move backwards. The channel must of course be opened to a file on a directory  device.  If the position given would take you back to before the start of the file, the position is left at the start, position 0.  If the move would take you past the end of file, the file is left at end of file.
 
 After a MOVE\_POSITION command, the next access to the given channel, whether read or write, will take place from the new position.
 
@@ -2841,11 +3003,14 @@ moves the current file pointer on channel 3 to the end of the file.
 
 **CROSS-REFERENCE**
 
-`ABS\_POSITION <KeywordsA.clean.html#abs-position>`__.
+:ref:`abs-position`.
 
 
 -------
 
+
+
+..  _mrun:
 
 MRUN
 ====
@@ -2865,9 +3030,12 @@ making this command the same as MERGE when used within a program.
 
 **CROSS-REFERENCE**
 
-See `MERGE <KeywordsM.clean.html#merge>`__!
+See :ref:`merge`!
 
 --------------
+
+
+..  _msearch:
 
 MSEARCH
 =======
@@ -2884,12 +3052,15 @@ search through memory (much more quickly than other implementations).
 
 **CROSS-REFERENCE**
 
-See `SEARCH <KeywordsS.clean.html#search>`__ and
-`TTFINDM <KeywordsT.clean.html#ttfindm>`__ also.
-`SEARCH\_MEM <KeywordsS.clean.html#search-mem>`__ is a variant on this
+See :ref:`search` and
+:ref:`ttfindm` also.
+:ref:`search-mem` is a variant on this
 version.
 
 --------------
+
+
+..  _mt:
 
 MT
 ==
@@ -2925,12 +3096,15 @@ approximates EXP(1) for large values of n.
 
 **CROSS-REFERENCE**
 
-`VA <KeywordsV.clean.html#va>`__, `VFR <KeywordsV.clean.html#vfr>`__,
-`VAR <KeywordsV.clean.html#var>`__, `TCA <KeywordsT.clean.html#tca>`__,
-`TNC <KeywordsT.clean.html#tnc>`__, `TEE <KeywordsT.clean.html#tee>`__,
-`RAE <KeywordsR.clean.html#rae>`__, `RAFE <KeywordsR.clean.html#rafe>`__
+:ref:`va`, :ref:`vfr`,
+:ref:`var`, :ref:`tca`,
+:ref:`tnc`, :ref:`tee`,
+:ref:`rae`, :ref:`rafe`
 
 --------------
+
+
+..  _mtrap:
 
 MTRAP
 =====
@@ -2964,10 +3138,11 @@ know what you are doing!
 
 **CROSS-REFERENCE**
 
-See `IO\_TRAP <KeywordsI.clean.html#io-trap>`__,
-`QTRAP <KeywordsQ.clean.html#qtrap>`__ and `BTRAP <KeywordsB.clean.html#btrap>`__.
-`REMOVE\_TASK <KeywordsR.clean.html#remove-task>`__ and
-`RJOB <KeywordsR.clean.html#rjob>`__ are better for removing Jobs. Any return
-parameters can be read with `DATAREG <KeywordsD.clean.html#datareg>`__ and
-`ADDREG <KeywordsA.clean.html#addreg>`__. Refer to the QDOS/SMS Reference
+See :ref:`io-trap`,
+:ref:`qtrap` and :ref:`btrap`.
+:ref:`remove-task` and
+:ref:`rjob` are better for removing Jobs. Any return
+parameters can be read with :ref:`datareg` and
+:ref:`addreg`. Refer to the QDOS/SMS Reference
 Manual (Section 15) for details of the various system TRAP #3 calls.
+

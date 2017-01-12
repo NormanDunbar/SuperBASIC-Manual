@@ -1,3 +1,4 @@
+
 ==========
 Keywords R
 ==========
@@ -5,7 +6,12 @@ Keywords R
 TODO
 ====
 
-- ROM\_TEST is referenced from the cross reference for ROM, but is not found in this file.
+- :ref:`rom` has a ROM\_TEST reference, but is not found in this file.
+- :ref:`rmar` has an ESC reference, but is not found.
+- :resfast` has a reference to FASTFREE which is not found.
+
+
+..  _rad:
 
 RAD
 ===
@@ -37,11 +43,14 @@ A small program to draw a circle split into 30 degree segments::
 
 **CROSS-REFERENCE**
 
-See `DEG <KeywordsD.clean.html#deg>`__, `SIN <KeywordsS.clean.html#sin>`__,
-`COS <KeywordsC.clean.html#cos>`__. Also please refer to the Mathematics
+See :ref:`deg`, :ref:`sin`,
+:ref:`cos`. Also please refer to the Mathematics
 section of the Appendix.
 
 --------------
+
+
+..  _rae:
 
 RAE
 ===
@@ -59,12 +68,15 @@ handling).
 
 **CROSS-REFERENCE**
 
-`MT <KeywordsM.clean.html#mt>`__, `VA <KeywordsV.clean.html#va>`__,
-`VFR <KeywordsV.clean.html#vfr>`__, `VAR <KeywordsV.clean.html#var>`__,
-`TCA <KeywordsT.clean.html#tca>`__, `TNC <KeywordsT.clean.html#tnc>`__,
-`TEE <KeywordsT.clean.html#tee>`__, `RAFE <KeywordsR.clean.html#rafe>`__
+:ref:`mt`, :ref:`va`,
+:ref:`vfr`, :ref:`var`,
+:ref:`tca`, :ref:`tnc`,
+:ref:`tee`, :ref:`rafe`
 
 --------------
+
+
+..  _rafe:
 
 RAFE
 ====
@@ -81,12 +93,15 @@ handling).
 
 **CROSS-REFERENCE**
 
-`MT <KeywordsM.clean.html#mt>`__, `VA <KeywordsV.clean.html#va>`__,
-`VFR <KeywordsV.clean.html#vfr>`__, `VAR <KeywordsV.clean.html#var>`__,
-`TCA <KeywordsT.clean.html#tca>`__, `TNC <KeywordsT.clean.html#tnc>`__,
-`TEE <KeywordsT.clean.html#tee>`__, `RAE <KeywordsR.clean.html#rae>`__
+:ref:`mt`, :ref:`va`,
+:ref:`vfr`, :ref:`var`,
+:ref:`tca`, :ref:`tnc`,
+:ref:`tee`, :ref:`rae`
 
 --------------
+
+
+..  _ramtop:
 
 RAMTOP
 ======
@@ -103,18 +118,20 @@ will return 128, whereas on a QL expanded to 640K, 640 is returned.
 
 **CROSS-REFERENCE**
 
-The value of `RAMTOP <KeywordsR.clean.html#ramtop>`__ can be lowered with
-`RESET <KeywordsR.clean.html#reset>`__ to emulate a machine which has less
+The value of :ref:`ramtop` can be lowered with
+:ref:`reset` to emulate a machine which has less
 available memory.
 
-`PRINT <KeywordsP.clean.html#print>`__\ (PHYSTOP/1024)-128
+:ref:`print`\ (PHYSTOP/1024)-128
 gives the value of the additional memory.
 
-`FREE\_MEM <KeywordsF.clean.html#free-mem>`__, `FREE <KeywordsF.clean.html#free>`__
-and `MT\_FREE <KeywordsM.clean.html#mt-free>`__ return the actually available
+:ref:`free-mem` and :ref:`free` return the actually available
 memory.
 
 --------------
+
+
+..  _ram-use:
 
 RAM\_USE
 ========
@@ -134,9 +151,12 @@ device must only be three letters long.
 
 **CROSS-REFERENCE**
 
-See `FLP\_USE <KeywordsF.clean.html#flp-use>`__.
+See :ref:`flp-use`.
 
 --------------
+
+
+..  _rand:
 
 RAND
 ====
@@ -165,12 +185,15 @@ RAND.
 
 **CROSS-REFERENCE**
 
-`FOP\_DIR <KeywordsF.clean.html#fop-dir>`__ opens a directory.
-`FLP\_SEC <KeywordsF.clean.html#flp-sec>`__ allows you to alter the amount of
+:ref:`fop-dir` opens a directory.
+:ref:`flp-sec` allows you to alter the amount of
 checking carried out by a disk interface to see if a disk has been
 swapped.
 
 --------------
+
+
+..  _randomise:
 
 RANDOMISE
 =========
@@ -223,11 +246,14 @@ somewhat.
 
 **CROSS-REFERENCE**
 
-`RND <KeywordsR.clean.html#rnd>`__ is the function that returns a random
-number. `RANDOMISE <KeywordsR.clean.html#randomise>`__ influences
-`MATRND <KeywordsM.clean.html#matrnd>`__ in the same way.
+:ref:`rnd` is the function that returns a random
+number. :ref:`randomise` influences
+:ref:`matrnd` in the same way.
 
 --------------
+
+
+..  _read:
 
 READ
 ====
@@ -329,14 +355,17 @@ All other implementations insist upon you using something akin to::
 
 **CROSS-REFERENCE**
 
-`RESTORE <KeywordsR.clean.html#restore>`__ allows you to alter the program
-line pointed at by the data pointer. `DATA <KeywordsD.clean.html#data>`__ sets
-out lines to be `READ <KeywordsR.clean.html#read>`__.
-`EOF <KeywordsE.clean.html#eof>`__ allows you to test for the end of all
+:ref:`restore` allows you to alter the program
+line pointed at by the data pointer. :ref:`data` sets
+out lines to be :ref:`read`.
+:ref:`eof` allows you to test for the end of all
 program data.
 
 --------------
 
+
+
+..  _read-header:
 
 READ\_HEADER
 ============
@@ -347,52 +376,52 @@ READ\_HEADER
 | Location | DJToolkit 1.16                                                    |
 +----------+-------------------------------------------------------------------+
 
-The file that is opened on the given channel has its header data read into memory starting at the given address (buffer). The buffer address must have been reserved using `RESERVE\_HEAP <KeywordsR.clean.html#reserve-heap>`__, or some similar command.  
+The file that is opened on the given channel has its header data read into memory starting at the given address (buffer). The buffer address must have been reserved using :ref:`reserve-heap`, or some similar command.  
 
 The buffer must be at least 64 bytes long or unpredictable results will occur. The function will read the header but any memory beyond the end of the buffer will be overwritten if the buffer is too short. After a successful call to this function, the contents of the buffer will be as follows :
 
-+---------------+-----------------+-----------------------------------------------------------------------------+
-| Address       | Value           | Size                                                                        |
-+===============+=================+=============================================================================+
-| Buffer + 0    | File length     | 4 bytes long (see `FILE_LENGTH <KeywordsF.clean.html#file-length>`__)       |
-+---------------+-----------------+-----------------------------------------------------------------------------+
-| Buffer + 4    | File access     | 1 byte long - currently zero                                                |
-+---------------+-----------------+-----------------------------------------------------------------------------+
-| Buffer + 5    | File type       | 1 byte long  (see `FILE_TYPE <KeywordsF.clean.html#file-type>`__)           |
-+---------------+-----------------+-----------------------------------------------------------------------------+
-| Buffer + 6    | File dataspace  | 4 bytes long (see `FILE_DATASPACE <KeywordsF.clean.html#file-dataspace>`__) |
-+---------------+-----------------+-----------------------------------------------------------------------------+
-| Buffer + 10   | Unused          | 4 bytes long                                                                |
-+---------------+-----------------+-----------------------------------------------------------------------------+
-| Buffer + 14   | Name length     | 2 bytes long, size of filename                                              |
-+---------------+-----------------+-----------------------------------------------------------------------------+
-| Buffer + 16   | Filename        | 36 bytes long                                                               |
-+---------------+-----------------+-----------------------------------------------------------------------------+
++---------------+-----------------+------------------------------------------+
+| Address       | Value           | Size                                     |
++===============+=================+==========================================+
+| Buffer + 0    | File length     | 4 bytes long (see :ref:`file-length`)    |
++---------------+-----------------+------------------------------------------+
+| Buffer + 4    | File access     | 1 byte long - currently zero             |
++---------------+-----------------+------------------------------------------+
+| Buffer + 5    | File type       | 1 byte long  (see :ref:`file-type`)      |
++---------------+-----------------+------------------------------------------+
+| Buffer + 6    | File dataspace  | 4 bytes long (see :ref:`file-dataspace`) |
++---------------+-----------------+------------------------------------------+
+| Buffer + 10   | Unused          | 4 bytes long                             |
++---------------+-----------------+------------------------------------------+
+| Buffer + 14   | Name length     | 2 bytes long, size of filename           |
++---------------+-----------------+------------------------------------------+
+| Buffer + 16   | Filename        | 36 bytes long                            |
++---------------+-----------------+------------------------------------------+
 
 Directory devices also have the following additional data :
 
-+---------------+-----------------+-----------------------------------------------------------------------------+
-| Address       | Value           | Size                                                                        |
-+===============+=================+=============================================================================+
-| Buffer + 52   | Update date     | 4 bytes long (see `FILE_UPDATE <KeywordsF.clean.html#file-update>`__)       |
-+---------------+-----------------+-----------------------------------------------------------------------------+
-| Buffer + 56   | Reference date  | 4 bytes long - see below                                                    |
-+---------------+-----------------+-----------------------------------------------------------------------------+
-| Buffer + 60   | Backup date     | 4 bytes long (see `FILE_BACKUP <KeywordsF.clean.html#file-backup>`__)       |
-+---------------+-----------------+-----------------------------------------------------------------------------+
++---------------+-----------------+------------------------------------------+
+| Address       | Value           | Size                                     |
++===============+=================+==========================================+
+| Buffer + 52   | Update date     | 4 bytes long (see :ref:`file-update`)    |
++---------------+-----------------+------------------------------------------+
+| Buffer + 56   | Reference date  | 4 bytes long - see below                 |
++---------------+-----------------+------------------------------------------+
+| Buffer + 60   | Backup date     | 4 bytes long (see :ref:`file-backup`)    |
++---------------+-----------------+------------------------------------------+
 
 Miracle Systems hard disc's users and level 2 users will find the files version number stored as the the 2 bytes starting at buffer + 56, the remaining 2 bytes of the reference date seem to be hex 094A or decimal 2378 which has no apparent meaning, this of course may change at some point!
 
-This function returns an error code if something went wrong while attempting to read the file header or zero if everything  went ok.  It can be used as a more efficient method of finding out the details for a particular file rather than calling all the various `FILE\_XXXX <KeywordsF.clean.html#file-backup>`__ functions. Each of these call the READ\_HEADER routine.
+This function returns an error code if something went wrong while attempting to read the file header or zero if everything  went ok.  It can be used as a more efficient method of finding out the details for a particular file rather than calling all the various FILE_XXX functions. Each of these call the READ\_HEADER routine.
 
-To extract data, use `PEEK <KeywordsP.clean.html#peek>`__ for byte values, `PEEK\_W <KeywordsP.clean.html#peek-w>`__ for the filename length and version number (if level 2 drivers are present, see LEVEL2), or `PEEK\_L <KeywordsP.clean.html#peek-l>`__ to extract 4 byte data items.
+To extract data, use :ref:`peek` for byte values, :ref:`peek-w` for the filename length and version number (if level 2 drivers are present, see LEVEL2), or :ref:`peek-l` to extract 4 byte data items.
 
 The filename can be extracted from the buffer by something like::
 
     f$ = PEEK_STRING(buffer + 16, PEEK_W(buffer + 14)).
 
 **EXAMPLE**
-The following example allows you to change the current dataspace requirements for an `EXEC <KeywordsE.clean.html#exec>`__\ utable file::
+The following example allows you to change the current dataspace requirements for an :ref:`exec`\ utable file::
 
     6445 DEFine PROCedure ALTER_DATASPACE
     6450   LOCal base, loop, f$, ft, nv
@@ -427,12 +456,15 @@ The following example allows you to change the current dataspace requirements fo
 
 **CROSS-REFERENCE**
 
-`SET\_HEADER <KeywordsS.clean.html#set-header>`__, `FILE\_LENGTH <KeywordsF.clean.html#file-length>`__,
-`FILE\_TYPE <KeywordsF.clean.html#file-type>`__, `FILE\_DATASPACE <KeywordsF.clean.html#file-dataspace>`__,
-`FILE\_UPDATE <KeywordsF.clean.html#file-update>`__, `FILE\_BACKUP <KeywordsF.clean.html#file-backup>`__.
+:ref:`set-header`, :ref:`file-length`,
+:ref:`file-type`, :ref:`file-dataspace`,
+:ref:`file-update`, :ref:`file-backup`.
 
 
 -------
+
+
+..  _rechp:
 
 RECHP
 =====
@@ -473,13 +505,16 @@ the memory has already been given back to QDOS.
 
 **CROSS-REFERENCE**
 
-`CLCHP <KeywordsC.clean.html#clchp>`__ clears all memory reserved by
-`ALCHP <KeywordsA.clean.html#alchp>`__, `CLEAR <KeywordsC.clean.html#clear>`__
+:ref:`clchp` clears all memory reserved by
+:ref:`alchp`, :ref:`clear`
 deletes the values of all variables. See also
-`DISCARD <KeywordsD.clean.html#discard>`__, `TTREL <KeywordsT.clean.html#ttrel>`__
-and `RELEASE <KeywordsR.clean.html#release>`__.
+:ref:`discard`, :ref:`ttrel`
+and :ref:`release`.
 
 --------------
+
+
+..  _recol:
 
 RECOL
 =====
@@ -547,12 +582,15 @@ drivers.
 
 **CROSS-REFERENCE**
 
-`INK <KeywordsI.clean.html#ink>`__, `FILL <KeywordsF.clean.html#fill>`__ See also
-`W\_SWOP <KeywordsW.clean.html#w-swop>`__,
-`SET\_RED <KeywordsS.clean.html#set-red>`__ and
-`SET\_GREEN <KeywordsS.clean.html#set-green>`__.
+:ref:`ink`, :ref:`fill` See also
+:ref:`w-swop`,
+:ref:`set-red` and
+:ref:`set-green`.
 
 --------------
+
+
+..  _refresh:
 
 REFRESH
 =======
@@ -573,12 +611,15 @@ assumed at $20000.
 
 **CROSS-REFERENCE**
 
-See also `SCRBASE <KeywordsS.clean.html#scrbase>`__,
-`SCLR <KeywordsS.clean.html#sclr>`__, `PLOT <KeywordsP.clean.html#plot>`__ and
-`DRAW <KeywordsD.clean.html#draw>`__. See also
-`W\_SHOW <KeywordsW.clean.html#w-show>`__.
+See also :ref:`scrbase`,
+:ref:`sclr`, :ref:`plot` and
+:ref:`draw`. See also
+:ref:`w-show`.
 
 --------------
+
+
+..  _release:
 
 RELEASE
 =======
@@ -607,13 +648,14 @@ Crash!
 
 **CROSS-REFERENCE**
 
-`RECHP <KeywordsR.clean.html#rechp>`__ and `CLCHP <KeywordsC.clean.html#clchp>`__
-clear memory allocated with `ALCHP <KeywordsA.clean.html#alchp>`__.
-`DISCARD <KeywordsD.clean.html#discard>`__ releases memory allocated with
-`RESERVE <KeywordsR.clean.html#reserve>`__. See also the other version of
-`RELEASE <KeywordsR.clean.html#release>`__.
+:ref:`rechp` and :ref:`clchp`
+clear memory allocated with :ref:`alchp`.
+:ref:`discard` releases memory allocated with
+:ref:`reserve`. See also the other version of
+:ref:`release`.
 
 --------------
+
 
 RELEASE
 =======
@@ -631,10 +673,13 @@ is 'executed' by RELEASE.
 
 **CROSS-REFERENCE**
 
-`PLAY <KeywordsP.clean.html#play>`__, `SND\_EXT <KeywordsS.clean.html#snd-ext>`__
-Beware the other version of `RELEASE <KeywordsR.clean.html#release>`__.
+:ref:`play`, :ref:`snd-ext`
+Beware the other version of :ref:`release`.
 
 --------------
+
+
+..  _release-heap:
 
 RELEASE\_HEAP
 =============
@@ -645,17 +690,20 @@ RELEASE\_HEAP
 | Location | DJToolkit 1.16                                                    |
 +----------+-------------------------------------------------------------------+
 
-The address given is assumed to be the address of a chunk of common heap as allocated earlier in the program by `RESERVE\_HEAP <KeywordsR.clean.html#reserve-heap>`__. In order to avoid crashing the QL when an invalid address is given, RELEASE\_HEAP checks first that there is a flag at address-4 and if so, clears the flag and returns the memory back to the  system.  If the flag is not there, or if the area has already been released, then a bad parameter error will occur.
+The address given is assumed to be the address of a chunk of common heap as allocated earlier in the program by :ref:`reserve-heap`. In order to avoid crashing the QL when an invalid address is given, RELEASE\_HEAP checks first that there is a flag at address-4 and if so, clears the flag and returns the memory back to the  system.  If the flag is not there, or if the area has already been released, then a bad parameter error will occur.
 
 It is more efficient to RELEASE\_HEAP in the opposite order to that in which it was reserved and will help to avoid heap fragmentation.
 
 
 **CROSS-REFERENCE**
 
-See `RESERVE\_HEAP <KeywordsR.clean.html#reserve-heap>`__\ , below, for an example of use.
+See :ref:`reserve-heap`\ , below, for an example of use.
 
 
 -------
+
+
+..  _release-task:
 
 RELEASE\_TASK
 =============
@@ -671,6 +719,9 @@ job identification.
 
 --------------
 
+
+..  _reljob:
+
 RELJOB
 ======
 
@@ -684,6 +735,9 @@ Same as REL\_JOB apart from the fact that this expects the JobID of the
 Job rather than its name or a simple job number.
 
 --------------
+
+
+..  _reload:
 
 RELOAD
 ======
@@ -724,13 +778,16 @@ was UNLOADed but is no longer OPEN.
 
 **CROSS-REFERENCE**
 
-`SCR\_SAVE <KeywordsS.clean.html#scr-save>`__ allows you to dictate whether
+:ref:`scr-save` allows you to dictate whether
 the screen display and mode should be stored together with the program.
-`REMOVE <KeywordsR.clean.html#remove>`__ allows you to remove a program stored
-in memory with this command. See also `RESAVE <KeywordsR.clean.html#resave>`__
-and `QLOAD <KeywordsQ.clean.html#qload>`__.
+:ref:`remove` allows you to remove a program stored
+in memory with this command. See also :ref:`resave`
+and :ref:`qload`.
 
 --------------
+
+
+..  _rel-job:
 
 REL\_JOB
 ========
@@ -754,12 +811,15 @@ Before v1.11 of this Toolkit, jobnr could not be a variable (see JBASE).
 
 **CROSS-REFERENCE**
 
-Jobs can be suspended by `SJOB <KeywordsS.clean.html#sjob>`__ and removed with
-`RJOB <KeywordsR.clean.html#rjob>`__, `KJOB <KeywordsK.clean.html#kjob>`__,
-`KILL <KeywordsK.clean.html#kill>`__, etc. `JOBS <KeywordsJ.clean.html#jobs>`__
-lists the current jobs. See `RELJOB <KeywordsR.clean.html#reljob>`__.
+Jobs can be suspended by :ref:`sjob` and removed with
+:ref:`rjob`, :ref:`kjob`,
+:ref:`kill`, etc. :ref:`jobs`
+lists the current jobs. See :ref:`reljob`.
 
 --------------
+
+
+..  _remainder:
 
 REMAINDER
 =========
@@ -775,9 +835,12 @@ to represent all possible untested values of the SELect ON variable.
 
 **CROSS-REFERENCE**
 
-Please see `SELect ON <KeywordsS.clean.html#select-on>`__.
+Please see :ref:`select--on`.
 
 --------------
+
+
+..  _remark:
 
 REMark
 ======
@@ -811,6 +874,9 @@ include program lines which only contain a colon (:), for example::
 
 --------------
 
+
+..  _remove:
+
 REMOVE
 ======
 
@@ -826,6 +892,9 @@ similar to RJOB, REL\_JOB and REMOVE\_TASK (amongst others).
 
 --------------
 
+
+..  _remove-task:
+
 REMOVE\_TASK
 ============
 
@@ -838,6 +907,9 @@ REMOVE\_TASK
 Please see RJOB, because REMOVE\_TASK a,b works like RJOB a,b,0.
 
 --------------
+
+
+..  _rename:
 
 RENAME
 ======
@@ -913,11 +985,14 @@ lowercase) the error 'Already Exists' will be reported.
 
 **CROSS-REFERENCE**
 
-See also `WREN <KeywordsW.clean.html#wren>`__ which allows you to rename
-several files at once. `TTRENAME <KeywordsT.clean.html#ttrename>`__ is
+See also :ref:`wren` which allows you to rename
+several files at once. :ref:`ttrename` is
 similar.
 
 --------------
+
+
+..  _renum:
 
 RENUM
 =====
@@ -1128,11 +1203,14 @@ interpreter tends to lose its place (see Note 2 above).
 
 **CROSS-REFERENCE**
 
-`DLINE <KeywordsD.clean.html#dline>`__ allows you to delete lines from a
-program. `ED <KeywordsE.clean.html#ed>`__ allows you to edit a program in
-memory. Also see `AUTO <KeywordsA.clean.html#auto>`__.
+:ref:`dline` allows you to delete lines from a
+program. :ref:`ed` allows you to edit a program in
+memory. Also see :ref:`auto`.
 
 --------------
+
+
+..  _repeat:
 
 REPeat
 ======
@@ -1269,10 +1347,13 @@ REPeat.
 
 **CROSS-REFERENCE**
 
-`FOR <KeywordsF.clean.html#for>`__...\ `END FOR <KeywordsE.clean.html#end-for>`__
+:ref:`for`...\ :ref:`end--for`
 is the other loop type.
 
 --------------
+
+
+..  _replace:
 
 REPLACE
 =======
@@ -1358,14 +1439,17 @@ problems with REPLACE.
 
 **CROSS-REFERENCE**
 
-`NEW\_NAME <KeywordsN.clean.html#new-name>`__ is very similar to
-`REPLACE <KeywordsR.clean.html#replace>`__ but the parameters are passed as
+:ref:`new-name` is very similar to
+:ref:`replace` but the parameters are passed as
 strings. This has the advantage that
-`NEW\_NAME <KeywordsN.clean.html#new-name>`__ can take variable parameters,
-`REPLACE <KeywordsR.clean.html#replace>`__ would replace the variable for the
-variable name. Compare `ALIAS <KeywordsA.clean.html#alias>`__.
+:ref:`new-name` can take variable parameters,
+:ref:`replace` would replace the variable for the
+variable name. Compare :ref:`alias`.
 
 --------------
+
+
+..  _reply:
 
 REPLY
 =====
@@ -1414,10 +1498,13 @@ Another version of the game also shown at ASK::
 **CROSS-REFERENCE**
 
 
-`ASK <KeywordsA.clean.html#ask>`__, `INKEY$ <KeywordsI.clean.html#inkey>`__
-See `CODE <KeywordsC.clean.html#code>`__ also.
+:ref:`ask`, :ref:`inkey-dlr`
+See :ref:`code` also.
 
 --------------
+
+
+..  _report:
 
 REPORT
 ======
@@ -1461,12 +1548,15 @@ form: At line <line number>;<statement number><error message>
 
 **CROSS-REFERENCE**
 
-See `ERNUM <KeywordsE.clean.html#ernum>`__ about error messages in general and
-`TK2\_EXT <KeywordsT.clean.html#tk2-ext>`__
-/`TINY\_EXT <KeywordsT.clean.html#tiny-ext>`__ about updating Toolkits. Refer
+See :ref:`ernum` about error messages in general and
+:ref:`tk2-ext`
+/:ref:`tiny-ext` about updating Toolkits. Refer
 to the Appendix for the different message texts in various languages.
 
 --------------
+
+
+..  _resave:
 
 RESAVE
 ======
@@ -1482,9 +1572,12 @@ program\_name has already been stored in memory, it is overwritten.
 
 **CROSS-REFERENCE**
 
-See `UNLOAD <KeywordsU.clean.html#unload>`__!
+See :ref:`unload`!
 
 --------------
+
+
+..  _reserve:
 
 RESERVE
 =======
@@ -1506,13 +1599,16 @@ that task is removed. This task will normally be 0 (SuperBASIC) or -1
 
 **CROSS-REFERENCE**
 
-See `DISCARD <KeywordsD.clean.html#discard>`__ and
-`LINKUP <KeywordsL.clean.html#linkup>`__. Also see
-`ALCHP <KeywordsA.clean.html#alchp>`__, `RESPR <KeywordsR.clean.html#respr>`__ and
-`GRAB <KeywordsG.clean.html#grab>`__.
+See :ref:`discard` and
+:ref:`linkup`. Also see
+:ref:`alchp`, :ref:`respr` and
+:ref:`grab`.
 
 --------------
 
+
+
+..  _reserve-heap:
 
 RESERVE\_HEAP
 =============
@@ -1523,11 +1619,11 @@ RESERVE\_HEAP
 | Location | DJToolkit 1.16                                                    |
 +----------+-------------------------------------------------------------------+
 
-This function obtains a chunk of memory for your program to use, the starting address is returned as the result of the call.  Note that the function will ask for 4 bytes more than you require, these are used to store a flag so that calls to `READ\_HEADER <KeywordsR.clean.html#read-header>`__ do not crash the system by attempting to deallocate invalid areas of memory. If you call this function, the returned address is the first byte that your program can use.  
+This function obtains a chunk of memory for your program to use, the starting address is returned as the result of the call.  Note that the function will ask for 4 bytes more than you require, these are used to store a flag so that calls to :ref:`read-header` do not crash the system by attempting to deallocate invalid areas of memory. If you call this function, the returned address is the first byte that your program can use.  
 
 **EXAMPLE**
 
-The following example shows how this function can be used to reserve a buffer for `READ_HEADER <KeywordsR.clean.html#read-header>`__, described elsewhere.
+The following example shows how this function can be used to reserve a buffer for :ref:`read-header`, described elsewhere.
 
 ::
 
@@ -1546,12 +1642,15 @@ The following example shows how this function can be used to reserve a buffer fo
 
 **CROSS-REFERENCE**
 
-`RELEASE\_HEAP <KeywordsR.clean.html#release-heap>`__, `ALCHP <KeywordsA.clean.html#alchp>`__, 
-`RECHP <KeywordsR.clean.html#rechp>`__, `ALLOCATE <KeywordsA.clean.html#allocate>`__.
+:ref:`release-heap`, :ref:`alchp`, 
+:ref:`rechp`, :ref:`allocation`.
 
 
 -------
 
+
+
+..  _reset:
 
 RESET
 =====
@@ -1577,12 +1676,15 @@ data to disk at the time (or still have some in memory).
 
 **CROSS-REFERENCE**
 
-On Gold Cards use `RES\_128 <KeywordsR.clean.html#res-128>`__ and
-`RES\_SIZE <KeywordsR.clean.html#res-size>`__ for a faster reset. Minerva
-allows you to use `CALL <KeywordsC.clean.html#call>`__  390,x to reset
+On Gold Cards use :ref:`res-128` and
+:ref:`res-size` for a faster reset. Minerva
+allows you to use :ref:`call`  390,x to reset
 the system.
 
 --------------
+
+
+..  _resfast:
 
 RESFAST
 =======
@@ -1602,10 +1704,12 @@ memory.
 
 **CROSS-REFERENCE**
 
-See `FAST\_FREE <KeywordsF.clean.html#fast-free>`__ and
-`RESPR <KeywordsR.clean.html#respr>`__.
+See :ref:`fast-free` and :ref:`respr`.
 
 --------------
+
+
+..  _respr:
 
 RESPR
 =====
@@ -1668,14 +1772,17 @@ space if absolute addresses are used.
 
 **CROSS-REFERENCE**
 
-Please also see `ALCHP <KeywordsA.clean.html#alchp>`__ which allocates memory
+Please also see :ref:`alchp` which allocates memory
 from the common heap, which can be accessed when tasks are running in
-memory. Also see `RESERVE <KeywordsR.clean.html#reserve>`__ and
-`GRAB <KeywordsG.clean.html#grab>`__ which are similar to
-`ALCHP <KeywordsA.clean.html#alchp>`__. It is also worth looking at
-`RESFAST <KeywordsR.clean.html#resfast>`__.
+memory. Also see :ref:`reserve` and
+:ref:`grab` which are similar to
+:ref:`alchp`. It is also worth looking at
+:ref:`resfast`.
 
 --------------
+
+
+..  _restore:
 
 RESTORE
 =======
@@ -1716,10 +1823,13 @@ error.
 
 **CROSS-REFERENCE**
 
-See `DATA <KeywordsD.clean.html#data>`__ and `READ <KeywordsR.clean.html#read>`__.
-Please also refer to `RENUM <KeywordsR.clean.html#renum>`__.
+See :ref:`data` and :ref:`read`.
+Please also refer to :ref:`renum`.
 
 --------------
+
+
+..  _res-size:
 
 RES\_SIZE
 =========
@@ -1786,14 +1896,16 @@ tends to expect a ramtop which is a multiple of 64 and memory is wasted.
 
 **CROSS-REFERENCE**
 
-`RES\_128 <KeywordsR.clean.html#res-128>`__ is identical to `RES\_SIZE
-<KeywordsR.clean.html#res-size>`__ 128. See also
-`RESET <KeywordsR.clean.html#reset>`__. See `RAMTOP <KeywordsR.clean.html#ramtop>`__
-and `FREE\_MEM <KeywordsF.clean.html#free-mem>`__ about available and free
-memory. `FLP\_EXT <KeywordsF.clean.html#flp-ext>`__ improves the reliability
+:ref:`res-128` is identical to :ref:`res-size` 128. See also
+:ref:`reset`. See :ref:`ramtop`
+and :ref:`free-mem` about available and free
+memory. :ref:`flp-ext` improves the reliability
 of the floppy disk drives and allows RAM disks to be used.
 
 --------------
+
+
+..  _res-128:
 
 RES\_128
 ========
@@ -1808,10 +1920,13 @@ This command does the same as RES\_SIZE 128.
 
 **CROSS-REFERENCE**
 
-`FLP\_EXT <KeywordsF.clean.html#flp-ext>`__ can be used to re-enable some
+:ref:`flp-ext` can be used to re-enable some
 functions such as ramdisks.
 
 --------------
+
+
+..  _retry:
 
 RETRY
 =====
@@ -1852,9 +1967,12 @@ at line 120, displaying the message::
 
 **CROSS-REFERENCE**
 
-Please refer to `CONTINUE <KeywordsC.clean.html#continue>`__!
+Please refer to :ref:`continue`!
 
 --------------
+
+
+..  _return:
 
 RETurn
 ======
@@ -1897,11 +2015,12 @@ A FuNction which returns 1 (true) if a given number is even::
 
 **CROSS-REFERENCE**
 
-See `DEFine PROCedure <KeywordsD.clean.html#define-procedure>`__ and `DEFine
-FuNction <KeywordsD.clean.html#define-function>`__. Please also refer to `GO
-SUB <KeywordsG.clean.html#go-sub>`__.
+See :ref:`define--procedure` and :ref:`define--function`\ . Please also refer to :ref:`go--sub`\ .
 
 --------------
+
+
+..  _rev-dlr:
 
 REV$
 ====
@@ -1924,11 +2043,14 @@ shows dlroW olleH
 
 **CROSS-REFERENCE**
 
-`LEN <KeywordsL.clean.html#len>`__ finds the length of a
-string. `TRIM$ <KeywordsT.clean.html#trim>`__ cuts
+:ref:`len` finds the length of a
+string. :ref:`trim-dlr` cuts
 off excess spaces from a string.
 
 --------------
+
+
+..  _rjob:
 
 RJOB
 ====
@@ -1954,14 +2076,17 @@ If the first syntax does not work, you are using an old Toolkit version.
 
 **CROSS-REFERENCE**
 
-`KJOB <KeywordsK.clean.html#kjob>`__ works similarly to
-`RJOB <KeywordsR.clean.html#rjob>`__. `KILL <KeywordsK.clean.html#kill>`__,
-`REMOVE <KeywordsR.clean.html#remove>`__ and `KJOBS <KeywordsK.clean.html#kjobs>`__
-remove all jobs. Have a look at `JOBS <KeywordsJ.clean.html#jobs>`__,
-`SPJOB <KeywordsS.clean.html#spjob>`__, `AJOB <KeywordsA.clean.html#ajob>`__,
-`SJOB <KeywordsS.clean.html#sjob>`__ etc.
+:ref:`kjob` works similarly to
+:ref:`rjob`. :ref:`kill`,
+:ref:`remove` and :ref:`kjobs`
+remove all jobs. Have a look at :ref:`jobs`,
+:ref:`spjob`, :ref:`ajob`,
+:ref:`sjob` etc.
 
 --------------
+
+
+..  _rmar:
 
 RMAR
 ====
@@ -1999,16 +2124,19 @@ is the same as::
 
 **CROSS-REFERENCE**
 
-`NORM <KeywordsN.clean.html#norm>`__, `BLD <KeywordsB.clean.html#bld>`__,
-`EL <KeywordsE.clean.html#el>`__, `DBL <KeywordsD.clean.html#dbl>`__,
-`ENL <KeywordsE.clean.html#enl>`__, `PRO <KeywordsP.clean.html#pro>`__,
-`SI <KeywordsS.clean.html#si>`__, `NRM <KeywordsN.clean.html#nrm>`__,
-`UNL <KeywordsU.clean.html#unl>`__, `ALT <KeywordsA.clean.html#alt>`__,
-`ESC <KeywordsE.clean.html#esc>`__, `FF <KeywordsF.clean.html#ff>`__,
-`LMAR <KeywordsL.clean.html#lmar>`__, `PAGDIS <KeywordsP.clean.html#pagdis>`__,
-`PAGLEN <KeywordsP.clean.html#paglen>`__.
+:ref:`norm`, :ref:`bld`,
+:ref:`el`, :ref:`dbl`,
+:ref:`enl`, :ref:`pro`,
+:ref:`si`, :ref:`nrm`,
+:ref:`unl`, :ref:`alt`,
+:ref:`esc`, :ref:`ff`,
+:ref:`lmar`, :ref:`pagdis`,
+:ref:`paglen`.
 
 --------------
+
+
+..  _rmode:
 
 RMODE
 =====
@@ -2059,11 +2187,14 @@ of MODE::
 
 **CROSS-REFERENCE**
 
-`MODE <KeywordsM.clean.html#mode>`__ sets the mode.
-`QFLIM <KeywordsQ.clean.html#qflim>`__ returns the screen resolution.
-`TTMODE% <KeywordsT.clean.html#ttmode>`__ is similar.
+:ref:`mode` sets the mode.
+:ref:`qflim` returns the screen resolution.
+:ref:`ttmode-pct` is similar.
 
 --------------
+
+
+..  _rnd:
 
 RND
 ===
@@ -2120,11 +2251,14 @@ negative.
 
 **CROSS-REFERENCE**
 
-The results of `RND <KeywordsR.clean.html#rnd>`__ can be influenced with
-`RANDOMISE <KeywordsR.clean.html#randomise>`__. See also
-`MATRND <KeywordsM.clean.html#matrnd>`__.
+The results of :ref:`rnd` can be influenced with
+:ref:`randomise`. See also
+:ref:`matrnd`.
 
 --------------
+
+
+..  _rom:
 
 ROM
 ===
@@ -2180,11 +2314,14 @@ look at (it must be in the range 0...16). The possible values are:
 
 **CROSS-REFERENCE**
 
-`ROM\_TEST <KeywordsR.clean.html#rom-test>`__ checks if a piece of code can be
-placed into a ROM. `EPROM\_LOAD <KeywordsE.clean.html#eprom-load>`__ allows
+:ref:`rom-test` checks if a piece of code can be
+placed into a ROM. :ref:`eprom-load` allows
 you to load an EPROM on an emulator.
 
 --------------
+
+
+..  _rom-ext:
 
 ROM\_EXT
 ========
@@ -2206,11 +2343,14 @@ EPROM cartridge cannot be plugged into the Atari ST.
 
 **CROSS-REFERENCE**
 
-See also `ROM\_LOAD <KeywordsR.clean.html#rom-load>`__ and
-`EPROM\_LOAD <KeywordsE.clean.html#eprom-load>`__ which allows you to
+See also :ref:`rom-load` and
+:ref:`eprom-load` which allows you to
 transport code across from QL EPROM cartridges.
 
 --------------
+
+
+..  _rom-load:
 
 ROM\_LOAD
 =========
@@ -2224,6 +2364,9 @@ ROM\_LOAD
 On later versions of the Emulator, this has been renamed EPROM\_LOAD.
 
 --------------
+
+
+..  _roms:
 
 ROMs
 ====
@@ -2241,9 +2384,13 @@ and anything plugged into the QL's ROMport.
 
 **CROSS-REFERENCE**
 
-`ROM <KeywordsR.clean.html#rom>`__ returns the start address of a ROM slot.
+:ref:`rom` returns the start address of a ROM slot.
 
 --------------
+
+
+..  _rtp-...:
+..  _rtp-r:
 
 RTP\_R
 ======
@@ -2291,11 +2438,14 @@ the RTP\_... functions are actually doing::
 **CROSS-REFERENCE**
 
 Polar co-ordinates also need an angle, this is calculated with
-`RTP\_T <KeywordsR.clean.html#rtp-t>`__. The
-`PTR\_ <KeywordsP.clean.html#ptr->`__... pair of functions is complementary to
-`RTP\_ <KeywordsR.clean.html#rtp->`__...
+:ref:`rtp-t`. The
+:ref:`ptr-...` pair of functions is complementary to
+:ref:`rtp-...`\ .
 
 --------------
+
+
+..  _rtp-t:
 
 RTP\_T
 ======
@@ -2311,6 +2461,9 @@ corresponding argument, (the angle used in polar co-ordinates) in
 radians. See RTP\_R for further information.
 
 --------------
+
+
+..  _run:
 
 RUN
 ===
@@ -2352,6 +2505,5 @@ compiled jobs to enable them to re-start themselves.
 
 **CROSS-REFERENCE**
 
-See `GOTO <KeywordsG.clean.html#goto>`__ or even better,
-`REPeat <KeywordsR.clean.html#repeat>`__ and `FOR <KeywordsF.clean.html#for>`__
-loops.
+See :ref:`go--to` or even better, :ref:`repeat` and :ref:`for` loops.
+
