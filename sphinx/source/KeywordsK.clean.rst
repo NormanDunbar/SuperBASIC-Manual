@@ -324,7 +324,7 @@ that row to represent which key has been pressed.
 For British QLs, the format of the matrix is::
 
     Row 0| 7 4 F5 F3 F2 5 F1 F4
-    Row 1| SPACE \ ESC ENTER
+    Row 1| DOWN SPACE \ RIGHT ESC UP LEFT ENTER
     Row 2| " M £ B C . Z ]
     Row 3| ; G = F S K CAPSLOCK [
     Row 4| J D P A 1 H 3 L
