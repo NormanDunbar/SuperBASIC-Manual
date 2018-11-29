@@ -6,7 +6,7 @@ Keywords A
 TODO
 ====
 
-- :ref:`allocation` refers to taskno% and tasktag% in the syntax, but the text mentions taskid%. 
+- :ref:`allocation` refers to taskno% and tasktag% in the syntax, but the text mentions taskid%.
 - There is a reference to the ESC command, in :ref:`alt`, but it's not in the KeywordsE file.
 
 
@@ -17,9 +17,9 @@ ABS
 
 +----------+-------------------------------------------------------------------------+
 | Syntax   || ABS (number) or                                                        |
-|          || ABS (number1 :sup:`\*`\ [,number\ :sup:`x`]\ :sup:`\*`) (Minerva only) | 
+|          || ABS (number1 :sup:`\*`\ [,number\ :sup:`x`]\ :sup:`\*`) (Minerva only) |
 +----------+-------------------------------------------------------------------------+
-| Location || QL ROM                                                                 | 
+| Location || QL ROM                                                                 |
 +----------+-------------------------------------------------------------------------+
 
 This function returns the absolute value of a number - ie. the positive
@@ -1004,6 +1004,26 @@ The taskno% and taskid% can be found using
 --------------
 
 
+.. _alpha-blend:
+
+ALPHA_BLEND
+===========
+
+Alpha-blending is a method of drawing graphics whereby the resultant output is partly transparent – overlapping shapes and text created with BLOCK, LINE, CIRCLE, PRINT etc. will be see-through to a degree, set by a new command ALPHA_BLEND. This takes a value from 0 (fully transparent) to 255 (opaque), ALPHA_BLEND 128 will make all output half-transparent, for example.
+
+In the past, we have only had the variations offered by the OVER command, now we can achieve some pretty exciting graphical effects for use in games, for example. Here’s an example which draws three overlapping circles which are half-transparent::
+
+    1000 PAPER 0: CLS
+    1010 ALPHA_BLEND 128
+    1020 FILL 1: INK 2: CIRCLE 40, 50, 20
+    1030 FILL 1: INK 4: CIRCLE 65, 50, 20
+    1040 FILL 1: INK 1: CIRCLE 50, 75, 20
+    1050 CSIZE 2,0: AT 10,4: INK 7: PRINT "Alpha blending!"
+    1060 STOP
+
+In addition to the ALPHA_BLEND command, A new trap #3 with D0=$62, d1=alpha weight 0-255, d3.w=timeout and a0=channel ID allows the alpha-blend value to be set from assembler and other languages.
+
+
 ..  _alt:
 
 ALT
@@ -1426,8 +1446,8 @@ ARC\_R
 ======
 
 +----------+------------------------------------------------------------------------------------------------------------------------+
-| Syntax   | ARC\_R [#ch][,x\ :sup:`1`\ ,y\ :sup:`1`] TO x\ :sup:`2`\ ,y\ :sup:`2`\ ,angle :sup:`\*`\ [[;x\ :sup:`i`\ ,y\ :sup:`i`] | 
-|          | TO x\ :sup:`j`\ ,y\ :sup:`j`\ ,angle\ :sup:`j`]\ :sup:`\*`                                                             | 
+| Syntax   | ARC\_R [#ch][,x\ :sup:`1`\ ,y\ :sup:`1`] TO x\ :sup:`2`\ ,y\ :sup:`2`\ ,angle :sup:`\*`\ [[;x\ :sup:`i`\ ,y\ :sup:`i`] |
+|          | TO x\ :sup:`j`\ ,y\ :sup:`j`\ ,angle\ :sup:`j`]\ :sup:`\*`                                                             |
 +----------+------------------------------------------------------------------------------------------------------------------------+
 | Location | QL ROM                                                                                                                 |
 +----------+------------------------------------------------------------------------------------------------------------------------+
@@ -1829,7 +1849,7 @@ ATAN
 
 +----------+-------------------------------------------------------------------+
 | Syntax   || ATAN (x)  or                                                     |
-|          || ATAN (x,y) (Minerva and SMS only)                                | 
+|          || ATAN (x,y) (Minerva and SMS only)                                |
 +----------+-------------------------------------------------------------------+
 | Location || QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
