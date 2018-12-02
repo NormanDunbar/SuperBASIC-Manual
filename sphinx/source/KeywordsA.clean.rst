@@ -1009,6 +1009,12 @@ The taskno% and taskid% can be found using
 ALPHA_BLEND
 ===========
 
++----------+----------------------+
+| Syntax   | ALPHA_BLEND opacity% |
++----------+----------------------+
+| Location | SMSQ version 3.26    |
++----------+----------------------+
+
 Alpha-blending is a method of drawing graphics whereby the resultant output is partly transparent – overlapping shapes and text created with BLOCK, LINE, CIRCLE, PRINT etc. will be see-through to a degree, set by a new command ALPHA_BLEND. This takes a value from 0 (fully transparent) to 255 (opaque), ALPHA_BLEND 128 will make all output half-transparent, for example.
 
 In the past, we have only had the variations offered by the OVER command, now we can achieve some pretty exciting graphical effects for use in games, for example. Here’s an example which draws three overlapping circles which are half-transparent::
