@@ -2,12 +2,6 @@
 Keywords S
 ==========
 
-TODO
-====
-
-- :ref:`si` references ESC. ESC is not found.
-
-
 ..  _sar:
 
 SAR
@@ -92,7 +86,7 @@ SAUTO
 This is yet another screen saver.... It is activated by specifying how
 many seconds the computer should wait for a key to be pressed before it
 turns the screen blank. Once the screen is blank, any key will display
-the screen again. Negative seconds de-acticate this most useful of all
+the screen again. Negative seconds deactivate this most useful of all
 computer utilities.
 
 **Example**
@@ -296,7 +290,7 @@ for example with LRESPR flp1\_HOT\_REXT.
 **CROSS-REFERENCE**
 
 Please refer to :ref:`ew` and
-:ref:`sbasic`. Also see the Appendix on Mutliple
+:ref:`sbasic`. Also see the Appendix on Multiple
 BASICs.
 
 --------------
@@ -563,8 +557,8 @@ screen!). The default size is 100.
 
 The co-ordinates x,y specify the
 co-ordinate which appears in the bottom left hand corner of the screen.
-When a window is opened, the scale is reset with the equivalent of SCALE
-#ch,100,0,0. 
+When a window is opened, the scale is reset with the equivalent of `SCALE
+#ch,100,0,0`. 
 
 Although a line drawn up the side of a window will be size
 units long, the length required to draw a line along the whole of the
@@ -3908,7 +3902,7 @@ is the same as::
 :ref:`el`, :ref:`dbl`,
 :ref:`enl`, :ref:`pro`,
 :ref:`nrm`, :ref:`unl`,
-:ref:`alt`, :ref:`esc`,
+:ref:`alt`, ESC,
 :ref:`ff`, :ref:`lmar`,
 :ref:`rmar`, :ref:`pagdis`,
 :ref:`paglen`.
