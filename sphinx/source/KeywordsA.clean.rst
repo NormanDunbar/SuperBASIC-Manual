@@ -3,13 +3,6 @@
 Keywords A
 ==========
 
-TODO
-====
-
-- :ref:`allocation` refers to taskno% and tasktag% in the syntax, but the text mentions taskid%.
-- There is a reference to the ESC command, in :ref:`alt`, but it's not in the KeywordsE file.
-
-
 ..  _abs:
 
 ABS
@@ -990,7 +983,7 @@ ALLOCATION
 
 This function is very similar to RESERVE. It allocates an area in the
 common heap which may be associated with a specified job. If taskno% and
-taskid% are not specified, then the area is linked with the current job
+tasktag% are not specified, then the area is linked with the current job
 and removed when the current job is removed.
 
 **CROSS-REFERENCE**
@@ -998,7 +991,7 @@ and removed when the current job is removed.
 :ref:`deallocate` should be used to remove the
 allocated area.
 
-The taskno% and taskid% can be found using
+The taskno% and tasktag% can be found using
 :ref:`jobs` or :ref:`list-tasks`.
 
 --------------
@@ -1056,7 +1049,7 @@ is therefore equivalent to::
 :ref:`el`, :ref:`dbl`,
 :ref:`enl`, :ref:`pro`,
 :ref:`si`, :ref:`nrm`,
-:ref:`unl`, :ref:`esc`,
+:ref:`unl`, esc,
 :ref:`ff`, :ref:`lmar`,
 :ref:`rmar`, :ref:`pagdis`,
 :ref:`paglen`.
