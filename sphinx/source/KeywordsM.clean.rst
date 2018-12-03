@@ -2,13 +2,6 @@
 Keywords M
 ==========
 
-TODO
-====
-
-- Sort out MIDINET table. It's way too wide.
-- :ref:`matplot` references something called POINT_ABS. I can't find it anywhere.
-
-
 ..  _machine:
 
 MACHINE
@@ -1022,7 +1015,7 @@ the graphic cursor. :ref:`point` draws a single
 point to any screen, :ref:`block` can also be used
 to plot points, especially of variable size.
 :ref:`plot`, :ref:`apoint` and
-:ref:`point-abs` plot points in absolute
+POINT\_ABS plot points in absolute
 co-ordinates, directly to screen memory, ignoring windows.
 
 --------------
