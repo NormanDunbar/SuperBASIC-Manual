@@ -3,12 +3,6 @@
 Keywords C
 ==========
 
-TODO
-====
-
-- This file references SNOOZE, GLOBAL, EXTERNAL, LINK_LOAD_A, WINCTRL, SET_CHANNEL, DISP_COLOUR. They don't exist.
-
-
 ..  _cache-on:
 
 CACHE\_ON
@@ -290,9 +284,9 @@ simply suspended until the Break key is pressed.
 
 **CROSS-REFERENCE**
 
-:ref:`snooze` is similar. See also
-:ref:`global`,
-:ref:`external` and
+SNOOZE is similar. See also
+GLOBAL,
+EXTERNAL and
 :ref:`link-load-a`.
 
 --------------
@@ -323,7 +317,7 @@ The Pointer Interface modifies the structure of channel definition
 blocks for windows.
 
 If you want to access these, preferably use
-:ref:`winctrl` instead of
+WINCTRL instead of
 :ref:`cbase`. See also
 :ref:`chbase`.
 
@@ -1258,7 +1252,7 @@ channel ID.
 :ref:`channel-id` is the same as the Btool
 variant.
 
-See :ref:`set-channel` also.
+See SET\_CHANNEL also.
 
 --------------
 
@@ -1312,7 +1306,7 @@ This function is exactly the same as CHANID.
 **CROSS-REFERENCE**
 
 See\ :ref:`chanid` and
-:ref:`set-channel`.
+SET\_CHANNEL.
 
 --------------
 
@@ -2948,7 +2942,7 @@ Refer to Appendix 16 and :ref:`ink` for more details.
 :ref:`bgcolour-24` can be used to alter the
 desktop colour of the main screen.
 
-:ref:`disp-colour` can be used to switch
+DISP\_COLOUR can be used to switch
 between Extended Colour Drivers and the Standard Colour Drivers.
 
 --------------
