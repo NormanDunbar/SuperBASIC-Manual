@@ -1646,7 +1646,7 @@ command to run filter programs.
 
 **NOTE**
 
-This command is redudant on Minerva v1.97+, whereby MultiBASICs can be
+This command is redundant on Minerva v1.97+, whereby MultiBASICs can be
 started up using EXEC pipep.
 
 **CROSS-REFERENCE**
@@ -2253,7 +2253,7 @@ MNET\_USE
 
 Due to the fact that MIDINET Networks can be run on computers alongside
 SERNET Networks and even QNET Networks, it may be necessary to alter the
-identification letter used to access facilties on other computers in the
+identification letter used to access facilities on other computers in the
 Network. The default letter id is n (as with FSERVE), but this can be
 set to any other single letter by using this command. However, you
 should avoid letters which already appear as the first letter in another
@@ -2454,7 +2454,7 @@ Normally, High resolution is described as MODE 4 because this value
 represents a characteristic of the mode (4 colours) as well as setting
 it. Equally, MODE 8 stands for Low resolution. However, with the ability
 of QDOS to access much higher resolution screens, these terms now tend
-to be somewhat unecessary.
+to be somewhat unnecessary.
 
 **NOTE 2**
 
