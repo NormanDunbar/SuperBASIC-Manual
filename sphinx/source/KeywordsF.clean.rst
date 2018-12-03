@@ -4,12 +4,6 @@ Keywords F
 ==========
 
 
-TODO
-====
-
-- :ref:`ff` references ESC which is not in any source file.
-
-
 ..  _fact:
 
 FACT
@@ -155,7 +149,7 @@ entering the line::
 
 Although sub-directories and the default data device are fully
 supported on the medium being backed-up, the procedures would need
-modificication to enable them to create similar sub-directories on the
+modification to enable them to create similar sub-directories on the
 destination device. The PROCedure makes heavy use of recursive
 programming, which means that it uses a lot of memory (not all of which
 is released at the end of the PROCedure). It would need a considerable
@@ -356,7 +350,7 @@ FEXP$
 This function is different to CDEC$ in that it always prints the
 given value in exponential format. This means that there is always only
 one character to the left of the decimal point (plus any sign), and ndp
-(number odf decimal places) states how many characters should be to the right 
+(number of decimal places) states how many characters should be to the right 
 of the decimal point.
 
 FEXP$ does not assume that value is an integer and therefore also caters
@@ -411,7 +405,7 @@ to an EPSON compatible printer.
 :ref:`enl`, :ref:`pro`,
 :ref:`si`, :ref:`nrm`,
 :ref:`unl`, :ref:`alt`,
-:ref:`esc`, :ref:`lmar`,
+ESC, :ref:`lmar`,
 :ref:`rmar`, :ref:`pagdis`,
 :ref:`paglen`.
 
@@ -650,7 +644,7 @@ generally used by Toolkits to store file attributes in the format:
 |        | accessible by someone with the same user number (0-63).                                               |
 |        |                                                                                                       |
 |        | Files with a                                                                                          | 
-|        | user number of 0 will be visible and useable by any user.                                             |
+|        | user number of 0 will be visible and usable by any user.                                             |
 |        |                                                                                                       |
 |        | Files with a                                                                                          |
 |        | user number of 63 are generally only available to a user in a special                                 |
@@ -710,7 +704,7 @@ FILE\_BACKUP
 | Location | DJToolkit 1.16                                                   |
 +----------+------------------------------------------------------------------+
 
-This function reads the backup date from the file header and returns it into the variable bk.  The parameter can either be a channel number for an open channel, or it can be the filename (in quotes) of a closed file.  If the returned value is negative, it is a normal QDOS error code.  If the value returned is positve, it can be  converted to a string be calling DATE$(bk). In normal use, a files backup date is never set by QDOS, however, users who have WinBack or a similar backup utility program will see proper backup dates if the file has been backed up.
+This function reads the backup date from the file header and returns it into the variable bk.  The parameter can either be a channel number for an open channel, or it can be the filename (in quotes) of a closed file.  If the returned value is negative, it is a normal QDOS error code.  If the value returned is positive, it can be  converted to a string be calling DATE$(bk). In normal use, a files backup date is never set by QDOS, however, users who have WinBack or a similar backup utility program will see proper backup dates if the file has been backed up.
 
 **EXAMPLE**
 
@@ -1200,7 +1194,7 @@ FILL
 This command switches Fill mode on and off. If the Fill mode is on
 (after FILL 1), all points in the given window channel (default #1) that
 have the same vertical co-ordinate are connected by a line in the
-current ink colour so that only non-reentrant figures can be filled
+current ink colour so that only non re-entrant figures can be filled
 correctly. This means that figures must only contain two points on each
 horizontal row of pixels. The fill mode is de-activated by FILL 0.
 
@@ -1353,7 +1347,7 @@ returns "++++++++++".
  
     FILL$("Jo",0)
 
-retuns "" (the empty string).
+returns "" (the empty string).
 
 ::
 
@@ -1374,7 +1368,7 @@ in) if you declare the string explicitly rather than using FILL$.
 **NOTE 3**
 
 The maximum length of string that can be produced with FILL$
-depends on the ROM version - see the Compatability Appendix.
+depends on the ROM version - see the Compatibility Appendix.
 
 **CROSS-REFERENCE**
 
@@ -2967,7 +2961,7 @@ the QL hard disk to be created in megabytes, for example::
 
 	FORMAT WIN1_20
 
-This will create a 20 Megabyte harddisk on PC drive C: 
+This will create a 20 Megabyte hard disk on PC drive C: 
 
 On early
 versions, the maximum size that could be created was 23 Megabytes and
@@ -3177,7 +3171,7 @@ To switch it off, use::
 As with Minerva, you cannot FORMAT a medium if there are any files
 open on that medium ('Is In Use' error is reported). If there is a
 problem during the FORMAT process, SMS will emit a series of BEEPs.
-However, be warned that an error messaage is not always displayed and
+However, be warned that an error message is not always displayed and
 the FORMAT may appear to have completed correctly!! SMS does not allow
 you to access the QL's microdrives, nor can it solve the problem on the
 QXL below. SMS can corrupt floppy disks (so they have to be thrown away)
@@ -3687,7 +3681,7 @@ This keystroke is
 generated by some commands to give the user a chance of reading the
 output, eg. VIEW, EXTRAS, SXTRAS, WDIR. 
 
-FREEZE OFF disables <CTRL><F5>, FREEZE ON reactivates it. 
+FREEZE OFF disables <CTRL><F5>, FREEZE ON re-activates it. 
 
 **Example**
 
@@ -4130,7 +4124,7 @@ following lines instead::
 The update time of a file will only be correct if the system clock was
 set to the correct time when the file was last written to, since it is
 the date contained within the QL's clock which is written to the header
-of the file. If your machine has a battery backed realtime clock, then
+of the file. If your machine has a battery backed real-time clock, then
 this presents no real problem; otherwise you will need to ensure that
 you set the date and time after each startup.
 
