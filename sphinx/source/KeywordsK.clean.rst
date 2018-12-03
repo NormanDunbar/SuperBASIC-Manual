@@ -67,7 +67,7 @@ fourth letter is used where that country has more than one language):
 
 Num can also be used as a pointer to a user-defined keyboard
 table for countries which are not covered. Details are beyond the scope
-of this book. A desription of how to create new keyboard tables and
+of this book. A description of how to create new keyboard tables and
 languages appears in IQLR Volume 5 Issue 1 and 5.
 
 **ST/QL NOTES**
@@ -716,7 +716,7 @@ KILLN
 | Location |  Beuletools                                                       |
 +----------+-------------------------------------------------------------------+
 
-This command removes all current jobs and reactivates the following
+This command removes all current jobs and re-activates the following
 jobs if the respective facilities are available: HOTKEY (Qjump's Hotkey
 System) BLANK (Blanks screen if no key pressed) Qmons Nix-Job (see NIX)
 Server (see FSERVE)
