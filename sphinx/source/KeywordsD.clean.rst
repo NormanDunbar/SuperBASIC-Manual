@@ -6,11 +6,6 @@ TODO
 ====
 
 - Can we do something about the SYNTAX table cell contents? We should have it split onto new lines for each "or".
-- :ref:`devtype` references something called QRD to rename a device. It is not found.
-- :ref:`dbl` references ESC whihc is not found.
-- DISP_COLOUR is referenced from KeywordsI (Ink) but is not in this file.
-
-
 
 ..  _data:
 
@@ -712,7 +707,7 @@ This function returns the control codes needed to switch on emphasised mode on a
 :ref:`el`, :ref:`enl`,
 :ref:`pro`, :ref:`si`,
 :ref:`nrm`, :ref:`unl`,
-:ref:`alt`, :ref:`esc`,
+:ref:`alt`, ESC,
 :ref:`ff`, :ref:`lmar`,
 :ref:`rmar`, :ref:`pagdis`,
 :ref:`paglen`.
@@ -1082,7 +1077,8 @@ causes an error 'Incorrect Procedure or Function Definition'.
 
 **CROSS-REFERENCE**
 
-Please refer to the individual structure descriptions for more details.
+Please refer to the individual structure descriptions for more details: :ref:`define--function`, 
+:ref:`define--procedure` and :ref:`end--define`.
 
 --------------
 
@@ -2272,7 +2268,7 @@ ramdisks ("RAM").
 Directory devices may be renamed with :ref:`change`
 (this will have a corresponding effect on
 :ref:`devlist`), whilst any device can be renamed
-using :ref:`qrd` (this will have no effect on
+using QRD (this will have no effect on
 :ref:`devlist`). Compare
 :ref:`dlist`.
 
