@@ -3,14 +3,6 @@
 Keywords I
 ==========
 
-TODO
-====
-
-- Fix that table in I2C\_IO - it's far too wide!
-- DISP_COLOUR is linked from :ref:`ink` in this file, but DISP_COLOUR is not in KeywordsD.
-- :ref:`is-basic` references JOB_NAME$ for Minerva but it's not listed in any source file.
-
-
 ..  _i2c-io:
 
 I2C\_IO
@@ -600,7 +592,7 @@ available in MODE 4):
 
 The values in MODE 4 which are marked
 "should be avoided" can be used on standard QLs, but lead to
-compatability problems when run under the Enhanced Colour Drivers (see
+compatibility problems when run under the Enhanced Colour Drivers (see
 below). Other integer values in the range 8 to 255 are allowed, but
 these are generally 'composite' colours and repeats of other values.
 
@@ -773,10 +765,10 @@ used to read the current colour mode.
 produced. :ref:`palette-ql` and
 :ref:`palette-8` can be used to change the
 palette of colours available.
-:ref:`disp-colour` can be used to switch from
+DISP\_COLOUR can be used to switch from
 Extended Colour Drivers to Standard Colour Drivers. Also refer to
 :ref:`inverse`. Please also look at the QL Display
-appendix (Appendix 16).
+appendix (Appendix 16 - :ref:`a16-ql--display`).
 
 --------------
 
@@ -1658,7 +1650,7 @@ IS\_BASIC will fail to spot a MultiBASIC or SBASIC interpreter.
 
 :ref:`prio` sets the priority of the current job.
 Under SMS or Minerva, you can use
-:ref:`job-name-dlr` to look at the name of the
+JOB_NAME$ to look at the name of the
 task which would normally be SBASIC or have its first two letters as MB
 respectively for a Multiple SBASIC or MultiBASIC interpreter, unless the
 name of the Interpreter has been altered. Refer
