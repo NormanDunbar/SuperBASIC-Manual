@@ -3,15 +3,6 @@
 Keywords L
 ==========
 
-TODO
-====
-
-- LANGUAGE and LANGUAGE$ have the same URL.
-- LLIST, LPRINT and LPRINT$ are referenced, but are not in this file.
-- :ref:`lmar` references ESC whihc is not found anywhere.
-
-
-
 ..  _lang-use:
 
 LANG\_USE
@@ -258,7 +249,7 @@ and uses a different col parameter to DRAW, see SET for that.
 
 **Example**
 
-Well, the sample listing whihc follows on below, is a bit too long for a
+Well, the sample listing which follows on below, is a bit too long for a
 simple demonstration of LDRAW. 
 
 The variable rstep% in line 110 determines via pics% how much
@@ -439,7 +430,7 @@ longer than 32766 characters, for example with::
 
 :ref:`fill-dlr` returns a string of a specified length.
 :ref:`dimn` returns important information about
-arrays. See also the Compatability Appendix for some important
+arrays. See also the Compatibility Appendix for some important
 information concerning string lengths.
 
 --------------
@@ -919,7 +910,7 @@ is the same as PRINT CHR$(27)&'l'&CHR$(10)
 :ref:`enl`, :ref:`pro`,
 :ref:`si`, :ref:`nrm`,
 :ref:`unl`, :ref:`alt`,
-:ref:`esc`, :ref:`ff`,
+ESC, :ref:`ff`,
 :ref:`rmar`, :ref:`pagdis`,
 :ref:`paglen`.
 
@@ -1426,7 +1417,7 @@ LOOKUP%
 
 This function expects you to pass a string parameter which contains a
 name used by the SuperBASIC interpreter. This name can be a machine code
-Procedure or Functiom (such as are described here in this manual), or a
+Procedure or Function (such as are described here in this manual), or a
 SuperBASIC variable, PROCedure or FuNction. If the specified name is
 recognised then LOOKUP% returns the number of its entry in the name
 list. If the name is not recognised, then the value -7 is returned.
@@ -1563,8 +1554,7 @@ will set LPRINT$ to "2", LPRINT$ and LLIST will report the error.
 
 **CROSS-REFERENCE**
 
-:ref:`llist`, :ref:`lprint-dlr`,
-:ref:`lprint-dlr`.
+LLIST, LPRINT$.
 
 --------------
 
