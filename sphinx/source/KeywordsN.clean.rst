@@ -3,13 +3,6 @@
 Keywords N
 ==========
 
-TODO
-====
-
-- Various references to ESC and QRD are broken, as these keywords do not exist.
-
-
-
 ..  _ndim:
 
 NDIM
@@ -735,7 +728,7 @@ trying to read from it (or vice versa). If this occurs, then an error -9
 
 **CROSS-REFERENCE**
 
-:ref:`qrd` renames any local device. See also
+QRD renames any local device. See also
 :ref:`flp-use`,
 :ref:`ram-use` and
 :ref:`dev-use`.
@@ -870,7 +863,7 @@ is the same as::
 :ref:`dbl`, :ref:`enl`,
 :ref:`pro`, :ref:`si`,
 :ref:`nrm`, :ref:`unl`,
-:ref:`alt`,\ :ref:`esc`,\ :ref:`ff`,\ :ref:`lmar`,
+:ref:`alt`,\ ESC,\ :ref:`ff`,\ :ref:`lmar`,
 :ref:`rmar`,\ :ref:`pagdis`,
 :ref:`paglen`.
 
@@ -1063,7 +1056,7 @@ is the same as::
 **CROSS-REFERENCE**
 
 :ref:`norm`, :ref:`bld`,
-:ref:`el`,\ :ref:`dbl`,\ :ref:`enl`,\ :ref:`pro`,\ :ref:`si`,\ :ref:`unl`,\ :ref:`alt`,\ :ref:`esc`,\ :ref:`ff`,\ :ref:`lmar`,\ :ref:`rmar`,\ :ref:`pagdis`,
+:ref:`el`,\ :ref:`dbl`,\ :ref:`enl`,\ :ref:`pro`,\ :ref:`si`,\ :ref:`unl`,\ :ref:`alt`,\ ESC,\ :ref:`ff`,\ :ref:`lmar`,\ :ref:`rmar`,\ :ref:`pagdis`,
 :ref:`paglen`. :ref:`uput`
 allows you to send untranslated bytes to the printer.
 
