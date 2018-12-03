@@ -320,7 +320,7 @@ parameter.
 
 - Negative numbers will have exactly the same effect except that if a history was already active, the
   absolute value of the given lines number is added to the memory capacity
-  of the existing history. Exisiting stored lines are retained in memory.
+  of the existing history. Existing stored lines are retained in memory.
 
 - Zero simply turns off a history and clears the tables which hold the entered lines. 
 
@@ -496,7 +496,7 @@ used, meaning that very little memory is used by each additional copy).
 
 As from v2.03 of Hotkey System II, if you use an upper case key$, then
 you will need to press the upper case character, compare where you use a
-lower case key$, which will recognise both the uppper and lower case
+lower case key$, which will recognise both the upper and lower case
 character (if the upper case character has not been assigned to another
 hotkey). 
 
@@ -783,7 +783,7 @@ function creates a key macro which will be typed into the current
 keyboard queue each time that you press <ALT> and the specified <key$>
 at the same time. Again, if more than one string appears in the
 definition, an <ENTER> (line feed) will be placed between each string.
-If you want a line feed at the end of the final string, add a nul string
+If you want a line feed at the end of the final string, add a null (empty) string
 to the definition.
 
 **NOTE**
@@ -1293,7 +1293,7 @@ not be recognised.
 
 **NOTE 2**
 
-Verions of the Hotkey System pre v2.21 do not allow you to pass a
+Versions of the Hotkey System prior to v2.21 do not allow you to pass a
 command string. You also need v2.24+ to pass a job name.
 
 **CROSS-REFERENCE**
@@ -1421,7 +1421,7 @@ example, with::
 
 **NOTE**
 
-Verions of the Hotkey System pre v2.21 do not allow you to pass a
+Versions of the Hotkey System prior v2.21 do not allow you to pass a
 command string. You also need v2.24+ to pass a job name.
 
 **CROSS-REFERENCE**
