@@ -3,18 +3,6 @@
 Keywords E
 ==========
 
-TODO
-====
-
-- There is a reference to the ESC command, probably in Beuletools, but it's not in the file.
-- :ref:`eq-dlr` references NE$ but that's not found.
-- :ref:`eprom-load` links to ROM\_TEST, but this is not found.
-- :ref:`enl` and :ref:`el` link to ESC, which is not found.
-- SET\_ENV is references from here, but is not known.
-
-
-
-
 ..  _easter:
 
 EASTER
@@ -28,7 +16,7 @@ EASTER
 
 This function calculates the date of Easter Sunday for any given year after 1583 
 (when the Gregorian calender was introduced by Pope Gregory XIII to replace the 
-Julian calender of Julius Caeser which had been in use since 46 BC). EASTER 
+Julian calender of Julius Ceasar which had been in use since 46 BC). EASTER 
 returns the date as a floating point number, where the day is the integer part 
 of the number and the month is given by the digits following the floating 
 point, eg. PRINT EASTER(1993)  shows 11.4 (April, 11th) 
@@ -260,7 +248,7 @@ fixed.
 
 The keying <CTRL> → clashes with the key used by early versions
 of the program MasterBasic (by Ergon Software) which is used to move
-between occurences of an object which has been searched for in the
+between occurrences of an object which has been searched for in the
 program. This has been resolved in v1.46+ of the program. 
 
 If you try to
@@ -432,12 +420,12 @@ given as a number or a string) is printed at the current text cursor position
 in #ch  (default #1) and allows you to edit it. The parameter maxlen%  dictates 
 the maximum number of characters allowed (this defaults to the amount set when 
 the Turbo Toolkit is configured). The edited result is returned when <ENTER> 
-is pressed. If the string contains a non-sensical value when <ENTER> is pressed, 
+is pressed. If the string contains a nonsensical value when <ENTER> is pressed, 
 a warning beep is sounded.
 
 **NOTE**
 
-On non-SMS machines, a buffer full errror could be reported if an
+On non-SMS machines, a buffer full error could be reported if an
 attempt was made to enter a string longer than 118 characters, or the
 length of the longest SuperBASIC line listed or edited to date,
 whichever is longer.
@@ -574,7 +562,7 @@ is the same as::
 :ref:`dbl`, :ref:`enl`,
 :ref:`pro`, :ref:`si`,
 :ref:`nrm`, :ref:`unl`,
-:ref:`alt`, :ref:`esc`,
+:ref:`alt`, ESC,
 :ref:`ff`, :ref:`lmar`,
 :ref:`rmar`, :ref:`pagdis`,
 :ref:`paglen`.
@@ -1270,7 +1258,7 @@ is the same as::
 :ref:`el`, :ref:`dbl`,
 :ref:`pro`, :ref:`si`,
 :ref:`nrm`, :ref:`unl`,
-:ref:`alt`, :ref:`esc`,
+:ref:`alt`, ESC,
 :ref:`ff`, :ref:`lmar`,
 :ref:`rmar`, :ref:`pagdis`,
 :ref:`paglen`.
@@ -1335,7 +1323,7 @@ flp1\_address\_data::
 Until v2.55 this command was the same as EOFW, which meant that it would
 only return a value if there was data waiting or it had received an end
 of file code - this was changed back to the original to maintain
-compatability.
+compatibility.
 
 **CROSS-REFERENCE**
 
@@ -1389,7 +1377,7 @@ EPROM\_LOAD
 
 You cannot plug QL EPROM cartridges into the various other computers which now 
 support QL software, which would normally make some software which contains part 
-of its code on EPROM, unuseable. In order that you can use such software on other 
+of its code on EPROM, unusable. In order that you can use such software on other 
 computers, you need to create a file on an original QL containing an image of the 
 EPROM cartridge plugged into the QL's ROM port. To do this, use the command:: 
 
@@ -1404,7 +1392,7 @@ done this, you will need to have the ST/QL Emulator switched on (or SMS loaded o
 the other computer), then insert that disk into the Atari's disk drive, and use 
 the command: EPROM\_LOAD flp1\_EPROM\_image  This will then copy the EPROM code 
 into the same address on the Emulator or other computer as the EPROM cartridge 
-occupies on the QL, thus making it useable.
+occupies on the QL, thus making it usable.
 
 **NOTE 1**
 
@@ -1427,7 +1415,7 @@ or Super Gold Card without the specified file being present.
 **CROSS-REFERENCE**
 
 See also :ref:`rom`, :ref:`roms`
-and :ref:`rom-test`.
+and ROM\_TEST.
 
 --------------
 
@@ -1503,7 +1491,7 @@ the two strings are equal to each other using the same test as GT$.
 **CROSS-REFERENCE**
 
 See :ref:`gt-dlr` for more details.
-:ref:`ne-dlr` is the same as::
+NE is the same as::
 
     NOT EQ$ (type, string1$,string2$)
     
@@ -1803,7 +1791,7 @@ These functions are not affected by REPORT.
 **NOTE 2**
 
 On Minerva pre v1.98, the ERR\_ functions were returning 1 if any higher
-error had occured!!
+error had occurred!!
 
 **WARNING**
 
@@ -2575,7 +2563,7 @@ are:
 - P [,size]- This tells the Hotkey System that the program is a Psion
   program (eg. Quill) which will try to grab all of the available memory.
 
-  If size is not specifed, then the Hotkey System will ask the user to
+  If size is not specified, then the Hotkey System will ask the user to
   specify the maximum amount of memory (in kilobytes) that the program
   should use before the program actually starts. Otherwise, the program
   will be allowed to use size
