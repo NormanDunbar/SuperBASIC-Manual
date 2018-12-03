@@ -3,12 +3,6 @@
 Keywords Other
 ==============
 
-TODO
-====
-
-- _DEF% and _DEF$ have the same URL. Needs to be fixed.
-- URLs generated replace '_' with '-', but, in the index they have no leading '-'. So cross references don't actually work in this file.
-
 
 ..  _-def-pct:
 
