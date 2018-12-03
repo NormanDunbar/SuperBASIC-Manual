@@ -3,13 +3,6 @@
 Keywords B
 ==========
 
-TODO
-====
-
-- :ref:`bicop` cross references keywords HCO and FCO- neither of which exist.
-- :ref:`bld` cross references keyword ESC which doesn't exist.
-
-
 ..  _basic:
 
 BASIC
@@ -260,7 +253,7 @@ if there is some mismatch between table entries.
 **NOTE**
 
 A file called TurboFix\_bin can be used to allow BASIC\_INDEX% to access
-the Minvera MultiBASIC and SMS SBASIC name tables. Some early versions
+the Minerva MultiBASIC and SMS SBASIC name tables. Some early versions
 of TurboFix\_bin have bugs in it. Beware that not all versions of this
 file supports SMS SBASICs.
 
@@ -294,7 +287,7 @@ be generated, or junk may be returned.
 **NOTE**
 
 A file called TurboFix\_bin can be used to allow BASIC\_NAME$ to access
-the Minvera MultiBASIC and SMS SBASIC name tables. Some early versions
+the Minerva MultiBASIC and SMS SBASIC name tables. Some early versions
 of TurboFix\_bin have bugs in it. Beware that not all versions of this
 file supports SMS SBASICs.
 
@@ -324,7 +317,7 @@ This function is exactly the same as BASICP.
 **NOTE**
 
 A file called TurboFix\_bin can be used to allow BASIC\_POINTER to
-access the Minvera MultiBASIC and SMS SBASIC name tables. Some early
+access the Minerva MultiBASIC and SMS SBASIC name tables. Some early
 versions of TurboFix\_bin have bugs in it. Beware that not all versions
 of this file supports SMS SBASICs.
 
@@ -364,7 +357,7 @@ be generated, or junk may be returned.
 **NOTE**
 
 A file called TurboFix\_bin can be used to allow BASIC\_TYPE% to access
-the Minvera MultiBASIC and SMS SBASIC name tables. Some early versions
+the Minerva MultiBASIC and SMS SBASIC name tables. Some early versions
 of TurboFix\_bin have bugs in it. Beware that not all versions of this
 file supports SMS SBASICs.
 
@@ -517,7 +510,7 @@ affected by the QL's sound chip.
 
 **NOTE 2**
 
-On a standard QL without Minerva the actual baudrate is slighty lower
+On a standard QL without Minerva the actual baudrate is slightly lower
 than that stated above.
 
 
@@ -772,9 +765,9 @@ BCLEAR
 +----------+-------------------------------------------------------------------+
 
 Each console channel has what is known as an input queue, a small area
-of memory where keypresses are stored before they are read by INPUT,
+of memory where key presses are stored before they are read by INPUT,
 INKEY$ etc. The command BCLEAR clears the buffer of the current input
-queue so that any keypresses which have not yet been processed are not
+queue so that any key presses which have not yet been processed are not
 seen by the program. This is useful to prevent overrun on keys.
 
 
@@ -783,12 +776,12 @@ seen by the program. This is useful to prevent overrun on keys.
 (1) Type this line as a direct command into the interpreter, press
 <ENTER> and then type some keys. REPeat a: REMark
 
-Now press break and all of those keypresses which you performed after
+Now press break and all of those key presses which you performed after
 entering the line will be shown. Replace REMark by BCLEAR and try the
 same.
 
-Normally it is okay for all keypresses to be stored in a buffer - if a
-program cannot cope with the typist's speed, no keypresses will be lost.
+Normally it is okay for all key presses to be stored in a buffer - if a
+program cannot cope with the typist's speed, no key presses will be lost.
 But sometimes this feature may not be welcome.
 
 (2) Even on very good keyboards the phenomenon of key-bounce appears,
@@ -847,31 +840,31 @@ not the earlier sound had finished).
 Each of the various parameters have different ranges and different
 effects on the sound produced:
 
--  length This specifies the duration of the sound in 72 microsecond
+-  `length` This specifies the duration of the sound in 72 microsecond
    units (there are one million microseconds in a second). A length of
    zero means emit the sound until another BEEP command is encountered.
    The range is 0...32767 (a value of 32767 lasts for approximately 2.36
    seconds).
 
--  pitch This affects the tone of the sound produced. The allowable
+-  `pitch` This affects the tone of the sound produced. The allowable
    range is 0...255. A pitch of 0 is the highest which can be produced,
    ranging to 255 which is the deepest tone. The purity of the sound
    will be affected if any other parameters are specified.
 
--  pitch\_2 This represents a second pitch level, which will have no
+-  `pitch_2` This represents a second pitch level, which will have no
    effect if the tone is the same (or higher) than pitch. If however,
    the value of this parameter is higher (the tone is lower) than that
    of pitch, this specifies a range between which the sound can 'bounce'
    by use of the next two parameters, creating a sequence of notes (the
    length of the sequence will depend on the length parameter).
 
--  grd\_x Assuming that the BEEP command is now being used to produce a
+-  `grd_x` Assuming that the BEEP command is now being used to produce a
    sequence of notes, this parameter specifies the time interval (in 72
    microsecond units) of each note in the sequence. The permitted range
    is again 0...32767. Larger time intervals make each note in the
    sequence more distinct (low values tend to produce just buzzing).
 
--  grd\_y This parameter specifies the step between each note in the
+-  `grd_y` This parameter specifies the step between each note in the
    sequence. This must be in the range 0...15. However, this may make
    more sense if the correct range was said to be -7..8.
 
@@ -880,7 +873,7 @@ effects on the sound produced:
 
    A value between 1 and 7 means that each note will be that many
    pitches below the last one (unless that would bring the pitch below
-   pitch\_2).
+   `pitch_2`).
 
    A value of 8 makes the BEEP command fit as many notes into the
    sequence (in the range) as possible.
@@ -891,7 +884,7 @@ effects on the sound produced:
    the top or bottom of the range pitch to pitch\_2 is reached, the step
    direction is reversed to cause the sound to 'bounce'.
 
--  wrap If this parameter is specified, the range of notes between the
+-  `wrap` If this parameter is specified, the range of notes between the
    two pitch parameters will be repeated the specified number of times
    before the step direction is altered. The range for this parameter is
    0..15.
@@ -899,11 +892,11 @@ effects on the sound produced:
    The last note in the range will not be sounded, but will appear as
    the first note in the opposite direction.
 
--  fuzzThis affects the purity of each note, by blurring its sound. The
+-  `fuzz` This affects the purity of each note, by blurring its sound. The
    effective range is 8...15, with a value of 15 producing an awful
    buzz.
 
--  rndomThis parameter allows you to specify a certain amount of
+-  `rndom` This parameter allows you to specify a certain amount of
    'randomness' which is to be added to each note.
 
    The effective range is once again 8...15, with the given value being
@@ -1303,7 +1296,7 @@ It will only work on a standard 512x256 screen stored at $20000.
 
 :ref:`sdump` is more flexible.
 
-See also :ref:`hco` and :ref:`fco`.
+See also HCO and FCO.
 
 --------------
 
@@ -1604,7 +1597,7 @@ LPRINT "I " & BLD&"hate"&NRM & " these functions."
 :ref:`dbl`, :ref:`enl`,
 :ref:`pro`, :ref:`si`,
 :ref:`nrm`, :ref:`unl`,
-:ref:`alt`, :ref:`esc`,
+:ref:`alt`, ESC,
 :ref:`ff`, :ref:`lmar`,
 :ref:`rmar`, :ref:`pagdis`,
 :ref:`paglen`.
