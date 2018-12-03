@@ -3,17 +3,6 @@
 Keywords G
 ==========
 
-TODO
-====
-
-- There doesn't appear to be an entry for GE$ in this file. But it is referenced as a link in GT$.
-- Other links to non existing functions are LT$, LE$ and NE$.
-
-
-
-
-
-
 ..  _gcd:
 
 GCD
@@ -532,9 +521,9 @@ GETXY
 | Location |  HCO                                                              |
 +----------+-------------------------------------------------------------------+
 
-This command draws a haircross (with its centre at (x%,y%) which can be
+This command draws a crosshair (with its centre at (x%,y%) which can be
 moved with the cursor keys. Holding down <SHIFT> while pressing a cursor
-key will speed up movement. Once the haircross is placed in the correct
+key will speed up movement. Once the crosshair is placed in the correct
 position, press <SPACE> to return to BASIC. The two parameters x% and y%
 will be updated to the position of the centre of the cross.
 
@@ -874,8 +863,8 @@ The characters are compared by using the following order::
 
 **CROSS-REFERENCE**
 
-See :ref:`instr`. :ref:`ge-dlr`,
-:ref:`lt-dlr`, :ref:`le-dlr`,
-:ref:`eq-dlr` and :ref:`ne-dlr` are all
+See :ref:`instr`. GE,
+LT, LE,
+:ref:`eq-dlr` and NE are all
 similar facilities.
 
