@@ -3,12 +3,6 @@
 Keywords C
 ==========
 
-TODO
-====
-
-- This file references SNOOZE, GLOBAL, EXTERNAL, LINK_LOAD_A, WINCTRL, SET_CHANNEL, DISP_COLOUR. They don't exist.
-
-
 ..  _cache-on:
 
 CACHE\_ON
@@ -290,10 +284,10 @@ simply suspended until the Break key is pressed.
 
 **CROSS-REFERENCE**
 
-:ref:`snooze` is similar. See also
-:ref:`global`,
-:ref:`external` and
-:ref:`link-load-a`.
+SNOOZE is similar. See also
+GLOBAL,
+EXTERNAL and
+LINK_LOAD_A.
 
 --------------
 
@@ -303,11 +297,13 @@ simply suspended until the Break key is pressed.
 CBASE
 =====
 
-+----------+-------------------------------------------------------------------+
-| Syntax   |  CBASE [(#ch)](Btool) and CBASE (#ch)(TinyToolkit)                |
-+----------+-------------------------------------------------------------------+
-| Location |  BTool, TinyToolkit                                               |
-+----------+-------------------------------------------------------------------+
++----------+--------------------------+
+| Syntax   | CBASE [(#ch)](Btool) and |
+|          |                          |
+|          | CBASE (#ch)(TinyToolkit) |
++----------+--------------------------+
+| Location |  BTool, TinyToolkit      |
++----------+--------------------------+
 
 The function CBASE finds the start address of the channel definition
 block which belongs to #ch. This is an area in memory where QDOS stores
@@ -323,7 +319,7 @@ The Pointer Interface modifies the structure of channel definition
 blocks for windows.
 
 If you want to access these, preferably use
-:ref:`winctrl` instead of
+WINCTRL instead of
 :ref:`cbase`. See also
 :ref:`chbase`.
 
@@ -1224,12 +1220,13 @@ drives), the error -20 (read only) will be reported.
 CHANID
 ======
 
-+----------+-------------------------------------------------------------------+
-| Syntax   || CHANID [(#ch)]Btool only or                                      |
-|          || CHANID (#ch)TinyToolkit                                          |
-+----------+-------------------------------------------------------------------+
-| Location || BTool, TinyToolkit                                               |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------+
+| Syntax   | CHANID [(#ch)]Btool only or                                      |
+|          |                                                                  |
+|          | CHANID (#ch)TinyToolkit                                          |
++----------+------------------------------------------------------------------+
+| Location | BTool, TinyToolkit                                               |
++----------+------------------------------------------------------------------+
 
 QDOS uses a different sort of channel number internally to those used by
 SuperBASIC. These so-called channel IDs have the advantage that two
@@ -1258,7 +1255,7 @@ channel ID.
 :ref:`channel-id` is the same as the Btool
 variant.
 
-See :ref:`set-channel` also.
+See SET\_CHANNEL also.
 
 --------------
 
@@ -1312,7 +1309,7 @@ This function is exactly the same as CHANID.
 **CROSS-REFERENCE**
 
 See\ :ref:`chanid` and
-:ref:`set-channel`.
+SET\_CHANNEL.
 
 --------------
 
@@ -1334,13 +1331,15 @@ CHAN\_W%
 CHAN\_L%
 ========
 
-+----------+-------------------------------------------------------------------+
-| Syntax   || CHAN\_B% (#ch, offset) and                                       |
-|          || CHAN\_W% (#ch, offset) and                                       |
-|          || CHAN\_L                                                          |
-+----------+-------------------------------------------------------------------+
-| Location || CHANS (DIY Toolkit - Vol C)                                      |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------+
+| Syntax   | CHAN\_B% (#ch, offset) and                                       |
+|          |                                                                  |
+|          | CHAN\_W% (#ch, offset) and                                       |
+|          |                                                                  |
+|          | CHAN\_L                                                          |
++----------+------------------------------------------------------------------+
+| Location | CHANS (DIY Toolkit - Vol C)                                      |
++----------+------------------------------------------------------------------+
 
 These three functions can be used to look at values within the channel
 definition block relating to the specified channel (#ch). You will need
@@ -1619,12 +1618,13 @@ system fonts.
 CHBASE
 ======
 
-+----------+-------------------------------------------------------------------+
-| Syntax   || CHBASE [(#ch)] or                                                |
-|          || CHBASE (chidx%, chtag%)                                          |
-+----------+-------------------------------------------------------------------+
-| Location || QBASE (DIY Toolkit Vol Q)                                        |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------+
+| Syntax   | CHBASE [(#ch)] or                                                |
+|          |                                                                  |
+|          | CHBASE (chidx%, chtag%)                                          |
++----------+------------------------------------------------------------------+
+| Location | QBASE (DIY Toolkit Vol Q)                                        |
++----------+------------------------------------------------------------------+
 
 CHBASE is a function which returns the start address of a window
 definition block. This block contains a wide range of information about
@@ -2358,13 +2358,15 @@ return the current time.
 CLOSE
 =====
 
-+----------+----------------------------------------------------------------------------+
-| Syntax   || CLOSE #channel  or                                                        |
-|          || CLOSE #channel1 [, #channel2 ...] (Toolkit II, Btool & Minerva v1.81+) or |
-|          || CLOSE (Toolkit II, THOR & Minerva v1.81+, BTool)                          |
-+----------+----------------------------------------------------------------------------+
-| Location || QL ROM, Toolkit II, BTool,. THOR                                          |
-+----------+----------------------------------------------------------------------------+
++----------+---------------------------------------------------------------------------+
+| Syntax   | CLOSE #channel  or                                                        |
+|          |                                                                           |
+|          | CLOSE #channel1 [, #channel2 ...] (Toolkit II, Btool & Minerva v1.81+) or |
+|          |                                                                           |
+|          | CLOSE (Toolkit II, THOR & Minerva v1.81+, BTool)                          |
++----------+---------------------------------------------------------------------------+
+| Location | QL ROM, Toolkit II, BTool,. THOR                                          |
++----------+---------------------------------------------------------------------------+
 
 CLOSE is a procedure which closes a specified channel, (or even several
 channels if the second or third variant is used). The contents of that
@@ -2948,7 +2950,7 @@ Refer to Appendix 16 and :ref:`ink` for more details.
 :ref:`bgcolour-24` can be used to alter the
 desktop colour of the main screen.
 
-:ref:`disp-colour` can be used to switch
+DISP\_COLOUR can be used to switch
 between Extended Colour Drivers and the Standard Colour Drivers.
 
 --------------
@@ -3249,12 +3251,13 @@ and\ :ref:`qlink`
 CONTINUE
 ========
 
-+----------+-------------------------------------------------------------------+
-| Syntax   || CONTINUE or                                                      |
-|          || CONTINUE [line\_no](Toolkit II & Minerva only)                   |
-+----------+-------------------------------------------------------------------+
-| Location || QL ROM, Toolkit II                                               |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------+
+| Syntax   | CONTINUE or                                                      |
+|          |                                                                  |
+|          | CONTINUE [line\_no](Toolkit II & Minerva only)                   |
++----------+------------------------------------------------------------------+
+| Location | QL ROM, Toolkit II                                               |
++----------+------------------------------------------------------------------+
 
 This command allows the user to try and recover from an error (normally
 after STOP or pressing the Break key), by telling the interpreter to
@@ -3388,13 +3391,15 @@ The character CHR$(0) cannot be replaced.
 COPY
 ====
 
-+----------+--------------------------------------------------------------------+
-| Syntax   || COPY file1 TO file2  or                                           |
-|          || COPY [file] [TO file2] (Toolkit II)  or                           |
-|          || COPY file1 [,file2 [,file3...]] {TO \| !} fileb (THOR XVI)        |
-+----------+--------------------------------------------------------------------+
-| Location || QL ROM, Toolkit II, THOR XVI                                      |
-+----------+--------------------------------------------------------------------+
++----------+-------------------------------------------------------------------+
+| Syntax   | COPY file1 TO file2  or                                           |
+|          |                                                                   |
+|          | COPY [file] [TO file2] (Toolkit II)  or                           |
+|          |                                                                   |
+|          | COPY file1 [,file2 [,file3...]] {TO \| !} fileb (THOR XVI)        |
++----------+-------------------------------------------------------------------+
+| Location | QL ROM, Toolkit II, THOR XVI                                      |
++----------+-------------------------------------------------------------------+
 
 The command COPY duplicates file1, so that file2 is an exact copy. The
 parameters can also be a device (eg. ser1, con, scr, scr\_400x20) or, if
@@ -3541,12 +3546,13 @@ variant.
 COPY\_B
 =======
 
-+----------+-------------------------------------------------------------------+
-| Syntax   || COPY\_B adr1, adr2, n or                                         |
-|          || COPY\_B adr1, n TO adr2                                          |
-+----------+-------------------------------------------------------------------+
-| Location || BTool                                                            |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------+
+| Syntax   | COPY\_B adr1, adr2, n or                                         |
+|          |                                                                  |
+|          | COPY\_B adr1, n TO adr2                                          |
++----------+------------------------------------------------------------------+
+| Location | BTool                                                            |
++----------+------------------------------------------------------------------+
 
 The command COPY\_B copies n bytes from the memory address adr1 to adr2
 without any restrictions. The programmer has to ensure that there is
@@ -3599,12 +3605,13 @@ See :ref:`copy-n`.
 COPY\_L
 =======
 
-+----------+-------------------------------------------------------------------+
-| Syntax   ||  COPY\_L adr1, adr2, n or                                        |
-|          || COPY\_L adr1, n TO adr2                                          |
-+----------+-------------------------------------------------------------------+
-| Location ||  BTool                                                           |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------+
+| Syntax   |  COPY\_L adr1, adr2, n or                                        |
+|          |                                                                  |
+|          | COPY\_L adr1, n TO adr2                                          |
++----------+------------------------------------------------------------------+
+| Location |  BTool                                                           |
++----------+------------------------------------------------------------------+
 
 The command COPY\_L copies n longwords (each being 4 bytes) from address
 adr1 to adr2. The two memory locations can overlap (this is also true
@@ -3637,13 +3644,15 @@ Both adr1 and adr2 must be even addresses.
 COPY\_N
 =======
 
-+----------+--------------------------------------------------------------------+
-| Syntax   || COPY\_N file1 TO file2  or                                        |
-|          || COPY\_N [file1] [TO file2] (Tooolkit II)  or                      |
-|          || COPY\_N file1 [,file2 [,file3...]] {TO \| !} fileb (THOR XVI)     |
-+----------+--------------------------------------------------------------------+
-| Location || QL ROM, Toolkit II, THOR XVI                                      |
-+----------+--------------------------------------------------------------------+
++----------+-------------------------------------------------------------------+
+| Syntax   | COPY\_N file1 TO file2  or                                        |
+|          |                                                                   |
+|          | COPY\_N [file1] [TO file2] (Tooolkit II)  or                      |
+|          |                                                                   |
+|          | COPY\_N file1 [,file2 [,file3...]] {TO \| !} fileb (THOR XVI)     |
++----------+-------------------------------------------------------------------+
+| Location | QL ROM, Toolkit II, THOR XVI                                      |
++----------+-------------------------------------------------------------------+
 
 
 This command is basically the same as COPY, but the file header is
@@ -3677,12 +3686,13 @@ or not), and the syntax is identical to :ref:`copy`,
 COPY\_O
 =======
 
-+----------+--------------------------------------------------------------------+
-| Syntax   || COPY\_O [file1] [TO file2] or                                     |
-|          || COPY\_O file1 [,file2 [,file3...]] {TO \| !} fileb (THOR XVI)     |
-+----------+--------------------------------------------------------------------+
-| Location || Toolkit II, THOR XVI                                              |
-+----------+--------------------------------------------------------------------+
++----------+-------------------------------------------------------------------+
+| Syntax   | COPY\_O [file1] [TO file2] or                                     |
+|          |                                                                   |
+|          | COPY\_O file1 [,file2 [,file3...]] {TO \| !} fileb (THOR XVI)     |
++----------+-------------------------------------------------------------------+
+| Location | Toolkit II, THOR XVI                                              |
++----------+-------------------------------------------------------------------+
 
 The command COPY\_O is identical to Toolkit II's COPY command, but if
 the file already exists, it will automatically be over-written without
@@ -3705,12 +3715,13 @@ exists.
 COPY\_W
 =======
 
-+----------+-------------------------------------------------------------------+
-| Syntax   || COPY\_W adr1, adr2, n         or                                 |
-|          || COPY\_W adr1, n TO adr2                                          |
-+----------+-------------------------------------------------------------------+
-| Location || BTool                                                            |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------+
+| Syntax   | COPY\_W adr1, adr2, n         or                                 |
+|          |                                                                  |
+|          | COPY\_W adr1, n TO adr2                                          |
++----------+------------------------------------------------------------------+
+| Location | BTool                                                            |
++----------+------------------------------------------------------------------+
 
 The command COPY\_W copies n words (two bytes each) from address adr1 to
 adr2.
@@ -4204,12 +4215,13 @@ See :ref:`curdis` also.
 CURSOR
 ======
 
-+----------+--------------------------------------------------------------------+
-| Syntax   || CURSOR [#channel,] [grx, gry,] x,y or                             |
-|          || CURSOR [#channel,] flag (Btool only)                              |
-+----------+--------------------------------------------------------------------+
-| Location || QL ROM, Btool                                                     |
-+----------+--------------------------------------------------------------------+
++----------+-------------------------------------------------------------------+
+| Syntax   | CURSOR [#channel,] [grx, gry,] x,y or                             |
+|          |                                                                   |
+|          | CURSOR [#channel,] flag (Btool only)                              |
++----------+-------------------------------------------------------------------+
+| Location | QL ROM, Btool                                                     |
++----------+-------------------------------------------------------------------+
 
 
 The CURSOR command allows you to set the text cursor to a specific

@@ -3,24 +3,18 @@
 Keywords A
 ==========
 
-TODO
-====
-
-- :ref:`allocation` refers to taskno% and tasktag% in the syntax, but the text mentions taskid%.
-- There is a reference to the ESC command, in :ref:`alt`, but it's not in the KeywordsE file.
-
-
 ..  _abs:
 
 ABS
 ===
 
-+----------+-------------------------------------------------------------------------+
-| Syntax   || ABS (number) or                                                        |
-|          || ABS (number1 :sup:`\*`\ [,number\ :sup:`x`]\ :sup:`\*`) (Minerva only) |
-+----------+-------------------------------------------------------------------------+
-| Location || QL ROM                                                                 |
-+----------+-------------------------------------------------------------------------+
++----------+------------------------------------------------------------------------+
+| Syntax   | ABS (number) or                                                        |
+|          |                                                                        |
+|          | ABS (number1 :sup:`\*`\ [,number\ :sup:`x`]\ :sup:`\*`) (Minerva only) |
++----------+------------------------------------------------------------------------+
+| Location | QL ROM                                                                 |
++----------+------------------------------------------------------------------------+
 
 This function returns the absolute value of a number - ie. the positive
 difference (or distance) between zero and the number. The absolute value
@@ -346,12 +340,13 @@ Also please see the Mathematics section in the Appendix.
 ACOT
 ====
 
-+----------+-------------------------------------------------------------------+
-| Syntax   || ACOT (x) or                                                      |
-|          || ACOT (y,x) (Minerva v1.90+ only)                                 |
-+----------+-------------------------------------------------------------------+
-| Location || QL ROM                                                           |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------+
+| Syntax   | ACOT (x) or                                                      |
+|          |                                                                  |
+|          | ACOT (y,x) (Minerva v1.90+ only)                                 |
++----------+------------------------------------------------------------------+
+| Location | QL ROM                                                           |
++----------+------------------------------------------------------------------+
 
 The function ACOT, is the arc-cotangent function, that is to say the
 inverse of the cotangent function (COT in SuperBASIC): COT(ACOT(x))=x
@@ -594,13 +589,15 @@ Other commands added are :ref:`astat`,
 AJOB
 ====
 
-+----------+-------------------------------------------------------------------+
-| Syntax   || AJOB jobname,priority or                                         |
-|          || AJOB jobnr,tag,priority or                                       |
-|          || AJOB job\_id,priority                                            |
-+----------+-------------------------------------------------------------------+
-| Location || Toolkit II                                                       |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------+
+| Syntax   | AJOB jobname,priority or                                         |
+|          |                                                                  |
+|          | AJOB jobnr,tag,priority or                                       |
+|          |                                                                  |
+|          | AJOB job\_id,priority                                            |
++----------+------------------------------------------------------------------+
+| Location | Toolkit II                                                       |
++----------+------------------------------------------------------------------+
 
 This command forces the specified job (described by either its jobname,
 its job number and tag, or its job identification number) to be
@@ -672,12 +669,13 @@ example.
 ALCHP
 =====
 
-+----------+-------------------------------------------------------------------+
-| Syntax   || ALCHP (space) or                                                 |
-|          || ALCHP (space [,[jobID]]) (BTool only)                            |
-+----------+-------------------------------------------------------------------+
-| Location || Toolkit II, THOR XVI, BTool                                      |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------+
+| Syntax   | ALCHP (space) or                                                 |
+|          |                                                                  |
+|          | ALCHP (space [,[jobID]]) (BTool only)                            |
++----------+------------------------------------------------------------------+
+| Location | Toolkit II, THOR XVI, BTool                                      |
++----------+------------------------------------------------------------------+
 
 The function ALCHP allocates space bytes in the common heap and returns
 the start address of the memory set aside to be altered freely. This,
@@ -777,12 +775,13 @@ fragmentation.
 ALIAS
 =====
 
-+----------+------------------------------------------------------------------+
-| Syntax   || ALIAS old\_keyword$ TO new\_keyword(ALIAS\_CODE) or             |
-|          || ALIAS new\_keyword TO old\_keyword$(SAILA\_CODE)                |
-+----------+------------------------------------------------------------------+
-| Location || ALIAS (DIY Toolkit - Vol A)                                     |
-+----------+------------------------------------------------------------------+
++----------+-----------------------------------------------------------------+
+| Syntax   | ALIAS old\_keyword$ TO new\_keyword(ALIAS\_CODE) or             |
+|          |                                                                 |
+|          | ALIAS new\_keyword TO old\_keyword$(SAILA\_CODE)                |
++----------+-----------------------------------------------------------------+
+| Location | ALIAS (DIY Toolkit - Vol A)                                     |
++----------+-----------------------------------------------------------------+
 
 This command is similar to NEW\_NAME and REPLACE.
 
@@ -990,7 +989,7 @@ ALLOCATION
 
 This function is very similar to RESERVE. It allocates an area in the
 common heap which may be associated with a specified job. If taskno% and
-taskid% are not specified, then the area is linked with the current job
+tasktag% are not specified, then the area is linked with the current job
 and removed when the current job is removed.
 
 **CROSS-REFERENCE**
@@ -998,7 +997,7 @@ and removed when the current job is removed.
 :ref:`deallocate` should be used to remove the
 allocated area.
 
-The taskno% and taskid% can be found using
+The taskno% and tasktag% can be found using
 :ref:`jobs` or :ref:`list-tasks`.
 
 --------------
@@ -1056,7 +1055,7 @@ is therefore equivalent to::
 :ref:`el`, :ref:`dbl`,
 :ref:`enl`, :ref:`pro`,
 :ref:`si`, :ref:`nrm`,
-:ref:`unl`, :ref:`esc`,
+:ref:`unl`, esc,
 :ref:`ff`, :ref:`lmar`,
 :ref:`rmar`, :ref:`pagdis`,
 :ref:`paglen`.
@@ -1119,13 +1118,15 @@ See :ref:`set`.
 ALTKEY
 ======
 
-+----------+-------------------------------------------------------------------+
-| Syntax   || ALTKEY character$,string$ [,string2$ [,string2$... ]]  or        |
-|          || ALTKEY character$  or                                            |
-|          || ALTKEY                                                           |
-+----------+-------------------------------------------------------------------+
-| Location ||  Toolkit II                                                      |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------+
+| Syntax   | ALTKEY character$,string$ [,string2$ [,string2$... ]]  or        |
+|          |                                                                  |
+|          | ALTKEY character$  or                                            |
+|          |                                                                  |
+|          | ALTKEY                                                           |
++----------+------------------------------------------------------------------+
+| Location |  Toolkit II                                                      |
++----------+------------------------------------------------------------------+
 
 This command defines a key macro which will be typed into the computer
 when you press the <ALT> key at the same time as the <character$> key.
@@ -1767,12 +1768,13 @@ Other commands added are :ref:`adelete`,
 AT
 ==
 
-+----------+-------------------------------------------------------------------+
-| Syntax   || AT [#ch,] row, column  or                                        |
-|          || AT [#ch,] column,row (pre AH ROMs only)                          |
-+----------+-------------------------------------------------------------------+
-| Location || QL ROM                                                           |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------+
+| Syntax   | AT [#ch,] row, column  or                                        |
+|          |                                                                  |
+|          | AT [#ch,] column,row (pre AH ROMs only)                          |
++----------+------------------------------------------------------------------+
+| Location | QL ROM                                                           |
++----------+------------------------------------------------------------------+
 
 This command sets the current print position in the given window
 (default #1) to the given row and column number. The top left hand
@@ -1853,12 +1855,13 @@ Also see :ref:`left`.
 ATAN
 ====
 
-+----------+-------------------------------------------------------------------+
-| Syntax   || ATAN (x)  or                                                     |
-|          || ATAN (x,y) (Minerva and SMS only)                                |
-+----------+-------------------------------------------------------------------+
-| Location || QL ROM                                                           |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------+
+| Syntax   | ATAN (x)  or                                                     |
+|          |                                                                  |
+|          | ATAN (x,y) (Minerva and SMS only)                                |
++----------+------------------------------------------------------------------+
+| Location | QL ROM                                                           |
++----------+------------------------------------------------------------------+
 
 The function ATAN, is the arc-tangent function, that is to say the
 inverse of the tangent function (TAN in SuperBASIC).

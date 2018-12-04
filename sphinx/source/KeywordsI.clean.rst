@@ -3,14 +3,6 @@
 Keywords I
 ==========
 
-TODO
-====
-
-- Fix that table in I2C\_IO - it's far too wide!
-- DISP_COLOUR is linked from :ref:`ink` in this file, but DISP_COLOUR is not in KeywordsD.
-- :ref:`is-basic` references JOB_NAME$ for Minerva but it's not listed in any source file.
-
-
 ..  _i2c-io:
 
 I2C\_IO
@@ -26,20 +18,20 @@ The Minerva MKII operating system comes complete with a battery backed
 clock and a small amount of on-board RAM (256 bytes) which can be used
 to store various details whilst a machine is switched off, using some of
 those details to dictate the state of the machine when it is first
-switched on (or re-set). 
+switched on (or re-set).
 
 An on-board serial bus is also included which
 can be used to link add-on interfaces and can transfer data at speeds up
-to 100kbits per second. 
+to 100kbits per second.
 
 Interfaces currently exist to allow the QL to
 drive motors (up to 4 amps), relay switches (up to 3 amps) and an
-Analogue to Digital converter. 
+Analogue to Digital converter.
 
 The I2C\_IO function allows you to access the
 battery backed clock, RAM and other interfaces provided by Minerva MKII,
 through what is known as the I\ :sup:`2`\ C bus. The results of the
-function will be returned by way of a string. 
+function will be returned by way of a string.
 
 The cmd$ should contain a
 series of bytes which are sent to the I\ :sup:`2`\ C bus to be sent to
@@ -47,7 +39,7 @@ the device pointed to by the other parameters. This is normally a byte
 which represents a command, followed by the parameters for that command.
 
 For the battery backed clock and RAM supplied with Minerva MKII, there
-are only three commands which are required: 
+are only three commands which are required:
 
 - CHR$(164) -Write param bytes to the specified device. The first byte to be written should in fact be
   the memory address to write to. Param can be altered by preceding the
@@ -55,21 +47,21 @@ are only three commands which are required:
   CMD$=CHR$(6)&CHR$(164)&CHR$(36)&'HELLO' will write the string 'HELLO' to
   memory address 36 in the RAM). If you only use this to write one byte,
   then this will merely set the memory address for access by further Write
-  or Read commands. 
+  or Read commands.
 
 - CHR$(188) -Read param bytes from the specified device.
   Again, you can precede this command character by the number of bytes to
   be read if you wish. The bytes which are read will be returned as the
-  resultant string. 
+  resultant string.
 
 - CHR$(255) -This signifies the end of the command
-  string. 
-  
-The other parameters allowed by the function are: 
+  string.
 
-- Res\_len which signifies the expected length of the return string , which must not be too short!! 
-- Device signifies which device is to be accessed. The value 80 is used to access the battery backed RAM. 
-- Param depends upon the command being sent via cmd$. 
+The other parameters allowed by the function are:
+
+- Res\_len which signifies the expected length of the return string , which must not be too short!!
+- Device signifies which device is to be accessed. The value 80 is used to access the battery backed RAM.
+- Param depends upon the command being sent via cmd$.
 
 The on-board RAM is allocated as follows:
 
@@ -78,8 +70,8 @@ The on-board RAM is allocated as follows:
 +=========+=============================================================================+
 | 0-15    | Reserved for the clock and other things set by the configuration program.   |
 +---------+-----------------------------------------------------------------------------+
-| 16-19   | QDOS version number (if this is different to the string returned by VER$,   | 
-|         | then the rest of the configuration data stored in the RAM will be ignored). | 
+| 16-19   | QDOS version number (if this is different to the string returned by VER$,   |
+|         | then the rest of the configuration data stored in the RAM will be ignored). |
 +---------+-----------------------------------------------------------------------------+
 | 20-23   | Warm reset value (as per CALL 390) to be used when the QL is re-booted.     |
 +---------+-----------------------------------------------------------------------------+
@@ -116,14 +108,14 @@ The on-board RAM is allocated as follows:
 | 255     | RESERVED                                                                    |
 +---------+-----------------------------------------------------------------------------+
 
-The bytes contained in locations 
+The bytes contained in locations
 252 - 254 are intended for use by programs to find out if printers or modems are
 connected and what type they are. The values currently supported are:-
 
-- 0: Nothing connected to this port 
+- 0: Nothing connected to this port
 - 1-23: Printer type (as per SDUMP command)
-- 253: Tandata Modem 
-- 254: Astracom 'Native' Modem 
+- 253: Tandata Modem
+- 254: Astracom 'Native' Modem
 - 255: Astracom Hayes-Compatible Modem
 
 **Example**
@@ -132,16 +124,16 @@ You can use this command to make the QL always start up by loading a
 specified program::
 
     startup$ = CHR$(232) & 'LRUN win1_ROUTE_boot' & CHR$(10)
-    command$ = CHR$(164) & CHR$(35) & CHR$ (LEN (startup$)) & startup$ & CHR$ (255) 
+    command$ = CHR$(164) & CHR$(35) & CHR$ (LEN (startup$)) & startup$ & CHR$ (255)
     PRINT IC2_IO (command$, 0, 80, LEN (startup$) + 1)
 
 **CROSS-REFERENCE**
 
 Some expansion boards have their own in-built battery backed clock,
 which may need to be protected from programs which re-set the system
-clock for their own purposes using :ref:`sdate`. 
+clock for their own purposes using :ref:`sdate`.
 
-See :ref:`prot-date`. 
+See :ref:`prot-date`.
 
 Because Minerva MKII's battery backed clock is read through the I\ :sup:`2`\ C bus, it cannot
 be affected by programs, unless you abuse the :ref:`i2c-io` function!!
@@ -186,14 +178,14 @@ SuperBASIC structure which allows a program to perform various functions
 dependent upon the status of a condition. The condition will always be
 interpreted as having either the value 1 (true) or 0 (false), using
 boolean logic if necessary. Such conditions may be simple, such as x=2
-or complex, as in x=3 AND (y=1 OR y=2). 
+or complex, as in x=3 AND (y=1 OR y=2).
 
 There are actually two forms of
 the SuperBASIC structure:
 
-IF condition {THEN \| :} statement :sup:`\*`\ [:statement]\ :sup:`\*` [:ELSE statement :sup:`\*`\ [:statement]\ :sup:`\*`] 
+IF condition {THEN \| :} statement :sup:`\*`\ [:statement]\ :sup:`\*` [:ELSE statement :sup:`\*`\ [:statement]\ :sup:`\*`]
 
-or 
+or
 
 IF condition [{THEN \| :}] :sup:`\*`\ [:statement]\ :sup:`\*` ... [ELSE] :sup:`\*`\ [:statement]\ :sup:`\*` ... END IF
 
@@ -203,8 +195,8 @@ the statements following THEN (or :) are executed, until the end of the line is
 reached. There is actually no need for a colon after THEN, for example
 the following are all the same::
 
-    IF x=1 : PRINT 'x is 1' 
-    IF x=1 THEN PRINT 'x is 1' 
+    IF x=1 : PRINT 'x is 1'
+    IF x=1 THEN PRINT 'x is 1'
     IF x=1 THEN:PRINT 'x is 1'
 
 If during processing of the statements following THEN, a corresponding
@@ -212,7 +204,7 @@ ELSE keyword is found, the interpreter will search the line for the
 corresponding END IF, in which case control will jump to the statement
 following the END IF. If however, the line does not contain a
 corresponding END IF, as with all other types on in-line code, control
-will jump to the next program line. 
+will jump to the next program line.
 
 On the other hand, if the condition
 is false, the interpreter will search the line for the corresponding
@@ -223,7 +215,7 @@ ELSE, and although not strictly necessary after the word ELSE, it is
 advisable to place a colon after the ELSE keyword (see the Note below).
 
 If ELSE does not appear, control is passed to the statement following
-the corresponding END IF, or if not present, the next program line. 
+the corresponding END IF, or if not present, the next program line.
 
 The second syntax represents the much more flexible long-form of the IF..END
 IF statement. On the first line containing the IF condition, the keyword
@@ -231,7 +223,7 @@ THEN may be replaced by a colon, or even omitted altogether. If the
 condition is true, control is passed to the next program line. If during
 interpretation, an ELSE statement is found, the interpreter searches for
 the corresponding END IF and passes control to the statement following
-this. 
+this.
 
 If the condition is false, the interpreter once again searches for
 a corresponding ELSE. If this is not present, then control is passed to
@@ -243,24 +235,24 @@ ELSE by a colon in this long form.
 **Example 1**
 
 A short program to move a cross around the screen, using the keys
-<N>orth, <S>outh, <E>ast and <W>est, press <ESC> to leave program:: 
+<N>orth, <S>outh, <E>ast and <W>est, press <ESC> to leave program::
 
-    100 WINDOW 448,200,32,16:PAPER 0:CLS 
-    110 x=224:y=100:OVER 0:INK 7 
-    120 CURSOR x,y:PRINT 'X':OVER -1 
-    130 REPeat loop 
-    140 dir$=INKEY$(-1) 
-    150 old_x=x:old_y=y 
-    160 IF dir$ INSTR 'nesw' 
+    100 WINDOW 448,200,32,16:PAPER 0:CLS
+    110 x=224:y=100:OVER 0:INK 7
+    120 CURSOR x,y:PRINT 'X':OVER -1
+    130 REPeat loop
+    140 dir$=INKEY$(-1)
+    150 old_x=x:old_y=y
+    160 IF dir$ INSTR 'nesw'
     170 IF dir$=='n':IF y>0:y=y-1
-    180 IF dir$=='s' AND y<200-10:y=y+1 
+    180 IF dir$=='s' AND y<200-10:y=y+1
     190 IF dir$=='e':IF x<448-6:x=x+1
-    200 IF dir$=='w' AND x>0:x=x-1 
-    210 ELSE IF dir$=CHR$(27):EXIT loop:ELSE NEXT loop 
-    220 END IF 
-    230 CURSOR old_x,old_y:PRINT 'X' 
-    240 CURSOR x,y:PRINT 'X' 
-    250 END REPeat loop 
+    200 IF dir$=='w' AND x>0:x=x-1
+    210 ELSE IF dir$=CHR$(27):EXIT loop:ELSE NEXT loop
+    220 END IF
+    230 CURSOR old_x,old_y:PRINT 'X'
+    240 CURSOR x,y:PRINT 'X'
+    250 END REPeat loop
     260 OVER 0
 
 Notice the use of both AND logic operators and second IF
@@ -275,9 +267,9 @@ pressed.
 The whole program can be simplified a little by using boolean logic, by
 replacing lines 170 to 200 with the following::
 
-    170 IF dir$=='n':y=y-(y>0) 
-    180 IF dir$=='s':y=y+(y<200-10) 
-    190 IF dir$=='e':x=x+(x<448-6) 
+    170 IF dir$=='n':y=y-(y>0)
+    180 IF dir$=='s':y=y+(y<200-10)
+    190 IF dir$=='e':x=x+(x<448-6)
     200 IF dir$=='w':x=x-(x>0)
 
 This is about 2.5% quicker than the first example.
@@ -286,15 +278,15 @@ This is about 2.5% quicker than the first example.
 
 On a Minerva ROM, the powerful and even quicker SELect ON statement
 could be used to make things even easier to understand, by replacing
-lines 160 to 220 with:: 
+lines 160 to 220 with::
 
-    160 SELect ON dir$ 
-    170   ='n':y=y-(y>0) 
-    180   ='s':y=y+(y<200-10) 
-    190   ='e':x=x+(x<448-6) 
-    200   ='w':x=x-(x>0) 
-    210   =CHR$(27):EXIT loop 
-    215   =REMAINDER :NEXT loop 
+    160 SELect ON dir$
+    170   ='n':y=y-(y>0)
+    180   ='s':y=y+(y<200-10)
+    190   ='e':x=x+(x<448-6)
+    200   ='w':x=x-(x>0)
+    210   =CHR$(27):EXIT loop
+    215   =REMAINDER :NEXT loop
     220 END SELect
 
 This is about 22.5% quicker than the first example. Don't worry that
@@ -309,26 +301,26 @@ using multiple in-line IF statements, you need to be very careful over
 the use of ELSE and the colon ':'. Although the following two lines have
 exactly the same effect::
 
-    IF x=0 : PRINT 'HELLO' : ELSE PRINT 'Bye' 
+    IF x=0 : PRINT 'HELLO' : ELSE PRINT 'Bye'
     IF x=0 : PRINT 'HELLO' : ELSE : PRINT 'Bye'
 
-The following gives the interpreter problems:: 
+The following gives the interpreter problems::
 
-    10 x=0 
-    20 PRINT x 
-    30 IF x=0 : PRINT 'HELLO' : ELSE IF x=2 : PRINT 'GOODBYE' : END IF : x=x+1 
-    40 x=x+2 
+    10 x=0
+    20 PRINT x
+    30 IF x=0 : PRINT 'HELLO' : ELSE IF x=2 : PRINT 'GOODBYE' : END IF : x=x+1
+    40 x=x+2
     50 PRINT x
 
-This should make x=2 at line 40, but in fact x=3. 
+This should make x=2 at line 40, but in fact x=3.
 
 This is because the
 interpreter does not look for an END IF following the ELSE IF structure.
 
-Compare this with what happens if line 30 is made to read:: 
+Compare this with what happens if line 30 is made to read::
 
     30 IF x=0 : PRINT 'HELLO' : ELSE : IF x=2 : PRINT 'GOODBYE' : END IF : x=x+1
-    
+
 This is actually a bug in the interpreter rather than a feature, as
 adding more IF statements into line 30 would appear to rectify it! The
 answer therefore is to ensure that a colon appears after every ELSE (or
@@ -338,12 +330,12 @@ compile the program).
 
 Another problem also exists with in-line IF...END IF
 statements - in the following program, line 100 is called twice when
-d=1 and only once if d<>1. 
+d=1 and only once if d<>1.
 
 ::
 
-    2 IF d=1:PRINT 'd is 1':ELSE :PRINT 'd is not 1':END IF :PRINT 'A simple test':GO SUB 100 
-    3 STOP 
+    2 IF d=1:PRINT 'd is 1':ELSE :PRINT 'd is not 1':END IF :PRINT 'A simple test':GO SUB 100
+    3 STOP
     100 PRINT "Now this is peculiar!!":RETurn
 
 The rule would appear to be that the first GOSUB/PROCedure call after
@@ -376,8 +368,8 @@ inside an IF...END IF construct.
 
 :ref:`select--on` provides a much quicker
 (although less flexible) means of testing a variable. Other SuperBASIC
-structures are :ref:`when--condition`, 
-:ref:`when--error`, 
+structures are :ref:`when--condition`,
+:ref:`when--error`,
 :ref:`define--procedure`,
 :ref:`define--function`,
 :ref:`repeat` and :ref:`for`.
@@ -444,59 +436,59 @@ to the array, for example::
 and::
 
     PRINT INARRAY%(array%,'2020')
-    
+
 are okay, compare::
 
-    array%(10)='x' 
-    
+    array%(10)='x'
+
 and::
 
     PRINT INARRAY%(array%,'x')
-    
-which both return an error. 
+
+which both return an error.
 
 The search is not case-sensitive and will
 also equate embedded numbers so that the strings '020' and '20.00' are
 seen as the same as '20'. Like the function SEARCH, the search is very
-fast. 
+fast.
 
 The first parameter can be specified, which allows you to tell
 INARRAY% from which element onwards it should look (remember that the
-first element is indexed with 0). 
+first element is indexed with 0).
 
 The value returned by INARRAY% will be
--7 if the value is not found in the specified array. 
+-7 if the value is not found in the specified array.
 
 An error will be
 generated if tofind could not be coerced to the same type as the array.
 
 An error will also be generated if the array contains more than 32768
-entries. 
+entries.
 
 If the search is successful, INARRAY% will return one value
 which represents the index of the entry. For strings and single
 dimensional arrays, this is easy - if the value returned is srch, then::
 
     PRINT array(srch)
-    
+
 will show the value you searched for. However, where the array has more
 dimensions, you will need a little work to find out the entry referred
-to. 
+to.
 
 For example, take a three-dimensional array s%(10,20,30) - this
 contains 11\*21\*31 (7161) entries, with the first entry being index 0,
 this being s%(0,0,0) and the last entry being index 7160, this being
-s%(10,20,30). 
+s%(10,20,30).
 
 If INARRAY% (s%,300) returned the value 32, this would be
 index number 32, equivalent to s%(0,1,1). This could be found out by
 using the formula for s%, where the value returned (index) points to
 s%(x,y,z), where::
 
-    z=index MOD (31*21) MOD 31 
-    y=index MOD (31*21) DIV 31 
+    z=index MOD (31*21) MOD 31
+    y=index MOD (31*21) DIV 31
     x=index DIV (31*21) MOD 31
-    
+
 It is important to work from right to left along the list of array
 elements, alternating MOD and DIV for each entry.
 
@@ -543,19 +535,20 @@ value.
 INK
 ===
 
-+----------+-------------------------------------------------------------------+
-| Syntax   || INK [#ch,] colour  or                                            |
-|          || INK [#ch,] colour1,colour2 [,pattern]                            |
-+----------+-------------------------------------------------------------------+
-| Location || QL ROM                                                           |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------+
+| Syntax   | INK [#ch,] colour  or                                            |
+|          |                                                                  |
+|          | INK [#ch,] colour1,colour2 [,pattern]                            |
++----------+------------------------------------------------------------------+
+| Location | QL ROM                                                           |
++----------+------------------------------------------------------------------+
 
 This command sets the ink colour used inside the given window ch
 (default #1). Since the advent of the Extended Colour Drivers under
 SMSQ/E v2.98+ the scope of colours accepted by this command has been
 much enhanced and depends upon the colour mode selected for the current
 program. As a result, the ink colour can be either a solid colour if the
-first syntax is used (in chich case colour can be any integer in the
+first syntax is used (in which case colour can be any integer in the
 range 0..16777215) or a composite colour made up of the three parameters
 supplied in the second syntax (colour1 and colour2 must both be in the range dictated by the current MODE).
 
@@ -600,7 +593,7 @@ available in MODE 4):
 
 The values in MODE 4 which are marked
 "should be avoided" can be used on standard QLs, but lead to
-compatability problems when run under the Enhanced Colour Drivers (see
+compatibility problems when run under the Enhanced Colour Drivers (see
 below). Other integer values in the range 8 to 255 are allowed, but
 these are generally 'composite' colours and repeats of other values.
 
@@ -632,7 +625,7 @@ This is supported on the Aurora motherboard (not yet implemented) and
 QPC, QXL and the Q40/Q60. It is selected with COLOUR\_PAL and allows
 colour to be in the range 0...255. This is the PAL value and is hardware
 independent - refer to Appendix 16 for a full list of the colours
-available. 
+available.
 
 The colours which represent each of the 256 values allowed
 can be amended by changing the palette (see PALETTE\_8). For this mode,
@@ -670,27 +663,27 @@ These are colours made up of either two or three values, for example::
     INK 2,7
     INK 1,7,2
     INK $F800,$FDBF,1
-    
+
 Depending upon the combinations, they may not be displayed correctly on
-a television. 
+a television.
 
 
 ::
 
-    INK colour1,colour2  
-    
-This creates a composite colour made up of the two given colours in a checkerboard pattern (stipple 3). 
+    INK colour1,colour2
+
+This creates a composite colour made up of the two given colours in a checkerboard pattern (stipple 3).
 
 ::
 
-    INK colour1,colour2,stipple 
-    
-This creates a composite colour which is a mixture of the two given colours, and displayed in the given stipple pattern. 
+    INK colour1,colour2,stipple
+
+This creates a composite colour which is a mixture of the two given colours, and displayed in the given stipple pattern.
 
 The values for stipple are:
 
 +-------+--------------------+
-| Value | Pattern            | 
+| Value | Pattern            |
 +=======+====================+
 | 0     | Dots               |
 +-------+--------------------+
@@ -723,7 +716,7 @@ COLOUR\_QL):
 +===================+=========+==========+==========+==========+
 | Dots              |    00   |     000  | 000      | Black    |
 +-------------------+---------+----------+----------+----------+
-| Vertical Lines    |    01   |     001  | 001      | Blue     |  
+| Vertical Lines    |    01   |     001  | 001      | Blue     |
 +-------------------+---------+----------+----------+----------+
 | Horizontal lines  |    10   |     010  | 010      | Red      |
 +-------------------+---------+----------+----------+----------+
@@ -746,7 +739,7 @@ example::
 
     a=IO_TRAP(#ch,39,colour): REMark Sets the PAPER colour.
     a=IO_TRAP(#ch,40,colour): REMark  Sets the STRIP colour.
-    a=IO_TRAP(#ch,41,colour): REMark  Sets the INK colour. 
+    a=IO_TRAP(#ch,41,colour): REMark  Sets the INK colour.
 
 Unlike the PAPER command, if you use IO\_TRAP here, you will also need to set the STRIP colour
 explicitly.
@@ -773,10 +766,10 @@ used to read the current colour mode.
 produced. :ref:`palette-ql` and
 :ref:`palette-8` can be used to change the
 palette of colours available.
-:ref:`disp-colour` can be used to switch from
+DISP\_COLOUR can be used to switch from
 Extended Colour Drivers to Standard Colour Drivers. Also refer to
 :ref:`inverse`. Please also look at the QL Display
-appendix (Appendix 16).
+appendix (Appendix 16 - :ref:`a16-ql--display`).
 
 --------------
 
@@ -816,7 +809,7 @@ It may be useful to clear the input buffer before trying to read a
 character from the keyboard (this prevents overrun on keys) - you can do
 this by using something along the lines of::
 
-    100 dummy=KEYROW(0) 
+    100 dummy=KEYROW(0)
     110 key$=INKEY$(-1)
 
 **CROSS-REFERENCE**
@@ -839,12 +832,13 @@ execution temporarily.
 INPUT
 =====
 
-+----------+-----------------------------------------------------------------------------------------------------------------------------------------+
-| Syntax   || INPUT [#chan,] :sup:`\*`\ [ [separator] [prompt\ :sup:`i`\ $ separator] var\ :sup:`i`]\ :sup:`\*`  or                                  |
-|          || INPUT :sup:`\*`\ [ [#chan,] [separator] [prompt\ :sup:`i`\ $ separator] var\ :sup:`i`]\ :sup:`\*`  (THOR XVI and Minerva v1.97+ only)  |
-+----------+-----------------------------------------------------------------------------------------------------------------------------------------+
-| Location || QL ROM                                                                                                                                 |
-+----------+-----------------------------------------------------------------------------------------------------------------------------------------+
++----------+----------------------------------------------------------------------------------------------------------------------------------------+
+| Syntax   | INPUT [#chan,] :sup:`\*`\ [ [separator] [prompt\ :sup:`i`\ $ separator] var\ :sup:`i`]\ :sup:`\*`  or                                  |
+|          |                                                                                                                                        |
+|          | INPUT :sup:`\*`\ [ [#chan,] [separator] [prompt\ :sup:`i`\ $ separator] var\ :sup:`i`]\ :sup:`\*`  (THOR XVI and Minerva v1.97+ only)  |
++----------+----------------------------------------------------------------------------------------------------------------------------------------+
+| Location | QL ROM                                                                                                                                 |
++----------+----------------------------------------------------------------------------------------------------------------------------------------+
 
 This command will read a string of bytes from the specified channel
 (default #1), which must end in CHR$(10) = <ENTER>. The fetched string
@@ -853,11 +847,11 @@ type. Several sets of bytes may be read at the same time by specifying
 more than one variable, for example by::
 
     INPUT a$,x,b$
-    
-Although each set of bytes must again be terminated by CHR$(10). 
+
+Although each set of bytes must again be terminated by CHR$(10).
 
 If the channel is write-only (eg. scr), error -15 (bad parameter) will be
-reported. 
+reported.
 
 If the specified channel is a console channel (con), the
 cursor will be activated and the user will be able to type in a string
@@ -875,8 +869,8 @@ be one of the following:
   text cursor position, it will be placed at the start of the next line.
 
   If nothing follows this separator, then the text cursor is not moved at
-  the end of the command. 
-  
+  the end of the command.
+
 - , - (Comma) This forces the text cursor to be placed on the
   next column which is a multiple of 8. Note that anything which appears
   on screen underneath the columns which are stepped over will in fact be
@@ -890,8 +884,8 @@ be one of the following:
   text cursor is automatically placed at the start of the next line at the
   end of INPUT anyway (see below). This has no effect unless nothing
   follows this separator, in which case the text cursor is left alone at
-  the end of the command. 
-  
+  the end of the command.
+
 - TO col - This moves the text cursor to the
   specified column (col). If however, the text cursor is already at or
   beyond the specified column, the text cursor is moved one space to the
@@ -901,27 +895,27 @@ be one of the following:
   of the specified channel, then TO merely wraps around the channel,
   continuing to count from the start of the next line. Note that any text
   under the columns which are jumped by TO will be blanked out in the
-  current STRIP colour. 
-  
+  current STRIP colour.
+
 At the end of the INPUT command, the text cursor
 is placed at the start of the next print line (unless an end separator
-of '!', '\\' or ';' is used). 
+of '!', '\\' or ';' is used).
 
 If prompt$ is specified, this will have no
 effect unless the specified channel (#chan) is a console channel. If
 this is the case, the specified string is written to the console
 channel, (as with PRINT), followed by the specified separator. The
 cursor on the specified channel is then activated at the current print
-position and input awaited as normal if required. 
+position and input awaited as normal if required.
 
 If you are wondering
 how to include a variable as part of prompt$, this is achieved by
 placing the variable in brackets, for example the following will prompt
 for 3 names to be entered::
 
-    100 DIM a$(3,10) 
-    110 FOR i=1 TO 3 
-    120   INPUT 'Enter name number' ! (i) ! a$(i) TO 40; '-- Thank you' 
+    100 DIM a$(3,10)
+    110 FOR i=1 TO 3
+    120   INPUT 'Enter name number' ! (i) ! a$(i) TO 40; '-- Thank you'
     130 END FOR i
 
 Unfortunately, you cannot include the variable which has been entered
@@ -931,7 +925,7 @@ of the INPUT statement. For example, the following will not work
 correctly, always saying x^2=1 no matter what value you enter::
 
     x=1: INPUT #2 ; 'Enter Number to Square' ! x \ 'x^2=' ; (x^2)
-    
+
 This could be fixed by using the following::
 
     x=1: INPUT #2 ; 'Enter Number to Square' ! x: PRINT 'x^2=' ; (x^2)
@@ -948,15 +942,15 @@ the above steps.
 
 Once any prompt$ has been printed, whilst the user is inputting a
 string, the following keys are available to the user to edit the string
-being entered: 
+being entered:
 
 - <LEFT> Move cursor left one character (if possible)
-- <RIGHT> Move cursor right one character (if possible) 
-- <ENTER> Accept string input 
-- <UP> Ditto 
-- <DOWN> Ditto 
-- <CTRL><LEFT> Delete character to left of cursor 
-- <CTRL><RIGHT> Delete character under cursor 
+- <RIGHT> Move cursor right one character (if possible)
+- <ENTER> Accept string input
+- <UP> Ditto
+- <DOWN> Ditto
+- <CTRL><LEFT> Delete character to left of cursor
+- <CTRL><RIGHT> Delete character under cursor
 - <CTRL><SPACE> Break current command - return control to #0
 
 **Example 1**
@@ -973,44 +967,44 @@ number. Unfortunately, there is no way to prevent overflow errors, where
 the number is outside the range 10E-616...10E616. However, it will
 accept for example: ' +1.32 E-20 '::
 
-    100 REMark Demonstration 
-    110 AT 10,0:PRINT 'Enter number: ':no=INPUT_no(#1,10,13) 
-    120 PRINT #0,lives 
+    100 REMark Demonstration
+    110 AT 10,0:PRINT 'Enter number: ':no=INPUT_no(#1,10,13)
+    120 PRINT #0,lives
     125 :
-    130 DEFine FuNction  INPUT_no (chan, posx, posy) 
-    140   LOCal var$,ix,loop,er,E_pos,dota,c 
-    150   er=0 
-    160   REPeat loop 
-    170     IF er<0:BEEP 1000,10:er=0 
-    180     dota=0 
-    190     AT#chan,posx,posy:PRINT#chan,FILL$(' ',20) 
-    200     AT#chan,posx,posy:INPUT#chan,var$ 
-    210     IF var$="":er=-1:NEXT loop 
-    220     FOR ix=1 TO LEN(var$) 
-    230       IF var$(ix)<>' ':var$=var$(ix TO):EXIT ix 
-    240     END FOR ix 
-    250     FOR ix=LEN(var$) TO 1 STEP -1 
-    260       IF var$(ix)<>' ':var$=var$(1 TO ix):EXIT ix 
-    270     END FOR ix 
-    280     IF var$(1) INSTR '.1234567890-+'=0:er=-1:NEXT loop 
-    290     IF var$(1)='.':dota=1 
-    300     E_pos='E' INSTR var$ 
-    310     IF E_pos+1>LEN(var$):er=-1:NEXT loop 
-    320     IF E_pos=0:E_pos=LEN(var$)+1 
-    330     FOR ix=2 TO E_pos-1 
-    340       c=CODE(var$(ix)):IF c=46:dota=dota+1 
-    350       IF c<>46 AND (c<48 OR c>57) OR dota>1:er=-1:NEXT loop 
-    360     END FOR ix 
-    370     IF E_pos>LEN(var$):RETurn var$ 
-    380     FOR ix=E_pos+1 TO LEN(var$) 
-    390       IF var$(ix)<>' ':E_pos=ix-1:EXIT ix 
-    400     END FOR ix 
-    410     IF var$(E_pos+1) INSTR '1234567890-+'=0:er=-1:NEXT loop 
-    420     IF var$(E_pos+1) INSTR '-+':IF E_pos+2>LEN(var$):er=-1: NEXT loop 
-    430     FOR ix=E_pos+2 TO LEN(var$) 
-    440       c=CODE(var$(ix)):IF c<48 OR c>57:er=-17:NEXT loop 
-    450     END FOR ix 
-    460     RETurn var$ 
+    130 DEFine FuNction  INPUT_no (chan, posx, posy)
+    140   LOCal var$,ix,loop,er,E_pos,dota,c
+    150   er=0
+    160   REPeat loop
+    170     IF er<0:BEEP 1000,10:er=0
+    180     dota=0
+    190     AT#chan,posx,posy:PRINT#chan,FILL$(' ',20)
+    200     AT#chan,posx,posy:INPUT#chan,var$
+    210     IF var$="":er=-1:NEXT loop
+    220     FOR ix=1 TO LEN(var$)
+    230       IF var$(ix)<>' ':var$=var$(ix TO):EXIT ix
+    240     END FOR ix
+    250     FOR ix=LEN(var$) TO 1 STEP -1
+    260       IF var$(ix)<>' ':var$=var$(1 TO ix):EXIT ix
+    270     END FOR ix
+    280     IF var$(1) INSTR '.1234567890-+'=0:er=-1:NEXT loop
+    290     IF var$(1)='.':dota=1
+    300     E_pos='E' INSTR var$
+    310     IF E_pos+1>LEN(var$):er=-1:NEXT loop
+    320     IF E_pos=0:E_pos=LEN(var$)+1
+    330     FOR ix=2 TO E_pos-1
+    340       c=CODE(var$(ix)):IF c=46:dota=dota+1
+    350       IF c<>46 AND (c<48 OR c>57) OR dota>1:er=-1:NEXT loop
+    360     END FOR ix
+    370     IF E_pos>LEN(var$):RETurn var$
+    380     FOR ix=E_pos+1 TO LEN(var$)
+    390       IF var$(ix)<>' ':E_pos=ix-1:EXIT ix
+    400     END FOR ix
+    410     IF var$(E_pos+1) INSTR '1234567890-+'=0:er=-1:NEXT loop
+    420     IF var$(E_pos+1) INSTR '-+':IF E_pos+2>LEN(var$):er=-1: NEXT loop
+    430     FOR ix=E_pos+2 TO LEN(var$)
+    440       c=CODE(var$(ix)):IF c<48 OR c>57:er=-17:NEXT loop
+    450     END FOR ix
+    460     RETurn var$
     470   END REPeat loop
     480 END DEFine
 
@@ -1043,22 +1037,22 @@ If you try to INPUT a value into a slice of an undimensioned string, the
 value will not be stored and BASIC may stop without a message. For
 example::
 
-    100 a$='Hello World' 
-    200 INPUT a$(7 TO) 
+    100 a$='Hello World'
+    200 INPUT a$(7 TO)
     210 PRINT a$
 
 The above program will not even attempt to allow you to INPUT the
 value. The cure on all ROMs is to dimension the string, or to INPUT a
 temporary variable::
 
-    100 a$='Hello World' 
-    110 INPUT g$ 
+    100 a$='Hello World'
+    110 INPUT g$
     120 a$(7 to)=g$
     130 PRINT a$
 
 **NOTE 6**
 
-If the specified channel is not a console channel, prompt$ and any separators 
+If the specified channel is not a console channel, prompt$ and any separators
 are completely ignored. If there is no data in the
 channel to be read, then the error 'End of File' (-10) is reported.
 Under SMS, the prompt$ is still printed out, but any attempt to read a
@@ -1079,20 +1073,20 @@ the cursor could be left active.
 **MINERVA NOTES**
 
 Minerva provides the following additional keys for use in editing the
-string: 
+string:
 
-- <ALT><LEFT> move to start of current text 
-- <ALT><RIGHT> move to end of current text 
-- <TAB> move along to x\*8th character from start of line (or end of data if nearer) 
-- <SHIFT><TAB> moves back in steps of 8 characters (or start of data if nearer) 
-- <CTRL><ALT><LEFT> delete to start of current (visible) line 
-- <CTRL><ALT><RIGHT> delete from current character to end of line 
+- <ALT><LEFT> move to start of current text
+- <ALT><RIGHT> move to end of current text
+- <TAB> move along to x\*8th character from start of line (or end of data if nearer)
+- <SHIFT><TAB> moves back in steps of 8 characters (or start of data if nearer)
+- <CTRL><ALT><LEFT> delete to start of current (visible) line
+- <CTRL><ALT><RIGHT> delete from current character to end of line
 - <ESC> same as <CTRL><SPACE> (Break key)
-- <SHIFT><ENTER> same as <ENTER> 
-- <SHIFT><SPACE> same as <SPACE> 
+- <SHIFT><ENTER> same as <ENTER>
+- <SHIFT><SPACE> same as <SPACE>
 
 Minerva v1.93+ alters keys further, both to make editing text easier and also to
-prevent some anomolies in earlier versions:
+prevent some anomalies in earlier versions:
 
 - <UP> where the input data consists of more than one line, the up key moves up a line, unless
   cursor on first line of data in which case ends input. Any lines which
@@ -1101,12 +1095,12 @@ prevent some anomolies in earlier versions:
   disappeared off the screen, you could not access it. The only downside
   to this, is that any prompt which appeared before the text being edited
   cannot be re-shown - the prompt is simply 'blanked out' in the current
-  PAPER colour. 
+  PAPER colour.
 
 - <DOWN> where input data consists of more than one line, the
   down key moves down a line, unless cursor on last line of data in which
   case it ends the input. This will allow you to access data lines which
-  have scrolled down out of the window. 
+  have scrolled down out of the window.
 
 - <SHIFT><RIGHT> moves you right to
   the start of the next word (or end of the data). The start of a word is
@@ -1114,7 +1108,7 @@ prevent some anomolies in earlier versions:
   character under the cursor is something other than space.
 
 - <SHIFT><LEFT> moves you left to the start of the previous word (or start
-  of the data). 
+  of the data).
 
 - <CTRL> + any combination with <LEFT> or <RIGHT> will
   delete the characters moved over. Spaces to the right which are caused
@@ -1131,22 +1125,22 @@ of the output.
 **SMS NOTES**
 
 SMS provides the following additional keys for use in editing the
-string: 
+string:
 
-- <ALT><LEFT> move to start of current text 
+- <ALT><LEFT> move to start of current text
 
-- <ALT><RIGHT> move to end of current text 
+- <ALT><RIGHT> move to end of current text
 
 - <TAB> move along to x\*8th character from start of line
 
 - <SHIFT><TAB> moves back in steps of 8 characters <ALT><LEFT>move to start
-  of current text 
+  of current text
 
-- <ALT><RIGHT> move to end of current text 
+- <ALT><RIGHT> move to end of current text
 
-- <TAB> move along to x\*8th character from start of line 
+- <TAB> move along to x\*8th character from start of line
 
-- <SHIFT><TAB> moves back in steps of 8 characters 
+- <SHIFT><TAB> moves back in steps of 8 characters
 
 - <CTRL><DOWN> Deletes the whole of the input line
 
@@ -1154,23 +1148,23 @@ string:
 - <SHIFT><RIGHT> moves you right to the start of the next word (or end of
   the data). The start of a word is taken to be where the character to
   left of the cursor is space and the character under the cursor is
-  something other than space. 
+  something other than space.
 
 - <SHIFT><LEFT> moves you left to the start of
-  the previous word (or start of the data). 
+  the previous word (or start of the data).
 
-- <CTRL> + any combination with <LEFT> or <RIGHT> will delete the characters 
-  moved over. 
-  
-The following keyings have also been altered: 
+- <CTRL> + any combination with <LEFT> or <RIGHT> will delete the characters
+  moved over.
 
-- <DOWN> Has no effect! 
+The following keyings have also been altered:
+
+- <DOWN> Has no effect!
 - <UP> Has no effect!
 
 **THOR XVI NOTES**
 
 The THOR XVI (version 6.41) allows you to put channel numbers part way
-through a statement, for example:: 
+through a statement, for example::
 
     INPUT 'Your name' ; #0 , name$ \ #1 ; ' is ' ; (name$)
 
@@ -1179,10 +1173,10 @@ instead of::
     PRINT 'Your name ' ; : INPUT #0,name$ : PRINT 'is ';name$
 
 The THOR XVI also allows you to INPUT arrays with one statement. For
-example:: 
+example::
 
     DIM x(4): INPUT x
-    
+
 will wait around for five values to be entered. No other implementation
 (other than Minerva v1.96+) currently allows this.
 
@@ -1267,9 +1261,9 @@ returned.
 
 ::
 
-    s$='Hello World':PRINT 'world' INSTR s$ 
-    
-will print 7. 
+    s$='Hello World':PRINT 'world' INSTR s$
+
+will print 7.
 
 ::
 
@@ -1315,16 +1309,16 @@ sensitive (if flag=1) or revert to the old system (if flag=0).
 
 ::
 
-    INSTR_CASE 1 
+    INSTR_CASE 1
     PRINT 'Hello' INSTR 'HELLO'
-    
-will return 0 
+
+will return 0
 
 ::
 
     INSTR_CASE 0
     PRINT 'Hello' INSTR 'HELLO'
-    
+
 will return 1
 
 **NOTE 1**
@@ -1365,18 +1359,18 @@ under SMS where it can handle much larger numbers, in the range
 
 **Example**
 
-A function Rond(x,d) to round a number x to d decimal places:: 
+A function Rond(x,d) to round a number x to d decimal places::
 
-    100 DEFine FuNction Rond(no,plac) 
-    110   LOCal temp 
-    120   temp=INT(no*10^(plac+1)+.5)/10^(plac+1) 
-    130   RETurn INT(temp*10^plac+.5)/10^plac 
+    100 DEFine FuNction Rond(no,plac)
+    110   LOCal temp
+    120   temp=INT(no*10^(plac+1)+.5)/10^(plac+1)
+    130   RETurn INT(temp*10^plac+.5)/10^plac
     140 END DEFine
-    
+
 ::
-    
+
     PRINT Rond (10.3226,2)
-    
+
 gives the result 10.32
 
 **NOTE 1**
@@ -1443,7 +1437,7 @@ This command provides the QL with a facility which is available on most
 other implementations of BASIC - inverse video. What this command
 actually does is swap over the values which have been set for the
 specified window channel (default #1) for the STRIP and INK colours,
-thereby making any futher text which is PRINTed to that window stand
+thereby making any further text which is PRINTed to that window stand
 out. This means that for example, if you set the INK to 7 (white) and
 the STRIP (or PAPER colour) to 2 (red), after INVERSE, text will be
 printed in red INK on a white STRIP.
@@ -1452,7 +1446,7 @@ printed in red INK on a white STRIP.
 
 ::
 
-    STRIP #2,7:INK #2,0:PRINT #2,'This text is normal' 
+    STRIP #2,7:INK #2,0:PRINT #2,'This text is normal'
     INVERSE #2:PRINT #2,'But this is in inverse video!!'
 
 **CROSS-REFERENCE**
@@ -1474,7 +1468,7 @@ INVXY
 | Location |  HCO                                                              |
 +----------+-------------------------------------------------------------------+
 
-This is a simple command which draws a haircross on screen with its
+This is a simple command which draws a crosshair on screen with its
 centre at (x%,y%). It is drawn with OVER -1 and uses the full screen.
 
 **WARNING**
@@ -1554,12 +1548,12 @@ the value returned in the machine code register D0 by the call.
 
 A short program to get the current window sizes and cursor position in
 the variables Window\_Width, Window\_Height, Window\_posx and
-Window\_posy respectively:: 
+Window\_posy respectively::
 
-    100 a = ALCHP (8) 
-    110 dummy=IO_TRAP (11,0,0,a) : REMark IOW.CHRQ TRAP 
-    120 Window_Width = PEEK_W (a): Window_Height = PEEK_W (a+2) 
-    130 Window_posx = PEEK_W (a+4): Window_posy = PEEK_W (a+6) 
+    100 a = ALCHP (8)
+    110 dummy=IO_TRAP (11,0,0,a) : REMark IOW.CHRQ TRAP
+    120 Window_Width = PEEK_W (a): Window_Height = PEEK_W (a+2)
+    130 Window_posx = PEEK_W (a+4): Window_posy = PEEK_W (a+6)
     140 RECHP a
 
 **Example 2**
@@ -1570,7 +1564,7 @@ Switch on the cursor in #1 (call IOW.ECUR)::
 
 **Example 3**
 
-Set cursor to column x in #3 (call IOW.SCOL):: 
+Set cursor to column x in #3 (call IOW.SCOL)::
 
     t = IO_TRAP (#3,HEX ('11'), x )
 
@@ -1602,7 +1596,7 @@ IQCONVERT
 This command takes a file which is stored on a QL Format disk and
 presumes that it was originally an IBM format file. It will then convert
 special characters in that file to QL compatible characters as well as
-converting any occurence of a Carriage Return character (CR) followed by
+converting any occurrence of a Carriage Return character (CR) followed by
 a Line Feed character (LF) to a single Line Feed character LF.
 
 **CROSS-REFERENCE**
@@ -1631,7 +1625,7 @@ program which executes the command is running under the interpreter or
 has been compiled. This is done by returning the sum of the jobnumber
 and the jobtag: the sum is 0 for the interpreter and a positive number
 for a compiled job. So NOT IS\_BASIC is 1 under the interpreter and 0 in
-a compiled program (or a MultiBASIC on Minerva or Mutiple SBASIC under
+a compiled program (or a MultiBASIC on Minerva or Multiple SBASIC under
 SMS).
 
 **Example**
@@ -1644,10 +1638,10 @@ IS\_BASIC helps the programmer who uses the interpreter to develop
 programs which distinguish between features which are only available in
 compiled programs, for instance passing a command string::
 
-    100 IF NOT IS_BASIC THEN 
-    110   CMD$="Test" 
-    120 ELSE 
-    130   INPUT CMD$ 
+    100 IF NOT IS_BASIC THEN
+    110   CMD$="Test"
+    120 ELSE
+    130   INPUT CMD$
     140 END IF
 
 **NOTE**
@@ -1658,7 +1652,7 @@ IS\_BASIC will fail to spot a MultiBASIC or SBASIC interpreter.
 
 :ref:`prio` sets the priority of the current job.
 Under SMS or Minerva, you can use
-:ref:`job-name-dlr` to look at the name of the
+JOB_NAME$ to look at the name of the
 task which would normally be SBASIC or have its first two letters as MB
 respectively for a Multiple SBASIC or MultiBASIC interpreter, unless the
 name of the Interpreter has been altered. Refer
@@ -1710,43 +1704,43 @@ on programs, since these routines are generally used to access the
 screen). For each TRAP #3 routine, you can specify the following status:
 
 - 0 - if the window is buried, then halt the program when this routine is
-  called (this is the normal case under the Pointer Environment) 
+  called (this is the normal case under the Pointer Environment)
 
 - 1 - Enable
   background screen access for this routine (if PEX is active - see PEON).
 
 - 2 - This only enables background screen access for this routine if both
-  PEX is active and PXON has been used to enable SD.EXTOP routine calls. 
+  PEX is active and PXON has been used to enable SD.EXTOP routine calls.
 
 - 3 - If the window is buried, then just ignore this call and allow the
   program to carry on. This could be used for example to allow a program
   which has a large amount of calculation to do to carry on in the
   background, printing a message to the screen only when its window is not
-  buried to inform the user of its progress. 
+  buried to inform the user of its progress.
 
 On JS and MG ROMs, only
 values of 0 and 3 are recognised - PEON activates all routines as having
 a status of 3 on these implementations. On all other implementations
 using the defaults provided with PEX, PEON activates all of the
-following routines as having a status of 1. 
+following routines as having a status of 1.
 
-- $05 iob.sbyt 
+- $05 iob.sbyt
 - $07 iob.smul
-- $09 iow.xtop to $0B iow.chrq 
-- $0F iow.dcur to $36 iog.sgcr 
+- $09 iow.xtop to $0B iow.chrq
+- $0F iow.dcur to $36 iog.sgcr
 - $6C iop.flim
-- $72 iop.rpxl to $76 iop.spry 
+- $72 iop.rpxl to $76 iop.spry
 
 If you use PEX\_SAVE, PEON will set the
 various routines as specified by you previously. Not all TRAP #3 machine
 code routines should be treated in this way - the following routines
-should be avoided if possible: 
+should be avoided if possible:
 
-- $00 iob.test 
-- $01 iob.fbyt 
+- $00 iob.test
+- $01 iob.fbyt
 - $04 iob.elin
-- $0C iow.defb 
-- $0E iow.ecur 
+- $0C iow.defb
+- $0E iow.ecur
 
 If you decide to use this function to
 fine-tune the operation of PEX, then you can save the various settings

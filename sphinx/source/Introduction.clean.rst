@@ -51,7 +51,7 @@ programming language for several reasons:
 -  The version of SuperBASIC provided with the SMSQ/E operating system
    is extremely quick; in many cases, faster than when compiled with
    Qliberator.
--  SuperBASIC is designed to be extendable from SuperBASIC itself
+-  SuperBASIC is designed to be extendible from SuperBASIC itself
    through user-defined PROCedures and FuNctions as well as from machine
    code via resident toolkits.
 
@@ -115,8 +115,8 @@ In the meantime enjoy SuperBASIC !
 Contributing Authors
 --------------------
 
-- Franz Herrmann 
-- Peter Jager 
+- Franz Herrmann
+- Peter Jager
 - Rich Mellor
 - Norman Dunbar - DJToolkit 1.16 additions.
 - Norman Dunbar - QPC 4.04 additions.
@@ -130,13 +130,13 @@ an addition to the existing SuperBASIC (or SBASIC) keywords simply by
 using a command similar to one of the following three examples::
 
     LRESPR flp1_Toolkit_bin
-    
+
 ::
-    
+
     A=RESPR(x): LBYTES flp1_Toolkit_bin, A: CALL A
 
 ::
-    
+
     B=ALCHP(x): LBYTES flp1_Toolkit_bin, B: CALL B
 
 (where x is the length of the toolkit code).
@@ -184,6 +184,4 @@ following toolkits need this:
   ALTKEY (or other HOT\_xxx) keywords to work.
 
 (See the individual commands listed above for further details).
-
-
 

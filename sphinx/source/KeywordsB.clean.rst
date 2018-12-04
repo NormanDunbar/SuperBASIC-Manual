@@ -3,13 +3,6 @@
 Keywords B
 ==========
 
-TODO
-====
-
-- :ref:`bicop` cross references keywords HCO and FCO- neither of which exist.
-- :ref:`bld` cross references keyword ESC which doesn't exist.
-
-
 ..  _basic:
 
 BASIC
@@ -123,13 +116,15 @@ See :ref:`basic-l` below.
 BASIC\_L
 ========
 
-+----------+-------------------------------------------------------------------+
-| Syntax   || BASIC\_B (offset) and                                            |
-|          || BASIC\_W (offset)                                                |
-|          || BASIC\_L (offset)                                                |
-+----------+-------------------------------------------------------------------+
-| Location ||  TinyToolkit, BTool, Turbo Toolkit (BASIC\_L only)               |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------+
+| Syntax   | BASIC\_B (offset) and                                            |
+|          |                                                                  |
+|          | BASIC\_W (offset)                                                |
+|          |                                                                  |
+|          | BASIC\_L (offset)                                                |
++----------+------------------------------------------------------------------+
+| Location |  TinyToolkit, BTool, Turbo Toolkit (BASIC\_L only)               |
++----------+------------------------------------------------------------------+
 
 These three functions are modified version of PEEK which return values
 at memory locations in the SuperBASIC system variables, which are used
@@ -208,13 +203,15 @@ See :ref:`basic-f` below.
 BASIC\_F
 ========
 
-+----------+-------------------------------------------------------------------+
-| Syntax   || BASIC\_B% (offset) and                                           |
-|          || BASIC\_W% (offset) and                                           |
-|          || BASIC\_F (offset)                                                |
-+----------+-------------------------------------------------------------------+
-| Location || Turbo Toolkit, BTool, Turbo Toolkit (BASIC_L only)               |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------+
+| Syntax   | BASIC\_B% (offset) and                                           |
+|          |                                                                  |
+|          | BASIC\_W% (offset) and                                           |
+|          |                                                                  |
+|          | BASIC\_F (offset)                                                |
++----------+------------------------------------------------------------------+
+| Location | Turbo Toolkit, BTool, Turbo Toolkit (BASIC_L only)               |
++----------+------------------------------------------------------------------+
 
 The functions BASIC\_B% and BASIC\_W% are similar to BASIC\_B and
 BASIC\_W. BASIC\_F is a further function which can be used to return a
@@ -260,7 +257,7 @@ if there is some mismatch between table entries.
 **NOTE**
 
 A file called TurboFix\_bin can be used to allow BASIC\_INDEX% to access
-the Minvera MultiBASIC and SMS SBASIC name tables. Some early versions
+the Minerva MultiBASIC and SMS SBASIC name tables. Some early versions
 of TurboFix\_bin have bugs in it. Beware that not all versions of this
 file supports SMS SBASICs.
 
@@ -294,7 +291,7 @@ be generated, or junk may be returned.
 **NOTE**
 
 A file called TurboFix\_bin can be used to allow BASIC\_NAME$ to access
-the Minvera MultiBASIC and SMS SBASIC name tables. Some early versions
+the Minerva MultiBASIC and SMS SBASIC name tables. Some early versions
 of TurboFix\_bin have bugs in it. Beware that not all versions of this
 file supports SMS SBASICs.
 
@@ -324,7 +321,7 @@ This function is exactly the same as BASICP.
 **NOTE**
 
 A file called TurboFix\_bin can be used to allow BASIC\_POINTER to
-access the Minvera MultiBASIC and SMS SBASIC name tables. Some early
+access the Minerva MultiBASIC and SMS SBASIC name tables. Some early
 versions of TurboFix\_bin have bugs in it. Beware that not all versions
 of this file supports SMS SBASICs.
 
@@ -364,7 +361,7 @@ be generated, or junk may be returned.
 **NOTE**
 
 A file called TurboFix\_bin can be used to allow BASIC\_TYPE% to access
-the Minvera MultiBASIC and SMS SBASIC name tables. Some early versions
+the Minerva MultiBASIC and SMS SBASIC name tables. Some early versions
 of TurboFix\_bin have bugs in it. Beware that not all versions of this
 file supports SMS SBASICs.
 
@@ -473,12 +470,13 @@ executed.
 BAUD
 ====
 
-+----------+-------------------------------------------------------------------+
-| Syntax   || BAUD bps  or                                                     |
-|          || BAUD [port,] bps(SMS and ST/QL only)                             |
-+----------+-------------------------------------------------------------------+
-| Location || QL ROM                                                           |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------+
+| Syntax   | BAUD bps  or                                                     |
+|          |                                                                  |
+|          | BAUD [port,] bps(SMS and ST/QL only)                             |
++----------+------------------------------------------------------------------+
+| Location | QL ROM                                                           |
++----------+------------------------------------------------------------------+
 
 The serial port(s) use a certain speed to communicate with printers,
 modems, other computers, interfaces etc. This speed is set with BAUD.
@@ -517,7 +515,7 @@ affected by the QL's sound chip.
 
 **NOTE 2**
 
-On a standard QL without Minerva the actual baudrate is slighty lower
+On a standard QL without Minerva the actual baudrate is slightly lower
 than that stated above.
 
 
@@ -772,9 +770,9 @@ BCLEAR
 +----------+-------------------------------------------------------------------+
 
 Each console channel has what is known as an input queue, a small area
-of memory where keypresses are stored before they are read by INPUT,
+of memory where key presses are stored before they are read by INPUT,
 INKEY$ etc. The command BCLEAR clears the buffer of the current input
-queue so that any keypresses which have not yet been processed are not
+queue so that any key presses which have not yet been processed are not
 seen by the program. This is useful to prevent overrun on keys.
 
 
@@ -783,12 +781,12 @@ seen by the program. This is useful to prevent overrun on keys.
 (1) Type this line as a direct command into the interpreter, press
 <ENTER> and then type some keys. REPeat a: REMark
 
-Now press break and all of those keypresses which you performed after
+Now press break and all of those key presses which you performed after
 entering the line will be shown. Replace REMark by BCLEAR and try the
 same.
 
-Normally it is okay for all keypresses to be stored in a buffer - if a
-program cannot cope with the typist's speed, no keypresses will be lost.
+Normally it is okay for all key presses to be stored in a buffer - if a
+program cannot cope with the typist's speed, no key presses will be lost.
 But sometimes this feature may not be welcome.
 
 (2) Even on very good keyboards the phenomenon of key-bounce appears,
@@ -827,12 +825,13 @@ The current keyboard queue can be selected by a dummy
 BEEP
 ====
 
-+----------+-----------------------------------------------------------------------------+
-| Syntax   || BEEP length, pitch [,pitch\_2, grd\_x, grd\_y [,wrap [,fuzz [,rndom ]]]] or|
-|          || BEEP                                                                       |
-+----------+-----------------------------------------------------------------------------+
-| Location || QL ROM                                                                     |
-+----------+-----------------------------------------------------------------------------+
++----------+----------------------------------------------------------------------------+
+| Syntax   | BEEP length, pitch [,pitch\_2, grd\_x, grd\_y [,wrap [,fuzz [,rndom ]]]] or|
+|          |                                                                            |
+|          | BEEP                                                                       |
++----------+----------------------------------------------------------------------------+
+| Location | QL ROM                                                                     |
++----------+----------------------------------------------------------------------------+
 
 This command allows you to access the QL's rather poor sound generation
 chip. It can be extremely difficult to use this command, and a lot of
@@ -847,31 +846,31 @@ not the earlier sound had finished).
 Each of the various parameters have different ranges and different
 effects on the sound produced:
 
--  length This specifies the duration of the sound in 72 microsecond
+-  `length` This specifies the duration of the sound in 72 microsecond
    units (there are one million microseconds in a second). A length of
    zero means emit the sound until another BEEP command is encountered.
    The range is 0...32767 (a value of 32767 lasts for approximately 2.36
    seconds).
 
--  pitch This affects the tone of the sound produced. The allowable
+-  `pitch` This affects the tone of the sound produced. The allowable
    range is 0...255. A pitch of 0 is the highest which can be produced,
    ranging to 255 which is the deepest tone. The purity of the sound
    will be affected if any other parameters are specified.
 
--  pitch\_2 This represents a second pitch level, which will have no
+-  `pitch_2` This represents a second pitch level, which will have no
    effect if the tone is the same (or higher) than pitch. If however,
    the value of this parameter is higher (the tone is lower) than that
    of pitch, this specifies a range between which the sound can 'bounce'
    by use of the next two parameters, creating a sequence of notes (the
    length of the sequence will depend on the length parameter).
 
--  grd\_x Assuming that the BEEP command is now being used to produce a
+-  `grd_x` Assuming that the BEEP command is now being used to produce a
    sequence of notes, this parameter specifies the time interval (in 72
    microsecond units) of each note in the sequence. The permitted range
    is again 0...32767. Larger time intervals make each note in the
    sequence more distinct (low values tend to produce just buzzing).
 
--  grd\_y This parameter specifies the step between each note in the
+-  `grd_y` This parameter specifies the step between each note in the
    sequence. This must be in the range 0...15. However, this may make
    more sense if the correct range was said to be -7..8.
 
@@ -880,7 +879,7 @@ effects on the sound produced:
 
    A value between 1 and 7 means that each note will be that many
    pitches below the last one (unless that would bring the pitch below
-   pitch\_2).
+   `pitch_2`).
 
    A value of 8 makes the BEEP command fit as many notes into the
    sequence (in the range) as possible.
@@ -891,7 +890,7 @@ effects on the sound produced:
    the top or bottom of the range pitch to pitch\_2 is reached, the step
    direction is reversed to cause the sound to 'bounce'.
 
--  wrap If this parameter is specified, the range of notes between the
+-  `wrap` If this parameter is specified, the range of notes between the
    two pitch parameters will be repeated the specified number of times
    before the step direction is altered. The range for this parameter is
    0..15.
@@ -899,11 +898,11 @@ effects on the sound produced:
    The last note in the range will not be sounded, but will appear as
    the first note in the opposite direction.
 
--  fuzzThis affects the purity of each note, by blurring its sound. The
+-  `fuzz` This affects the purity of each note, by blurring its sound. The
    effective range is 8...15, with a value of 15 producing an awful
    buzz.
 
--  rndomThis parameter allows you to specify a certain amount of
+-  `rndom` This parameter allows you to specify a certain amount of
    'randomness' which is to be added to each note.
 
    The effective range is once again 8...15, with the given value being
@@ -1157,12 +1156,13 @@ as the wallpaper.
 BGET
 ====
 
-+----------+----------------------------------------------------------------------------+
-| Syntax   || BGET [#ch\\position,] [item :sup:`\*`\ [,item\ :sup:`i`]\ :sup:`\*` ..] or|
-|          || BGET [#ch,] [item                                                         |
-+----------+----------------------------------------------------------------------------+
-| Location || Toolkit II, THOR XVI                                                      |
-+----------+----------------------------------------------------------------------------+
++----------+---------------------------------------------------------------------------+
+| Syntax   | BGET [#ch\\position,] [item :sup:`\*`\ [,item\ :sup:`i`]\ :sup:`\*` ..] or|
+|          |                                                                           |
+|          | BGET [#ch,] [item                                                         |
++----------+---------------------------------------------------------------------------+
+| Location | Toolkit II, THOR XVI                                                      |
++----------+---------------------------------------------------------------------------+
 
 This command is very similar to GET, although this only fetches one byte
 at a time (in the range 0..255) from the given channel (default #3).
@@ -1303,7 +1303,7 @@ It will only work on a standard 512x256 screen stored at $20000.
 
 :ref:`sdump` is more flexible.
 
-See also :ref:`hco` and :ref:`fco`.
+See also HCO and FCO.
 
 --------------
 
@@ -1313,12 +1313,13 @@ See also :ref:`hco` and :ref:`fco`.
 BIN
 ===
 
-+----------+-------------------------------------------------------------------+
-| Syntax   || BIN (binary$)  or                                                |
-|          || BIN (binary) where binary=0..111111                              |
-+----------+-------------------------------------------------------------------+
-| Location || Toolkit II, THOR XVI                                             |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------+
+| Syntax   | BIN (binary$)  or                                                |
+|          |                                                                  |
+|          | BIN (binary) where binary=0..111111                              |
++----------+------------------------------------------------------------------+
+| Location | Toolkit II, THOR XVI                                             |
++----------+------------------------------------------------------------------+
 
 This function returns the decimal value of a binary number (given as a
 string). For small numbers, a floating point number can be used but will
@@ -1378,12 +1379,13 @@ SMS users can achieve the same thing by using, for example :ref:`print`\ %1001 i
 BIN$
 ====
 
-+----------+-------------------------------------------------------------------+
-| Syntax   || BIN$ (decimal,digits)  or                                        |
-|          || BIN$ (decimal [,digits]) (THOR only)                             |
-+----------+-------------------------------------------------------------------+
-| Location || Toolkit II, THOR XVI                                             |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------+
+| Syntax   | BIN$ (decimal,digits)  or                                        |
+|          |                                                                  |
+|          | BIN$ (decimal [,digits]) (THOR only)                             |
++----------+------------------------------------------------------------------+
+| Location | Toolkit II, THOR XVI                                             |
++----------+------------------------------------------------------------------+
 
 This function converts a signed integer decimal number to the equivalent
 binary number (to a specified number of binary digits ranging from 1 to
@@ -1508,7 +1510,7 @@ BIT%
 +----------+-----------------------------------------------------+
 | Syntax   | BIT% (number%,bitnr) with bitnr=0..15               |
 +----------+-----------------------------------------------------+
-| Location | BIT                                                 | 
+| Location | BIT                                                 |
 +----------+-----------------------------------------------------+
 
 All numbers are internally stored as a series of values, each of which
@@ -1604,7 +1606,7 @@ LPRINT "I " & BLD&"hate"&NRM & " these functions."
 :ref:`dbl`, :ref:`enl`,
 :ref:`pro`, :ref:`si`,
 :ref:`nrm`, :ref:`unl`,
-:ref:`alt`, :ref:`esc`,
+:ref:`alt`, ESC,
 :ref:`ff`, :ref:`lmar`,
 :ref:`rmar`, :ref:`pagdis`,
 :ref:`paglen`.
@@ -1806,12 +1808,13 @@ via :ref:`call` as an alternative to
 BORDER
 ======
 
-+----------+------------------------------------------------------------------+
-| Syntax   || BORDER [#channel,] size [,colour] or                            |
-|          || BORDER [#channel] Location: QL ROM                              |
-+----------+------------------------------------------------------------------+
-| Location || QL ROM                                                          |
-+----------+------------------------------------------------------------------+
++----------+-----------------------------------------------------------------+
+| Syntax   | BORDER [#channel,] size [,colour] or                            |
+|          |                                                                 |
+|          | BORDER [#channel] Location: QL ROM                              |
++----------+-----------------------------------------------------------------+
+| Location | QL ROM                                                          |
++----------+-----------------------------------------------------------------+
 
 This command allows you to add a coloured border around the inside of
 the edge of the specified window (default #1). If the second syntax is
@@ -1917,13 +1920,15 @@ See :ref:`bpeek-l` below.
 BPEEK\_L
 ========
 
-+----------+---------------------------------------+
-| Syntax   || BPEEK% (offset)    and               |
-|          || BPEEK\_W% (offset) and               |
-|          || BPEEK\_L (offset)                    |
-+----------+---------------------------------------+
-| Location || BPEEKS, BPOKE (DIY Toolkit - Vol B)  |
-+----------+---------------------------------------+
++----------+--------------------------------------+
+| Syntax   | BPEEK% (offset)    and               |
+|          |                                      |
+|          | BPEEK\_W% (offset) and               |
+|          |                                      |
+|          | BPEEK\_L (offset)                    |
++----------+--------------------------------------+
+| Location | BPEEKS, BPOKE (DIY Toolkit - Vol B)  |
++----------+--------------------------------------+
 
 These three functions are exactly the same as BASIC\_B, BASIC\_W and
 BASIC\_W, and suffer with the same problem that they always access the
@@ -1961,13 +1966,15 @@ See :ref:`bpoke-l` below.
 BPOKE\_L
 ========
 
-+----------+---------------------------------+
-| Syntax   || BPOKE offset, value   and      |
-|          || BPOKE\_W offset, value         |
-|          || BPOKE\_L offset, value         |
-+----------+---------------------------------+
-| Location || BPOKE (DIY Toolkit - Vol B)    |
-+----------+---------------------------------+
++----------+--------------------------------+
+| Syntax   | BPOKE offset, value   and      |
+|          |                                |
+|          | BPOKE\_W offset, value         |
+|          |                                |
+|          | BPOKE\_L offset, value         |
++----------+--------------------------------+
+| Location | BPOKE (DIY Toolkit - Vol B)    |
++----------+--------------------------------+
 
 These three commands allow you to alter the value of SuperBASIC
 variables in much the same was as the extended POKE commands do on
@@ -1995,12 +2002,13 @@ read the values of the SuperBASIC variables.
 BPUT
 ====
 
-+----------+----------------------------------------------------------------------------+
-| Syntax   || BPUT [#ch\\position,] [item :sup:`\*`\ [,item\ :sup:`i`]\ :sup:`\*` ..] or|
-|          || BPUT [#ch,] [item                                                         |
-+----------+----------------------------------------------------------------------------+
-| Location || Toolkit II, THOR XVI                                                      |
-+----------+----------------------------------------------------------------------------+
++----------+---------------------------------------------------------------------------+
+| Syntax   | BPUT [#ch\\position,] [item :sup:`\*`\ [,item\ :sup:`i`]\ :sup:`\*` ..] or|
+|          |                                                                           |
+|          | BPUT [#ch,] [item                                                         |
++----------+---------------------------------------------------------------------------+
+| Location | Toolkit II, THOR XVI                                                      |
++----------+---------------------------------------------------------------------------+
 
 This command is the complement to BGET, in that it places the byte value
 for each item into the specified channel (default #3) at the current
@@ -2092,12 +2100,13 @@ See :ref:`break-off` below.
 BREAK\_OFF
 ==========
 
-+----------+---------------+
-| Syntax   || BREAK\_ON    |
-|          || BREAK\_OFF   |
-+----------+---------------+
-| Location || TinyToolkit  |
-+----------+---------------+
++----------+--------------+
+| Syntax   | BREAK\_ON    |
+|          |              |
+|          | BREAK\_OFF   |
++----------+--------------+
+| Location | TinyToolkit  |
++----------+--------------+
 
 The command BREAK\_OFF de-activates the functioning of both
 <CTRL><SPACE> (the Break Key) and <CTRL><F5> (the Pause Screen key)
@@ -2273,7 +2282,7 @@ BTRAP
 +----------+-----------------------------------------------------+
 | Syntax   | BTRAP #ch,key [,d1 [,d2 [,d3 [,a1 [,a2 ]]]]]        |
 +----------+-----------------------------------------------------+
-| Location | TRAPS (DIY Toolkit Vol T)                           | 
+| Location | TRAPS (DIY Toolkit Vol T)                           |
 +----------+-----------------------------------------------------+
 
 This command is identical to QTRAP, except that the address parameters
@@ -2355,7 +2364,7 @@ at the same time:
     130 END REPeat mloop
     140 END DEFine
 
-    
+
 **CROSS-REFERENCE**
 
 :ref:`x-ptr-pct`, :ref:`y-ptr-pct`
@@ -2411,5 +2420,4 @@ This simple function  returns the amount of memory known by the system to be fre
 **CROSS-REFERENCE**
 
 :ref:`kbytes-free`.
-
 

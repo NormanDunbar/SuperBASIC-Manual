@@ -110,12 +110,12 @@ version of EOF has now been renamed EOFW.
 A2.3 Empty Brackets
 -------------------
 
-| An empty bracket is always regarded as a syntax error by original QL
-  ROMs whereas SMSQ/E (in common with Minerva) tolerates them, for
-  example to indicate that a function is called with a parameter, eg.
-  DATE(). If a program should be portable than you have to avoid this
-  style because all other implementations (other than Minerva) mark such
-  lines with a MISTake:
+An empty bracket is always regarded as a syntax error by original QL
+ROMs whereas SMSQ/E (in common with Minerva) tolerates them, for
+example to indicate that a function is called with a parameter, eg.
+DATE(). If a program should be portable than you have to avoid this
+style because all other implementations (other than Minerva) mark such
+lines with a MISTake:
 
 ::
 
@@ -218,7 +218,7 @@ A2.9.1 Extra Colours
 SMSQ/E v2.98 implements a different display driver for many systems,
 including 65536 colours on the QXL, QPC and Q40 - see Appendix 16.
 Because the format of the display is different to the original QL, this
-may cause incompatability problems with many of the drawing commands
+may cause incompatibility problems with many of the drawing commands
 covered in this book which assume the original QL screen format. This
 can however be overcome by only using these commands or programs which
 cause problems in the original display configuration of 512x256 pixels,
@@ -295,6 +295,4 @@ fail to format these disks. This is a major problem which will hopefully
 be resolved in later versions.
 
 See also FLP\_DENSITY.
-
-
 

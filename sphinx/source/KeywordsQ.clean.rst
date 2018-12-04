@@ -3,12 +3,6 @@
 Keywords Q
 ==========
 
-TODO
-====
-
-
-
-
 ..  _qaconvert:
 
 QACONVERT
@@ -23,7 +17,7 @@ QACONVERT
 This command takes a file which is stored on a QL Format disk and
 converts it into Atari Format. It will then convert special characters
 in that file to Atari compatible characters as well as converting any
-occurence of a Line Feed character CHR$(10) to a Carriage Return
+occurrence of a Line Feed character CHR$(10) to a Carriage Return
 character CHR$(13) followed by a Line Feed character CHR$(10).
 
 **CROSS-REFERENCE**
@@ -88,8 +82,8 @@ The value returned will be the exact number of characters placed into
 the pipe, which will therefore include the line feed characters and
 other control characters. Take the example of::
 
-    10 OPEN #3,pipe_1048 
-    20 PRINT #3,'HELLO' 
+    10 OPEN #3,pipe_1048
+    20 PRINT #3,'HELLO'
     30 PRINT QCOUNT%(#3)
 
 The value of 6 is returned, this is because the PRINT
@@ -120,17 +114,17 @@ This function returns a string containing the version code of the
 operating system on which SuperBASIC is running. For example ::
 
     PRINT QDOS$
-    
-- Version 1.03 was the first main version of QDOS (an upgrade is essential if you have an earlier version!) 
-- Version 1x13 is for all MGx ROMs, eg. 1G13 for the MGG. 
-- 1.63 was the first version of Minerva. 
+
+- Version 1.03 was the first main version of QDOS (an upgrade is essential if you have an earlier version!)
+- Version 1x13 is for all MGx ROMs, eg. 1G13 for the MGG.
+- 1.63 was the first version of Minerva.
 - 1.76 was the first version of Minerva with reliable MultiBASICs.
-- 1.98 was the latest and best version of Minerva 
+- 1.98 was the latest and best version of Minerva
 - 2.xx SMS version.
-- 3.xx is the version number of the Amiga QL Emulator. 
+- 3.xx is the version number of the Amiga QL Emulator.
 - 4.xx is the first version of ARGOS on a THOR 1 computer. #
-- 5.xx is the version of ARGOS on a THOR 20 computer. 
-- 6.xx is the version of ARGOS on a THOR XVI computer. 
+- 5.xx is the version of ARGOS on a THOR 20 computer.
+- 6.xx is the version of ARGOS on a THOR XVI computer.
 - 6.41 is the final version of the THOR ARGOS ROM.
 
 **NOTE 1**
@@ -181,7 +175,7 @@ co-ordinate system for the different n:
 +---+------------------------------------------------------+
 | N | Information Returned                                 |
 +===+======================================================+
-| 0 | Width in pixels (eg. 512 on a standard QL display).  | 
+| 0 | Width in pixels (eg. 512 on a standard QL display).  |
 +---+------------------------------------------------------+
 | 1 | Height in pixels (eg. 256 on a standard QL display). |
 +---+------------------------------------------------------+
@@ -198,26 +192,26 @@ generated.
 **Example**
 
 If there are no windows other than #0, #1 and #2, and their positions
-are set up as follows:: 
+are set up as follows::
 
-    100 WINDOW #0,100,100,50,50 
-    110 WINDOW #1,20,20,0,0 
-    120 WINDOW #2,200,50,40,40 
+    100 WINDOW #0,100,100,50,50
+    110 WINDOW #1,20,20,0,0
+    120 WINDOW #2,200,50,40,40
     130 FOR c=0 TO 2: PAPER #c,3: BORDER #c,1,4: CLS #c
 
 The Pointer Interface will reduce the outline size of the screen
 available to SuperBASIC, which can be checked with the next program or
-by swapping to other jobs which fill the whole screen. 
+by swapping to other jobs which fill the whole screen.
 
 ::
 
-    100 ch=2 
-    110 xmin = QFLIM(#ch, 2): xmax = xmin + QFLIM(#ch,0) 
-    120 ymin = QFLIM(#ch, 3): ymax = ymin + QFLIM(#ch,1) 
-    130 PRINT "x = "; xmin; ".."; xmax 
-    140 PRINT "y = "; ymin; ".."; ymax 
-    150 percent% = 100 * QFLIM(#ch, 0) * QFLIM(#ch, 1) / (512 * 256) 
-    160 PRINT "fills"! percent%; "% of the screen" 
+    100 ch=2
+    110 xmin = QFLIM(#ch, 2): xmax = xmin + QFLIM(#ch,0)
+    120 ymin = QFLIM(#ch, 3): ymax = ymin + QFLIM(#ch,1)
+    130 PRINT "x = "; xmin; ".."; xmax
+    140 PRINT "y = "; ymin; ".."; ymax
+    150 percent% = 100 * QFLIM(#ch, 0) * QFLIM(#ch, 1) / (512 * 256)
+    160 PRINT "fills"! percent%; "% of the screen"
 
 
 Type WTV or WMON to restore standard window sizes. Note that this
@@ -230,7 +224,7 @@ The Pointer Interface makes a distinction between the primary window
 secondary windows. Although using QFLIM on a secondary window will
 return the maximum outlines for the current job's windows, using QFLIM
 on the primary window (eg. #0 in SuperBASIC) will return the physical
-screen size, ie. the parameters of the largest possible window:: 
+screen size, ie. the parameters of the largest possible window::
 
     WINDOW QFLIM(#0, 0), QFLIM(#0, 1), QFLIM(#0, 2), QFLIM(#0, 3)
 
@@ -272,7 +266,7 @@ QICONVERT
 This command takes a file which is stored on a QL Format disk and
 converts it into IBM Format. It will then convert special characters in
 that file to IBM compatible characters as well as converting any
-occurence of a Line Feed character CHR$(10) to a Carriage Return
+occurrence of a Line Feed character CHR$(10) to a Carriage Return
 character CHR$(13) followed by a Line Feed character CHR$(10).
 
 **CROSS-REFERENCE**
@@ -469,18 +463,18 @@ This command can be used to call an external DOS or Windows program. The name of
 
 Furthermore, you can supply a data file as the first parameter. In this case, the associated application for this file type is executed.
 
-**Example** 
+**Example**
 
 ::
 
-    QPC_EXEC 'notepad','c:\text.txt' 
-    
+    QPC_EXEC 'notepad','c:\text.txt'
+
 Starts notepad and loads the c:\\text file.
 
 ::
 
-    QPC_EXEC 'c:\text.txt' 
-    
+    QPC_EXEC 'c:\text.txt'
+
 Starts the default viewer for .txt files.
 
 --------------
@@ -513,12 +507,12 @@ QPC\_HOSTOS
 | Location | SMSQ/E for QPC                                                    |
 +----------+-------------------------------------------------------------------+
 
-This function returns the host operating system under which QPC was started. 
+This function returns the host operating system under which QPC was started.
 
 Possible return codes are:
 
-- 0 = DOS (QPC1) 
-- 1 = Win9x/ME (QPC2) 
+- 0 = DOS (QPC1)
+- 1 = Win9x/ME (QPC2)
 - 2 = WinNT/2000/XP (QPC2)
 
 --------------
@@ -583,7 +577,7 @@ QPC\_NETNAME$
 | Location | SMSQ/E for QPC                                                    |
 +----------+-------------------------------------------------------------------+
 
-This function returns the current network name of your PC (the one you supplied upon installation of Windows). The result can be used to distinguish between different PCs (**Example** in a BOOT program).
+This function returns the current network name of your PC (the one you supplied upon installation of Windows). The result can be used to distinguish between different PCs (For example, in a BOOT program).
 
 --------------
 
@@ -603,9 +597,9 @@ Enables or disables the original QL screen emulation. When emulating the origina
 
 Possible values are:
 
-- -1: automatic mode 
-- 0: disabled (default) 
-- 4: force to 4-colour mode 
+- -1: automatic mode
+- 0: disabled (default)
+- 4: force to 4-colour mode
 - 8: force to 8-colour mode
 
 When in QL colour mode, the emulation just transfers the written bytes to the larger screen memory, i.e. when the big mode is in 4-colour mode, the original screen area is also treated as 4-colour mode. In high colour mode however, the colour conversion can do both modes. In this case, you can pre-select the emulated mode (parameter = 4 or 8) or let the last issued :ref:`mode` call decide (automatic mode). Please note that that automatic mode does not work on a per-job basis, so any job that issues a :ref:`mode` command changes the behaviour globally.
@@ -662,12 +656,12 @@ QPC\_VER$
 
 This returns the current QPC version.
 
-**Example** 
+**Example**
 
 ::
 
-    PRINT QPC_VER$ 
-    
+    PRINT QPC_VER$
+
 Will print 4.00 or higher.
 
 --------------
@@ -686,13 +680,13 @@ QPC\_WINDOWSIZE
 
 This sets the size of the client area (the part that displays SMSQ/E) of the QPC window. It does NOT alter the resolution SMSQ/E runs with, so the pixels are effectively zoomed. It is equivalent to the "window size" option in the main configuration window. If QPC is currently in full screen mode it will switch to windowed mode. Window size cannot be set smaller than the SMSQ/E resolution or bigger than the desktop resolution.
 
-**Example** 
+**Example**
 
 ::
 
     DISP_SIZE 512,256
     QPC_WINDOWSIZE 1024,512
-    
+
 Does a 200% zoom of the QPC window.
 
 --------------
@@ -709,13 +703,13 @@ QPC\_WINDOWTITLE
 | Location | SMSQ/E for QPC                                                    |
 +----------+-------------------------------------------------------------------+
 
-Sets the string that can be seen when QPC runs in windowed mode. This can be used to easily distin-guish between several QPC instances.
+Sets the string that can be seen when QPC runs in windowed mode. This can be used to easily distinguish between several QPC instances.
 
-**Example** 
+**Example**
 
 ::
 
-    QPC_WINDOWTITLE "Accounting" 
+    QPC_WINDOWTITLE "Accounting"
 
 Sets the title to "Accounting", without the quotes though!
 
@@ -741,7 +735,7 @@ This function returns 1 if the Pointer Environment is loaded or 0 if not. The ch
 ::
 
     PRINT QPTR(#0)
-    
+
 will print 1 of the PE is loaded or zero otherwise.
 
 
@@ -777,45 +771,46 @@ Window Manager.
 QSAVE
 =====
 
-+----------+-------------------------------------------------------------------+
-| Syntax   || QSAVE [device\_]filename  or                                     |
-|          || QSAVE                                                            |
-+----------+-------------------------------------------------------------------+
-| Location || SMS                                                              |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------+
+| Syntax   | QSAVE [device\_]filename  or                                     |
+|          |                                                                  |
+|          | QSAVE                                                            |
++----------+------------------------------------------------------------------+
+| Location | SMS                                                              |
++----------+------------------------------------------------------------------+
 
 For several years now, the best utility for saving SuperBASIC programs
 in a form which can be loaded very quickly into memory has been QLOAD
-from Liberation Software. 
+from Liberation Software.
 
 This utility stores SuperBASIC programs on
 disk in a special format which although seems meaningless if you VIEW
 the file, allows the program to be loaded at around 3x the speed of the
-normal LOAD command, which can be very useful for large programs. 
+normal LOAD command, which can be very useful for large programs.
 
 Unlike other similar utilities, programs which have been saved using this
 utility can be loaded into any other ROM version without any trouble,
 using the QLOAD command. It is nice to see that this utility has been
-implemented as part of SMS. 
+implemented as part of SMS.
 
 The QSAVE command allows you to save the
 whole of SuperBASIC program currently in memory under the specified
 filename to the specified device. If the filename does not end in the
-suffix \_SAV, then this will be added automatically. 
+suffix \_SAV, then this will be added automatically.
 
 If no device is
 specified (or it does not exist), then Toolkit II's default data device
 will be used. You will also be prompted to confirm whether an existing
-file should be overwritten if necessary. 
+file should be overwritten if necessary.
 
 The second variant of the
 command will allow you to QSAVE
 the program in memory under the same filename as when LOAD or QLOAD was
-last used (with the \_SAV suffix appended if necessary). 
+last used (with the \_SAV suffix appended if necessary).
 
 If the original
 filename used when the program was LOADed ended in \_BAS, then QSAVE
-will alter this to be the \_SAV suffix. 
+will alter this to be the \_SAV suffix.
 
 This variant will also take the
 version number of the file when it was LOADed (or QLOADed) and then
@@ -828,8 +823,8 @@ QL, ensure that if used from Minerva, Integer Tokenisation is switched
 off - you will need to follow the following procedure:
 
 #. POKE \\\\212,128
-#. LOAD the ASCII version of the program (or type NEW) 
-#. Alter the program as necessary ... 
+#. LOAD the ASCII version of the program (or type NEW)
+#. Alter the program as necessary ...
 #. QSAVE the fast loading version of the program.
 
 **NOTE 2**
@@ -852,12 +847,13 @@ allows you to read the current version number of a file.
 QSAVE\_O
 ========
 
-+----------+-------------------------------------------------------------------+
-| Syntax   || QSAVE\_O [device\_]filename  or                                  |
-|          || QSAVE\_O                                                         |
-+----------+-------------------------------------------------------------------+
-| Location || SMS                                                              |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------+
+| Syntax   | QSAVE\_O [device\_]filename  or                                  |
+|          |                                                                  |
+|          | QSAVE\_O                                                         |
++----------+------------------------------------------------------------------+
+| Location | SMS                                                              |
++----------+------------------------------------------------------------------+
 
 This command is the same as QSAVE except that it will automatically
 overwrite an existing file with the same filename.
@@ -892,30 +888,30 @@ linked to the specified channel can hold at any one time.
 
 ::
 
-    10 OPEN #4,pipe_200 
-    20 QLINK #4 TO #3 
-    25 PRINT #4,'QL DATA' 
-    30 PRINT QSIZE% (#3), QCOUNT%(#3) 
-    40 CLOSE #3: CLOSE #4 
+    10 OPEN #4,pipe_200
+    20 QLINK #4 TO #3
+    25 PRINT #4,'QL DATA'
+    30 PRINT QSIZE% (#3), QCOUNT%(#3)
+    40 CLOSE #3: CLOSE #4
 
-This short program will print 203 and 8 on screen. 
+This short program will print 203 and 8 on screen.
 
-This will also work with named pipes on SMS:: 
+This will also work with named pipes on SMS::
 
-    10 OPEN_NEW #4,pipe_test_200 
-    20 OPEN_IN #3,pipe_test 
-    25 PRINT #4,'QL DATA' 
-    30 PRINT QSIZE% (#3), QCOUNT%(#3) 
+    10 OPEN_NEW #4,pipe_test_200
+    20 OPEN_IN #3,pipe_test
+    25 PRINT #4,'QL DATA'
+    30 PRINT QSIZE% (#3), QCOUNT%(#3)
     40 CLOSE #3:CLOSE #4
 
 Note however, that if you re-run the program the figure returned by
 QCOUNT% continues increasing - this is because a named pipe does not
 disappear just because both ends of the pipe have been closed. You would
-need to add the line:: 
+need to add the line::
 
     50 DELETE pipe_test
 
-to overcome this. Alternatively, try:: 
+to overcome this. Alternatively, try::
 
     DIR pipe: WDEL pipe
 
@@ -947,12 +943,12 @@ QSPACE%
 +----------+-------------------------------------------------------------------+
 
 This function returns the amount of empty space in a pipe connected to
-the specified channel. 
+the specified channel.
 
 ::
 
     PRINT QSPACE(#3)
-    
+
 is therefore the same as::
 
     PRINT QSIZE%(#3) - QCOUNT%(#3)
@@ -977,23 +973,23 @@ QTRAP
 +----------+-------------------------------------------------------------------+
 
 This command is similar to IO\_TRAP in that it allows you to access the
-machine code TRAP #3 system calls directly. 
+machine code TRAP #3 system calls directly.
 
 You will need to pass at
 least two parameters, the number of the channel to be affected and the
 operation key to be carried out (this is equivalent to the value in D0
-when TRAP #3 is performed). 
+when TRAP #3 is performed).
 
 The other parameters allow you to pass the
 various register values which may be required by the system calls. The
-timeout parameter (D3) defaults to -1 (infinite timeout). 
+timeout parameter (D3) defaults to -1 (infinite timeout).
 
 This can be
 used effectively to set the INK and PAPER colours for THOR XVI's MODE 12
 and still allow the program to be compiled. For example::
 
     QTRAP #2,HEX('27'),4
-    
+
 will set the PAPER colour in the window #2 to Green (although the STRIP
 colour will remain unaffected).
 
@@ -1060,11 +1056,11 @@ QUEUE%
 +----------+-------------------------------------------------------------------+
 
 QUEUE% is a function but does exactly the same as FORCE\_TYPE and
-TYPE\_IN. 
+TYPE\_IN.
 
 The return value is zero if all bytes have been successfully
 typed in, negative if the keyboard queue is full and positive if another
-problem occured. 
+problem occurred.
 
 The absolute value of the return always indicates how
 many characters QUEUE% failed to send.
