@@ -287,7 +287,7 @@ simply suspended until the Break key is pressed.
 SNOOZE is similar. See also
 GLOBAL,
 EXTERNAL and
-:ref:`link-load-a`.
+LINK_LOAD_A.
 
 --------------
 
