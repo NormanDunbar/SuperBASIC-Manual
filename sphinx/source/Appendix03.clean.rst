@@ -612,7 +612,7 @@ Qubbesoft P/D.
 
 Details about the emulator are on the Web at:
 
-http://www.emulnews.com/aer/articles/af (This link no lonegr works. NDunbar)
+http://www.emulnews.com/aer/articles/af (This link no longer works. NDunbar)
 
 The program loads the operating system from disk and basically simulates
 a JS ROM QL with a few additions in later versions. Although a public
@@ -761,6 +761,4 @@ If you use Minerva, you can use higher resolution display modes (up to
 
 The main incompatibility problem with this emulator is due to the case
 sensitive names used by Unix (ie. filenames).
-
-
 

@@ -31,7 +31,7 @@ allow POKE 114796,0 to force the Gold Card to run at 24MHz (it normally
 runs at 16MHz compared to the QL's 12MHz). The circumstances where this
 works are undefined at the moment, but see below. Some users have
 however reported problems with some software running at this speed, and
-in particular the network and microdrives are unuseable. The Gold Card
+in particular the network and microdrives are unusable. The Gold Card
 can be returned to normal with POKE 114796,255.
 
 The so-called Gold Card Go-Faster POKE works on a certain series of Gold
@@ -119,7 +119,7 @@ A5.4 Q40
 Q40 is a replacement motherboard for the QL. It is supplied with 16Mb
 RAM (although it will support up to 32Mb) and an I/O card. You will need
 to add a tower case, a keyboard, floppy and hard disk drives, a standard
-PC monitor and mouse. The Q40 even has the ability to drive stero sound,
+PC monitor and mouse. The Q40 even has the ability to drive stereo sound,
 using an in-built digital to analogue converter which can be used with
 either speakers or headphones. All drivers and equipment to connect
 these items to the motherboard are built in.
@@ -200,6 +200,4 @@ to the Recycle Bin on Windows 95).
 
 Unfortunately, problems have been reported with the Trashcan facility
 which makes it unreliable.
-
-
 

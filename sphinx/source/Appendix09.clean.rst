@@ -582,7 +582,7 @@ British QL
     F2     TAB    Q   W   E   R   T   Y   U   I   O   P   [   ]
     F3     CAPS    A   S   D   F   G   H   J   K   L   ;   '      ENTER
     F4     SHIFT     Z   X   C   V   B   N   M   ,   .   /     SHIFT
-    F5     CTRL  LEFT RIGHT          SPACE             UP  DOWN   ALT 
+    F5     CTRL  LEFT RIGHT          SPACE             UP  DOWN   ALT
 
 German QL
 ^^^^^^^^^
@@ -593,7 +593,7 @@ German QL
     F2     TAB    Q   W   E   R   T   Z   U   I   O   P   Ü   +
     F3     CAPS    A   S   D   F   G   H   J   K   L   Ö   Ä      ENTER
     F4     SHIFT     Y   X   C   V   B   N   M   ,   .   -     SHIFT
-    F5     CTRL  LEFT RIGHT          SPACE             UP  DOWN   ALT 
+    F5     CTRL  LEFT RIGHT          SPACE             UP  DOWN   ALT
 
 French QL
 ^^^^^^^^^
@@ -604,7 +604,7 @@ French QL
     F2     TAB    A   Z   E   R   T   Y   U   I   O   P   é   è
     F3     CAPS    Q   S   D   F   G   H   J   K   L   M   à      ENTER
     F4     SHIFT     W   X   C   V   B   N   ,   .   ;   ç     SHIFT
-    F5     CTRL  LEFT RIGHT          SPACE             UP  DOWN   ALT 
+    F5     CTRL  LEFT RIGHT          SPACE             UP  DOWN   ALT
 
 Swedish QL
 ^^^^^^^^^^
@@ -615,7 +615,7 @@ Swedish QL
     F2     TAB    Q   W   E   R   T   Y   U   I   O   P   Å   *
     F3     CAPS    A   S   D   F   G   H   J   K   L   Ö   Ä      ENTER
     F4     SHIFT     Z   X   C   V   B   N   M   ,   .   -     SHIFT
-    F5     CTRL  LEFT RIGHT          SPACE             UP  DOWN   ALT 
+    F5     CTRL  LEFT RIGHT          SPACE             UP  DOWN   ALT
 
 Finnish QL
 ^^^^^^^^^^
@@ -626,7 +626,7 @@ Finnish QL
     F2     TAB    Q   W   E   R   T   Y   U   I   O   P   Å   ^
     F3     LUKITUS A   S   D   F   G   H   J   K   L   Ö   Ä      ENTER
     F4     VAIHTO   Z   X   C   V   B   N   M   ,   .   -      VAIHTO
-    F5     OHJAUS LEFT RIGHT         SPACE            UP DOWN     SIIRTO 
+    F5     OHJAUS LEFT RIGHT         SPACE            UP DOWN     SIIRTO
 
 Danish QL
 ^^^^^^^^^

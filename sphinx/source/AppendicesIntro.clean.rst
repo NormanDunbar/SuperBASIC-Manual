@@ -44,7 +44,7 @@ and possibly disk access to the QL. The boards listed here actually
 replace parts of the original QL, increasing speed and adding a host of
 other features.
 
-**[6]** :ref:`a6-compatability`
+**[6]** :ref:`a6-compatibility`
 
 This section provides basic and some expert background information on
 software and hardware compatibility across the range of different QL
@@ -118,6 +118,6 @@ reliability over data sent.
 
 **[18]** :ref:`a18-configuring--programs`
 
-This section covers the use of the CONFIG utility to configure a 
+This section covers the use of the CONFIG utility to configure a
 program with suitable default settings.
 
