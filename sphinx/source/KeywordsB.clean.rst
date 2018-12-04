@@ -116,13 +116,15 @@ See :ref:`basic-l` below.
 BASIC\_L
 ========
 
-+----------+-------------------------------------------------------------------+
-| Syntax   || BASIC\_B (offset) and                                            |
-|          || BASIC\_W (offset)                                                |
-|          || BASIC\_L (offset)                                                |
-+----------+-------------------------------------------------------------------+
-| Location ||  TinyToolkit, BTool, Turbo Toolkit (BASIC\_L only)               |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------+
+| Syntax   | BASIC\_B (offset) and                                            |
+|          |                                                                  |
+|          | BASIC\_W (offset)                                                |
+|          |                                                                  |
+|          | BASIC\_L (offset)                                                |
++----------+------------------------------------------------------------------+
+| Location |  TinyToolkit, BTool, Turbo Toolkit (BASIC\_L only)               |
++----------+------------------------------------------------------------------+
 
 These three functions are modified version of PEEK which return values
 at memory locations in the SuperBASIC system variables, which are used
@@ -201,13 +203,15 @@ See :ref:`basic-f` below.
 BASIC\_F
 ========
 
-+----------+-------------------------------------------------------------------+
-| Syntax   || BASIC\_B% (offset) and                                           |
-|          || BASIC\_W% (offset) and                                           |
-|          || BASIC\_F (offset)                                                |
-+----------+-------------------------------------------------------------------+
-| Location || Turbo Toolkit, BTool, Turbo Toolkit (BASIC_L only)               |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------+
+| Syntax   | BASIC\_B% (offset) and                                           |
+|          |                                                                  |
+|          | BASIC\_W% (offset) and                                           |
+|          |                                                                  |
+|          | BASIC\_F (offset)                                                |
++----------+------------------------------------------------------------------+
+| Location | Turbo Toolkit, BTool, Turbo Toolkit (BASIC_L only)               |
++----------+------------------------------------------------------------------+
 
 The functions BASIC\_B% and BASIC\_W% are similar to BASIC\_B and
 BASIC\_W. BASIC\_F is a further function which can be used to return a
@@ -466,12 +470,13 @@ executed.
 BAUD
 ====
 
-+----------+-------------------------------------------------------------------+
-| Syntax   || BAUD bps  or                                                     |
-|          || BAUD [port,] bps(SMS and ST/QL only)                             |
-+----------+-------------------------------------------------------------------+
-| Location || QL ROM                                                           |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------+
+| Syntax   | BAUD bps  or                                                     |
+|          |                                                                  |
+|          | BAUD [port,] bps(SMS and ST/QL only)                             |
++----------+------------------------------------------------------------------+
+| Location | QL ROM                                                           |
++----------+------------------------------------------------------------------+
 
 The serial port(s) use a certain speed to communicate with printers,
 modems, other computers, interfaces etc. This speed is set with BAUD.
@@ -820,12 +825,13 @@ The current keyboard queue can be selected by a dummy
 BEEP
 ====
 
-+----------+-----------------------------------------------------------------------------+
-| Syntax   || BEEP length, pitch [,pitch\_2, grd\_x, grd\_y [,wrap [,fuzz [,rndom ]]]] or|
-|          || BEEP                                                                       |
-+----------+-----------------------------------------------------------------------------+
-| Location || QL ROM                                                                     |
-+----------+-----------------------------------------------------------------------------+
++----------+----------------------------------------------------------------------------+
+| Syntax   | BEEP length, pitch [,pitch\_2, grd\_x, grd\_y [,wrap [,fuzz [,rndom ]]]] or|
+|          |                                                                            |
+|          | BEEP                                                                       |
++----------+----------------------------------------------------------------------------+
+| Location | QL ROM                                                                     |
++----------+----------------------------------------------------------------------------+
 
 This command allows you to access the QL's rather poor sound generation
 chip. It can be extremely difficult to use this command, and a lot of
@@ -1150,12 +1156,13 @@ as the wallpaper.
 BGET
 ====
 
-+----------+----------------------------------------------------------------------------+
-| Syntax   || BGET [#ch\\position,] [item :sup:`\*`\ [,item\ :sup:`i`]\ :sup:`\*` ..] or|
-|          || BGET [#ch,] [item                                                         |
-+----------+----------------------------------------------------------------------------+
-| Location || Toolkit II, THOR XVI                                                      |
-+----------+----------------------------------------------------------------------------+
++----------+---------------------------------------------------------------------------+
+| Syntax   | BGET [#ch\\position,] [item :sup:`\*`\ [,item\ :sup:`i`]\ :sup:`\*` ..] or|
+|          |                                                                           |
+|          | BGET [#ch,] [item                                                         |
++----------+---------------------------------------------------------------------------+
+| Location | Toolkit II, THOR XVI                                                      |
++----------+---------------------------------------------------------------------------+
 
 This command is very similar to GET, although this only fetches one byte
 at a time (in the range 0..255) from the given channel (default #3).
@@ -1306,12 +1313,13 @@ See also HCO and FCO.
 BIN
 ===
 
-+----------+-------------------------------------------------------------------+
-| Syntax   || BIN (binary$)  or                                                |
-|          || BIN (binary) where binary=0..111111                              |
-+----------+-------------------------------------------------------------------+
-| Location || Toolkit II, THOR XVI                                             |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------+
+| Syntax   | BIN (binary$)  or                                                |
+|          |                                                                  |
+|          | BIN (binary) where binary=0..111111                              |
++----------+------------------------------------------------------------------+
+| Location | Toolkit II, THOR XVI                                             |
++----------+------------------------------------------------------------------+
 
 This function returns the decimal value of a binary number (given as a
 string). For small numbers, a floating point number can be used but will
@@ -1371,12 +1379,13 @@ SMS users can achieve the same thing by using, for example :ref:`print`\ %1001 i
 BIN$
 ====
 
-+----------+-------------------------------------------------------------------+
-| Syntax   || BIN$ (decimal,digits)  or                                        |
-|          || BIN$ (decimal [,digits]) (THOR only)                             |
-+----------+-------------------------------------------------------------------+
-| Location || Toolkit II, THOR XVI                                             |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------+
+| Syntax   | BIN$ (decimal,digits)  or                                        |
+|          |                                                                  |
+|          | BIN$ (decimal [,digits]) (THOR only)                             |
++----------+------------------------------------------------------------------+
+| Location | Toolkit II, THOR XVI                                             |
++----------+------------------------------------------------------------------+
 
 This function converts a signed integer decimal number to the equivalent
 binary number (to a specified number of binary digits ranging from 1 to
@@ -1501,7 +1510,7 @@ BIT%
 +----------+-----------------------------------------------------+
 | Syntax   | BIT% (number%,bitnr) with bitnr=0..15               |
 +----------+-----------------------------------------------------+
-| Location | BIT                                                 | 
+| Location | BIT                                                 |
 +----------+-----------------------------------------------------+
 
 All numbers are internally stored as a series of values, each of which
@@ -1799,12 +1808,13 @@ via :ref:`call` as an alternative to
 BORDER
 ======
 
-+----------+------------------------------------------------------------------+
-| Syntax   || BORDER [#channel,] size [,colour] or                            |
-|          || BORDER [#channel] Location: QL ROM                              |
-+----------+------------------------------------------------------------------+
-| Location || QL ROM                                                          |
-+----------+------------------------------------------------------------------+
++----------+-----------------------------------------------------------------+
+| Syntax   | BORDER [#channel,] size [,colour] or                            |
+|          |                                                                 |
+|          | BORDER [#channel] Location: QL ROM                              |
++----------+-----------------------------------------------------------------+
+| Location | QL ROM                                                          |
++----------+-----------------------------------------------------------------+
 
 This command allows you to add a coloured border around the inside of
 the edge of the specified window (default #1). If the second syntax is
@@ -1910,13 +1920,15 @@ See :ref:`bpeek-l` below.
 BPEEK\_L
 ========
 
-+----------+---------------------------------------+
-| Syntax   || BPEEK% (offset)    and               |
-|          || BPEEK\_W% (offset) and               |
-|          || BPEEK\_L (offset)                    |
-+----------+---------------------------------------+
-| Location || BPEEKS, BPOKE (DIY Toolkit - Vol B)  |
-+----------+---------------------------------------+
++----------+--------------------------------------+
+| Syntax   | BPEEK% (offset)    and               |
+|          |                                      |
+|          | BPEEK\_W% (offset) and               |
+|          |                                      |
+|          | BPEEK\_L (offset)                    |
++----------+--------------------------------------+
+| Location | BPEEKS, BPOKE (DIY Toolkit - Vol B)  |
++----------+--------------------------------------+
 
 These three functions are exactly the same as BASIC\_B, BASIC\_W and
 BASIC\_W, and suffer with the same problem that they always access the
@@ -1954,13 +1966,15 @@ See :ref:`bpoke-l` below.
 BPOKE\_L
 ========
 
-+----------+---------------------------------+
-| Syntax   || BPOKE offset, value   and      |
-|          || BPOKE\_W offset, value         |
-|          || BPOKE\_L offset, value         |
-+----------+---------------------------------+
-| Location || BPOKE (DIY Toolkit - Vol B)    |
-+----------+---------------------------------+
++----------+--------------------------------+
+| Syntax   | BPOKE offset, value   and      |
+|          |                                |
+|          | BPOKE\_W offset, value         |
+|          |                                |
+|          | BPOKE\_L offset, value         |
++----------+--------------------------------+
+| Location | BPOKE (DIY Toolkit - Vol B)    |
++----------+--------------------------------+
 
 These three commands allow you to alter the value of SuperBASIC
 variables in much the same was as the extended POKE commands do on
@@ -1988,12 +2002,13 @@ read the values of the SuperBASIC variables.
 BPUT
 ====
 
-+----------+----------------------------------------------------------------------------+
-| Syntax   || BPUT [#ch\\position,] [item :sup:`\*`\ [,item\ :sup:`i`]\ :sup:`\*` ..] or|
-|          || BPUT [#ch,] [item                                                         |
-+----------+----------------------------------------------------------------------------+
-| Location || Toolkit II, THOR XVI                                                      |
-+----------+----------------------------------------------------------------------------+
++----------+---------------------------------------------------------------------------+
+| Syntax   | BPUT [#ch\\position,] [item :sup:`\*`\ [,item\ :sup:`i`]\ :sup:`\*` ..] or|
+|          |                                                                           |
+|          | BPUT [#ch,] [item                                                         |
++----------+---------------------------------------------------------------------------+
+| Location | Toolkit II, THOR XVI                                                      |
++----------+---------------------------------------------------------------------------+
 
 This command is the complement to BGET, in that it places the byte value
 for each item into the specified channel (default #3) at the current
@@ -2085,12 +2100,13 @@ See :ref:`break-off` below.
 BREAK\_OFF
 ==========
 
-+----------+---------------+
-| Syntax   || BREAK\_ON    |
-|          || BREAK\_OFF   |
-+----------+---------------+
-| Location || TinyToolkit  |
-+----------+---------------+
++----------+--------------+
+| Syntax   | BREAK\_ON    |
+|          |              |
+|          | BREAK\_OFF   |
++----------+--------------+
+| Location | TinyToolkit  |
++----------+--------------+
 
 The command BREAK\_OFF de-activates the functioning of both
 <CTRL><SPACE> (the Break Key) and <CTRL><F5> (the Pause Screen key)
@@ -2266,7 +2282,7 @@ BTRAP
 +----------+-----------------------------------------------------+
 | Syntax   | BTRAP #ch,key [,d1 [,d2 [,d3 [,a1 [,a2 ]]]]]        |
 +----------+-----------------------------------------------------+
-| Location | TRAPS (DIY Toolkit Vol T)                           | 
+| Location | TRAPS (DIY Toolkit Vol T)                           |
 +----------+-----------------------------------------------------+
 
 This command is identical to QTRAP, except that the address parameters
@@ -2348,7 +2364,7 @@ at the same time:
     130 END REPeat mloop
     140 END DEFine
 
-    
+
 **CROSS-REFERENCE**
 
 :ref:`x-ptr-pct`, :ref:`y-ptr-pct`
@@ -2404,5 +2420,4 @@ This simple function  returns the amount of memory known by the system to be fre
 **CROSS-REFERENCE**
 
 :ref:`kbytes-free`.
-
 
