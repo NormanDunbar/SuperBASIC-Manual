@@ -256,65 +256,68 @@ Appendix):
 
 ..  tabularcolumns::    |l|l|p{.6\textwidth}|
 
-+-----------------+---------+----------------------------------------------------------+
-| Device Type     | Name    | Typical uses                                             |
-+=================+=========+==========================================================+
-| Serial device   | ser     | Printers, communication with other computers or modems,  |
-|                 |         | control of processes, reading analogue data.             |
-+-----------------+---------+----------------------------------------------------------+
-|                 | par     | Output to printers via a centronics interface,           |
-+-----------------+---------+----------------------------------------------------------+
-|                 | nul     | A dummy device which simply receives incoming            |
-|                 |         | data and immediately forgets it, useful for debugging.   |
-|                 |         | There are several variants available.                    |
-+-----------------+---------+----------------------------------------------------------+
-|                 | pipe    | Pipes are intended for communication between jobs, every |
-|                 |         | pipe has an input and output side - there are both       |
-|                 |         | standard pipes and named pipes. This is a First In First |
-|                 |         | Out device.                                              |
-+-----------------+---------+----------------------------------------------------------+
-|                 | history | Similar to a pipe, except that it is a Last In First     |
-|                 |         | Out device.                                              |
-+-----------------+---------+----------------------------------------------------------+
-|                 | net     | To send or receive data from another network station.    |
-+-----------------+---------+----------------------------------------------------------+
-|                 | mem     | A device to read and write in memory, especially useful  |
-|                 |         | to directly access memory on remote network stations via |
-|                 |         | the fileserver.                                          |
-+-----------------+---------+----------------------------------------------------------+
-| Drives          | mdv     | Microdrives, the original drives on QLs - files are      |
-|                 |         | stored on cartridges.                                    |
-+-----------------+---------+----------------------------------------------------------+
-|                 | flp     | Floppy disk drives are regarded as standard today -      |
-|                 |         | files are stored on disks, early drivers are called fdk. |
-+-----------------+---------+----------------------------------------------------------+
-|                 | win     | Winchester drives, also called hard disks - files are    |
-|                 |         | stored on a permanently installed very large and fast    |
-|                 |         | disk.                                                    |
-+-----------------+---------+----------------------------------------------------------+
-|                 | ram     | Ramdisks, virtual but extremely fast drives, the files   |
-|                 |         | are stored in RAM and are lost when the computer is      |
-|                 |         | switched off.                                            |
-+-----------------+---------+----------------------------------------------------------+
-|                 | dev     | A kind of universal device, see DEV\_USE for an          |
-|                 |         | introduction.                                            |
-+-----------------+---------+----------------------------------------------------------+
-|                 | pth     | Very similar to dev - see PTH\_ADD.                      |
-+-----------------+---------+----------------------------------------------------------+
-|                 | mos     | Permanent ramdisk, needs specific hardware.              |
-+-----------------+---------+----------------------------------------------------------+
-|                 | rom     | Also a permanent ramdisk.                                |
-+-----------------+---------+----------------------------------------------------------+
-| Windows         | con     | Interfaces to a console device (window) for input and    |
-|                 |         | output.                                                  |
-+-----------------+---------+----------------------------------------------------------+
-|                 | scr     | The same as con\_ but for output only.                   |
-+-----------------+---------+----------------------------------------------------------+
-| Other devices   | n       | The fileserver device which allows you to access any     |
-|                 |         | device on a remote network station.                      |
-+-----------------+---------+----------------------------------------------------------+
-|                 | sdump   | A device for a general window dump.                      |
-+-----------------+---------+----------------------------------------------------------+
+..  table::
+    :class: longtable
+
+    +-----------------+---------+----------------------------------------------------------+
+    | Device Type     | Name    | Typical uses                                             |
+    +=================+=========+==========================================================+
+    | Serial device   | ser     | Printers, communication with other computers or modems,  |
+    |                 |         | control of processes, reading analogue data.             |
+    +-----------------+---------+----------------------------------------------------------+
+    |                 | par     | Output to printers via a centronics interface,           |
+    +-----------------+---------+----------------------------------------------------------+
+    |                 | nul     | A dummy device which simply receives incoming            |
+    |                 |         | data and immediately forgets it, useful for debugging.   |
+    |                 |         | There are several variants available.                    |
+    +-----------------+---------+----------------------------------------------------------+
+    |                 | pipe    | Pipes are intended for communication between jobs, every |
+    |                 |         | pipe has an input and output side - there are both       |
+    |                 |         | standard pipes and named pipes. This is a First In First |
+    |                 |         | Out device.                                              |
+    +-----------------+---------+----------------------------------------------------------+
+    |                 | history | Similar to a pipe, except that it is a Last In First     |
+    |                 |         | Out device.                                              |
+    +-----------------+---------+----------------------------------------------------------+
+    |                 | net     | To send or receive data from another network station.    |
+    +-----------------+---------+----------------------------------------------------------+
+    |                 | mem     | A device to read and write in memory, especially useful  |
+    |                 |         | to directly access memory on remote network stations via |
+    |                 |         | the fileserver.                                          |
+    +-----------------+---------+----------------------------------------------------------+
+    | Drives          | mdv     | Microdrives, the original drives on QLs - files are      |
+    |                 |         | stored on cartridges.                                    |
+    +-----------------+---------+----------------------------------------------------------+
+    |                 | flp     | Floppy disk drives are regarded as standard today -      |
+    |                 |         | files are stored on disks, early drivers are called fdk. |
+    +-----------------+---------+----------------------------------------------------------+
+    |                 | win     | Winchester drives, also called hard disks - files are    |
+    |                 |         | stored on a permanently installed very large and fast    |
+    |                 |         | disk.                                                    |
+    +-----------------+---------+----------------------------------------------------------+
+    |                 | ram     | Ramdisks, virtual but extremely fast drives, the files   |
+    |                 |         | are stored in RAM and are lost when the computer is      |
+    |                 |         | switched off.                                            |
+    +-----------------+---------+----------------------------------------------------------+
+    |                 | dev     | A kind of universal device, see DEV\_USE for an          |
+    |                 |         | introduction.                                            |
+    +-----------------+---------+----------------------------------------------------------+
+    |                 | pth     | Very similar to dev - see PTH\_ADD.                      |
+    +-----------------+---------+----------------------------------------------------------+
+    |                 | mos     | Permanent ramdisk, needs specific hardware.              |
+    +-----------------+---------+----------------------------------------------------------+
+    |                 | rom     | Also a permanent ramdisk.                                |
+    +-----------------+---------+----------------------------------------------------------+
+    | Windows         | con     | Interfaces to a console device (window) for input and    |
+    |                 |         | output.                                                  |
+    +-----------------+---------+----------------------------------------------------------+
+    |                 | scr     | The same as con\_ but for output only.                   |
+    +-----------------+---------+----------------------------------------------------------+
+    | Other devices   | n       | The fileserver device which allows you to access any     |
+    |                 |         | device on a remote network station.                      |
+    +-----------------+---------+----------------------------------------------------------+
+    |                 | sdump   | A device for a general window dump.                      |
+    +-----------------+---------+----------------------------------------------------------+
 
 
 Please refer to other parts of this book for more specific information on the
