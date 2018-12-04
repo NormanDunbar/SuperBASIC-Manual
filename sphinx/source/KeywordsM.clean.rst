@@ -2,13 +2,6 @@
 Keywords M
 ==========
 
-TODO
-====
-
-- Sort out MIDINET table. It's way too wide.
-- :ref:`matplot` references something called POINT_ABS. I can't find it anywhere.
-
-
 ..  _machine:
 
 MACHINE
@@ -53,23 +46,23 @@ which SuperBASIC is running. The values currently returned are:
 
 
 On Standard QLs, MACHINE returns the above value
-plus 1 if HERMES is fitted. 
+plus 1 if HERMES is fitted.
 
 On ATARI Computers, MACHINE returns the
-above value plus 1 is a BLITTER CHIP is fitted. 
+above value plus 1 is a BLITTER CHIP is fitted.
 
-Users without SMSQ/E can use the command:: 
+Users without SMSQ/E can use the command::
 
     PRINT PEEK (SYS_VARS+HEX('a7')) && BIN ('0011111')
-    
-    
-This should return the same values (except that 0 will also be returned
-on a standard QL without any expansion board or a THOR computer). 
 
-You can test for a THOR by using:: 
+
+This should return the same values (except that 0 will also be returned
+on a standard QL without any expansion board or a THOR computer).
+
+You can test for a THOR by using::
 
     PRINT PEEK (SYS_VARS+HEX('84'))
-    
+
 which will be 0 on any other implementation. We do not know what it
 returns on the THOR range of computers.
 
@@ -78,80 +71,80 @@ returns on the THOR range of computers.
 A program to test for the actual machine on which the program is
 running, as well as other interesting data::
 
-    100 v$=VER$:q$=QDOS$ 
-    110 processor$='00':FPU=0:em_type=0 
-    120 IF v$<>'HBA' 
-    130   m_type=PEEK(SYS_BASE+HEX('A7')) 
-    140   em_type=m_type && BIN('11100000') 
-    150   m_type=m_type && BIN('00011111') 
-    160   SELect ON em_type 
-    170     =1:em_type=3 
-    180     =2:em_type=1 
-    190     =4:em_type=2 
-    200   END SELect 
-    210   IF v$='JSL1' 
+    100 v$=VER$:q$=QDOS$
+    110 processor$='00':FPU=0:em_type=0
+    120 IF v$<>'HBA'
+    130   m_type=PEEK(SYS_BASE+HEX('A7'))
+    140   em_type=m_type && BIN('11100000')
+    150   m_type=m_type && BIN('00011111')
+    160   SELect ON em_type
+    170     =1:em_type=3
+    180     =2:em_type=1
+    190     =4:em_type=2
+    200   END SELect
+    210   IF v$='JSL1'
     220     PRINT 'MINERVA FITTED'
-    230     m_type=100 : processor$='08' 
-    240   ELSE 
-    250     IF m_type=0 
-    260       IF PEEK (SYS_BASE+HEX('84'))<>0 
-    270         IF q$(1)='4':PRINT 'THOR 1 Computer'; 
-    280         IF q$(1)='5':PRINT 'THOR 20 Computer'; 
-    290         IF q$(1)='6':PRINT 'THOR XVI Computer'; 
-    300         IF q$(1) INSTR '456'=0:PRINT 'UNKNOWN THOR Computer' 
-    310         PRINT ' v';q$:STOP 
-    320       END IF 
-    330     END IF 
-    340   END IF 
-    350 ELSE 
-    360   m_type=MACHINE:processor$=PROCESSOR 
-    370   FPU=processor$(2):processor$=processor$(1)&'0' 
+    230     m_type=100 : processor$='08'
+    240   ELSE
+    250     IF m_type=0
+    260       IF PEEK (SYS_BASE+HEX('84'))<>0
+    270         IF q$(1)='4':PRINT 'THOR 1 Computer';
+    280         IF q$(1)='5':PRINT 'THOR 20 Computer';
+    290         IF q$(1)='6':PRINT 'THOR XVI Computer';
+    300         IF q$(1) INSTR '456'=0:PRINT 'UNKNOWN THOR Computer'
+    310         PRINT ' v';q$:STOP
+    320       END IF
+    330     END IF
+    340   END IF
+    350 ELSE
+    360   m_type=MACHINE:processor$=PROCESSOR
+    370   FPU=processor$(2):processor$=processor$(1)&'0'
     380   em_type=DISP_TYPE
-    390 END IF 
-    400 extra_chip=m_type MOD 2 
+    390 END IF
+    400 extra_chip=m_type MOD 2
     410 m_type=(m_type DIV 2)*2
-    420 SELect ON m_type 
-    430   =0: IF v$='HBA' 
-    440         PRINT 'ATARI ST / STM / STF / STFM'; 
-    450         ELSE :PRINT 'STANDARD QL - ROM VERSION ';v$ : processor$='08' 
-    460       END IF 
-    470   =2: PRINT 'MEGA ST or ST / STM / STF / STFM with REAL-TIME CLOCK'; 
-    480   =4: PRINT 'ATARI STACY'; 
-    490   =6: PRINT 'ATARI STE'; 
-    500   =8: PRINT 'MEGA STE'; 
-    510   =10: PRINT 'GOLD CARD'; 
-    520   =12: PRINT 'SUPER GOLD CARD'; 
-    530   =16: PRINT 'FALCON'; 
-    540   =24: PRINT 'ATARI TT 030'; 
-    550   =28: PRINT 'QXL' 
-    560   =30: PRINT 'QPC' 
+    420 SELect ON m_type
+    430   =0: IF v$='HBA'
+    440         PRINT 'ATARI ST / STM / STF / STFM';
+    450         ELSE :PRINT 'STANDARD QL - ROM VERSION ';v$ : processor$='08'
+    460       END IF
+    470   =2: PRINT 'MEGA ST or ST / STM / STF / STFM with REAL-TIME CLOCK';
+    480   =4: PRINT 'ATARI STACY';
+    490   =6: PRINT 'ATARI STE';
+    500   =8: PRINT 'MEGA STE';
+    510   =10: PRINT 'GOLD CARD';
+    520   =12: PRINT 'SUPER GOLD CARD';
+    530   =16: PRINT 'FALCON';
+    540   =24: PRINT 'ATARI TT 030';
+    550   =28: PRINT 'QXL'
+    560   =30: PRINT 'QPC'
     570 END SELect
-    580 SELect ON extra_chip 
-    590   =0: PRINT 
-    600   =1: 
+    580 SELect ON extra_chip
+    590   =0: PRINT
+    600   =1:
     610     SELect ON m_type
-    620       =0,2,4,6,8,16,24:PRINT ' with BLITTER' 
-    630         SELect ON em_type 
-    640           =0: PRINT 'Original QL Emulator FITTED' 
-    650           =1: PRINT 'Extended Mode 4 Emulator FITTED' 
-    660           =2: PRINT 'QVME Emulator FITTED' 
-    670           =3: PRINT 'Monochrome Display Only' 
-    680         END SELect 
-    690     =REMAINDER :PRINT ' with HERMES' 
-    700     END SELect 
-    710 END SELect 
-    720 PRINT 'ROM VERSION - ';v$ 
-    730 PRINT 'OS VERSION - ';q$ 
-    735 IF m_type<>30 
-    740   PRINT 'PROCESSOR - 680';processor$; 
-    745 ELSE 
-    750   PRINT 'INTEL PROCESSOR'; 
-    755 END IF 
-    760 SELect ON FPU 
+    620       =0,2,4,6,8,16,24:PRINT ' with BLITTER'
+    630         SELect ON em_type
+    640           =0: PRINT 'Original QL Emulator FITTED'
+    650           =1: PRINT 'Extended Mode 4 Emulator FITTED'
+    660           =2: PRINT 'QVME Emulator FITTED'
+    670           =3: PRINT 'Monochrome Display Only'
+    680         END SELect
+    690     =REMAINDER :PRINT ' with HERMES'
+    700     END SELect
+    710 END SELect
+    720 PRINT 'ROM VERSION - ';v$
+    730 PRINT 'OS VERSION - ';q$
+    735 IF m_type<>30
+    740   PRINT 'PROCESSOR - 680';processor$;
+    745 ELSE
+    750   PRINT 'INTEL PROCESSOR';
+    755 END IF
+    760 SELect ON FPU
     765   =0 : PRINT
-    770   =1 : PRINT 'with Internal MMU' 
-    780   =2 : PRINT 'with 68851 MMU' 
-    790   =4 : PRINT 'with Internal FPU' 
+    770   =1 : PRINT 'with Internal MMU'
+    780   =2 : PRINT 'with 68851 MMU'
+    790   =4 : PRINT 'with Internal FPU'
     800   =8 : PRINT 'with 68881 or 68882 FPU'
     810 END SELect
 
@@ -193,32 +186,32 @@ files to be regarded as one unit when the contents of a medium are
 listed. Operations other than the standard DIR, WDIR, WSTAT and WDEL,
 are not affected. A file belongs to a sub-directory if the
 sub-directory's name appears as a prefix of the file, whether the file
-was created before or after the sub-directory. 
+was created before or after the sub-directory.
 
 Sub-directories are only
 supported on Level-2 (or higher) floppy disks, hard disks and ramdisks.
 
 A sub-directory name can be any name but any underscore at its end will
-be ignored by MAKE\_DIR. 
+be ignored by MAKE\_DIR.
 
 If there is no medium in the given device, or
 if you do not specify a device name, the current default data device
-will be used (see DATAD$). 
+will be used (see DATAD$).
 
 Sub-directories are identified by a "->" in
 directory listings and programs can identify them by examining their
-file type (255). 
+file type (255).
 
 Empty sub-directories can be deleted as normal files,
 but a sub-directory which is not empty, cannot be deleted: error -9 (in
 use) will be reported. Actually, sub-directories are normal files which
 hold a list of the files which are contained within them. The list
 consists of the standard file headers of these files, each being 64
-bytes long. 
+bytes long.
 
 A sub-directory file never decreases in length if a file in
 the sub-directory has been deleted, instead, the file header is just
-marked as deleted by setting the name to a zero string. 
+marked as deleted by setting the name to a zero string.
 
 All normal
 operations are allowed on sub-directory files (except RENAME), and they
@@ -229,13 +222,13 @@ can be accessed using OPEN\_DIR and FOP\_DIR.
 If FLP1\_ contains an empty disk and we then save the current SuperBASIC
 program as flp1\_my\_prog\_bas and a backup as flp1\_backup\_bas::
 
-    SAVE flp1_my_prog_bas 
+    SAVE flp1_my_prog_bas
     SAVE flp1_backup_bas
 
 a directory of flp1\_, produced with WDIR flp1\_ (for example), shows
 the following contents::
 
-    my_prog_bas 
+    my_prog_bas
     backup_bas
 
 Now, we create the sub-directory my (or my\_) with::
@@ -245,16 +238,16 @@ Now, we create the sub-directory my (or my\_) with::
 or::
 
     MAKE_DIR flp1_my
-    
+
 (both forms are equivalent) and look at the directory again::
 
     my ->
-    backup_bas 
-    
+    backup_bas
+
 MAKE\_DIR created a new file "my" (not "my ->") which is
 marked as a sub-directory with the "->" sign by the DIR, WDIR
 and WSTAT commands. The file type of my is 255, PRINT FTYP(\\flp1\_my)
-will return that. 
+will return that.
 
 But where is my\_prog\_bas? It was moved into the
 sub-directory my\_ and DIR flp1\_my\_ will show it again.
@@ -302,11 +295,11 @@ than 36 characters, a 'not found' error will be returned.
 **WARNING 1**
 
 It is possible to create a sub-directory so that it cannot be removed
-any more **(do not try this on a hard disk, you have been warned)**\ :: 
+any more **(do not try this on a hard disk, you have been warned)**\ ::
 
-    SAVE test_ 
+    SAVE test_
     MAKE_DIR test
-    
+
 The file test\_ (with an underscore) has been moved into the test directory, but it cannot
 be deleted to empty test. - This has been fixed in drivers later than
 version 2.28.
@@ -316,8 +309,8 @@ version 2.28.
 ::
 
     MAKE_DIR net_
-    MAKE_DIR "net" 
-    
+    MAKE_DIR "net"
+
 and similar commands lock-up the machine, so if you want you create a sub-directory called 'net' in the
 current directory, use::
 
@@ -328,8 +321,8 @@ current directory, use::
 ::
 
     MAKE_DIR flp1__
-    MAKE_DIR flp1___ 
-    
+    MAKE_DIR flp1___
+
 and similar commands could create recursive directories until this was fixed in SMS v2.77.
 
 **CROSS-REFERENCE**
@@ -381,8 +374,8 @@ and matrix2.
 
 ::
 
-    100 DIM a%(10,10,80), b%(10,10,80), c%(10,10,80) 
-    110 MATRND a%,-5 TO 5: MATSEQ b% 
+    100 DIM a%(10,10,80), b%(10,10,80), c%(10,10,80)
+    110 MATRND a%,-5 TO 5: MATSEQ b%
     120 MATADD c%,a%,b%
 
 **CROSS-REFERENCE**
@@ -401,12 +394,13 @@ functions; :ref:`matsub` is almost equivalent to
 MATCOUNT
 ========
 
-+----------+-------------------------------------------------------------------+
-| Syntax   || MATCOUNT (array, value)  or                                      |
-|          || MATCOUNT (array1, array2)                                        |
-+----------+-------------------------------------------------------------------+
-| Location || Math Package                                                     |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------+
+| Syntax   | MATCOUNT (array, value)  or                                      |
+|          |                                                                  |
+|          | MATCOUNT (array1, array2)                                        |
++----------+------------------------------------------------------------------+
+| Location | Math Package                                                     |
++----------+------------------------------------------------------------------+
 
 MATCOUNT is a function which counts how often a certain value appears
 in the given array where array and value can be of any type (even
@@ -420,8 +414,8 @@ number of different elements.
 The following programs compares two random integer arrays and will
 always print something around 33%::
 
-    100 DIM x%(1000), y%(1000) 
-    110 MATRND x%,2: MATRND y%,2 
+    100 DIM x%(1000), y%(1000)
+    110 MATRND x%,2: MATRND y%,2
     120 PRINT MATCOUNT(x%,y%)/10;"%"
 
 **CROSS-REFERENCE**
@@ -441,12 +435,13 @@ comparisons are based on the SuperBASIC operator == instead of =.
 MATCOUNT1
 =========
 
-+----------+-------------------------------------------------------------------+
-| Syntax   || MATCOUNT1 (array, value)  or                                     |
-|          || MATCOUNT1 (array1, array2)                                       |
-+----------+-------------------------------------------------------------------+
-| Location || Math Package                                                     |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------+
+| Syntax   | MATCOUNT1 (array, value)  or                                     |
+|          |                                                                  |
+|          | MATCOUNT1 (array1, array2)                                       |
++----------+------------------------------------------------------------------+
+| Location | Math Package                                                     |
++----------+------------------------------------------------------------------+
 
 The function MATCOUNT1 is just a variation of MATCOUNT which performs
 comparisons not as exact as MATCOUNT. Numbers must only be almost equal,
@@ -488,12 +483,12 @@ be of the same type and have the same number of dimensions.
 
 ::
 
-    DIM a$(4,8), a%(2,2,2,2,2), a(0), b$(4,8) 
-    MATEQU a$,"Hi there" 
-    MATEQU a%,6 
-    MATEQU a%,-PI 
-    test$=9.5: MATEQU a%,test$ 
-    MATEQU a,9.5 
+    DIM a$(4,8), a%(2,2,2,2,2), a(0), b$(4,8)
+    MATEQU a$,"Hi there"
+    MATEQU a%,6
+    MATEQU a%,-PI
+    test$=9.5: MATEQU a%,test$
+    MATEQU a,9.5
     MATEQU a$,b$
 
 **NOTE**
@@ -525,7 +520,7 @@ values which gives information about their standard deviation.
 
 ::
 
-    10 DIM x(10) 
+    10 DIM x(10)
     20 PRINT MATDEV (x)
 
 gives 0 because all elements of x are equal and therefore, have no deviation. Add
@@ -603,7 +598,7 @@ the '\\' can be omitted.
 
 ::
 
-    100 DIM a(1,2) 
+    100 DIM a(1,2)
     110 MATINPUT a,
 
 **CROSS-REFERENCE**
@@ -626,7 +621,7 @@ MATINV
 +----------+-------------------------------------------------------------------+
 
 The command MATINV takes the array matrix1, inverts it and stores the
-result in matrix2. 
+result in matrix2.
 
 Inverting is a mathematical term and produces a
 result from a matrix which is similar to finding the reciprocal of a
@@ -634,28 +629,28 @@ number, namely, the relation is expressed by the fact that the product
 of a number and its reciprocal is one and the product of a matrix and
 its inverse matrix is the identity matrix::
 
-    n=10: DIM A(n,n), B(n,n), C(n,n) 
+    n=10: DIM A(n,n), B(n,n), C(n,n)
     MATRND A
-    
+
 A is a random matrix.
 
 ::
 
     MATINV A,B
-    
+
 makes B the inverted matrix of A.
 
 ::
 
     MATMULT C,A,B
-    
-Multiply A with B and store the result in C. C will be almost identical to the matrix ONE defined with:: 
+
+Multiply A with B and store the result in C. C will be almost identical to the matrix ONE defined with::
 
     DIM ONE(n,n): MATIDN ONE
 
 C and ONE do not have exactly the same values because of the limited
 precision of the QL maths package. Two conditions are absolutely
-necessary for MATINV to work:: 
+necessary for MATINV to work::
 
 - DET (matrix1) <> 0
 - matrix1 and matrix2 must be square matrices
@@ -667,23 +662,23 @@ which has a solution x which is an array like b. This example will find
 the solutions x(i) of the system, for any positive value of n (the size
 of the matrix)::
 
-    100 n=5 
-    110 DIM A(n,n), AINV(n,n), b(n), x(n) 
-    120 MATRND A: MATRND b 
-    130 : 
-    140 MATINV A,AINV 
-    150 MATSCALM AINV,b TO x 
-    160 PRINT "Solutions:"\x 
-    170 IF ABS(DET)<1E-6 THEN PRINT "(dubious results)" 
-    180 : 
-    190 DEFine PROCedure MATSCALM (matrix,array1,array2) 
-    200   LOCal i,j 
-    210   FOR i=0 TO DIMN(matrix,1) 
-    220     array2(i)=0 
+    100 n=5
+    110 DIM A(n,n), AINV(n,n), b(n), x(n)
+    120 MATRND A: MATRND b
+    130 :
+    140 MATINV A,AINV
+    150 MATSCALM AINV,b TO x
+    160 PRINT "Solutions:"\x
+    170 IF ABS(DET)<1E-6 THEN PRINT "(dubious results)"
+    180 :
+    190 DEFine PROCedure MATSCALM (matrix,array1,array2)
+    200   LOCal i,j
+    210   FOR i=0 TO DIMN(matrix,1)
+    220     array2(i)=0
     230     FOR j=0 TO DIMN(matrix,2)
-    240       array2(i)=array2(i)+array1(j)\*matrix(i,j) 
-    250     END FOR j 
-    260   END FOR i 
+    240       array2(i)=array2(i)+array1(j)\*matrix(i,j)
+    250     END FOR j
+    260   END FOR i
     270 END DEFine MATSCALM
 
 The method of solving a linear equation system by calculating the
@@ -705,7 +700,7 @@ very close to zero after :ref:`matinv` has been
 executed, if this is the case, :ref:`matinv` may
 have found a result which does not exist::
 
-    IF ABS(DET) < 1E-6 THEN PRINT "dubious result" 
+    IF ABS(DET) < 1E-6 THEN PRINT "dubious result"
 
 This works because :ref:`matinv` calls :ref:`det`
 internally.
@@ -833,93 +828,93 @@ The latter three conditions are obviously satisfied by square matrices.
 
 Multiplication of two matrices means that their effect on a vector is
 combined into one matrix. The following program demonstrates this on a
-simple square. 
+simple square.
 
 The square x is a list of four vectors. x is first
-rotated with ROT by 45\ :sup:`o`\, the rotated square is stored in y. 
+rotated with ROT by 45\ :sup:`o`\, the rotated square is stored in y.
 
 Now this y is squeezed in size by one half with SQZ and stored in z. Lines 240 to
-280 perform all this and show the process. 
+280 perform all this and show the process.
 
 After a keystroke, the matrix
 ROTSQZ will be created as the product of ROT and SQZ. Again the original
 square is transformed but this time by ROTSQZ which rotates and squeezes
-in one go. This is done by lines 300 to 350. 
+in one go. This is done by lines 300 to 350.
 
 Lines 100 to 220 initialise
-the matrices and set up the window for drawing. 
+the matrices and set up the window for drawing.
 
 Due to the design of QL
-graphics, line 100 can be freely omitted. 
+graphics, line 100 can be freely omitted.
 
 At the bottom of the listing
-are three PROCedures: 
+are three PROCedures:
 
 MATVEC multiplies a vector with a matrix (ie. the
 vector is transformed by this matrix) and MATVECS does the same for a
 list of vectors, just calling MATVEC for each individual vector.
 MATVEC(S) is written in a dimension independent way, just to show how
 that can be done; there is no check on the parameters, just to save
-space. 
+space.
 
 POLYDRAW draws a closed polygon from a supplied list of
-two-dimensional points. 
+two-dimensional points.
 
 ::
 
-    100 WINDOW 448,200,32,16 
-    110 SCALE 8,-5,-4: PAPER 0: CLS 
-    120 : 
-    130 DIM ROT(2,2): rc=1/SQRT(2) 
-    140 ROT(1,1)=rc: ROT(1,2)=rc 
+    100 WINDOW 448,200,32,16
+    110 SCALE 8,-5,-4: PAPER 0: CLS
+    120 :
+    130 DIM ROT(2,2): rc=1/SQRT(2)
+    140 ROT(1,1)=rc: ROT(1,2)=rc
     150 ROT(2,1)=-rc: ROT(2,2)=rc
-    160 DIM SQZ(2,2): SQZ(1,1)=.5: SQZ(2,2)=.5 
-    170 : 
-    180 DIM x(4,2), y(4,2), z(4,2) 
-    190 x(1,1)=-1: x(1,2)= 1 
-    200 x(2,1)= 1: x(2,2)= 1 
-    210 x(3,1)= 1: x(3,2)=-1 
-    220 x(4,1)=-1: x(4,2)=-1 
-    230 : 
-    240 INK 5: POLYDRAW x 
-    250 MATVECS y,ROT,x 
-    260 INK 3: POLYDRAW y 
-    270 MATVECS z,SQZ,y 
-    280 INK 7: POLYDRAW z 
-    290 : 
-    300 PAUSE: CLS 
-    310 DIM ROTSQZ(2,2) 
-    320 INK 5: POLYDRAW x 
-    330 MATMULT ROTSQZ,ROT,SQZ 
-    340 MATVECS z,ROTSQZ,x 
-    350 INK 7: POLYDRAW z 
-    360 : 
-    370 : 
+    160 DIM SQZ(2,2): SQZ(1,1)=.5: SQZ(2,2)=.5
+    170 :
+    180 DIM x(4,2), y(4,2), z(4,2)
+    190 x(1,1)=-1: x(1,2)= 1
+    200 x(2,1)= 1: x(2,2)= 1
+    210 x(3,1)= 1: x(3,2)=-1
+    220 x(4,1)=-1: x(4,2)=-1
+    230 :
+    240 INK 5: POLYDRAW x
+    250 MATVECS y,ROT,x
+    260 INK 3: POLYDRAW y
+    270 MATVECS z,SQZ,y
+    280 INK 7: POLYDRAW z
+    290 :
+    300 PAUSE: CLS
+    310 DIM ROTSQZ(2,2)
+    320 INK 5: POLYDRAW x
+    330 MATMULT ROTSQZ,ROT,SQZ
+    340 MATVECS z,ROTSQZ,x
+    350 INK 7: POLYDRAW z
+    360 :
+    370 :
     380 DEFine PROCedure MATVECS (vectors2, matrix, vectors1)
-    390   LOCal i 
-    400   FOR i=1 TO DIMN(vectors1) 
-    410     MATVEC vectors2(i),matrix,vectors1(i) 
-    420   END FOR i 
-    430 END DEFine MATVECS 
+    390   LOCal i
+    400   FOR i=1 TO DIMN(vectors1)
+    410     MATVEC vectors2(i),matrix,vectors1(i)
+    420   END FOR i
+    430 END DEFine MATVECS
     440
-    : 
-    450 DEFine PROCedure MATVEC (vector2, matrix, vector1) 
-    460   REMark vector2 = matrix * vector1 
-    470   LOCal i,j 
+    :
+    450 DEFine PROCedure MATVEC (vector2, matrix, vector1)
+    460   REMark vector2 = matrix * vector1
+    470   LOCal i,j
     480   FOR i=1 TO DIMN(vector2)
-    490     vector2(i)=0 
-    500     FOR j=1 TO DIMN(matrix,2)  
-    510       vector2(i)=vector2(i)+matrix(i,j)*vector1(j) 
-    520     END FOR j 
-    530   END FOR i 
-    540 END DEFine MATVEC 
-    550 : 
+    490     vector2(i)=0
+    500     FOR j=1 TO DIMN(matrix,2)
+    510       vector2(i)=vector2(i)+matrix(i,j)*vector1(j)
+    520     END FOR j
+    530   END FOR i
+    540 END DEFine MATVEC
+    550 :
     560 DEFine PROCedure POLYDRAW (vectors)
-    570   LOCal i 
-    580   POINT vectors(1,1),vectors(1,2) 
-    590   FOR i=2 TO DIMN(vectors), 1 
-    600     LINE TO vectors(i,1),vectors(i,2) 
-    610   END FOR i 
+    570   LOCal i
+    580   POINT vectors(1,1),vectors(1,2)
+    590   FOR i=2 TO DIMN(vectors), 1
+    600     LINE TO vectors(i,1),vectors(i,2)
+    610   END FOR i
     620 END DEFine POLYDRAW
 
 **NOTE**
@@ -948,19 +943,19 @@ MATPLOT
 | Location |  Math Package                                                     |
 +----------+-------------------------------------------------------------------+
 
-This command takes a two-dimensional array and draws the points set out 
+This command takes a two-dimensional array and draws the points set out
 by the array (the first dimension identifies the number of points and
 the second the co-ordinates) to the default window used by LINE
 (normally #1). The array must be declared in the following way (an array
-which does not fall into this category will cause an error):: 
+which does not fall into this category will cause an error)::
 
     DIM array (points,1)
-    
+
 points is the total number of points (less one) set out in the array,
 with array(p,0) the x-coordinate and array(p,1) the y- coordinate of
 point number p-1. If a comma (,) appears after the name of the array
 MATPLOT
-will connect each point with its successor by a line. 
+will connect each point with its successor by a line.
 
 On the other
 hand, if a semicolon (;) appears after the name of the array, an
@@ -982,29 +977,29 @@ calculation and drawing was done in one loop which was a bit faster
 (10-20%) than the following version (this calculates all points in one
 loop and then uses MATPLOT to draw them quickly, creating a second
 internal loop). Another disadvantage compared to the original version is
-the increase in memory usage because all points have to be stored:: 
+the increase in memory usage because all points have to be stored::
 
-    100 MODE 4: WINDOW 512,256,0,0: PAPER 0: CLS 
-    110 SCALE 20,-14,-10: iterations=10000 
-    120 DIM pts(iterations-1,1): x=0: y=0 
-    130 FOR loop=0 TO iterations-1 
-    140   pts(loop,0)=x: pts(loop,1)=y 
-    150   sy=0: IF x<0 THEN sy=-1: ELSE IF x THEN sy=1 
-    160   xx=y-sy\*(ABS(x-.9))^.5: y=1.01-x: x=xx 
-    170 END FOR loop 
+    100 MODE 4: WINDOW 512,256,0,0: PAPER 0: CLS
+    110 SCALE 20,-14,-10: iterations=10000
+    120 DIM pts(iterations-1,1): x=0: y=0
+    130 FOR loop=0 TO iterations-1
+    140   pts(loop,0)=x: pts(loop,1)=y
+    150   sy=0: IF x<0 THEN sy=-1: ELSE IF x THEN sy=1
+    160   xx=y-sy\*(ABS(x-.9))^.5: y=1.01-x: x=xx
+    170 END FOR loop
     180 INK 7: MATPLOT pts
 
 A nice modification of the above example would be to:
 
-- Replace MODE 4 with MODE 8 in line 100; 
-- Delete line 180; 
+- Replace MODE 4 with MODE 8 in line 100;
+- Delete line 180;
 - Add the following block::
 
-    180 REPeat loop 
-    190 FOR n=1 TO 7 
-    200 INK n 
-    210 MATPLOT pts 
-    220 END FOR n 
+    180 REPeat loop
+    190 FOR n=1 TO 7
+    200 INK n
+    210 MATPLOT pts
+    220 END FOR n
     230 END REPeat loop
 
 It's up to you to produce more variants!
@@ -1022,7 +1017,7 @@ the graphic cursor. :ref:`point` draws a single
 point to any screen, :ref:`block` can also be used
 to plot points, especially of variable size.
 :ref:`plot`, :ref:`apoint` and
-:ref:`point-abs` plot points in absolute
+POINT_ABS plot points in absolute
 co-ordinates, directly to screen memory, ignoring windows.
 
 --------------
@@ -1066,13 +1061,13 @@ array is not allowed to be a string array.
 
 **Example**
 
-Can you see why MATPROD and FACT return the same number for every n? 
+Can you see why MATPROD and FACT return the same number for every n?
 
-:: 
+::
 
-    100 n=8: DIM a%(n) 
-    110 MATSEQ a% 
-    120 PRINT MATPROD(a%) ;" = "; 
+    100 n=8: DIM a%(n)
+    110 MATSEQ a%
+    120 PRINT MATPROD(a%) ;" = ";
     130 PRINT FACT(n+1)
 
 **NOTE**
@@ -1102,16 +1097,16 @@ MATREAD
 
 The command MATREAD initialises the array (of any type) by reading each
 element from DATA lines. Since MATREAD does the same as the following
-routine:: 
+routine::
 
-    FOR i1=0 TO DIMN(array,1) 
-      FOR i2=0 TO DIMN(array,2) 
-        ... 
-        READ array(i1, i2) 
-        ... 
-      END FOR i2 
+    FOR i1=0 TO DIMN(array,1)
+      FOR i2=0 TO DIMN(array,2)
+        ...
+        READ array(i1, i2)
+        ...
+      END FOR i2
     END FOR i1
- 
+
 all of the normal errors of READ may occur.
 
 **Example**
@@ -1120,11 +1115,11 @@ The following example is identical to MATSEQ a%
 
 ::
 
-    100 DIM a%(3,2) 
-    110 MATREAD a% 
-    120 : 
-    130 DATA 1, 2, 3, 4 
-    140 DATA 5, 6, 7, 8 
+    100 DIM a%(3,2)
+    110 MATREAD a%
+    120 :
+    130 DATA 1, 2, 3, 4
+    140 DATA 5, 6, 7, 8
     150 DATA 9,10,11,12
 
 is identical to MATSEQ a%.
@@ -1141,26 +1136,27 @@ is identical to MATSEQ a%.
 MATRND
 ======
 
-+----------+-------------------------------------------------------------------+
-| Syntax   || MATRND array  or                                                 |
-|          || MATRND array% [[ ,minval%] ,maxval%]                             |
-+----------+-------------------------------------------------------------------+
-| Location || Math Package                                                     |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------+
+| Syntax   | MATRND array  or                                                 |
+|          |                                                                  |
+|          | MATRND array% [[ ,minval%] ,maxval%]                             |
++----------+------------------------------------------------------------------+
+| Location | Math Package                                                     |
++----------+------------------------------------------------------------------+
 
 This command initialises all of the elements of an integer or floating
 point array with random numbers. Their default range depends on the type
 of array: for integer arrays, the values range from -32768 to 32767,
-whereas for floating point they range between 0 and 1. 
+whereas for floating point they range between 0 and 1.
 
 MATRND selects
 the range itself if there is just one parameter, but for integer arrays
 only, an extended syntax allows you to specify another range (as in the
-second variant). 
+second variant).
 
 If just a maximum value maxval% is specified then
 values range from 0 to maxval%, if a minimum minval% is additionally
-given then values range from minval% to maxval%. 
+given then values range from minval% to maxval%.
 
 MATRND will reject any
 non-integer parameters for the second syntax.
@@ -1169,10 +1165,10 @@ non-integer parameters for the second syntax.
 
 ::
 
-    DIM array%(4,3,2), array(1,2): min%=10 
-    MATRND array 
-    MATRND array% 
-    MATRND array%,100 
+    DIM array%(4,3,2), array(1,2): min%=10
+    MATRND array
+    MATRND array%
+    MATRND array%,100
     MATRND array%,min%,100
 
 **NOTE**
@@ -1206,9 +1202,9 @@ MATSEQ
 
 The command MATSEQ initialises the array (which must be a numeric
 array) with a constantly increasing set of integer numbers: 1 2 3 4 5
-6... 
+6...
 
-There is not really much use for MATSEQ except for demonstration. 
+There is not really much use for MATSEQ except for demonstration.
 
 Array can be either a floating point or integer variable. No strings are allowed.
 
@@ -1221,9 +1217,9 @@ square matrix created with :ref:`matseq` cannot be
 inverted with :ref:`matinv` because the determinant
 :ref:`det` of that matrix is always zero::
 
-    100 n=30: DIM m(n,n), minv(n,n) 
-    110 MATSEQ m 
-    120 MATINV minv,m 
+    100 n=30: DIM m(n,n), minv(n,n)
+    110 MATSEQ m
+    120 MATINV minv,m
 
 This always fails at line 120 because :ref:`det`\ (m) = 0.
 
@@ -1286,31 +1282,31 @@ temperatures by the number of values. Obviously the operation of adding
 temperatures can take quite some time for a large data base, so this is
 a point where MATSUM helps::
 
-    100 values% = 200: DIM temp%(values%) 
-    110 : 
-    120 PRINT#0,"random initialisation..." 
-    130 MATRND temp%,-20,30 
-    140 PRINT#0,"equalising"; 
-    150 FOR equalize = 1 TO 10 
-    160   FOR i = 0 TO values%-1 
-    170     temp%(i) = ( temp%(i) + temp%(i+1) ) / 2 
-    180   END FOR i 
-    190   PRINT#0,"."; 
-    200 END FOR equalize 
-    210 : 
-    220 PRINT#0\\"drawing..." 
-    230 WINDOW 448,200,32,16: SCALE 100,0,0 
-    240 PAPER 3: CLS: INK 7: OVER 0 
-    250 dist = 160 / values%: yoff = 50 
-    260 FOR i = 0 TO values%-1 
-    270   x1 = i*dist: x2 = x1+dist 
-    280   y1 = temp%(i) + yoff: y2 = temp%(i+1) + yoff 
-    290   LINE x1,y1 TO x2,y2 
-    300 END FOR i 
-    310 : 
-    320 PRINT#0,"find medium..." 
-    330 tmed = MATSUM(temp%) / values% 
-    340 INK 3: OVER -1 
+    100 values% = 200: DIM temp%(values%)
+    110 :
+    120 PRINT#0,"random initialisation..."
+    130 MATRND temp%,-20,30
+    140 PRINT#0,"equalising";
+    150 FOR equalize = 1 TO 10
+    160   FOR i = 0 TO values%-1
+    170     temp%(i) = ( temp%(i) + temp%(i+1) ) / 2
+    180   END FOR i
+    190   PRINT#0,".";
+    200 END FOR equalize
+    210 :
+    220 PRINT#0\\"drawing..."
+    230 WINDOW 448,200,32,16: SCALE 100,0,0
+    240 PAPER 3: CLS: INK 7: OVER 0
+    250 dist = 160 / values%: yoff = 50
+    260 FOR i = 0 TO values%-1
+    270   x1 = i*dist: x2 = x1+dist
+    280   y1 = temp%(i) + yoff: y2 = temp%(i+1) + yoff
+    290   LINE x1,y1 TO x2,y2
+    300 END FOR i
+    310 :
+    320 PRINT#0,"find medium..."
+    330 tmed = MATSUM(temp%) / values%
+    340 INK 3: OVER -1
     350 LINE 0,tmed+yoff TO x2,tmed+yoff
 
 The important line is 330 where MATSUM is used. Lines 150 to 200
@@ -1351,21 +1347,21 @@ MATTRN
 
 The command MATTRN takes numeric arrays of two dimensions or string
 arrays of three dimensions and reads each row of array2, placing it in
-the corresponding column of array1. 
+the corresponding column of array1.
 
 It is obligatory that both arrays
-have the same type and are exactly DIMed to the needs of MATTRN. 
+have the same type and are exactly DIMed to the needs of MATTRN.
 
 The
 first dimension of array1 must be equal to the second of array2 and the
-first dimension of array2 must be equal to the second of array1. 
+first dimension of array2 must be equal to the second of array1.
 
 For
 strings, additionally, the third dimensions of both arrays have to be
-equal:: 
+equal::
 
-    DIM array1(x,y), array2(y,x) 
-    DIM array1%(x,y), array2%(y,x) 
+    DIM array1(x,y), array2(y,x)
+    DIM array1%(x,y), array2%(y,x)
     DIM array1$(x,y,z), array2$(y,x,z)
 
 So array1 and array2 can only be of identical dimensions for square
@@ -1375,9 +1371,9 @@ matrices. In all other cases the contents of array1 are not modified.
 
 ::
 
-    100 DIM A%(2,3), B%(3,2) 
-    110 MATRND B%,9: PRINT B%!\ 
-    120 MATTRN A%,B%: PRINT A%!\ 
+    100 DIM A%(2,3), B%(3,2)
+    110 MATRND B%,9: PRINT B%!\
+    120 MATTRN A%,B%: PRINT A%!\
     130 MATTRN B%,A%: PRINT B%!\
 
 --------------
@@ -1448,15 +1444,15 @@ For the technically minded reader, this function uses the IOP\_FLIM routine in t
     7170   y% = 0
     7180   :
     7190   fer = MAX_CON(#0,w%,h%,x%,y%) : REMark primary for basic
-    7200   IF fer < 0 : PRINT #0,'Error ';fer : RETurn 
+    7200   IF fer < 0 : PRINT #0,'Error ';fer : RETurn
     7210   PRINT'#0 : ';w%;',';h%;',';x%;',';y%
     7220   :
     7230   fer = MAX_CON(#1,w%,h%,x%,y%) : REMark primary for basic
-    7240   IF fer < 0 : PRINT #0,'Error ';fer : RETurn 
+    7240   IF fer < 0 : PRINT #0,'Error ';fer : RETurn
     7250   PRINT'#1 : ';w%;',';h%;',';x%;',';y%
     7260   :
     7270   fer = MAX_CON(#2,w%,h%,x%,y%) : REMark primary for basic
-    7280   IF fer < 0 : PRINT #0,'Error ';fer : RETurn 
+    7280   IF fer < 0 : PRINT #0,'Error ';fer : RETurn
     7290   PRINT'#2 : ';w%;',';h%;',';x%;',';y%
     7300 END DEFine SCREEN_SIZES
 
@@ -1508,26 +1504,27 @@ This function returns the number of installed directory device drivers in your Q
 MAXIMUM
 =======
 
-+----------+-------------------------------------------------------------------+
-| Syntax   || MAXIMUM [ ( array ) ] or                                         |
-|          || MAXIMUM ( :sup:`\*`\ [ value ]\ :sup:`\*` )                      |
-+----------+-------------------------------------------------------------------+
-| Location || Minmax (DIY Toolkit - Vol Z)                                     |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------+
+| Syntax   | MAXIMUM [ ( array ) ] or                                         |
+|          |                                                                  |
+|          | MAXIMUM ( :sup:`\*`\ [ value ]\ :sup:`\*` )                      |
++----------+------------------------------------------------------------------+
+| Location | Minmax (DIY Toolkit - Vol Z)                                     |
++----------+------------------------------------------------------------------+
 
 The effect of this function depends on the parameter supplied. It is
 however an extremely fast way of comparing values. If no parameter is
 supplied, then the greatest possible floating point number supported by
-the QL is returned - this is equivalent to 1.61585 e616. 
+the QL is returned - this is equivalent to 1.61585 e616.
 
 If a single
 parameter is supplied which is a single dimensional floating point
 array, then MAXIMUM will return the value of the largest number stored
-within that array. 
+within that array.
 
 If you want to compare the values of an integer
 array, then use MAXIMUM% (a 'bad parameter' is generated with this (MAXIMUM)
-function). 
+function).
 
 If, however, you use the second variant to pass a list of
 values (either numbers or variables), then the highest value out of
@@ -1540,11 +1537,11 @@ array in this instance - it is therefore the same as MAX.
 
     PRINT MAXIMUM
 
-Returns 1.61585e616 
+Returns 1.61585e616
 
 ::
 
-    DIM x(3): x(0)=10: x(1)=200: x(2)=2.5: x(3)=50.4 
+    DIM x(3): x(0)=10: x(1)=200: x(2)=2.5: x(3)=50.4
     PRINT MAXIMUM (x)
 
 Returns 200.
@@ -1575,12 +1572,13 @@ are similar. Refer also to :ref:`minimum` and
 MAXIMUM%
 ========
 
-+----------+-------------------------------------------------------------------+
-| Syntax   || MAXIMUM% [ ( array% ) ] or                                       |
-|          || MAXIMUM% ( :sup:`\*`\ [ value ]\ :sup:`\*` )                     |
-+----------+-------------------------------------------------------------------+
-| Location || Minmax (DIY Toolkit - Vol Z)                                     |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------+
+| Syntax   | MAXIMUM% [ ( array% ) ] or                                       |
+|          |                                                                  |
+|          | MAXIMUM% ( :sup:`\*`\ [ value ]\ :sup:`\*` )                     |
++----------+------------------------------------------------------------------+
+| Location | Minmax (DIY Toolkit - Vol Z)                                     |
++----------+------------------------------------------------------------------+
 
 This function is exactly the same as MAXIMUM except that it only
 accepts integer parameters and is therefore able to work much more
@@ -1595,15 +1593,15 @@ is returned - this is equivalent to 32767.
 ::
 
     PRINT MAXIMUM%
-    
-Returns 32767 
+
+Returns 32767
 
 ::
 
-    DIM x%(3): x%(0)=10: x%(1)=200: x%(2)=2: x%(3)=50 
+    DIM x%(3): x%(0)=10: x%(1)=200: x%(2)=2: x%(3)=50
     PRINT MAXIMUM% (x%)
 
-Returns 200. 
+Returns 200.
 
 ::
 
@@ -1685,23 +1683,24 @@ An alternative would be to rename
 MERGE
 =====
 
-+----------+-------------------------------------------------------------------+
-| Syntax   || MERGE device\_filename  or                                       |
-|          || MERGE [device\_]filename (Toolkit II)                            |
-+----------+-------------------------------------------------------------------+
-| Location || QL ROM, Toolkit II                                               |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------+
+| Syntax   | MERGE device\_filename  or                                       |
+|          |                                                                  |
+|          | MERGE [device\_]filename (Toolkit II)                            |
++----------+------------------------------------------------------------------+
+| Location | QL ROM, Toolkit II                                               |
++----------+------------------------------------------------------------------+
 
 This command is similar to LOAD *except* that it does not clear the
 current program and variables out of memory prior to loading the given
 program file. Neither is the screen cleared, which enables loading
-pictures to be shown on screen whilst the main program loads. 
+pictures to be shown on screen whilst the main program loads.
 
 This means
 that any line numbers which appear in the program currently in memory
 and which are repeated in the program file will be *overwritten* by the
 lines in the program file, whereas any new lines will be inserted into
-the program in memory. 
+the program in memory.
 
 Again, any lines without line numbers are
 automatically executed as they are loaded into memory. This could
@@ -1710,34 +1709,34 @@ a directory device (however, see below).
 
 **Example**
 
-A short program - when typed in, save this using the command:: 
+A short program - when typed in, save this using the command::
 
     SAVE mdv1_test1_bas
 
 ::
-    
-    10 REMark Test1 
-    20 PRINT 'The Sinclair QL'  
 
-Now, type NEW and enter the following short program:: 
+    10 REMark Test1
+    20 PRINT 'The Sinclair QL'
 
-    5 REMark Test 
-    20 PRINT 'An old program line' 
-    30 PRINT 'SuperComputer'  
+Now, type NEW and enter the following short program::
+
+    5 REMark Test
+    20 PRINT 'An old program line'
+    30 PRINT 'SuperComputer'
 
 Now, enter the command::
 
     MERGE mdv1_test1_bas
 
-followed by:: 
+followed by::
 
     LIST
-    
-and the following will now form the program in memory:: 
 
-    5 REMark Test 
-    10 REMark Test1 
-    20 PRINT 'The Sinclair QL' 
+and the following will now form the program in memory::
+
+    5 REMark Test
+    10 REMark Test1
+    20 PRINT 'The Sinclair QL'
     30 PRINT 'SuperComputer'
 
 **NOTE 1**
@@ -1746,7 +1745,7 @@ Unfortunately, if you MERGE a file of direct commands (ie. a program
 file without line numbers), only the first line will be read and the
 file will be left open, making it impossible to change the
 disk/microdrive cartridge. Some compilers provide commands to ensure
-that the file is closed and all of the commands executed. 
+that the file is closed and all of the commands executed.
 
 Minerva and Toolkit II close the file, but still only the first command is executed,
 unless the MERGE command is used from within a program (in which case, the whole of the
@@ -1806,13 +1805,13 @@ MIDINET
 
 A file MIDINET\_rext is provided with SMSQ/E and the Emulators for the
 Atari computers which allows you to set up a Network using the MIDI
-ports provided on the Atari computers. 
+ports provided on the Atari computers.
 
 Once the Network has been set up
 with the necessary leads, and MIDINET\_rext been loaded on all computers
 in the Network, the command MIDINET should be issued to start up the
 fileserver Job on each computer. This creates a background Job called
-'MIDINET' which is similar to the 'Server' Job created by FSERVE. 
+'MIDINET' which is similar to the 'Server' Job created by FSERVE.
 
 The two fileservers are very similar in operation in that they both allow
 other computers to access the resources of the Master machine over the
@@ -1861,8 +1860,8 @@ will then return the lowest value out of the given list of parameters.
 
 ::
 
-    100 INPUT "a ="!a 
-    110 INPUT "b ="!b 
+    100 INPUT "a ="!a
+    110 INPUT "b ="!b
     120 FOR x=MIN(a,b) TO MAX(a,b): PRINT x
 
 **CROSS-REFERENCE**
@@ -1879,30 +1878,31 @@ counterpart. Compare :ref:`minimum` and
 MINIMUM
 =======
 
-+----------+-------------------------------------------------------------------+
-| Syntax   || MINIMUM [ ( array ) ] or                                         |
-|          || MINIMUM ( :sup:`\*`\ [ value ]\ :sup:`\*` )                      |
-+----------+-------------------------------------------------------------------+
-| Location || Minmax (DIY Toolkit - Vol Z)                                     |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------+
+| Syntax   | MINIMUM [ ( array ) ] or                                         |
+|          |                                                                  |
+|          | MINIMUM ( :sup:`\*`\ [ value ]\ :sup:`\*` )                      |
++----------+------------------------------------------------------------------+
+| Location | Minmax (DIY Toolkit - Vol Z)                                     |
++----------+------------------------------------------------------------------+
 
 The effect of this function depends on the parameter supplied. It is
-however an extremely fast way of comparing values. 
+however an extremely fast way of comparing values.
 
 If no parameter is
 supplied, then the smallest possible floating point number supported by
-the QL is returned - this is equivalent to -1e614. 
+the QL is returned - this is equivalent to -1e614.
 
 If a single parameter
 is supplied which is a single dimensional floating point array, then
 MINIMUM will return the value of the smallest number stored within that
 array. If you want to compare the values of an integer array, then use
-MINIMUM% (a 'bad parameter' is generated with this function if you attempt to use it for integers). 
+MINIMUM% (a 'bad parameter' is generated with this function if you attempt to use it for integers).
 
 If, however, you
 use the second variant to pass a list of values (either numbers or
 variables), then the smallest value out of those parameters will be
-returned. 
+returned.
 
 Please note that you cannot pass an array in this instance -
 it is therefore the same as MIN.
@@ -1911,9 +1911,9 @@ it is therefore the same as MIN.
 
 ::
 
-    DIM x(3): x(0)=10: x(1)=200: x(2)=2.5: x(3)=50.4 
+    DIM x(3): x(0)=10: x(1)=200: x(2)=2.5: x(3)=50.4
     PRINT MINIMUM (x)
-    
+
 Returns 2.5
 
 **NOTE**
@@ -1936,12 +1936,13 @@ are similar. Refer also to :ref:`maximum` and
 MINIMUM%
 ========
 
-+----------+-------------------------------------------------------------------+
-| Syntax   || MINIMUM% [ ( array% ) ] or                                       |
-|          || MINIMUM% ( :sup:`\*`\ [ value ]\ :sup:`\*` )                     |
-+----------+-------------------------------------------------------------------+
-| Location || Minmax (DIY Toolkit - Vol Z)                                     |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------+
+| Syntax   | MINIMUM% [ ( array% ) ] or                                       |
+|          |                                                                  |
+|          | MINIMUM% ( :sup:`\*`\ [ value ]\ :sup:`\*` )                     |
++----------+------------------------------------------------------------------+
+| Location | Minmax (DIY Toolkit - Vol Z)                                     |
++----------+------------------------------------------------------------------+
 
 This function is exactly the same as MINIMUM except that it only
 accepts integer parameters and is therefore able to work much more
@@ -1981,13 +1982,13 @@ inserted into a program from the keyboard. Instead, it is generated
 internally whenever LOAD, LRUN, MERGE or MRUN
 commands are used and a line in the file being loaded cannot be parsed
 (ie. if it would generate a 'bad line' error if typed in at the
-keyboard). 
+keyboard).
 
 Rather than reporting an error and stopping the loading
 process, the word MISTake is inserted in the offending line after the
 line number. If you then try to RUN the offending line, a 'Bad Line'
 error will be generated (under SMS the error 'MISTake in program' is
-reported. 
+reported.
 
 You can however EDIT the offending line - you must delete the
 word MISTake as well as correcting the error before the line will be
@@ -2051,11 +2052,11 @@ representation of an integer number (which is stored as two bytes).
 ::
 
     MKI$(11111)
-    
+
 Would return the string "+g", because::
 
     CODE("+")*256 + CODE("g")
-    
+
 Equals 11111.
 
 **CROSS-REFERENCE**
@@ -2110,10 +2111,10 @@ string {which is stored as two bytes indicating the length of the string
 
     MKS$("Test") = CHR$(0)&CHR$(4) & "Test"
 
-because:: 
+because::
 
     MKI$ (4)
-    
+
 returns the string CHR$(0)&CHR$(4).
 
 **CROSS-REFERENCE**
@@ -2134,7 +2135,7 @@ MNET
 +----------+-------------------------------------------------------------------+
 | Location |  SMSQ/E, ATARI Emulators                                          |
 +----------+-------------------------------------------------------------------+
- 
+
 This command is similar to the NET command in that it sets the Network
 Station number of the machine on which it is issued. The only difference
 is that here it sets the station number for the MIDINET Network (as
@@ -2263,9 +2264,9 @@ device driver (see DEVLIST).
 
 ::
 
-    MNET_USE m 
+    MNET_USE m
     OPEN #3,m2_con_512x256a0x0
-    
+
 Open an input channel covering the screen on station number 2 in the
 MIDINET Network.
 
@@ -2302,7 +2303,7 @@ the answer and both parameters can lie anywhere within roughly -
 
     PRINT 13 DIV 5
 
-gives the result 3. This is because 13 DIV 5 is 2, 2 multiplied by 5 is 10, 13 minus 10 is 3. 
+gives the result 3. This is because 13 DIV 5 is 2, 2 multiplied by 5 is 10, 13 minus 10 is 3.
 
 ::
 
@@ -2321,8 +2322,8 @@ v2.77+ it gives the correct result, being 0.
 If you write a program for SMSQ/E which uses values outside the range
 -32768...32767, this will not work on non-SMSQ/E machines - instead of::
 
-    PRINT x MOD y 
-    
+    PRINT x MOD y
+
 you will need to use::
 
     PRINT x - (INT(x / y) * y)
@@ -2377,13 +2378,15 @@ refuse to work!
 MODE
 ====
 
-+----------+----------------------------------------------------------------------------------+
-| Syntax   || MODE mode%  or                                                                  |
-|          || MODE screen\_mode [,display\_type] (Minerva, Q-Emulator, Amiga-QDOS v3.23+)  or |
-|          || MODE [screen\_mode [,display\_type]](PEX only)                                  |
-+----------+----------------------------------------------------------------------------------+
-| Location || QL ROM, PEX                                                                     |
-+----------+----------------------------------------------------------------------------------+
++----------+---------------------------------------------------------------------------------+
+| Syntax   | MODE mode%  or                                                                  |
+|          |                                                                                 |
+|          | MODE screen\_mode [,display\_type] (Minerva, Q-Emulator, Amiga-QDOS v3.23+)  or |
+|          |                                                                                 |
+|          | MODE [screen\_mode [,display\_type]](PEX only)                                  |
++----------+---------------------------------------------------------------------------------+
+| Location | QL ROM, PEX                                                                     |
++----------+---------------------------------------------------------------------------------+
 
 The original QDOS operating system will only recognise two display
 modes: Low resolution and High resolution. However, the following MODEs
@@ -2414,7 +2417,7 @@ are currently set aside for use by QDOS compatible systems:
 The MODE command is used to select the mode and redraw all windows.
 Without Qjump's Window Manager WMAN, the screen mode is set globally,
 whereas if WMAN (or SMSQ/E) is installed (this is highly recommended),
-MODE will only affect the current job. 
+MODE will only affect the current job.
 
 The parameter mode% can be any
 legal integer between -32768 and 32767. However, to ensure compatibility
@@ -2422,11 +2425,11 @@ with other systems one of the above four values should be used. Normally
 if a system does not support the mode type selected, MODE 4 is selected.
 
 The MODE command also resets the current status of UNDER, FLASH, CSIZE
-and OVER. 
+and OVER.
 
 Without specialised software, only one screen mode can be used
 at a time (even with the specialised software contained in the Quanta
-library, the screen can only be split in two horizontally). 
+library, the screen can only be split in two horizontally).
 
 The second
 variant is supported on Minerva, Q-Emulator (for the MacIntosh), PEX and
@@ -2511,52 +2514,52 @@ important to know which screen is the default screen (see DEFAULT\_SCR).
 
 Programs which use the normal MODE commands will still work under dual
 screen mode, since the new version of the MODE
-command will only work if the display\_type is specified. 
+command will only work if the display\_type is specified.
 
 When the QL
 is first started, unless you choose <F3> or <F4> (on Minerva), only one
 screen will be available for use by programs, otherwise Minerva is
-placed into Dual Screen Mode. 
+placed into Dual Screen Mode.
 
 In the dual screen mode, after starting up
 the QL, the default screen is scr0 (located at $20000 - the normal QL
 display screen). The second screen (scr1) is located at $28000 and is
-known as the Other Screen. 
+known as the Other Screen.
 
 To make matters worse, each job present in
 the QL's memory will be allocated its own default screen, being the
 current default when it was started. A job can therefore alter its own
-current default screen without upsetting the rest of the system. 
+current default screen without upsetting the rest of the system.
 
 Before proceeding any further it is important to realise that the Displayed
 Screen (what you can see on your TV/monitor) and the Default Screen are
 not necessarily one and the same thing. Oh, it is also important to know
 that a screen can also be either visible or blank (this is so that work
 can be prepared on a screen without the user being able to see the
-process). Perhaps some definitions might help: 
+process). Perhaps some definitions might help:
 
 Displayed Screen:
-    This is the screen which is currently in front of the user on his/her monitor or TV. 
+    This is the screen which is currently in front of the user on his/her monitor or TV.
 
 Default Screen:
-    The screen on which a program's windows will be opened and upon which the normal MODE 4 and MODE 8 commands will have an effect. 
+    The screen on which a program's windows will be opened and upon which the normal MODE 4 and MODE 8 commands will have an effect.
 
 Other Screen:
-    The opposite to the Default Screen (ie. if the Default Screen is scr0, then the Other Screen will be scr1). 
+    The opposite to the Default Screen (ie. if the Default Screen is scr0, then the Other Screen will be scr1).
 
 Visible Screen:
-    This means that the specified screen can actually be seen by the user. 
+    This means that the specified screen can actually be seen by the user.
 
 Blank Screen:
-    The specified screen is invisible to the user (allows background work to be carried out). 
+    The specified screen is invisible to the user (allows background work to be carried out).
 
 That's the definitions out of the way, and hopefully, they will provide a better understanding of what is to follow. The command::
-    
+
     OPEN#3,scr_448x200a32x16
-    
+
 will open a new window on the current Default Screen. After this, any
 subsequent commands using #3 will be shown on that screen (whether or
-not it is still the current Default Screen). 
+not it is still the current Default Screen).
 
 Problems may exist with
 some Toolkit functions which do not check to see where the screen starts
@@ -2565,12 +2568,12 @@ for the given window, and just assume that the screen starts at $20000.
 Unfortunately, current versions of Lightning and the Pointer Interface
 introduce various problems to the Dual Screen Mode, the most important
 one of which is that the screen will not be re-drawn unless the current
-screen is also the Displayed Screen. 
+screen is also the Displayed Screen.
 
 Another plus to the altered MODE
 command is that there is no forced re-draw of all the current windows
 unless you specify that this must be carried out (or if you use the
-original MODE variants). 
+original MODE variants).
 
 In order to try and explain the new display\_mode
 parameters, it is easier to split it into two sections: toggling current
@@ -2606,7 +2609,7 @@ will be toggled before anything else is carried out).
 
     MODE 64+16,-1: PAUSE: MODE 64+16,-1
 
-Show both screens. 
+Show both screens.
 
 ::
 
@@ -2619,12 +2622,12 @@ absolute screen parameters appear on the next page.
 
 This uses the format MODE -128 + m - 256 \* t + c, -1
 
-where: 
+where:
 
 - m = k1\*n1 + k2\*n2 + k3\*n3 +...
 - t = n1 + n2 + n3 +...n
-- c = (see below) 
-- n can have the same values as above, depending on which effect is to be altered. 
+- c = (see below)
+- n can have the same values as above, depending on which effect is to be altered.
 - k1, k2, k3 etc. have the following effect upon the corresponding values of n1, n2, n3, etc.
 
 
@@ -2647,7 +2650,7 @@ where:
 +--------+----------------------------+
 | 16384  | Re-draw both screens       |
 +--------+----------------------------+
- 
+
 Again, different effects can now be combined
 with relevant values for each n and k. If you wish to toggle any effects
 at the same time, simply add the corresponding value of n to the first
@@ -2663,19 +2666,19 @@ changes.
     MODE 4
 
 change the Default Screen to MODE 4 and re-draw all currently opened
-windows on the Default Screen. 
+windows on the Default Screen.
 
 ::
 
     MODE 64+32,-1
 
-toggle current Default Screen. 
+toggle current Default Screen.
 
 ::
 
     MODE 64+32+16,-1
 
-toggle current Default Screen and show to user. 
+toggle current Default Screen and show to user.
 
 ::
 
@@ -2687,9 +2690,9 @@ all windows, Where does -17791 come from? The formula given above::
     -128 + m - 256*t + c
 
 Into which we substitute the following::
-    
-    t = 1 + 4 
-    m = 1*1 + 0*4 
+
+    t = 1 + 4
+    m = 1*1 + 0*4
     c = -16384
 
 Care must however be taken when opening channels if the two screens are
@@ -2697,8 +2700,8 @@ in different modes - on versions of Minerva earlier than v1.97, if you
 open a channel on the non-Displayed Screen, it will have the
 characteristics of a window opened in the mode of the Displayed Screen
 (although sadly this does not mean that you can have a MODE 4 window in
-the middle of a MODE 8  screen). To ensure that the current Default 
-Screen is the current Displayed Screen, use:: 
+the middle of a MODE 8  screen). To ensure that the current Default
+Screen is the current Displayed Screen, use::
 
     MODE -128 + DEFAULT_SCR * 16 - 256 * 16, -1
 
@@ -2756,7 +2759,7 @@ MORE
 +----------+-------------------------------------------------------------------+
 
 This command adds a quite sophisticated file viewing facility to the QL
-which far surpasses the simple Toolkit II VIEW command. 
+which far surpasses the simple Toolkit II VIEW command.
 
 In its simplest
 form, MORE will open a channel to the specified filename (adding the
@@ -2765,31 +2768,31 @@ specified window channel (default #1). If #ch does not refer to a window
 or is #0, then bad parameter will be reported. The file will then be
 displayed in the specified channel, one window full at a time. #0 is
 used by the command to display the length of the file in bytes and the
-number of the last byte displayed in the window. 
+number of the last byte displayed in the window.
 
 You can move around the
-file by using the following keys: 
+file by using the following keys:
 
-- <ENTER> - Allows you to enter a file position to look at (this will be the first byte displayed in the window). 
+- <ENTER> - Allows you to enter a file position to look at (this will be the first byte displayed in the window).
 - <ALT><UP> - This moves back up the file one page at a time.
-- <ALT><DOWN> - This moves down the file one page at a time. 
+- <ALT><DOWN> - This moves down the file one page at a time.
 - <DOWN> - Move down the file one line.
-- <ESC> - Leave MORE. 
+- <ESC> - Leave MORE.
 
 MORE can however, also be used to look at the QL's memory (or that on a networked computer) by using the
 MEM device. In this mode, only the address of the last byte on screen is
-shown in #0 - there is no file length. For example:: 
+shown in #0 - there is no file length. For example::
 
     MORE #2,MEM
-    
+
 will allow you to use MORE to page through the whole of the QL's
-memory. 
+memory.
 
 ::
 
     MORE #2,n2_MEM
 
-allows you to page through the whole of another computer's memory. 
+allows you to page through the whole of another computer's memory.
 
 ::
 
@@ -2809,7 +2812,7 @@ devices (for example on named pipes) will cause problems - press
 
 **CROSS-REFERENCE**
 
-Refer to the Devices Appendix for more details on MEM. 
+Refer to the Devices Appendix for more details on MEM.
 
 Compare::
 
@@ -2858,13 +2861,13 @@ This function adjusts the string that is stuffed into the keyboard queue when th
 ::
 
     MOUSE_STUFF '.'
-    
+
 Generates a dot if middle mouse button is pressed.
 
 ::
 
-    MOUSE_STUFF CHR$(255) & '.' 
-    
+    MOUSE_STUFF CHR$(255) & '.'
+
 Generates hotkey <Alt><.> which will activate whatever has been defined on that key combination.
 
 --------------
@@ -2886,12 +2889,12 @@ graphics. This was based upon an early educational tool, whereby simple
 commands could be entered into a computer to drive a small robot turtle
 which moved around the floor and held a pen. This pen could either be up
 in which case the turtle would just move around, or down in which case a
-line would be left by the turtle on the floor as it moved. 
+line would be left by the turtle on the floor as it moved.
 
 When a window
 is first opened, an invisible turtle appears at the graphics origin
 (altered with SCALE) facing to the right, with its pen in the up
-position. 
+position.
 
 The command MOVE forces the turtle in the specified window
 (default #1) to move in the current direction by the specified distance.
@@ -2908,13 +2911,13 @@ colour, FILL and also OVER, just like any other graphics command.
 A simple procedure to draw a shape of a set number of equal length
 sides::
 
-    100 DEFine PROCedure POLYGON (chan, sides, side_length) 
-    110   TURNTO #chan,0: PENDOWN #chan 
-    120   FOR k = 1 TO sides 
+    100 DEFine PROCedure POLYGON (chan, sides, side_length)
+    110   TURNTO #chan,0: PENDOWN #chan
+    120   FOR k = 1 TO sides
     130     MOVE #chan, side_length
-    140     TURN #chan, 360 / sides 
-    150   END FOR k 
-    155   PENUP #chan 
+    140     TURN #chan, 360 / sides
+    150   END FOR k
+    155   PENUP #chan
     160 END DEFine
 
 Try for example, POLYGON #2,5,10.
@@ -2991,14 +2994,14 @@ After a MOVE\_POSITION command, the next access to the given channel, whether re
 ::
 
     MOVE_POSITION #3, 0
-    
-moves the current file pointer on channel 3 to the start of the file.    
+
+moves the current file pointer on channel 3 to the start of the file.
 
 ::
 
     MOVE_POSITION #3, 6e6
-    
-moves the current file pointer on channel 3 to the end of the file.    
+
+moves the current file pointer on channel 3 to the end of the file.
 
 
 **CROSS-REFERENCE**
@@ -3015,12 +3018,13 @@ moves the current file pointer on channel 3 to the end of the file.
 MRUN
 ====
 
-+----------+-------------------------------------------------------------------+
-| Syntax   || MRUN device\_filename  or                                        |
-|          || MRUN [device\_]filename (Toolkit II)                             |
-+----------+-------------------------------------------------------------------+
-| Location || QL ROM, Toolkit II                                               |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------+
+| Syntax   | MRUN device\_filename  or                                        |
+|          |                                                                  |
+|          | MRUN [device\_]filename (Toolkit II)                             |
++----------+------------------------------------------------------------------+
+| Location | QL ROM, Toolkit II                                               |
++----------+------------------------------------------------------------------+
 
 This command is similar to MERGE except that once the two programs have
 been merged, if MRUN was issued as a direct command, then the merged
@@ -3090,8 +3094,8 @@ ten years, you will gain 62.9% because: MT(0.05, 10) = 1.628895
 
 ::
 
-    MT(1/n,n) 
-    
+    MT(1/n,n)
+
 approximates EXP(1) for large values of n.
 
 **CROSS-REFERENCE**
@@ -3109,25 +3113,26 @@ approximates EXP(1) for large values of n.
 MTRAP
 =====
 
-+----------+-------------------------------------------------------------------+
-| Syntax   || MTRAP key [,d1 [,d2 [,d3 [,a0 [,a1 ]]]]] or                      |
-|          || MTRAP key\\jobnr [,d2 [,d3 [,a0 [,a1 ]]]]]                       |
-+----------+-------------------------------------------------------------------+
-| Location || TRAPS (DIY Toolkit Vol T)                                        |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------+
+| Syntax   | MTRAP key [,d1 [,d2 [,d3 [,a0 [,a1 ]]]]] or                      |
+|          |                                                                  |
+|          | MTRAP key\\jobnr [,d2 [,d3 [,a0 [,a1 ]]]]]                       |
++----------+------------------------------------------------------------------+
+| Location | TRAPS (DIY Toolkit Vol T)                                        |
++----------+------------------------------------------------------------------+
 
 This command is similar to QTRAP in that it allows you to access the
 machine code TRAP #1 system calls directly. Unless you are using the
 second variant, you will need to pass at least one parameter, the
 operation key to be carried out (this is equivalent to the value in D0
 when TRAP #1 is performed). The other parameters allow you to pass the
-various register values which may be required by the system calls. 
+various register values which may be required by the system calls.
 
 The
 second variant is useful for when you are using a TRAP #1 call which
 requires a job ID - you can merely pass the jobnr of the required job,
 obtained from the JOBS list (rather than having to set D1 to the Job
-ID). For example to force remove Job 12, use the command:: 
+ID). For example to force remove Job 12, use the command::
 
     MTRAP 5\12,0,0
 
