@@ -8,12 +8,13 @@ Keywords L
 LANG\_USE
 =========
 
-+----------+-------------------------------------------------------------------+
-| Syntax   || LANG\_USE num  or                                                |
-|          || LANG\_USE kcode                                                  |
-+----------+-------------------------------------------------------------------+
-| Location ||  SMS                                                             |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------+
+| Syntax   | LANG\_USE num  or                                                |
+|          |                                                                  |
+|          | LANG\_USE kcode                                                  |
++----------+------------------------------------------------------------------+
+| Location |  SMS                                                             |
++----------+------------------------------------------------------------------+
 
 This command sets the language to be used by SMS for its message tables
 (this includes interpreter messages and error messages). The value of
@@ -71,12 +72,13 @@ language for the messages.
 LANGUAGE$
 =========
 
-+----------+-------------------------------------------------------------------+
-| Syntax   || LANGUAGE$  or                                                    |
-|          || LANGUAGE$ (code)(SMS only)                                       |
-+----------+-------------------------------------------------------------------+
-| Location || THOR range of computers, SMS                                     |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------+
+| Syntax   | LANGUAGE$  or                                                    |
+|          |                                                                  |
+|          | LANGUAGE$ (code)(SMS only)                                       |
++----------+------------------------------------------------------------------+
+| Location | THOR range of computers, SMS                                     |
++----------+------------------------------------------------------------------+
 
 This function returns a string representing the current language layout
 of the keyboard which is linked into the QL. Unfortunately, the string
@@ -129,13 +131,15 @@ complementary commands.
 LBYTES
 ======
 
-+----------+-------------------------------------------------------------------+
-| Syntax   || LBYTES device\_filename, start  or                               |
-|          || LBYTES [device\_]filename, start(Toolkit II only)  or            |
-|          || LBYTES #channel, start(SMS only)                                 |
-+----------+-------------------------------------------------------------------+
-| Location || QL ROM, Toolkit II                                               |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------+
+| Syntax   | LBYTES device\_filename, start  or                               |
+|          |                                                                  |
+|          | LBYTES [device\_]filename, start(Toolkit II only)  or            |
+|          |                                                                  |
+|          | LBYTES #channel, start(SMS only)                                 |
++----------+------------------------------------------------------------------+
+| Location | QL ROM, Toolkit II                                               |
++----------+------------------------------------------------------------------+
 
 This command loads a chunk of machine code (or data) stored on the
 given device under the specified filename and will report the error 'Not
@@ -159,7 +163,7 @@ do this, on pre JS ROMs, the commands in the machine code Toolkit cannot
 be used in the same program which links them in. A typical boot program
 would therefore be::
 
-    100 a=RESPR (1024) : LBYTES flp1_Toolkit_ext,a : CALL a 
+    100 a=RESPR (1024) : LBYTES flp1_Toolkit_ext,a : CALL a
     110 LRUN flp1_Main_bas
 
 Another use of LBYTES may be to load a screen which has been designed
@@ -168,14 +172,14 @@ long, however quite often screens can be much larger, so it is important
 to ensure that you check the length of the file before loading in what
 may be a screen file. To load a screen under SMS, use::
 
-    10 OPEN_IN #3,flp1_Loading_scr 
-    20 scr_length=FLEN (#3) 
-    30 scr_size=SCR_YLIM * SCR_LLEN 
-    40 IF scr_size < scr_length 
-    42 PRINT #0,'Screen resolution is too small for the saved file.':STOP 
-    45 END IF 
-    50 IF scr_size>scr_length:PRINT #0,'Screen resolution is too big for the saved file.':STOP 
-    60 LBYTES #3,SCR_BASE 
+    10 OPEN_IN #3,flp1_Loading_scr
+    20 scr_length=FLEN (#3)
+    30 scr_size=SCR_YLIM * SCR_LLEN
+    40 IF scr_size < scr_length
+    42 PRINT #0,'Screen resolution is too small for the saved file.':STOP
+    45 END IF
+    50 IF scr_size>scr_length:PRINT #0,'Screen resolution is too big for the saved file.':STOP
+    60 LBYTES #3,SCR_BASE
     70 CLOSE #3
 
 **WARNING**
@@ -217,7 +221,7 @@ should be positive integers.
 ::
 
     PRINT LCM (2,3,4)
-    
+
 returns 12 and indeed 12/2=6, 12/3=4 and 12/4=3.
 
 **NOTE**
@@ -250,83 +254,83 @@ and uses a different col parameter to DRAW, see SET for that.
 **Example**
 
 Well, the sample listing which follows on below, is a bit too long for a
-simple demonstration of LDRAW. 
+simple demonstration of LDRAW.
 
 The variable rstep% in line 110 determines via pics% how much
-memory is required to run the animation. 
+memory is required to run the animation.
 
-Unless you have SMS or Minerva, you will have to replace i% and j% by i and j. 
+Unless you have SMS or Minerva, you will have to replace i% and j% by i and j.
 
 ::
 
-    100 WINDOW 512,64,0,0: PAPER 0: INK 3: CLS 
-    110 rstep% = 20 
-    120 pics% = 360 / rstep%: DIM adr(pics%): i% = 0 
-    130 FOR r = 0 TO 360-rstep% STEP rstep% 
-    140   i%=i%+1: CLS: AT 0,0: PRINT "(";i%;")";TO 6;r;"ø" 
-    150   PYRAMID 20, 256, 32, r, r, r, 3 
-    160   adr(i%) = ALCHP(HEX("2000")) 
-    170   IF NOT adr(i%) THEN CLCHP: STOP: REMark memory overflow 
-    180   MM_MOVE HEX("20000"), adr(i%), HEX("2000") 
-    190 END FOR r 
-    200 REPeat Animation 
+    100 WINDOW 512,64,0,0: PAPER 0: INK 3: CLS
+    110 rstep% = 20
+    120 pics% = 360 / rstep%: DIM adr(pics%): i% = 0
+    130 FOR r = 0 TO 360-rstep% STEP rstep%
+    140   i%=i%+1: CLS: AT 0,0: PRINT "(";i%;")";TO 6;r;"ø"
+    150   PYRAMID 20, 256, 32, r, r, r, 3
+    160   adr(i%) = ALCHP(HEX("2000"))
+    170   IF NOT adr(i%) THEN CLCHP: STOP: REMark memory overflow
+    180   MM_MOVE HEX("20000"), adr(i%), HEX("2000")
+    190 END FOR r
+    200 REPeat Animation
     210   FOR i% = 1 TO pics%
-    220     MM_MOVE adr(i%), HEX("20000"), HEX("2000") 
-    230     IF KEYROW(1)&&8 THEN EXIT Animation 
-    240   END FOR i% 
-    250 END REPeat Animation 
+    220     MM_MOVE adr(i%), HEX("20000"), HEX("2000")
+    230     IF KEYROW(1)&&8 THEN EXIT Animation
+    240   END FOR i%
+    250 END REPeat Animation
     260 CLCHP: STOP
-    270 : 
+    270 :
     290 DEFine PROCedure PYRAMID (size, px%,py%, rotx,roty,rotz, c%)
-    300   LOCal i%, j%, p1(2), p2(2) 
-    310   RESTORE 410 
-    320   FOR i% = 1 TO 8 
-    330     READ p1(0),p1(1),p1(2), p2(0),p2(1),p2(2) 
-    340     ROTATION p1(0),p1(1),p1(2), rotx, roty, rotz 
-    350     ROTATION p2(0),p2(1),p2(2), rotx, roty, rotz 
-    360     FOR j%=0 TO 2: p1(j%)=size*p1(j%): p2(j%)=size*p2(j%) 
-    370     LDRAW px%+p1(0),py%+p1(1) TO px%+p2(0),py%+p2(1), c% 
-    380   END FOR i% 
-    390   RETurn 
-    400 : 
-    410   REMark base square 
-    420   DATA -1, -1, 0, 1,-1, 0 
-    430   DATA 1, -1, 0, 1, 1, 0 
-    440   DATA 1, 1, 0, -1, 1, 0 
-    450   DATA -1, 1, 0, -1,-1, 0 
-    460   REMark top  
-    470   DATA -1, -1, 0, 0, 0, 2 
-    480   DATA 1, -1, 0, 0, 0, 2 
+    300   LOCal i%, j%, p1(2), p2(2)
+    310   RESTORE 410
+    320   FOR i% = 1 TO 8
+    330     READ p1(0),p1(1),p1(2), p2(0),p2(1),p2(2)
+    340     ROTATION p1(0),p1(1),p1(2), rotx, roty, rotz
+    350     ROTATION p2(0),p2(1),p2(2), rotx, roty, rotz
+    360     FOR j%=0 TO 2: p1(j%)=size*p1(j%): p2(j%)=size*p2(j%)
+    370     LDRAW px%+p1(0),py%+p1(1) TO px%+p2(0),py%+p2(1), c%
+    380   END FOR i%
+    390   RETurn
+    400 :
+    410   REMark base square
+    420   DATA -1, -1, 0, 1,-1, 0
+    430   DATA 1, -1, 0, 1, 1, 0
+    440   DATA 1, 1, 0, -1, 1, 0
+    450   DATA -1, 1, 0, -1,-1, 0
+    460   REMark top
+    470   DATA -1, -1, 0, 0, 0, 2
+    480   DATA 1, -1, 0, 0, 0, 2
     490   DATA 1, 1, 0, 0, 0, 2
-    500   DATA -1, 1, 0, 0, 0, 2 
-    510 END DEFine PYRAMID 
-    520 : 
-    530 : 
-    540 DEFine PROCedure ROTATION (x, y, z, wx, wy, wz) 
-    550   REMark rotate point (x,y,z) by angles wx, wy and wz 
-    560   REMark in degrees around point (0,0,0)  
-    570   LOCal x1, y1, x2, z2 
-    580   LOCal cx, cy, cz, sx, sy, sz 
-    590   cx = COS(RAD(wx)): cy = COS(RAD(wy)): cz = COS(RAD(wz)) 
-    600   sx = SIN(RAD(wx)): sy = SIN(RAD(wy)): sz = SIN(RAD(wz)) 
-    610   x1 = x * cz -y * sz 
-    620   y1 = x * sz + y * cz 
-    630   x = x1 * cy - z * sy 
-    640   z2 = x1 * sy + z * cy 
-    650   y = y1 * cx + z2 * sx 
+    500   DATA -1, 1, 0, 0, 0, 2
+    510 END DEFine PYRAMID
+    520 :
+    530 :
+    540 DEFine PROCedure ROTATION (x, y, z, wx, wy, wz)
+    550   REMark rotate point (x,y,z) by angles wx, wy and wz
+    560   REMark in degrees around point (0,0,0)
+    570   LOCal x1, y1, x2, z2
+    580   LOCal cx, cy, cz, sx, sy, sz
+    590   cx = COS(RAD(wx)): cy = COS(RAD(wy)): cz = COS(RAD(wz))
+    600   sx = SIN(RAD(wx)): sy = SIN(RAD(wy)): sz = SIN(RAD(wz))
+    610   x1 = x * cz -y * sz
+    620   y1 = x * sz + y * cz
+    630   x = x1 * cy - z * sy
+    640   z2 = x1 * sy + z * cy
+    650   y = y1 * cx + z2 * sx
     660   z = -y1 * sx + z2 * cx
-    670 END DEFine ROTATION 
+    670 END DEFine ROTATION
     680 :
-    700 DEFine PROCedure MM_MOVE (addr1, addr2, bytes) 
-    710   REMark move memory 
-    720   LOCal routine 
-    730   IF VER$ = "JSL1" THEN 
-    740     routine = PEEK_W(344) + 16384 
-    750     CALL routine, bytes, 2, 3, 4, 5, 6, 7, addr2, addr1 
-    760   ELSE 
-    770     REMark with HCO: 
-    780     BMOVE addr1, addr1+bytes TO addr2 
-    790   END IF 
+    700 DEFine PROCedure MM_MOVE (addr1, addr2, bytes)
+    710   REMark move memory
+    720   LOCal routine
+    730   IF VER$ = "JSL1" THEN
+    740     routine = PEEK_W(344) + 16384
+    750     CALL routine, bytes, 2, 3, 4, 5, 6, 7, addr2, addr1
+    760   ELSE
+    770     REMark with HCO:
+    780     BMOVE addr1, addr1+bytes TO addr2
+    790   END IF
     800 END DEFine MM_MOVE
 
 **NOTE 1**
@@ -374,8 +378,8 @@ channel (for example after a PRINT
 command) this will be cleared, making it as if the last PRINT
 (or INPUT) statement ended with a comma - for example::
 
-    100 PRINT 'Hello World' 
-    110 PRINT 'THIS LINE IS PRINTED AFTER A PENDING NEWLINE' 
+    100 PRINT 'Hello World'
+    110 PRINT 'THIS LINE IS PRINTED AFTER A PENDING NEWLINE'
     120 LEFT
     130 PRINT 'THIS OVERWRITES PART OF THE LAST TEXT'
 
@@ -411,19 +415,19 @@ routines, the expression passed as a parameter need not be a string (!)
 
 ::
 
-    x=100: PRINT LEN(x): REMark Returns 3. 
-    PRINT LEN ('A string'): REMark Returns 8. 
-    DIM x$(12): PRINT LEN (x$): REMark Returns 0, but add the following 
+    x=100: PRINT LEN(x): REMark Returns 3.
+    PRINT LEN ('A string'): REMark Returns 8.
+    DIM x$(12): PRINT LEN (x$): REMark Returns 0, but add the following
     : x$='Hello': PRINT LEN(x$): REMark Returns 5, the same as PRINT x$(0)
 
 **NOTE**
 
 On pre-JS ROMs, if you use PRINT LEN(x$), an 'Out of Memory' error will
 be reported if you have previously tried to make x$
-longer than 32766 characters, for example with:: 
+longer than 32766 characters, for example with::
 
     x$=FILL$('x',32764)
-    x$=x$&'xxx' 
+    x$=x$&'xxx'
     PRINT LEN (x$)
 
 **CROSS-REFERENCE**
@@ -458,26 +462,26 @@ results in an 'Error in Expression' report.
 ::
 
     LET x=100+10\*20
-    
+
 Assigns the value 300 to the variable x.
 
 ::
-    
-    x=100+10\*20 
-    
-Is exactly the same as above. 
-    
+
+    x=100+10\*20
+
+Is exactly the same as above.
+
 ::
-    
+
     LET a$='Hello '&x
 
 This places the string 'Hello 300' into the variable a$. The value of x is converted into a
-string and then appended. 
+string and then appended.
 
 ::
 
     LET position(100)=10
-    
+
 This assigns the value 10 to the 101st element of the array position (see DIM).
 
 **NOTE 1**
@@ -497,8 +501,8 @@ highlighted.
 
 Assignment can only be to a variable or array element
     This is reported if you try to assign a value to a Procedure or Function
-    name, eg: PRINT = 100 
-    
+    name, eg: PRINT = 100
+
     On other versions this causes an ...
 
 Error in Expression
@@ -518,7 +522,7 @@ Cannot assign to sub-array
 Unacceptable array index list
     This is reported normally if you try to use too many indices to
     reference an existing array, for example: DIM x(100) : PRINT x(10,10)
- 
+
     On other implementations this causes an
 
 **Out of Range**
@@ -535,9 +539,9 @@ Array index out of range
 **WARNING**
 
 On SMS, you can easily crash SBASIC by missing out an index on an
-assignment to a DIMensioned array, for example:: 
+assignment to a DIMensioned array, for example::
 
-    DIM x(100) x (10, ) = 100 
+    DIM x(100) x (10, ) = 100
 
 Will report Not Complete::
 
@@ -576,7 +580,7 @@ If the device that has the given channel opened to it has the level 2 drivers, t
     2500 DEFine PROCedure MAKE_DIRECTORY
     2510   LOCal d$, t$, l2_ok, ch
     2520   INPUT 'Enter drive names :';d$
-    2530   IF d$(LEN(d$)) <> '_' THEN d$ = d$ & '_': END IF 
+    2530   IF d$(LEN(d$)) <> '_' THEN d$ = d$ & '_': END IF
     2540   PRINT 'Please wait, checking ...'
     2550   ch = DJ_OPEN_OVER (d$ & CHR$(0) & CHR$(0))
     2560   IF ch < 0: PRINT 'Cannot open file on ' & d$ & ', error: ' & ch: RETurn
@@ -586,9 +590,9 @@ If the device that has the given channel opened to it has the level 2 drivers, t
     2600   IF l2_ok
     2610     INPUT 'Enter directory name please : ';t$
     2620     MAKE_DIR d$ & t$
-    2630   ELSE 
+    2630   ELSE
     2640     PRINT 'Sorry, no level 2 drivers!'
-    2650   END IF 
+    2650   END IF
     2660 END DEFine MAKE_DIRECTORY
 
 
@@ -601,12 +605,13 @@ If the device that has the given channel opened to it has the level 2 drivers, t
 LGET
 ====
 
-+----------+-----------------------------------------------------------------------------+
-| Syntax   || LGET [#ch\\position,] [item :sup:`\*`\ [,item\ :sup:`i`]\ :sup:`\*` ..] or |
-|          || LGET [#ch,] [item :sup:`\*`\ [,item\ :sup:`i`]\ :sup:`\*` ..]              |
-+----------+-----------------------------------------------------------------------------+
-| Location |  SMSQ/E                                                                     |
-+----------+-----------------------------------------------------------------------------+
++----------+----------------------------------------------------------------------------+
+| Syntax   | LGET [#ch\\position,] [item :sup:`\*`\ [,item\ :sup:`i`]\ :sup:`\*` ..] or |
+|          |                                                                            |
+|          | LGET [#ch,] [item :sup:`\*`\ [,item\ :sup:`i`]\ :sup:`\*` ..]              |
++----------+----------------------------------------------------------------------------+
+| Location | SMSQ/E                                                                     |
++----------+----------------------------------------------------------------------------+
 
 This command is very similar to BGET, although this fetches a longword
 (4 bytes) at a time (in the range 0..2\ :sup:`32`\ -1) from the given channel
@@ -642,27 +647,27 @@ current INK colour between any two points. As with all of the other
 graphics commands, the exact size and position of the line depends upon
 the current SCALE. Unfortunately, there is no way of making the line any
 thicker, other than by drawing parallel lines. Although the above syntax
-may seem rather complex, this can be explained as follows: 
+may seem rather complex, this can be explained as follows:
 
 If the separator TO appears between any two sets of co-ordinates, then a line
-will be drawn between those two co-ordinates. 
+will be drawn between those two co-ordinates.
 
 If however the two sets of
 co-ordinates are the same, nothing will be drawn, eg: LINE 10,10 TO
-10,10 has no effect. 
+10,10 has no effect.
 
 If the start co-ordinates are not specified, then the
 current graphics cursor is used as the one end of the line, eg: LINE
 10,10 TO 15,10 TO 20,20
 will draw a line between the points (10,10) and (15,10) and then a line
 between (15,10) and (20,20). The graphics cursor is placed at the last
-set of co-ordinates. 
+set of co-ordinates.
 
 If the separator TO does not appear, then no line
 is drawn and the graphics cursor is moved to the last set of
 co-ordinates. For example: LINE 10,10 and LINE 20,20,10,10
 have exactly the same effect - they both place the graphics cursor at
-the point (10,10). 
+the point (10,10).
 
 Any part of the lines which lie outside of the
 specified channel will not be drawn, but no error will be reported.
@@ -671,16 +676,16 @@ specified channel will not be drawn, but no error will be reported.
 
 A simple demonstration program::
 
-    100 MODE 8 110 WINDOW 448,200,32,16:PAPER 0:CLS 
-    120 SCALE 100,0,0 
-    130 OVER -1 
+    100 MODE 8 110 WINDOW 448,200,32,16:PAPER 0:CLS
+    120 SCALE 100,0,0
+    130 OVER -1
     140 REPeat loop
-    150   xstep=RND 
-    160   INK RND(7) 
-    170   FOR i=1 TO 360 STEP xstep 
+    150   xstep=RND
+    160   INK RND(7)
+    170   FOR i=1 TO 360 STEP xstep
     180     ix=RAD(i)
-    190     LINE 50,50 TO 50+COS(ix)\*50,50+SIN(ix)\*50 
-    200   END FOR i 
+    190     LINE 50,50 TO 50+COS(ix)\*50,50+SIN(ix)\*50
+    200   END FOR i
     210 END REPeat loop
 
 **NOTE**
@@ -790,11 +795,11 @@ LIST
 
 This command lists (in ASCII form) the specified range of the currently
 loaded SuperBASIC program to the specified channel (default #2). Range
-must be in the form: [[start\_line] TO [end\_line]]. 
+must be in the form: [[start\_line] TO [end\_line]].
 
 The default
 start\_line is 1 and the default end\_line is 32767, therefore if no
-range is given, the LISTing range defaults to: 1 TO 32767. 
+range is given, the LISTing range defaults to: 1 TO 32767.
 
 Except under
 SMS, when the last line of the given range is reached, a table is set up
@@ -802,7 +807,7 @@ which stores the current list range. This list range contains a list of
 the lines of the program which are currently shown in #2 - if you alter
 one of these lines (for example with EDIT or DLINE), then the listing in
 #2 is re-drawn to reflect the change. Alterations to lines outside the
-list range will have no effect. 
+list range will have no effect.
 
 Again, except under SMS, special note is
 also taken of the program line just above the displayed listing, and the
@@ -816,13 +821,13 @@ altered line on screen.
 
     LIST #3
 
-List the whole of the program in #3 
+List the whole of the program in #3
 
 ::
 
     LIST 1
 
-List program line 1 in #2 
+List program line 1 in #2
 
 ::
 
@@ -832,7 +837,7 @@ List lines 100 and from 1000 onwards in #2
 
 ::
 
-    OPEN#3,SER1: LIST#3: CLOSE#3 
+    OPEN#3,SER1: LIST#3: CLOSE#3
 
 will list the current program to a printer connected to ser1.
 
@@ -930,23 +935,23 @@ LN
 
 This function returns the natural logarithm of the given value (in base
 e), so that e\ :sup:`LN(x)`\ =x. Due to the nature of power numbers, the range of
-x is 0>x<=2\ :sup:`2046`. 
+x is 0>x<=2\ :sup:`2046`.
 
 Logarithms were first invented to make multiplication
 and division easier, because whatever base you are working in,
 multiplication and division can be calculated by using logarithms. For
 example, x\*y is the same as EXP(LN(x)+LN(y)), or
 10\ :sup:`(LOG10(x)+LOG10(y))`\ ; and x/y is the same as EXP(LN(x)-LN(y)), and
-10\ :sup:`(LOG10(x)-LOG10(y))`. 
+10\ :sup:`(LOG10(x)-LOG10(y))`.
 
 Another reason is that logarithms can make it
 easier to calculate powers, for example, 10\ :sup:`(p\*LOG10(y))` gives the same
-answer as y\ :sup:`p`, for any value of y or p. 
+answer as y\ :sup:`p`, for any value of y or p.
 
 Another use for logarithms is to
 enable square roots to be calculated. On the assumption that
 x\*x=10\ :sup:`(2\*LOG10(x))`, the square root of a number y can be calculated
-using the formula: 10\ :sup:`(LOG10 (y) / 2)`. 
+using the formula: 10\ :sup:`(LOG10 (y) / 2)`.
 
 Natural logarithms (base e) are
 generally used in theoretical mathematics, as this can be useful in
@@ -970,12 +975,13 @@ provides base 2 logarithms.
 LOAD
 ====
 
-+----------+-------------------------------------------------------------------+
-| Syntax   || LOAD device\_filename  or                                        |
-|          || LOAD [device\_]filename (Toolkit II)                             |
-+----------+-------------------------------------------------------------------+
-| Location || QL ROM, Toolkit II                                               |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------+
+| Syntax   | LOAD device\_filename  or                                        |
+|          |                                                                  |
+|          | LOAD [device\_]filename (Toolkit II)                             |
++----------+------------------------------------------------------------------+
+| Location | QL ROM, Toolkit II                                               |
++----------+------------------------------------------------------------------+
 
 This command looks for a SuperBASIC program held on the given device
 under the specified filename (a program file), reporting the error 'not
@@ -987,7 +993,7 @@ program file is loaded into memory and then parsed as if it had been
 entered into the command line by the user. If any lines cannot be parsed
 (ie. they would normally generate a 'bad line' error), then the word
 MISTake is inserted into the line after the line number and the loading
-process continues. 
+process continues.
 
 Under SMS when the program has been loaded, if there
 have been any errors in the program, the error 'MISTake in Program' is
@@ -1001,7 +1007,7 @@ direct to a printer (using the COPY\_N command), and VIEWed on screen.
 However, this means that the program has to be parsed each time that it
 is loaded, making the loading process quite slow. This can however be
 circumvented by using a fast loading utility - we highly recommend QLOAD
-from Liberation Software for this purpose. 
+from Liberation Software for this purpose.
 
 If the program file contains
 some lines in it which do not have line numbers, then these are
@@ -1011,22 +1017,22 @@ turn off the Break key on loading and then RUN the program. This can be
 achieved by entering the following as direct commands, with the desired
 program in memory::
 
-    OPEN_NEW #3,flp1_file 
-    LIST #3 PRINT #3,'BREAK_OFF':RUN' 
+    OPEN_NEW #3,flp1_file
+    LIST #3 PRINT #3,'BREAK_OFF':RUN'
     CLOSE #3
 
 This actually opens a new file, and inserts as direct commands
 BREAK\_OFF and RUN after the body of the program (LIST in this instance
 is similar to SAVE except that it allows you to add further text to the
-end of the program file). 
+end of the program file).
 
 These two commands will be interpreted
 immediately that flp1\_file has been loaded, thus preventing anyone from
 looking at the listing (the break key is disabled and the program
-immediately RUN). 
+immediately RUN).
 
 Unfortunately though, this does not really work very
-well, as you cannot stop the user from VIEWing the file on screen!! 
+well, as you cannot stop the user from VIEWing the file on screen!!
 
 If you have Toolkit II present, then if a device is not specified, or LOAD
 cannot find the specified file on the given device, then Toolkit II will
@@ -1063,7 +1069,7 @@ Loads the given file from flp1\_ on the given network station.
 
     LOAD ser1c
 
-Loads a file from the device attached to ser1. 
+Loads a file from the device attached to ser1.
 
 ::
 
@@ -1122,20 +1128,20 @@ the specified filename does not end in \_SAV or \_BAS, then if the
 specified filename does not exist, before trying the default data device
 and the default program device (see above), LOAD will first of all try
 the filename with \_BAS appended and if still not found, will try the
-filename with \_SAV appended. 
+filename with \_SAV appended.
 
 So if the default data device is flp1\_
 and the default program device is flp2\_, LOAD ram1\_TEST will look for
 the following files:
 
-- ram1\_TEST 
-- ram1\_TEST\_bas 
+- ram1\_TEST
+- ram1\_TEST\_bas
 - ram1\_TEST\_sav
-- flp1\_ram1\_TEST 
-- flp1\_ram1\_TEST\_bas 
+- flp1\_ram1\_TEST
+- flp1\_ram1\_TEST\_bas
 - flp1\_ram1\_TEST\_sav
-- flp2\_ram1\_TEST 
-- flp2\_ram1\_TEST\_bas 
+- flp2\_ram1\_TEST
+- flp2\_ram1\_TEST\_bas
 - flp2\_ram1\_TEST\_sav
 
 Only if none of these filenames exist will it report a 'Not Found'
@@ -1211,7 +1217,7 @@ This command must only be used as the first executable line within
 either a PROCedure or FuNction definition block (ie. it can only be
 preceded by REMark lines) - if it is used elsewhere, it will cause a
 'bad line' error when the program is RUN. Under SMS's improved
-interpreter the error 'Misplaced LOCal' will be reported. 
+interpreter the error 'Misplaced LOCal' will be reported.
 
 LOCal must be
 followed by a list of variables which are said to be 'local' to that
@@ -1220,7 +1226,7 @@ been used within the main body of the program, if it is local to that
 definition block, on entry its value is stored and it is then made
 'unset' (without value), and can then be used for any means within that
 definition block (or within any sub-procedure or sub-function called by
-that definition block). 
+that definition block).
 
 When the definition block is left (with END
 DEFine or RETurn), the variable is restored to its original value.
@@ -1239,27 +1245,27 @@ This program shows the status of three variables at various stages -
 note how x can be used as an array in the main program and a simple
 variable within the PROCedure definition block::
 
-    100 DIM x(10) 
-    110 test$='Wait' 
-    120 moder=4:x(1)=10 
-    130 PRINT moder,test$,x(1) 
-    140 Change_vars 
-    150 PRINT moder,test$,x(1) 
+    100 DIM x(10)
+    110 test$='Wait'
+    120 moder=4:x(1)=10
+    130 PRINT moder,test$,x(1)
+    140 Change_vars
+    150 PRINT moder,test$,x(1)
     155 :
-    160 DEFine PROCedure Change_vars 
-    170   LOCal moder(2,10),x,test$ 
+    160 DEFine PROCedure Change_vars
+    170   LOCal moder(2,10),x,test$
     180   PRINT moder(1,5),test$,x
-    190   test$='Changed':moder(1,5)=10 
-    200   x=5 
+    190   test$='Changed':moder(1,5)=10
+    200   x=5
     210   PRINT moder(1,5),test$,x
     220 END DEFine
 
 This produces the following output::
 
-    4 Wait 10 line 130 
-    0 * * line 180, local variables 
-    10 Changed 5 line 210, local variables 
-    4 Wait 10 line 150 
+    4 Wait 10 line 130
+    0 * * line 180, local variables
+    10 Changed 5 line 210, local variables
+    4 Wait 10 line 150
 
 **NOTE 1**
 
@@ -1269,7 +1275,7 @@ however be circumvented by increasing the size of the Name Table by 8
 bytes for each name (plus a little more for luck), by using the line::
 
     CALL PEEK_W(282)+36,N
-    
+
 This bug is fixed on the ST/QL Emulator (with E-Init software v1.27+),
 Minerva and SMS.
 
@@ -1277,13 +1283,13 @@ Minerva and SMS.
 
 On most ROMs, you cannot LOCal the names of the parameters passed to the
 PROCedure or FuNction. ROMs which can cope with this will simply set the
-passed value to undefined. Type in the following small procedure test:: 
+passed value to undefined. Type in the following small procedure test::
 
     100 DEFine PROCedure test(a,b)
-    110   LOCal a 
-    120   PRINT a,b 
+    110   LOCal a
+    120   PRINT a,b
     130 END DEFine
-    
+
 If your interpreter behaves correctly then::
 
     test 3,2
@@ -1291,20 +1297,20 @@ If your interpreter behaves correctly then::
 will write::
 
     * 2
-    
+
 SMS will print::
 
-    0 2 
+    0 2
 
 Any reference to a in the procedure, eg. a=a+1, will
 break with an error in expression (-17) because the LOCal declaration of
-a undefined the passed parameter. You would need to expressly assign a value to a 
+a undefined the passed parameter. You would need to expressly assign a value to a
 within the PROCedure for this to work. This works correctly on Minerva
 ROMs (ie. a is unset by the LOCal command).
 
 **CROSS-REFERENCE**
 
-:ref:`dim` sets up arrays normally. :ref:`define--procedure`, 
+:ref:`dim` sets up arrays normally. :ref:`define--procedure`,
 :ref:`define--function` and :ref:`end--define` are used to identify definition
 blocks.
 
@@ -1387,14 +1393,14 @@ number. For the non-mathematicians out there: x=10\ :sup:`LOG10(x)`.
 
 ::
 
-    100 INPUT "Integer Number:"!x 
+    100 INPUT "Integer Number:"!x
     110 PRINT "This number has"!INT(1+LOG10(ABS(x)))!"digits."
 
 The trivial function LOGN finds the logarithm of x to any base b which
 makes sense::
 
-    10 DEFine FuNction LOGN (x,b) 
-    20   RETurn LN(x)/LN(b) 
+    10 DEFine FuNction LOGN (x,b)
+    20   RETurn LN(x)/LN(b)
     30 END DEFine LOGN
 
 **CROSS-REFERENCE**
@@ -1429,7 +1435,7 @@ list. If the name is not recognised, then the value -7 is returned.
     PRINT LOOKUP% ('PRINT')
 
 will return 0 on most QL ROMs as this is normally the first name in the
-name list. 
+name list.
 
 ::
 
@@ -1497,12 +1503,12 @@ This command lists all polling interrupts and their link pointers to
 the given channel (default #1). While this text was being written, LPOLL
 produced the following list::
 
-    List of polled tasks: 
-    Link Pointer   Routine 
-    1.   $0002B5D8 $000C1434 
-    2.   $0002B8B8 $0009E0C2 
-    3.   $0002CAAA $000BD056 
-    4.   $0002B840 $0009E988 
+    List of polled tasks:
+    Link Pointer   Routine
+    1.   $0002B5D8 $000C1434
+    2.   $0002B8B8 $0009E0C2
+    3.   $0002CAAA $000BD056
+    4.   $0002B840 $0009E988
 
 To understand these numbers, a deep knowledge of
 assembly language and the operating system is necessary. Generally, each
@@ -1538,9 +1544,9 @@ SER1 (ie. if LPR\_USE has not yet been used).
 
 ::
 
-    LPR_USE par 
-    LPR_USE ram1_print_dat 
-    LPR_USE n2_ser1 
+    LPR_USE par
+    LPR_USE ram1_print_dat
+    LPR_USE n2_ser1
     LPR_USE con
 
 **NOTE**
@@ -1548,8 +1554,8 @@ SER1 (ie. if LPR\_USE has not yet been used).
 LPR\_USE does not check the validity of the given device, so even
 completely wrong parameters are accepted::
 
-    LPR_USE #2 
-    
+    LPR_USE #2
+
 will set LPRINT$ to "2", LPRINT$ and LLIST will report the error.
 
 **CROSS-REFERENCE**
@@ -1564,12 +1570,13 @@ LLIST, LPRINT$.
 LPUT
 ====
 
-+----------+-----------------------------------------------------------------------------+
-| Syntax   || LPUT [#ch\\position,] [item :sup:`\*`\ [,item\ :sup:`i`]\ :sup:`\*` ..] or |
-|          || LPUT [#ch,] [item :sup:`\*`\ [,item\ :sup:`i`]\ :sup:`\*` ..]              |
-+----------+-----------------------------------------------------------------------------+ 
-| Location || SMSQ/E                                                                     |
-+----------+-----------------------------------------------------------------------------+
++----------+----------------------------------------------------------------------------+
+| Syntax   | LPUT [#ch\\position,] [item :sup:`\*`\ [,item\ :sup:`i`]\ :sup:`\*` ..] or |
+|          |                                                                            |
+|          | LPUT [#ch,] [item :sup:`\*`\ [,item\ :sup:`i`]\ :sup:`\*` ..]              |
++----------+----------------------------------------------------------------------------+
+| Location | SMSQ/E                                                                     |
++----------+----------------------------------------------------------------------------+
 
 This command is the complement to LGET, in that it places the longword
 value for each item into the specified channel (default #3) at the
@@ -1632,21 +1639,21 @@ code routines (mainly Toolkits). It will grab enough memory from the
 Resident Procedure Area to hold the given file, load the file into
 memory and then call it. Toolkit II sub-directories and the default data
 device are supported. LRESPR could be re-written as the following
-SuperBASIC procedure:: 
+SuperBASIC procedure::
 
-    100 DEFine PROCedure LRESPR (mc_file$) 
-    110   LOCal length,adress 
-    120   length=FLEN(\mc_file$) 
-    130   adress=RESPR(length) 
-    140   LBYTES mc_file,adress 
-    150   CALL adress 
+    100 DEFine PROCedure LRESPR (mc_file$)
+    110   LOCal length,adress
+    120   length=FLEN(\mc_file$)
+    130   adress=RESPR(length)
+    140   LBYTES mc_file,adress
+    150   CALL adress
     160 END DEFine LRESPR
 
 **Examples**
 
 ::
 
-    LRESPR BeuleTools_bin 
+    LRESPR BeuleTools_bin
     LRESPR ram1_MyTool_obj
 
 **NOTE 1**
@@ -1689,12 +1696,13 @@ See the second example for :ref:`alchp`. See also
 LRUN
 ====
 
-+----------+-------------------------------------------------------------------+
-| Syntax   || LRUN device\_filename  or                                        |
-|          || LRUN [device\_]filename (Toolkit II)                             |
-+----------+-------------------------------------------------------------------+
-| Location || QL ROM, Toolkit II                                               |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------+
+| Syntax   | LRUN device\_filename  or                                        |
+|          |                                                                  |
+|          | LRUN [device\_]filename (Toolkit II)                             |
++----------+------------------------------------------------------------------+
+| Location | QL ROM, Toolkit II                                               |
++----------+------------------------------------------------------------------+
 
 This command is exactly the same as LOAD except for the fact that the
 program is automatically RUN as soon as loading is complete.
@@ -1722,16 +1730,16 @@ to the specified channel (default #1). While this text was being
 written, the following list was produced::
 
     List of scheduler loop tasks:
-    link pointer routine 
-    1. $0002B848 $0009E9C0 
-    2. $0002D140 $000ACC2A 
-    3. $0002C0F0 $000B685C 
-    4. $0002B648 $000C1572 
-    5. $000B3964 $000AFAEE 
-    6. $000B5FDA $000B50FE 
-    7. $00001206 $0000120E 
-    8. $00002D7C $00002D90 
-    9. $00003504 $0000350C 
+    link pointer routine
+    1. $0002B848 $0009E9C0
+    2. $0002D140 $000ACC2A
+    3. $0002C0F0 $000B685C
+    4. $0002B648 $000C1572
+    5. $000B3964 $000AFAEE
+    6. $000B5FDA $000B50FE
+    7. $00001206 $0000120E
+    8. $00002D7C $00002D90
+    9. $00003504 $0000350C
 
 An in-depth knowledge of the operating system and
 machine code is necessary to understand this list. Please refer to the
