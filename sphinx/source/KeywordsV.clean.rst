@@ -30,7 +30,7 @@ bad), then you need to invest 80000 \* VA(1/10, 2) = 66115.7
 **CROSS-REFERENCE**
 
 You can check the result of the above example with: 66115.7 \* :ref:`mt`\ (1/10,2) = 80000.
- 
+
 See also :ref:`vfr`, :ref:`var`,
 :ref:`tca`, :ref:`tnc`,
 :ref:`tee`, :ref:`rae`,
@@ -69,12 +69,13 @@ handling).
 VER$
 ====
 
-+----------+-------------------------------------------------------------------+
-| Syntax   || VER$  or                                                         |
-|          || VER$ [(n)] with n=1, 0, -1, -2(Minerva and SMS only)             |
-+----------+-------------------------------------------------------------------+
-| Location || QL ROM                                                           |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------+
+| Syntax   | VER$  or                                                         |
+|          |                                                                  |
+|          | VER$ [(n)] with n=1, 0, -1, -2(Minerva and SMS only)             |
++----------+------------------------------------------------------------------+
+| Location | QL ROM                                                           |
++----------+------------------------------------------------------------------+
 
 The function VER$, which is the same as VER$(0) returns a short
 identification code for the version of the current system ROM. Here are
@@ -82,12 +83,12 @@ most of the possible values (in order of development):
 
 **Original ROMs**
 
-.. DO NOT add a double pipe at the start of the first line. If you do then the whole table is 
+.. DO NOT add a double pipe at the start of the first line. If you do then the whole table is
    completely useless in the rendered output. As it is, each time we build, we get a Latex error
    for the ||, but pressing ENTER seems to get past it. Plus, it builds!
 
 .. tabularcolumns::   |p{0.05\linewidth}| p{0.9\linewidth}|
-   
+
 ..  table::
     :class: longtable
 
@@ -130,12 +131,12 @@ most of the possible values (in order of development):
 
 **Patches**
 
-.. DO NOT add a double pipe at the start of the first line. If you do then the whole table is 
+.. DO NOT add a double pipe at the start of the first line. If you do then the whole table is
    completely useless in the rendered output. As it is, each time we build, we get a Latex error
    for the ||, but pressing ENTER seems to get past it. Plus, it builds!
 
 .. tabularcolumns::   |p{0.05\linewidth}| p{0.9\linewidth}|
-   
+
 ..  table::
     :class: longtable
 
@@ -150,14 +151,14 @@ most of the possible values (in order of development):
     |      | for the United States.                                                   |
     +------+--------------------------------------------------------------------------+
 
-**New developments** 
+**New developments**
 
-.. DO NOT add a double pipe at the start of the first line. If you do then the whole table is 
+.. DO NOT add a double pipe at the start of the first line. If you do then the whole table is
    completely useless in the rendered output. As it is, each time we build, we get a Latex error
    for the ||, but pressing ENTER seems to get past it. Plus, it builds!
 
 .. tabularcolumns::   |p{0.05\linewidth}| p{0.9\linewidth}|
-   
+
 ..  table::
     :class: longtable
 
@@ -183,11 +184,11 @@ specific features of computers and ROM implementations. However, if you
 intend to test VER$, for example::
 
     IF VER$= 'JM'
-    
+
 to retain compatibility with the different ROM versions, you must first
 assign the contents of VER$ to a variable::
 
-    100 a$=VER$ 
+    100 a$=VER$
     110 IF a$(1 TO 2)='MG': PRINT 'MG ROM'
 
 **NOTE 2**
@@ -198,11 +199,11 @@ are looking for any sense behind the abbreviations.)
 
 **MINERVA NOTES**
 
-On Minerva, VER$ accepts a parameter: 
+On Minerva, VER$ accepts a parameter:
 
 - VER$(0)as per above VER$.
-- VER$(-2) returns the base address of the system variables (normally $28000 = 163840 on a standard QL). 
-- VER$(-1)returns the current job identification number. 
+- VER$(-2) returns the base address of the system variables (normally $28000 = 163840 on a standard QL).
+- VER$(-1)returns the current job identification number.
 - VER$(1)returns the version of QDOS (see also QDOS$).
 
 **SMS NOTES**
@@ -287,20 +288,20 @@ VG\_LOAD
 This toolkit allows the QL to use BGI vector fonts (common on the PC)
 to draw on the screen. There are now numerous fonts available in this
 format for the QL, being the same format as used by the PROWESS
-programming system from PROGS. 
+programming system from PROGS.
 
 The advantage of vector fonts is that
 they can be drawn on screen at any size and angle without affecting the
 legibility. Each character is not made up by a bit-map (as with the
 original QL fonts), but by a description of how each line is drawn to
-make up a character. 
+make up a character.
 
 This command forces a BGI font file$ to be loaded
 from a file into memory. Fontnr is the number of the font Up to 16 fonts
 can be loaded at the same time; Fontnr may range from 0 to 15. The file$
 can be any font in standard BGI format, for example those which are
 delivered with Turbo Pascal and Turbo C by Borland. The format used on
-the QL with this Toolkit is binary compatible. 
+the QL with this Toolkit is binary compatible.
 
 If VG\_LOAD fails to load
 a file for external reasons (eg. if the file is not found), the font
@@ -342,18 +343,18 @@ VG\_PRINT. The colour col does not allow strips and textures, col may
 only range from 0 to 7, other values are modulated appropriately. xsize
 and ysize determine the size of the font (not in pixels!), they can be
 freely chosen from any non-negative values, but sizes smaller than three
-are usually not readable. 
+are usually not readable.
 
 Angle is the angle (0..359º) by which the text
 should be rotated. This is different from italics because the angle
 parameter rotates the text around the origin point of the text whilst
 italics slopes each character. The effect of italics is not linear,
 values between -10 and 10 give all kinds of slope; negative italics
-slope to the left and positive to the right. 
+slope to the left and positive to the right.
 
 The effect of bold on the
 other hand is easily described: bold refers to the thickness of the
-characters' lines which are bold+1 pixels. 
+characters' lines which are bold+1 pixels.
 
 Qlibm is a switch: any
 non-negative value will make VG\_PRINT
@@ -371,26 +372,26 @@ with::
 
     WIPE
 
-or:: 
+or::
 
     WINDOW 512,256,0,0: CLS
 
 ::
-    
-    100 FOR size=1 TO 25 
-    110   bold = (size=25) 
-    120   VG_PARA 5.5*size/25,size,size,0,0,-3,bold 
-    130   VG_PRINT 70-2*size,150-size,0,"Sinclair QL" 
-    140 END FOR size 
+
+    100 FOR size=1 TO 25
+    110   bold = (size=25)
+    120   VG_PARA 5.5*size/25,size,size,0,0,-3,bold
+    130   VG_PRINT 70-2*size,150-size,0,"Sinclair QL"
+    140 END FOR size
 
 ::
 
-    100 FOR angle=0 TO 3000 STEP 12 
-    110   xsize=4*SIN(RAD(angle))+8 
-    120   VG_PARA 7,xsize,10,angle,0,0,0 
-    130   VG_PRINT 200,120,0,"Yippie" 
-    140   VG_PARA RND(0 TO 2),xsize,10,angle,0,0,0 
-    150   VG_PRINT 200,120,0,"Yippie" 
+    100 FOR angle=0 TO 3000 STEP 12
+    110   xsize=4*SIN(RAD(angle))+8
+    120   VG_PARA 7,xsize,10,angle,0,0,0
+    130   VG_PRINT 200,120,0,"Yippie"
+    140   VG_PARA RND(0 TO 2),xsize,10,angle,0,0,0
+    150   VG_PRINT 200,120,0,"Yippie"
     160 END FOR angle
 
 **WARNING**
@@ -436,8 +437,8 @@ works only in high resolution mode (MODE 4).
 
 ::
 
-    VG_LOAD 1,flp1_goth_chr 
-    VG_WIND 0,511,0,255 
+    VG_LOAD 1,flp1_goth_chr
+    VG_WIND 0,511,0,255
     VG_PRINT 100,100,1,"Hello World"
 
 **NOTE**
@@ -448,22 +449,22 @@ differ dramatically if text$ contains characters which are not
 standardised in ASCII, especially national characters (umlauts, acutes).
 The following program lists the complete character set of a BGI font::
 
-    100 VG_LOAD 0,"flp1_goth_chr" 
-    110 VG_WIND 0,511,0,255 
-    120 WINDOW 512,256,0,0: PAPER 0: CLS 
-    130 VG_PARA 7,5,5,0,0,0,0 
-    140 FOR c=0 TO 255 
-    150   VG_PRINT 20*(c MOD 20)+50,20*(c DIV 20),0,CHR$(c) 
+    100 VG_LOAD 0,"flp1_goth_chr"
+    110 VG_WIND 0,511,0,255
+    120 WINDOW 512,256,0,0: PAPER 0: CLS
+    130 VG_PARA 7,5,5,0,0,0,0
+    140 FOR c=0 TO 255
+    150   VG_PRINT 20*(c MOD 20)+50,20*(c DIV 20),0,CHR$(c)
     160 END FOR c
 
 **CROSS-REFERENCE**
 
 :ref:`vg-para` offers a switch to approximate an
-identity between text$ and display as far as possible. Modify line 130 in the 
+identity between text$ and display as far as possible. Modify line 130 in the
 above listing so that it looks like this now::
 
-    130 VG_PARA 7,5,5,0,1,0,0 
- 
+    130 VG_PARA 7,5,5,0,1,0,0
+
 Running the program again shows you :ref:`vg-print`'s
 attempts to correct the problem. See also the other
 VG_XXX keywords!
@@ -516,21 +517,21 @@ This command defines a rectangular area of the screen. Only text
 printed inside this window with VG\_PRINT (it's not a window in
 SuperBASIC terms) will be visible::
 
-      0                         511 
+      0                         511
     0 +-------------------------+
-      |                         | 
-      |   x1        x2          | 
-      | y1+---------+           | 
-      |   |         |           | 
-      |   |BGI Text |           | 
-      |   |         |           | 
-      | y2+---------+           | 
-    55+-------------------------+ 
+      |                         |
+      |   x1        x2          |
+      | y1+---------+           |
+      |   |         |           |
+      |   |BGI Text |           |
+      |   |         |           |
+      | y2+---------+           |
+    55+-------------------------+
 
 It is strongly
 recommended that you specify a window inside the physical screen, so: 0
-<= x1 < x2 <= 511 and 0 <= y1 < y2 <= 255  (assuming a standard 512x256 
-pixel screen - replace the upper bounds if you have a better graphics 
+<= x1 < x2 <= 511 and 0 <= y1 < y2 <= 255  (assuming a standard 512x256
+pixel screen - replace the upper bounds if you have a better graphics
 card, eg. QVME). Note that VG\_WIND does not
 check the parameters (this is impossible without the Window Manager).
 
@@ -540,8 +541,8 @@ Default settings are x1=0, x2=511, y1=0, y2=255.
 
 ::
 
-    VG_WIND 0,511,0,255 
-    
+    VG_WIND 0,511,0,255
+
 restores these defaults.
 
 **CROSS-REFERENCE**
@@ -558,12 +559,13 @@ Manager is loaded.
 VIEW
 ====
 
-+----------+-------------------------------------------------------------------+
-| Syntax   || VIEW [#channel,] text\_file  or                                  |
-|          || VIEW \\channel, text\_file                                       |
-+----------+-------------------------------------------------------------------+
-| Location || Toolkit II, THOR XVI                                             |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------+
+| Syntax   | VIEW [#channel,] text\_file  or                                  |
+|          |                                                                  |
+|          | VIEW \\channel, text\_file                                       |
++----------+------------------------------------------------------------------+
+| Location | Toolkit II, THOR XVI                                             |
++----------+------------------------------------------------------------------+
 
 This command reads the contents of the given text\_file line by line
 and prints it to the given channel (default #1). If a line is longer
@@ -577,11 +579,11 @@ could use::
 or::
 
     VIEW \ram1_test,flp1_text_file
-    
+
 Note that the latter is the same as::
 
     COPY flp1_text_file TO ram1_test
-    
+
 Lines in a text file are separated by line feed characters <LF>, ie.
 CHR$(10). If output is sent to a window, then when a window page is
 full, VIEW generates a <CTRL><F5>, and waits for a keypress to continue
@@ -615,12 +617,13 @@ Compare :ref:`copy` and
 VOCAB
 =====
 
-+----------+-------------------------------------------------------------------+
-| Syntax   || VOCAB [ #channel, ] type  or                                     |
-|          || VOCAB [ #channel ] [,type]                                       |
-+----------+-------------------------------------------------------------------+
-| Location || VOCAB (DIY Toolkit, Vol X)                                       |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------+
+| Syntax   | VOCAB [ #channel, ] type  or                                     |
+|          |                                                                  |
+|          | VOCAB [ #channel ] [,type]                                       |
++----------+------------------------------------------------------------------+
+| Location | VOCAB (DIY Toolkit, Vol X)                                       |
++----------+------------------------------------------------------------------+
 
 This command lists all of the names which fall into a given category
 and are recognised by the SuperBASIC interpreter in the given channel
@@ -670,7 +673,7 @@ actually been used in the program when it has been RUN.
 **CROSS-REFERENCE**
 
 Use :ref:`sxtras` if you have a lot of extensions
-in memory and you are looking for a specific one. 
+in memory and you are looking for a specific one.
 
 See also
 :ref:`txtras`, :ref:`extras`

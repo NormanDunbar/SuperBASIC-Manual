@@ -3,13 +3,6 @@
 Keywords X
 ==========
 
-TODO
-====
-
-- Check this line `30     IF x=3 XOR y >1 AND y<3:PRINT x;'=>';y,` in the example for XOR. I'm not convinced it's a valid syntax! Maybe in C, but in SUPERBasic? 
-
-
-
 ..  _xchange:
 
 XCHANGE
@@ -31,17 +24,17 @@ Provided that you have enough free memory, this small program replaces
 line-feed characters CHR$(10) by carriage returns CHR$(13) in
 ram1\_test\_txt as quickly as possible::
 
-    100 ch=FILE_OPEN("ram1_test_txt",0) 
-    110 IF ch<0 THEN REPORT ch: STOP 
-    120 length=FLEN(#3) 
-    130 memory=ALCHP(length) 
-    140 IF NOT memory THEN REPORT -3: STOP 
-    150 x=LOAD_FILE(#ch,memory,length) 
-    160 IF XCHANGE(memory,memory+length-1,13,10) THEN 
-    170   GET#ch\0 
-    180   SAVE_FILE#ch,memory,x 
-    190   TRUNCATE#ch 
-    200 END IF 
+    100 ch=FILE_OPEN("ram1_test_txt",0)
+    110 IF ch<0 THEN REPORT ch: STOP
+    120 length=FLEN(#3)
+    130 memory=ALCHP(length)
+    140 IF NOT memory THEN REPORT -3: STOP
+    150 x=LOAD_FILE(#ch,memory,length)
+    160 IF XCHANGE(memory,memory+length-1,13,10) THEN
+    170   GET#ch\0
+    180   SAVE_FILE#ch,memory,x
+    190   TRUNCATE#ch
+    200 END IF
     210 CLOSE#ch: RECHP memory
 
 **CROSS-REFERENCE**
@@ -71,16 +64,16 @@ it again without changing the background.
 
 ::
 
-    100 REPeat scan 110 w% = RND(1 TO 200) 
-    120   FOR x% = 0 TO 511 + w% 
-    130   IF x% < 512 THEN 
-    140     XDRAW x%,0 TO x%,255 
-    150   END IF 
-    160   IF x% > w% - 1 THEN 
-    170     XDRAW x%-w%,0 TO x%-w%,255 
-    180   END IF 
-    190   IF KEYROW(1)&&8 THEN EXIT scan 
-    200   END FOR x% 
+    100 REPeat scan 110 w% = RND(1 TO 200)
+    120   FOR x% = 0 TO 511 + w%
+    130   IF x% < 512 THEN
+    140     XDRAW x%,0 TO x%,255
+    150   END IF
+    160   IF x% > w% - 1 THEN
+    170     XDRAW x%-w%,0 TO x%-w%,255
+    180   END IF
+    190   IF KEYROW(1)&&8 THEN EXIT scan
+    200   END FOR x%
     210 END REPeat scan
 
 **CROSS-REFERENCE**
@@ -96,12 +89,13 @@ it again without changing the background.
 XLIM
 ====
 
-+----------+-------------------------------------------------------------------+
-| Syntax   || XLIM  or                                                         |
-|          || XLIM #ch (v2.08+)                                                |
-+----------+-------------------------------------------------------------------+
-| Location || ATARI\_REXT (v1.29+)                                             |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------+
+| Syntax   | XLIM  or                                                         |
+|          |                                                                  |
+|          | XLIM #ch (v2.08+)                                                |
++----------+------------------------------------------------------------------+
+| Location | ATARI\_REXT (v1.29+)                                             |
++----------+------------------------------------------------------------------+
 
 This function returns the horizontal size of the screen in pixels. It
 can therefore be used to ascertain if the Extended Mode-4 is present,
@@ -114,7 +108,7 @@ SCR\_XLIM.
 A program may wish to use the whole of the screen for its output,
 adapting itself accordingly::
 
-    100 MAX_WIDTH=XLIM 
+    100 MAX_WIDTH=XLIM
     110 MAX_HEIGHT=YLIM
     120 OPEN #1,'CON_' & MAX_WIDTH & 'x' & MAX_HEIGHT & 'a0x0'
 
@@ -147,7 +141,7 @@ XOR
 This combination operator combines two condition tests together and
 will have the value 0 if both condition1 and condition2
 are true or both are false or 1 if either condition1 or condition2
-are true (but not both). 
+are true (but not both).
 
 Please note the difference between this and the bitwise XOR
 operator: x^^y, which compares x and y bit by bit.
@@ -156,24 +150,22 @@ operator: x^^y, which compares x and y bit by bit.
 
 ::
 
-    PRINT 1 XOR 0: REMark Returns 1. 
-    PRINT 2 XOR 10 REMark Returns 0. 
-    
-Compare:: 
+    PRINT 1 XOR 0: REMark Returns 1.
+    PRINT 2 XOR 10 REMark Returns 0.
+
+Compare::
 
     PRINT 2^^10
-    
-which returns 8. 
+
+which returns 8.
 
 ::
 
-    10 FOR x=1 TO 5 
-    20   FOR y=1 TO 5 
-    30     IF x=3 XOR y >1 AND y<3:PRINT x;'=>';y, 
-    40   END FOR y 
-    50 END FOR x 
-
-..  Does line 30 above actually work? This needs testing!
+    10 FOR x=1 TO 5
+    20   FOR y=1 TO 5
+    30     IF x=3 XOR y >1 AND y<3:PRINT x;'=>';y,
+    40   END FOR y
+    50 END FOR x
 
 produces the following output::
 

@@ -26,7 +26,7 @@ device driver.
 
 -  The program opens channel and writes or reads data to/from that
    channel...
-   
+
 -  The channel forwards the data (also instructions) to the device
    drivers...
 
@@ -35,7 +35,7 @@ device driver.
 
 -  A hardware interface translates computer codes into electrical
    signals...
-   
+
 -  The hardware performs physical actions, eg. printing or reading from
    a floppy disk.
 
@@ -162,7 +162,7 @@ If however, Toolkit II is present, the default devices are supported.
     LOAD mdv1_boot
 
 ::
-    
+
     DIR mdv2_
 
 Microdrives will allow you to create a file with a null name, which will
@@ -212,7 +212,7 @@ least part of it) has become standard on disk interfaces.
     MERGE flp1_Simple_bas
 
 ::
-    
+
     DATA_USE flp1_Quill
 
 Some boards (such as the Gold Card, QXL, Atari Emulators and SMSQ/E)
@@ -285,15 +285,15 @@ Hard Disk (WIN)
 +----------+-------------------------------------------------------+
 
 This device driver allows you to access a hard disk drive (including
-removeable hard disks). This operates a lot more quickly than a floppy
+removable hard disks). This operates a lot more quickly than a floppy
 disk (but not as quickly as a ram disk) and can store several megabytes
 of data.
 
 Hard disks are built into nearly every system that can run a QL Emulator
 and are available as add-ons for a standard QL and AURORA system.
 
-Please refer to the original manuals because the harddisk drivers all
-differ in FORMATing.
+Please refer to the original manuals because the hard disk drivers all
+differ in FORMATting.
 
 Accessing a WIN device from a program is just like accessing a FLP or
 RAM device.
@@ -590,8 +590,8 @@ end; buffer length 90 kilobytes.
 
 ::
 
-    parrt 
-    
+    parrt
+
 No conversion; translation table used; no FF sent.
 
 Note the coupling between the <New\_line> and <trns> arguments. This
@@ -619,7 +619,7 @@ port (PAR\_ABORT) or clearing an output buffer (PARR\_CLEAR).
 
 The values of each part of the device name are as follows:
 
-<port>This is provided for future compatability. It represents the
+<port>This is provided for future compatibility. It represents the
 number of the parallel port to use. It can be either 1 or 2, although
 any attempt to use par2 is currently ignored and par1 used. The default
 is therefore 1.
@@ -908,14 +908,14 @@ several ways to improve the reliability:
 
 -  Use the command SER\_PAUSE to alter the length of the stop bits on
    the serial ports.
-   
+
 -  Fit Hermes (or SuperHERMES) - this is especially important for using
    higher BAUD rates and can improve the XON / XOFF protocol which can
    normally fail when trying to read data on the QL at over 2400 BAUD or
    trying to send data at over 4800 BAUD. Hermes is also needed to
    receive data at a different BAUD rate on each port and also at a
    different rate to the transmission rate.
-   
+
 -  Change your serial to parallel converter - SMSQ/E is now so fast on
    the QL that some older converters no longer work correctly.
 
@@ -1270,7 +1270,7 @@ This is known as First In First Out (FIFO).
 
 Pipes can only be one way (either output or input). Any attempt to send
 data through an input pipe (or to read data from an output pipe) will
-cause a 'Bad Parameter' error. For compatability reasons, you should
+cause a 'Bad Parameter' error. For compatibility reasons, you should
 open output pipes with OPEN\_NEW and open input pipes with OPEN\_IN.
 
 A channel which is open to an input pipe cannot detect the end of data
@@ -1369,7 +1369,7 @@ the X, P or T parameter is specified.
 
 -  If IDin is omitted then the channel opened to the pipe will be
    write-only. IDin defaults to zero.
-   
+
 -  If IDout is omitted or a negative number, and IDin is specified
    together with the X, P or T parameter then it will default to the
    same as IDin. - see (3) below. However, If IDout is omitted and the
@@ -1377,26 +1377,26 @@ the X, P or T parameter is specified.
    IDout is specified to be zero) then the channel opened to the pipe
    will be read-only (you will need to specify X, P or T parameter if
    Minerva is to recognise IDout whether it is there or not).
-   
+
 -  If both IDin and IDout are non-zero (or IDout was made to be the same
    as IDin under (2) above), then the channel opened to the pipe will
    read data from IDin and send data to IDout. If IDin and IDout are the
    same then this will form a circular queue.
-   
+
 -  If both IDin and IDout are omitted and the X, P or T parameter is not
    specified, then you have created a standard QL pipe! If you specify
    the P or T parameter in this instance, see note 1 and note 2 below.
    PIPEX has no meaning!
-   
+
 -  If a P parameter is specified, then this pipe will be marked as
    permanent and will retain its data even if no channels are open to
    it.
-   
+
 -  A T parameter marks a pipe as temporary and can be used to remove a
    permanent pipe, eg: OPEN #3,'pipe1p2'Open a permanent input pipe
    (ID=1) and a permanent output pipe (ID=2). OPEN #3,'pipet2':CLOSE
-   #3Remove the pipe (ID=2) once all information has been read from it.
-   
+   #3 Remove the pipe (ID=2) once all information has been read from it.
+
 -  An X parameter is used to merely separate IDin and IDout - this will
    create a temporary pipe which will mark the end of the data 'End of
    File' when the last channel which can output data to the specified
@@ -1531,8 +1531,8 @@ one time. The syntax of this driver is::
 
 for an output pipe, or::
 
-    PIPE_name 
-    
+    PIPE_name
+
 for an input pipe.
 
 where:
@@ -1891,7 +1891,7 @@ or TOS disk (for example with LOAD) and then remove that disk from the
 drive and alter it on another computer, replacing the disk in the
 original computer's disk drive (not having used another disk in the mean
 time), it is impossible to tell that the disk has been modified, so any
-further attempt to access that disk may render it unuseable. If you must
+further attempt to access that disk may render it unusable. If you must
 insist on doing this, use DEL\_DEFB before trying to access the disk a
 second time.
 
@@ -1940,5 +1940,4 @@ the shareware program MultiDISCOVER (by Dave Walker).
 However, if you want really flexible access to such disks, then you will
 need an operating system which includes Level-3 Device Drivers (see
 above).
-
 

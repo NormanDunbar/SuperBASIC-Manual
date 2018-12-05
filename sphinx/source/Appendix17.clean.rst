@@ -5,7 +5,7 @@ A17 Networks
 
 A Network is a means of communicating with several other computers and
 sharing their resources. The way in which networks work on a QL or
-deriviative depends upon the hardware being used.
+derivative depends upon the hardware being used.
 
 Standard QLs and the THOR family of computers have two network ports
 which work in exactly the same way, and enable up to 64 computers to be
@@ -380,15 +380,15 @@ The following commands are provided:
 
 -  MNET\_S% - Confirm whether a machine with a given station number is
    connected to the Network.
-   
+
 -  MNET\_ON - Switch on the device driver.
 
 -  MNET\_OFF - Switch off the device driver (this allows the MIDI port
    to be used independently).
-   
+
 -  MNET\_USE - Change the letter which identifies the device driver
    (normally N).
-   
+
 -  MIDINET - Start up the fileserver.
 
 A17.4 Sernet
@@ -431,13 +431,13 @@ The following commands are provided:
 
 -  SNET\_S% - Confirm whether a machine with a given station number is
    connected to the Network.
-   
+
 -  SNET\_ROPEN - Re-opens the serial ports in case you have closed one
    from another program.
-   
+
 -  SNET\_USE - Change the letter which identifies the device driver
    (normally S).
-   
+
 -  SERNET - Start up the fileserver.
 
 A17.5 Amadeus Interlink

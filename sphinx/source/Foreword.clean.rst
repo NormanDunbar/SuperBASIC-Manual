@@ -59,7 +59,7 @@ BASIC. Q-Help forms a welcome companion to this manual and is especially
 useful if you are travelling. The Sinclair Spectrum is now enjoying
 something of a revival, following the re-release of its games for use
 with the Amstrad E-m@iler phone. The future of the QL is also looking
-increasingly rosy (well at least colourwise), since the release of
+increasingly rosy (well at least colour-wise), since the release of
 SMSQ/E v2.98+ which supports up to 16 million colours on the Q40, QXL
 and QPC2 systems. The day when the QL can access the internet and email
 is also now at hand. We hope that this will keep people more interested
@@ -104,7 +104,7 @@ improve the layout and add new entries to the Manual.
 
 Online Edition Foreword
 -----------------------
-When Rich put the HTML version online and asked for volunteers to tidy it up, 
+When Rich put the HTML version online and asked for volunteers to tidy it up,
 maintain it etc, lots of people *didn't* step forward! I was one of the ones who did
 and spent many a happy lunch hour downloading pages, stripping out the invalid HTML,
 adding paragraph tags, converting listings to the correct format etc etc. The results

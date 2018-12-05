@@ -2,12 +2,6 @@
 Keywords U
 ==========
 
-TODO
-====
-
-- There is a reference to ESC in this file, it doesn't exist.
-
-
 ..  _uint:
 
 UINT
@@ -22,7 +16,7 @@ UINT
 The function UINT returns the unsigned value of a (signed) integer::
 
     unsigned = signed% + 2^16
-    
+
 or::
 
     unsigned = UINT(signed%)
@@ -48,11 +42,11 @@ UNDER
 This command switches underlining in the specified window (default #1)
 either on or off. Underlining is enabled if switch=1
 or disabled if switch=0. Other values of switch will return a 'bad
-parameter' error. 
+parameter' error.
 
 If underlining is enabled, whenever anything is
 PRINTed, a line will be drawn in the current INK colour in the bottom
-but one row of the character. 
+but one row of the character.
 
 If FLASH is enabled, although the
 character will continue to flash, the underline itself will not. MODE
@@ -69,21 +63,21 @@ will disable underlining.
 If you don't like the line which is drawn by underline than you can use
 OVER to draw your own line with a different colour. Note however that
 this line ought to be drawn before the underlined text since the line
-should not overlap letters like g, p, q and j. 
+should not overlap letters like g, p, q and j.
 
 ::
 
-    100 DEFine PROCedure PRNT_UNDL (ch, x, y, text$, col1, col2) 
-    110   AT#ch,x,y: INK#ch,col2: OVER#ch,0 
-    120   PRINT#ch,FILL$("_",LEN(text$)) 
-    130   AT#ch,x,y: INK#ch,col1: OVER#ch,1 
-    140   PRINT#ch,text$ 
-    150   OVER#ch,0 
-    160 END DEFine PRNT_UNDL  
+    100 DEFine PROCedure PRNT_UNDL (ch, x, y, text$, col1, col2)
+    110   AT#ch,x,y: INK#ch,col2: OVER#ch,0
+    120   PRINT#ch,FILL$("_",LEN(text$))
+    130   AT#ch,x,y: INK#ch,col1: OVER#ch,1
+    140   PRINT#ch,text$
+    150   OVER#ch,0
+    160 END DEFine PRNT_UNDL
 
 ::
 
-    PAPER 3: CLS 
+    PAPER 3: CLS
     PRNT_UNDL #1,3,3,"Looking good.",7,0
 
 **NOTE**
@@ -158,7 +152,7 @@ printing on an EPSON compatible printer, PRINT UNL is the same as::
 :ref:`el`, :ref:`dbl`,
 :ref:`enl`, :ref:`pro`,
 :ref:`si`, :ref:`nrm`,
-:ref:`alt`, :ref:`esc`,
+:ref:`alt`, ESC,
 :ref:`ff`, :ref:`lmar`,
 :ref:`rmar`, :ref:`pagdis`,
 :ref:`paglen`.
@@ -185,11 +179,11 @@ memory and then alter the program. If the new alterations to the program
 do not work out as planned and you want to revert to the original
 version, you can simply RELOAD the original version from program in a
 matter of seconds (rather than the minutes which it would take to LOAD
-the original version from disk). 
+the original version from disk).
 
 This can be very useful for program
 development, or, for example, if you have a SuperBASIC utility program
-which you use a lot. 
+which you use a lot.
 
 This command allows you to store the currently
 loaded SuperBASIC program in memory. You have to supply a name for the
@@ -200,7 +194,7 @@ programs which have been stored with this command are available from the
 jobs list (see JOBS). When the program is stored in memory, the contents
 of all variables and pointers are also stored, which makes certain that
 if you UNLOAD a program whilst it is RUNning, you can later RELOAD it
-and re-start it from the same place (with CONTINUE). 
+and re-start it from the same place (with CONTINUE).
 
 Version 4.0+ of the
 toolkit, allows you to store the current screen display and mode along
@@ -210,7 +204,7 @@ commands which appear after UNLOAD will be automatically executed when
 the program is RELOADed, for example::
 
     UNLOAD test: RUN
-    
+
 will always RUN the program when you::
 
     RELOAD test
@@ -239,7 +233,7 @@ therefore need to re-open the channels when the program is RELOADed, or
 use something akin to::
 
     UNLOAD 'watch': OPEN #3,con_448x200a32x16
-    
+
 which will always ensure that #3 is OPEN whenever the program is
 RELOADed.
 
@@ -347,7 +341,7 @@ This function takes the given string and converts any lower case
 letters to capitals and then returns the whole string. Normally, only
 the ASCII alphabet is catered for, which means that no national
 characters are converted, ie. the function only works with A..Z and
-a..z. 
+a..z.
 
 The DIY Toolkit version will cope with accented characters, but
 you may have to modify the source code in order for this function to
@@ -357,16 +351,16 @@ alphabet.
 **Example**
 
 This is not quite an example for UPPER$ but a replacement which converts
-all characters where an upper character is available:: 
+all characters where an upper character is available::
 
-    100 DEFine FuNction UPPER_$ (string$) 
-    110   LOCal i,c,u,u$: u$="" 
-    120   FOR i=1 TO LEN(string$) 
-    130   c=CODE(string$(i)): u=c 
-    140   SELect ON c=97 TO 122: u=c-32:=128 TO 139: u=c+32 
-    150   u$=u$ & CHR$(u) 
-    160   END FOR i 
-    170   RETurn u$ 
+    100 DEFine FuNction UPPER_$ (string$)
+    110   LOCal i,c,u,u$: u$=""
+    120   FOR i=1 TO LEN(string$)
+    130   c=CODE(string$(i)): u=c
+    140   SELect ON c=97 TO 122: u=c-32:=128 TO 139: u=c+32
+    150   u$=u$ & CHR$(u)
+    160   END FOR i
+    170   RETurn u$
     180 END DEFine UPPER_$
 
 **CROSS-REFERENCE**
@@ -384,12 +378,13 @@ all characters where an upper character is available::
 UPUT
 ====
 
-+----------+-----------------------------------------------------------------------------+
-| Syntax   || UPUT [#ch\\position,] [item :sup:`\*`\ [,item\ :sup:`i`]\ :sup:`\*` ..] or |
-|          || UPUT [#ch,] [item :sup:`\*`\ [,item\ :sup:`i`]\ :sup:`\*` ..]              |
-+----------+-----------------------------------------------------------------------------+
-| Location || SMSQ/E v2.55+                                                              |
-+----------+-----------------------------------------------------------------------------+
++----------+----------------------------------------------------------------------------+
+| Syntax   | UPUT [#ch\\position,] [item :sup:`\*`\ [,item\ :sup:`i`]\ :sup:`\*` ..] or |
+|          |                                                                            |
+|          | UPUT [#ch,] [item :sup:`\*`\ [,item\ :sup:`i`]\ :sup:`\*` ..]              |
++----------+----------------------------------------------------------------------------+
+| Location | SMSQ/E v2.55+                                                              |
++----------+----------------------------------------------------------------------------+
 
 This command is the same as BPUT, except that any bytes sent by it to
 the specified channel (default #3) are not affected by the TRA command.
@@ -417,7 +412,7 @@ USE
 Many commands and functions which are described in this manual, expect
 a channel number to be passed to them and if one is not supplied, will
 default to a specific channel. This command can be used to re-direct all
-machine code commands and functions which normally default to #1. 
+machine code commands and functions which normally default to #1.
 
 After using this command, if a channel parameter is not specified, the
 commands and functions will then default to the channel specified by USE
@@ -430,7 +425,7 @@ specified, then this is equivalent to USE #1.
 
 ::
 
-    PRINT 'This is channel #1': USE #2: PRINT 'This is using Channel #2' 
+    PRINT 'This is channel #1': USE #2: PRINT 'This is using Channel #2'
     PRINT #1, 'This is still channel #2' USE: PRINT 'This is channel #1 again!'
 
 **NOTE**
@@ -445,8 +440,8 @@ values which were in use prior to the USE #ch command). Instead, the
 values are set to pen up, position 0,0, width 80, direction
 left-to-right. You can use::
 
-    PEEK_W(\48\chan*40+offset) 
-    
+    PEEK_W(\48\chan*40+offset)
+
 to store these
 values before the USE call and then restore them with POKE. Refer to
 QDOS/SMS Reference Manual Section 18.4.1 to find out how these values
@@ -514,6 +509,4 @@ This is a procedure that will allow your programs to use a character set that is
     9020 :
     9030 REMark Release the storage space
     9040 RELEASE_HEAP font_address
-
-
 

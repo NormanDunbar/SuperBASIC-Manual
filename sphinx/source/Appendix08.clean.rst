@@ -237,11 +237,11 @@ A8.2 Foreign Error Messages
 In the following tables, we have tried to list as many of the different
 language implementations as possible (thanks to QView for this
 information), although there are bound to be some languages which are
-not covered here (for example the Russian laguages supported on the THOR
+not covered here (for example the Russian languages supported on the THOR
 XVI).
 
 If you can supply any further error messages supported on the QL or its
-deriviatives, then please contact us with a full print-out of the error
+derivatives, then please contact us with a full print-out of the error
 messages (and preferably, a file on disk with containing the error
 messages supported).
 
@@ -442,7 +442,7 @@ follows:
 | -23     | Zugriff verweigert         | accès interdit             |
 +---------+----------------------------+----------------------------+
 
-SMS also incoporates an improved Interpreter, and as a result, has a
+SMS also incorporates an improved Interpreter, and as a result, has a
 long list of further errors which can appear either before a program is
 RUN or whilst a program is RUNning. These errors do not affect ERNUM and
 do not have an error code as such. Each error is given in English,
@@ -493,7 +493,7 @@ process.
 
 This is reported during PARSING - it normally occurs where you have made
 a typing error when entering a line and placed two operators together
-when this is not allowed (or meangingless). For example, the following
+when this is not allowed (or meaningless). For example, the following
 line will cause this error:
 
 	x = x ++ 1
@@ -532,7 +532,7 @@ However, the interpreter reports this error very infrequently - normally
 This message is generated during PARSING - it appears when a program
 line has more opening brackets than closing brackets.
 
-For example: 
+For example:
 
 	PRINT CHR$ ((HEX ('d2'))
 
@@ -570,7 +570,7 @@ This error is reported during PARSING whenever a program line is entered
 which contains a string within quote marks (either single or double) and
 one of those quote marks is missing.
 
-Example: 
+Example:
 
 	PRINT 'Hello "There"
 
@@ -580,7 +580,7 @@ Example:
 
 **falsche Definition einer Prozedur oder Funktion**
 
-(German) 
+(German)
 
 **mauvaise définition d'une procédure ou fonction**
 
@@ -960,7 +960,7 @@ This message is generated during PRE-COMPILING in one of two cases:
     20 PRINT 'Hello'
     30 END SELect
 
-- the comparison values appear in a program outside of a SELect ON 
+- the comparison values appear in a program outside of a SELect ON
   structure, for example:
 
 ::
@@ -1314,7 +1314,7 @@ array which has not yet been DIMensioned, for example:
 	CLEAR
 
 	x(100)=52
- 
+
 Compare the situation where you try to index a name which is in fact
 defined as a Procedure - the index is ignored and the Procedure executed
 as normal, for example
@@ -1395,7 +1395,7 @@ If an error is generated whilst the program is executing a DEFine
 PROCedure or DEFine FuNction structure, this error will be generated
 when you EDIT the program, or enter CONTINUE. Unlike earlier ROMs, this
 does not seem to prevent you from using CONTINUE to carry on with
-RUNning the program from the place the error occured.
+RUNning the program from the place the error occurred.
 
 **At line**
 
@@ -1410,7 +1410,7 @@ RUNning the program from the place the error occured.
 (French)
 
 This is merely the message used to generate part of all error messages,
-signifying the line number and statement number where the error occured.
+signifying the line number and statement number where the error occurred.
 
 **FATAL ERROR IN SBASIC INTERPRETER**
 
@@ -1431,6 +1431,4 @@ will be removed from the system when you press a key.
 One instance where this error will occur is if you try to RUN a program
 which has been QLOADed and the original file was created using QSAVE on
 a Minerva ROM with integer tokenisation enabled.
-
-
 

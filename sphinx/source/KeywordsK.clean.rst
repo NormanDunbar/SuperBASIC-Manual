@@ -28,17 +28,18 @@ so that the mouse buttons will work again!
 KBD\_TABLE
 ==========
 
-+----------+-------------------------------------------------------------------+
-| Syntax   || KBD\_TABLE num     or                                            |
-|          || KBD\_TABLE kcode  (SMS only)                                     |
-+----------+-------------------------------------------------------------------+
-| Location || ST/QL (Level C-17 Drivers onwards), SMS (v2.31+)                 |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------+
+| Syntax   | KBD\_TABLE num     or                                            |
+|          |                                                                  |
+|          | KBD\_TABLE kcode  (SMS only)                                     |
++----------+------------------------------------------------------------------+
+| Location | ST/QL (Level C-17 Drivers onwards), SMS (v2.31+)                 |
++----------+------------------------------------------------------------------+
 
 Various keyboards can be attached to a computer depending on which
 country the computer is being used in. It is therefore necessary to tell
 the operating system which keyboard layout is to be used so that it can
-recognise which keys are being pressed. 
+recognise which keys are being pressed.
 
 The command KBD\_TABLE does just
 that. num will have one of six possible values depending on the keyboard
@@ -147,31 +148,33 @@ The amount of memory considered by QDOS to be free is returned rounded down to t
 KEY
 ===
 
-+----------+-------------------------------------------------------------------+
-| Syntax   || KEY keynr, string$  or                                           |
-|          || KEY keynr (KEYMAN only) or                                       |
-|          || KEY (KEYMAN only)                                                |
-+----------+-------------------------------------------------------------------+
-| Location || FKEY, KEYMAN                                                     |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------+
+| Syntax   | KEY keynr, string$  or                                           |
+|          |                                                                  |
+|          | KEY keynr (KEYMAN only) or                                       |
+|          |                                                                  |
+|          | KEY (KEYMAN only)                                                |
++----------+------------------------------------------------------------------+
+| Location | FKEY, KEYMAN                                                     |
++----------+------------------------------------------------------------------+
 
 The KEY command allows you to install keyboard short-cuts: that means
 if a certain key (specified with keynr) is pressed the specified string$
 will be typed into the current keyboard queue. The actual implementation
 of the command under the two Toolkits is different, in that the FKEY
 variant only allows keynr to be in the range 1..5 representing the five
-function keys (F1 to F5) (see table below). 
+function keys (F1 to F5) (see table below).
 
 The KEYMAN version allows
 keynr to be in the range 1...60 which represents the following key
-presses: 
+presses:
 
 +----------------------+----------------------+
 | Key Result           | Key Result           |
 +======================+======================+
-| 1 <F1>               | 31 <CTRL><K>         | 
+| 1 <F1>               | 31 <CTRL><K>         |
 +----------------------+----------------------+
-| 2 <F2>               | 32 <CTRL><L>         | 
+| 2 <F2>               | 32 <CTRL><L>         |
 +----------------------+----------------------+
 | 3 <F3>               | 33 <CTRL><M>         |
 +----------------------+----------------------+
@@ -235,7 +238,7 @@ Once initiated, each time that the
 specified keying is pressed, the given string will be typed into the
 keyboard queue, (note there is a maximum of 80 characters). The KEYMAN
 variant allows the second syntax, KEY keynr, which allows you to check
-the current definition of keynr, which is then written to #0. 
+the current definition of keynr, which is then written to #0.
 
 KEY without any parameters activates the key translation if necessary. KEY
 keynr, "" can be used to clear a definition with the KEYMAN variant.
@@ -261,15 +264,15 @@ Key is quite a common variable name and so there is a large danger of
 errors occurring if KEY has been loaded into the computer alongside a
 program which uses such a variable name - for example, the statement::
 
-    key = KEYROW(1)  
-    
+    key = KEYROW(1)
+
 will make the program stop with error -17, (Error in expression).
 
 Another problem would exist if key was declared in a program as a BASIC
-procedure or function, for example:: 
+procedure or function, for example::
 
     DEFine PROCedure Key
-    
+
 in which case, this would overwrite the machine code definition and
 even the command NEW will not restore it, however all stored KEY
 definitions are kept active, and they can no longer be altered because
@@ -310,16 +313,16 @@ whether or not that job has an active cursor. This is mainly only of use
 for programs which work in the background unless a certain key is
 pressed to bring them to life. If you try to use this command in a
 program to control the screen, then this will undoubtedly lead to screen
-corruption as the active program may itself be accessing the screen. 
+corruption as the active program may itself be accessing the screen.
 
 The main advantage which this function has when compared to INKEY$ is that
 it allows programs to recognise when the user is pressing several keys
-at once, such as the left and up cursor keys to move diagonally. 
+at once, such as the left and up cursor keys to move diagonally.
 
 The function KEYROW is able to read several keys at once by using a keyboard
 matrix, where each row is numbered and each key is assigned to a certain
 row. If that key is pressed, then a bit is set in the integer value of
-that row to represent which key has been pressed. 
+that row to represent which key has been pressed.
 
 For British QLs, the format of the matrix is::
 
@@ -339,18 +342,18 @@ For British QLs, the format of the matrix is::
 | Value |128 | 64 | 32 | 16 | 8 | 4 | 2 | 1 |
 +-------+----+----+----+----+---+---+---+---+
 
-Please see the :ref:`a9-character--sets`\ . 
+Please see the :ref:`a9-character--sets`\ .
 
-The table reflects the physical keyboard layout and so may be different 
-on other languages. 
+The table reflects the physical keyboard layout and so may be different
+on other languages.
 
 Unfortunately, only one row at a time can be read with KEYROW and so the keys are arranged
 into groups - for example, all of the cursor keys appear on one row, as
-do all of the function keys. 
+do all of the function keys.
 
 When the function is used, the supplied parameter row specifies which row of the matrix is to be looked at. The
 value returned will have bits set representing which keys (if any) in
-that row were being pressed. 
+that row were being pressed.
 
 When KEYROW is used, any characters in the
 type-ahead buffer are cleared, therefore, if you wish to avoid
@@ -365,9 +368,9 @@ confirmation that a program should be quit.
 **Example 1**
 
 If you were holding the <SHIFT> key down together with the left and up
-cursor keys down:: 
+cursor keys down::
 
-    PRINT KEYROW(7) 
+    PRINT KEYROW(7)
 
 would return the value 1 and::
 
@@ -380,23 +383,23 @@ would return the value 6.
 The following program moves a cross about the screen, using the cursor
 keys - diagonal movement is allowed::
 
-    100 MODE 4 
-    110 WINDOW 512,256,0,0:PAPER 0:CLS 
-    120 WINDOW 448,200,32,16 
-    130 INK 7:OVER -1 
-    140 SCALE 150,-120,-75 
-    150 x=0:y=0 
-    160 LINE x-10,y TO x+10,y,x,y-10 TO x,y+10 
-    170 REPeat loop 
-    180   ax=KEYROW(1) 
-    190   IF NOT ax:NEXT loop 
-    200   LINE x-10,y TO x+10,y,x,y-10 TO x,y+10 
-    210   IF ax&&2:x=x-(x>-120) 
-    220   IF ax&&16:x=x+(x<128) 
-    230   IF ax&&4:y=y+(y<75) 
+    100 MODE 4
+    110 WINDOW 512,256,0,0:PAPER 0:CLS
+    120 WINDOW 448,200,32,16
+    130 INK 7:OVER -1
+    140 SCALE 150,-120,-75
+    150 x=0:y=0
+    160 LINE x-10,y TO x+10,y,x,y-10 TO x,y+10
+    170 REPeat loop
+    180   ax=KEYROW(1)
+    190   IF NOT ax:NEXT loop
+    200   LINE x-10,y TO x+10,y,x,y-10 TO x,y+10
+    210   IF ax&&2:x=x-(x>-120)
+    220   IF ax&&16:x=x+(x<128)
+    230   IF ax&&4:y=y+(y<75)
     240   IF ax&&128:y=y-(y>-75)
-    250   IF ax&&8:PRINT 'Program Escaped':OVER 0:STOP 
-    260   LINE x-10,y TO x+10,y,x,y-10 TO x,y+10 
+    250   IF ax&&8:PRINT 'Program Escaped':OVER 0:STOP
+    260   LINE x-10,y TO x+10,y,x,y-10 TO x,y+10
     270 END REPeat loop
 
 **NOTE 1**
@@ -436,11 +439,11 @@ instead.
 
 **NOTE 6**
 
-It is highly recommended that KEYROW is *not used* at all. 
+It is highly recommended that KEYROW is *not used* at all.
 
 It reads the
 physical keyboard directly, so will conflict with other jobs running in
-a multitasking environment. 
+a multitasking environment.
 
 Another problem is the differences between
 keyboards, for example, on a German QL the <Z> and <Y> keys are swapped
@@ -451,7 +454,7 @@ over compared to a British QL - INKEY$ is much better!
 On the ST/QL Emulator, the KEYROW table is much extended, with the
 following rows being added, both to take account of the additional keys
 available on an ST keyboard and also to take account of the numeric
-keypad (hence the repetition of various keys!):: 
+keypad (hence the repetition of various keys!)::
 
     Row 8 | F10 F9 F8 F7 F6 BACKSPACE ~
     Row 9 | + - CLR/HOME
@@ -468,17 +471,17 @@ keypad (hence the repetition of various keys!)::
 +-------+----+----+----+----+---+---+---+---+
 
 
-The additional keys have the following meanings: 
+The additional keys have the following meanings:
 
-- BACKSPACE Delete one character to left (CTRL left). 
-- SHIFT BACKSPACE Deletes a word to the left. 
-- DELETE Delete character under cursor (CTRL right). 
-- SHIFT DELETE Deletes word under cursor. 
-- UNDO Undo current operation (CTRL ALT up). 
-- SHIFT UNDO Mega undo! 
-- CLR/HOME Freezes screen (CTRL F5) 
-- INSERT Hard space (SHIFT SPACE) 
-- CTRL SHIFT ALT UNDO Hard reset. 
+- BACKSPACE Delete one character to left (CTRL left).
+- SHIFT BACKSPACE Deletes a word to the left.
+- DELETE Delete character under cursor (CTRL right).
+- SHIFT DELETE Deletes word under cursor.
+- UNDO Undo current operation (CTRL ALT up).
+- SHIFT UNDO Mega undo!
+- CLR/HOME Freezes screen (CTRL F5)
+- INSERT Hard space (SHIFT SPACE)
+- CTRL SHIFT ALT UNDO Hard reset.
 
 The keys on the numeric keypad have been redefined as follows:
 
@@ -536,12 +539,12 @@ interpreter, KEYW returns 0, otherwise -7.
 The following function returns 1 on Gold Cards and 0 on other systems
 (or some early Gold Cards if they do not support the SLUG command). It
 will unfortunately always return 1 under SMS which has the SLUG command
-built-in. 
+built-in.
 
 ::
 
-    100 DEFine FuNction Gold_Card 
-    110   RETurn NOT KEYW("FLP_DENSITY") + KEYW("SLUG") 
+    100 DEFine FuNction Gold_Card
+    110   RETurn NOT KEYW("FLP_DENSITY") + KEYW("SLUG")
     120 END DEFine Gold_Card
 
 A better way would be to use the MACHINE function.
@@ -585,20 +588,20 @@ ROM, on an EPROM cartridge, under SMS or on a Trump Card for example.
 Nevertheless, the FSERVE command is also found in the configurable
 software version. You can easily check what version of Toolkit II is
 present by looking at the base address of TK2\_EXT and then adapt your
-program to take account of the system configuration. 
+program to take account of the system configuration.
 
 ::
 
-    100 TK2_location=KEY_ADD("TK2\_EXT") 
-    105 FILE_SERVER=0 
-    110 SELect ON TK2_location 
-    120   = 48*1024 TO 64*1024: FILE_SERVER=1 
-    130   = REMAINDER: IF VER$='HBA': FILE_SERVER=1 
-    140 END SELect 
-    150 : 
-    160 IF FILE_SERVER THEN 
-    170   FSERVE 
-    180 ELSE PRINT "Sorry, no ROM based file server." 
+    100 TK2_location=KEY_ADD("TK2\_EXT")
+    105 FILE_SERVER=0
+    110 SELect ON TK2_location
+    120   = 48*1024 TO 64*1024: FILE_SERVER=1
+    130   = REMAINDER: IF VER$='HBA': FILE_SERVER=1
+    140 END SELect
+    150 :
+    160 IF FILE_SERVER THEN
+    170   FSERVE
+    180 ELSE PRINT "Sorry, no ROM based file server."
     190 END IF
 
 **Example 2**
@@ -606,40 +609,40 @@ program to take account of the system configuration.
 KEY\_ADD does not produce an error (unlike ELIS) when a keyword is not
 found, and is therefore ideal to check if a certain Toolkit, command or
 function is present. This can be used within programs to adapt to
-available facilities. 
+available facilities.
 
 In this example the internal date and time is
 saved as a hexadecimal number (this is more precise) if the necessary
 functions are present, otherwise it saves it as a floating point number.
 
 The load routine then checks if the DATE was stored as a hexadecimal or
-decimal number, taking whatever action is necessary. 
+decimal number, taking whatever action is necessary.
 
 ::
 
-    100 DateFile$="flp1_LastDATE_dat" 
-    110 : 
+    100 DateFile$="flp1_LastDATE_dat"
+    110 :
     120 DEFine PROCedure WRITE\_DATE
-    130   IF KEY_ADD("OPEN_OVER") THEN 
-    140   OPEN_OVER#3,DateFile$ 
-    150   ELSE OPEN#3,DateFile$ 
-    160   END IF 
-    170   IF KEY_ADD("HEX$") AND KEY_ADD("HEX") THEN 
-    180     PRINT#3,"$" & HEX$(DATE,32) 
-    190   ELSE PRINT#3,DATE 
+    130   IF KEY_ADD("OPEN_OVER") THEN
+    140   OPEN_OVER#3,DateFile$
+    150   ELSE OPEN#3,DateFile$
+    160   END IF
+    170   IF KEY_ADD("HEX$") AND KEY_ADD("HEX") THEN
+    180     PRINT#3,"$" & HEX$(DATE,32)
+    190   ELSE PRINT#3,DATE
     200   END IF
-    210   CLOSE#3 
-    220 END DEFine WRITE_DATE 
+    210   CLOSE#3
+    220 END DEFine WRITE_DATE
     230 :
-    240 DEFine PROCedure READ_DATE 
-    250   LOCal d$ 
+    240 DEFine PROCedure READ_DATE
+    250   LOCal d$
     260   OPEN_IN#3,DateFile$
-    270   INPUT#4,d$: CLOSE#3 
-    280   IF d$(1)="$" THEN 
-    290   IF NOT KEY_ADD("HEX") THEN RETurn 
-    300   d$=HEX(d$(2 TO)) 
-    310   END IF 
-    320   ADATE d$-DATE 
+    270   INPUT#4,d$: CLOSE#3
+    280   IF d$(1)="$" THEN
+    290   IF NOT KEY_ADD("HEX") THEN RETurn
+    300   d$=HEX(d$(2 TO))
+    310   END IF
+    320   ADATE d$-DATE
     330 END DEFine READ_DATE
 
 **CROSS-REFERENCE**
@@ -771,20 +774,22 @@ it is more like a safe emergency break.
 KJOB
 ====
 
-+----------+-------------------------------------------------------------------+
-| Syntax   || KJOB jobname (TinyToolkit only)  or                              |
-|          || KJOB jobnr  or                                                   |
-|          || KJOB jobnr,tag (BTool only)                                      |
-+----------+-------------------------------------------------------------------+
-| Location || TinyToolkit, BTool                                               |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------+
+| Syntax   | KJOB jobname (TinyToolkit only)  or                              |
+|          |                                                                  |
+|          | KJOB jobnr  or                                                   |
+|          |                                                                  |
+|          | KJOB jobnr,tag (BTool only)                                      |
++----------+------------------------------------------------------------------+
+| Location | TinyToolkit, BTool                                               |
++----------+------------------------------------------------------------------+
 
 This command kills the given job (causing it, together with all of its
 owned jobs, channels and memory to be removed or freed). Jobname in the
 first variant can be passed as a string or as just the name of the Job
 without quotes (so long as that name is not defined as a variable or
 SuperBASIC PROCedure or FuNction). jobnr is the Job number as listed by
-the JOBS command. If this is -1, this will kill the current Job. 
+the JOBS command. If this is -1, this will kill the current Job.
 
 The last variant is surplus at present - it was intended that it would pass
 the second parameter back to the owner of the job, but due to an error
@@ -794,7 +799,7 @@ in the code, this second parameter is seen as the job tag.
 
 ::
 
-    KJOB 'Perfection v2.04' 
+    KJOB 'Perfection v2.04'
     KJOB 1
 
 **NOTE**
@@ -827,6 +832,4 @@ KJOBS
 +----------+-------------------------------------------------------------------+
 
 This is the same as KILL
-
-
 

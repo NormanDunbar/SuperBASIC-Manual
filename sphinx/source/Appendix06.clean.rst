@@ -1,4 +1,4 @@
-..  _a6-compatability:
+..  _a6-compatibility:
 
 A6 Compatibility
 ================
@@ -47,13 +47,13 @@ machine. Parts of memory are moved around freely, making use of the
 calls incorporated into QDOS by the QL's designers and even the speed of
 the QL has altered. Despite the best attempts of the manufacturers of
 the Gold Card and emulators, this has resulted in one or two
-incompatabilities with older software.
+incontestabilities with older software.
 
 A6.2 Speed
 ----------
 
 Both QDOS emulators and the Gold Card have greatly increased the speed
-at which the QL works, making some programs unuseable. Luckily the
+at which the QL works, making some programs unusable. Luckily the
 effects of this are limited by various commands which slow the operating
 speed of emulators and the Gold Card down.
 
@@ -103,7 +103,7 @@ There are two types of SuperBASIC compiler which have been produced for
 the QL, namely true compilers (Turbo and Supercharge) which produce
 independent machine code, not relying in any way on SuperBASIC
 structures (and the code produced is therefore much more portable
-between different QDOS machines) and so-called psuedo compilers
+between different QDOS machines) and so-called pseudo compilers
 (Qliberator) which produce machine code which still uses SuperBASIC
 structures and calls.
 
@@ -121,7 +121,7 @@ currently compile a program which from within a multiple copy of BASIC.
 Patch programs have been released which enable Turbo compiled programs
 to be used on a system which has a large amount of memory (such as the
 Q40). Later versions of the Turbo Toolkit (v3d27 and later) are also
-required for better compatability.
+required for better compatibility.
 
 However, one of the remaining problems with SMSQ/E which is displayed by
 Turbo compiled programs is the failure of the in- built Integer to ASCII
@@ -191,7 +191,4 @@ are covered in the appendices dealing with each one.
 
 There are also various points explained in the main keywords section of
 this book.
-
-
-
 
