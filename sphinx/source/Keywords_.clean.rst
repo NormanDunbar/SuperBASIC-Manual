@@ -36,7 +36,7 @@ error is reported.
 :ref:`-def-dlr` and
 :ref:`-name-dlr` are similar.
 :ref:`codevec` returns the machine code base
-address of a Machine Code Procedure or Funtion.
+address of a Machine Code Procedure or Function.
 
 --------------
 
