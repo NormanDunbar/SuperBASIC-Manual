@@ -31,7 +31,6 @@ CONVERT
 CRYPTAGE
 DESPR
 DEV device, GOLD CARD, ST/QL, SMS
-DIY Toolkit - Vol (??? HEADERS)
 DIY Toolkit - Vol A
 DIY Toolkit - Vol B
 DIY Toolkit - Vol C
