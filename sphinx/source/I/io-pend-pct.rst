@@ -11,6 +11,3 @@ IO\_PEND%
 
 This function is the same as NOT PEND.
 
---------------
-
-

@@ -32,6 +32,3 @@ enable or disable the cursor.
 Also refer to :ref:`cursor-off` and
 :ref:`cursor-on`.
 
---------------
-
-

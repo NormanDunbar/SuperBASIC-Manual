@@ -72,6 +72,3 @@ byte from memory.
 :ref:`open-dir` contains an example of the use
 of :ref:`bget`.
 
---------------
-
-

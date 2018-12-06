@@ -28,7 +28,3 @@ This function reads the backup date from the file header and returns it into the
 
 :ref:`file-dataspace`, :ref:`file-length`, :ref:`file-type`, :ref:`file-update`.
 
-
--------
-
-

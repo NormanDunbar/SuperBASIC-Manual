@@ -21,6 +21,3 @@ range 0...360.
 See :ref:`rad` and the Mathematics section of the
 Appendix.
 
---------------
-
-

@@ -22,6 +22,3 @@ Compare\ :ref:`respr`,
 :ref:`alchp` and
 :ref:`free-mem`.
 
---------------
-
-

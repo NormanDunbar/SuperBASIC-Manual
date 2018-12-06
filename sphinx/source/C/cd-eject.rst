@@ -20,6 +20,3 @@ You need to close the drawer before attempting to play the CD!
 
 :ref:`cd-play` allows you to play an Audio CD.
 
---------------
-
-

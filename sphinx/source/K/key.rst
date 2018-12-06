@@ -148,6 +148,3 @@ this Interpreter will never disappear.
 :ref:`altkey` for a concept similar to this one
 here.
 
---------------
-
-

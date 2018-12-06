@@ -239,6 +239,3 @@ Extended Colour Drivers to Standard Colour Drivers. Also refer to
 :ref:`inverse`. Please also look at the QL Display
 appendix (Appendix 16 - :ref:`a16-ql--display`).
 
---------------
-
-

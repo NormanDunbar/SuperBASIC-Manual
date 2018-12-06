@@ -17,6 +17,3 @@ as two bytes (one word).
 
 :ref:`fget-pct`, :ref:`put`
 
---------------
-
-

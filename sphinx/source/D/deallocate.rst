@@ -27,6 +27,3 @@ been set aside with ALLOCATION.
 See :ref:`allocation` and
 :ref:`rechp`.
 
---------------
-
-

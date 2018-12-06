@@ -39,6 +39,3 @@ An extremely simple password check::
 Please read :ref:`go--sub` before you dare to try
 :ref:`go--to`!
 
---------------
-
-

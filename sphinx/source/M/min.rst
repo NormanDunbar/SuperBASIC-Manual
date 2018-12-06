@@ -26,6 +26,3 @@ will then return the lowest value out of the given list of parameters.
 counterpart. Compare :ref:`minimum` and
 :ref:`matmin`.
 
---------------
-
-

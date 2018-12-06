@@ -17,6 +17,3 @@ with MNET.
 See :ref:`mnet`. :ref:`net-id`
 is similar.
 
---------------
-
-

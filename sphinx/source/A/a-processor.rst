@@ -15,6 +15,3 @@ This function is the same as PROCESSOR.
 
 See :ref:`processor`!
 
---------------
-
-

@@ -67,6 +67,3 @@ command string. You also need v2.24+ to pass a job name.
 :ref:`hot-pick` allows you to define a hotkey to
 PICK an existing Job.
 
---------------
-
-

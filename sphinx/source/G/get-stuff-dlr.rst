@@ -37,6 +37,3 @@ QPAC 2.
 
 See :ref:`hot-stuff`.
 
---------------
-
-

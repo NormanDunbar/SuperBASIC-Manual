@@ -46,6 +46,3 @@ remove all jobs. :ref:`spjob`,
 function :ref:`job-dlr` will return the name of the
 given job.
 
---------------
-
-

@@ -54,6 +54,3 @@ BINOM (n,k) = BINOM (n,n-k) which saves half of the loops:
 
 :ref:`fact`\ .
 
---------------
-
-

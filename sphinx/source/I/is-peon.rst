@@ -20,6 +20,3 @@ installed, then this function will return the value -19.
 See :ref:`peon` and
 :ref:`is-ptrap` for more details.
 
---------------
-
-

@@ -193,6 +193,3 @@ sub-menu and allow you to read the chosen filename.
 :ref:`hot-thing` allows you to set up a hotkey
 to call an Executable Thing.
 
---------------
-
-

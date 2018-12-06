@@ -40,6 +40,3 @@ variant.
 
 See SET\_CHANNEL also.
 
---------------
-
-

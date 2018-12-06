@@ -17,6 +17,3 @@ used on any newly opened serial port channel.
 
 The system's baud rate is set with :ref:`baud`.
 
---------------
-
-

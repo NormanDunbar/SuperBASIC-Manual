@@ -25,6 +25,3 @@ related medium. :ref:`dir` can also be used to obtain
 this information. :ref:`format` releases all
 sectors on a disk, marking any which may be corrupt as unavailable.
 
---------------
-
-

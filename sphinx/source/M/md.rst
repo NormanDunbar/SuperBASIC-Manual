@@ -17,6 +17,3 @@ command on Level-2 (and higher) floppy/ winchester/ ramdisk drivers.
 An alternative would be to rename
 :ref:`make-dir` with :ref:`new-name`\ . See also :ref:`make-dir`\ .
 
---------------
-
-

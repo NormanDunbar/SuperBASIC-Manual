@@ -71,6 +71,3 @@ binary and :ref:`bin` back again.
 The length of a number x in binary form is :ref:`int`\ (LOG2 (ABS
 (x))+1) .
 
---------------
-
-

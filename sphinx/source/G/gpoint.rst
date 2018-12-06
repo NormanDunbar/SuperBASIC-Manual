@@ -9,8 +9,5 @@ GPOINT
 | Location |  GPOINT                                                                            |
 +----------+------------------------------------------------------------------------------------+
 
-This command is the same as POINT but fixes the bug in MGx ROMs.
-
---------------
-
+This command is the same as :ref:`point` but fixes the bug in MGx ROMs.
 

@@ -25,6 +25,3 @@ it will return 0.
 
 :ref:`cd-close` closes the CD drawer.
 
---------------
-
-

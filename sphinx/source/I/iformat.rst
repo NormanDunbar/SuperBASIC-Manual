@@ -29,6 +29,3 @@ See :ref:`format` and
 :ref:`adelete` and
 :ref:`qcopy`.
 
---------------
-
-

@@ -45,6 +45,3 @@ The THOR XVI limits code to the range 0...255.
 See :ref:`code` and also please refer to the
 Characters section of the Appendix.
 
---------------
-
-

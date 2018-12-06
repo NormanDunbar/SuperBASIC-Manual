@@ -23,6 +23,3 @@ string$ to #ch (default #1). It's the same as PRINT#ch,string$;.
 The Line feed character {CHR$(10)} is *not* printed at the end of the
 text.
 
---------------
-
-

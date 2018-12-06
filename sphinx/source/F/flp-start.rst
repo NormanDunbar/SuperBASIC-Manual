@@ -38,6 +38,3 @@ SMSQ and SMSQ/E.
 You may also need to alter the stepping rate with
 :ref:`flp-step`.
 
---------------
-
-

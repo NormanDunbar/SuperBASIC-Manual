@@ -54,6 +54,3 @@ default (ie. 2,0 in :ref:`mode` 8 and 0,0 in
 The command :ref:`at` is also affected by the current
 character spacing.
 
---------------
-
-

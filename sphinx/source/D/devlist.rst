@@ -30,6 +30,3 @@ using QRD (this will have no effect on
 :ref:`devlist`). Compare
 :ref:`dlist`.
 
---------------
-
-

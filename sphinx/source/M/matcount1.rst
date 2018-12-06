@@ -24,6 +24,3 @@ analogous to the == operator: "QDOS"=="Qdos" is true while "QDOS"="Qdos" is not.
 :ref:`matcount`,
 :ref:`matequ`.
 
---------------
-
-

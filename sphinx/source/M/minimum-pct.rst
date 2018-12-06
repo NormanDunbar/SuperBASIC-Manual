@@ -30,6 +30,3 @@ to pass an array as the parameter.
 and :ref:`min` are similar. Refer also to
 :ref:`maximum-pct`.
 
---------------
-
-

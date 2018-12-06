@@ -69,6 +69,3 @@ or::
 The name of a medium is set with :ref:`format`. You
 can read it with :ref:`dir` also.
 
---------------
-
-

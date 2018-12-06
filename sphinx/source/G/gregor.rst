@@ -77,6 +77,3 @@ it will not work correctly on Minerva, SMSQ/E and possibly other ROMs.
 
 :ref:`easter`, :ref:`day-dlr`
 
---------------
-
-

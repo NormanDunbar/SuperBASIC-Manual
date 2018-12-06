@@ -172,6 +172,3 @@ identifying a sub-directory is by examining its file type as returned by
 :ref:`ftyp` or
 :ref:`file-type` for example.
 
---------------
-
-

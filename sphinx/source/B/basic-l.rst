@@ -66,6 +66,3 @@ See also :ref:`basic-f` and
 The SuperBASIC variables appear in the QDOS/SMS Reference Manual
 (Section 18.3)
 
---------------
-
-

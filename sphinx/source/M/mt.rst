@@ -39,6 +39,3 @@ approximates EXP(1) for large values of n.
 :ref:`tnc`, :ref:`tee`,
 :ref:`rae`, :ref:`rafe`
 
---------------
-
-

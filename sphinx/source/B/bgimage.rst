@@ -45,6 +45,3 @@ non-standard QL resolutions and colour depths.
 :ref:`bgcolour-24` can be used to set a
 single colour wallpaper.
 
---------------
-
-

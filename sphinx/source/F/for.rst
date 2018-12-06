@@ -273,6 +273,3 @@ a program, they refer to the loop currently being executed.
 
 :ref:`repeat` ... :ref:`end--repeat` is the other loop type. See also :ref:`end--for`.
 
---------------
-
-

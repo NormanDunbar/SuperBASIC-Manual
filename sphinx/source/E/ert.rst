@@ -102,6 +102,3 @@ inside the function.
 :ref:`report` will report an error without stopping
 the program.
 
---------------
-
-

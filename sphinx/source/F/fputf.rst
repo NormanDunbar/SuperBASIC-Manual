@@ -16,6 +16,3 @@ internal format (six bytes) to #ch, default is #1.
 
 :ref:`fgetf`, :ref:`put`
 
---------------
-
-

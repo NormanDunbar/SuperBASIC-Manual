@@ -48,6 +48,3 @@ system fonts.
 :ref:`s-font` performs the same function as
 :ref:`char-use`.
 
---------------
-
-

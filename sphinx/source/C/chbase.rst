@@ -64,7 +64,3 @@ example is more or less just an example of the syntax of CHBASE...
 
 See also :ref:`chan-b-pct` and related functions.
 
---------------
-
-
-

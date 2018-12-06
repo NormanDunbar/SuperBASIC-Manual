@@ -22,6 +22,3 @@ code or the car registration code).
 code. :ref:`lang-use` allows you to set the
 language for the messages.
 
---------------
-
-

@@ -32,6 +32,3 @@ or::
 :ref:`report` invokes an error message and :ref:`when--error`
 allows error trapping. :ref:`erlin-pct` is exactly the same.
 
---------------
-
-

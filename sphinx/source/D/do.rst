@@ -68,6 +68,3 @@ Please refer to :ref:`merge`. SMS allows you to
 in the background and perform functions on supplied data using pipes or
 channels (see :ref:`ex`).
 
---------------
-
-

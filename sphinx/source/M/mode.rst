@@ -369,6 +369,3 @@ tell you the address of the start of the screen on which window #3 is
 situated. :ref:`disp-size` can be used to set
 the size of the displayed screen on extended resolutions.
 
---------------
-
-

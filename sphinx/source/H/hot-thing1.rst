@@ -17,6 +17,3 @@ This command is exactly the same as HOT\_WAKE.
 
 See :ref:`hot-wake`\ .
 
---------------
-
-

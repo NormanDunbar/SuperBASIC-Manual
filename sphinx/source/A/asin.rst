@@ -55,6 +55,3 @@ Please also see the Mathematics section of the Appendix.
 
 Compare :ref:`arsinh`.
 
---------------
-
-

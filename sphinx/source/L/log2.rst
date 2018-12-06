@@ -23,6 +23,3 @@ LOG2(INF)=2047 (ie. x=2\ :sup:`LOG2(x)`).
 :ref:`log10`, :ref:`ln`,
 :ref:`inf`.
 
---------------
-
-

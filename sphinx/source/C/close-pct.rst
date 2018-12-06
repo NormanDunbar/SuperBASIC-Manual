@@ -22,6 +22,3 @@ that you know the consequences of your actions!
 
 :ref:`channels`, :ref:`close`
 
---------------
-
-

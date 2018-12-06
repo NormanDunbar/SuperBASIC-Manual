@@ -20,6 +20,3 @@ See :ref:`search` and
 :ref:`search-mem` is a variant on this
 version.
 
---------------
-
-

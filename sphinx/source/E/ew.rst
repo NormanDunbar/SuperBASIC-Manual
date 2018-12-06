@@ -202,6 +202,3 @@ jobs under SMS. :ref:`mb` allowed you to start up a
 MultiBASIC on early versions of Minerva. Please also see the appendix on
 Multiple BASICs.
 
---------------
-
-

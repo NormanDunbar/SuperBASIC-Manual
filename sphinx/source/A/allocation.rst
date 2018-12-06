@@ -50,4 +50,3 @@ In the past, we have only had the variations offered by the OVER command, now we
 
 In addition to the ALPHA_BLEND command, A new trap #3 with D0=$62, d1=alpha weight 0-255, d3.w=timeout and a0=channel ID allows the alpha-blend value to be set from assembler and other languages.
 
-

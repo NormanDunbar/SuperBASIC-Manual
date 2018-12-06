@@ -37,6 +37,3 @@ value -7 will be returned.
 See :ref:`hot-off` and
 :ref:`hot-key`.
 
---------------
-
-

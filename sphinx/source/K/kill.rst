@@ -30,6 +30,3 @@ Be sure that no important data gets lost!
 :ref:`kjobs` works in the same way as
 :ref:`kill`.
 
---------------
-
-

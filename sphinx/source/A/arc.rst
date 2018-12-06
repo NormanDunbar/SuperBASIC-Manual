@@ -108,6 +108,3 @@ where the origin is the current position of the graphic cursor.
 :ref:`scale` sets the graphic origin and also the
 size of the window.
 
---------------
-
-

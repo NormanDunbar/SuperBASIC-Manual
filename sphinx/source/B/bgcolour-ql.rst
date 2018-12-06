@@ -37,6 +37,3 @@ on colours.
 :ref:`bgimage` may be used to set a screen image
 as the wallpaper.
 
---------------
-
-

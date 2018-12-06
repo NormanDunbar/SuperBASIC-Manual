@@ -24,6 +24,3 @@ channels where a history exists, otherwise an error will be reported.
 :ref:`his-use`,
 :ref:`his-size`
 
---------------
-
-

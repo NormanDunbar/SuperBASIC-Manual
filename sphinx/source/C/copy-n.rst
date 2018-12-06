@@ -37,6 +37,3 @@ or not), and the syntax is identical to :ref:`copy`,
 :ref:`copy-n` and
 :ref:`copy-o`.
 
---------------
-
-

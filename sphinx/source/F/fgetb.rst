@@ -26,6 +26,3 @@ channel (default #1) and returns its numeric value.
 The Toolkit II equivalent is :ref:`bget`. See also
 :ref:`fputb`!
 
---------------
-
-

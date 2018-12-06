@@ -34,6 +34,3 @@ MATPROD is not compatible with Turbo and Supercharge.
 rather than the elements' sum; so have a look at
 :ref:`matsum` which is also more useful.
 
---------------
-
-

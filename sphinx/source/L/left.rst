@@ -30,6 +30,3 @@ column zero.
 :ref:`input` and :ref:`cursor`
 also affect the text cursor.
 
---------------
-
-

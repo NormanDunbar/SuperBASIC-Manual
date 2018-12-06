@@ -43,6 +43,3 @@ the listing::
 :ref:`fwrite-dlr`, :ref:`copy`,
 :ref:`get-byte-dlr`
 
---------------
-
-

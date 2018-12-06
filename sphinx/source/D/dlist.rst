@@ -48,6 +48,3 @@ PROGD$ and DESTD$ functions.
 :ref:`devlist` and
 :ref:`dev-list`.
 
---------------
-
-

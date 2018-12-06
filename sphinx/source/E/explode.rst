@@ -16,6 +16,3 @@ This command produces the sound of an explosion, very nice.
 :ref:`snd-ext`, :ref:`bell`,
 :ref:`shoot`.
 
---------------
-
-

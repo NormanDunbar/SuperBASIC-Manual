@@ -68,6 +68,3 @@ code.
 
 Please also refer to :ref:`compiled`.
 
---------------
-
-

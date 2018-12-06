@@ -23,6 +23,3 @@ same as :ref:`ew`. See also
 :ref:`exec`, :ref:`ex`,
 :ref:`ttex`, :ref:`ttex-w` and :ref:`et`.
 
---------------
-
-

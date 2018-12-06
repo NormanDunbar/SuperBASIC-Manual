@@ -32,6 +32,3 @@ full screen editor accordingly::
 :ref:`new-name` Also see
 :ref:`flis`.
 
---------------
-
-

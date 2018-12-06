@@ -40,6 +40,3 @@ header. :ref:`headr` is very similar to
 :ref:`gethead`. See also
 :ref:`hget` and :ref:`hput`.
 
---------------
-
-

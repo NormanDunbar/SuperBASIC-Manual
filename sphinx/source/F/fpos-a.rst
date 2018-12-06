@@ -11,6 +11,3 @@ FPOS\_A
 
 This is the same as :ref:`file-ptra`.
 
---------------
-
-

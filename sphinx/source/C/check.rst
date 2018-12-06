@@ -20,7 +20,3 @@ If name is a currently loaded  machine code procedure or function, then the vari
     1020   RETurn CHECK('WTV')
     2030 END DEFine
 
-
--------
-
-

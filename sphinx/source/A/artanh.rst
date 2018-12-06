@@ -21,6 +21,3 @@ ARTANH(x) could be replaced by: LN((1+x) / (1-x)) / 2
 See :ref:`atan`, :ref:`arcoth`,
 and :ref:`arsinh`.
 
---------------
-
-

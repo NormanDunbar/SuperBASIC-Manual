@@ -67,6 +67,3 @@ been used. :ref:`pend` or
 :ref:`io-pend-pct` are much better for use on
 pipes. See also :ref:`eofw`.
 
---------------
-
-

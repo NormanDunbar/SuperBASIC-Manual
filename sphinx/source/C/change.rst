@@ -52,6 +52,3 @@ drives), the error -20 (read only) will be reported.
 :ref:`flp-use` and
 :ref:`ram-use` work similarly.
 
---------------
-
-

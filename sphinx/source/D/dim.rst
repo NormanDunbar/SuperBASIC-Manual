@@ -615,6 +615,3 @@ of an array. Please see the Appendix on Compatability concerning String
 Lengths. :ref:`len` allows you to find the length of a
 string.
 
---------------
-
-

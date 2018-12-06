@@ -24,6 +24,3 @@ type dependent information contained in the file header.
 :ref:`file-dat` is very similar to
 :ref:`fdat`. See also :ref:`ftyp`.
 
---------------
-
-

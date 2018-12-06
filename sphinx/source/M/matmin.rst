@@ -26,6 +26,3 @@ A string array makes MATMIN hang the system.
 to :ref:`minimum` and
 :ref:`minimum-pct` which are even quicker.
 
---------------
-
-

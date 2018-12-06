@@ -49,6 +49,3 @@ If the second syntax does not work, update your Toolkit.
 :ref:`headr` and :ref:`heads`
 allow you to directly access a file header.
 
---------------
-
-

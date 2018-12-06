@@ -37,6 +37,3 @@ CAPS...
 
 :ref:`nocaps` is self-explanatory.
 
---------------
-
-

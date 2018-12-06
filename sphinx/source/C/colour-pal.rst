@@ -81,6 +81,3 @@ desktop colour of the main screen.
 DISP\_COLOUR can be used to switch
 between Extended Colour Drivers and the Standard Colour Drivers.
 
---------------
-
-

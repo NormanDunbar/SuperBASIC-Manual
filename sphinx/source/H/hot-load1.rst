@@ -23,6 +23,3 @@ command string.
 
 See :ref:`hot-load`.
 
---------------
-
-

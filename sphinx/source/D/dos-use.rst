@@ -31,8 +31,3 @@ The DOS device is restored to DOS.
 
 The DOS device is restored to DOS.
 
-
---------------
-
-
-

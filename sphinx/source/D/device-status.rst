@@ -67,6 +67,3 @@ medium error code (-16).
 
 See :ref:`device-space` for an example.
 
---------------
-
-

@@ -81,6 +81,3 @@ window.
 
 See also :ref:`clip-dlr`.
 
---------------
-
-

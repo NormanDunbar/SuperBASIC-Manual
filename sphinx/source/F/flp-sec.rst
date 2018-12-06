@@ -58,6 +58,3 @@ secure.
 FLP\_SEC has no effect - the security level is fixed at 2, the most
 secure.
 
---------------
-
-

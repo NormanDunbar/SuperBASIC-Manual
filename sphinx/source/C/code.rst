@@ -47,6 +47,3 @@ Try replacing lines 110 to 150 with: 110 AT 0,0: PRINT CODE(INKEY$(-1))
 Please refer to the Characters section of the Appendix for a full list
 of the characters and their internal codes.
 
---------------
-
-

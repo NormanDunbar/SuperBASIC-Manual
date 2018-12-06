@@ -9,8 +9,5 @@ CURSOR\_OFF
 | Location |  Turbo Toolkit                                                    |
 +----------+-------------------------------------------------------------------+
 
-This command is exactly the same as CURDIS.
-
---------------
-
+This command is exactly the same as :ref:`curdis`.
 

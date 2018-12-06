@@ -21,6 +21,3 @@ See :ref:`nor-msg` and
 :ref:`ger-tra`. Also see
 :ref:`tra`.
 
---------------
-
-

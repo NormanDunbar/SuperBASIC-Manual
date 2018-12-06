@@ -104,6 +104,3 @@ and return a certain piece of information from it. Use the
 :ref:`cvs-dlr` functions to convert the internal
 representations to actual values.
 
---------------
-
-

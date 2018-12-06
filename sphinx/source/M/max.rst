@@ -26,6 +26,3 @@ will print 5.
 :ref:`maximum` and
 :ref:`matmax`.
 
---------------
-
-

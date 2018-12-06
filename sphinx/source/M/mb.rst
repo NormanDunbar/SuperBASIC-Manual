@@ -28,6 +28,3 @@ See :ref:`sbasic` and :ref:`ew`.
 Also see :ref:`quit`. Check out the appendix on
 Multiple BASICs.
 
---------------
-
-

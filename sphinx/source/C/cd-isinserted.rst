@@ -16,6 +16,3 @@ and the drawer is closed, otherwise it will return 0.
 
 See :ref:`cd-isclosed`.
 
---------------
-
-

@@ -96,6 +96,3 @@ pointer to the given variable. :ref:`eof` will return
 the value one if there are no more :ref:`data`
 statements in the current program.
 
---------------
-
-

@@ -58,6 +58,3 @@ to OPEN\_DIR and FOP\_DIR for a cleaner method.
 :ref:`ftyp`, :ref:`fupdt` and
 :ref:`fxtra` hold other information on a file.
 
---------------
-
-

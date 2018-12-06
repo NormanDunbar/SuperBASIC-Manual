@@ -71,6 +71,3 @@ Compare :ref:`cosh`.
 
 Please also see the Mathematics section of the Appendix.
 
---------------
-
-

@@ -40,6 +40,3 @@ HOT\_PICK up to v1.22 gave problems on the ST Emulators.
 Name of a program as it is loaded. Compare
 :ref:`hot-wake`.
 
---------------
-
-

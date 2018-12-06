@@ -24,6 +24,3 @@ If the name is not recognised the error 'Not Found' is reported.
 :ref:`new-name` Also see
 :ref:`find`.
 
---------------
-
-

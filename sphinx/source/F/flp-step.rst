@@ -56,6 +56,3 @@ for reading and writing to a disk.
 :ref:`flp-start` may also be needed on older
 drives.
 
---------------
-
-

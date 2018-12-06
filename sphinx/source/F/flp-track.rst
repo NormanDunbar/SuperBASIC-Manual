@@ -34,6 +34,3 @@ readable on a 40 track drive.
 :ref:`flp-density` also affects how a disk is
 :ref:`format`\ ted.
 
---------------
-
-

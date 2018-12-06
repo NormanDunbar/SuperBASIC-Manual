@@ -28,8 +28,3 @@ This function  returns the date that the appropriate  file was last updated, eit
 
 :ref:`file-dataspace`, :ref:`file-length`, :ref:`file-type`, :ref:`file-type`.
 
-
--------
-
-
-

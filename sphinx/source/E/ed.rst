@@ -219,6 +219,3 @@ be useful when testing a section of the program.
 Please also refer to :ref:`auto` and
 :ref:`edit` which are replaced by this command.
 
---------------
-
-

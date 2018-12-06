@@ -11,6 +11,3 @@ HOT\_STOP
 
 See :ref:`hot-go`\ !
 
---------------
-
-

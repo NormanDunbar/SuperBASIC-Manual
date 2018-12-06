@@ -9,5 +9,5 @@ KJOBS
 | Location |  TinyToolkit, BTool                                               |
 +----------+-------------------------------------------------------------------+
 
-This is the same as KILL
+This is the same as :ref:`kill`\ .
 

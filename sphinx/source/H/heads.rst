@@ -18,6 +18,3 @@ See :ref:`headr` and
 :ref:`sethead` (and
 :ref:`fgeth-dlr`)!
 
---------------
-
-

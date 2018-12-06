@@ -21,6 +21,3 @@ signifies unacceptable strings.
 :ref:`check-pct` and :ref:`ttefp`
 are worth a look.
 
---------------
-
-

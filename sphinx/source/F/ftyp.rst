@@ -51,6 +51,3 @@ and :ref:`ex` for executing jobs.
 :ref:`file-type` does the same as
 :ref:`ftyp` but has a slightly different syntax.
 
---------------
-
-

@@ -39,6 +39,3 @@ Remember to remove this.
 
 See :ref:`make-dir`.
 
---------------
-
-

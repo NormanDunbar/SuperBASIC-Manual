@@ -91,6 +91,3 @@ Please refer to :ref:`print`,
 :ref:`cursen` is a more compatible means of
 enabling a cursor.
 
---------------
-
-

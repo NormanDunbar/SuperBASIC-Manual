@@ -25,6 +25,3 @@ See :ref:`hot` on how to define a hotkey.
 Use :ref:`free`,
 :ref:`free-mem` to check the actual available memory.
 
---------------
-
-

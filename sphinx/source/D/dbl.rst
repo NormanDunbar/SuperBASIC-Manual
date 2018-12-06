@@ -23,6 +23,3 @@ This function returns the control codes needed to switch on emphasised mode on a
 :ref:`rmar`, :ref:`pagdis`,
 :ref:`paglen`.
 
---------------
-
-

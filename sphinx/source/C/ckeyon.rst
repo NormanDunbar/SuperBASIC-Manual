@@ -15,6 +15,3 @@ See :ref:`ckeyoff`.
 
 There were problems with this command prior to v1.56.
 
---------------
-
-

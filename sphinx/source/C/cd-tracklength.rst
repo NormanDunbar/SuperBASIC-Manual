@@ -19,6 +19,3 @@ the elapsed time on a track being played.
 :ref:`cd-hsg2red` converts the HSG format to
 REDBOOK format.
 
---------------
-
-

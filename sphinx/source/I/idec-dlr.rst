@@ -16,6 +16,3 @@ place commas between the characters to the left of the decimal point.
 
 See :ref:`cdec-dlr`.
 
---------------
-
-

@@ -27,6 +27,3 @@ QL disk.
 See :ref:`aformat` and
 :ref:`qaconvert`.
 
---------------
-
-

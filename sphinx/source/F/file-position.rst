@@ -44,7 +44,3 @@ This function will tell you exactly where you are in the file that has been open
 
 :ref:`abs-position`, :ref:`move-position`.
 
-
--------
-
-

@@ -36,7 +36,3 @@ From version 1.14 of DJToolkit onwards, there is a function that counts the numb
 
 :ref:`max-devs`.
 
-
--------
-
-

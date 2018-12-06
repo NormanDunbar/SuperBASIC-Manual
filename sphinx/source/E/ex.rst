@@ -12,9 +12,11 @@ EX
 This command forces the given file (which must be an executable program) to be
 executed and control is then generally returned to the calling program to enable
 the new job to multitask alongside the calling program. Similar parameters as
-for EW can be passed to the job.
+for :ref:`ew` can be passed to the job.
 
-Use EW if the program cannot multitask for some reason or if you do not want it to.
+Use :ref:`ew` if the program cannot multitask for some reason or if you do not want it to, for example,
+because you want to see any error messages returned by the executable task. EX doesn't report them,
+it cannot as the executable task may still be running when EX returns to the command prompt.
 
 **Example 1**
 
@@ -32,7 +34,7 @@ load the file readme\_txt from the editor's default device.
     EX UC_obj,ram1_hope_lis,par
 
 A program called UC\_obj (a program which converts text to all upper
-case) will be started up to run alongside all other programs. Two new
+case) will be started up to run alongside all other programs. Two n:ref:`ew`
 channels ('ram1\_hope\_lis' and 'par') are opened for the task to use
 for its input and output channels respectively - the task must not open
 its own channels but will rely upon the user supplying them as
@@ -54,7 +56,7 @@ The BASIC version of such a program is::
 
 Turbo users will need to alter #0 and #1 to #15 and #14 respectively.
 
-Minerva and SMS users can use this program without compiling it (see EW
+Minerva and SMS users can use this program without compiling it (see :ref:`ew`
 above).
 
 **Using EX to set up filters**
@@ -139,12 +141,12 @@ on start-up rather than returning to the calling Job.
 
 **MINERVA NOTE**
 
-Please refer to notes about EW which explain how to use this command to
+Please refer to notes about :ref:`ew` which explain how to use this command to
 control MultiBASICs.
 
 **SMS NOTE**
 
-Please refer to notes about EW and use this command to control multiple
+Please refer to notes about :ref:`ew` and use this command to control multiple
 SBASICs.
 
 **CROSS-REFERENCE**
@@ -155,7 +157,4 @@ executable. :ref:`fdat` returns the dataspace of an
 executable file, :ref:`fxtra` provides other
 information. :ref:`et` is very similar to
 :ref:`ex`.
-
---------------
-
 

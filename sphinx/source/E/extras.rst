@@ -61,6 +61,3 @@ in memory and you are looking for a specific one. See also
 :ref:`txtras`, :ref:`vocab` and
 :ref:`new-name`.
 
---------------
-
-

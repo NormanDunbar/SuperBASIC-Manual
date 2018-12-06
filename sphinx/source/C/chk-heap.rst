@@ -12,6 +12,3 @@ CHK\_HEAP
 This command is used to check whether the heap has become corrupted - we
 have no real details over its working as it is undocumented.
 
---------------
-
-

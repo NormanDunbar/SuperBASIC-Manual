@@ -42,6 +42,3 @@ data registers.
 See :ref:`mtrap`, :ref:`qtrap`
 and :ref:`btrap`.
 
---------------
-
-

@@ -47,6 +47,3 @@ that is at a complete stop.
 
 :ref:`cd-close` closes the drive drawer.
 
---------------
-
-

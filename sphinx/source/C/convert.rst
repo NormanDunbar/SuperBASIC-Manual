@@ -53,6 +53,3 @@ The character CHR$(0) cannot be replaced.
 :ref:`exchg` is similar to
 :ref:`convert`.
 
---------------
-
-

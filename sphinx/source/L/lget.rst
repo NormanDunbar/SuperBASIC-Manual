@@ -25,6 +25,3 @@ See :ref:`bget`. :ref:`lput` is
 complementary function. :ref:`wget` allows you to
 fetch word values.
 
---------------
-
-

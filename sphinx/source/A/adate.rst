@@ -70,6 +70,3 @@ time.
 Battery backed clocks generally have their own methods of altering their
 date and time.
 
---------------
-
-

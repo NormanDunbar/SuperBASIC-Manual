@@ -35,6 +35,3 @@ the string followed by the characters of the string itself.
 a string in internal format. :ref:`cvs-dlr` converts a
 string into its internal format.
 
---------------
-
-

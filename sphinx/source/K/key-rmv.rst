@@ -9,8 +9,5 @@ KEY\_RMV
 | Location |  Beuletools                                                       |
 +----------+-------------------------------------------------------------------+
 
-This is the same as ZAP !
-
---------------
-
+This is the same as :ref:`zap`\ !
 

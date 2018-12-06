@@ -88,6 +88,3 @@ keyword is not found, rather than an error message. See also
 :ref:`find` and :ref:`flis` are
 also useful.
 
---------------
-
-

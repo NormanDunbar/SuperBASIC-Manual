@@ -21,6 +21,3 @@ name.
 See :ref:`fopen` and
 :ref:`open-over`.
 
---------------
-
-

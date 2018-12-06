@@ -33,6 +33,3 @@ operating system documentation.
 
 :ref:`lpoll`, :ref:`lint2`.
 
---------------
-
-

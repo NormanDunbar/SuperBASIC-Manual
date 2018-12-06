@@ -120,6 +120,3 @@ commands, :ref:`dotlin` and
 (:ref:`dotlin`) or work in
 :ref:`xor` mode (:ref:`xdraw`).
 
---------------
-
-

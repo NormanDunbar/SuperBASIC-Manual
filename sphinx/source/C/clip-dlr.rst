@@ -20,6 +20,3 @@ The same notes apply to this function as to CLIP%.
 
 See :ref:`clip-pct`.
 
---------------
-
-

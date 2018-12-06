@@ -61,6 +61,3 @@ to set up hotkeys to WAKE a program.
 :ref:`hot-thing` allows you to call an
 Executable Thing.
 
---------------
-
-

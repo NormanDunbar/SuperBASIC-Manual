@@ -22,8 +22,3 @@ The next two bytes are read from the appropriate file and returned as an integer
 
 :ref:`get-byte`, :ref:`get-float`, :ref:`get-long`, :ref:`get-string`.
 
-
--------
-
-
-

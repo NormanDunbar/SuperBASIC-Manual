@@ -23,6 +23,3 @@ tracks
 :ref:`cd-red2hsg` converts the REDBOOK format
 to HSG format.
 
---------------
-
-

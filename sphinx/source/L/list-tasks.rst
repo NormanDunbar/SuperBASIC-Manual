@@ -18,6 +18,3 @@ appended to the priority indicates that the job is currently suspended.
 
 :ref:`jobs` is similar.
 
---------------
-
-

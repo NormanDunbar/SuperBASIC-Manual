@@ -35,6 +35,3 @@ See :ref:`sdate`.
 :ref:`a-rdate` will set the internal clock to the
 same date and time as the battery backed clock.
 
---------------
-
-

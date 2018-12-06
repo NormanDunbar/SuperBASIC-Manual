@@ -37,6 +37,3 @@ As with other Hotkey System II definitions, you will need to use
 :ref:`hot-go` before you can access this hotkey.
 See :ref:`altkey` for more information.
 
---------------
-
-

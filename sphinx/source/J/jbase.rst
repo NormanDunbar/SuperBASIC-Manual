@@ -124,6 +124,3 @@ this converts the variable into an expression.
 associated with :ref:`jbase`. Details of Job Headers
 can be found in the QDOS/SMS Reference Manual Section 18 p8.
 
---------------
-
-

@@ -68,6 +68,3 @@ default to zero if omitted.
 :ref:`t-start` can be used for accurate
 stop-watches for timing programs.
 
---------------
-
-

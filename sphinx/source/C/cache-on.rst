@@ -40,6 +40,3 @@ a chunk of instructions is self-defeating.
 :ref:`cache-off` allows you to disable the
 caches.
 
---------------
-
-

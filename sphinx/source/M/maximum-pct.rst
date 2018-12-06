@@ -51,6 +51,3 @@ to pass an array as the parameter.
 and :ref:`max` are similar. Refer also to
 :ref:`minimum-pct`.
 
---------------
-
-

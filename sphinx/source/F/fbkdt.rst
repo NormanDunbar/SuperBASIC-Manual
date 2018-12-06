@@ -134,6 +134,3 @@ re-write to be in a form which could be safely compiled.
 :ref:`fvers` and :ref:`fname-dlr`
 return other information about a file.
 
---------------
-
-

@@ -12,7 +12,7 @@ DISP\_INVERSE
 The Atari range of computers support a high resolution (640x400)
 monochrome display mode which can be supported under SMSQ/E and SMS2. If
 SMSQ/E or SMS2 is running on an Atari ST connected to a monochrome
-monitor (or running on an Atari TT conected to such a monitor, without
+monitor (or running on an Atari TT connected to such a monitor, without
 QVME), then it will automatically start up by loading the monochrome
 display driver (if available) and set the QL into the monochrome 640x400
 display mode. The QL screen can then appear either as white ink on a
@@ -33,7 +33,4 @@ This command is not available on SMS2.
 monochrome display driver is running.
 :ref:`inverse` allows you to print in inverse
 colours.
-
---------------
-
 

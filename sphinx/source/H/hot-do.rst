@@ -38,6 +38,3 @@ The following would all have the same effect:
 See the other :ref:`hot`... commands about setting
 up hotkeys.
 
---------------
-
-

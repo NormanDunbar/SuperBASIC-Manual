@@ -11,6 +11,3 @@ ACCEL\_OFF
 
 See ACCEL\_ON below!
 
---------------
-
-

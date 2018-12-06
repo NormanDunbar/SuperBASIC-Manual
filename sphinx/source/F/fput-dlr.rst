@@ -26,6 +26,3 @@ will produce the equivalent of PRINT CHR$(0)&CHR$(5)&'Hello'.
 
 :ref:`fget-dlr`, :ref:`put`.
 
---------------
-
-

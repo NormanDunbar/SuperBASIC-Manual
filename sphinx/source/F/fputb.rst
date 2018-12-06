@@ -40,6 +40,3 @@ will enable near letter quality (NLQ) on an EPSON compatible printer.
 :ref:`code`. :ref:`fgetb` is a
 complementary function.
 
---------------
-
-

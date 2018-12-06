@@ -16,6 +16,3 @@ use the MIDI ports independently.
 
 See :ref:`mnet-on`.
 
---------------
-
-

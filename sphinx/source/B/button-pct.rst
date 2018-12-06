@@ -52,6 +52,3 @@ at the same time:
 and :ref:`ptr-fn-pct` can also be used to
 interrogate the mouse.
 
---------------
-
-

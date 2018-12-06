@@ -31,14 +31,11 @@ where it always returns 255.
 
 **CROSS-REFERENCE**
 
-:ref:`dir` will provide this imformation also on
+:ref:`dir` will provide this information also on
 Level-3 device drivers.
 :ref:`dmedium-density` allows you to
 check the medium's density. There is currently no way to format a disk
 in a format other than QDOS or SMSQ/E without the ATARI\_rext commands
 which were available with the ST/QL emulators from Jochen Merz, or
 without specialist software (some of which is public domain).
-
---------------
-
 

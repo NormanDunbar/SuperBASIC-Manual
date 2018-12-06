@@ -10,13 +10,10 @@ ELLIPSE\_R
 +----------+------------------------------------------------------------------------------------------------------------------------------------------------+
 
 This command draws an ellipse relative to the current graphics cursor.
-See ELLIPSE above!
+See :ref:`ellipse` above!
 
 **CROSS-REFERENCE**
 
 Please refer to :ref:`arc-r` and
 :ref:`circle-r`.
-
---------------
-
 

@@ -18,6 +18,3 @@ number of seconds (0..59) contained in that address.
 :ref:`cd-minute` allow you to find the number
 of hours and minutes in a REDBOOK address respectively.
 
---------------
-
-

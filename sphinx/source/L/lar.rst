@@ -21,6 +21,3 @@ See :ref:`datad-dlr` about the default data device.
 :ref:`sar` and :ref:`saro` are
 complementary commands.
 
---------------
-
-

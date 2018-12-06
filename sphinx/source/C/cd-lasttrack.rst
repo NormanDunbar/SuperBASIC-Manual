@@ -20,6 +20,3 @@ the first track number.
 :ref:`cd-track` tells you the track number
 currently playing.
 
---------------
-
-

@@ -72,6 +72,3 @@ instead.
 See :ref:`exec` and
 :ref:`exec-w`.
 
---------------
-
-

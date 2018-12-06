@@ -118,6 +118,3 @@ about handling the system clock and
 :ref:`set-fupdt` on setting the time stamp of a
 file.
 
---------------
-
-

@@ -17,6 +17,3 @@ GER\_TRA\_rext.
 
 See :ref:`ger-msg`.
 
---------------
-
-

@@ -32,6 +32,3 @@ GLOBAL,
 EXTERNAL and
 LINK_LOAD_A.
 
---------------
-
-

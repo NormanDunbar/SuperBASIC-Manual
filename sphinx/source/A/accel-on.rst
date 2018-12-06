@@ -28,6 +28,3 @@ possible) and also tells the accelerator board that it should no longer
 use its memory cache. Also see
 :ref:`accel-set`.
 
---------------
-
-

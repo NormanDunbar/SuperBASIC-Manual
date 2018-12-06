@@ -25,6 +25,3 @@ Other commands added are :ref:`astat`,
 :ref:`adelete`, :ref:`adir` and
 :ref:`acopy`.
 
---------------
-
-

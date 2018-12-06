@@ -45,6 +45,3 @@ See also :ref:`accel-on`,
 :ref:`accel-off` and
 :ref:`accel-state`.
 
---------------
-
-

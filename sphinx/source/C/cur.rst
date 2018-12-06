@@ -62,6 +62,3 @@ for general information.
 :ref:`cur` command.
 :ref:`cursor-pct`.
 
---------------
-
-

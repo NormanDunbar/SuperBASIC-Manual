@@ -47,6 +47,3 @@ Please see :ref:`if`. Other SuperBASIC structures are:
 :ref:`select--on`, :ref:`repeat`,
 :ref:`for`, and WHEN XXX.
 
---------------
-
-

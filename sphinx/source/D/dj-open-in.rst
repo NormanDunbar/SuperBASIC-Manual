@@ -15,8 +15,3 @@ Open an existing file for shared use. The same file can be opened by other appli
 
 :ref:`dj-open`, :ref:`dj-open-new`, :ref:`dj-open-over`, and :ref:`dj-open-dir`.
 
-
--------
-
-
-

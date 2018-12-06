@@ -20,7 +20,7 @@ This command is similar to COLOUR\_PAL, but selects an 8 colour mode,
 with colours from 0...7 as per the original QL MODE 8 (although all 8
 colours remain available for programs which presume MODE 4).
 
-This can cause some slight incompatability problems, due to programs
+This can cause some slight incompatibility problems, due to programs
 which presume that under MODE 4, INK 3 would produce Red (for example) -
 under COLOUR\_QL it will now produce Magenta.
 
@@ -38,8 +38,5 @@ MODE commands have no effect under the Extended Colour Drivers.
 Refer to :ref:`colour-pal` for more details.
 
 :ref:`palette-ql` includes a way of overcoming
-the incompatability problems with old :ref:`mode`\ .. 4  programs.
-
---------------
-
+the incompatibility problems with old :ref:`mode`\ .. 4  programs.
 

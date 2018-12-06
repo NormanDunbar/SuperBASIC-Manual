@@ -28,6 +28,3 @@ daughter job).
 
 See :ref:`job-name` for an example.
 
---------------
-
-

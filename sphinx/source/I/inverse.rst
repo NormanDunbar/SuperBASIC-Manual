@@ -30,6 +30,3 @@ printed in red INK on a white STRIP.
 See also :ref:`ink` and
 :ref:`strip`.
 
---------------
-
-

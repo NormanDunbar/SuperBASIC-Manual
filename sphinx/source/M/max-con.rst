@@ -44,8 +44,3 @@ For the technically minded reader, this function uses the IOP\_FLIM routine in t
     7290   PRINT'#2 : ';w%;',';h%;',';x%;',';y%
     7300 END DEFine SCREEN_SIZES
 
-
--------
-
-
-

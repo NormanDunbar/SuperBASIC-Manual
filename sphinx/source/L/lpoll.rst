@@ -31,6 +31,3 @@ list. For further information, refer to system documentation.
 list other internal routines which are running in the interrupts.
 :ref:`jobs` lists all jobs.
 
---------------
-
-

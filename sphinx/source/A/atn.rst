@@ -20,6 +20,3 @@ dialects easier.
 
 See :ref:`atan`.
 
---------------
-
-

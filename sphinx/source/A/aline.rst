@@ -81,6 +81,3 @@ screens stored in memory.
 :ref:`line` and :ref:`line-r`
 are much more flexible.
 
---------------
-
-

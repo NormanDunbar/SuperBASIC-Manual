@@ -26,6 +26,3 @@ etc. are valid.
 
 :ref:`matadd`!
 
---------------
-
-

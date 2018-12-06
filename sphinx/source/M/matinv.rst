@@ -94,6 +94,3 @@ have found a result which does not exist::
 This works because :ref:`matinv` calls :ref:`det`
 internally.
 
---------------
-
-

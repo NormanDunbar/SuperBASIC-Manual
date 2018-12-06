@@ -19,6 +19,3 @@ specified channel (default #3).
 See :ref:`heads` and
 :ref:`sethead`!
 
---------------
-
-

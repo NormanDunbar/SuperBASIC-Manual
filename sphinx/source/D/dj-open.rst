@@ -15,8 +15,3 @@ Open an existing file for exclusive use. See :ref:`dj-open-dir` below for detail
 
 :ref:`dj-open-in`, :ref:`dj-open-new`, :ref:`dj-open-over`, and :ref:`dj-open-dir`.
 
-
--------
-
-
-

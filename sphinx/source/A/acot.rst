@@ -35,6 +35,3 @@ Please see the Mathematics section in the Appendix.
 
 See also :ref:`arcoth`.
 
---------------
-
-

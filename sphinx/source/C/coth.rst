@@ -19,6 +19,3 @@ This is defined as one divided by the hyperbolic tangent, so COTH(x) =
 :ref:`arcoth` is the inverse function of
 :ref:`coth`.
 
---------------
-
-

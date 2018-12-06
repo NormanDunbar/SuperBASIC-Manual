@@ -139,6 +139,3 @@ currently being emitted.
 during which the computer will wait (allowing you to play much longer
 notes).
 
---------------
-
-

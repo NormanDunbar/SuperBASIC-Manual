@@ -135,6 +135,3 @@ can be used to set aside areas of memory for user routines.
 :ref:`bmove` and similar commands allow you to move
 areas of memory on other ROM implementations.
 
---------------
-
-

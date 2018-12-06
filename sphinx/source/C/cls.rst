@@ -78,6 +78,3 @@ A much safer way to access system utilities is to use
 For details of the various TRAP #3 system utilities refer to the
 QDOS/SMS Reference Manual (Section 15) or similar.
 
---------------
-
-

@@ -22,6 +22,3 @@ problem as FOPEN.
 See :ref:`fopen` and
 :ref:`open-in`.
 
---------------
-
-

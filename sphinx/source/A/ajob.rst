@@ -35,6 +35,3 @@ syntax works.
 :ref:`spjob` sets the priority of a job without
 restarting it.
 
---------------
-
-

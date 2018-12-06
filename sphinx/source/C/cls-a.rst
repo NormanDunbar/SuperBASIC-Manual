@@ -18,6 +18,3 @@ colour 255). This works on channels opened on Minerva's dual screens.
 :ref:`cls` clears a single window without changing
 window attributes, the border in this case.
 
---------------
-
-

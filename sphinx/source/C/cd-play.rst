@@ -78,6 +78,3 @@ you to insert a new CD.
 :ref:`cd-isinserted` allows you to check if
 a CD is in the drive.
 
---------------
-
-

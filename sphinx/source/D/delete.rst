@@ -51,6 +51,3 @@ parameter) is reported.
 :ref:`wdel-f`, :ref:`wdir` and
 :ref:`ttedelete` are also worth a look.
 
---------------
-
-

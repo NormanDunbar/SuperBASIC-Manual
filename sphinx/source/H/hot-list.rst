@@ -27,6 +27,3 @@ key will be pre-fixed with 's'.
 name for the hotkey. :ref:`hot-type` returns the
 type of hotkey operation.
 
---------------
-
-

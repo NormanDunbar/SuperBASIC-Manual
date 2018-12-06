@@ -30,6 +30,3 @@ CHR$(0) cannot be replaced!
 
 See also :ref:`convert`.
 
---------------
-
-

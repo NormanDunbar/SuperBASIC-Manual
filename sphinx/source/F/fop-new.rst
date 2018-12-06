@@ -25,6 +25,3 @@ only.
 See :ref:`fopen` and
 :ref:`open-new`.
 
---------------
-
-

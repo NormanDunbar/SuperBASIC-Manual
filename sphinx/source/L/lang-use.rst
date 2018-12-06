@@ -32,6 +32,3 @@ set the various message tables also. See
 :ref:`kbd-table` and
 :ref:`set-language`.
 
---------------
-
-

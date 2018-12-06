@@ -27,6 +27,3 @@ DROUND rounds the last digit up or down depending on the next digit
 
 :ref:`pround` rounds to a given precision.
 
---------------
-
-

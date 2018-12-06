@@ -39,6 +39,3 @@ end of the file.
 :ref:`open-new` and
 :ref:`open-over` allow you to open channels.
 
---------------
-
-

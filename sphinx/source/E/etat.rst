@@ -46,6 +46,3 @@ without the need for error trapping. :ref:`open`,
 error occurs. To avoid this, error trapping facilities, such as
 :ref:`when--error` have to be used.
 
---------------
-
-

@@ -27,6 +27,3 @@ See :ref:`ojob`, :ref:`pjob`,
 Compilers normally include their own commands to set the correct job
 name.
 
---------------
-
-

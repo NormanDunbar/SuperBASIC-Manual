@@ -37,6 +37,3 @@ elegant because they skip the need to access the file header.
 :ref:`file-type` return other information about a
 file.
 
---------------
-
-

@@ -39,6 +39,3 @@ Please see :ref:`load` and
 :ref:`merge` about loading a SuperBASIC program in
 general.
 
---------------
-
-

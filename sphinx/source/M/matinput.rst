@@ -27,6 +27,3 @@ the '\\' can be omitted.
 :ref:`matread`,
 :ref:`matrnd`, :ref:`for`
 
---------------
-
-

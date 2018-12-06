@@ -9,9 +9,6 @@ FILE\_POS
 | Location |  TinyToolkit                                                      |
 +----------+-------------------------------------------------------------------+
 
-This performs the same function as FPOS, although with slightly less
+This performs the same function as :ref:`fpos`, although with slightly less
 flexible parameters.
-
---------------
-
 

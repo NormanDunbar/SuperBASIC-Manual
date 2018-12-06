@@ -43,6 +43,3 @@ NEW, LOAD, MERGE, LRUN, RUN, MRUN.
 
 See :ref:`instr`.
 
---------------
-
-

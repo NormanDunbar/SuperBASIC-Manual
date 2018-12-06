@@ -20,6 +20,3 @@ do not support this.
 
 See :ref:`debug-level`.
 
---------------
-
-

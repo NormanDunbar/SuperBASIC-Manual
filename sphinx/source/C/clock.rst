@@ -84,6 +84,3 @@ return the current time.
 :ref:`no-clock` removes the
 :ref:`clock` on the THOR.
 
---------------
-
-

@@ -24,6 +24,3 @@ letters, namely umlauts and accents.
 :ref:`bit-pct`, :ref:`chr-dlr`,
 :ref:`upc-dlr`, :ref:`lwc-dlr`
 
---------------
-
-

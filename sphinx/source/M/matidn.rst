@@ -35,6 +35,3 @@ matrix1 \* matrix = matrix1.
 
 :ref:`matmult` multiplies matrices.
 
---------------
-
-

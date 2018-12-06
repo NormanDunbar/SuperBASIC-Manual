@@ -27,6 +27,3 @@ FREEZE OFF disables <CTRL><F5>, FREEZE ON re-activates it.
     EXTRAS
     FREEZE ON
 
---------------
-
-

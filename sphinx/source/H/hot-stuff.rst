@@ -72,6 +72,3 @@ will allow you to see the contents of the Stuffer Buffer.
 :ref:`hot-go` is required before <ALT><SPACE> or
 <ALT><SHIFT> <SPACE> will work!
 
---------------
-
-

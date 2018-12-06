@@ -9,8 +9,7 @@ DEFAULT$
 | Location |  BTool                                                            |
 +----------+-------------------------------------------------------------------+
 
- See :ref:`default` !
+**CROSS-REFERENCE**
 
---------------
-
+See :ref:`default`!
 

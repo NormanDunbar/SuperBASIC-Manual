@@ -48,5 +48,3 @@ SuperBASIC.
 :ref:`hot` and (hopefully!) returns the occupied
 memory to QDOS. Use the Hotkey System if you have this available!!
 
---------------
-

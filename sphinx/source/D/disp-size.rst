@@ -78,6 +78,3 @@ available immediately on start-up. See
 :ref:`disp-rate` and
 :ref:`disp-blank`.
 
---------------
-
-

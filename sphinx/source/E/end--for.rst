@@ -60,6 +60,3 @@ Please see :ref:`for`. Compare
 SuperBASIC structures are: :ref:`define--procedure`, :ref:`define--function`,
 :ref:`select--on`, :ref:`if`, :ref:`repeat`, and WHEN XXX.
 
---------------
-
-

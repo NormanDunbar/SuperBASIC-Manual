@@ -27,6 +27,3 @@ the current state. Compare :ref:`freeze` and
 :ref:`freeze-pct` to :ref:`break`
 and :ref:`break-pct`.
 
---------------
-
-

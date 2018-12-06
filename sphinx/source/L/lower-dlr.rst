@@ -19,6 +19,3 @@ sets.
 
 Compare :ref:`upper-dlr`. See also :ref:`convcase-dlr`.
 
---------------
-
-

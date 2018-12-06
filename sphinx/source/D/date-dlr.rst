@@ -135,6 +135,3 @@ date. :ref:`date` holds the current date as a
 floating point number, :ref:`day-dlr` holds the weekday
 as a short string.
 
---------------
-
-

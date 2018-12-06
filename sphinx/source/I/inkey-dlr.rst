@@ -48,6 +48,3 @@ available with :ref:`exep`).
 characters in one go. :ref:`pause` halts program
 execution temporarily.
 
---------------
-
-

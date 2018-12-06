@@ -40,6 +40,3 @@ This function did not work correctly on Minerva before v1.98.
 
 :ref:`beep` activates the speaker.
 
---------------
-
-

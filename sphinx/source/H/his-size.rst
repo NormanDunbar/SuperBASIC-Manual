@@ -33,6 +33,3 @@ kilobytes chunks, so there is a small danger of heap fragmentation.
 
 See :ref:`his-set`.
 
---------------
-
-

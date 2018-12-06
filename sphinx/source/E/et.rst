@@ -23,6 +23,3 @@ SuperBASIC to allow you to use a monitor program.
 
 :ref:`ex`
 
---------------
-
-

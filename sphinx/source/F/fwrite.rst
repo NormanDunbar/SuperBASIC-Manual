@@ -57,6 +57,3 @@ after it has completed its work. This behaviour is pretty strange.
 :ref:`append`, please see
 :ref:`fread` for a better version.
 
---------------
-
-

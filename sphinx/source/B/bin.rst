@@ -61,6 +61,3 @@ hexadecimal versions. :ref:`bit-pct` is also useful.
 
 SMS users can achieve the same thing by using, for example :ref:`print`\ %1001 instead of :ref:`print`\ BIN('1001').
 
---------------
-
-

@@ -65,6 +65,3 @@ error trap a complete program. Also see
 :ref:`open`. :ref:`ftest` allows
 you to test the status of a file without (explicitly) opening a channel.
 
---------------
-
-

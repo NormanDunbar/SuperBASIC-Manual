@@ -22,6 +22,3 @@ Pressing a key or moving the mouse will reactivate the screen.
 
 See :ref:`a-blank`.
 
---------------
-
-

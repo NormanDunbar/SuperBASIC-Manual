@@ -25,6 +25,3 @@ RES\_128, RES\_SIZE, PROT\_DATE
 See :ref:`res-128` and
 :ref:`tk2-ext`.
 
---------------
-
-

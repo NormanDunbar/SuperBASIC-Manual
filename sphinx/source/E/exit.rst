@@ -79,6 +79,3 @@ up the loop variables)!!
 Please see :ref:`for` and
 :ref:`repeat` for more details.
 
---------------
-
-

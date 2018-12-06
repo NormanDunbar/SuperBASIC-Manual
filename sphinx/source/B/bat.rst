@@ -21,6 +21,3 @@ See :ref:`bat-use` for an example.
 
 Refer to :ref:`type-in` also.
 
---------------
-
-

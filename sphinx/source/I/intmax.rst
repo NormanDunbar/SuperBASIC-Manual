@@ -26,6 +26,3 @@ later versions of the package.
 
 :ref:`eps`\ (x) = 1  if and only if :ref:`abs`\ (x) = 2 \* INTMAX.
 
---------------
-
-

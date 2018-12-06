@@ -27,6 +27,3 @@ it is more like a safe emergency break.
 :ref:`del-defb`,
 :ref:`clchp`.
 
---------------
-
-

@@ -82,6 +82,3 @@ current print position.
 
 Also see :ref:`left`.
 
---------------
-
-

@@ -30,6 +30,3 @@ and the result will be be around 3.2.
 
 :ref:`matmean`
 
---------------
-
-

@@ -36,6 +36,3 @@ will print '100.00'
 
 Please see :ref:`cdec-dlr`.
 
---------------
-
-

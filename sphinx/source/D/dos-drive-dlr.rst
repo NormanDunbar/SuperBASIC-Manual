@@ -19,8 +19,3 @@ If we continue from the example above for :ref:`dos-drive`\ , then::
 
 Will print "C:\\WINDOWS".
 
-
---------------
-
-
-

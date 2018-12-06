@@ -52,8 +52,6 @@ you will need to use::
 :ref:`div` returns the integer part of
 x divided by y. Also, please see the alternative version of :ref:`mod`.
 
---------------
-
 
 MOD
 ===
@@ -88,7 +86,4 @@ refuse to work!
 **CROSS-REFERENCE**
 
 :ref:`div` :ref:`mod` (ROM version)
-
---------------
-
 

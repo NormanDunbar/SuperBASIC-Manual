@@ -53,6 +53,3 @@ address.
 resolution of the display - much software will insist that this is set
 to 512x256 pixels also.
 
---------------
-
-

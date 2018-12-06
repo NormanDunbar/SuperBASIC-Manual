@@ -37,6 +37,3 @@ file supports SMS SBASICs.
 
 See also :ref:`basic-name-dlr`.
 
---------------
-
-

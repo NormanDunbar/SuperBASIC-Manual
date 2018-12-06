@@ -49,6 +49,3 @@ not produce a sensible output. It may even possibly crash the system.
 the position of a string in another string. :ref:`len`
 returns the length of a string.
 
---------------
-
-

@@ -18,6 +18,3 @@ Please refer to :ref:`arc-r`.
 :ref:`ellipse-r` is exactly the same as this
 command.
 
---------------
-
-

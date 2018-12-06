@@ -19,6 +19,3 @@ This reads back the current connection of the floppy device.
 
 will tell you the current setting for flp2\_.
 
---------------
-
-

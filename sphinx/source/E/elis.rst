@@ -20,6 +20,3 @@ See :ref:`key-add`,
 Compare :ref:`find` and
 :ref:`lookup-pct`.
 
---------------
-
-

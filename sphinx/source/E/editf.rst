@@ -9,7 +9,7 @@ EDITF
 | Location |  Turbo Toolkit                                                    |
 +----------+-------------------------------------------------------------------+
 
-This function is similar to EDLINE$. However, EDITF is intended solely for asking
+This function is similar to :ref:`edline-dlr`. However, :ref:`editf` is intended solely for asking
 the user to enter a floating point number. The specified default (which may be
 given as a number or a string) is printed at the current text cursor position
 in #ch  (default #1) and allows you to edit it. The parameter maxlen%  dictates
@@ -30,7 +30,4 @@ whichever is longer.
 See :ref:`edline-dlr`.
 :ref:`edit-pct` and :ref:`edit-dlr`
 are also useful.
-
---------------
-
 

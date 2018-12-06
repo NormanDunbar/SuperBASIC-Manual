@@ -20,6 +20,3 @@ Please see :ref:`line`,
 :ref:`ellipse-r` and
 :ref:`point-r`.
 
---------------
-
-

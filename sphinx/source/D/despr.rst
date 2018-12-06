@@ -27,6 +27,3 @@ memory, and do not try to release it at a later stage. Use
 :ref:`alchp` and :ref:`rechp` to
 allocate areas of memory which may be later released.
 
---------------
-
-

@@ -162,6 +162,3 @@ see :ref:`end--define`. Look at the example
 for :ref:`swap` which provides a more practical use
 of recursive :ref:`procedure`\ s.
 
---------------
-
-

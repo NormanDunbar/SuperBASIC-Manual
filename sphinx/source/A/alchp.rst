@@ -101,6 +101,3 @@ work similar to :ref:`alchp`.
 See :ref:`del-defb` concerning heap
 fragmentation.
 
---------------
-
-

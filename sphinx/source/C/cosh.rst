@@ -40,6 +40,3 @@ See :ref:`sinh` for an example.
 :ref:`arcosh` is the inverse function of
 :ref:`cosh`.
 
---------------
-
-

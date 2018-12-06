@@ -163,6 +163,3 @@ See :ref:`processor`,
 :ref:`sys-vars`. See also
 :ref:`a-machine`.
 
---------------
-
-

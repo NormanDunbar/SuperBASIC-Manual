@@ -21,6 +21,3 @@ Both file1 and file2 must include the device name.
 The THOR XVI has a special form of :ref:`copy` which
 is similar to this.
 
---------------
-
-

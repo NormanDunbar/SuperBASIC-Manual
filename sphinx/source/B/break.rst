@@ -57,6 +57,3 @@ Do not confuse BTool's command :ref:`break` with
 TinyToolkit's function :ref:`break` (although you
 can use both in the same program!)
 
---------------
-
-

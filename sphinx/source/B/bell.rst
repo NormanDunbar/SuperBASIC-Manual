@@ -17,6 +17,3 @@ This command produces the sound of a ringing phone.
 :ref:`snd-ext`, :ref:`shoot`,
 :ref:`explode`.
 
---------------
-
-

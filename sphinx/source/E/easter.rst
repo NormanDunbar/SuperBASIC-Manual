@@ -40,6 +40,3 @@ EASTER does not return the correct value on SMSQ/E for some reason.
 
 :ref:`gregor`
 
---------------
-
-

@@ -30,6 +30,3 @@ not harm the system.
 
 :ref:`etab-dlr` expands the TAB marks.
 
---------------
-
-

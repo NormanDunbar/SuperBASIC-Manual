@@ -87,6 +87,3 @@ effect until you use the HOT\_GO command.
 :ref:`stamp` allow programs to access the keyboard,
 :ref:`key` defines macros on function keys.
 
---------------
-
-

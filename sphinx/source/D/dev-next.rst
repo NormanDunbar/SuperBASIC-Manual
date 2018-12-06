@@ -39,6 +39,3 @@ device works.
 :ref:`dev-list`,
 :ref:`dev-use`
 
---------------
-
-

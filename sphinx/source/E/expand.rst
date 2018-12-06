@@ -36,6 +36,3 @@ will crash. This is certain if the file is longer than 32K.
 :ref:`compress`,
 :ref:`fastexpand`.
 
---------------
-
-

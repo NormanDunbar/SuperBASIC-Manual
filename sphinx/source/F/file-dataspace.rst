@@ -29,7 +29,3 @@ This function returns the current dataspace requirements for the file opened as 
 
 :ref:`file-backup`, :ref:`file-length`, :ref:`file-type`, :ref:`file-update`.
 
-
--------
-
-

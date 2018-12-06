@@ -27,6 +27,3 @@ This command will most probably fail on the latest ST/QL drivers.
 
 See :ref:`quatari`.
 
---------------
-
-

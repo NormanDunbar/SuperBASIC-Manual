@@ -15,6 +15,3 @@ See :ref:`copy-n`.
 
 :ref:`fgeth-dlr`
 
---------------
-
-

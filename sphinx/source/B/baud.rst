@@ -266,6 +266,3 @@ other parameters for serial and parallel ports.
 You can check the current baud rate setting with
 :ref:`baudrate`.
 
---------------
-
-

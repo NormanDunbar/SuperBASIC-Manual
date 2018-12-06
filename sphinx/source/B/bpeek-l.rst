@@ -27,4 +27,3 @@ See :ref:`basic-w` and
 :ref:`bpoke` and related commands allow you to alter
 the values of the SuperBASIC variables.
 
-

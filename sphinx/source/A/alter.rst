@@ -45,6 +45,3 @@ ALTER does not work on SMS.
 
 See :ref:`set`.
 
---------------
-
-

@@ -25,6 +25,3 @@ causes an error 'Incorrect Procedure or Function Definition'.
 Please refer to the individual structure descriptions for more details: :ref:`define--function`,
 :ref:`define--procedure` and :ref:`end--define`.
 
---------------
-
-

@@ -22,6 +22,3 @@ See :ref:`get` and :ref:`mki-dlr`.
 format of an integer to an integer number. See also
 :ref:`fput-pct`
 
---------------
-
-

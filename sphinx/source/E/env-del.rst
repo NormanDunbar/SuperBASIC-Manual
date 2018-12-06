@@ -30,6 +30,3 @@ program has finished, the environment variable may be deleted.
 
 Please see SETENV.
 
---------------
-
-

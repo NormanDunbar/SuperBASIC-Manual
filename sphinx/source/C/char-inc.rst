@@ -56,6 +56,3 @@ bottom of the screen).
 
 See also :ref:`ttinc`.
 
---------------
-
-

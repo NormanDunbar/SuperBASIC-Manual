@@ -56,6 +56,3 @@ example of how to use :ref:`io-trap`.
 are much better as they can be used on all ROM versions. The QDOS/SMS
 Reference Manual (Section 15) contains details of the I/O Access Traps.
 
---------------
-
-

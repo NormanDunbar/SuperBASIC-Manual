@@ -67,6 +67,3 @@ On a machine fitted with SMS the example would therefore have printed 0
 :ref:`clchp`, :ref:`clrmdv`,
 :ref:`run`.
 
---------------
-
-

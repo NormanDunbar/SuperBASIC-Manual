@@ -115,6 +115,3 @@ See also :ref:`replace` and
 :ref:`-name-dlr` allows you to look at the name
 table.
 
---------------
-
-

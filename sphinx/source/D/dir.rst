@@ -191,6 +191,3 @@ disk which has not had other files deleted from it already.
 directory, :ref:`make-dir` creates
 sub-directories, :ref:`wdir` allows wildcard names.
 
---------------
-
-

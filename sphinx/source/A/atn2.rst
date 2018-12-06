@@ -52,6 +52,3 @@ ATN2 and the difference from ATAN:
 
 :ref:`atan` which is the same on Minerva and SMS.
 
---------------
-
-

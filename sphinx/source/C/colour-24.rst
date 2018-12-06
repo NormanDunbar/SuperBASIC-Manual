@@ -36,6 +36,3 @@ Refer to :ref:`colour-pal` and
 :ref:`bgcolour-24` all use the 24 bit table
 to describe colours.
 
---------------
-
-

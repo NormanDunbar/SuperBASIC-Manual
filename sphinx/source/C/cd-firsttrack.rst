@@ -17,6 +17,3 @@ currently in the player (this should always be 1).
 :ref:`cd-lasttrack` allows you to find out
 the last track number.
 
---------------
-
-

@@ -28,6 +28,3 @@ may also be set with :ref:`get`,
 :ref:`put`, :ref:`bget` and
 :ref:`bput`.
 
---------------
-
-

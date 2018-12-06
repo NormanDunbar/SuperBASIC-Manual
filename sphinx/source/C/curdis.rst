@@ -27,6 +27,3 @@ See :ref:`cursen` for more details.
 
 :ref:`cursor-off` is similar.
 
---------------
-
-

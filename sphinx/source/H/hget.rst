@@ -36,6 +36,3 @@ due to the fact that it alters its own parameters.
 header. See also :ref:`headr` and
 :ref:`gethead`.
 
---------------
-
-

@@ -17,6 +17,3 @@ that an accelerator board is enabled. Otherwise, it returns the value 0.
 :ref:`accel-set` tells the Emulator that an
 accelerator board is enabled.
 
---------------
-
-

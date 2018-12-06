@@ -17,6 +17,3 @@ relative to the graphic cursor.
 :ref:`point` and all other commands related to
 graphics move the graphic cursor.
 
---------------
-
-

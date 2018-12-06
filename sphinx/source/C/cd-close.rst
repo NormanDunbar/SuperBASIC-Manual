@@ -20,6 +20,3 @@ one in the drawer.
 
 See :ref:`cd-init`.
 
---------------
-
-

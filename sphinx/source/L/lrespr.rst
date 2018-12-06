@@ -63,6 +63,3 @@ See the second example for :ref:`alchp`. See also
 :ref:`linkup` and
 :ref:`lresfast`.
 
---------------
-
-

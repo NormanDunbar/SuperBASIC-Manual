@@ -22,6 +22,3 @@ See :ref:`reserve` and
 :ref:`clchp`, :ref:`rechp` and
 :ref:`despr`.
 
---------------
-
-

@@ -22,6 +22,3 @@ than 1 in MODE 8, this could cause problems on screen.
 Using parameters smaller than 0 could lock up some versions of QXL.
 SCR\_PRIORITY is similar under Amiga QDOS.
 
---------------
-
-

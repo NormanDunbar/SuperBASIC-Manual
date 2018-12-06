@@ -60,6 +60,3 @@ language. :ref:`lang-use` allows you to change
 the language used by the system. :ref:`tra` allows you
 to change the output to a printer.
 
---------------
-
-

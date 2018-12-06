@@ -16,6 +16,3 @@ action if the condition contained in the IF statement proves to be false.
 
 See :ref:`if` for more details.
 
---------------
-
-

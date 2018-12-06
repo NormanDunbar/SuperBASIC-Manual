@@ -35,6 +35,3 @@ with :ref:`adate`.
 Alarm jobs can be killed by using :ref:`rjob` for
 example.
 
---------------
-
-

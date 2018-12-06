@@ -115,6 +115,3 @@ On Minerva (and possibly other ROM versions) both of these merely report
 :ref:`read` and :ref:`input` also
 allow you to assign a value to a variable.
 
---------------
-
-

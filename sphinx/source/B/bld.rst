@@ -31,6 +31,3 @@ LPRINT "I " & BLD&"hate"&NRM & " these functions."
 :ref:`rmar`, :ref:`pagdis`,
 :ref:`paglen`.
 
---------------
-
-

@@ -14,6 +14,3 @@ FILE\_DAT
 This is the same as FDAT except that default devices and sub-
 directories are not supported.
 
---------------
-
-

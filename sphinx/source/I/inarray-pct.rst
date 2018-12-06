@@ -89,6 +89,3 @@ SuperCharge.
 Use :ref:`instr` to locate a sub-string in a string.
 See :ref:`search` which is similar.
 
---------------
-
-

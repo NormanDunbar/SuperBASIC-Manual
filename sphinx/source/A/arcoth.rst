@@ -22,6 +22,3 @@ LN((x+1) / (x-1)) / 2
 See :ref:`acot`, :ref:`arcosh`,
 and :ref:`artanh`.
 
---------------
-
-

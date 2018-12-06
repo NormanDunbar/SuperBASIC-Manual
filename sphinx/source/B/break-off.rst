@@ -44,6 +44,3 @@ BREAK\_OFF does not currently work with SMS.
 the Break Key is disabled. Do not confuse with the command
 :ref:`break`.
 
---------------
-
-

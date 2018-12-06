@@ -126,6 +126,3 @@ last :ref:`edit`\ ed (except on SMS).
 returns the line number of the bottom line in #2
 which was last :ref:`edit`\ ed (except on SMS).
 
---------------
-
-

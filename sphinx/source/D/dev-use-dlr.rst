@@ -35,6 +35,3 @@ A listing of all DEV definitions::
 :ref:`dev-next`,
 :ref:`dev-list`,\ :ref:`dev-use`.
 
---------------
-
-

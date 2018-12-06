@@ -58,6 +58,3 @@ Note that on Minerva, Integer Tokenisation will need to be disabled.
 :ref:`flen`, :ref:`file-len`,
 :ref:`get`.
 
---------------
-
-

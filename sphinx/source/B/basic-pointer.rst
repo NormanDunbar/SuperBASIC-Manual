@@ -24,6 +24,3 @@ of this file supports SMS SBASICs.
 
 Refer to :ref:`basicp`.
 
---------------
-
-

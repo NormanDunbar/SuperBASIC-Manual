@@ -18,6 +18,3 @@ with the BAT\_USE command.
 See :ref:`bat-use` and
 :ref:`bat` for more details.
 
---------------
-
-

@@ -93,6 +93,3 @@ Will cause an 'Out of Range' error.
 :ref:`len` will return the actual length of characters
 held within a string. :ref:`dim` initialises an array.
 
---------------
-
-

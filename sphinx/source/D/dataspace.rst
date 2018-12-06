@@ -36,6 +36,3 @@ The following error values may also be returned by the function:
 dataspace for a compiled program. See also
 :ref:`fdat`.
 
---------------
-
-

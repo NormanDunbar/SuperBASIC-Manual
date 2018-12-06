@@ -107,6 +107,3 @@ used to provide the QL with a windowing environment whereby the contents
 of the screen are restored when a window is
 :ref:`close`\ d.
 
---------------
-
-

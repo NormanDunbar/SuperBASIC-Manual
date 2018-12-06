@@ -83,5 +83,3 @@ Amiga-QL Emulator, TinyToolkit, and BTool fix this.
 
 See Appendix for other languages.
 
---------------
-

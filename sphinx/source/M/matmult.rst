@@ -128,6 +128,3 @@ and nothing will change.
 See :ref:`matinv` for another example of using
 :ref:`matmult`.
 
---------------
-
-

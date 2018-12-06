@@ -391,6 +391,3 @@ maximum number of characters that can be typed in.
 :ref:`his-set` allows you to set a history for a
 console channel.
 
---------------
-
-

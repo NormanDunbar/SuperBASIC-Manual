@@ -85,6 +85,3 @@ For example, to calculate the length of a diagonal in a standard cube
 See :ref:`sgn` and :ref:`sgn-pct` for
 similar machine code versions of our example function SIGN% demonstrated above.
 
---------------
-
-

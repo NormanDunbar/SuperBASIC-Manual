@@ -20,6 +20,3 @@ Other commands added are :ref:`astat`,
 :ref:`adelete`, :ref:`acopy`
 and :ref:`aformat`.
 
---------------
-
-

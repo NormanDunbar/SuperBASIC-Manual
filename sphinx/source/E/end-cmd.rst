@@ -18,6 +18,3 @@ file. It overcomes the problem explained in NOTE 1 of MERGE.
 Please see :ref:`merge`. :ref:`do`
 is also useful for executing such files.
 
---------------
-
-

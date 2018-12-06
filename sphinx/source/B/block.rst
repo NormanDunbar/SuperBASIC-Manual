@@ -89,6 +89,3 @@ BLOCK 180,1,0,255,7
 :ref:`ink` contains information concerning composite
 colours.
 
---------------
-
-

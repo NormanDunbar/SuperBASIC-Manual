@@ -90,6 +90,3 @@ Try to use SuperBASIC's more powerful
 :ref:`repeat`, :ref:`for`,
 :ref:`define--procedure` and :ref:`define--function` structures instead!
 
---------------
-
-

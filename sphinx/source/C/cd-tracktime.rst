@@ -22,6 +22,3 @@ track is being played.
 :ref:`cd-alltime` allows you to find out the
 total elapsed time on the CD disk as a whole.
 
---------------
-
-

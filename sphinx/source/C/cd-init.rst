@@ -45,6 +45,3 @@ tracks.
 :ref:`cd-eject` ejects a disk from the drive, or
 allows you to insert a new disk.
 
---------------
-
-

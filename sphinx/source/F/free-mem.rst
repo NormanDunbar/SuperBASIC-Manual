@@ -11,6 +11,3 @@ FREE\_MEM
 
 Exactly the same as :ref:`free`.
 
---------------
-
-

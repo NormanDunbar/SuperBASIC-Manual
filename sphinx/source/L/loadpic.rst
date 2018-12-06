@@ -35,6 +35,3 @@ screen to be 512x256 pixels.
 :ref:`screen`, :ref:`expand`,
 :ref:`compress`.
 
---------------
-
-

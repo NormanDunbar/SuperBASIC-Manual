@@ -43,6 +43,3 @@ to find the base address of the screen.
 :ref:`chbase` can be used to find out similar
 information.
 
---------------
-
-

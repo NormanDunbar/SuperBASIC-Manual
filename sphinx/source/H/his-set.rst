@@ -83,6 +83,3 @@ A history is automatically removed when a channel is closed but removal
 can also be forced with :ref:`his-unset`. The
 QDOS/SMS Reference Manual contains full details of IO.EDLIN
 
---------------
-
-

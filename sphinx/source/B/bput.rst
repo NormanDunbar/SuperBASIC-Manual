@@ -82,8 +82,3 @@ the current file position.
 :ref:`uput` allows you to send bytes without them
 being translated.
 
-
---------------
-
-
-

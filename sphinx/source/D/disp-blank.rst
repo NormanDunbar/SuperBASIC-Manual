@@ -62,6 +62,3 @@ Both SMSQ/E
 and QVME include programs to allow you to try out the various settings
 for the various DISP\_... commands.
 
---------------
-
-

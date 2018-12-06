@@ -33,8 +33,3 @@ If the device that has the given channel opened to it has the level 2 drivers, t
     2650   END IF
     2660 END DEFine MAKE_DIRECTORY
 
-
--------
-
-
-

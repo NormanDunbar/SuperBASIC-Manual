@@ -36,6 +36,3 @@ case-sensitive. :ref:`matcount1` differs from
 :ref:`matcount` (see below) only in the fact that
 comparisons are based on the SuperBASIC operator == instead of =.
 
---------------
-
-

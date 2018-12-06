@@ -24,6 +24,3 @@ and destination channels must be specified in full.
 check the status of a file, thus enabling you to check if a file already
 exists.
 
---------------
-
-

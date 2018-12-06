@@ -33,6 +33,3 @@ DEV\_LIST for example 4a of DEV\_USE prints::
 :ref:`devlist` and
 :ref:`dlist`.
 
---------------
-
-

@@ -21,6 +21,3 @@ list other information about the current system interrupts. Details of
 the external interrupt service list is contained in the QDOS/SMS
 Reference Manual Section 6.
 
---------------
-
-

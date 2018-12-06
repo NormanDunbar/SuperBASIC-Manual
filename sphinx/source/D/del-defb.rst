@@ -99,6 +99,3 @@ Dynamic RAM disks use effectively all of the free memory.
 :ref:`format` lists other ways of causing heap
 fragmentation.
 
---------------
-
-

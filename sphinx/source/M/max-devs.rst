@@ -31,8 +31,3 @@ This function returns the number of installed directory device drivers in your Q
 
 :ref:`dev-name`.
 
-
--------
-
-
-

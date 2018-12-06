@@ -22,6 +22,3 @@ the last track number.
 :ref:`cd-second` convert REDBOOK format into a
 time.
 
---------------
-
-

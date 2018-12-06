@@ -20,6 +20,3 @@ finishes.
 The function :ref:`odd` checks if a number is odd or
 even.
 
---------------
-
-

@@ -15,8 +15,3 @@ Fill memory with a 16 bit word value . See :ref:`fillmem-l` below.
 
 :ref:`fillmem-l`, :ref:`fillmem-b`.
 
-
--------
-
-
-

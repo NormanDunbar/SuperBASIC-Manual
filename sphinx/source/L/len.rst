@@ -39,6 +39,3 @@ longer than 32766 characters, for example with::
 arrays. See also the Compatibility Appendix for some important
 information concerning string lengths.
 
---------------
-
-

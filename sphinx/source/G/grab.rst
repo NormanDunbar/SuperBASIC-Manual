@@ -28,6 +28,3 @@ in memory just like :ref:`alchp`. See also
 :ref:`reserve`. The amount of available memory can
 be found by using :ref:`free` or :ref:`free-mem`.
 
---------------
-
-

@@ -49,6 +49,3 @@ own routine.
 
 :ref:`cur`, :ref:`reply`.
 
---------------
-
-

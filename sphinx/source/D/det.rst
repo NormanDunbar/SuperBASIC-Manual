@@ -79,7 +79,3 @@ internally. In the example, we used the
 :ref:`sgn` and :ref:`matsub`
 keywords which are all part of the same Toolkit.
 
---------------
-
-
-

@@ -47,6 +47,3 @@ window appears), before the window was OPENed over the Network.
 
 Please also refer to the Fonts Appendix.
 
---------------
-
-

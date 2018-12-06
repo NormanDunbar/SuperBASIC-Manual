@@ -34,6 +34,3 @@ MODE commands have no effect under the Extended Colour Drivers.
 
 Refer to :ref:`colour-pal` for more details.
 
---------------
-
-

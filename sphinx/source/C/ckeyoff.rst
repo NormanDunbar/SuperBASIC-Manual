@@ -23,8 +23,5 @@ There were problems with this command prior to v1.56.
 **CROSS-REFERENCE**
 
 :ref:`ckeyon` tells the Pointer Interface to
-recognise the cursorkeys again.
-
---------------
-
+recognise the cursor keys again.
 

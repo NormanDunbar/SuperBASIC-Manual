@@ -41,6 +41,3 @@ default program device, :ref:`datad-dlr` returns the
 default data device. :ref:`dlist` prints all default
 devices.
 
---------------
-
-

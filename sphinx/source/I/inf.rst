@@ -20,6 +20,3 @@ occur. The smallest possible value is -INF.
 :ref:`minimum` can also be used to return this
 value.
 
---------------
-
-

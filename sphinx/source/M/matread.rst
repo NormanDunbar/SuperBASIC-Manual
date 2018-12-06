@@ -42,6 +42,3 @@ is identical to MATSEQ a%.
 
 :ref:`matinput`
 
---------------
-
-

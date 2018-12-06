@@ -87,6 +87,3 @@ structures are :ref:`select--on`,
 :ref:`if`, :ref:`repeat`,
 WHEN XXX and :ref:`for`.
 
---------------
-
-

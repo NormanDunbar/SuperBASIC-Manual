@@ -53,6 +53,3 @@ TYPE\_IN, which could cause problems with Turbo compiled programs.
 :ref:`stamp` does exactly the same as
 :ref:`force-type`.
 
---------------
-
-

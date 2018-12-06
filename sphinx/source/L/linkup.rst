@@ -24,6 +24,3 @@ See :ref:`reserve` and
 :ref:`discard`. Also see
 :ref:`lrespr` and :ref:`alchp`.
 
---------------
-
-

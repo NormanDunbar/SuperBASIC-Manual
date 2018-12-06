@@ -16,6 +16,3 @@ channel (default #1).
 
 Please see SETENV.
 
---------------
-
-

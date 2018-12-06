@@ -74,7 +74,3 @@ and::
 
     VIEW flp1_test_bas
 
-
---------------
-
-

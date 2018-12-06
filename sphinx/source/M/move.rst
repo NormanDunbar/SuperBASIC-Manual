@@ -60,6 +60,3 @@ allows the turtle to move without leaving a trail.
 :ref:`turn` and :ref:`turnto`
 allow you to alter the direction of the turtle.
 
---------------
-
-

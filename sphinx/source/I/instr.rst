@@ -44,6 +44,3 @@ See :ref:`instr-case`.
 :ref:`search` can be used to compare entries within
 arrays.
 
---------------
-
-

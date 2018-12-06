@@ -31,6 +31,3 @@ cannot rename SMSQ/E's version.
 See :ref:`his-use-dlr` and
 :ref:`his-set`.
 
---------------
-
-

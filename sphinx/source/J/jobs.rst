@@ -57,6 +57,3 @@ the same information as appears on the :ref:`jobs`
 list for single jobs. :ref:`list-tasks` is
 similar.
 
---------------
-
-

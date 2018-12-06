@@ -5,5 +5,3 @@ BREAK\_ON
 
 See :ref:`break-off` below.
 
-
-

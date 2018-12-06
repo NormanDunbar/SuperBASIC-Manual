@@ -31,6 +31,3 @@ See :ref:`poke`.
 :ref:`bpeek-pct` and related commands allow you to
 read the values of the SuperBASIC variables.
 
---------------
-
-

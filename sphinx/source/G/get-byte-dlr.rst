@@ -73,6 +73,3 @@ entries are stored as blocks with a fixed length (see
 :ref:`file-pos`, :ref:`fpos`
 can be used for movement.
 
---------------
-
-

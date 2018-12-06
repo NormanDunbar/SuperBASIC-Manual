@@ -119,6 +119,3 @@ See the other variant of\ :ref:`draw`. See also
 :ref:`plot`. :ref:`line` is much
 more flexible.
 
---------------
-
-

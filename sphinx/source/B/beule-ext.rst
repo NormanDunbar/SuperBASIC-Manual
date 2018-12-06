@@ -32,6 +32,3 @@ TinyToolkit keywords.
 
 See also :ref:`atari-ext`.
 
---------------
-
-

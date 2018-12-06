@@ -59,6 +59,3 @@ except on v6.41 of the THOR XVI.
 See :ref:`hex` and :ref:`bin`,
 :ref:`bin-dlr`.
 
---------------
-
-

@@ -17,6 +17,3 @@ This simply sets v$ to be the 4 character string  'n.nn'  where this gives the v
 
     PRINT DJTK_VER$
 
--------
-
-

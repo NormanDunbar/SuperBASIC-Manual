@@ -52,6 +52,3 @@ Compare :ref:`arcosh`.
 
 Also please see the Mathematics section in the Appendix.
 
---------------
-
-

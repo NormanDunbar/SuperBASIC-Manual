@@ -15,6 +15,3 @@ This function returns the three letter device name which has been set with HIS\_
 
 See :ref:`his-use`.
 
---------------
-
-

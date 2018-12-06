@@ -64,6 +64,3 @@ See :ref:`bin` and :ref:`hex`,
 :ref:`hex-dlr`. Also refer to
 :ref:`bit-pct`.
 
---------------
-
-

@@ -18,6 +18,3 @@ program - this will cause a 'bad line' error.
 Please refer to the individual structure descriptions below for more
 details.
 
---------------
-
-

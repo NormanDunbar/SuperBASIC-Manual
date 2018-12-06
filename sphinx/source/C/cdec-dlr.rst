@@ -49,6 +49,3 @@ formatting output.
 :ref:`idec-dlr` and :ref:`fdec-dlr`
 are complementary functions.
 
---------------
-
-

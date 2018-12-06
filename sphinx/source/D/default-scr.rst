@@ -47,6 +47,3 @@ only alter the MODE of the screen in which the program is running)::
 job and can be used to alter the current default screen,
 :ref:`rmode` returns the mode of the given screen.
 
---------------
-
-

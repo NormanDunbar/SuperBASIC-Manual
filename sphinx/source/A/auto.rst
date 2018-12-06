@@ -83,6 +83,3 @@ Please refer to :ref:`edit` which is very similar.
 
 :ref:`dline` allows you to delete SuperBASIC lines.
 
---------------
-
-

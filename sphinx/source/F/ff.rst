@@ -23,6 +23,3 @@ ESC, :ref:`lmar`,
 :ref:`rmar`, :ref:`pagdis`,
 :ref:`paglen`.
 
---------------
-
-

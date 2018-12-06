@@ -25,6 +25,3 @@ It will only work on a standard 512x256 screen stored at $20000.
 
 See also HCO and FCO.
 
---------------
-
-

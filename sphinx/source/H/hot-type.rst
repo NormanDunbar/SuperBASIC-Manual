@@ -29,6 +29,3 @@ the specified keypress. The values returned by HOT\_TYPE are as follows:
 :ref:`hot-name-dlr` returns the name of the Thing
 or the string being accessed.
 
---------------
-
-

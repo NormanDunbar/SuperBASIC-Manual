@@ -20,6 +20,3 @@ keyboard. Using the command without a parameter, or zero (eg. KBD\_USE
 This task is carried out in the background of any other programs, but
 does not actually create a job.
 
---------------
-
-

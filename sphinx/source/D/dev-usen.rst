@@ -33,6 +33,3 @@ with::
 :ref:`flp-use` allows you to alter the three
 letter description for floppy disks.
 
---------------
-
-

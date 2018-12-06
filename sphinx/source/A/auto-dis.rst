@@ -30,6 +30,3 @@ Toolkit II and does not show a start-up screen.
 See\ :ref:`auto-tk2f1` and
 :ref:`auto-tk2f2` also.
 
---------------
-
-

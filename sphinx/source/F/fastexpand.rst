@@ -39,6 +39,3 @@ pixels.
 :ref:`compress`,
 :ref:`expand`.
 
---------------
-
-

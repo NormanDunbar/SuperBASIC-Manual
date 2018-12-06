@@ -36,6 +36,3 @@ and :ref:`type-in` also.
 :ref:`do` allows batch files of any size to be
 executed.
 
---------------
-
-

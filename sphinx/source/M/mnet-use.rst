@@ -33,6 +33,3 @@ See :ref:`mnet` and
 :ref:`midinet`. Refer also
 to\ :ref:`mnet-s-pct`.
 
---------------
-
-

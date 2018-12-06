@@ -23,6 +23,3 @@ gives the same value.
 See :ref:`asin`, :ref:`arcosh`,
 and :ref:`arcoth`.
 
---------------
-
-

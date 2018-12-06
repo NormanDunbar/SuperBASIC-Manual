@@ -16,6 +16,3 @@ otherwise it will return 0.
 
 :ref:`cd-play` allows you to play an Audio CD.
 
---------------
-
-

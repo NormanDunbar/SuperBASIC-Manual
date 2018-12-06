@@ -38,6 +38,3 @@ the number could be stored in internal float format::
 format to channels. :ref:`cvl` converts strings
 containing the internal format to long integers.
 
---------------
-
-

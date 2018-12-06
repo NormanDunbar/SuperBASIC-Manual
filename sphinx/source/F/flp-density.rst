@@ -122,6 +122,3 @@ number of tracks to be formatted onto a disk.
 :ref:`stat` prints the name, good and free sectors of
 a medium. See also the The DMEDIUM_XXX functions, starting at :ref:`dmedium-density`.
 
---------------
-
-

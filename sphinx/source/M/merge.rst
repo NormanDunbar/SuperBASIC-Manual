@@ -109,6 +109,3 @@ command.
 :ref:`do` is also very similar to
 :ref:`merge`.
 
---------------
-
-

@@ -72,6 +72,3 @@ failure.
 
 See the Coercion Appendix also.
 
---------------
-
-

@@ -27,6 +27,3 @@ CVS$( CHR$(0) & CHR$(2) & "Test" ) = "Test"(1 TO 2) = "Te"
 enable you to write strings to and read strings from files in their
 internal formats.
 
---------------
-
-

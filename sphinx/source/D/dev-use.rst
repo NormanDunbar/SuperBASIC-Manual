@@ -229,6 +229,3 @@ definitions. :ref:`make-dir` and the
 DMEDIUM_XXX commands, starting with :ref:`dmedium-density` are also
 interesting.
 
---------------
-
-

@@ -17,6 +17,3 @@ key is enabled, either ON or OFF.
 
 See :ref:`break`!!
 
---------------
-
-

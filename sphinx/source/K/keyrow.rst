@@ -218,6 +218,3 @@ one is running - this can be used to ensure that a program which uses
 :ref:`keyrow` does not carry on reading the
 keyboard whilst you are using another program.
 
---------------
-
-

@@ -40,8 +40,3 @@ There *may* be others.
 
 :ref:`file-backup`, :ref:`file-dataspace`, :ref:`file-length`, :ref:`file-update`.
 
-
--------
-
-
-

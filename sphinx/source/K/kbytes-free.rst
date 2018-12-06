@@ -23,8 +23,3 @@ The amount of memory considered by QDOS to be free is returned rounded down to t
 
 :ref:`bytes-free`.
 
-
--------
-
-
-

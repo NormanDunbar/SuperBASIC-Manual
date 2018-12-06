@@ -37,6 +37,3 @@ See :ref:`hot-key`.
 definitions operational. :ref:`force-type` is
 very similar.
 
---------------
-
-

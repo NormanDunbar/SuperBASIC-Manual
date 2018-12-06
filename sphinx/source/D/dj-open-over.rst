@@ -15,8 +15,3 @@ Open existing file but overwrite all the contents. See :ref:`dj-open-dir` below 
 
 :ref:`dj-open`, :ref:`dj-open-in`, :ref:`dj-open-new`, and :ref:`dj-open-dir`.
 
-
--------
-
-
-

@@ -22,6 +22,3 @@ following::
 :ref:`trint` is complementary to
 :ref:`fract`.
 
---------------
-
-

@@ -20,6 +20,3 @@ APOINT suffers from the same problems and limitations as ALINE.
 
 Use :ref:`point` instead!!
 
---------------
-
-

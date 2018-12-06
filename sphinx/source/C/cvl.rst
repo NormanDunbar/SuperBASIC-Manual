@@ -11,7 +11,7 @@ CVL
 
 This function converts the internal representation of a long integer
 number (a four character long string) to the actual value and returns
-that. CVL is the inverse of MKL$.
+that. CVL is the inverse of :ref:`mkl-dlr`.
 
 **Example**
 

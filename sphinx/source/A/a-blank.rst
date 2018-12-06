@@ -28,6 +28,3 @@ This command will only work within the Pointer Environment.
 
 :ref:`bls` is a similar function under SERMouse.
 
---------------
-
-

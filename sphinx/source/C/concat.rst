@@ -37,6 +37,3 @@ Each filename must include the device.
 See :ref:`fwrite` for the more flexible APPEND
 procedure.
 
---------------
-
-

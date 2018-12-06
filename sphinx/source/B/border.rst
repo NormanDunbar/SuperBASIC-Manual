@@ -91,6 +91,3 @@ The second syntax will not work on Minerva (pre v1.79) and the THOR XVI
 
 Also see :ref:`window`.
 
---------------
-
-

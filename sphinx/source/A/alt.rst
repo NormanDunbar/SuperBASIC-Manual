@@ -29,6 +29,3 @@ is therefore equivalent to::
 :ref:`rmar`, :ref:`pagdis`,
 :ref:`paglen`.
 
---------------
-
-

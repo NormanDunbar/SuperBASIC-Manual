@@ -51,6 +51,3 @@ or Super Gold Card without the specified file being present.
 See also :ref:`rom`, :ref:`roms`
 and ROM\_TEST.
 
---------------
-
-

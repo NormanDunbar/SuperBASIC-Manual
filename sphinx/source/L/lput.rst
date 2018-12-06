@@ -26,6 +26,3 @@ See :ref:`bput` and :ref:`lget`.
 :ref:`wput` and :ref:`put` are also
 similar.
 
---------------
-
-

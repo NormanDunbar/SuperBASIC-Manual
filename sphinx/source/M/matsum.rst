@@ -72,6 +72,3 @@ value of a matrix's values directly, so line 330 could be replaced with::
 
     330 tmed = MATMEAN(temp%)
 
---------------
-
-

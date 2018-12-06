@@ -27,6 +27,3 @@ is very useful.
 See also :ref:`del-defb` which performs a
 similar task.
 
---------------
-
-

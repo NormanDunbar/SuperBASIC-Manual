@@ -40,6 +40,3 @@ SBASIC interpreter.
 :ref:`key-add` are similar. Compare
 :ref:`lookup-pct`.
 
---------------
-
-

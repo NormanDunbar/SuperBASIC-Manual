@@ -56,6 +56,3 @@ The graphic cursor is moved with commands such as
 
 Please also see :ref:`arc`.
 
---------------
-
-

@@ -25,6 +25,3 @@ See also :ref:`auto-dis` and
 :ref:`tk2-ext` is needed to initialise Toolkit II
 if this command has not been used.
 
---------------
-
-

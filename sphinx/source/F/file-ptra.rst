@@ -20,6 +20,3 @@ set the pointer to the end or start of the file respectively.
 :ref:`flen`, :ref:`file-len`,
 :ref:`get`.
 
---------------
-
-

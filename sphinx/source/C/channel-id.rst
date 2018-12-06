@@ -16,6 +16,3 @@ This function is exactly the same as CHANID.
 See\ :ref:`chanid` and
 SET\_CHANNEL.
 
---------------
-
-

@@ -34,6 +34,3 @@ used to flush the Networks.
 
 See :ref:`open` and :ref:`close`.
 
---------------
-
-

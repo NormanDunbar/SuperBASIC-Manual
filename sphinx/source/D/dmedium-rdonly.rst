@@ -29,6 +29,3 @@ where it always returns 1.
 
 See :ref:`dmedium-name-dlr` for an example.
 
---------------
-
-

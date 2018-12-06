@@ -21,6 +21,3 @@ making this command the same as MERGE when used within a program.
 
 See :ref:`merge`!
 
---------------
-
-

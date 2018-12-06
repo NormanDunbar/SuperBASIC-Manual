@@ -17,6 +17,3 @@ disabled with MNET\_OFF.
 See :ref:`mnet-off`. Also see
 :ref:`midinet`.
 
---------------
-
-

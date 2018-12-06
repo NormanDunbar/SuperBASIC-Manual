@@ -86,6 +86,3 @@ to plot points, especially of variable size.
 POINT\_ABS plot points in absolute
 co-ordinates, directly to screen memory, ignoring windows.
 
---------------
-
-

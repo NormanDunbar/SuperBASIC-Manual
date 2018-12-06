@@ -16,6 +16,3 @@ This function is the same as MACHINE.
 See\ :ref:`machine` and also
 :ref:`a-emulator`.
 
---------------
-
-

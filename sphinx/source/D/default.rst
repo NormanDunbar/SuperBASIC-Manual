@@ -31,6 +31,3 @@ a valid number for any reason then #1 is used::
 and :ref:`default-pct` work exactly like
 :ref:`default` for string and integer expressions.
 
---------------
-
-

@@ -16,6 +16,3 @@ This command writes the specified long integer(s) longint
 
 :ref:`fgetl`, :ref:`put`
 
---------------
-
-

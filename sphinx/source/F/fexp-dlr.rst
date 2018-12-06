@@ -43,6 +43,3 @@ will print 1.0024E+02
 :ref:`print-using` all provide means of
 formatting number output.
 
---------------
-
-

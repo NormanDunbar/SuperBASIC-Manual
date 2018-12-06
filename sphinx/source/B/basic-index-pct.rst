@@ -29,6 +29,3 @@ file supports SMS SBASICs.
 Refer to :ref:`lookup-pct` and
 :ref:`basic-name-dlr`.
 
---------------
-
-

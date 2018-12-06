@@ -59,6 +59,3 @@ depends on the ROM version - see the Compatibility Appendix.
 
 Refer to :ref:`dim` about strings in general.
 
---------------
-
-

@@ -29,8 +29,3 @@ WARNING - JM and AH ROMS will give a 'Buffer overflow' error if the length of th
 
 :ref:`get-byte`, :ref:`get-float`, :ref:`get-long`, :ref:`get-word`, :ref:`fetch-bytes`.
 
-
--------
-
-
-

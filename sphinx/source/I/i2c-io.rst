@@ -133,6 +133,3 @@ See :ref:`prot-date`.
 Because Minerva MKII's battery backed clock is read through the I\ :sup:`2`\ C bus, it cannot
 be affected by programs, unless you abuse the :ref:`i2c-io` function!!
 
---------------
-
-

@@ -33,8 +33,3 @@ moves the current file pointer on channel 3 to the end of the file.
 
 :ref:`abs-position`.
 
-
--------
-
-
-

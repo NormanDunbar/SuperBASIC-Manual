@@ -30,6 +30,3 @@ makes sense::
 
 :ref:`ln`, :ref:`log2`.
 
---------------
-
-

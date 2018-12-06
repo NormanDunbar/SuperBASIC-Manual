@@ -110,6 +110,3 @@ ROMs (ie. a is unset by the LOCal command).
 :ref:`define--function` and :ref:`end--define` are used to identify definition
 blocks.
 
---------------
-
-

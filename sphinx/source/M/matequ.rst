@@ -38,6 +38,3 @@ Supercharge and Turbo users... sorry!
 
 :ref:`matrnd`, :ref:`matidn`
 
---------------
-
-

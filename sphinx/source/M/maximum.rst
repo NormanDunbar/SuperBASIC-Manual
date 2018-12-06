@@ -63,6 +63,3 @@ to pass an array as the parameter.
 are similar. Refer also to :ref:`minimum` and
 :ref:`minimum-pct`.
 
---------------
-
-

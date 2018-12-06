@@ -25,6 +25,3 @@ LOCK ram1\_secret\_txt,"Phew",7241
 :ref:`lock` but deciphers
 :ref:`lock`\ ed files.
 
---------------
-
-

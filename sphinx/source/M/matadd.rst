@@ -37,6 +37,3 @@ which is representative of the other MAT...
 functions; :ref:`matsub` is almost equivalent to
 :ref:`matadd`.
 
---------------
-
-

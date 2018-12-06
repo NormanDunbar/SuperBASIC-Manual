@@ -35,6 +35,3 @@ You can also use DISP\_TYPE to find out the Emulator type.
 See also :ref:`processor` and
 :ref:`machine`.
 
---------------
-
-

@@ -19,7 +19,3 @@ NE is the same as::
 
     NOT EQ$ (type, string1$,string2$)
 
-
---------------
-
-

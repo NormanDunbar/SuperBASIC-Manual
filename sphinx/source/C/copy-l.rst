@@ -34,6 +34,3 @@ Both adr1 and adr2 must be even addresses.
 :ref:`copy-w`,
 :ref:`copy-b`, :ref:`odd`.
 
---------------
-
-

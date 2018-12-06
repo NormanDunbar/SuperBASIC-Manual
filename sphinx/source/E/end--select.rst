@@ -45,6 +45,3 @@ structures are :ref:`define--procedure`,
 :ref:`if`, :ref:`repeat`,
 WHEN XXX and :ref:`for`.
 
---------------
-
-

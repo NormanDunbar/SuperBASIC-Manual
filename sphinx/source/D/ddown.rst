@@ -74,6 +74,3 @@ error 'Bad Parameter' (error -15).
 can be used to find out about the current sub-directory and default
 devices respectively.
 
---------------
-
-

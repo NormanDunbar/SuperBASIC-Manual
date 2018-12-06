@@ -25,8 +25,3 @@ BEWARE, if any errors occur, the value returned will be a negative QDOS error co
 
 :ref:`get-byte`, :ref:`get-long`, :ref:`get-string`, :ref:`get-word`.
 
-
--------
-
-
-

@@ -27,6 +27,3 @@ removed.
 
 See :ref:`hot-off` for further details.
 
---------------
-
-

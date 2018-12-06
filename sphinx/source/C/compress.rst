@@ -58,6 +58,3 @@ Screens which have been saved with
 
 See also :ref:`scr-store`.
 
---------------
-
-

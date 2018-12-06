@@ -16,6 +16,3 @@ format.
 
 See :ref:`cd-hsg2red` !
 
---------------
-
-

@@ -17,6 +17,3 @@ language.
 
 :ref:`true-pct`. See also :ref:`set` concerning user definable resident constants.
 
---------------
-
-

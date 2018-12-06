@@ -39,6 +39,3 @@ error 'Bad Parameter' (error -15).
 Please see :ref:`destd-dlr` and
 :ref:`spl-use`.
 
---------------
-
-

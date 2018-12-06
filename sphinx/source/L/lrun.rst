@@ -18,6 +18,3 @@ program is automatically RUN as soon as loading is complete.
 
 See :ref:`load`!
 
---------------
-
-

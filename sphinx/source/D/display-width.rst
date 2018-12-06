@@ -17,7 +17,3 @@ This function will return the exact number of bytes required to step from one li
 
 For the technically minded, the word at offset $64 in the SCR\_ or CON\_ channel's definition block is returned. This is called SD\_LINEL in 'Tebby Speak' and is mentioned in Jochen Merz's *QDOS Reference Manual* and the *QL Technical Manual* by Tony Tebby et al. Andrew Pennel's book, the *QDOS Companion* gets it wrong on page 61, guess which one I used first!
 
-
--------
-
-

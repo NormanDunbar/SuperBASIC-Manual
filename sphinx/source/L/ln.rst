@@ -43,6 +43,3 @@ numbers in base 10, :ref:`log10` provides logarithms
 in base 10 (common logarithms), and :ref:`log2`
 provides base 2 logarithms.
 
---------------
-
-

@@ -42,6 +42,3 @@ REDBOOK format to HSG Format.
 :ref:`cd-second` allow you to convert REDBOOK
 format into a more understandable form.
 
---------------
-
-

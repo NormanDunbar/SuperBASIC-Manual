@@ -21,6 +21,3 @@ clock.
 
 See :ref:`a-sdate`.
 
---------------
-
-

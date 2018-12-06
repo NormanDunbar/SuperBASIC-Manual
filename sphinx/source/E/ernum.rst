@@ -135,5 +135,3 @@ and :ref:`when--error` can be used to trap
 errors. The :ref:`err-xx` functions are
 alternatives to :ref:`ernum`.
 
---------------
-

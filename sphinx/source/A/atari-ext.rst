@@ -28,6 +28,3 @@ See :ref:`tk2-ext` and
 
 See also :ref:`snd-ext`.
 
---------------
-
-

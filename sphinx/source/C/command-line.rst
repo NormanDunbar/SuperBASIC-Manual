@@ -39,6 +39,3 @@ this file is used instead.
 
 See :ref:`type-in` for an example.
 
---------------
-
-

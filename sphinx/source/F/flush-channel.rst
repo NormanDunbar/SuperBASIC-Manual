@@ -24,7 +24,3 @@ This procedure  makes sure that all data written to the given channel number has
     1060   CLOSE #3
     1070 END DEFine
 
-
--------
-
-

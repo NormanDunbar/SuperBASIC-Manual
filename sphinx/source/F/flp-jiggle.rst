@@ -40,6 +40,3 @@ See :ref:`flp-step` and
 :ref:`flp-start` which overcome various other
 problems with some disk drives.
 
---------------
-
-

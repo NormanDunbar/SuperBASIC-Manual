@@ -55,6 +55,3 @@ work. This behaviour is pretty strange.
 :ref:`lbytes`, :ref:`sbytes`,
 :ref:`get`, :ref:`put`.
 
---------------
-
-

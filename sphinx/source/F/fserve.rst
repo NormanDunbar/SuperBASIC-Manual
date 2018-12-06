@@ -150,6 +150,3 @@ technical details. :ref:`sernet` and
 :ref:`midinet` create fileservers for other
 Networks supported by SMSQ/E and the Atari ST Emulators.
 
---------------
-
-

@@ -84,6 +84,3 @@ result is now in the range -PI/2...PI/2 instead of the usual 0...PI.
 :ref:`atn2` and :ref:`artanh`.
 Also please refer to the Mathematics section in the Appendix.
 
---------------
-
-

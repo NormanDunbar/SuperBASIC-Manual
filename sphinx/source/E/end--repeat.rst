@@ -58,6 +58,3 @@ are: :ref:`define--procedure`,
 :ref:`select--on`,\ :ref:`if`,
 :ref:`for`, and WHEN XXX.
 
---------------
-
-

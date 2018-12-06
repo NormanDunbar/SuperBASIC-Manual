@@ -64,6 +64,3 @@ Try the following for an interesting effect:
 Please refer to :ref:`ellipse` for further
 information on the ratio and ecc details.
 
---------------
-
-

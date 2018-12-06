@@ -32,6 +32,3 @@ inverted with :ref:`matinv` because the determinant
 
 This always fails at line 120 because :ref:`det`\ (m) = 0.
 
---------------
-
-

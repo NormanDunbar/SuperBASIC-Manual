@@ -42,6 +42,3 @@ once again.
 :ref:`respr` allocates areas of the resident
 procedure memory.
 
---------------
-
-

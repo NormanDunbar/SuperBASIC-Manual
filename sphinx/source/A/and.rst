@@ -44,6 +44,3 @@ produces the following output:
 :ref:`or`, :ref:`not` and
 :ref:`xor` are the other combination operators.
 
---------------
-
-

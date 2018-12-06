@@ -210,6 +210,3 @@ structures are :ref:`when--condition`,
 :ref:`define--function`,
 :ref:`repeat` and :ref:`for`.
 
---------------
-
-

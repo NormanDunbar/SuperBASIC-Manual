@@ -36,6 +36,3 @@ REDBOOK format addresses to HSG format.
 :ref:`cd-second` allow you to find out the
 hours, minutes and seconds referred to by a REDBOOK address.
 
---------------
-
-

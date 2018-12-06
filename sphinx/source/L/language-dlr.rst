@@ -28,6 +28,3 @@ international dialling code or the car registration code).
 the current keyboard. See also :ref:`language`
 and :ref:`lang-use`.
 
---------------
-
-

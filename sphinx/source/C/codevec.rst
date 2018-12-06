@@ -22,6 +22,3 @@ exist, then a 'Not Found' error is reported.
 See :ref:`key-add` and
 :ref:`elis`.
 
---------------
-
-

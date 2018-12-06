@@ -40,6 +40,3 @@ matrices. In all other cases the contents of array1 are not modified.
     120 MATTRN A%,B%: PRINT A%!\
     130 MATTRN B%,A%: PRINT B%!\
 
---------------
-
-

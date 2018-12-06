@@ -17,6 +17,3 @@ channels do not have to have a hash sign in front of them.
 :ref:`tconnect`
 and\ :ref:`qlink`
 
---------------
-
-

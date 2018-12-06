@@ -22,6 +22,3 @@ Other commands added are :ref:`adelete`,
 :ref:`acopy` and
 :ref:`aformat`.
 
---------------
-
-

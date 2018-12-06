@@ -40,6 +40,3 @@ COL will return meaningless data unless the screen is located at address
 
 :ref:`set` draws a screen pixel.
 
---------------
-
-

@@ -30,6 +30,3 @@ Equals 11111.
 :ref:`mkf-dlr`, :ref:`mkl-dlr`,
 :ref:`mks-dlr`
 
---------------
-
-

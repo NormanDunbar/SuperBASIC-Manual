@@ -21,6 +21,3 @@ See :ref:`fopen`,
 :ref:`tteopen` and
 :ref:`open-dir`.
 
---------------
-
-

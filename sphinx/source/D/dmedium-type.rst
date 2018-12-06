@@ -34,6 +34,3 @@ where it always returns 255.
 
 See :ref:`dmedium-name-dlr` for an example.
 
---------------
-
-

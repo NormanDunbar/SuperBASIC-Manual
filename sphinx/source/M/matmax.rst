@@ -26,6 +26,3 @@ A string array makes MATMAX hang the system.
 also :ref:`maximum` and
 :ref:`maximum-pct`.
 
---------------
-
-

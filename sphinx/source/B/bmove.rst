@@ -46,6 +46,3 @@ via :ref:`call` as an alternative to
 :ref:`copy-w` and
 :ref:`copy-l` also allow you to move memory.
 
---------------
-
-

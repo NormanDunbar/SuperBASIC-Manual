@@ -36,6 +36,3 @@ will set LPRINT$ to "2", LPRINT$ and LLIST will report the error.
 
 LLIST, LPRINT$.
 
---------------
-
-

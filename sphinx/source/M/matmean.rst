@@ -24,6 +24,3 @@ Avoid string parameters!
 
 See :ref:`matsum` for an example.
 
---------------
-
-

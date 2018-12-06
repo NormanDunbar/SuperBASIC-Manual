@@ -38,6 +38,3 @@ various system TRAP #3 calls.
 
 Also refer to the DIY Toolkit documentation for this command.
 
---------------
-
-

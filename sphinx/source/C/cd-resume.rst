@@ -24,6 +24,3 @@ currently playing.
 :ref:`cd-ispaused` allows you to check if the
 CD has been paused.
 
---------------
-
-

@@ -28,6 +28,3 @@ address registers - see this for an example of
 :ref:`mtrap`, :ref:`qtrap` and
 :ref:`btrap`.
 
---------------
-
-

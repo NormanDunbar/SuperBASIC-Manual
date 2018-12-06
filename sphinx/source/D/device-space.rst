@@ -71,6 +71,3 @@ See :ref:`fopen` and
 accessing directory devices. :ref:`devtype`
 finds out what type of device a channel is looking at.
 
---------------
-
-

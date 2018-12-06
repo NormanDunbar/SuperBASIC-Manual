@@ -43,6 +43,3 @@ dataspace has been set aside for a program. See
 directives. :ref:`turbo-objdat` is exactly
 the same.
 
---------------
-
-

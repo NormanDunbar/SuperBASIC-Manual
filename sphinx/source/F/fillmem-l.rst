@@ -36,8 +36,3 @@ The fastest is FILLMEM\_L and the slowest is :ref:`fillmem-b`. When you use :ref
 
 :ref:`fillmem-b`, :ref:`fillmem-w`.
 
-
--------
-
-
-

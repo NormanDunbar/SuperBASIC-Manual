@@ -22,6 +22,3 @@ set a higher priority, the scheduler will allocate more time to doing
 this and less time to running another job. IO\_PRIORITY 1is equivalent
 to the way in which the scheduler worked on the original QL ROM.
 
---------------
-
-

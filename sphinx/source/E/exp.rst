@@ -31,6 +31,3 @@ of 0 returns the value 1.
 :ref:`ln` returns the natural logarithm of the given
 value.
 
---------------
-
-

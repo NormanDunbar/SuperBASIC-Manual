@@ -411,6 +411,3 @@ automatic detection of the density. See
 The DMEDIUM_XXX functions, starting at :ref:`dmedium-density` return various details
 about how a medium has been formatted.
 
---------------
-
-

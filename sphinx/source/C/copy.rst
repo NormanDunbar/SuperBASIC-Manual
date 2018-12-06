@@ -150,6 +150,3 @@ multitasks).
 See :ref:`append` which is similar to the THOR
 variant.
 
---------------
-
-

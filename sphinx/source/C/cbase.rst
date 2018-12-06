@@ -32,6 +32,3 @@ WINCTRL instead of
 You can also use the `CHAN\_ <KeywordsC.clean.html#chan_>`\ xx functions to
 look at the channel definition block.
 
---------------
-
-

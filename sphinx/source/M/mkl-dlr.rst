@@ -18,6 +18,3 @@ integer number (which is stored as four bytes).
 :ref:`mki-dlr`, :ref:`mkf-dlr`,
 :ref:`mks-dlr`
 
---------------
-
-

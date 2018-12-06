@@ -18,6 +18,3 @@ full filename.
 See :ref:`gethead` (and
 :ref:`fgeth-dlr`)!
 
---------------
-
-

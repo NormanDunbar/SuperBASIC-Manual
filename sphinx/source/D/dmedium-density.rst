@@ -40,6 +40,3 @@ disk attached to the specified channel.
 :ref:`dmedium-rdonly` and
 :ref:`dmedium-format` are also useful.
 
---------------
-
-

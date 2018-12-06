@@ -112,6 +112,3 @@ device, and :ref:`spl-use`
 See also :ref:`dev-use` and
 :ref:`pth-add` for path search.
 
---------------
-
-

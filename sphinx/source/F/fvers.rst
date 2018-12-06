@@ -74,6 +74,3 @@ one.
 :ref:`set-fvers` allows you to set the version
 number.
 
---------------
-
-

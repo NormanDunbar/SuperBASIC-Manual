@@ -30,6 +30,3 @@ will show the following: Qram Yours Sincerely
 currently defined hotkeys, :ref:`hot-type`
 allows you to verify the type of hotkey defined.
 
---------------
-
-

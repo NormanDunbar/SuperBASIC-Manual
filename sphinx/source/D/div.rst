@@ -119,7 +119,3 @@ refuse to work!
 remainder of a division. Compare the other version of
 :ref:`div`.
 
---------------
-
-
-

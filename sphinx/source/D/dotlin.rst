@@ -46,6 +46,3 @@ DOTLIN with the periods 3, 5 and 10::
 
 All the warnings relevant to SET apply.
 
---------------
-
-

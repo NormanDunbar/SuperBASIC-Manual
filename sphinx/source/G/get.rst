@@ -105,6 +105,3 @@ See :ref:`put`, :ref:`bput`,
 :ref:`bget`, :ref:`lget`,
 :ref:`wget`.
 
---------------
-
-

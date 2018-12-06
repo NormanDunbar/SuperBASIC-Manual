@@ -69,6 +69,3 @@ saved using :ref:`sexec` or
 allows you to find out the length of a file,
 :ref:`ftyp` its file type.
 
---------------
-
-

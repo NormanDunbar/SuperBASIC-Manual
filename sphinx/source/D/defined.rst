@@ -37,6 +37,3 @@ This function does not work on SMS
 required to be printed. :ref:`type` returns 1, 2 or 3
 for undefined variables. See also :ref:`unset`.
 
---------------
-
-

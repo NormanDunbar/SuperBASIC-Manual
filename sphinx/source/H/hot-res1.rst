@@ -20,6 +20,3 @@ reason, the common heap will be used.
 See :ref:`hot-res` and
 :ref:`hot-chp1`.
 
---------------
-
-

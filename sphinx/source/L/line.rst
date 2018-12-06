@@ -67,6 +67,3 @@ On a MG ROM, you may find that the last point is not always plotted.
 :ref:`circle`, :ref:`arc`,
 :ref:`point` and :ref:`scale`.
 
---------------
-
-

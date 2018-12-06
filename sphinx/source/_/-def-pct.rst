@@ -32,6 +32,3 @@ error is reported.
 :ref:`codevec` returns the machine code base
 address of a Machine Code Procedure or Function.
 
---------------
-
-

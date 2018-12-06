@@ -18,6 +18,3 @@ is already being executed), this function will access the common heap.
 
 :ref:`hot-chp`.
 
---------------
-
-

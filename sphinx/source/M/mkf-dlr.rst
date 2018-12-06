@@ -18,6 +18,3 @@ of a floating point number (which is stored as six bytes).
 :ref:`mks-dlr`, :ref:`mkl-dlr`,
 :ref:`peek-f`, :ref:`poke-f`
 
---------------
-
-

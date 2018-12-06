@@ -30,6 +30,3 @@ MKF$ always returns a valid parameter for CVF which will not crash it.
 enable you to read and write floating point numbers in internal format
 to or from files.
 
---------------
-
-

@@ -23,6 +23,3 @@ reported.
 
 See :ref:`-def-pct`
 
---------------
-
-

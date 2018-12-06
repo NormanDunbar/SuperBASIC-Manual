@@ -28,8 +28,3 @@ The calculations to determine which form of move to be done adds a certain overh
 
     MOVE_MEM SCREEN_BASE(#0), SaveScreen_Addr, 32 \* 1024
 
-
--------
-
-
-

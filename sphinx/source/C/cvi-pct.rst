@@ -9,7 +9,7 @@ CVI%
 | Location |  BTool                                                            |
 +----------+-------------------------------------------------------------------+
 
-CVI% is the inverse function of MKI$ and expects a two character long
+CVI% is the inverse function of :ref:`mki-dlr` and expects a two character long
 string, being the internal representation of an integer, and then
 converts this into the actual integer number.
 
@@ -27,7 +27,4 @@ CVI%("QL")=20812
 :ref:`fget-pct` and :ref:`fput-pct`
 provide similar facilities for writing and reading integers in their
 internal format from files.
-
---------------
-
 

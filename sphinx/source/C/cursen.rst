@@ -43,6 +43,3 @@ cursors which are enabled, rather than just for the current Job.
 :ref:`keyrow` reads keys without an active cursor.
 See :ref:`curdis` also.
 
---------------
-
-

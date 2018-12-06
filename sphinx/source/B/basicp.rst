@@ -46,6 +46,3 @@ function.
 :ref:`basic-name-dlr` allow you to access the
 SuperBASIC name list safely.
 
---------------
-
-

@@ -52,6 +52,3 @@ command string. You also need v2.24+ to pass a job name.
 Thing. :ref:`thing` allows you to test if a Thing is
 present.
 
---------------
-
-

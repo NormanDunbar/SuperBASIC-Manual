@@ -36,6 +36,3 @@ are started up or removed from memory.
 See :ref:`basicp` and
 :ref:`basic-w`.
 
---------------
-
-

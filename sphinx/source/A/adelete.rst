@@ -27,6 +27,3 @@ See :ref:`adir`,
 :ref:`aformat`,
 :ref:`qaconvert`.
 
---------------
-
-

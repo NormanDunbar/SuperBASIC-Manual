@@ -47,6 +47,3 @@ respectively for a Multiple SBASIC or MultiBASIC interpreter, unless the
 name of the Interpreter has been altered. Refer
 to\ :ref:`job-name`.
 
---------------
-
-

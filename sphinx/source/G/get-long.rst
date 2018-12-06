@@ -24,8 +24,3 @@ BEWARE, the same problem with negatives & error codes applies here as well as :r
 
 :ref:`get-byte`, :ref:`get-float`, :ref:`get-string`, :ref:`get-word`.
 
-
--------
-
-
-

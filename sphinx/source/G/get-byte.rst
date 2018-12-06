@@ -25,7 +25,3 @@ BEWARE, :ref:`put-byte` can put negative values to file, for example -1 is put a
 
 :ref:`get-float`, :ref:`get-long`, :ref:`get-string`, :ref:`get-word`.
 
-
--------
-
-

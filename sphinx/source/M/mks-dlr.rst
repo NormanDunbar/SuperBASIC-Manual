@@ -29,6 +29,3 @@ returns the string CHR$(0)&CHR$(4).
 :ref:`cvs-dlr`, :ref:`mki-dlr`,
 :ref:`mkf-dlr`, :ref:`mkl-dlr`
 
---------------
-
-

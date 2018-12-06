@@ -19,7 +19,3 @@ WARNING - JM and AH ROMS will cause a 'Buffer overflow' error if more than 128 b
 
     LineOfBytes$ = FETCH_BYTES(#4, 256)
 
-
--------
-
-

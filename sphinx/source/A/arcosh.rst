@@ -28,6 +28,3 @@ See :ref:`acos`, :ref:`asin`,
 :ref:`arsinh` and
 :ref:`artanh`.
 
---------------
-
-

@@ -28,8 +28,3 @@ The file length is returned. The file may be open, in which case simply supply t
 
 :ref:`file-backup`, :ref:`file-dataspace`, :ref:`file-type`, :ref:`file-update`.
 
-
--------
-
-
-

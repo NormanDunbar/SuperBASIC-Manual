@@ -67,7 +67,3 @@ Note that if you type in a filename instead of a device name, the function will 
 
 :ref:`dj-open`, :ref:`dj-open-in`, :ref:`dj-open-new`, and :ref:`dj-open-over`.
 
-
--------
-
-

@@ -22,6 +22,3 @@ Compare :ref:`aqconvert` and
 :ref:`iformat` and
 :ref:`qcopy`.
 
---------------
-
-

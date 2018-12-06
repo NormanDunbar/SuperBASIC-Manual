@@ -128,6 +128,3 @@ stop SuperBASIC!!
 The paint colour of :ref:`fill` is specified by
 :ref:`ink`.
 
---------------
-
-

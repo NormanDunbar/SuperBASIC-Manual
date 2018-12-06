@@ -74,6 +74,3 @@ Compare :ref:`coth`.
 
 Also refer to the Mathematics section of the Appendix.
 
---------------
-
-

@@ -24,6 +24,3 @@ Again, be careful!
 :ref:`kjobs`. :ref:`kill-a`
 removes all jobs and clears the whole system for SuperBASIC.
 
---------------
-
-

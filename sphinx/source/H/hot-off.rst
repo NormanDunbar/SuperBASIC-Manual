@@ -49,6 +49,3 @@ will turn it back on.
 again. :ref:`hot-remv` will remove the hotkey
 definition for good.
 
---------------
-
-

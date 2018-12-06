@@ -41,6 +41,3 @@ either remove the Hotkey Job or crash the computer.
 See :ref:`hot-load1` and
 :ref:`hot-chp`.
 
---------------
-
-

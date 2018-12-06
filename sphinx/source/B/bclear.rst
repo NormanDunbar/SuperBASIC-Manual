@@ -57,6 +57,3 @@ that disk (y/n) ?"
 The current keyboard queue can be selected by a dummy
 :ref:`inkey-dlr` or :ref:`pend`.
 
---------------
-
-

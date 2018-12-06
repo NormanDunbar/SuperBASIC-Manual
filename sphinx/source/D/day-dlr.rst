@@ -53,6 +53,3 @@ the abbreviations used for the different days.
 after 1/1/1961) as a floating point number,
 :ref:`date-dlr` as a string.
 
---------------
-
-

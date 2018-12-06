@@ -23,6 +23,3 @@ LINKUP instead.
 
 See also :ref:`kill` which removes all current jobs.
 
---------------
-
-

@@ -68,6 +68,3 @@ sub-directory tree. :ref:`progd-dlr` returns the
 default program device. :ref:`dlist` prints all
 default devices.
 
---------------
-
-

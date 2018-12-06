@@ -62,6 +62,3 @@ Please also refer to :ref:`under`,
 :ref:`mode` resets the
 :ref:`flash` mode to off.
 
---------------
-
-

@@ -28,6 +28,3 @@ extent.
 :ref:`close-pct`, :ref:`jobs` and
 :ref:`chanid`
 
---------------
-
-

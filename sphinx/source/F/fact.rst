@@ -29,6 +29,3 @@ first letters, the FACT(3)=6 permutations of A, B and C are:
 
 :ref:`binom`
 
---------------
-
-

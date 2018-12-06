@@ -336,6 +336,3 @@ definition block. :ref:`paruse` and
 :ref:`partyp` allow you to examine the type of the
 parameters which are passed to the definition block.
 
---------------
-
-

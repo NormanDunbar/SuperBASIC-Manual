@@ -45,6 +45,3 @@ also :ref:`fserve` and
 :ref:`sernet`. See the Appendix on Networks for
 further details.
 
---------------
-
-

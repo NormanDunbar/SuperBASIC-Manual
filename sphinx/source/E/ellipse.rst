@@ -98,6 +98,3 @@ Please refer to :ref:`circle`,
 :ref:`ellipse-r`, :ref:`arc`,
 :ref:`line` and :ref:`point`.
 
---------------
-
-

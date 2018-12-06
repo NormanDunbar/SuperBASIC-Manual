@@ -50,6 +50,3 @@ input are for example: :ref:`input`,
 :ref:`inkey-dlr`, :ref:`ask` and
 :ref:`reply`.
 
---------------
-
-

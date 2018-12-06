@@ -55,6 +55,3 @@ Compare::
 :ref:`dmedium-name-dlr` allows you to find out
 the name of the disk in the specified drive.
 
---------------
-
-

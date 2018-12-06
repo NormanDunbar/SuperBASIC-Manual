@@ -17,6 +17,3 @@ of the QL ROM.
 See :ref:`ernum` and
 :ref:`erlin-pct`.
 
---------------
-
-

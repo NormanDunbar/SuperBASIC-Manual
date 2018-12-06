@@ -12,6 +12,3 @@ BLOOK
 See SEARCH but note the different syntax. The string being looked for by
 BLOOK is not case-sensitive.
 
---------------
-
-

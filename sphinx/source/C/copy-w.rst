@@ -30,6 +30,3 @@ See also :ref:`xchange`.
 Minerva has its own fast copy routines (see
 :ref:`call`).
 
---------------
-
-

@@ -25,6 +25,3 @@ Generates a dot if middle mouse button is pressed.
 
 Generates hotkey <Alt><.> which will activate whatever has been defined on that key combination.
 
---------------
-
-

@@ -24,6 +24,3 @@ out the total number of sectors available on the related medium.
 :ref:`dir` can also be used to obtain this
 information.
 
---------------
-
-

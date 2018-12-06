@@ -48,6 +48,3 @@ altered; and the PROC/FN Cleared message has not appeared.
 See :ref:`retry` and also
 :ref:`when--error`.
 
---------------
-
-

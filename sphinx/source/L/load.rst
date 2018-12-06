@@ -187,6 +187,3 @@ after loading. :ref:`merge` and
 :ref:`lbytes` allows you to load a section of
 memory.
 
---------------
-
-

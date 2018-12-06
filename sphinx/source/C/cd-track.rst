@@ -16,6 +16,3 @@ actually being played at present.
 
 :ref:`cd-play` plays specified tracks.
 
---------------
-
-

@@ -24,6 +24,3 @@ Compare :ref:`iqconvert` and
 See also :ref:`acopy` and
 :ref:`qcopy`.
 
---------------
-
-

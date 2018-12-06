@@ -21,6 +21,3 @@ any data to be read.
 See :ref:`eof`. :ref:`pend` and
 :ref:`io-pend-pct` are very similar.
 
---------------
-
-

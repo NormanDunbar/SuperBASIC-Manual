@@ -49,6 +49,3 @@ EPS does not recognise the higher precision used by Minerva. Minerva's
 higher precision may have an effect on fractals and similar esoteric
 calculations.
 
---------------
-
-

@@ -83,6 +83,3 @@ same as :ref:`save`.
 :ref:`edit`, and :ref:`renum` are
 other commands for dealing with a SuperBASIC program in memory.
 
---------------
-
-

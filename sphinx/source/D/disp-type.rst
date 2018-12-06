@@ -27,6 +27,3 @@ See :ref:`disp-inverse`.
 :ref:`processor` allow you to find out more
 about the hardware which a program is being run on.
 
---------------
-
-

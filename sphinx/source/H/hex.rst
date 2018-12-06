@@ -50,6 +50,3 @@ instead of::
 
     PRINT HEX ('1AB').
 
---------------
-
-

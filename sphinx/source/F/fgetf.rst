@@ -24,6 +24,3 @@ floating point, so be careful.
 :ref:`cvf` converts a string containing the internal
 format into a floating point number.
 
---------------
-
-

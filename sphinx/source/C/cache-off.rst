@@ -20,6 +20,3 @@ NETSEND).
 
 See :ref:`cache-on`.
 
---------------
-
-

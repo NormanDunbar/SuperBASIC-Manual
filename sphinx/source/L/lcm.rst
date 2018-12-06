@@ -31,6 +31,3 @@ multiple then simply multiply all the numbers, eg. 2\*3\*4=24.
 
 :ref:`gcd`
 
---------------
-
-

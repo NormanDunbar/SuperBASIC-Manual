@@ -15,6 +15,3 @@ your machine), when you plug it back in, you may find that the mouse
 buttons no longer work. This command re-initialises the keyboard driver
 so that the mouse buttons will work again!
 
---------------
-
-

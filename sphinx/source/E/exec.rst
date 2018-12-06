@@ -30,6 +30,3 @@ With Toolkit II installed or on a THOR XVI,
 are using the Hotkey System or SMS then
 see :ref:`exep` in this manual.
 
---------------
-
-

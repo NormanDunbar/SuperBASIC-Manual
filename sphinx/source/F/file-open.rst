@@ -63,6 +63,3 @@ Count additional keywords::
 :ref:`tconnect`. See also
 :ref:`chanid` and :ref:`ernum`.
 
---------------
-
-

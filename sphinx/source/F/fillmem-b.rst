@@ -15,8 +15,3 @@ Fill memory with a byte value. See :ref:`fillmem-l` below.
 
 :ref:`fillmem-l`, :ref:`fillmem-w`.
 
-
--------
-
-
-

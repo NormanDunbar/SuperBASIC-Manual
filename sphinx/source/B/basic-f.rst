@@ -33,6 +33,3 @@ Refer to :ref:`basic-b` and
 :ref:`basic-w`. :ref:`peek-f`
 is similar to :ref:`basic-f`.
 
---------------
-
-

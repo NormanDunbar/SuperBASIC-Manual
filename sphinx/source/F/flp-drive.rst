@@ -25,6 +25,3 @@ Now FLP2\_ is assigned to the floppy image FLOPPY.IMG on the host computer's C:\
 
 FLP2\_ is assigned to the physical B:\\ floppy drive of the host computer.
 
---------------
-
-

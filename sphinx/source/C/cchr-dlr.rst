@@ -19,8 +19,5 @@ PRINT CHR$(X DIV 256);CHR$(X MOD 256)
 **CROSS-REFERENCE**
 
 
-:ref:@\chr-dlr` can be used to print each character separately.
-
---------------
-
+:ref:`chr-dlr` can be used to print each character separately.
 

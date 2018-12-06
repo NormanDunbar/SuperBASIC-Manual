@@ -27,6 +27,3 @@ After an ABS\_POSITION command, all file accesses will take place at the new pos
 
 :ref:`move-position`.
 
--------
-
-

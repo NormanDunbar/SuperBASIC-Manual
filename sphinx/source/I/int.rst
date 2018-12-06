@@ -48,6 +48,3 @@ gives an overflow error.
 :ref:`ceil` is complementary to
 :ref:`int`.
 
---------------
-
-

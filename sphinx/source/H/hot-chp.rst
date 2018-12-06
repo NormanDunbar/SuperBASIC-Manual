@@ -87,6 +87,3 @@ program starts up more quickly. :ref:`hot-chp1`,
 :ref:`hot-load1` are similar. The hotkey will
 not be available until you enable the Hotkey System with HOT\_GO.
 
---------------
-
-

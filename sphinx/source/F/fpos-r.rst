@@ -11,6 +11,3 @@ FPOS\_R
 
 This is the same as :ref:`file-ptrr`.
 
---------------
-
-

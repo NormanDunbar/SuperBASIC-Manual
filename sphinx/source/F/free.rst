@@ -23,5 +23,3 @@ See also :ref:`free-mem` and :ref:`tpfree`.
 
 reserves the largest piece of memory available.
 
---------------
-

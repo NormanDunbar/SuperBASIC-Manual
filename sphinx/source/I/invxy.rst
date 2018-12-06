@@ -14,8 +14,5 @@ centre at (x%,y%). It is drawn with OVER -1 and uses the full screen.
 
 **WARNING**
 
-Do not use this!
-
---------------
-
+**Do not use this!**
 

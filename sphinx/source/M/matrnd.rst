@@ -53,6 +53,3 @@ and can possibly hang the machine.
 The random values chosen by :ref:`matrnd` can be
 influenced by :ref:`randomise`.
 
---------------
-
-

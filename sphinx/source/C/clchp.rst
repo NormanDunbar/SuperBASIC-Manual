@@ -25,6 +25,3 @@ Compare :ref:`reserve` and the Btool variant of
 :ref:`new` and :ref:`load` also
 release areas of the common heap.
 
---------------
-
-

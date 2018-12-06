@@ -57,6 +57,3 @@ allow you to open files safely.
 :ref:`dmedium-rdonly` can be used to find
 out if a disk is write protected.
 
---------------
-
-

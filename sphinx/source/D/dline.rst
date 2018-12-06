@@ -41,6 +41,3 @@ On Minerva pre v1.98, DLINE to the last line could crash the QL!
 you to enter lines. :ref:`list` allows you to view
 program lines.
 
---------------
-
-
