@@ -118,11 +118,10 @@ reported.
 :ref:`erlin` returns the line number on which the
 error occurred. :ref:`ernum` returns the error
 number itself. There are several functions in the form
-:ref:`err-...` which return 1 if the given error
+:ref:`err-xx` which return 1 if the given error
 has occurred. :ref:`break-off` allows you to
 turn the Break key off. :ref:`end--when` defines
 the end of the error handling block.
 
 --------------
-
 

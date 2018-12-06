@@ -1,7 +1,7 @@
-..  _err-...:
+..  _err-xx:
 
-ERR\_...
-========
+ERR\_XX
+=======
 
 +----------+-------------------------------------------------------------------+
 | Syntax   | ERR\_NC, ERR\_NJ, ERR\_OM, ERR\_OR, ERR\_BO, ERR\_NO, ERR\_NF,    |
@@ -70,7 +70,7 @@ These functions are not affected by REPORT.
 
 **NOTE 2**
 
-On Minerva pre v1.98, the ERR\_ functions were returning 1 if any higher
+On Minerva pre v1.98, the ERR\_XX functions were returning 1 if any higher
 error had occurred!!
 
 **WARNING**
@@ -84,5 +84,4 @@ Amiga-QL Emulator, TinyToolkit, and BTool fix this.
 See Appendix for other languages.
 
 --------------
-
 
