@@ -47,8 +47,5 @@ procedure PTH\_CLEAR::
 
 **CROSS-REFERENCE**
 
-The other :ref:`pth-...` keywords
-
---------------
-
+Other 'PTH_XXX' keywords starting at :ref:`pth-add`!
 

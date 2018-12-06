@@ -45,11 +45,7 @@ the RTP\_... functions are actually doing::
 
 **CROSS-REFERENCE**
 
-Polar co-ordinates also need an angle, this is calculated with
-:ref:`rtp-t`. The
-:ref:`ptr-...` pair of functions is complementary to
-:ref:`rtp-...`\ .
-
---------------
-
+Polar co-ordinates also need an angle, this is calculated with :ref:`rtp-t`.
+The :ref:`ptr-x` and :ref:`ptr-y` pair of functions are complementary to
+:ref:`rtp-r` and :ref:`rtp-t`\ .
 

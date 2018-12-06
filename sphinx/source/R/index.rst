@@ -53,7 +53,6 @@ Keywords R
     rom-ext.rst
     rom-load.rst
     roms.rst
-    rtp-....rst
     rtp-r.rst
     rtp-t.rst
     run.rst

@@ -97,7 +97,6 @@ Keywords P
     prt-clear.rst
     prt-use.rst
     prt-use-dlr.rst
-    pth-....rst
     pth-add.rst
     pth-list.rst
     pth-rmv.rst
@@ -112,7 +111,6 @@ Keywords P
     ptr-off.rst
     ptr-on.rst
     ptr-pos.rst
-    ptr-....rst
     ptr-x.rst
     ptr-y.rst
     purge.rst
