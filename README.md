@@ -15,6 +15,7 @@ A number of folders exist:
 - html - where the original html files from RWAP are saved in a zip file. These are kept for posterity, but are now unlikely to be of much use, except where some error is discovered in one of the converted files.
 - clean - where the cleaned up HTML files live. These files were used to create the original ReStructuredText source files. Again, these are of little use, and have been compressed.
 - errors - a list of the errors detected in the various conversions from HTML to ReStructuredText. Highly unlikely to be useful now, so compressed.
+- tools - some tools that were used to do the majority of the initial conversion. Most have been compressed out of the way as they are no longer required.
 
 - sphinx - where we do the building. Uses the `Makefile` found here. To generate output, `make html` or `make latexpdf` are best. For a bonus, `make epub` of `make text`.
 - sphinx/source - where the ReStructuredText files are kept. These are used to build stuff.
