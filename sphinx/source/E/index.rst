@@ -38,7 +38,7 @@ Keywords E
     erlin-pct.rst
     ernum.rst
     ernum-pct.rst
-    err-....rst
+    err-xx.rst
     error.rst
     ert.rst
     et.rst
