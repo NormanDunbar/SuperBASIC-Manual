@@ -1,66 +1,60 @@
 # SuperBASIC-Manual
-RWAP Software's Online SuperBASIC manual - for conversion purposes
+RWAP Software's Online SuperBASIC manual
 
-It is not expected that many people will fork this repository. It exists purely as a home
-for the working files etc that I create and use when I'm in the process of converting from
-badly created (by a computer!) HTML to ReStructuredText (all one word it seems!) so that I
-can create a nicer looking documentation system in HTML, ePub, pdf etc.
+The old manual that Rich Mellor created has been converted to a new format, and now lives at:
 
-## The Workflow
-The following is a rough version of the nightmare that I went through, repeatedly, to get to where we are today!
+[https://superbasic-manual.readthedocs.io/en/latest/](https://superbasic-manual.readthedocs.io/en/latest/ "SuperBASIC Online Manual").
 
-````
-Begin Outer Loop
-   Exit Outer Loop when no more (original HTML) files remain.
-   `git checkout working` to ensure we are on the working branch.
-   `wget` the next HTML file from RWAP.
-   
-   Begin Inner Loop
-     Run `Process.sh` against the HTML.
-     If file is clean, or only has warnings, exit Inner Loop.
-     Manually (yuk) correct *every* error and *some* warnings.
-   End Inner Loop
-   
-   Trim off the navigation stuff from each HTML page. We only want the main div contents.
-   Carry out some additional `sed` processing on the cleaned file.
-   Convert the clean file to ReStructuredText using `Pandoc`.
-   `git add` the various files - html, clean, errors, source - to the (working) repository.
-   Add the new source file to the index.rst file, which defines the structure.
-   `make clean` or the new file won't appear in the TOC.  
-   Add a Keywords xxx Section heading to the source file.
-   
-   Repeat Edit Loop
-     `make html` to test the build with the current file.
-     View the HTML generated in a browser.
-     If all ok and finished with this file, exit Edit Loop.
-     Manually do some (more) editing to tidy up the generated source text.
-   End Repeat Edit Loop  
-   
-   `make html` to create a nice HTML version of the completed file(s).
-   `git add --all` to add all the finished files to the (working) repository.
-   `git push` to push them to GitHub. This forces a build of the 'working' docs on ReadTheDocs.
-   `git checkout master` to checkout the main clean master repository.
-   `git merge working` to merge recent changes.
-   `git push` to update GitHub and force a 'latest' build on ReadTheDocs.
-End Outer Loop.
-````
 
-````
-Begin Tidy Loop
-   `make linkcheck`
-   Attempt to locate invalid links, and correct them.
-   Tidy up any tables etc that look like they need it.
-End Tidy Loop
-````
+This repository is a working one whereby any changes to the manual are done, tested and committed. Once committed, a new build of the docs will take place over at ReadTheDocs, and the changes will be made publicly available.
+
 
 ## Folders
 A number of folders exist:
 
-- html - where the original html files are saved. Can be used to `diff` to check if changes are necessary. These are the files as downloaded from RWAPs web site.
-- clean - where the cleaned files live. Clean files are assumed to have survived the `Process.sh` execution, and have had quite a lot of problems automatically resolved. There will still be much to do though. These files are used to create the ReStructuredText source files.
-- sphinx - where we do the building. Uses the `Makefile` found here.
+- html - where the original html files from RWAP are saved in a zip file. These are kept for posterity, but are now unlikely to be of much use, except where some error is discovered in one of the converted files.
+- clean - where the cleaned up HTML files live. These files were used to create the original ReStructuredText source files. Again, these are of little use, and have been compressed.
+- errors - a list of the errors detected in the various conversions from HTML to ReStructuredText. Highly unlikely to be useful now, so compressed.
+
+- sphinx - where we do the building. Uses the `Makefile` found here. To generate output, `make html` or `make latexpdf` are best. For a bonus, `make epub` of `make text`.
 - sphinx/source - where the ReStructuredText files are kept. These are used to build stuff.
 - sphinx/build/html - where the html files, created by Sphinx's `make html` command, will be found.
 - sphinx/build/latex - where the latex and/or PDF files, created by Sphinx's `make latex` or `make latexpdf`, will be found.
 - sphinx/build/linkcheck - where the html files, created by Sphinx's `make linkcheck`, will be found. These are used to assist in checking that links, internal and external, work ok.
-- sphinx/build/doctrees - don't worry about this. Internal usage only. Don't edit any files here.
+- sphinx/build/doctrees - don't worry about this. Internal usage only. Don't edit any files here. (They are binary files anyway, so you can't!)
+
+
+## Structure
+The source files live in a separate ReStructuredText for each individual keyword, where the folder they live in is based on the first letter, upper cased, of the keyword. So `DJTK_VER$` lives in the `D` folder beneath `sphinx/source`. There are folders for 'A' to 'Z' and one for those few keywords with a leading underscore, they like in a folder named '_'. Weird but true.
+
+The actual file names are not always the same as the keyword:
+
+- Everything is lower cased; `DJTK_VER$` => `djtk_ver$`.
+- Underscores are converted to hyphens; `djtk_ver$` => `djtk-ver$`.
+- '%' is converted to '-pct';
+- '$' is converted to '-dlr'; `djtk-ver$` => `djtk-ver-dlr`.
+- Any spaces (such as `SELECT ON`) get converted to double hyphens.
+- Finally, an `.rst` extension is added. => `djtk-ver-dlr.rst`.
+
+The file name is exactly the same as the ReStructuredText label (for cross reference links) for the keyword in question. Doing it this way should prevent problems on systems where the percent and/or dollar etc are not permitted in file names.
+
+
+## Updating the Manual
+- Clone the source from git;
+- Checkout the working branch;
+- Do your changes;
+- Clean - `cd sphinx` followed by `make clean`;
+- Build HTML - `make html` - check output for errors about invalid links etc, fix and rebuild (no need to clean);
+- Check generated HTML. Fix and rebuild as necessary;
+- Build PDF - `make latexpdf`. There will be lots of output. Difficult to find errors;
+- Check generated PDF. Fix and rebuild (HTML as well) as necessary;
+- Commit to working branch;
+- `git push` back to reporitory;
+- Checkout master branch;
+- `git merge working`;
+- `git push` back to repository;
+- If you are *not* Norman (that's me!) then raise a pull request. I'll then merge that with the main repository, mine, and that will trigger a rebuild of the docs online for everyone to see.
+
+**We do not break the master branch!**
+
+That's about it.
