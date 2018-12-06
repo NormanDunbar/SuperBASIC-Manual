@@ -2,6 +2,7 @@
 Keywords A
 ==========
 
+.. toctree::
 
     abs.rst
     abs-position.rst

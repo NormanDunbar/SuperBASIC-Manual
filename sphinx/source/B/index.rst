@@ -2,6 +2,7 @@
 Keywords B
 ==========
 
+.. toctree::
 
 basic.rst
 basicp.rst

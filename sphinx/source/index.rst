@@ -11,61 +11,61 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
-   Foreword                                  <Foreword.clean>
-   Introduction                              <Introduction.clean>
-   Credits                                   <Credits.clean>
-   Structure                                 <Structure.clean>
-   Writing Programs                          <WritingPrograms.clean>
+   Foreword                                  <FrontMatter/Foreword.rst>
+   Introduction                              <FrontMatter/Introduction.rst>
+   Credits                                   <FrontMatter/Credits.rst>
+   Structure                                 <FrontMatter/Structure.rst>
+   Writing Programs                          <FrontMatter/WritingPrograms.rst>
+   Keywords Introduction                     <FrontMatter/KeywordsIntro.rst>
 
-   Keywords Introduction                     <KeywordsIntro>
-   Keywords A                                <KeywordsA.clean>
-   Keywords B                                <KeywordsB.clean>
-   Keywords C                                <KeywordsC.clean>
-   Keywords D                                <KeywordsD.clean>
-   Keywords E                                <KeywordsE.clean>
-   Keywords F                                <KeywordsF.clean>
-   Keywords G                                <KeywordsG.clean>
-   Keywords H                                <KeywordsH.clean>
-   Keywords I                                <KeywordsI.clean>
-   Keywords J                                <KeywordsJ.clean>
-   Keywords K                                <KeywordsK.clean>
-   Keywords L                                <KeywordsL.clean>
-   Keywords M                                <KeywordsM.clean>
-   Keywords N                                <KeywordsN.clean>
-   Keywords O                                <KeywordsO.clean>
-   Keywords P                                <KeywordsP.clean>
-   Keywords Q                                <KeywordsQ.clean>
-   Keywords R                                <KeywordsR.clean>
-   Keywords S                                <KeywordsS.clean>
-   Keywords T                                <KeywordsT.clean>
-   Keywords U                                <KeywordsU.clean>
-   Keywords V                                <KeywordsV.clean>
-   Keywords W                                <KeywordsW.clean>
-   Keywords X                                <KeywordsX.clean>
-   Keywords Y                                <KeywordsY.clean>
-   Keywords Z                                <KeywordsZ.clean>
-   Keywords Other                            <Keywords_.clean>
+   Keywords A                                <A/index.rst>
+   Keywords B                                <B/index.rst>
+   Keywords C                                <C/index.rst>
+   Keywords D                                <D/index.rst>
+   Keywords E                                <E/index.rst>
+   Keywords F                                <F/index.rst>
+   Keywords G                                <G/index.rst>
+   Keywords H                                <H/index.rst>
+   Keywords I                                <I/index.rst>
+   Keywords J                                <J/index.rst>
+   Keywords K                                <K/index.rst>
+   Keywords L                                <L/index.rst>
+   Keywords M                                <M/index.rst>
+   Keywords N                                <N/index.rst>
+   Keywords O                                <O/index.rst>
+   Keywords P                                <P/index.rst>
+   Keywords Q                                <Q/index.rst>
+   Keywords R                                <R/index.rst>
+   Keywords S                                <S/index.rst>
+   Keywords T                                <T/index.rst>
+   Keywords U                                <U/index.rst>
+   Keywords V                                <V/index.rst>
+   Keywords W                                <W/index.rst>
+   Keywords X                                <X/index.rst>
+   Keywords Y                                <Y/index.rst>
+   Keywords Z                                <Z/index.rst>
+   Keywords Other                            <_/index.rst>
 
 
-   Appendices Introduction                   <AppendicesIntro.clean>
-   A1. Minerva                               <Appendix01.clean>
-   A2. SMSQ/E                                <Appendix02.clean>
-   A3. Emulators                             <Appendix03.clean>
-   A4. Thor Computers                        <Appendix04.clean>
-   A5. Expansion Boards                      <Appendix05.clean>
-   A6. Compatibility                         <Appendix06.clean>
-   A7. Multiple Basics                       <Appendix07.clean>
-   A8. Error Messages                        <Appendix08.clean>
-   A9. Character Set, Keyboards              <Appendix09.clean>
-   A10. Designing New Character Sets (Fonts) <Appendix10.clean>
-   A11. Mathematics                          <Appendix11.clean>
-   A12. Device Drivers                       <Appendix12.clean>
-   A13. Extended Pointer Environment         <Appendix13.clean>
-   A14. Coercion                             <Appendix14.clean>
-   A15. Mouse Drivers                        <Appendix15.clean>
-   A16. The QL Display                       <Appendix16.clean>
-   A17. Networks                             <Appendix17.clean>
-   A18. Configuring Programs                 <Appendix18.clean>
+   Appendices Introduction                   <Appendices/AppendicesIntro.rst>
+   A1. Minerva                               <Appendices/Appendix01.rst>
+   A2. SMSQ/E                                <Appendices/Appendix02.rst>
+   A3. Emulators                             <Appendices/Appendix03.rst>
+   A4. Thor Computers                        <Appendices/Appendix04.rst>
+   A5. Expansion Boards                      <Appendices/Appendix05.rst>
+   A6. Compatibility                         <Appendices/Appendix06.rst>
+   A7. Multiple Basics                       <Appendices/Appendix07.rst>
+   A8. Error Messages                        <Appendices/Appendix08.rst>
+   A9. Character Set, Keyboards              <Appendices/Appendix09.rst>
+   A10. Designing New Character Sets (Fonts) <Appendices/Appendix10.rst>
+   A11. Mathematics                          <Appendices/Appendix11.rst>
+   A12. Device Drivers                       <Appendices/Appendix12.rst>
+   A13. Extended Pointer Environment         <Appendices/Appendix13.rst>
+   A14. Coercion                             <Appendices/Appendix14.rst>
+   A15. Mouse Drivers                        <Appendices/Appendix15.rst>
+   A16. The QL Display                       <Appendices/Appendix16.rst>
+   A17. Networks                             <Appendices/Appendix17.rst>
+   A18. Configuring Programs                 <Appendices/Appendix18.rst>
 
 
 .. Indices and tables
