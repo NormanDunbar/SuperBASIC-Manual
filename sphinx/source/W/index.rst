@@ -3,46 +3,48 @@ Keywords W
 ==========
 
 
-wait-event.rst
-wbase.rst
-wcopy.rst
-wcopy-f.rst
-wcopy-o.rst
-wdel.rst
-wdel-f.rst
-wdir.rst
-wget.rst
-when--condition.rst
-when--error.rst
-where-fonts.rst
-width.rst
-window.rst
-winf-dlr.rst
-win2.rst
-win-base.rst
-win-drive.rst
-win-drive-dlr.rst
-win-format.rst
-win-remv.rst
-win-slug.rst
-win-start.rst
-win-stop.rst
-win-use.rst
-win-wp.rst
-wipe.rst
-wld.rst
-wm.rst
-wman-dlr.rst
-wmon.rst
-wmov.rst
-wput.rst
-wren.rst
-wset.rst
-wset-def.rst
-wstat.rst
-wtv.rst
-w-crunch.rst
-w-show.rst
-w-store.rst
-w-swap.rst
-w-swop.rst
+..  toctree::
+
+    wait-event.rst
+    wbase.rst
+    wcopy.rst
+    wcopy-f.rst
+    wcopy-o.rst
+    wdel.rst
+    wdel-f.rst
+    wdir.rst
+    wget.rst
+    when--condition.rst
+    when--error.rst
+    where-fonts.rst
+    width.rst
+    window.rst
+    winf-dlr.rst
+    win2.rst
+    win-base.rst
+    win-drive.rst
+    win-drive-dlr.rst
+    win-format.rst
+    win-remv.rst
+    win-slug.rst
+    win-start.rst
+    win-stop.rst
+    win-use.rst
+    win-wp.rst
+    wipe.rst
+    wld.rst
+    wm.rst
+    wman-dlr.rst
+    wmon.rst
+    wmov.rst
+    wput.rst
+    wren.rst
+    wset.rst
+    wset-def.rst
+    wstat.rst
+    wtv.rst
+    w-crunch.rst
+    w-show.rst
+    w-store.rst
+    w-swap.rst
+    w-swop.rst

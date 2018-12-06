@@ -3,88 +3,90 @@ Keywords F
 ==========
 
 
-fact.rst
-false-pct.rst
-fastexpand.rst
-fbkdt.rst
-fdat.rst
-fdec-dlr.rst
-fetch-bytes.rst
-fexp-dlr.rst
-ff.rst
-fget-pct.rst
-fget-dlr.rst
-fgetb.rst
-fgetl.rst
-fgetf.rst
-fgeth-dlr.rst
-file-backup.rst
-file-dat.rst
-file-dataspace.rst
-file-len.rst
-file-length.rst
-file-open.rst
-file-pos.rst
-file-position.rst
-file-ptra.rst
-file-ptrr.rst
-file-type.rst
-file-update.rst
-fill.rst
-fill-dlr.rst
-fillmem-b.rst
-fillmem-w.rst
-fillmem-l.rst
-find.rst
-flash.rst
-flen.rst
-flis.rst
-flp-density.rst
-flp-drive.rst
-flp-drive-dlr.rst
-flp-ext.rst
-flp-jiggle.rst
-flp-sec.rst
-flp-start.rst
-flp-step.rst
-flp-track.rst
-flp-use.rst
-flush.rst
-flush-channel.rst
-fmake-dir.rst
-fname-dlr.rst
-fopen.rst
-fop-dir.rst
-fop-in.rst
-fop-new.rst
-fop-over.rst
-for.rst
-force-type.rst
-format.rst
-fpos.rst
-fpos-a.rst
-fpos-r.rst
-fput-dlr.rst
-fput-pct.rst
-fputb.rst
-fputf.rst
-fputl.rst
-fract.rst
-fread.rst
-fread-dlr.rst
-free.rst
-free-fast.rst
-free-mem.rst
-freeze.rst
-freeze-pct.rst
-fserve.rst
-fseth-dlr.rst
-ftest.rst
-ftyp.rst
-function.rst
-fupdt.rst
-fvers.rst
-fwrite.rst
-fwrite-dlr.rst
-fxtra.rst
+.. toctree::
+
+    fact.rst
+    false-pct.rst
+    fastexpand.rst
+    fbkdt.rst
+    fdat.rst
+    fdec-dlr.rst
+    fetch-bytes.rst
+    fexp-dlr.rst
+    ff.rst
+    fget-pct.rst
+    fget-dlr.rst
+    fgetb.rst
+    fgetl.rst
+    fgetf.rst
+    fgeth-dlr.rst
+    file-backup.rst
+    file-dat.rst
+    file-dataspace.rst
+    file-len.rst
+    file-length.rst
+    file-open.rst
+    file-pos.rst
+    file-position.rst
+    file-ptra.rst
+    file-ptrr.rst
+    file-type.rst
+    file-update.rst
+    fill.rst
+    fill-dlr.rst
+    fillmem-b.rst
+    fillmem-w.rst
+    fillmem-l.rst
+    find.rst
+    flash.rst
+    flen.rst
+    flis.rst
+    flp-density.rst
+    flp-drive.rst
+    flp-drive-dlr.rst
+    flp-ext.rst
+    flp-jiggle.rst
+    flp-sec.rst
+    flp-start.rst
+    flp-step.rst
+    flp-track.rst
+    flp-use.rst
+    flush.rst
+    flush-channel.rst
+    fmake-dir.rst
+    fname-dlr.rst
+    fopen.rst
+    fop-dir.rst
+    fop-in.rst
+    fop-new.rst
+    fop-over.rst
+    for.rst
+    force-type.rst
+    format.rst
+    fpos.rst
+    fpos-a.rst
+    fpos-r.rst
+    fput-dlr.rst
+    fput-pct.rst
+    fputb.rst
+    fputf.rst
+    fputl.rst
+    fract.rst
+    fread.rst
+    fread-dlr.rst
+    free.rst
+    free-fast.rst
+    free-mem.rst
+    freeze.rst
+    freeze-pct.rst
+    fserve.rst
+    fseth-dlr.rst
+    ftest.rst
+    ftyp.rst
+    function.rst
+    fupdt.rst
+    fvers.rst
+    fwrite.rst
+    fwrite-dlr.rst
+    fxtra.rst
 

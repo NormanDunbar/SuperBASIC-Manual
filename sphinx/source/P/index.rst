@@ -3,125 +3,127 @@ Keywords P
 ==========
 
 
-pagdis.rst
-paglen.rst
-paglin.rst
-paint.rst
-palette-ql.rst
-palette-8.rst
-pan.rst
-paper.rst
-parhash.rst
-parnam-dlr.rst
-parname-dlr.rst
-parsepa.rst
-parstr-dlr.rst
-partyp.rst
-partype.rst
-paruse.rst
-par-abort.rst
-par-buff.rst
-par-clear.rst
-par-defaultprinter-dlr.rst
-par-getfilter.rst
-par-getprinter-dlr.rst
-par-printercount.rst
-par-printername-dlr.rst
-par-pulse.rst
-par-setfilter.rst
-par-setprinter.rst
-par-use.rst
-pause.rst
-peek.rst
-peek-float.rst
-peek-string.rst
-peek-w.rst
-peek-l.rst
-peeks.rst
-peeks-w.rst
-peeks-l.rst
-peek-dlr.rst
-peek-f.rst
-pend.rst
-pendown.rst
-penup.rst
-peoff.rst
-peon.rst
-pex-dlr.rst
-pex-ini.rst
-pex-save.rst
-pex-xtd.rst
-phonem.rst
-pi.rst
-pick-dlr.rst
-pick-pct.rst
-pie-ex-off.rst
-pie-ex-on.rst
-pie-off.rst
-pie-on.rst
-pif-dlr.rst
-pinf-dlr.rst
-pixel-pct.rst
-pjob.rst
-play.rst
-plot.rst
-point.rst
-point-r.rst
-poke.rst
-poke-float.rst
-poke-string.rst
-poke-w.rst
-poke-l.rst
-pokes.rst
-pokes-w.rst
-pokes-l.rst
-poke-dlr.rst
-poke-f.rst
-print.rst
-print-using.rst
-prio.rst
-prioritise.rst
-pro.rst
-processor.rst
-procedure.rst
-progd-dlr.rst
-prog-use.rst
-prot-date.rst
-prot-mem.rst
-pround.rst
-prt-abort.rst
-prt-abt.rst
-prt-buff.rst
-prt-clear.rst
-prt-use.rst
-prt-use-dlr.rst
-pth-....rst
-pth-add.rst
-pth-list.rst
-pth-rmv.rst
-pth-use.rst
-pth-use-dlr.rst
-pth-dlr.rst
-ptr-fn-pct.rst
-ptr-inc.rst
-ptr-key.rst
-ptr-limits.rst
-ptr-max.rst
-ptr-off.rst
-ptr-on.rst
-ptr-pos.rst
-ptr-....rst
-ptr-x.rst
-ptr-y.rst
-purge.rst
-put.rst
-put-byte.rst
-put-float.rst
-put-long.rst
-put-string.rst
-put-word.rst
-pxoff.rst
-pxon.rst
-px1st.rst
-p-env.rst
+.. toctree::
+
+    pagdis.rst
+    paglen.rst
+    paglin.rst
+    paint.rst
+    palette-ql.rst
+    palette-8.rst
+    pan.rst
+    paper.rst
+    parhash.rst
+    parnam-dlr.rst
+    parname-dlr.rst
+    parsepa.rst
+    parstr-dlr.rst
+    partyp.rst
+    partype.rst
+    paruse.rst
+    par-abort.rst
+    par-buff.rst
+    par-clear.rst
+    par-defaultprinter-dlr.rst
+    par-getfilter.rst
+    par-getprinter-dlr.rst
+    par-printercount.rst
+    par-printername-dlr.rst
+    par-pulse.rst
+    par-setfilter.rst
+    par-setprinter.rst
+    par-use.rst
+    pause.rst
+    peek.rst
+    peek-float.rst
+    peek-string.rst
+    peek-w.rst
+    peek-l.rst
+    peeks.rst
+    peeks-w.rst
+    peeks-l.rst
+    peek-dlr.rst
+    peek-f.rst
+    pend.rst
+    pendown.rst
+    penup.rst
+    peoff.rst
+    peon.rst
+    pex-dlr.rst
+    pex-ini.rst
+    pex-save.rst
+    pex-xtd.rst
+    phonem.rst
+    pi.rst
+    pick-dlr.rst
+    pick-pct.rst
+    pie-ex-off.rst
+    pie-ex-on.rst
+    pie-off.rst
+    pie-on.rst
+    pif-dlr.rst
+    pinf-dlr.rst
+    pixel-pct.rst
+    pjob.rst
+    play.rst
+    plot.rst
+    point.rst
+    point-r.rst
+    poke.rst
+    poke-float.rst
+    poke-string.rst
+    poke-w.rst
+    poke-l.rst
+    pokes.rst
+    pokes-w.rst
+    pokes-l.rst
+    poke-dlr.rst
+    poke-f.rst
+    print.rst
+    print-using.rst
+    prio.rst
+    prioritise.rst
+    pro.rst
+    processor.rst
+    procedure.rst
+    progd-dlr.rst
+    prog-use.rst
+    prot-date.rst
+    prot-mem.rst
+    pround.rst
+    prt-abort.rst
+    prt-abt.rst
+    prt-buff.rst
+    prt-clear.rst
+    prt-use.rst
+    prt-use-dlr.rst
+    pth-....rst
+    pth-add.rst
+    pth-list.rst
+    pth-rmv.rst
+    pth-use.rst
+    pth-use-dlr.rst
+    pth-dlr.rst
+    ptr-fn-pct.rst
+    ptr-inc.rst
+    ptr-key.rst
+    ptr-limits.rst
+    ptr-max.rst
+    ptr-off.rst
+    ptr-on.rst
+    ptr-pos.rst
+    ptr-....rst
+    ptr-x.rst
+    ptr-y.rst
+    purge.rst
+    put.rst
+    put-byte.rst
+    put-float.rst
+    put-long.rst
+    put-string.rst
+    put-word.rst
+    pxoff.rst
+    pxon.rst
+    px1st.rst
+    p-env.rst
 

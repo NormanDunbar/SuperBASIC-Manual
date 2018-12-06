@@ -3,83 +3,85 @@ Keywords D
 ==========
 
 
-data.rst
-datad-dlr.rst
-datareg.rst
-dataspace.rst
-data-area.rst
-data-use.rst
-date.rst
-date-dlr.rst
-day-dlr.rst
-dbl.rst
-ddown.rst
-deallocate.rst
-debug.rst
-debug-level.rst
-default.rst
-default-pct.rst
-default-dlr.rst
-default-device.rst
-default-scr.rst
-define--xxx.rst
-define--function.rst
-define--procedure.rst
-defined.rst
-deg.rst
-delete.rst
-del-defb.rst
-despr.rst
-destd-dlr.rst
-dest-use.rst
-demo.rst
-det.rst
-dev-name.rst
-device-space.rst
-device-status.rst
-devlist.rst
-devtype.rst
-dev-list.rst
-dev-next.rst
-dev-use.rst
-dev-usen.rst
-dev-use-dlr.rst
-dim.rst
-dimn.rst
-dir.rst
-discard.rst
-disp-blank.rst
-disp-inverse.rst
-disp-rate.rst
-disp-size.rst
-disp-type.rst
-disp-update.rst
-display-width.rst
-div.rst
-dj-open.rst
-dj-open-in.rst
-dj-open-new.rst
-dj-open-over.rst
-dj-open-dir.rst
-djtk-ver-dlr.rst
-dline.rst
-dlist.rst
-dmedium-density.rst
-dmedium-drive-dlr.rst
-dmedium-format.rst
-dmedium-free.rst
-dmedium-name-dlr.rst
-dmedium-rdonly.rst
-dmedium-remove.rst
-dmedium-total.rst
-dmedium-type.rst
-dnext.rst
-do.rst
-dos-use.rst
-dos-drive.rst
-dos-drive-dlr.rst
-dotlin.rst
-draw.rst
-dround.rst
-dup.rst
+.. toctree::
+
+    data.rst
+    datad-dlr.rst
+    datareg.rst
+    dataspace.rst
+    data-area.rst
+    data-use.rst
+    date.rst
+    date-dlr.rst
+    day-dlr.rst
+    dbl.rst
+    ddown.rst
+    deallocate.rst
+    debug.rst
+    debug-level.rst
+    default.rst
+    default-pct.rst
+    default-dlr.rst
+    default-device.rst
+    default-scr.rst
+    define--xxx.rst
+    define--function.rst
+    define--procedure.rst
+    defined.rst
+    deg.rst
+    delete.rst
+    del-defb.rst
+    despr.rst
+    destd-dlr.rst
+    dest-use.rst
+    demo.rst
+    det.rst
+    dev-name.rst
+    device-space.rst
+    device-status.rst
+    devlist.rst
+    devtype.rst
+    dev-list.rst
+    dev-next.rst
+    dev-use.rst
+    dev-usen.rst
+    dev-use-dlr.rst
+    dim.rst
+    dimn.rst
+    dir.rst
+    discard.rst
+    disp-blank.rst
+    disp-inverse.rst
+    disp-rate.rst
+    disp-size.rst
+    disp-type.rst
+    disp-update.rst
+    display-width.rst
+    div.rst
+    dj-open.rst
+    dj-open-in.rst
+    dj-open-new.rst
+    dj-open-over.rst
+    dj-open-dir.rst
+    djtk-ver-dlr.rst
+    dline.rst
+    dlist.rst
+    dmedium-density.rst
+    dmedium-drive-dlr.rst
+    dmedium-format.rst
+    dmedium-free.rst
+    dmedium-name-dlr.rst
+    dmedium-rdonly.rst
+    dmedium-remove.rst
+    dmedium-total.rst
+    dmedium-type.rst
+    dnext.rst
+    do.rst
+    dos-use.rst
+    dos-drive.rst
+    dos-drive-dlr.rst
+    dotlin.rst
+    draw.rst
+    dround.rst
+    dup.rst
 
