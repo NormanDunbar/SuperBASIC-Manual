@@ -12,3 +12,4 @@ tools/preHTMLTidy
 *.save
 sphinx/build/*
 tools/*/*.exe
+tools/OSBMSplitter/obj
