@@ -165,6 +165,3 @@ altered the orientation of the display to the following diagram::
 :ref:`line` and :ref:`point` all
 rely on the current :ref:`scale`.
 
---------------
-
-

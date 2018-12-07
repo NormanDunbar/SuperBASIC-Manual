@@ -46,7 +46,3 @@ for a pulse is affected by :ref:`netrate`\ 0,0,x. See
 network ports. Also see
 :ref:`netrate`,\ :ref:`netread`
 and\ :ref:`netsend`.
-
---------------
-
-

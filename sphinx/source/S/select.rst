@@ -17,6 +17,3 @@ the error 'Bad Name' will be generated.
 
 Please see :ref:`select--on`!
 
---------------
-
-

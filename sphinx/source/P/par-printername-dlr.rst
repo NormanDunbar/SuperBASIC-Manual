@@ -11,6 +11,3 @@ PAR\_PRINTERNAME$
 
 This returns the name of printer number n (counted from 1 to :ref:`par-printercount`\ ).
 
---------------
-
-

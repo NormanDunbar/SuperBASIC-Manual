@@ -16,6 +16,3 @@ This command removes the Serial Mouse Driver.
 :ref:`sermon` will reactivate the Driver. Compare
 :ref:`sermwait`
 
---------------
-
-

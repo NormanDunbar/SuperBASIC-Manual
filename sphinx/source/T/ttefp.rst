@@ -46,6 +46,3 @@ this::
 
 :ref:`check-pct`, :ref:`checkf`.
 
---------------
-
-

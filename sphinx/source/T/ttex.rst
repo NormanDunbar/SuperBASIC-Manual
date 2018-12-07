@@ -17,6 +17,3 @@ channel passing are not supported.
 
 See :ref:`ttex-w` and :ref:`ex`.
 
---------------
-
-

@@ -17,6 +17,3 @@ for use with printers.
 
 See :ref:`spl`.
 
---------------
-
-

@@ -16,6 +16,3 @@ structure. It has no use on its own.
 
 See :ref:`if`.
 
---------------
-
-

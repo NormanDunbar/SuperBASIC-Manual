@@ -32,6 +32,3 @@ possible to set the file type by rewriting the whole file header with
 :ref:`heads`; alternatively,
 :ref:`unjob` does the same.
 
---------------
-
-

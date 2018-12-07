@@ -51,6 +51,3 @@ Window Manager present to take over that work.
 :ref:`qram-dlr` returns the version number of the
 Pointer Interface.
 
---------------
-
-

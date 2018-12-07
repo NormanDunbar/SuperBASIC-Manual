@@ -30,6 +30,3 @@ of the serial port to be affected by this command (default SER1).
 
 Please refer to the Appendix on device drivers for more information.
 
---------------
-
-

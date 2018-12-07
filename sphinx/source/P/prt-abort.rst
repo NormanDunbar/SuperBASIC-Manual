@@ -18,6 +18,3 @@ See :ref:`ser-abort` and
 :ref:`par-abort`.
 :ref:`prt-use` allows you to specify which port prt emulates.
 
---------------
-
-

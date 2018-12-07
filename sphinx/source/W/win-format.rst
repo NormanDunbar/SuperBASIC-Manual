@@ -43,6 +43,3 @@ name.
 See :ref:`format` and
 :ref:`win-drive`.
 
---------------
-
-

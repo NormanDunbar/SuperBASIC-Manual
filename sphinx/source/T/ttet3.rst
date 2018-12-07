@@ -101,6 +101,3 @@ Please refer to system documentation for details on each trap! See also
 :ref:`io-trap`, :ref:`qtrap`
 and :ref:`mtrap`.
 
---------------
-
-

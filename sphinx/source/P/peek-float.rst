@@ -33,7 +33,3 @@ This function returns the floating point value represented by the 6 bytes stored
 :ref:`poke-string`, :ref:`peek-string`, :ref:`poke-float`.
 
 
--------
-
-
-

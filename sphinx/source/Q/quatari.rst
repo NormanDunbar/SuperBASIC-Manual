@@ -27,6 +27,3 @@ Also see :ref:`qdos-dlr`,
 :ref:`p-env`. :ref:`machine`
 is much more reliable.
 
---------------
-
-

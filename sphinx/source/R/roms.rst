@@ -18,6 +18,3 @@ and anything plugged into the QL's ROMport.
 
 :ref:`rom` returns the start address of a ROM slot.
 
---------------
-
-

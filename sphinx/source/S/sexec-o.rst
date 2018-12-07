@@ -24,6 +24,3 @@ The Toolkit II version of SEXEC\_O supports the default data device.
 
 See :ref:`sexec`.
 
---------------
-
-

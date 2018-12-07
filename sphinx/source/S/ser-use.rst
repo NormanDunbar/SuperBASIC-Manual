@@ -17,6 +17,3 @@ not restricted to SER or PAR.
 
 See :ref:`par-use`
 
---------------
-
-

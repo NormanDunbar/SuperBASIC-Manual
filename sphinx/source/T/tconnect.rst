@@ -88,6 +88,3 @@ especially :ref:`pend`. Some more examples appear at
 the same. Qliberator gives the QCONNECT
 command which is the same.
 
---------------
-
-

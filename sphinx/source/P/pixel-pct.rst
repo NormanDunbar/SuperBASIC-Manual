@@ -32,6 +32,3 @@ you to draw points and lines on the screen. :ref:`ink`
 gives details about the various colour values which may be returned
 (this will be in the range 0...16).
 
---------------
-
-

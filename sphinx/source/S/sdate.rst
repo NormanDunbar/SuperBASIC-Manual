@@ -85,6 +85,3 @@ system date. :ref:`a-sdate` and
 :ref:`set-clock` alter the battery backed
 clocks on the ST/QL Emulator and THOR respectively.
 
---------------
-
-

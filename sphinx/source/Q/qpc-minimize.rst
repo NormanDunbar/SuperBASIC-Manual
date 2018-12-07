@@ -11,6 +11,3 @@ QPC\_MINIMIZE
 
 Minimizes the QPC window. (Yes, the spelling of the command name is American!)
 
---------------
-
-

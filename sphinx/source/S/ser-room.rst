@@ -38,6 +38,3 @@ The default room is 32 bytes.
 the input buffer and affects the value set by this command. You should
 also look at :ref:`ser-pause`.
 
---------------
-
-

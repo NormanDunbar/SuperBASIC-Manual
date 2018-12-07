@@ -89,6 +89,3 @@ into memory. :ref:`save-o` is another variant of
 this command. See also :ref:`qsave` for a different
 means of :ref:`save`\ ing a SuperBASIC program.
 
---------------
-
-

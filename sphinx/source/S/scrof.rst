@@ -28,6 +28,3 @@ See SSAVE.
 
 :ref:`scron` switches the screen to visible.
 
---------------
-
-

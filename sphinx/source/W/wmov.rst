@@ -40,6 +40,3 @@ crash the system!!
 Also see :ref:`wtv`, :ref:`wmon`,
 :ref:`pick-pct`, and :ref:`outl`.
 
---------------
-
-

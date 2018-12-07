@@ -19,7 +19,3 @@ examine this job, for example by entering::
 
 (assuming that the dummy job has the job number 4), Qmon can easily be switched on and
 off.
-
---------------
-
-

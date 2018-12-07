@@ -17,6 +17,3 @@ Refer to :ref:`qload` and
 :ref:`merge`. See also
 :ref:`qmrun`
 
---------------
-
-

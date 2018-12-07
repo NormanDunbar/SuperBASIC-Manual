@@ -15,6 +15,3 @@ This function is exactly the same as WIN\_BASE.
 
 See :ref:`win-base`.
 
---------------
-
-

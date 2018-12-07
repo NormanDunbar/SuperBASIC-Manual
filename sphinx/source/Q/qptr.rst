@@ -21,6 +21,3 @@ This function returns 1 if the Pointer Environment is loaded or 0 if not. The ch
 will print 1 of the PE is loaded or zero otherwise.
 
 
--------
-
-

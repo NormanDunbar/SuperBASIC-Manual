@@ -9,8 +9,4 @@ NDIM
 | Location |  Math Package                                                     |
 +----------+-------------------------------------------------------------------+
 
-Identical to NDIM%.
-
---------------
-
-
+Identical to :ref:`ndim-pct`.

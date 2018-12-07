@@ -35,7 +35,3 @@ will always return 3, as the only channels OPEN will be #0, #1 and #2.
 :ref:`open` allows you to open a channel.
 :ref:`fopen` and similar functions will
 automatically open the next available channel number.
-
---------------
-
-

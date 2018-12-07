@@ -1,4 +1,4 @@
-..  _pth-dlr:
+
 
 PTH$
 ====
@@ -44,7 +44,3 @@ The function PTH\_ENTRIES% returns the number of directories in the path list.
 
 :ref:`pth-add`,
 :ref:`pth-list`
-
---------------
-
-

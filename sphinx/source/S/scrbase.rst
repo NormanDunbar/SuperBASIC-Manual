@@ -84,6 +84,3 @@ and :ref:`scr-refresh` are ideal to create
 and display animated displays. Compare
 :ref:`scr-base`!
 
---------------
-
-

@@ -20,6 +20,3 @@ handling).
 :ref:`tca`, :ref:`tnc`,
 :ref:`rae`, :ref:`rafe`
 
---------------
-
-

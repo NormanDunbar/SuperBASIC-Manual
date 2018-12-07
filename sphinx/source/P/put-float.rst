@@ -22,9 +22,3 @@ The given float value is converted to the internal  QDOS format for floating poi
 **CROSS-REFERENCE**
 
 :ref:`put-byte`, :ref:`put-long`, :ref:`put-string`, :ref:`put-word`.
-
-
--------
-
-
-

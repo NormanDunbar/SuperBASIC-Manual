@@ -45,6 +45,3 @@ ESC, :ref:`ff`,
 :ref:`lmar`, :ref:`pagdis`,
 :ref:`paglen`.
 
---------------
-
-

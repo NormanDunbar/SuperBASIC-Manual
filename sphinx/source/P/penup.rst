@@ -17,6 +17,3 @@ specified window (default #1), thus preventing any further drawing.
 See :ref:`pendown` and
 :ref:`move` for more details.
 
---------------
-
-

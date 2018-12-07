@@ -35,7 +35,3 @@ Auroras allow more to be linked together.
 
 Please see the Appendix concerning Networks. See also
 :ref:`snet` and :ref:`mnet`.
-
---------------
-
-

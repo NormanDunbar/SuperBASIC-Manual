@@ -28,6 +28,3 @@ This command should not really be used in MODE 8.
 and :ref:`set-green` also allow you to recolour
 a window. Refer to the QL display Appendix.
 
---------------
-
-

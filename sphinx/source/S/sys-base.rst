@@ -40,6 +40,3 @@ addresses in memory as virtually everything can move around.
 :ref:`poke`, :ref:`screen`,
 :ref:`sys-vars`, :ref:`ver-dlr`
 
---------------
-
-

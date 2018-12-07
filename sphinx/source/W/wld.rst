@@ -47,6 +47,3 @@ have a positive value:
 :ref:`soundex`,
 :ref:`phonem`.
 
---------------
-
-

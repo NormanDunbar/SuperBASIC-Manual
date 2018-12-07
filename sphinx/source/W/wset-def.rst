@@ -27,6 +27,3 @@ is the same as WTV 8
 
 See :ref:`wset`.
 
---------------
-
-

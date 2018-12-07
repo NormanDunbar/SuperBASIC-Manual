@@ -26,6 +26,3 @@ See SSAVE.
 
 :ref:`sshow`, :ref:`sload`
 
---------------
-
-

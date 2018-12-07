@@ -20,6 +20,3 @@ See the example for :ref:`read-header`.
 :ref:`read-header`.
 
 
--------
-
-

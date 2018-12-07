@@ -32,7 +32,3 @@ to catch the data sent by the transmitting machine.
 See :ref:`netrate` which allows you to set the
 speed of the receiving machine to match the speed of the sending
 machine. Also see :ref:`netsend`.
-
---------------
-
-

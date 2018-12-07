@@ -19,6 +19,3 @@ rates and you need to change the baud rate for a Modem or Printer.
 Driver can be configured to automatically be suspended when the baudrate
 is altered.
 
---------------
-
-

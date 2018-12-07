@@ -18,6 +18,3 @@ See :ref:`point`! Also see
 :ref:`line-r` and
 :ref:`circle-r`.
 
---------------
-
-

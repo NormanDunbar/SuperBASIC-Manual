@@ -60,6 +60,3 @@ See :ref:`pokes` and
 :ref:`prot-date` protects a battery backed
 clock.
 
---------------
-
-

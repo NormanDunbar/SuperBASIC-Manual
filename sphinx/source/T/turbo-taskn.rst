@@ -37,6 +37,3 @@ See :ref:`turbo-diags`,
 :ref:`turbo-struct` and
 :ref:`turbo-window` for other directives
 
---------------
-
-

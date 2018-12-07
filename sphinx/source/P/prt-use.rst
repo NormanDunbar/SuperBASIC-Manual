@@ -123,6 +123,3 @@ while the command is being carried out.
 See also :ref:`prt-abt`. See the other version of
 this command.
 
---------------
-
-

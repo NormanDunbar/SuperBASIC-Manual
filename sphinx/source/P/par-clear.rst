@@ -27,6 +27,3 @@ results in a bad parameter error.
 :ref:`ser-clear` and
 :ref:`prt-clear` are similar.
 
---------------
-
-

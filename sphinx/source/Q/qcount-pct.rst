@@ -34,6 +34,3 @@ Refer to :ref:`qlink` and also the Device Drivers
 Appendix. See also :ref:`qsize-pct` and
 :ref:`qspace-pct`.
 
---------------
-
-

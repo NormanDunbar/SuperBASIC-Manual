@@ -25,6 +25,3 @@ See :ref:`peon` for more general details. You should
 also see :ref:`pex-xtd` and
 :ref:`px1st`.
 
---------------
-
-

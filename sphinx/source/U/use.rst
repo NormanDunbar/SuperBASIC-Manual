@@ -59,7 +59,3 @@ USE#1. The problem only occurs when you try to send output to #1.
 and\ :ref:`strip` are just a few of the commands
 which default to #1 and are therefore affected by this command.
 
---------------
-
-
-

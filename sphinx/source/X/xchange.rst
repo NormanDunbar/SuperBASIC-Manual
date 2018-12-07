@@ -37,6 +37,3 @@ ram1\_test\_txt as quickly as possible::
 :ref:`search`, :ref:`copy-b`,
 :ref:`copy-w`, :ref:`copy-l`
 
---------------
-
-

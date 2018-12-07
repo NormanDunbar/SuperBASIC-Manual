@@ -46,6 +46,3 @@ See :ref:`io-trap`,
 also be used to call TRAP #3. Refer to the QDOS/SMS Reference Manual
 (Section 15) for details of the various system TRAP #3 calls.
 
---------------
-
-

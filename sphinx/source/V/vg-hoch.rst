@@ -18,6 +18,3 @@ VG\_PARA.
 :ref:`vg-para` and
 :ref:`vg-load`.
 
---------------
-
-

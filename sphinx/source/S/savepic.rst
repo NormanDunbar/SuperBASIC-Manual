@@ -28,6 +28,3 @@ compatibility problems as LOADPIC.
 
 :ref:`loadpic` displays the saved screen file.
 
---------------
-
-

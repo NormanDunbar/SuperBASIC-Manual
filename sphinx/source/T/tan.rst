@@ -53,6 +53,3 @@ functions. :ref:`rad` converts degrees into radians,
 :ref:`deg` vice-versa. Please also refer to the
 Mathematics section of the Appendix.
 
---------------
-
-

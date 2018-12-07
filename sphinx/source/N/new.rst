@@ -33,7 +33,3 @@ Inside compiled programs, :ref:`new` and
 :ref:`stop` are effectively the same.
 :ref:`reset` clears the whole system by restarting
 it.
-
---------------
-
-

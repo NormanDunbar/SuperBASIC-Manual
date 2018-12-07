@@ -26,5 +26,3 @@ will return 'ser1etf'.
 
 See :ref:`prt-use`.
 
---------------
-

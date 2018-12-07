@@ -55,6 +55,3 @@ See :ref:`copy-o` and
 and :ref:`dest-use` allow you to alter the
 default destination device.
 
---------------
-
-

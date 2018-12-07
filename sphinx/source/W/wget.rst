@@ -18,6 +18,3 @@ This command is very similar to BGET, except that this fetches a word
 
 See :ref:`wput` and :ref:`bget`.
 
---------------
-
-

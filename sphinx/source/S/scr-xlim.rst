@@ -25,6 +25,3 @@ which may destroy what is already on screen.
 similar. See also :ref:`disp-size` and
 :ref:`scr-ylim`
 
---------------
-
-

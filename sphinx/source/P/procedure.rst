@@ -17,6 +17,3 @@ line' error.
 
 Please refer to the individual structure descriptions for more details.
 
---------------
-
-

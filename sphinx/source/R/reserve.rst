@@ -25,7 +25,3 @@ See :ref:`discard` and
 :ref:`alchp`, :ref:`respr` and
 :ref:`grab`.
 
---------------
-
-
-

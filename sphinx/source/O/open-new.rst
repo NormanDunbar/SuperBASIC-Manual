@@ -82,7 +82,3 @@ allows you to access directories on drives.
 :ref:`open` contains a general description of all the
 open types. :ref:`open-in` and
 :ref:`open-over` are also linked with this.
-
---------------
-
-

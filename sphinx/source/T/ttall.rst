@@ -18,6 +18,3 @@ value of TTALL; see TTFINDM for an example.
 :ref:`ttrel` See also
 :ref:`reserve`.
 
---------------
-
-

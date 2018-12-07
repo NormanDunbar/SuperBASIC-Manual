@@ -18,6 +18,3 @@ See :ref:`peon` for more general details. You should
 also see :ref:`pex-ini` and
 :ref:`px1st`.
 
---------------
-
-

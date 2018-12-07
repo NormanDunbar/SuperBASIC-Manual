@@ -17,6 +17,3 @@ see below.
 :ref:`prog-use`,
 :ref:`dlist`, :ref:`datad-dlr`.
 
---------------
-
-

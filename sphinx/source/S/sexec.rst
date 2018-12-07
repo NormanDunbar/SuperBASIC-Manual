@@ -85,6 +85,3 @@ programs.
 :ref:`exec` and :ref:`exec-w`
 allow you to load a program saved with :ref:`sexec`.
 
---------------
-
-

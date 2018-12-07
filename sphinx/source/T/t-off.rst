@@ -21,6 +21,3 @@ continued once T\_ON has been used.
 
 See :ref:`t-on`.
 
---------------
-
-

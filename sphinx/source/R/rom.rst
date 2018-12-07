@@ -58,6 +58,3 @@ ROM_TEST checks if a piece of code can be
 placed into a ROM. :ref:`eprom-load` allows
 you to load an EPROM on an emulator.
 
---------------
-
-

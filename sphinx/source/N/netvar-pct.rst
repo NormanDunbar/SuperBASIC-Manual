@@ -25,7 +25,3 @@ The possible values of parameter are:
 **CROSS-REFERENCE**
 
 See :ref:`netrate`.
-
---------------
-
-

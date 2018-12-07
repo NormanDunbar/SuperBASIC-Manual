@@ -29,6 +29,3 @@ See also :ref:`vfr`, :ref:`var`,
 :ref:`tee`, :ref:`rae`,
 :ref:`rafe`.
 
---------------
-
-

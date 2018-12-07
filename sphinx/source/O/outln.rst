@@ -210,7 +210,3 @@ OUTLN was already set.
 See :ref:`qflim`. :ref:`outl` is
 similar. :ref:`wmon` and :ref:`wtv`
 also add an outline to a program.
-
---------------
-
-

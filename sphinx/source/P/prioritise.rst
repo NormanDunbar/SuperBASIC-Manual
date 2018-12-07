@@ -29,6 +29,3 @@ A one parameter variant of :ref:`prioritise` is
 information on jobs and priorities. :ref:`jobs` will
 give details of job numbers and job tags.
 
---------------
-
-

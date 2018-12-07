@@ -71,6 +71,3 @@ and :ref:`free-mem` about available and free
 memory. :ref:`flp-ext` improves the reliability
 of the floppy disk drives and allows RAM disks to be used.
 
---------------
-
-

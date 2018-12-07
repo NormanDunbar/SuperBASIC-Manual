@@ -11,6 +11,3 @@ SQR
 
 See SQRT below!
 
---------------
-
-

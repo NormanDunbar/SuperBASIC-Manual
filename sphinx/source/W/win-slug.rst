@@ -21,6 +21,3 @@ time that must elapse between operations on the ASCI bus. Most
 controllers work with the default setting of 30 (which equates to a time
 of 2.5ms). Refer to the disk documentation for further details.
 
---------------
-
-

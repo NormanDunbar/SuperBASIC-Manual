@@ -49,7 +49,3 @@ produces the following output::
 
 :ref:`and`, :ref:`not` and
 :ref:`xor` are the other combination operators.
-
---------------
-
-

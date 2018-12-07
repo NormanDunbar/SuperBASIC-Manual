@@ -19,6 +19,3 @@ This returns the current QPC version.
 
 Will print 4.00 or higher.
 
---------------
-
-

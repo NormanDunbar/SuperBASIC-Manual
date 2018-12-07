@@ -437,6 +437,3 @@ printer connected to the system.
 Please refer to the Appendix concerning serial and parallel device
 drivers.
 
---------------
-
-

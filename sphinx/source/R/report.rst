@@ -48,6 +48,3 @@ See :ref:`ernum` about error messages in general and
 /:ref:`tiny-ext` about updating Toolkits. Refer
 to the Appendix for the different message texts in various languages.
 
---------------
-
-

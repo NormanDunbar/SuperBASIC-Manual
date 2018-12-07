@@ -18,6 +18,3 @@ used for the path device.
 
     PRINT PTH_USE$
 
---------------
-
-

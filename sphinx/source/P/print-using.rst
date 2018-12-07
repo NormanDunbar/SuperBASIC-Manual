@@ -167,6 +167,3 @@ the field.
 See also :ref:`fdec-dlr`,
 :ref:`idec-dlr` and :ref:`cdec-dlr`.
 
---------------
-
-

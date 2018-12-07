@@ -33,7 +33,3 @@ is the same as::
 :ref:`alt`,\ ESC,\ :ref:`ff`,\ :ref:`lmar`,
 :ref:`rmar`,\ :ref:`pagdis`,
 :ref:`paglen`.
-
---------------
-
-

@@ -123,5 +123,3 @@ has occurred. :ref:`break-off` allows you to
 turn the Break key off. :ref:`end--when` defines
 the end of the error handling block.
 
---------------
-

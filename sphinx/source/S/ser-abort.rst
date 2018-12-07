@@ -19,6 +19,3 @@ serial port, this allows you to specify the port number to be affected
 
 See :ref:`par-abort`.
 
---------------
-
-

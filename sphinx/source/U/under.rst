@@ -60,6 +60,3 @@ MODE will reset the current underline mode in all windows.
 specified channel, :ref:`print` prints out
 characters.
 
---------------
-
-

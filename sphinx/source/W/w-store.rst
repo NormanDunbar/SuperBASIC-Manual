@@ -21,6 +21,3 @@ Refer to the notes for W\_CRUNCH.
 
 See :ref:`w-crunch`!
 
---------------
-
-

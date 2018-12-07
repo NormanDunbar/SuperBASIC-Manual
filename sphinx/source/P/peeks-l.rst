@@ -25,6 +25,3 @@ See :ref:`peek`. :ref:`pokes` is
 the complementary command. See :ref:`prot-mem`
 also.
 
---------------
-
-

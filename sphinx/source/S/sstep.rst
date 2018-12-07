@@ -40,6 +40,3 @@ This trace toolkit will only work on Minerva.
 
 See :ref:`tron` and :ref:`troff`.
 
---------------
-
-

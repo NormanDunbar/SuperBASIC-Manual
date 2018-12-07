@@ -36,6 +36,3 @@ The Window Manager changes the structure of window definition blocks.
 
 :ref:`sys-base`, :ref:`set`
 
---------------
-
-

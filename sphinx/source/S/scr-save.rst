@@ -27,6 +27,3 @@ the screen base to be at 131072.
 :ref:`unload` contains more details about this
 toolkit.
 
---------------
-
-

@@ -59,6 +59,3 @@ without chopping off any words at the end of each line::
 
 See :ref:`open` and :ref:`print`.
 
---------------
-
-

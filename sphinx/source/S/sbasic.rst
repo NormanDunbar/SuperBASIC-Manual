@@ -54,6 +54,3 @@ windows. Also see the appendix on Multiple BASICs.
 :ref:`job-name` can be used to alter the name of
 a SBASIC Job.
 
---------------
-
-

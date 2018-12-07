@@ -31,6 +31,3 @@ To set the header to three lines::
 :ref:`paglin`, :ref:`paglen`,
 :ref:`lmar`, :ref:`rmar`.
 
---------------
-
-

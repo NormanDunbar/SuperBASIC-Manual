@@ -55,6 +55,3 @@ that the disk is write-protected, rather than stopping altogether.
 :ref:`wcopy` provides details about wildcards.
 :ref:`delete` allows you to delete single files.
 
---------------
-
-

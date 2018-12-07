@@ -78,6 +78,3 @@ Please also see :ref:`parnam-dlr`.
 :ref:`fbkdt` also contains a useful example of
 :ref:`parstr-dlr`.
 
---------------
-
-

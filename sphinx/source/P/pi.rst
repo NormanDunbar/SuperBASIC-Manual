@@ -28,6 +28,3 @@ parameters in radians, so :ref:`pi` must be used in
 most cases. Another fundamental mathematical constant, e, can be
 obtained with :ref:`exp`\ (1).
 
---------------
-
-

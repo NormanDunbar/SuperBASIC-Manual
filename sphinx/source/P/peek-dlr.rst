@@ -66,6 +66,3 @@ such as a$=PEEK$(0,40000) may lead to unpredictable effects. Be careful!
 words from memory. :ref:`ttpeek-dlr` is the same as
 this function.
 
---------------
-
-

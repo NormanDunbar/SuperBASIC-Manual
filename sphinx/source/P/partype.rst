@@ -18,6 +18,3 @@ problems.
 and :ref:`parname-dlr` are also added by this
 toolkit.
 
---------------
-
-

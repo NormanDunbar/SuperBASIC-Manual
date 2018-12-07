@@ -59,6 +59,3 @@ The results of :ref:`rnd` can be influenced with
 :ref:`randomise`. See also
 :ref:`matrnd`.
 
---------------
-
-

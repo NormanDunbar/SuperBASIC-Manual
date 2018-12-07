@@ -20,6 +20,3 @@ This sets the size of the client area (the part that displays SMSQ/E) of the QPC
 
 Does a 200% zoom of the QPC window.
 
---------------
-
-

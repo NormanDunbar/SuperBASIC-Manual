@@ -18,6 +18,3 @@ places the pen to the down position in the specified window (default
 :ref:`penup` has the opposite effect to this
 command. Also see :ref:`move`.
 
---------------
-
-

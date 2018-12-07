@@ -20,6 +20,3 @@ device is read only. See also :ref:`win-remv`
 and :ref:`win-format` for other types of
 protection.
 
---------------
-
-

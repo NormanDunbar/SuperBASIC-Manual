@@ -50,6 +50,3 @@ also look at :ref:`machine` and
 :ref:`lang-use` allows you to change the
 operating system language.
 
---------------
-
-

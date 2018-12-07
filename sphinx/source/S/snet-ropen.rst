@@ -16,6 +16,3 @@ driver in case they have been closed by other programs.
 
 See :ref:`sernet`.
 
---------------
-
-

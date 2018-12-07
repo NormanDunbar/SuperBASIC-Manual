@@ -48,6 +48,3 @@ produced with SARRAY.
 :ref:`dimn` and :ref:`ndim` read
 the dimensions.
 
---------------
-
-

@@ -93,6 +93,3 @@ you to find out various information about the Pointer Environment.
 :ref:`qflim`. See also
 :ref:`outln`.
 
---------------
-
-

@@ -16,6 +16,3 @@ about the files being deleted is shown on screen.
 
 See :ref:`wdel`.
 
---------------
-
-

@@ -11,6 +11,3 @@ QPC\_CMDLINE$
 
 This returns the argument that was supplied to QPC after the "-cmdline" command line argument. This can be used to do different actions depending on the way QPC was started.
 
---------------
-
-

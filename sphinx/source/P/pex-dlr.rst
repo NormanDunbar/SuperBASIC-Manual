@@ -18,6 +18,3 @@ the PEX file.
 See also :ref:`ql-pex` and
 :ref:`pif-dlr`.
 
---------------
-
-

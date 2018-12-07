@@ -38,6 +38,3 @@ screen disabled.
 
 :ref:`scr2en` re-enables the second screen again.
 
---------------
-
-

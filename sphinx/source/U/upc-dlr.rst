@@ -11,6 +11,3 @@ UPC$
 
 This is the same as :ref:`upper-dlr`.
 
---------------
-
-

@@ -17,6 +17,3 @@ Qliberator's $$asmb directorive.
 
 See :ref:`pex-save`\ .
 
---------------
-
-

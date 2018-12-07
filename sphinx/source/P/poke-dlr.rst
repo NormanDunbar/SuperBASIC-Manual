@@ -38,6 +38,3 @@ and SuperBASIC variables directly as with POKE.
 string. :ref:`ttpoke-dlr` is the same as this
 command.
 
---------------
-
-

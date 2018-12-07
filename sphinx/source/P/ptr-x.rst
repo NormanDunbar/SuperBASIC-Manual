@@ -32,7 +32,3 @@ again. Confused?
 The other rectangular co-ordinate is found with
 :ref:`ptr-y` below. Also see
 :ref:`rtp-r` and :ref:`rtp-t`
-
---------------
-
-

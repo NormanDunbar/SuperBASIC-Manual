@@ -98,6 +98,3 @@ as the parameter for the job number.
 :ref:`susjob` and :ref:`ttsus`
 are almost the same as :ref:`sjob`.
 
---------------
-
-

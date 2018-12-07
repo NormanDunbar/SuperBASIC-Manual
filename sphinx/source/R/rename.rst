@@ -78,6 +78,3 @@ See also :ref:`wren` which allows you to rename
 several files at once. :ref:`ttrename` is
 similar.
 
---------------
-
-

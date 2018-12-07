@@ -30,6 +30,3 @@ value greater than zero if the Thing exists.
 
 :ref:`th-ver-dlr` explains what Things are.
 
---------------
-
-

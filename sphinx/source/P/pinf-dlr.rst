@@ -11,6 +11,3 @@ PINF$
 
 This is the same as QRAM$ and PIF$!
 
---------------
-
-

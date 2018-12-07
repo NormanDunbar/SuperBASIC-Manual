@@ -66,6 +66,3 @@ See :ref:`scr-refresh` and
 copy of the window. Use :ref:`rechp` to remove that
 memory definition.
 
---------------
-
-

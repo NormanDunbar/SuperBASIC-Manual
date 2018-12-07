@@ -56,6 +56,3 @@ See :ref:`cos`, :ref:`tan`,
 :ref:`deg`. See also :ref:`sinh`.
 Please also refer to the Mathematics section of the Appendix.
 
---------------
-
-

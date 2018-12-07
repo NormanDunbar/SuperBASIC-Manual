@@ -29,6 +29,3 @@ Draw a hyperbola and its asymptotes::
 :ref:`cosh`, :ref:`tanh`,
 :ref:`arsinh`
 
---------------
-
-

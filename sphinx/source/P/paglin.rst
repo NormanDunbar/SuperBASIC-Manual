@@ -26,6 +26,3 @@ is the same as::
 :ref:`pagdis`, :ref:`paglen`,
 :ref:`lmar`, :ref:`rmar`.
 
---------------
-
-

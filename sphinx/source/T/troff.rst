@@ -17,6 +17,3 @@ associated with the trace output.
 :ref:`tron` and :ref:`sstep` turn
 the trace function on.
 
---------------
-
-

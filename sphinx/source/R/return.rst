@@ -43,6 +43,3 @@ A FuNction which returns 1 (true) if a given number is even::
 
 See :ref:`define--procedure` and :ref:`define--function`\ . Please also refer to :ref:`go--sub`\ .
 
---------------
-
-

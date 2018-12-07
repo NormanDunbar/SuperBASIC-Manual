@@ -11,6 +11,3 @@ TTPOKE$
 
 This is the same as POKE$.
 
---------------
-
-

@@ -22,6 +22,3 @@ See :ref:`snet-pct`,
 :ref:`sernet`, :ref:`midinet`
 and :ref:`fserve`.
 
---------------
-
-

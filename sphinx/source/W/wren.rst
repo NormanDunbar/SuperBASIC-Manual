@@ -52,6 +52,3 @@ the error 'Bad Name'.
 :ref:`rename` renames one file at a time.
 :ref:`wcopy` contains details of wildcards.
 
---------------
-
-

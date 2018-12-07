@@ -24,6 +24,3 @@ See :ref:`ptr-limits` and
 with :ref:`x-ptr-pct`,
 :ref:`y-ptr-pct` and
 :ref:`ptr-fn-pct`.
-
---------------
-

@@ -49,6 +49,3 @@ See :ref:`turbo-diags`,
 :ref:`turbo-taskn` and
 :ref:`turbo-window` for other directives
 
---------------
-
-

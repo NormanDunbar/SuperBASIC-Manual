@@ -11,6 +11,3 @@ TTINC
 
 This command is identical to CHAR\_INC.
 
---------------
-
-

@@ -15,6 +15,3 @@ Returns the device the SER port is connected to, for example "COM1".
 
 See :ref:`ser-setport`.
 
---------------
-
-

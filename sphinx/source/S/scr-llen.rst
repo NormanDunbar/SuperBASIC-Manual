@@ -34,6 +34,3 @@ line is the number of pixels DIV 4 - always use this function instead.
 :ref:`scr-base`. On QL ROMs after JM, you can
 also use :ref:`print` :ref:`chan-b-pct`\ (#1,104).
 
---------------
-
-

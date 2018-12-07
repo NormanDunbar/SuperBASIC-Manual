@@ -11,6 +11,3 @@ TTMODE%
 
 This is the same as RMODE.
 
---------------
-
-

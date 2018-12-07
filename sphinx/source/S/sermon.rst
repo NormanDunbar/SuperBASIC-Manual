@@ -27,6 +27,3 @@ following a SERMWAIT command.
 :ref:`sermwait` are complementary functions. See
 the Appendix on Mouse Drivers for further details.
 
---------------
-
-

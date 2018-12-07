@@ -33,6 +33,3 @@ RAM and :ref:`scr-refresh` copies it back.
 See also :ref:`wman-dlr`.
 :ref:`chan-w-pct` is much more flexible.
 
---------------
-
-

@@ -50,6 +50,3 @@ Another version of the game also shown at ASK::
 :ref:`ask`, :ref:`inkey-dlr`
 See :ref:`code` also.
 
---------------
-
-

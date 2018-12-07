@@ -42,7 +42,3 @@ and can be used to replace :ref:`ndim-pct`.
 :ref:`dim` declares an array.
 :ref:`ndim` is exactly the same as
 :ref:`ndim-pct`.
-
---------------
-
-

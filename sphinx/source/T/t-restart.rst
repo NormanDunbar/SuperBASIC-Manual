@@ -19,6 +19,3 @@ used.
 :ref:`t-stop` stops a stop watch. See
 :ref:`t-start` also.
 
---------------
-
-

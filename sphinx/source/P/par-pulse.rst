@@ -26,6 +26,3 @@ cable.
 
 On SMSQ/E running on non-Atari's, this command has no effect.
 
---------------
-
-

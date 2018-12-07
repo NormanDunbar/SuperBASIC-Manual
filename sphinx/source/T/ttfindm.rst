@@ -70,6 +70,3 @@ and ::
 :ref:`search`, :ref:`blook`,
 :ref:`msearch` are all similar.
 
---------------
-
-

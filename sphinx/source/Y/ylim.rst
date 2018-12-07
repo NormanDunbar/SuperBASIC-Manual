@@ -22,6 +22,3 @@ The Pointer Interface must be present for this function to work.
 
 See :ref:`xlim` for details.
 
---------------
-
-

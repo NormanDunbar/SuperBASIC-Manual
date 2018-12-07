@@ -33,6 +33,3 @@ unless the power to the drive is switched off and back on.
 See also :ref:`win-drive` and
 :ref:`win-stop`.
 
---------------
-
-

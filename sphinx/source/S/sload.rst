@@ -22,6 +22,3 @@ This has the same problems as SSAVE.
 
 :ref:`sshow`
 
---------------
-
-

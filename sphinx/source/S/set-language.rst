@@ -87,7 +87,3 @@ to call a Job called Alt\_SysReq (Case dependent).
 languages for messages and errors. See also
 :ref:`kbd-table`.
 
---------------
-
-
-

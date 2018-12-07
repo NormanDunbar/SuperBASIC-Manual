@@ -33,7 +33,3 @@ operations will be ignored.
 See :ref:`peon` and in particular, refer to
 :ref:`is-ptrap` for more details. See also
 :ref:`is-peon`.
-
---------------
-
-

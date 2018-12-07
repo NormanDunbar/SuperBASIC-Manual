@@ -249,6 +249,3 @@ and :ref:`wcopy-o` which are all similar.
 use wildcards. :ref:`copy` and
 :ref:`spl` allow you to copy specific files.
 
---------------
-
-

@@ -25,6 +25,3 @@ Sysdef menu. Also refer to\ :ref:`sermspeed` and
 :ref:`sermon`. See the appendix on Mouse Drivers
 for more information.
 
---------------
-
-

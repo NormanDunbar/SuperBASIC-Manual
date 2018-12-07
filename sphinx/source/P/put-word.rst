@@ -21,8 +21,3 @@ The supplied word is written to the appropriate channel as a sequence of two byt
 **CROSS-REFERENCE**
 
 :ref:`put-byte`, :ref:`put-float`, :ref:`put-long`, :ref:`put-string`.
-
-
--------
-
-

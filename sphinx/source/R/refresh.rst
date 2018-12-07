@@ -24,6 +24,3 @@ See also :ref:`scrbase`,
 :ref:`draw`. See also
 :ref:`w-show`.
 
---------------
-
-

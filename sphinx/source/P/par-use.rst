@@ -32,6 +32,3 @@ printer port.
 :ref:`ser-use` and
 :ref:`prt-use` are all very similar.
 
---------------
-
-

@@ -11,6 +11,3 @@ PAR\_GETFILTER
 
 This returns whether the printer filter is enabled for the specified port.
 
---------------
-
-

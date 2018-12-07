@@ -17,6 +17,3 @@ further output, in the same way as PAR\_CLEAR.
 :ref:`par-clear` and
 :ref:`ser-clear` are similar.
 
---------------
-
-

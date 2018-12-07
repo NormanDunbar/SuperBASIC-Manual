@@ -31,6 +31,3 @@ also :ref:`fserve` and
 :ref:`midinet`. See the Appendix on Networks for
 further details.
 
---------------
-
-

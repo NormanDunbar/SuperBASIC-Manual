@@ -60,6 +60,3 @@ SER\_ROOM.
 See :ref:`par-buff`! You should also refer to
 :ref:`ser-room`.
 
---------------
-
-

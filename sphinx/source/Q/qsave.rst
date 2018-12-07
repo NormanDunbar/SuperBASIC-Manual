@@ -71,6 +71,3 @@ allows you to read the current default data device. See also
 :ref:`qsave-o`. :ref:`fvers`
 allows you to read the current version number of a file.
 
---------------
-
-

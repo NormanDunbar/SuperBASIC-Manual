@@ -52,6 +52,3 @@ lists files which start with my or contain \_my somewhere.
 a given medium. :ref:`wcopy` contains details of how
 wildcards operate.
 
---------------
-
-

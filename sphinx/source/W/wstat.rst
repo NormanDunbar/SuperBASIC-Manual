@@ -35,6 +35,3 @@ cope with the DEV device where this is pointing to a sub-directory.
 a given medium. :ref:`wcopy` contains details of how
 wildcards operate.
 
---------------
-
-

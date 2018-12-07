@@ -19,6 +19,3 @@ It is more efficient to RELEASE\_HEAP in the opposite order to that in which it 
 See :ref:`reserve-heap`\ , below, for an example of use.
 
 
--------
-
-

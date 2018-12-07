@@ -28,6 +28,3 @@ QPAC2 and the Pointer Environment are not necessary to use WM.
 :ref:`border` and :ref:`strip`
 to change window attributes.
 
---------------
-
-

@@ -19,6 +19,3 @@ You need to have used :ref:`t-on` before
 :ref:`t-stop` and
 :ref:`t-restart`.
 
---------------
-
-

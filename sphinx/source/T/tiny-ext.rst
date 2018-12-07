@@ -34,6 +34,3 @@ with TINY\_RMV.
 :ref:`tiny-rmv` removes most extensions of
 TinyToolkit from the name list.
 
---------------
-
-

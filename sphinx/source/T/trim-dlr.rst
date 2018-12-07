@@ -26,6 +26,3 @@ and returns the result of this. Any string can be used as a parameter.
 
 :ref:`len` returns the length of a string.
 
---------------
-
-

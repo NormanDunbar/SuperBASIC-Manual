@@ -21,6 +21,3 @@ program itself, the program continues from the statement following QMRUN
 See :ref:`qmerge` and
 :ref:`mrun`.
 
---------------
-
-

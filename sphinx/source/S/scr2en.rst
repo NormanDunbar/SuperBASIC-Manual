@@ -24,6 +24,3 @@ various machine code techniques.
 
 See :ref:`scr2dis` for more information.
 
---------------
-
-

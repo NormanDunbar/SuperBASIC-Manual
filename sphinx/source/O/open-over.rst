@@ -25,7 +25,3 @@ the same way as :ref:`open-over`.
 :ref:`fop-over` is a function which operates
 like :ref:`open-over` except that it allows any
 errors to be trapped.
-
---------------
-
-

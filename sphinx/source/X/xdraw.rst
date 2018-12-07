@@ -34,6 +34,3 @@ it again without changing the background.
 :ref:`ldraw`, :ref:`line` with
 :ref:`over`.
 
---------------
-
-

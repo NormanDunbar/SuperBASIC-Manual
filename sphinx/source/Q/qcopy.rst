@@ -26,6 +26,3 @@ Atari disk. Level-3 device drivers allow you to read and write to Atari
 and IBM format disks anyway. See :ref:`aformat` and
 :ref:`aqconvert`.
 
---------------
-
-

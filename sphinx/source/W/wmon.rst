@@ -92,6 +92,3 @@ Also see :ref:`wtv`, :ref:`wm`,
 :ref:`wset`, :ref:`wmov` and
 :ref:`mode`.
 
---------------
-
-

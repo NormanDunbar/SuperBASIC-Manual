@@ -16,6 +16,3 @@ to represent all possible untested values of the SELect ON variable.
 
 Please see :ref:`select--on`.
 
---------------
-
-

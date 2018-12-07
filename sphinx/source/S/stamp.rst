@@ -11,6 +11,3 @@ STAMP
 
 This command is the same as FORCE\_TYPE !
 
---------------
-
-

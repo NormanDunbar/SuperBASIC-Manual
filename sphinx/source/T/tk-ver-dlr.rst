@@ -16,6 +16,3 @@ This function returns the version ID of the Turbo Toolkit, eg. 3e27
 Before v3.00 the Turbo Toolkit did not install properly under Minerva
 and SMS.
 
---------------
-
-

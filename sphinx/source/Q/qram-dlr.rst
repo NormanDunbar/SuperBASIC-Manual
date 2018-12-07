@@ -19,6 +19,3 @@ Pointer Environment, or an empty string if this is not present.
 :ref:`winf-dlr` contain the version number of the
 Window Manager.
 
---------------
-
-

@@ -20,6 +20,3 @@ This command is therefore useful for sending printer control codes.
 See :ref:`bput`, :ref:`wput` and
 :ref:`lput`.
 
---------------
-
-

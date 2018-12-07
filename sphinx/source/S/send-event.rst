@@ -38,6 +38,3 @@ Notifies the current job's owner that events 2 and 8 have occured.
 A job can test to see if an event has occured with
 :ref:`wait-event`.
 
---------------
-
-

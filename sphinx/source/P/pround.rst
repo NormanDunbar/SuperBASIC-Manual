@@ -26,6 +26,3 @@ Print ten random number with three digits after the decimal point::
 
 :ref:`dround`\ .
 
---------------
-
-

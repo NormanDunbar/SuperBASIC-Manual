@@ -78,6 +78,3 @@ alter the QL's internal clock.\ :ref:`date-dlr` and
 :ref:`day-dlr` can be used to read the time on the QL's
 internal clock.
 
---------------
-
-

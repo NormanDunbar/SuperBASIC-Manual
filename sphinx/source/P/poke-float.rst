@@ -28,7 +28,3 @@ This procedure will poke the 6 bytes that the QL uses to represent a floating po
 :ref:`poke-string`, :ref:`peek-string`, :ref:`peek-float`.
 
 
--------
-
-
-

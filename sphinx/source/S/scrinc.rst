@@ -31,6 +31,3 @@ See the second listing at the second example for SCRBASE.
 :ref:`screen` returns the start address of the
 screen. See also :ref:`scr-llen`
 
---------------
-
-

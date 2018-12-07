@@ -17,6 +17,3 @@ See :ref:`lock`.
 
     UNLOCK ram1_secret_txt,"Phew",7241
 
---------------
-
-

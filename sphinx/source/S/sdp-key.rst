@@ -32,6 +32,3 @@ will cause the screen to be dumped each time that <ALT><P> is pressed.
 output is to go. See :ref:`sdp-set` and
 :ref:`sdump`.
 
---------------
-
-

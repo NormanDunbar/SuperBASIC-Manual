@@ -110,7 +110,3 @@ Refer to the Networks Appendix for further details. See
 :ref:`netvar-pct` which allows you to read the
 various speed settings. Also see :ref:`netread`
 and :ref:`netsend`
-
---------------
-
-

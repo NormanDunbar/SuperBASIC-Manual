@@ -71,6 +71,3 @@ further details.
 use. :ref:`border` allows you to set an implicit
 border.
 
---------------
-
-

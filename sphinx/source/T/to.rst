@@ -51,6 +51,3 @@ See :ref:`go--to` and
 :ref:`at` and :ref:`cursor` allow
 you to position the text cursor more precisely.
 
---------------
-
-

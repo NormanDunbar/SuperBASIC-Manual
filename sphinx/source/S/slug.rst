@@ -43,6 +43,3 @@ SLUG.
 :ref:`cache-on` can be used to speed up the
 computer's speed.
 
---------------
-
-

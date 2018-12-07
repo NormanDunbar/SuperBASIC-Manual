@@ -10,7 +10,3 @@ PURGE
 +----------+-------------------------------------------------------------------+
 
 The command PURGE has the same (fatal) effect as KILL or KJOBS.
-
---------------
-
-

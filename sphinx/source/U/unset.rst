@@ -11,6 +11,3 @@ UNSET
 
 This is the same as :ref:`defined` and suffers from the same problem!
 
---------------
-
-

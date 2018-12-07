@@ -82,9 +82,3 @@ format. :ref:`sdp-key` allows you to set up a
 hotkey to dump the screen. :ref:`sdp-dev` allows
 you to alter the device where the dump is to be sent.
 
---------------
-
-.. PROBLEM. When we build the docs, there is a search.rst file generated to
-   cope with the ability to search the HTML. This causes a duplicate label
-   so all links to this keyword, will fail. Hmm, needs thinking about.
-

@@ -100,4 +100,3 @@ slightly differently::
 general, see :ref:`jobs`,
 :ref:`rjob`, :ref:`spjob`,
 :ref:`sjob`, :ref:`ajob`.
-

@@ -214,6 +214,3 @@ interpreter tends to lose its place (see Note 2 above).
 program. :ref:`ed` allows you to edit a program in
 memory. Also see :ref:`auto`.
 
---------------
-
-

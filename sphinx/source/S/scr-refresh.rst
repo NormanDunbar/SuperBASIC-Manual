@@ -26,6 +26,3 @@ toolkit at present.
 taken from the display. See also :ref:`w-show` and
 :ref:`refresh`.
 
---------------
-
-

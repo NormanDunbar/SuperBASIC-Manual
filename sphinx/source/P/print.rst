@@ -116,6 +116,3 @@ scalable fonts on screen. :ref:`char-use` and
 :ref:`char-def` allow you to alter the fonts
 used for printing characters on screen.
 
---------------
-
-

@@ -68,6 +68,3 @@ running.
 prior to removal. :ref:`dmedium-remove`
 can tell you if the given device is a removable hard disk.
 
---------------
-
-

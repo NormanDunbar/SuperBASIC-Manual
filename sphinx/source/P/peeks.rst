@@ -5,6 +5,3 @@ PEEKS
 
 See :ref:`peeks-l` below.
 
---------------
-
-

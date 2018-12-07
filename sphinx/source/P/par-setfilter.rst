@@ -11,6 +11,3 @@ PAR\_SETFILTER
 
 Enables (state% = 1) or disables (state% = 0) the printer filter for the specified port. If the printer should be enabled although none is available a "not found" error is returned.
 
---------------
-
-

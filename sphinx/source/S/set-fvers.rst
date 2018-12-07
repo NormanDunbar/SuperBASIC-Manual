@@ -31,6 +31,3 @@ when the version is changed. The version number may be updated by
 :ref:`save` and :ref:`qsave` on
 SMS.
 
---------------
-
-

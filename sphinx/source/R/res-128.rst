@@ -16,6 +16,3 @@ This command does the same as RES\_SIZE 128.
 :ref:`flp-ext` can be used to re-enable some
 functions such as ramdisks.
 
---------------
-
-

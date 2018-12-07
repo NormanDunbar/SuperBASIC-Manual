@@ -33,6 +33,3 @@ colour, :ref:`sclr` the (background) screen in a
 given colour. :ref:`cls-a` is a global
 :ref:`cls`.
 
---------------
-
-

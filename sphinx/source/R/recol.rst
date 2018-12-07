@@ -72,6 +72,3 @@ drivers.
 :ref:`set-red` and
 :ref:`set-green`.
 
---------------
-
-

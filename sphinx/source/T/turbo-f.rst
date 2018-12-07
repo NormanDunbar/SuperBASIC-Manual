@@ -27,6 +27,3 @@ EXTERNAL for more information. Use
 :ref:`tk-ver-dlr` to check on the version of TURBO
 toolkit.
 
---------------
-
-

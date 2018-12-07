@@ -20,6 +20,3 @@ normally 12". The function is equivalent to::
 :ref:`pagdis`, :ref:`paglin`,
 :ref:`lmar`, :ref:`rmar`.
 
---------------
-
-

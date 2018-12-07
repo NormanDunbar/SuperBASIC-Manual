@@ -36,6 +36,3 @@ as having occurred, then the value 8 would be shown on screen.
 :ref:`send-event` notifies a Job's Event
 Accumulator that one or more events have occurred.
 
---------------
-
-

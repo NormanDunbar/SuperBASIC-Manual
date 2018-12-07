@@ -24,6 +24,3 @@ on JM (and earlier) ROMs in the same program as the TK2\_EXT command.
 
 See :ref:`tiny-ext`.
 
---------------
-
-

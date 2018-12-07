@@ -34,6 +34,3 @@ directory to the current time and date.
 for the structure of a file header, especially which byte is modified
 when the backup date is changed.
 
---------------
-
-

@@ -43,6 +43,3 @@ results in a bad parameter error.
 :ref:`prt-use` sets up a dynamic printer buffer
 except under SMSQ/E.
 
---------------
-
-

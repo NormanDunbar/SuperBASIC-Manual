@@ -25,6 +25,3 @@ or::
 
 :ref:`uint` converts in the other direction.
 
---------------
-
-

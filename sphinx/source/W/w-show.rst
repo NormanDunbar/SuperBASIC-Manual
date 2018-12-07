@@ -37,6 +37,3 @@ See :ref:`scr-refresh` and
 :ref:`set-red` and
 :ref:`set-green` allow you to recolour windows.
 
---------------
-
-

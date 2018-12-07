@@ -18,6 +18,3 @@ The following functions are also useful when accessing pipes:
 :ref:`qsize-pct`, :ref:`qcount-pct`
 and :ref:`qspace-pct`.
 
---------------
-
-

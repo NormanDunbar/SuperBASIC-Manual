@@ -136,6 +136,3 @@ Other SuperBASIC structures are :ref:`when--error`,
 
 :ref:`end--when` defines the end of a WHEN XXX structure.
 
---------------
-
-

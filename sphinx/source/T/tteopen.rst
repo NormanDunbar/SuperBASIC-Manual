@@ -22,6 +22,3 @@ if that is not the case.
 
 :ref:`open`, :ref:`file-open` and the various FOP_XXX keywords.
 
---------------
-
-

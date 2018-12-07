@@ -19,6 +19,3 @@ problem occurred.
 The absolute value of the return always indicates how
 many characters QUEUE% failed to send.
 
---------------
-
-

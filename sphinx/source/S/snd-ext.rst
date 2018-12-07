@@ -35,6 +35,3 @@ Some of the available extensions for sound are
 :ref:`bell`, :ref:`shoot`,
 :ref:`explode`.
 
---------------
-
-

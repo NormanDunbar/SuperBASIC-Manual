@@ -60,6 +60,3 @@ account.
 
 For more details, refer to the individual commands/ functions.
 
---------------
-
-

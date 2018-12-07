@@ -47,6 +47,3 @@ See also the other VG_XXX keywords. :ref:`qflim` can
 be used to find out about about the size of the screen if the Window
 Manager is loaded.
 
---------------
-
-

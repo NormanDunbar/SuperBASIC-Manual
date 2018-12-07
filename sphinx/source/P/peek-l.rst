@@ -93,6 +93,3 @@ variants introduced on Minerva and SMS.
 :ref:`peek-f` and :ref:`peeks`
 are also worth a look.
 
---------------
-
-

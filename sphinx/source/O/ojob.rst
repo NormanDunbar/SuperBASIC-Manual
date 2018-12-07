@@ -25,7 +25,3 @@ negative job\_ID points to the job which calls OJOB.
 :ref:`job-dlr`, :ref:`nxjob` and
 :ref:`pjob` return other information about a job.
 :ref:`jobs` lists all jobs.
-
---------------
-
-

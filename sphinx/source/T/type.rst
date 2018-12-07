@@ -77,6 +77,3 @@ valid.
 return the address where a machine code keyword is stored.
 :ref:`defined` checks if a variable is set.
 
---------------
-
-

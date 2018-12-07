@@ -23,6 +23,3 @@ Will associate SER4 with COM32.
 
 See :ref:`ser-getport-dlr`.
 
---------------
-
-

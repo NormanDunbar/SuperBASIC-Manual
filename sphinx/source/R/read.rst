@@ -106,7 +106,3 @@ out lines to be :ref:`read`.
 :ref:`eof` allows you to test for the end of all
 program data.
 
---------------
-
-
-

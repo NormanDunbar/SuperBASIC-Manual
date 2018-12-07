@@ -19,6 +19,3 @@ See PEEK$.
 
 always shows the letters QV.
 
---------------
-
-

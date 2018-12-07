@@ -31,6 +31,3 @@ under dual screen mode.
 
 A wrong address leads to crashes!
 
---------------
-
-

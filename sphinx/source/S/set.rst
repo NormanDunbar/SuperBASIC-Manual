@@ -39,7 +39,7 @@ QDOS inbuilt window relative graphic routine,
 :ref:`col` finds the colour of a screen pixel. See the
 other implementation of :ref:`set` also.
 
---------------
+
 
 
 SET
@@ -113,7 +113,4 @@ Any attempt to use SET from within a multiple BASIC will have no effect.
 See :ref:`alter`. :ref:`true-pct`,
 :ref:`false-pct` and :ref:`pi` are
 predefined constants.
-
---------------
-
 

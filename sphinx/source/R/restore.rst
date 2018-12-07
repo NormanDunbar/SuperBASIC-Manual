@@ -42,6 +42,3 @@ error.
 See :ref:`data` and :ref:`read`.
 Please also refer to :ref:`renum`.
 
---------------
-
-

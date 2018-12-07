@@ -59,6 +59,3 @@ computer.
 
 :ref:`thing`, :ref:`th-fix`.
 
---------------
-
-

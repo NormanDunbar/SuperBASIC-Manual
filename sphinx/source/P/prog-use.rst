@@ -31,6 +31,3 @@ error 'Bad Parameter' (error -15).
 :ref:`progd-dlr` returns the program device setting.
 See :ref:`data-use` for more information.
 
---------------
-
-

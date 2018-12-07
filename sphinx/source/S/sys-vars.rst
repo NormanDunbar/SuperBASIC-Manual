@@ -31,6 +31,3 @@ returns the base address of the system variables, as do
 :ref:`sys-base` and
 :ref:`sysbase`.
 
---------------
-
-

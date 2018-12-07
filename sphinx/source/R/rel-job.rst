@@ -27,6 +27,3 @@ Jobs can be suspended by :ref:`sjob` and removed with
 :ref:`kill`, etc. :ref:`jobs`
 lists the current jobs. See :ref:`reljob`.
 
---------------
-
-

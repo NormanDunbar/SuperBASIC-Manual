@@ -25,6 +25,3 @@ Please refer to :ref:`ew` and
 :ref:`sbasic`. Also see the Appendix on Multiple
 BASICs.
 
---------------
-
-

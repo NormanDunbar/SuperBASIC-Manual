@@ -11,6 +11,3 @@ SUSJOB
 
 See :ref:`sjob`.
 
---------------
-
-

@@ -21,9 +21,3 @@ The given byte is sent to the  channel. If a byte value larger than 255 is given
 **CROSS-REFERENCE**
 
 :ref:`put-float`, :ref:`put-long`, :ref:`put-string`, :ref:`put-word`.
-
-
--------
-
-
-

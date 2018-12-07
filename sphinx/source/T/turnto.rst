@@ -21,6 +21,3 @@ clockwise, so that angle=-90 is the same as angle=270.
 Please refer to :ref:`move` and
 :ref:`turn`.
 
---------------
-
-

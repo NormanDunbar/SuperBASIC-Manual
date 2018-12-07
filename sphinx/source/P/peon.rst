@@ -61,6 +61,3 @@ and :ref:`is-peon` for more
 details. :ref:`is-ptrap` allows you to enable
 PEX for specific machine code routines.
 
---------------
-
-

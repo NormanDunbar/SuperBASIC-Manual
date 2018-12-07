@@ -28,6 +28,3 @@ operation:
 
 See :ref:`set-green` !
 
---------------
-
-

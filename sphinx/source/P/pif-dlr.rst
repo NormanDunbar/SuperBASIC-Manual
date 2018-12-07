@@ -11,6 +11,3 @@ PIF$
 
 This is the same as QRAM$!
 
---------------
-
-

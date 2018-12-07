@@ -25,6 +25,3 @@ function with :ref:`prt-abort`,
 :ref:`par-abort` and
 :ref:`ser-abort`.
 
---------------
-
-

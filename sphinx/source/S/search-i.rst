@@ -51,6 +51,3 @@ which is part of the copyright notice that comes up when you switch on your QL. 
 :ref:`search-c`.
 
 
--------
-
-

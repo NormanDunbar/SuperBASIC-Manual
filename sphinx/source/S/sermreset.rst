@@ -21,6 +21,3 @@ Other causes of this problem may be the wrong speed settings - see
 :ref:`sermspeed` and
 :ref:`baud`.
 
---------------
-
-

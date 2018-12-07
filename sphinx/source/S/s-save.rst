@@ -42,6 +42,3 @@ only with :ref:`s-load`. See also
 :ref:`scr-store` and
 :ref:`savepic` for alternatives.
 
---------------
-
-

@@ -24,6 +24,3 @@ direction.
 :ref:`turnto` forces the turtle to face in an
 absolute direction. Please also see :ref:`move`.
 
---------------
-
-

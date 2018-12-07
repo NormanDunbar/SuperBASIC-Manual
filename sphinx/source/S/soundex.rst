@@ -33,6 +33,3 @@ phonetic difference between the parameters.
 :ref:`phonem` is similar to
 :ref:`soundex`.
 
---------------
-
-

@@ -23,6 +23,3 @@ PEX should not be used with PIE.
 
 Refer to :ref:`peon`.
 
---------------
-
-

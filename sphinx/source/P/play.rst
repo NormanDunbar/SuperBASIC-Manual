@@ -18,6 +18,3 @@ available for the limits of nr and the structure of music$.
 :ref:`release` nr plays a sequence.
 :ref:`snd-ext`.
 
---------------
-
-

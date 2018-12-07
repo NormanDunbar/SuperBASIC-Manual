@@ -24,6 +24,3 @@ automatically called.
 :ref:`sermspeed`. You can also switch to cursor
 mode by hitting the left hand mouse button twice in quick succession.
 
---------------
-
-

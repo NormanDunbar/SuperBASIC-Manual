@@ -39,6 +39,3 @@ If Toolkit II is installed, STOP clears WHEN ERRor definitions.
 :ref:`run` starts a program and :ref:`go--to` jumps to a specified line. See
 :ref:`continue`, :ref:`retry`. Also see :ref:`quit`.
 
---------------
-
-

@@ -38,6 +38,3 @@ The Pointer Interface must be present in order for XLIM to work.
 :ref:`qram-dlr` or :ref:`wman-dlr` to
 see if the Pointer Environment is available.
 
---------------
-
-

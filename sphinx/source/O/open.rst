@@ -261,7 +261,3 @@ sub-directory on level-2 drivers). Also see
 :ref:`file-open`.
 :ref:`newchan-pct` can be quite useful when
 :ref:`open`\ ing channels.
-
---------------
-
-

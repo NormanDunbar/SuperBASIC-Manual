@@ -59,6 +59,3 @@ the type of device which a name actually refers to.
 :ref:`dmedium-name-dlr` will return the default
 name of a device.
 
---------------
-
-

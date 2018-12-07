@@ -27,6 +27,3 @@ is the same as::
 :ref:`false-pct` is 0. :ref:`set`
 can be used to create constants as resident keywords.
 
---------------
-
-

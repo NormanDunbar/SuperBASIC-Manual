@@ -52,6 +52,3 @@ Running the program again shows you :ref:`vg-print`'s
 attempts to correct the problem. See also the other
 VG_XXX keywords!
 
---------------
-
-

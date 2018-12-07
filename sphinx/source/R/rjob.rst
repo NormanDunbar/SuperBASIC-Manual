@@ -34,6 +34,3 @@ remove all jobs. Have a look at :ref:`jobs`,
 :ref:`spjob`, :ref:`ajob`,
 :ref:`sjob` etc.
 
---------------
-
-

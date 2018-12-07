@@ -70,6 +70,3 @@ Note that conditions have a numeric value, see
 SELect <KeywordsS.clean.html#-end-select>`__ is a less
 restrictive alternative to :ref:`pick-dlr`.
 
---------------
-
-

@@ -110,6 +110,3 @@ pipes. :ref:`eof` checks if a file is at its end.
 :ref:`io-pend-pct` and NOT :ref:`eofw` are identical to
 :ref:`pend`.
 
---------------
-
-

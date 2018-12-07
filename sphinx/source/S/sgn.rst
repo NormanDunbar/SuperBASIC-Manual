@@ -19,6 +19,3 @@ and 0 if the number is zero. Any number is allowed as a parameter.
 
 :ref:`sign` is the same.
 
---------------
-
-

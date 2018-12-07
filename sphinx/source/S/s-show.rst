@@ -26,6 +26,3 @@ A wrong address leads to serious crashes.
 :ref:`s-save`
 
 
--------
-
-

@@ -94,6 +94,3 @@ See the other variant of :ref:`plot`. See also
 :ref:`draw`. Compare
 :ref:`point`.
 
---------------
-
-

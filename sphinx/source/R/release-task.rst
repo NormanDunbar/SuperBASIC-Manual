@@ -12,6 +12,3 @@ RELEASE\_TASK
 See REL\_JOB and RELJOB below. Refer to NXJOB for information about the
 job identification.
 
---------------
-
-

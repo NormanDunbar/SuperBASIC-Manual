@@ -16,6 +16,3 @@ This command produces the sound of single gun shot.
 :ref:`snd-ext`, :ref:`bell`,
 :ref:`explode`.
 
---------------
-
-

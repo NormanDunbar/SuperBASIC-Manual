@@ -25,6 +25,3 @@ SXTRAS s
 :ref:`txtras` do not sort the keywords. Also look
 at :ref:`vocab`.
 
---------------
-
-

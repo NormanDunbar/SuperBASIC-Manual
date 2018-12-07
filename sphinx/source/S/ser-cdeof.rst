@@ -40,6 +40,3 @@ or TT until v2.73+.
 :ref:`eof` and :ref:`eofw` allow
 you to detect an EOF character.
 
---------------
-
-

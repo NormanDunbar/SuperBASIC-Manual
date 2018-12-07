@@ -91,6 +91,3 @@ strings. This has the advantage that
 :ref:`replace` would replace the variable for the
 variable name. Compare :ref:`alias`.
 
---------------
-
-

@@ -21,7 +21,3 @@ This is a constant which returns 1.
 
 :ref:`off`, :ref:`false-pct`,
 :ref:`true-pct`, :ref:`set`
-
---------------
-
-

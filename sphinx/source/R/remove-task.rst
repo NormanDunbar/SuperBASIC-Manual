@@ -11,6 +11,3 @@ REMOVE\_TASK
 
 Please see RJOB, because REMOVE\_TASK a,b works like RJOB a,b,0.
 
---------------
-
-

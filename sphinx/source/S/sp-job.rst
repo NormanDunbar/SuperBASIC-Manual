@@ -22,6 +22,3 @@ See :ref:`spjob`.
 
 :ref:`jbase` contains details of the different parameters jobname and jobnr.
 
---------------
-
-

@@ -55,6 +55,3 @@ is 'executed' by RELEASE.
 :ref:`play`, :ref:`snd-ext`
 Beware the other version of :ref:`release`.
 
---------------
-
-

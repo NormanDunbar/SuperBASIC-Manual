@@ -108,6 +108,3 @@ passed as a variable (ie. by reference) or as a value.
 :ref:`parsepa` and
 :ref:`parstr-dlr` form companions to these commands.
 
---------------
-
-

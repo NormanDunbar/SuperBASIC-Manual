@@ -58,6 +58,3 @@ will be slightly different on QPC and Q40.
 See :ref:`palette-ql` and
 :ref:`colour-pal` for more details.
 
---------------
-
-

@@ -19,6 +19,3 @@ See :ref:`search` and
 :ref:`ttfindm` also.
 :ref:`msearch` is a variant on this version.
 
---------------
-
-

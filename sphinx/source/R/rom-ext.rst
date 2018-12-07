@@ -24,6 +24,3 @@ See also :ref:`rom-load` and
 :ref:`eprom-load` which allows you to
 transport code across from QL EPROM cartridges.
 
---------------
-
-

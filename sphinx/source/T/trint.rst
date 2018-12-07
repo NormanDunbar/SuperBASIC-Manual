@@ -40,6 +40,3 @@ If you want to round numbers, refer to
 :ref:`dround` and
 :ref:`pround`.
 
---------------
-
-

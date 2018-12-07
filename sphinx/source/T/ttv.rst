@@ -71,6 +71,3 @@ See :ref:`t-on`, :ref:`t-off`,
 :ref:`t-start` and
 :ref:`t-stop`
 
---------------
-
-

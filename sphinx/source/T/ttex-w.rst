@@ -16,6 +16,3 @@ EX.
 
 See :ref:`ttex` and :ref:`ew`.
 
---------------
-
-

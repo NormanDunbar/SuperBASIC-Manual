@@ -17,6 +17,3 @@ Line' error.
 
 See :ref:`go--sub`!
 
---------------
-
-

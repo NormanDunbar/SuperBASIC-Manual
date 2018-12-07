@@ -14,6 +14,3 @@ Thing List was standardised (in the Level B-10 drivers for the ST/QL
 Emulator) and allows them to work under current versions by adopting the
 old style Thing List. You should really update the problem program.
 
---------------
-
-

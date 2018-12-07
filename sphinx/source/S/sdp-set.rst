@@ -282,6 +282,3 @@ the correct number of parameters.
 :ref:`sdump` actually prints the screen using the
 chosen format.
 
---------------
-
-

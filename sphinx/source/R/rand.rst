@@ -33,6 +33,3 @@ RAND.
 checking carried out by a disk interface to see if a disk has been
 swapped.
 
---------------
-
-

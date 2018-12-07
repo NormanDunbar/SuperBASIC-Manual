@@ -42,6 +42,3 @@ which will work properly.
 
 :ref:`soundex`, :ref:`wld`.
 
---------------
-
-

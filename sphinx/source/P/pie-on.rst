@@ -42,6 +42,3 @@ problems, you can switch PIE on and off whenever you like.
 greatly enhance these facilities. :ref:`pend` can be
 used to check if a Job can send output to the screen.
 
---------------
-
-

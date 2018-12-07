@@ -33,6 +33,3 @@ The following example will report on the two fonts used in any given channel, an
     4555   END FOR a
     4560 END DEFine REPORT_ON_FONTS
 
---------------
-
-

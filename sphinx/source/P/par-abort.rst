@@ -31,6 +31,3 @@ results in a bad parameter error.
 does not tell anyone. :ref:`prt-abt` is similar
 on the Trump Card and Gold Cards.
 
---------------
-
-

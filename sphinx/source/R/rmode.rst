@@ -53,6 +53,3 @@ of MODE::
 :ref:`qflim` returns the screen resolution.
 :ref:`ttmode-pct` is similar.
 
---------------
-
-

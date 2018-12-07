@@ -11,6 +11,3 @@ TYPE\_IN
 
 Same as FORCE\_TYPE.
 
---------------
-
-

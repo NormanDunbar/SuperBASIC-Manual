@@ -12,7 +12,3 @@ SET\_XINC
 See :ref:`set-yinc`\ , below, for details.
 
 
--------
-
-
-

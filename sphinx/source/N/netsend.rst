@@ -22,7 +22,3 @@ Please refer to the notes given for NETREAD.
 See :ref:`netrate` which allows you to set the
 speed of the transmitting machine to match the speed of the receiving
 machine. Also see :ref:`netread`.
-
---------------
-
-

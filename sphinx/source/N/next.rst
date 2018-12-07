@@ -39,7 +39,3 @@ You must study :ref:`for` or
 :ref:`repeat` before using
 :ref:`next`. :ref:`exit` leaves a
 loop.
-
---------------
-
-

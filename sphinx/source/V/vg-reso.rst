@@ -25,6 +25,3 @@ The settings of :ref:`vg-wind` are dependent on
 :ref:`scrbase`, :ref:`peek` and
 :ref:`mode`.
 
---------------
-
-

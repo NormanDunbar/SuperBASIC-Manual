@@ -108,7 +108,3 @@ is invariably quicker than the use of an IF statement::
 Comparisons between any two values (or even two variables) is regarded
 as a numeric expression by SuperBASIC. :ref:`if`
 handles actual numeric values.
-
---------------
-
-

@@ -11,6 +11,3 @@ ROM\_LOAD
 
 On later versions of the Emulator, this has been renamed EPROM\_LOAD.
 
---------------
-
-

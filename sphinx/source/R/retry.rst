@@ -42,6 +42,3 @@ at line 120, displaying the message::
 
 Please refer to :ref:`continue`!
 
---------------
-
-

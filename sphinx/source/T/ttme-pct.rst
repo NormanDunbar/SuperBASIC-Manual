@@ -16,6 +16,3 @@ This function gives the job number of the current job.
 See :ref:`jobs` for information about
 :ref:`ttme-pct`'s return.
 
---------------
-
-

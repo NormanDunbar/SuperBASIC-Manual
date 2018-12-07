@@ -16,6 +16,3 @@ output on whichever port is attached to the PRT device.
 
 See :ref:`par-buff`.
 
---------------
-
-

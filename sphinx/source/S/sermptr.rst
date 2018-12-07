@@ -19,6 +19,3 @@ SERMON command.
 
 See also :ref:`sermcur`.
 
---------------
-
-

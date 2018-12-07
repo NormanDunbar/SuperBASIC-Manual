@@ -42,6 +42,3 @@ See :ref:`snet` and
 :ref:`mnet-use` is similar. See also
 :ref:`nfs-use`.
 
---------------
-
-

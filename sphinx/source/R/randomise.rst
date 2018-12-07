@@ -56,6 +56,3 @@ somewhat.
 number. :ref:`randomise` influences
 :ref:`matrnd` in the same way.
 
---------------
-
-

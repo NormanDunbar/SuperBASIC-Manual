@@ -38,6 +38,3 @@ and :ref:`pjob` also deal with job priorities.
 is exactly the same as PRIO, priority, or
 :ref:`prioritise`.
 
---------------
-
-

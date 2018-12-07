@@ -45,6 +45,3 @@ the screen display and mode should be stored together with the program.
 in memory with this command. See also :ref:`resave`
 and :ref:`qload`.
 
---------------
-
-

@@ -45,7 +45,3 @@ allows you to alter the speed of the Flexynet and
 :ref:`netread` /
 :ref:`netsend` can be used to read and send
 multiple bytes.
-
---------------
-
-

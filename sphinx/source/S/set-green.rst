@@ -40,6 +40,3 @@ This command should not really be used in MODE 8.
 :ref:`recol`. :ref:`w-swap`
 can also be used to recolour a window. Refer to the QL Display Appendix.
 
---------------
-
-

@@ -20,9 +20,3 @@ The long value given is sent as a sequence of four bytes to the channel. Negativ
 **CROSS-REFERENCE**
 
 :ref:`put-byte`, :ref:`put-float`, :ref:`put-string`, :ref:`put-word`.
-
-
--------
-
-
-

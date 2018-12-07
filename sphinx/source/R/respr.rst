@@ -68,6 +68,3 @@ memory. Also see :ref:`reserve` and
 :ref:`alchp`. It is also worth looking at
 :ref:`resfast`.
 
---------------
-
-

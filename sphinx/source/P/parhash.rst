@@ -76,6 +76,3 @@ TURBO and SuperCHARGE cannot compile programs which use PARHASH.
 and :ref:`parname-dlr` are also added by this
 toolkit.
 
---------------
-
-

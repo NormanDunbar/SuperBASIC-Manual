@@ -86,6 +86,3 @@ SuperBASIC interpreter. See also :ref:`sp-job`,
 :ref:`prio`,
 :ref:`prioritise`.
 
---------------
-
-

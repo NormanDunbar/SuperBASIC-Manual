@@ -14,6 +14,3 @@ supported. Toolkit II (which apart from providing the SuperBASIC keyword
 RENAME adds an operating system extension to rename files) is not
 required.
 
---------------
-
-

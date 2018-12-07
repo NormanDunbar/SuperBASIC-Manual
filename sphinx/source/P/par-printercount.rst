@@ -11,6 +11,3 @@ PAR\_PRINTERCOUNT
 
 This returns the number of printers available on this system.
 
---------------
-
-

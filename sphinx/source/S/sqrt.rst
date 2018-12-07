@@ -37,6 +37,3 @@ was returning the negative square root. It now returns the positive square root.
 :ref:`abs` will return the absolute value of the given
 parameter.
 
---------------
-
-

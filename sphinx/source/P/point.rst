@@ -52,6 +52,3 @@ resized with :ref:`window`.
 :ref:`point` except that it fixes the MGx ROM bug.
 Check the ROM version with :ref:`ver-dlr`.
 
---------------
-
-

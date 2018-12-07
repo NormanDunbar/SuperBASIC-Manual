@@ -27,6 +27,3 @@ though their windows are buried under the Pointer Interface.
 :ref:`pick-pct` is similar. :ref:`poke` SYS\_VARS+133 allows you to
 enable / disable the THOR's windowing system.
 
---------------
-
-

@@ -21,6 +21,3 @@ FOP\_IN.
 
 See :ref:`gethead`.
 
---------------
-
-

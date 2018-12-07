@@ -47,6 +47,3 @@ position, :ref:`file-ptra` and
 :ref:`get`, :ref:`put`,
 :ref:`bget` and :ref:`bput`.
 
---------------
-
-

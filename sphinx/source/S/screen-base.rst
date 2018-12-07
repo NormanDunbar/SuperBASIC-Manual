@@ -22,7 +22,3 @@ SCREEN\_BASE  allows you to write  programs  that need not make guesses about th
     PRINT HEX$(SCREEN_BASE(#0), 24)
 
 
--------
-
-
-

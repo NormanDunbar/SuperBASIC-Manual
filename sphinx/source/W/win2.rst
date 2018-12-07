@@ -30,6 +30,3 @@ Do not specify the device as part of directory.
 
 :ref:`dev-use` is much more flexible.
 
---------------
-
-

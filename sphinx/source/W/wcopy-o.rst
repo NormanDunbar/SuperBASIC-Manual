@@ -16,6 +16,3 @@ automatically overwritten without any prompting.
 
 See :ref:`wcopy-f`.
 
---------------
-
-

@@ -94,4 +94,3 @@ OVER -1 causes various problems with the FILL command - see FILL.
 
 Please look at :ref:`ink` and
 :ref:`print`.
-

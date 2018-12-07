@@ -46,6 +46,3 @@ command. All of these parameters can be configured in the SERMouse file.
 See also :ref:`sermcur` and
 :ref:`sermptr`.
 
---------------
-
-

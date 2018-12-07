@@ -39,7 +39,3 @@ pointer will appear at the other extreme limit.
 :ref:`ptr-pos` can be used to dictate where the
 mouse pointer should appear on screen. This command only calls
 :ref:`ptr-max` on the DIY implementation.
-
---------------
-
-

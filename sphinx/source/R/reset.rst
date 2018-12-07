@@ -30,6 +30,3 @@ On Gold Cards use :ref:`res-128` and
 allows you to use :ref:`call`  390,x to reset
 the system.
 
---------------
-
-

@@ -44,6 +44,3 @@ TURBO and SuperCHARGE cannot compile programs which use PARUSE.
 
 Please see :ref:`partyp`.
 
---------------
-
-

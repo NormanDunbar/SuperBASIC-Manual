@@ -24,6 +24,3 @@ SDATE or ADATE.
 alter the system clock. :ref:`a-sdate` is similar
 on the ST/QL Emulator.
 
---------------
-
-

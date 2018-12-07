@@ -19,6 +19,3 @@ Sets the string that can be seen when QPC runs in windowed mode. This can be use
 
 Sets the title to "Accounting", without the quotes though!
 
---------------
-
-

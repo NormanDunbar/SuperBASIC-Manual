@@ -17,7 +17,3 @@ can avoid some problems (see the note on CLOCK).
 
 :ref:`clock` starts up the clock job on the THOR's
 screen.
-
---------------
-
-

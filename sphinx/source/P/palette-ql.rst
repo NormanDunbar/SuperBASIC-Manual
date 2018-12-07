@@ -63,6 +63,3 @@ will be slightly different on QPC, Q40 and Aurora.
 :ref:`palette-8` Also refer to Appendix 16
 which lists the first 256 24 Bit Colours.
 
---------------
-
-

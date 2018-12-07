@@ -5,6 +5,3 @@ SGN%
 
 See :ref:`sgn` above.
 
---------------
-
-

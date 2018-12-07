@@ -34,6 +34,3 @@ is already on screen.
 work. You can also use :ref:`print` :ref:`chan-l-pct`\ (#1,50) instead of
 :ref:`scr-base`.
 
---------------
-
-

@@ -18,6 +18,3 @@ the range 0..65535) to the given channel (default #3).
 
 See :ref:`wget` and :ref:`bput`.
 
---------------
-
-

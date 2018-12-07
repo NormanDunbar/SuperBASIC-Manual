@@ -40,7 +40,3 @@ on the opposite edge (a wrapping effect). edge=0 disables this.
 See :ref:`ptr-inc` also. Also see
 :ref:`ptr-on` and
 :ref:`sermptr`
-
---------------
-
-

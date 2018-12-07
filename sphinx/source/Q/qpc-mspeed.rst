@@ -11,6 +11,3 @@ QPC\_MSPEED
 
 This command has no effect on QPC2.
 
---------------
-
-

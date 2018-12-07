@@ -84,6 +84,3 @@ font.
 :ref:`vg-hoch` is a function which returns the
 text sizes.
 
---------------
-
-

@@ -24,6 +24,3 @@ Hermes for your computer.
 See :ref:`ptr-on` and
 :ref:`ptr-fn-pct`.
 
---------------
-
-

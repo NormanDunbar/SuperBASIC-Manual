@@ -157,6 +157,3 @@ the same way as :ref:`ver-dlr`\ (1). See also
 :ref:`machine` and
 :ref:`processor`.
 
---------------
-
-

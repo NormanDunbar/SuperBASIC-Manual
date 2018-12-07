@@ -17,6 +17,3 @@ This is exactly the same as PARNAM$.
 :ref:`parhash` and
 :ref:`parsepa` are also added by this toolkit.
 
---------------
-
-

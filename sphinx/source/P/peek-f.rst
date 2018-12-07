@@ -23,6 +23,3 @@ represent a valid floating point, compare this with CVF.
 :ref:`poke-f`, :ref:`cvf`,
 :ref:`mkf-dlr` See also :ref:`peek-dlr`
 
---------------
-
-

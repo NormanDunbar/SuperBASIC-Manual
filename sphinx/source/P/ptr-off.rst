@@ -15,7 +15,3 @@ used by it for temporary shortage. PTR\_ON switches the driver back on.
 **CROSS-REFERENCE**
 
 This is similar to :ref:`sermoff`.
-
---------------
-
-

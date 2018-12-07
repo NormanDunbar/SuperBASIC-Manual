@@ -23,6 +23,3 @@ SuperBASIC code.
 See :ref:`troff` and
 :ref:`sstep`.
 
---------------
-
-

@@ -36,7 +36,3 @@ The following example shows how this function can be used to reserve a buffer fo
 :ref:`rechp`, :ref:`allocation`.
 
 
--------
-
-
-

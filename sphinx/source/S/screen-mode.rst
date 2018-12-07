@@ -29,7 +29,3 @@ The value returned can be 4 or 8 for normal QLs, 2 for Atari ST/QL Extended mode
 :ref:`mode`.
 
 
--------
-
-
-

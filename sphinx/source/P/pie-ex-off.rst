@@ -38,6 +38,3 @@ See :ref:`pie-on` and
 :ref:`pie-ex-on`. See also
 :ref:`pxoff` which is similar.
 
---------------
-
-

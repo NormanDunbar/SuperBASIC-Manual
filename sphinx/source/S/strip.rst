@@ -61,6 +61,3 @@ spacing between characters. :ref:`ink` contains
 details of standard and composite colours. See also
 :ref:`inverse` which can also prove useful.
 
---------------
-
-

@@ -30,6 +30,3 @@ you must not use the ECMAN but the ECMANcp version.
 
 Saved pictures can be reloaded with :ref:`sshow`.
 
---------------
-
-

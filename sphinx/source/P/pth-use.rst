@@ -30,6 +30,3 @@ program.
 
 :ref:`pth-use-dlr` returns the current setting.
 
---------------
-
-

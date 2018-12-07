@@ -27,6 +27,3 @@ Starts notepad and loads the c:\\text file.
 
 Starts the default viewer for .txt files.
 
---------------
-
-

@@ -35,6 +35,3 @@ settings which are saved are set with the command
 IS_PXLST. :ref:`pex-dlr`
 returns the sub-version number.
 
---------------
-
-

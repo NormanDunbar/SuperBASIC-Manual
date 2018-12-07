@@ -17,6 +17,3 @@ the number of the serial port to be affected (default SER1).
 
 See :ref:`par-clear`!
 
---------------
-
-

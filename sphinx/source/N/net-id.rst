@@ -9,7 +9,7 @@ NET\_ID
 | Location |  THOR XVI                                                         |
 +----------+-------------------------------------------------------------------+
 
-This function returns the computer's station number set with NET. Other
+This function returns the computer's station number set with :ref:`net`. Other
 ROMs can also find out their station number by using::
 
     PRINT PEEK (SYS_VARS+55)
@@ -24,7 +24,3 @@ or::
 
 See :ref:`net` which sets the station number. Also see
 :ref:`mnet-pct` and :ref:`snet-pct`
-
---------------
-
-

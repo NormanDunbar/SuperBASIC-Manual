@@ -100,6 +100,3 @@ area of the screen which a window covers.
 routines directly. See also :ref:`qtrap`,
 :ref:`btrap` and :ref:`mtrap`.
 
---------------
-
-

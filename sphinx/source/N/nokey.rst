@@ -16,7 +16,3 @@ so this is partially equivalent to NOKEY.
 **CROSS-REFERENCE**
 
 See :ref:`key` for details.
-
---------------
-
-

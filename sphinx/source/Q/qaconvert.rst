@@ -21,6 +21,3 @@ Compare :ref:`aqconvert` and
 :ref:`qiconvert`. See also
 :ref:`acopy` and :ref:`qcopy`.
 
---------------
-
-

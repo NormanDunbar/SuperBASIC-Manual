@@ -325,6 +325,3 @@ to attach a font to all channels :ref:`open`\ ed
 after the command. :ref:`pokes` allows you to
 :ref:`poke` memory in Supervisor mode.
 
---------------
-
-

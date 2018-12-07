@@ -20,6 +20,3 @@ memory.
 
 See FAST_FREE and :ref:`respr`.
 
---------------
-
-

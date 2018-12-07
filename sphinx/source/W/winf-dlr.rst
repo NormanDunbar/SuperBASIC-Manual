@@ -11,6 +11,3 @@ WINF$
 
 This is the same as :ref:`wman-dlr`.
 
---------------
-
-

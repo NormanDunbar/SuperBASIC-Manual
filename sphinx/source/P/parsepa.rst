@@ -38,6 +38,3 @@ This function suffers from the same problems as PARHASH.
 See\ :ref:`parhash` in particular - this contains
 an example which uses this function.
 
---------------
-
-

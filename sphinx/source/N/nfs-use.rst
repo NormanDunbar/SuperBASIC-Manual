@@ -88,7 +88,3 @@ QRD renames any local device. See also
 :ref:`fserve` -
 :ref:`nfs-use` can be used with these fileservers
 also, provided that you use :ref:`snet-use` n or :ref:`mnet-use` n to ensure that they are identified by the letter n.
-
---------------
-
-

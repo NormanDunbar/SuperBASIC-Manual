@@ -25,6 +25,3 @@ their definitions)::
 :ref:`tanh`, :ref:`coth` a
 complementary function to :ref:`tanh`.
 
---------------
-
-

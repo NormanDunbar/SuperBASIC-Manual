@@ -42,6 +42,3 @@ all characters where an upper character is available::
 :ref:`convcase-dlr` and
 :ref:`lower-dlr`.
 
---------------
-
-

@@ -16,6 +16,3 @@ affected by the normal PIE\_ON and PIE\_OFF commands.
 
 See :ref:`pie-on`.
 
---------------
-
-

@@ -16,6 +16,3 @@ This command is exactly the same as CHAR\_USE.
 See :ref:`char-use` and
 :ref:`char-def`. See also the Appendix on Fonts.
 
---------------
-
-

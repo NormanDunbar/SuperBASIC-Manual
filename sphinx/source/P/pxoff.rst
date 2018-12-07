@@ -16,7 +16,3 @@ trapped by the Pointer Environment.
 **CROSS-REFERENCE**
 
 See :ref:`pxon` and\ :ref:`peon`.
-
---------------
-
-

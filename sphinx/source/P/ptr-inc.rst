@@ -25,6 +25,3 @@ about the table.
 See :ref:`ptr-key` and also compare
 :ref:`sermspeed`.
 
---------------
-
-

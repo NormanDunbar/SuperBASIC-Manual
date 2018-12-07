@@ -36,6 +36,3 @@ partition, an empty string is returned.
 
 See :ref:`win-drive`.
 
---------------
-
-

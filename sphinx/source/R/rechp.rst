@@ -46,6 +46,3 @@ deletes the values of all variables. See also
 :ref:`discard`, :ref:`ttrel`
 and :ref:`release`.
 
---------------
-
-

@@ -17,7 +17,3 @@ work in the background.
 
 See :ref:`pxoff`
 and\ :ref:`peon`.
-
---------------
-
-

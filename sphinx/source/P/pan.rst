@@ -100,6 +100,3 @@ Otherwise, see :ref:`btrap`,
 :ref:`mtrap`. The QDOS/SMS Reference Manual Section
 15 contains full details of the TRAP #3 calls.
 
---------------
-
-

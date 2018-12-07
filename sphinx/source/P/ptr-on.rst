@@ -25,7 +25,3 @@ You can re-position the mouse with
 :ref:`ptr-key` and
 :ref:`ptr-max` are also needed to set various
 parameters on start-up.
-
---------------
-
-

@@ -24,6 +24,3 @@ The Toolkit II version of the command supports the default data device.
 
 See :ref:`sbytes`.
 
---------------
-
-

@@ -55,6 +55,3 @@ protection is to use a BORDER, as in the example.
 :ref:`fill`, :ref:`set`,
 :ref:`ldraw`
 
---------------
-
-

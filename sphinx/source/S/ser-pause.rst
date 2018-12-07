@@ -31,6 +31,3 @@ If you are using serial ports to receive data, you may need to set
 also affects the serial transfer rate. Please also refer to the Appendix
 on device drivers for more information.
 
---------------
-
-

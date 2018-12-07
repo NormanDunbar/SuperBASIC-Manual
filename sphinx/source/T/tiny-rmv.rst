@@ -23,6 +23,3 @@ possible.
 
 Re-activate the Toolkit with :ref:`tiny-ext`.
 
---------------
-
-

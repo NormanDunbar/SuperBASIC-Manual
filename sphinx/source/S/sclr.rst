@@ -40,6 +40,3 @@ Never use SCLR without a parameter! The system will crash!
 :ref:`scrbase` are the other commands connected
 with this one.
 
---------------
-
-

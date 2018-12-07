@@ -34,6 +34,3 @@ See :ref:`deg`, :ref:`sin`,
 :ref:`cos`. Also please refer to the Mathematics
 section of the Appendix.
 
---------------
-
-

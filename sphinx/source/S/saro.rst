@@ -12,6 +12,3 @@ SARO
 SARO is almost the same as SAR except that it overwrites an existing
 file without reporting an error.
 
---------------
-
-

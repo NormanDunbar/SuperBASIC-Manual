@@ -21,9 +21,3 @@ The string  parameter is sent to the appropriate channel as a two byte word givi
 **CROSS-REFERENCE**
 
 :ref:`put-byte`, :ref:`put-float`, :ref:`put-long`, :ref:`put-word`.
-
-
--------
-
-
-

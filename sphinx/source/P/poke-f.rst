@@ -48,6 +48,3 @@ kinds of data types in their internal format to a channel,
 are specialised variants for floats only. See also
 :ref:`peek-f`!
 
---------------
-
-

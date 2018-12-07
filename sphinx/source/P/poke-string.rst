@@ -30,6 +30,3 @@ If the second parameter given is a numeric one or simply a number, beware, QDOS 
 
 :ref:`peek-string`, :ref:`peek-float`, :ref:`poke-float`.
 
---------------
-
-

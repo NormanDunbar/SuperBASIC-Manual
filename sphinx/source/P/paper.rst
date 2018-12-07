@@ -39,6 +39,3 @@ PAPER also resets the STRIP to the specified colour.
 :ref:`cls` clears a window in the current paper
 colour. See :ref:`ink` concerning colour in general.
 
---------------
-
-

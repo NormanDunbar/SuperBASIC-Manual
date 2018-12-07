@@ -5,6 +5,3 @@ POKES
 
 See :ref:`pokes-l` below.
 
---------------
-
-

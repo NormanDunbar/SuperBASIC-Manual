@@ -24,6 +24,3 @@ the PTH device.
 :ref:`pth-dlr` is an alternative way to get the path
 list.
 
---------------
-
-

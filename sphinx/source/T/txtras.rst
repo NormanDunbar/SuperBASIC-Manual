@@ -31,6 +31,3 @@ On pre 1.10 versions of TinyToolkit, TXTRAS was named EXTRAS.
 :ref:`extras`, :ref:`sxtras`
 and :ref:`vocab` are all similar.
 
---------------
-
-

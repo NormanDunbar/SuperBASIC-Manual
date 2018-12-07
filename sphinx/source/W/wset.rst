@@ -30,6 +30,3 @@ similar commands under Toolkit II. Normally, you would use
 :ref:`mode` to alter the screen mode only. See also
 :ref:`wset-def`.
 
---------------
-
-

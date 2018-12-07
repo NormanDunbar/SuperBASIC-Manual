@@ -30,7 +30,3 @@ By choosing silly values, you can have a real messy screen, but try experimentin
 :ref:`set-xinc`.
 
 
--------
-
-
-

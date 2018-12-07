@@ -62,6 +62,3 @@ E-Init).
 :ref:`inkey-dlr` allows you to read the key which has
 been pressed, as well as halting program execution.
 
---------------
-
-

@@ -25,6 +25,3 @@ is therefore the same as::
 Refer to :ref:`qcount-pct` and
 :ref:`qsize-pct`.
 
---------------
-
-

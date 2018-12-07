@@ -144,6 +144,3 @@ array a$. :ref:`len` returns the length of a string.
 :ref:`free-mem` allows you to check how much
 memory an array uses.
 
---------------
-
-

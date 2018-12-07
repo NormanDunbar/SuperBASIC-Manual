@@ -56,6 +56,3 @@ v2.67+ also fixed several problems with this command.
 
 Also see :ref:`wmon`.
 
---------------
-
-

@@ -26,6 +26,3 @@ similar. See also :ref:`scr-xlim`,
 :ref:`scr-base` and
 :ref:`scr-llen`.
 
---------------
-
-

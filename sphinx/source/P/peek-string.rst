@@ -47,6 +47,3 @@ The following set of functions return the Toolkit 2 default devices::
 
 :ref:`poke-string`, :ref:`peek-float`, :ref:`poke-float`.
 
--------
-
-

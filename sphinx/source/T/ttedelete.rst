@@ -22,6 +22,3 @@ did not exist.
 
 :ref:`delete` of course.
 
---------------
-
-

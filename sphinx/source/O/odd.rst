@@ -18,7 +18,3 @@ function::
     10 DEFine FuNction ODD (number%)
     20   RETurn number% MOD 2
     30 END DEFine ODD
-
---------------
-
-

@@ -11,6 +11,3 @@ QPC\_RESTORE
 
 Restores the QPC window. This will return the window size from minimised or maximised to what it was before.
 
---------------
-
-

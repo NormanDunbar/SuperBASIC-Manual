@@ -30,6 +30,3 @@ include program lines which only contain a colon (:), for example::
     110 :
     200 DATA 'Some data to read'
 
---------------
-
-

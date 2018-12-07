@@ -14,7 +14,3 @@ This command is the same as: PTR\_LIMITS 0,0,maxx,maxy
 **CROSS-REFERENCE**
 
 See :ref:`ptr-limits`!
-
---------------
-
-

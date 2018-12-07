@@ -24,6 +24,3 @@ flp1\_Dump on the machine with NetID=1 in the Network.
 :ref:`sdump` allows you to send output to the
 specified device from SuperBASIC.
 
---------------
-
-

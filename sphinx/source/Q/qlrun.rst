@@ -17,6 +17,3 @@ automatically RUN as soon as it has been loaded into memory.
 See :ref:`qload` and
 :ref:`qmrun`.
 
---------------
-
-

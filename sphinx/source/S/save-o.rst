@@ -25,6 +25,3 @@ problem as SAVE.
 
 See :ref:`save`!
 
---------------
-
-

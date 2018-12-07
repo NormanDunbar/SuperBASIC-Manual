@@ -119,6 +119,3 @@ already associated with a WIN drive.
 :ref:`win-format` allows you to format a hard
 disk.
 
---------------
-
-

@@ -1,5 +1,9 @@
 ..  _search:
 
+..  SEARCH, as a label, causes problems when building the docs
+    as it conflicts with the actual search function of the generated
+    documentation. However, it appears to work ok. Just a thought.
+
 SEARCH
 ======
 
@@ -117,8 +121,4 @@ found%.
 Use :ref:`instr` to locate a sub-string in a string.
 :ref:`inarray-pct` is similar. See the other
 implementation of :ref:`search`.
-
---------------
-
-
 

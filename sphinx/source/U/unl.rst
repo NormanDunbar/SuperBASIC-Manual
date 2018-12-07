@@ -25,6 +25,3 @@ printing on an EPSON compatible printer, PRINT UNL is the same as::
 :ref:`rmar`, :ref:`pagdis`,
 :ref:`paglen`.
 
---------------
-
-

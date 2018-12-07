@@ -148,6 +148,3 @@ default data device. :ref:`lbytes` allows you to
 load in a block of code which has been saved with
 :ref:`sbytes` or :ref:`sexec`.
 
---------------
-
-

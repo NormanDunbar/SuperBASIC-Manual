@@ -216,7 +216,3 @@ version of :ref:`open-dir`. The Minerva variant
 of :ref:`open`, :ref:`open-in`
 and :ref:`open-new` can all be made to work in a
 similar way to :ref:`open-dir`.
-
---------------
-
-

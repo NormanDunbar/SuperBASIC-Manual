@@ -53,7 +53,3 @@ ON can also be used with the SELect ON structure - please refer to
 These two commands can generally be replaced either by a calculated
 :ref:`go--sub` or :ref:`go--to`
 statement, or the :ref:`select--on` structure.
-
---------------
-
-

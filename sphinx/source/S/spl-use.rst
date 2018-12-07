@@ -44,6 +44,3 @@ destination device. Also see :ref:`prog-use`,
 :ref:`ddown`, :ref:`dup`, and
 :ref:`dnext`.
 
---------------
-
-

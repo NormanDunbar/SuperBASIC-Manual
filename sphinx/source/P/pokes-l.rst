@@ -29,6 +29,3 @@ and POKE\_L.
 See :ref:`poke` and :ref:`peeks`.
 Also see :ref:`prot-mem`.
 
---------------
-
-

@@ -139,6 +139,3 @@ REPeat.
 :ref:`for`...\ :ref:`end--for`
 is the other loop type.
 
---------------
-
-

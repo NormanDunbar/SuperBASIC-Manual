@@ -79,6 +79,3 @@ slicing (line 310).
 
 :ref:`search` searches string arrays.
 
---------------
-
-

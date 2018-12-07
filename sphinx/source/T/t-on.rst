@@ -33,6 +33,3 @@ See :ref:`ttv`, :ref:`t-start`,
 :ref:`t-stop`,
 :ref:`t-restart`
 
---------------
-
-

@@ -22,6 +22,3 @@ following effects:
 :ref:`bmove`, :ref:`copy-b`,
 :ref:`copy-l`, :ref:`copy-w`
 
---------------
-
-

@@ -25,6 +25,3 @@ gives the value of the additional memory.
 :ref:`free-mem` and :ref:`free` return the actually available
 memory.
 
---------------
-
-

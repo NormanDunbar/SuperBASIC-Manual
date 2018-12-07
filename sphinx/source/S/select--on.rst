@@ -222,6 +222,3 @@ reported an error if END SELect did appear!!
 
 A slower means of testing for values is the structure :ref:`if` ... :ref:`end--if`\ . :ref:`end--select` ends a :ref:`select--on` structure.
 
---------------
-
-

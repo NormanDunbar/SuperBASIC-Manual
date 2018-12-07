@@ -38,6 +38,3 @@ default devices with :ref:`data-use`,
 :ref:`wstat` provide other information about
 directory devices.
 
---------------
-
-

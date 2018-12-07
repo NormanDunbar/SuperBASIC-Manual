@@ -19,6 +19,3 @@ from a Network station which does not exist.
 
 See :ref:`snet`.
 
---------------
-
-

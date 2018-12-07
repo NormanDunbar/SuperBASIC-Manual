@@ -19,6 +19,3 @@ See :ref:`t-start` and
 :ref:`t-stop`. :ref:`t-on`
 contains a general description of the stop-watches.
 
---------------
-
-

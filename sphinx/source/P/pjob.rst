@@ -44,6 +44,3 @@ for further details.
 :ref:`job-dlr`, :ref:`ojob` and
 :ref:`nxjob` return other information about a job.
 
---------------
-
-

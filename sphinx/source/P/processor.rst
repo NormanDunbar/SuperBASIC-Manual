@@ -66,6 +66,3 @@ QPC versions prior to 3.33 will return a value of 10 for the PROCESSOR function 
 See :ref:`machine`,
 :ref:`qdos-dlr` and :ref:`ver-dlr`
 
---------------
-
-

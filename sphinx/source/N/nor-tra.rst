@@ -16,7 +16,3 @@ NOR\_TRA\_rext.
 **CROSS-REFERENCE**
 
 See :ref:`nor-msg`.
-
---------------
-
-

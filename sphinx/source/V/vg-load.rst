@@ -47,6 +47,3 @@ machine will almost surely crash.
 See :ref:`vg-print` about displaying text using
 a vector font and the other VG_XXX commands.
 
---------------
-
-

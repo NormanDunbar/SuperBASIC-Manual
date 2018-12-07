@@ -25,6 +25,3 @@ shows dlroW olleH
 string. :ref:`trim-dlr` cuts
 off excess spaces from a string.
 
---------------
-
-

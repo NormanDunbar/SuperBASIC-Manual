@@ -16,7 +16,3 @@ See :ref:`search-i` for details.
 :ref:`search-i`.
 
 
--------
-
-
-

@@ -48,6 +48,3 @@ and :ref:`parstr-dlr` allow you to find out other
 information about parameters. See also :ref:`define--function` and :ref:`define--procedure`\ .
 :ref:`parname-dlr` is exactly the same.
 
---------------
-
-

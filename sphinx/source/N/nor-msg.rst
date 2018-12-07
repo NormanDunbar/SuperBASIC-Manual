@@ -21,7 +21,3 @@ to set up the printer and message translation tables for Norway.
 See :ref:`ger-msg` and
 :ref:`nor-tra`. Also see
 :ref:`tra`.
-
---------------
-
-

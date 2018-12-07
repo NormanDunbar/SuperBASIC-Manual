@@ -17,6 +17,3 @@ Possible return codes are:
 - 1 = Win9x/ME (QPC2)
 - 2 = WinNT/2000/XP (QPC2)
 
---------------
-
-

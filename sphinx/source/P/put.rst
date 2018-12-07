@@ -81,7 +81,3 @@ numbers, the internal format gives the greatest possible accuracy.
 See :ref:`put`, :ref:`bput`,
 :ref:`wput`, :ref:`lput`,
 :ref:`uput` and :ref:`get`.
-
---------------
-
-

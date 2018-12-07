@@ -31,7 +31,3 @@ that is where #3 is located.
 
 See :ref:`scr-base`.
 
---------------
-
-
-

@@ -11,6 +11,3 @@ QPC\_EXIT
 
 This simply quits QPC.
 
---------------
-
-

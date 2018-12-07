@@ -11,7 +11,3 @@ PTR\_Y
 
 This function is very similar to PTR\_X but this time the imaginary
 part is returned.
-
---------------
-
-

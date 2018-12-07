@@ -49,6 +49,3 @@ successful. Otherwise errors are returned as follows:
 allow you to find out details about a specified Job.
 :ref:`peon` allows background screen access.
 
---------------
-
-

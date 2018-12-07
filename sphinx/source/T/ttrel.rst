@@ -17,6 +17,3 @@ areas set aside with TTALL.
 :ref:`ttall`. See also
 :ref:`discard`.
 
---------------
-
-

@@ -53,6 +53,3 @@ kinds of files to a window, for example without truncating lines.
 Compare :ref:`copy` and
 :ref:`more`.
 
---------------
-
-

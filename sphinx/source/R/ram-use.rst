@@ -20,6 +20,3 @@ device must only be three letters long.
 
 See :ref:`flp-use`.
 
---------------
-
-

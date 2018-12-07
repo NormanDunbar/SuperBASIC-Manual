@@ -52,6 +52,3 @@ system (switching the power back and back on).
 :ref:`win-start` releases the head so that the
 drive can be used again.
 
---------------
-
-

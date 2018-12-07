@@ -65,7 +65,3 @@ advanced implementations of SuperBASIC.
 :ref:`zap` and :ref:`key-rmv`
 remove a resident keyword. See :ref:`replace` and
 :ref:`alias` as well.
-
---------------
-
-

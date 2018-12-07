@@ -25,6 +25,3 @@ the memory used, :ref:`smove` allows you to view
 such a saved screen part at a different location or on a different
 screen.
 
---------------
-
-
