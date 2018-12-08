@@ -34,6 +34,6 @@ ram1\_test\_txt as quickly as possible::
 
 **CROSS-REFERENCE**
 
-:ref:`search`, :ref:`copy-b`,
+:ref:`searches`, :ref:`copy-b`,
 :ref:`copy-w`, :ref:`copy-l`
 

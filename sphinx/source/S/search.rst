@@ -1,8 +1,13 @@
-..  _search:
-
-..  SEARCH, as a label, causes problems when building the docs
+..  SEARCH, here, as a label, causes problems when building the docs
     as it conflicts with the actual search function of the generated
-    documentation. However, it appears to work ok. Just a thought.
+    documentation. Hence, this label (and all cross references to the
+    SEARCH command, must use the label searches, as in :ref:`searches`.
+
+    And, watch out, you cannot put a comment, like this, between a label
+    and the immediately following chapter/section header or the label
+    is not recognised.
+
+..  _searches:
 
 SEARCH
 ======
@@ -48,7 +53,7 @@ because tofind$ itself needs to be stored somewhere.
 **CROSS-REFERENCE**
 
 :ref:`peek-dlr`, :ref:`dev-use`.
-See other implementation of :ref:`search`. See
+See other implementation of :ref:`searches`. See
 :ref:`msearch`,
 :ref:`search-mem` and
 :ref:`ttfindm` also.
@@ -120,5 +125,5 @@ found%.
 
 Use :ref:`instr` to locate a sub-string in a string.
 :ref:`inarray-pct` is similar. See the other
-implementation of :ref:`search`.
+implementation of :ref:`searches`.
 

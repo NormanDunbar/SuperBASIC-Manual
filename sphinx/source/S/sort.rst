@@ -77,5 +77,5 @@ slicing (line 310).
 
 **CROSS-REFERENCE**
 
-:ref:`search` searches string arrays.
+:ref:`searches` searches string arrays.
 

@@ -15,7 +15,7 @@ therefore is even quicker than MSEARCH.
 
 **CROSS-REFERENCE**
 
-See :ref:`search` and
+See :ref:`searches` and
 :ref:`ttfindm` also.
 :ref:`msearch` is a variant on this version.
 

@@ -17,7 +17,7 @@ Contents:
    Structure                                 <FrontMatter/Structure.rst>
    Writing Programs                          <FrontMatter/WritingPrograms.rst>
    Keywords Introduction                     <FrontMatter/KeywordsIntro.rst>
-   Toolkits in this Manual                   <Frontmatter/Toolkits.rst>
+   Toolkits in this Manual                   <FrontMatter/Toolkits.rst>
 
    Keywords A                                <A/index.rst>
    Keywords B                                <B/index.rst>
@@ -67,8 +67,8 @@ Contents:
    A16. The QL Display                       <Appendices/Appendix16.rst>
    A17. Networks                             <Appendices/Appendix17.rst>
    A18. Configuring Programs                 <Appendices/Appendix18.rst>
-   
-    
+
+
 
 
 .. Indices and tables

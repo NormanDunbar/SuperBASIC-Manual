@@ -67,6 +67,6 @@ and ::
 
 **CROSS-REFERENCE**
 
-:ref:`search`, :ref:`blook`,
+:ref:`searches`, :ref:`blook`,
 :ref:`msearch` are all similar.
 
