@@ -1,0 +1,18 @@
+..  _res-128:
+
+RES\_128
+========
+
++----------+-------------------------------------------------------------------+
+| Syntax   |  RES\_128                                                         |
++----------+-------------------------------------------------------------------+
+| Location |  Gold Card, Trump Card                                            |
++----------+-------------------------------------------------------------------+
+
+This command does the same as RES\_SIZE 128.
+
+**CROSS-REFERENCE**
+
+:ref:`flp-ext` can be used to re-enable some
+functions such as ramdisks.
+

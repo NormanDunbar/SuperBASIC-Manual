@@ -5,5 +5,11 @@ tools/fixLinkComments
 tools/preHTMLTidy
 *.doctree
 *.pickle
+*.exe
+*.depend
+*.layout
+*/obj/*
+*.save
 sphinx/build/*
-tools/*.exe
+tools/*/*.exe
+tools/OSBMSplitter/obj
