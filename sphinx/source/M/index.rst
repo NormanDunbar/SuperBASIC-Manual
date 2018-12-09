@@ -53,6 +53,7 @@ Keywords M
     mnet-use.rst
     mod.rst
     mode.rst
+    month-pct.rst
     more.rst
     mouse-speed.rst
     mouse-stuff.rst

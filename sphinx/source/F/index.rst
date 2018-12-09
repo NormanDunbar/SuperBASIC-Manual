@@ -13,6 +13,10 @@ Keywords F
     fdec-dlr.rst
     fetch-bytes.rst
     fexp-dlr.rst
+    fet.rst
+    few.rst
+    fex.rst
+    fex-m.rst
     ff.rst
     fget-pct.rst
     fget-dlr.rst

@@ -1524,6 +1524,7 @@ SMSQ/E provides the following commands:
 *	:ref:`cd-trackstart`
 *	:ref:`cd-tracktime`
 *	:ref:`chk-heap`
+*   :ref:`day-pct`
 *	:ref:`dev-usen`
 *	:ref:`disp-inverse`
 *	:ref:`disp-size`
@@ -1532,6 +1533,10 @@ SMSQ/E provides the following commands:
 *	:ref:`dos-drive`
 *	:ref:`dos-drive-dlr`
 *	:ref:`dos-use`
+*   :ref:`fet`
+*   :ref:`few`
+*   :ref:`fex`
+*   :ref:`fex-m`
 *	:ref:`flp-density`
 *	:ref:`flp-drive`
 *	:ref:`flp-drive-dlr`
@@ -1539,11 +1544,14 @@ SMSQ/E provides the following commands:
 *	:ref:`flp-step`
 *	:ref:`flp-use`
 *	:ref:`hget`
+*   :ref:`hot-getstuff-dlr`
 *	:ref:`hput`
+*   :ref:`jobid`
 *	:ref:`lget`
 *	:ref:`lput`
 *	:ref:`machine`
 *	:ref:`midinet`
+*   :ref:`month-pct`
 *	:ref:`mnet`
 *	:ref:`mnet-off`
 *	:ref:`mnet-on`
@@ -1611,6 +1619,7 @@ SMSQ/E provides the following commands:
 *	:ref:`snet-s-pct`
 *	:ref:`snet-use`
 *	:ref:`th-fix`
+*   :ref:`weekday-pct`
 *	:ref:`wget`
 *	:ref:`when--condition`
 *	:ref:`win-drive`
@@ -1622,6 +1631,7 @@ SMSQ/E provides the following commands:
 *	:ref:`win-use`
 *	:ref:`win-wp`
 *	:ref:`wput`
+*   :ref:`year-pct`
 
 
 SMSQ/E - v2.50 Onwards
@@ -1681,6 +1691,32 @@ This version provided the following additional command(s):
 *	:ref:`colour-ql`
 *	:ref:`palette-8`
 *	:ref:`palette-ql`
+
+
+SMSQ/E - v3.00 Onwards
+~~~~~~~~~~~~~~~~~~~~~~
+This version provided the following additional command(s):
+
+*	:ref:`wm-block`
+*	:ref:`wm-border`
+*	:ref:`wm-ink`
+*	:ref:`wm-paper`
+*	:ref:`wm-strip`
+
+
+SMSQ/E - v3.01 Onwards
+~~~~~~~~~~~~~~~~~~~~~~
+This version provided the following additional command(s):
+
+*	:ref:`wm-movemode`
+
+
+SMSQ/E - v3.12 Onwards
+~~~~~~~~~~~~~~~~~~~~~~
+This version provided the following additional command(s):
+
+*	:ref:`pe-bgoff`
+*	:ref:`pe-bgon`
 
 
 SMSQ/E - v2.73 for Atari

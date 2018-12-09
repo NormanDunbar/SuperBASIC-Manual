@@ -14,6 +14,7 @@ Keywords D
     date.rst
     date-dlr.rst
     day-dlr.rst
+    day-pct.rst
     dbl.rst
     ddown.rst
     deallocate.rst

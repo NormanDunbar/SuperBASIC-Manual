@@ -13,6 +13,7 @@ Keywords W
     wdel.rst
     wdel-f.rst
     wdir.rst
+    weekday-pct.rst
     wget.rst
     when--condition.rst
     when--error.rst
@@ -34,6 +35,12 @@ Keywords W
     wipe.rst
     wld.rst
     wm.rst
+    wm-block.rst
+    wm-border.rst
+    wm-ink.rst
+    wm-movemode.rst
+    wm-paper.rst
+    wm-strip.rst
     wman-dlr.rst
     wmon.rst
     wmov.rst

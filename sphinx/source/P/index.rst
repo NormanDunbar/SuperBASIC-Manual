@@ -34,6 +34,8 @@ Keywords P
     par-setprinter.rst
     par-use.rst
     pause.rst
+    pe-bgoff.rst
+    pe-bgon.rst
     peek.rst
     peek-float.rst
     peek-string.rst

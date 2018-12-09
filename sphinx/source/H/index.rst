@@ -20,6 +20,7 @@ Keywords H
     hot-chp1.rst
     hot-cmd.rst
     hot-do.rst
+    hot_getstuff-dlr.rst
     hot-go.rst
     hot-key.rst
     hot-list.rst
