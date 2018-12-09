@@ -12,4 +12,5 @@ tools/preHTMLTidy
 *.save
 sphinx/build/*
 tools/*/*.exe
-tools/OSBMSplitter/obj
+tools/OSBMSplitter/obj/*
+tools/OSBMSplitter/bin/*
