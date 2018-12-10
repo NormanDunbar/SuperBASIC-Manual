@@ -972,8 +972,16 @@ The commands in this toolkit are:
 
 
 Level-2 Device Drivers
-Level-2 and Level-3 Drivers
-Level-2 drivers
+----------------------
+The commands in the Level 2 and/or Level 3 drivers are:
+
+*   :ref:`fbkdt` 
+*   :ref:`fmake-dir` 
+*   :ref:`fvers` 
+*   :ref:`make-dir` 
+*   :ref:`set-fbkdt` 
+*   :ref:`set-fupdt` 
+*   :ref:`set-fvers` 
 
 
 MINMAX2
@@ -1365,6 +1373,33 @@ The commands in this toolkit are:
 *	:ref:`play`
 *	:ref:`release`
 *	:ref:`shoot`
+
+
+..  _qview-tinytoolkit
+
+QView Tiny Toolkit
+------------------
+The Qview Tiny Toolkit, not to be confused with :ref:`tinytoolkit`, provides the following commands:
+
+*   :ref:`ttall` 
+*   :ref:`tt-dlr` 
+*   :ref:`ttedelete` 
+*   :ref:`ttefp` 
+*   :ref:`tteopen` 
+*   :ref:`ttet3` 
+*   :ref:`ttex` 
+*   :ref:`ttex-w` 
+*   :ref:`ttfindm` 
+*   :ref:`ttinc` 
+*   :ref:`ttme-pct` 
+*   :ref:`ttmode-pct` 
+*   :ref:`ttpeek-dlr` 
+*   :ref:`ttpoke-dlr` 
+*   :ref:`ttpokem` 
+*   :ref:`ttrel` 
+*   :ref:`ttrename` 
+*   :ref:`ttsus` 
+*   :ref:`ttv` 
 
 
 QVME - Level E-19 Drivers onwards
@@ -2102,9 +2137,12 @@ The commands in this toolkit are:
 *	:ref:`true-pct`
 
 
+..  _tiny-toolkit:
+
 TinyToolkit
 -----------
-The commands in this toolkit are:
+TinyToolkit, not to be confused with :ref:`qview-tinytoolkit`, provides the following commands:
+
 
 *	:ref:`basic-l`
 *	:ref:`basicp`
@@ -2159,25 +2197,6 @@ The commands in this toolkit are:
 *	:ref:`tconnect`
 *	:ref:`tiny-ext`
 *	:ref:`tiny-rmv`
-*	:ref:`ttall`
-*	:ref:`tt-dlr`
-*	:ref:`ttedelete`
-*	:ref:`ttefp`
-*	:ref:`tteopen`
-*	:ref:`ttet3`
-*	:ref:`ttex`
-*	:ref:`ttex-w`
-*	:ref:`ttfindm`
-*	:ref:`ttinc`
-*	:ref:`ttme-pct`
-*	:ref:`ttmode-pct`
-*	:ref:`ttpeek-dlr`
-*	:ref:`ttpoke-dlr`
-*	:ref:`ttpokem`
-*	:ref:`ttrel`
-*	:ref:`ttrename`
-*	:ref:`ttsus`
-*	:ref:`ttv`
 *	:ref:`txtras`
 *	:ref:`type`
 *	:ref:`upper-dlr`
