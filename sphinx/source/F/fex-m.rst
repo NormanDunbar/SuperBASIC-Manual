@@ -18,7 +18,7 @@ newly started job will be killed whenever its owner job is killed.
 
 ::
 
-    jobid = FEX\_M(win1_qmac)
+    the_job_id = FEX_M(win1_qmac)
 
 Will execute Qmac as a job owned by the current S*BASIC interpreter. When the
 current interpreter ceases to exist, the new Qmac job will also be killed.

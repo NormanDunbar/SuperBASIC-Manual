@@ -28,5 +28,6 @@ then return the error code of that job.
 
 See :ref:`ew`,
 :ref:`exec-w`,
-:ref:`jobs`.
+:ref:`jobs`,
+:ref:`quit`.
 

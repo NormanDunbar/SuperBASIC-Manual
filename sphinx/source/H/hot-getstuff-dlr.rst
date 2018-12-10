@@ -1,4 +1,4 @@
-..  _hot_getstuff-dlr:
+..  _hot-getstuff-dlr:
 
 HOT_GETSTUFF$
 =============
@@ -25,5 +25,5 @@ like ALT-SHIFT-SPACE
 
 **CROSS-REFERENCE**
 
-See :ref:`get_stuff-dlr`, :ref:`hot_stuff`.
+See :ref:`get-stuff-dlr`, :ref:`hot-stuff`.
 
