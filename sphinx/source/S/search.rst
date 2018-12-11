@@ -64,11 +64,11 @@ See other implementation of :ref:`searches`. See
 SEARCH
 ======
 
-+----------+-------------------------------------------------------------------+
-| Syntax   |  SEARCH (array$, tofind$, start, compare [,row] )                 |
-+----------+-------------------------------------------------------------------+
-| Location |  ARRAY                                                            |
-+----------+-------------------------------------------------------------------+
++----------+------------------------------------------------------------------+
+| Syntax   | SEARCH (array$, tofind$, start, compare [,row] )                 |
++----------+------------------------------------------------------------------+
+| Location | ARRAY                                                            |
++----------+------------------------------------------------------------------+
 
 The function SEARCH searches in a two or three-dimensional string array
 array$ for the string tofind$. The search is not case-sensitive but

@@ -5,10 +5,10 @@ WIN\_DRIVE
 
 +----------+------------------------------------------------------------------+
 | Syntax   | WIN\_DRIVE driveno [, unit, disk] or                             |
-+----------+------------------------------------------------------------------+
-| Syntax   | WIN\_DRIVE driveno, unit [,disk] [,partition ](SMSQ/E only)  or  |
-+----------+------------------------------------------------------------------+
-| Syntax   | WIN\_DRIVE driveno, path$(QPC & QXL SMSQ/E only)                 |
+|          |                                                                  |
+|          | WIN\_DRIVE driveno, unit [,disk] [,partition ](SMSQ/E only)  or  |
+|          |                                                                  |
+|          | WIN\_DRIVE driveno, path$(QPC & QXL SMSQ/E only)                 |
 +----------+------------------------------------------------------------------+
 | Location | ST/QL, SMSQ/E for Atari and QXL / QPC                            |
 +----------+------------------------------------------------------------------+
@@ -21,7 +21,7 @@ standard hard disk and a changeable hard disk inside).
 The normal chain
 of events is that each WIN drive would attach itself to the equivalent
 hard disk unit, for example, WIN1\_ would be connected to hard disk unit
-0, WIN2\_ to hard disk unit 1 and so on... However, so that you may link
+0, WIN2\_ to hard disk unit 1 and so on. However, so that you may link
 the WIN drives to specific disks within each unit, the WIN\_DRIVE
 command exists.
 

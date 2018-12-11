@@ -2137,7 +2137,7 @@ The commands in this toolkit are:
 *	:ref:`true-pct`
 
 
-..  _tiny-toolkit:
+..  _tinytoolkit:
 
 TinyToolkit
 -----------
