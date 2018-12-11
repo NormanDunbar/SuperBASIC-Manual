@@ -20,7 +20,7 @@ printing on an EPSON compatible printer, PRINT UNL is the same as::
 :ref:`el`, :ref:`dbl`,
 :ref:`enl`, :ref:`pro`,
 :ref:`si`, :ref:`nrm`,
-:ref:`alt`, ESC,
+:ref:`alt`, :ref:`esc`,
 :ref:`ff`, :ref:`lmar`,
 :ref:`rmar`, :ref:`pagdis`,
 :ref:`paglen`.

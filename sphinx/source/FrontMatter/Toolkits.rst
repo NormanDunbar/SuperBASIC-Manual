@@ -324,6 +324,7 @@ The commands in this toolkit are:
 *	:ref:`dbl`
 *	:ref:`el`
 *	:ref:`enl`
+*   :ref:`esc`
 *	:ref:`ff`
 *	:ref:`key-add`
 *	:ref:`key-rmv`

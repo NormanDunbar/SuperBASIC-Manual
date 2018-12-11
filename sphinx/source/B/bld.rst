@@ -26,7 +26,7 @@ LPRINT "I " & BLD&"hate"&NRM & " these functions."
 :ref:`dbl`, :ref:`enl`,
 :ref:`pro`, :ref:`si`,
 :ref:`nrm`, :ref:`unl`,
-:ref:`alt`, ESC,
+:ref:`alt`, :ref:`esc`,
 :ref:`ff`, :ref:`lmar`,
 :ref:`rmar`, :ref:`pagdis`,
 :ref:`paglen`.

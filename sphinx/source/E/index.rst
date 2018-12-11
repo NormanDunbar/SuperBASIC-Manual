@@ -41,6 +41,7 @@ Keywords E
     err-xx.rst
     error.rst
     ert.rst
+    esc.rst
     et.rst
     etab-dlr.rst
     etat.rst

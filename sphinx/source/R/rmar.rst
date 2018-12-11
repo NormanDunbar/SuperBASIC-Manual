@@ -41,7 +41,7 @@ is the same as::
 :ref:`enl`, :ref:`pro`,
 :ref:`si`, :ref:`nrm`,
 :ref:`unl`, :ref:`alt`,
-ESC, :ref:`ff`,
+:ref:`esc`, :ref:`ff`,
 :ref:`lmar`, :ref:`pagdis`,
 :ref:`paglen`.
 

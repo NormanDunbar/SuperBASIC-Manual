@@ -19,7 +19,7 @@ to an EPSON compatible printer.
 :ref:`enl`, :ref:`pro`,
 :ref:`si`, :ref:`nrm`,
 :ref:`unl`, :ref:`alt`,
-ESC, :ref:`lmar`,
+:ref:`esc`, :ref:`lmar`,
 :ref:`rmar`, :ref:`pagdis`,
 :ref:`paglen`.
 

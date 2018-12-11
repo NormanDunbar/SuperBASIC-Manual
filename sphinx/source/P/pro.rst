@@ -24,7 +24,7 @@ is the same as::
 :ref:`el`, :ref:`dbl`,
 :ref:`enl`, :ref:`si`,
 :ref:`nrm`, :ref:`unl`,
-:ref:`alt`, ESC,
+:ref:`alt`, :ref:`esc`,
 :ref:`ff`, :ref:`lmar`,
 :ref:`rmar`, :ref:`pagdis`,
 :ref:`paglen`.

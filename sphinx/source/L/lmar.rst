@@ -20,7 +20,7 @@ is the same as PRINT CHR$(27)&'l'&CHR$(10)
 :ref:`enl`, :ref:`pro`,
 :ref:`si`, :ref:`nrm`,
 :ref:`unl`, :ref:`alt`,
-ESC, :ref:`ff`,
+:ref:`esc`, :ref:`ff`,
 :ref:`rmar`, :ref:`pagdis`,
 :ref:`paglen`.
 

@@ -24,7 +24,7 @@ is therefore equivalent to::
 :ref:`el`, :ref:`dbl`,
 :ref:`enl`, :ref:`pro`,
 :ref:`si`, :ref:`nrm`,
-:ref:`unl`, esc,
+:ref:`unl`, :ref:`esc`,
 :ref:`ff`, :ref:`lmar`,
 :ref:`rmar`, :ref:`pagdis`,
 :ref:`paglen`.
