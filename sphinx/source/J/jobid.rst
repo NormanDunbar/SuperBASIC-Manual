@@ -25,5 +25,5 @@ supplied, the Job ID number of the current job is returned.
 
 **CROSS-REFERENCE**
 
-See :ref:`jobs`, :ref:`job-pct`.
+See :ref:`jobs`, :ref:`job-dlr`.
 
