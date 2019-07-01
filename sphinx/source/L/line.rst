@@ -52,7 +52,7 @@ A simple demonstration program::
     160   INK RND(7)
     170   FOR i=1 TO 360 STEP xstep
     180     ix=RAD(i)
-    190     LINE 50,50 TO 50+COS(ix)\*50,50+SIN(ix)\*50
+    190     LINE 50,50 TO 50+COS(ix)*50,50+SIN(ix)*50
     200   END FOR i
     210 END REPeat loop
 
