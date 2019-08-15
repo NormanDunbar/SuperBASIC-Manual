@@ -42,6 +42,16 @@ The column number is calculated as,
 Column 0 being the left hand side of the screen, Column 1 is 256 pixels
 from the left, Column 2 512 pixels from the left and so on....
 
+**Example**
+
+* ``SBASIC``: opens three channels, #0, #1 and #2 over the top of, and the same size as the existing windows in SuperBASIC;
+* ``SBASIC 2`` (or ``SBASIC '2'``): Opens one channel, #0, as ``con_256x62a0x128``;
+* ``SBASIC 3`` (or ``SBASIC '3'``): Opens one channel, #0, as ``con_256x62a0x192``;
+* ``SBASIC 11`` (or ``SBASIC '11'``): Opens one channel, #0, as ``con_256x62a256x64``;
+* ``SBASIC 12`` (or ``SBASIC '12'``): Opens one channel, #0, as ``con_256x62a256x128``;
+* ``SBASIC 32`` (or ``SBASIC '32'``): Opens one channel, #0, as ``con_256x62a768x128``;
+
+
 **CROSS-REFERENCE**
 
 See :ref:`mb` and :ref:`ew` for other
