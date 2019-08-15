@@ -46,8 +46,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'SBASIC/SuperBASIC Reference Manual Online'
-copyright = u'2005-2016, Rich Mellor'
-author = u'Rich Mellor'
+copyright = u'2005-2019, Rich Mellor (plus contributers)'
+author = u'Rich Mellor et al'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -243,7 +243,7 @@ latex_documents = [
 
 # The name of an image file (relative to this directory) to place at the top of
 # the title page.
-#latex_logo = None
+latex_logo = 'ql_black.jpg'
 
 # For "manual" documents, if this is true, then toplevel headings are parts,
 # not chapters.
