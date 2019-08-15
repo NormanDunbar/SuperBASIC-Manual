@@ -44,12 +44,26 @@ from the left, Column 2 512 pixels from the left and so on....
 
 **Example**
 
-* ``SBASIC``: opens three channels, #0, #1 and #2 over the top of, and the same size as the existing windows in SuperBASIC;
-* ``SBASIC 2`` (or ``SBASIC '2'``): Opens one channel, #0, as ``con_256x62a0x128``;
-* ``SBASIC 3`` (or ``SBASIC '3'``): Opens one channel, #0, as ``con_256x62a0x192``;
-* ``SBASIC 11`` (or ``SBASIC '11'``): Opens one channel, #0, as ``con_256x62a256x64``;
-* ``SBASIC 12`` (or ``SBASIC '12'``): Opens one channel, #0, as ``con_256x62a256x128``;
-* ``SBASIC 32`` (or ``SBASIC '32'``): Opens one channel, #0, as ``con_256x62a768x128``;
+The following examples should make it clear::
+
+    1000 REMark Opens three channels, #0, #1 and #2 over the top of, and the 
+    1005 REMark same size as the existing windows in SuperBASIC;
+    1010 SBASIC 
+    1015 :
+    1020 REMark Opens one channel, #0, as con_256x62a0x128;
+    1025 SBASIC 2: REMark Or SBASIC '2'
+    1030 : 
+    1035 REMark Opens one channel, #0, as con_256x62a0x192;
+    1040 SBASIC 3: REMark Or SBASIC '3'
+    1045 :
+    1050 REMark Opens one channel, #0, as con_256x62a256x64;
+    1055 SBASIC 11: REMark Or SBASIC '11'
+    1060 :
+    1065 REMark Opens one channel, #0, as con_256x62a256x128;
+    1070 SBASIC 12: REMark Or SBASIC '12'
+    1075 :
+    1080 REMark Opens one channel, #0, as con_256x62a768x128;
+    1085 SBASIC 32: REMark Or SBASIC '32'
 
 
 **CROSS-REFERENCE**
