@@ -270,11 +270,11 @@ which is represented here by an x):
 +--------+-----------+
 | 1x00   | GREEN     |
 +--------+-----------+
-| 0x01   | CYAN      |
+| 1x01   | CYAN      |
 +--------+-----------+
-| 0x10   | YELLOW    |
+| 1x10   | YELLOW    |
 +--------+-----------+
-| 0x11   | WHITE     |
+| 1x11   | WHITE     |
 +--------+-----------+
 
 Therefore in the above example, the first four pixels of the display
