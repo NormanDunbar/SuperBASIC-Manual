@@ -321,7 +321,7 @@ A7.2.9 Keywords Which are Useful in SBASICs
 
 Reference should be made to SEND\_EVENT and WAIT\_EVENT.
 
-DEVTPYE allows you to find out is a channel is OPEN.
+DEVTYPE allows you to find out if a channel is OPEN.
 
 QUIT and JOB\_NAME are only of any relevance from within an SBASIC.
 
