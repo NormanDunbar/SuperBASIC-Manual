@@ -17,7 +17,7 @@ A number of folders exist:
 - errors - a list of the errors detected in the various conversions from HTML to ReStructuredText. Highly unlikely to be useful now, so compressed.
 - tools - some tools that were used to do the majority of the initial conversion. Most have been compressed out of the way as they are no longer required.
 
-- sphinx - where we do the building. Uses the `Makefile` found here. To generate output, `make html` or `make latexpdf` are best. For a bonus, `make epub` of `make text`.
+- sphinx - where we do the building. Uses the `Makefile` found here. To generate output, `make html` or `make latexpdf` are best. For a bonus, `make epub` or `make text`.
 - sphinx/source - where the ReStructuredText files are kept. These are used to build stuff.
 - sphinx/build/html - where the html files, created by Sphinx's `make html` command, will be found.
 - sphinx/build/latex - where the latex and/or PDF files, created by Sphinx's `make latex` or `make latexpdf`, will be found.
@@ -26,7 +26,7 @@ A number of folders exist:
 
 
 ## Structure
-The source files live in a separate ReStructuredText for each individual keyword, where the folder they live in is based on the first letter, upper cased, of the keyword. So `DJTK_VER$` lives in the `D` folder beneath `sphinx/source`. There are folders for 'A' to 'Z' and one for those few keywords with a leading underscore, they like in a folder named '_'. Weird but true.
+The source files live in a separate ReStructuredText for each individual keyword, where the folder they live in is based on the first letter, upper cased, of the keyword. So `DJTK_VER$` lives in the `D` folder beneath `sphinx/source`. There are folders for 'A' to 'Z' and one for those few keywords with a leading underscore, they live in a folder named '_'. Weird but true.
 
 The actual file names are not always the same as the keyword:
 
