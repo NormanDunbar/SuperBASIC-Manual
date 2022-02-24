@@ -20,9 +20,9 @@ actually substitute each other:
 +------------------------+----------------------+
 | Mathematical formula   | In SuperBASIC        |
 +========================+======================+
-| cos x = sin (π/2-x)    | COS(x)=SIN(PI/2-x)   |
+| cos x = sin (PI/2-x)   | COS(x)=SIN(PI/2-x)   |
 +------------------------+----------------------+
-| sin x = cos (π/2-x)    | SIN(x)=COS(PI/2-x)   |
+| sin x = cos (PI/2-x)   | SIN(x)=COS(PI/2-x)   |
 +------------------------+----------------------+
 
 **Example**

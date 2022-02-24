@@ -219,15 +219,17 @@ htmlhelp_basename = 'SBASICSuperBASICReferenceManualOnlinedoc'
 
 # -- Options for LaTeX output ---------------------------------------------
 
+latex_engine = 'pdflatex'
 latex_elements = {
+
 # The paper size ('letterpaper' or 'a4paper').
-#'papersize': 'letterpaper',
+'papersize': 'a4paper',
 
 # The font size ('10pt', '11pt' or '12pt').
-#'pointsize': '10pt',
+#'pointsize': '11pt',
 
 # Additional stuff for the LaTeX preamble.
-#'preamble': '',
+'preamble': ''
 
 # Latex figure (float) alignment
 #'figure_align': 'htbp',
@@ -253,7 +255,7 @@ latex_logo = 'ql_black.jpg'
 #latex_show_pagerefs = False
 
 # If true, show URL addresses after external links.
-#latex_show_urls = False
+#latex_show_urls = 'footnote'
 
 # Documents to append as an appendix to all manuals.
 #latex_appendices = []
