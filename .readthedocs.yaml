@@ -19,8 +19,11 @@ sphinx:
   builder: html
   configuration: sphinx/source/conf.py
   fail_on_warning: false
+  formats:
+    - pdf
+    - epub
 
-# We recommend specifying your dependencies to enable reproducible builds:
+      # We recommend specifying your dependencies to enable reproducible builds:
 # https://docs.readthedocs.io/en/stable/guides/reproducible-builds.html
 # python:
 #   install:
