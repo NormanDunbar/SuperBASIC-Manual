@@ -25,7 +25,7 @@ channel number the commands try to open their own channel - that hybrid
 number 0/1, as do a number of IO commands (at least in SMSQ/E). All well
 and good. But if you, say, open your first channel as number 3, as happens
 automatically if your first channel in a daughter SBASIC or Qlib compiled
-job, and you open it with ch = FOPEN("con_") then, if that channel is
+job, and you open it with ch = FOPEN("con\_") then, if that channel is
 OUTLiNed to be smaller than the default channel, the call fails and returns
 to the routine - which gives up. But doesnt say anything! However, now
 there is dangling, open channel in the main channel table that SBASIC

@@ -29,7 +29,7 @@ S*BASIC's channel #0.
 Unfortunately, if there isn't already a channel #0 open, for example, a program might have opened
 its first channel using:
 
-1500 main = FOPEN("con_")
+1500 main = FOPEN("con\_")
 
 In this case, the the CKEYOFF command will open a new console 
 channel and then try to set the window size of that 
