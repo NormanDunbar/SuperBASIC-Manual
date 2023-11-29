@@ -39,6 +39,10 @@ Keywords Q
     qspace-pct.rst
     qtrap.rst
     quatari.rst
+    qub-drive.rst
+    qub-drive-dlr.rst
+    qub-use.rst
+    qub-wp.rst
     queue-pct.rst
     quit.rst
 

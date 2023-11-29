@@ -16,6 +16,7 @@ Keywords K
     key-rmv.rst
     kill.rst
     killn.rst
+    killsound.rst
     kill-a.rst
     kjob.rst
     kjobs.rst

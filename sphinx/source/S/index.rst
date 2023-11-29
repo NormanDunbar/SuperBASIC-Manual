@@ -118,6 +118,9 @@ Keywords S
     stop.rst
     strip.rst
     sub.rst
+    soundfile.rst
+    soundfile2.rst
+    soundfile3.rst
     susjob.rst
     swap.rst
     sxtras.rst

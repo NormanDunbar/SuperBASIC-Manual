@@ -8,6 +8,10 @@ Keywords F
     fact.rst
     false-pct.rst
     fastexpand.rst
+    fat-drive.rst
+    fat-drive-dlr.rst
+    fat-use.rst
+    fat-wp.rst
     fbkdt.rst
     fdat.rst
     fdec-dlr.rst
@@ -80,6 +84,7 @@ Keywords F
     fread-dlr.rst
     free.rst
     free-fast.rst
+    free-fmem.rst
     free-mem.rst
     freeze.rst
     freeze-pct.rst
