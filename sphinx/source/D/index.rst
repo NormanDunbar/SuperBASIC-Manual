@@ -53,6 +53,7 @@ Keywords D
     discard.rst
     disp-blank.rst
     disp-inverse.rst
+    disp-mode.rst
     disp-rate.rst
     disp-size.rst
     disp-type.rst

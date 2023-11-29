@@ -21,6 +21,7 @@ Keywords A
     ajob.rst
     alarm.rst
     alchp.rst
+    alfm.rst
     alias.rst
     aline.rst
     allocation.rst

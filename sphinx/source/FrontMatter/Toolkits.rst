@@ -1782,7 +1782,39 @@ Additional command(s) in this version of SMSQ/E are:
 *	:ref:`disp-inverse`
 
 
+SMSQ/E for Q68
+~~~~~~~~~~~~~~
+The commands in this toolkit are:
 
+*       :ref:`alfm`
+*       :ref:`card-create`
+*       :ref:`card-dir-dlr`
+*       :ref:`card-init`
+*       :ref:`card-renf`
+*       :ref:`disp-mode`
+*       :ref:`fat-drive`
+*       :ref:`fat-drive-dlr`
+*       :ref:`fat-use`
+*       :ref:`fat-wp`
+*       :ref:`free-fmem`
+*       :ref:`killsound`
+*       :ref:`qub-drive`
+*       :ref:`qub-drive-dlr`
+*       :ref:`qub-use`
+*       :ref:`qub-wp`
+*       :ref:`slug`
+*       :ref:`soundfile`
+*       :ref:`soundfile2`
+*       :ref:`soundfile3`
+*       :ref:`win-check`
+*       :ref:`win-drive`
+*       :ref:`win-drive-dlr`
+*       :ref:`win-format`
+*       :ref:`win-safe`
+*       :ref:`win-use`
+*       :ref:`win-wp`
+
+	
 SMSQ/E for QPC
 ~~~~~~~~~~~~~~
 The commands in this toolkit are:

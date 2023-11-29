@@ -9,6 +9,10 @@ Keywords C
     cache-off.rst
     call.rst
     caps.rst
+    card-create.rst
+    card-dir-dlr.rst
+    card-init.rst
+    card-renf.rst
     catnap.rst
     cbase.rst
     cchr-dlr.rst
