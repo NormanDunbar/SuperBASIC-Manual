@@ -21,7 +21,7 @@ program has finished, the environment variable may be deleted.
 
 ::
 
-    1000 source$='win1_PROGS_utils\_'
+    1000 source$='win1_PROGS_utils_'
     1010 SETENV "PROGLOC="&source$
     1020 EXEC_W source$&'main_exe'
     1030 ENV_DEL "PROGLOC"

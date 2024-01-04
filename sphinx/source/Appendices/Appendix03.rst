@@ -50,7 +50,7 @@ operating system (from a standard QL) by using the command:
 
 ::
 
-    SBYTES flp1\_OSROM,0,49152
+    SBYTES flp1_OSROM,0,49152
 
 Note that you cannot do this with a Gold Card or Super Gold Card plugged
 in as these alter the operating system.

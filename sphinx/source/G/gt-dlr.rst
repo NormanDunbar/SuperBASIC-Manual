@@ -35,7 +35,7 @@ affect the outcome:
 The characters are compared by using the following order::
 
     SPACE
-    !"#$%&'()\*+,-/:;<=>?@[\\]^\_£{\|}~© 01234567890
+    !"#$%&'()\*+,-/:;<=>?@[\]^_£{\|}~© 01234567890
     AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz
     Foreign characters (in order of the character set)
 

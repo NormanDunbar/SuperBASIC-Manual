@@ -26,7 +26,7 @@ program to take account of the system configuration.
 
 ::
 
-    100 TK2_location=KEY_ADD("TK2\_EXT")
+    100 TK2_location=KEY_ADD("TK2_EXT")
     105 FILE_SERVER=0
     110 SELect ON TK2_location
     120   = 48*1024 TO 64*1024: FILE_SERVER=1
@@ -56,7 +56,7 @@ decimal number, taking whatever action is necessary.
 
     100 DateFile$="flp1_LastDATE_dat"
     110 :
-    120 DEFine PROCedure WRITE\_DATE
+    120 DEFine PROCedure WRITE_DATE
     130   IF KEY_ADD("OPEN_OVER") THEN
     140   OPEN_OVER#3,DateFile$
     150   ELSE OPEN#3,DateFile$
