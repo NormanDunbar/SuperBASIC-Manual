@@ -47,7 +47,7 @@ quotes or not if you prefer. The following can therefore all be used::
     185       IF file$='': file$=DATAD$
     187     END IF
     190   END IF
-    200   dir_ch=FOP\_DIR(file$)
+    200   dir_ch=FOP_DIR(file$)
     210   IF dir_ch<0: PRINT #0,'CANNOT ACCESS DIRECTORY ON ';file$:RETurn
     220   CLOSE #dir_ch
     230   DIR #ch,file$

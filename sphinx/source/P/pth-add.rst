@@ -133,7 +133,7 @@ Toolkit II :ref:`datad-dlr` and
 :ref:`progd-dlr` to pth1\_::
 
     DATA_USE pth1_
-    PROG\_USE pth1_
+    PROG_USE pth1_
 
 Do this preferably in your
 BOOT program. - Look at the other 'PTH_XXX' keywords starting at :ref:`pth-add`!

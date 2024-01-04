@@ -47,7 +47,7 @@ file flp1\_resident\_bas such as::
 you can then link and use the Toolkit commands in the same program by
 including a line such as::
 
-    110 DO flp1\_resident\_bas
+    110 DO flp1_resident_bas
 
 
 **NOTE**

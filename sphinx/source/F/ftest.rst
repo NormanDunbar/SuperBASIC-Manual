@@ -39,7 +39,7 @@ On Level-2 and Level-3 devices, there is always a file with the same
 name as the actual name of the device (eg. 'flp1\_'). This therefore
 allows you to check if a medium is present in a Level-2 device::
 
-    IF FTEST(flp1\_)<0 THEN PRINT 'Please insert disk'
+    IF FTEST(flp1_) < 0 THEN PRINT 'Please insert disk'
 
 You must however be aware that on Level-1 devices, it is unlikely
 that such a file will be present and that FTEST will return -7 even if

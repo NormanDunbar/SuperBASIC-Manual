@@ -75,7 +75,7 @@ The second variant of the command should not really be used as it is
 only supported on the v6.41 ROM for the THOR XVI. This has the same
 effect as::
 
-    SET\_LANGUAGE "".
+    SET_LANGUAGE "".
 
 **CROSS-REFERENCE**
 

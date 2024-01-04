@@ -89,7 +89,7 @@ become::
 
 ::
 
-    DIR 'flp1\_QUILL'
+    DIR 'flp1_QUILL'
 
 would on both Level-2 and
 Level-3 drivers, then produce the following output::

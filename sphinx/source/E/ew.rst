@@ -155,7 +155,7 @@ Save this as flp1\_UC\_bas and then enter the command::
 or, prior to v1.93, use::
 
     OPEN #3,con
-    EW flp1_Multib_exe,flp1_test_txt,#3;'flp1_UC\_bas>'
+    EW flp1_Multib_exe,flp1_test_txt,#3;'flp1_UC_bas>'
 
 
 The last line checks to make sure this program is not being run from
