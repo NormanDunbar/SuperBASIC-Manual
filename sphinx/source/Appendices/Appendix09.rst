@@ -638,3 +638,14 @@ Danish QL
     F3     LOCK    A   S   D   F   G   H   J   K   L   ’   \      ENTER
     F4     SHIFT    Z   X   C   V   B   N   M   ,   .   -      SHIFT
     F5     CTRL  LEFT RIGHT          SPACE             UP  DOWN   ALT
+    
+Spanish QL
+^^^^^^^^^^
+::
+
+    F1     ESC  1   2   3   4   5   6   7   8   9   0   -   =   [   ]
+    F2     TAB    Q   W   E   R   T   Y   U   I   O   P   "   ^
+    F3     CAPS    A   S   D   F   G   H   J   K   L   Ñ   ;      ENTER
+    F4     SHIFT     Z   X   C   V   B   N   M   ,   .   <     SHIFT
+    F5     CTRL  LEFT RIGHT          SPACE             UP  DOWN   ALT
+
