@@ -27,8 +27,7 @@ text cursor:
    the cursor line
 
 After using this command, the text cursor is placed at the top left-hand
-corner of the window (if cls\_type=0) or at the start of the next line
-below the cursor position for other values.
+corner of the window (if cls\_type=0) or at the current cursor position for other values.
 
 Except under SMS and on the THOR XVI, most systems allow you to use
 other values for cls\_type to access various TRAP #3 system utilities.
