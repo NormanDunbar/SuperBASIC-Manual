@@ -23,10 +23,12 @@ Keywords W
     winf-dlr.rst
     win2.rst
     win-base.rst
+    win-check.rst
     win-drive.rst
     win-drive-dlr.rst
     win-format.rst
     win-remv.rst
+    win-safe.rst
     win-slug.rst
     win-start.rst
     win-stop.rst

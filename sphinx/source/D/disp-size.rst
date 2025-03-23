@@ -29,6 +29,9 @@ The width and height of the display can only be altered in increments of
 height is not a multiple of 8, they are made into the nearest feasible
 size. The minimum size is 512x256 pixels.
 
+**Q68**
+
+Not implemented
 
 **NOTE 1**
 

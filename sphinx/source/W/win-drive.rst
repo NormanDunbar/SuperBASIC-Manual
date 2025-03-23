@@ -8,9 +8,11 @@ WIN\_DRIVE
 |          |                                                                  |
 |          | WIN\_DRIVE driveno, unit [,disk] [,partition ](SMSQ/E only)  or  |
 |          |                                                                  |
-|          | WIN\_DRIVE driveno, path$(QPC & QXL SMSQ/E only)                 |
+|          | WIN\_DRIVE driveno, path$(QPC & QXL SMSQ/E only) or              |
+|          |                                                                  |
+|          | WIN\_DRIVE driveno, card, path$(Q68 SMSQ/E only)                 |
 +----------+------------------------------------------------------------------+
-| Location | ST/QL, SMSQ/E for Atari and QXL / QPC                            |
+| Location | ST/QL, SMSQ/E for Atari, Q68, and QXL / QPC                      |
 +----------+------------------------------------------------------------------+
 
 It is possible not only to have several hard disk units attached to the
@@ -38,6 +40,9 @@ Unit should be in the range 0...7 and represents the number of the disk
 drive controller. An internal disk drive controller is normally unit 0,
 but external controller unit numbers will depend upon the setting of the
 switches on the back of the box.
+
+Card should be in the range 1...2 and represents the number of the SD
+card reader containing the file.
 
 If you are running SMSQ/E on the TT and
 wish to access a SCSI disk controller, then you will need to add 8 to
