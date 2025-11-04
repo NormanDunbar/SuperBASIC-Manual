@@ -6,7 +6,7 @@ WIN\_WP
 +----------+-------------------------------------------------------------------+
 | Syntax   |  WIN\_WP drive, protect                                           |
 +----------+-------------------------------------------------------------------+
-| Location |  SMSQ/E for Atari, Q68, and QXL / QPC                                   |
+| Location |  SMSQ/E for Atari, Q68, and QXL / QPC                             |
 +----------+-------------------------------------------------------------------+
 
 This command allows you to mark a specified WIN drive as read only
