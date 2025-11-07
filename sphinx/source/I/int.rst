@@ -9,9 +9,9 @@ INT
 | Location |  QL ROM                                                           |
 +----------+-------------------------------------------------------------------+
 
-This function returns the closest integer (as a floating point value) which is smaller than or equal to x. For positive parameters this means that the non-integer part of the number is cut off, so INT(12.75)=12 and INT(5)=5. Note that for negative numbers this is not true: INT(-12.75) = -13 because -13 < -12.75. INT *should* handle any number in the range -2^31<=x<2^31 and will otherwise return an ERR.OF, except under SMS where it can handle much larger numbers, in the range -2^255 <= x <= 2^2047. 
+This function returns the closest integer (as a floating point value) which is smaller than or equal to x. For positive parameters this means that the non-integer part of the number is cut off, so INT(12.75)=12 and INT(5)=5. Note that for negative numbers this is not true: INT(-12.75) = -13 because -13 < -12.75. INT should handle any number in the range -2^31<=x<2^31-2 and will otherwise return an ERR.OF, except under SMS where it can handle much larger numbers, in the range -2^255 <= x <= 2^2047. 
 
-Both SuperBASIC and Minerva MultiBasic overflow on INT(2^31-1), the nominally highest 32 bit twos compliment number. The max is INT(2^31-2).
+Both SuperBASIC and Minerva MultiBasic will overflow on INT(2^31-1), the nominally highest 32 bit twos compliment number. The maximum for both Basics is INT(2^31-2), as indicated above.
 
 The SuperBASIC range limitation can, under the pragmatic assumption that with not more than 9 significant digits the concept of a "fractional part" is already lost anyhow for such large numbers, be worked around by something along the lines of::
 
